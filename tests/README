@@ -1,0 +1,7 @@
+prepare_tlds.py:
+
+This is a copy of a file mastered in Mozilla's Hg repo at:
+http://hg.mozilla.org/mozilla-central/file/default/netwerk/dns/prepare_tlds.py
+We include it here so we can check that it still produces valid output when
+the PSL changes.
+
