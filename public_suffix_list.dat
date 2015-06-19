@@ -6770,8 +6770,22 @@ xxx
 // ye : http://www.y.net.ye/services/domain_name.htm
 *.ye
 
-// za : http://www.zadna.org.za/slds.html
+// za : http://www.zadna.org.za/content/page/domain-information
 *.za
+ac.za
+alt.za
+co.za
+edu.za
+gov.za
+law.za
+mil.za
+net.za
+ngo.za
+nom.za
+org.za
+school.za
+tm.za
+web.za
 
 // zm : http://en.wikipedia.org/wiki/.zm
 *.zm
