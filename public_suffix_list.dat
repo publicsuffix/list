@@ -713,7 +713,19 @@ cx
 gov.cx
 
 // cy : http://en.wikipedia.org/wiki/.cy
-*.cy
+ac.cy
+biz.cy
+com.cy
+ekloges.cy
+gov.cy
+ltd.cy
+name.cy
+net.cy
+org.cy
+parliament.cy
+press.cy
+pro.cy
+tm.cy
 
 // cz : http://en.wikipedia.org/wiki/.cz
 cz
