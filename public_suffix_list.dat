@@ -9991,26 +9991,22 @@ elasticbeanstalk.com
 elb.amazonaws.com
 
 // Amazon S3 : https://aws.amazon.com/s3/
-// Submitted by Courtney Eckhardt <coec@amazon.com> 2013-03-22
+// Submitted by Eric Kinolik <kilo@amazon.com> 2015-04-08
 s3.amazonaws.com
-s3-us-west-2.amazonaws.com
-s3-us-west-1.amazonaws.com
-s3-eu-west-1.amazonaws.com
+s3-ap-northeast-1.amazonaws.com
 s3-ap-southeast-1.amazonaws.com
 s3-ap-southeast-2.amazonaws.com
-s3-ap-northeast-1.amazonaws.com
+s3-external-1.amazonaws.com
+s3-external-2.amazonaws.com
+s3-fips-us-gov-west-1.amazonaws.com
+s3-eu-central-1.amazonaws.com
+s3-eu-west-1.amazonaws.com
 s3-sa-east-1.amazonaws.com
 s3-us-gov-west-1.amazonaws.com
-s3-fips-us-gov-west-1.amazonaws.com
-s3-website-us-east-1.amazonaws.com
-s3-website-us-west-2.amazonaws.com
-s3-website-us-west-1.amazonaws.com
-s3-website-eu-west-1.amazonaws.com
-s3-website-ap-southeast-1.amazonaws.com
-s3-website-ap-southeast-2.amazonaws.com
-s3-website-ap-northeast-1.amazonaws.com
-s3-website-sa-east-1.amazonaws.com
-s3-website-us-gov-west-1.amazonaws.com
+s3-us-west-1.amazonaws.com
+s3-us-west-2.amazonaws.com
+s3.cn-north-1.amazonaws.com.cn
+s3.eu-central-1.amazonaws.com
 
 // BetaInABox
 // Submitted by adrian@betainabox.com 2012-09-13
