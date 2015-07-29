@@ -1,0 +1,48 @@
+#!/usr/bin/perl -w
+#
+# This script takes a target file, a start marker and an end marker, and
+# replaces the text in that file between those two markers with some
+# alternative text from another file or from STDIN.
+
+binmode STDIN, ':utf8';
+
+usage() if (!$ARGV[2]);
+
+my ($base_filename, $start_marker, $end_marker, $insert_filename) = @ARGV;
+
+my $base = read_file_utf8($base_filename);
+
+my $new;
+if ($insert_filename) {
+    $new = read_file_utf8($insert_filename);
+}
+else {
+    $new = do { local $/; <STDIN> };
+}
+
+$base =~ s/\Q$start_marker\E.*\Q$end_marker\E/$start_marker\n$new\n$end_marker/s;
+
+write_file_utf8($base_filename, $base);
+
+sub usage {
+    print "Usage: replace-between <file-to-process> START_MARKER END_MARKER <file-to-insert>\n";
+    print "Or, give data to insert on STDIN.\n";
+    exit(1);
+}
+
+sub read_file_utf8 {
+    my $name = shift;
+    open my $fh, '<:encoding(UTF-8)', $name
+        or die "Couldn't open '$name': $!";
+    local $/;
+    my $data = <$fh>;
+    return $data;
+};
+
+sub write_file_utf8 {
+    my $name = shift;
+    open my $fh, '>:encoding(UTF-8)', $name
+        or die "Couldn't create '$name': $!";
+    local $/;
+    print {$fh} $_ for @_;
+};
