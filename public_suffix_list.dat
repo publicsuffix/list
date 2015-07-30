@@ -6302,11 +6302,6 @@ zhytomyr.ua
 zp.ua
 zt.ua
 
-// Private registries in .ua : http://drs.ua
-biz.ua
-co.ua
-pp.ua
-
 // ug : https://www.registry.co.ug/
 ug
 co.ug
@@ -10609,6 +10604,12 @@ priv.at
 // Red Hat, Inc. OpenShift : https://openshift.redhat.com/
 // Submitted by Tim Kramer <tkramer@rhcloud.com> 2012-10-24
 rhcloud.com
+
+// Service Online LLC : http://drs.ua/
+// Submitted by Serhii Bulakh <support@drs.ua> 2015-07-30
+biz.ua
+co.ua
+pp.ua
 
 // SinaAppEngine : http://sae.sina.com.cn/
 // Submitted by SinaAppEngine <saesupport@sinacloud.com> 2015-02-02
