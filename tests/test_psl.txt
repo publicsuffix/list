@@ -39,7 +39,7 @@ checkPublicSuffix('a.b.example.uk.com', 'example.uk.com');
 checkPublicSuffix('test.ac', 'test.ac');
 // TLD with only 1 (wildcard) rule.
 checkPublicSuffix('il', null);
-checkPublicSuffix('c.il, null);
+checkPublicSuffix('c.il', null);
 checkPublicSuffix('b.c.il', 'b.c.il');
 checkPublicSuffix('a.b.c.il', 'b.c.il');
 // More complex TLD.
