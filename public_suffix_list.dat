@@ -6919,7 +6919,7 @@ web.za
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2015-07-31T20:45:32Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2015-08-08T00:32:21Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7007,6 +7007,9 @@ agency
 
 // aig : 2014-12-18 American International Group, Inc.
 aig
+
+// aigo : 2015-08-06 aigo Digital Technology Co,Ltd.
+aigo
 
 // airbus : 2015-07-30 Airbus S.A.S.
 airbus
@@ -7386,6 +7389,9 @@ capetown
 // capital : 2014-03-06 Delta Mill, LLC
 capital
 
+// capitalone : 2015-08-06 Capital One Financial Corporation
+capitalone
+
 // car : 2015-01-22
 car
 
@@ -7430,6 +7436,9 @@ cbn
 
 // cbre : 2015-07-02 CBRE, Inc.
 cbre
+
+// cbs : 2015-08-06 CBS Domains Inc.
+cbs
 
 // ceb : 2015-04-09 The Corporate Executive Board Company
 ceb
@@ -7776,6 +7785,9 @@ duck
 // dunlop : 2015-07-02 The Goodyear Tire & Rubber Company
 dunlop
 
+// duns : 2015-08-06 The Dun & Bradstreet Corporation
+duns
+
 // dupont : 2015-06-25 E.I. du Pont de Nemours and Company
 dupont
 
@@ -7905,6 +7917,9 @@ fashion
 // fast : 2014-12-18 Amazon EU S.à r.l.
 fast
 
+// fedex : 2015-08-06 Federal Express Corporation
+fedex
+
 // feedback : 2013-12-19 Top Level Spectrum, Inc.
 feedback
 
@@ -7919,6 +7934,9 @@ fiat
 
 // fidelity : 2015-07-30 Fidelity Brokerage Services LLC
 fidelity
+
+// fido : 2015-08-06 Rogers Communications Partnership
+fido
 
 // film : 2015-01-08 Motion Picture Domain Registry Pty Ltd
 film
@@ -8328,6 +8346,9 @@ iinet
 // ikano : 2015-07-09 Ikano S.A.
 ikano
 
+// imamat : 2015-08-06 Fondation Aga Khan (Aga Khan Foundation)
+imamat
+
 // imdb : 2015-06-25 Amazon EU S.à r.l.
 imdb
 
@@ -8358,6 +8379,9 @@ insurance
 // insure : 2014-03-20 Pioneer Willow, LLC
 insure
 
+// intel : 2015-08-06 Intel Corporation
+intel
+
 // international : 2013-11-07 Wild Way, LLC
 international
 
@@ -8375,6 +8399,9 @@ irish
 
 // iselect : 2015-02-11 iSelect Ltd
 iselect
+
+// ismaili : 2015-08-06 Fondation Aga Khan (Aga Khan Foundation)
+ismaili
 
 // ist : 2014-08-28 Istanbul Metropolitan Municipality
 ist
@@ -8513,6 +8540,9 @@ kyoto
 
 // lacaixa : 2014-01-09 CAIXA D'ESTALVIS I PENSIONS DE BARCELONA
 lacaixa
+
+// ladbrokes : 2015-08-06 LADBROKES INTERNATIONAL PLC
+ladbrokes
 
 // lamborghini : 2015-06-04 Automobili Lamborghini S.p.A.
 lamborghini
@@ -8670,6 +8700,9 @@ ltd
 // ltda : 2014-04-17 DOMAIN ROBOT SERVICOS DE HOSPEDAGEM NA INTERNET LTDA
 ltda
 
+// lundbeck : 2015-08-06 H. Lundbeck A/S
+lundbeck
+
 // lupin : 2014-11-07 LUPIN LIMITED
 lupin
 
@@ -8721,6 +8754,9 @@ marshalls
 // maserati : 2015-07-31 Fiat Chrysler Automobiles N.V.
 maserati
 
+// mattel : 2015-08-06 Mattel Sites, Inc.
+mattel
+
 // mba : 2015-04-02 Lone Hollow, LLC
 mba
 
@@ -8732,6 +8768,9 @@ mcdonalds
 
 // mckinsey : 2015-07-31 McKinsey Holdings, Inc.
 mckinsey
+
+// med : 2015-08-06 Medistry LLC
+med
 
 // media : 2014-03-06 Grand Glen, LLC
 media
@@ -9321,6 +9360,9 @@ rocks
 // rodeo : 2013-12-19 Top Level Domain Holdings Limited
 rodeo
 
+// rogers : 2015-08-06 Rogers Communications Partnership
+rogers
+
 // room : 2014-12-18 Amazon EU S.à r.l.
 room
 
@@ -9402,6 +9444,9 @@ sca
 // scb : 2014-02-20 The Siam Commercial Bank Public Company Limited ("SCB")
 scb
 
+// schaeffler : 2015-08-06 Schaeffler Technologies AG & Co. KG
+schaeffler
+
 // schmidt : 2014-04-03 SALM S.A.S.
 schmidt
 
@@ -9447,6 +9492,9 @@ services
 // ses : 2015-07-23 SES
 ses
 
+// seven : 2015-08-06 Seven West Media Ltd
+seven
+
 // sew : 2014-07-17 SEW-EURODRIVE GmbH & Co KG
 sew
 
@@ -9479,6 +9527,9 @@ shouji
 
 // show : 2015-03-05 Snow Beach, LLC
 show
+
+// showtime : 2015-08-06 CBS Domains Inc.
+showtime
 
 // shriram : 2014-01-23 Shriram Capital Ltd.
 shriram
@@ -9777,6 +9828,9 @@ toray
 // toshiba : 2014-04-10 TOSHIBA Corporation
 toshiba
 
+// total : 2015-08-06 Total SA
+total
+
 // tours : 2015-01-22 Sugar Station, LLC
 tours
 
@@ -10008,6 +10062,9 @@ winners
 // wme : 2014-02-13 William Morris Endeavor Entertainment, LLC
 wme
 
+// wolterskluwer : 2015-08-06 Wolters Kluwer N.V.
+wolterskluwer
+
 // woodside : 2015-07-09 Woodside Petroleum Limited
 woodside
 
@@ -10131,7 +10188,7 @@ xin
 // xn--cg4bki : 2013-09-27 SAMSUNG SDS CO., LTD
 삼성
 
-// xn--czr694b : 2014-01-16 HU YI GLOBAL INFORMATION RESOURCES (HOLDING) COMPANY.HONGKONG LIMITED
+// xn--czr694b : 2014-01-16 HU YI GLOBAL INFORMATION RESOURCES (HOLDING) COMPANY. HONGKONG LIMITED
 商标
 
 // xn--czrs0t : 2013-12-19 Wild Island, LLC
