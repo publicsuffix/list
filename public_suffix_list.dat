@@ -11145,6 +11145,11 @@ hk.org
 ltd.hk
 inc.hk
 
+// Umbraco : https://www.s1.umbraco.io/
+// Submitted by Shannon Deminick <shannon@umbraco.com> 2015-09-01
+umbraco.io
+*.umbraco.io
+
 // Yola : https://www.yola.com/
 // Submitted by Stefano Rivera <stefano@yola.com> 2014-07-09
 yolasite.com
