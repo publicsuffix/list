@@ -1114,7 +1114,14 @@ ie
 gov.ie
 
 // il : http://www.isoc.org.il/domains/
+*.il
+ac.il
 co.il
+gov.il
+idf.il
+k12.il
+muni.il
+net.il
 org.il
 
 // im : https://www.nic.im/
