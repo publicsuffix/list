@@ -1,11 +1,12 @@
-language: c
-compiler:
-  - gcc
 # build branches - whitelist
 branches:
   only:
     - master
     - xaks-patch-israel
+# general settings
+language: c
+compiler:
+  - gcc
 # Change this to your needs
 script:
   - DIR=`pwd`
