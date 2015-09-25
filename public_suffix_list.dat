@@ -6919,7 +6919,7 @@ web.za
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2015-08-26T23:57:22Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2015-09-25T01:37:01Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7076,6 +7076,9 @@ anquan
 
 // anz : 2015-07-31 Australia and New Zealand Banking Group Limited
 anz
+
+// aol : 2015-09-17 AOL Inc.
+aol
 
 // apartments : 2014-12-11 June Maple, LLC
 apartments
@@ -7302,6 +7305,9 @@ bond
 // boo : 2014-01-30 Charleston Road Registry Inc.
 boo
 
+// book : 2015-08-27 Amazon EU S.à r.l.
+book
+
 // booking : 2015-07-16 Booking.com B.V.
 booking
 
@@ -7424,6 +7430,12 @@ cartier
 
 // casa : 2013-11-21 Top Level Domain Holdings Limited
 casa
+
+// case : 2015-09-03 CNH Industrial N.V.
+case
+
+// caseih : 2015-09-03 CNH Industrial N.V.
+caseih
 
 // cash : 2014-03-06 Delta Lake, LLC
 cash
@@ -7863,6 +7875,9 @@ estate
 // esurance : 2015-07-23 Esurance Insurance Company
 esurance
 
+// etisalat : 2015-09-03 Emirates Telecommunications Corporation (trading as Etisalat)
+etisalat
+
 // eurovision : 2014-04-24 European Broadcasting Union (EBU)
 eurovision
 
@@ -8021,6 +8036,9 @@ forum
 
 // foundation : 2013-12-05 John Dale, LLC
 foundation
+
+// fox : 2015-09-11 FOX Registry, LLC
+fox
 
 // fresenius : 2015-07-30 Fresenius Immobilien-Verwaltungs-GmbH
 fresenius
@@ -8301,6 +8319,9 @@ host
 // hosting : 2014-05-29 Uniregistry, Corp.
 hosting
 
+// hot : 2015-08-27 Amazon EU S.à r.l.
+hot
+
 // hoteles : 2015-03-05 Travel Reservations SRL
 hoteles
 
@@ -8420,6 +8441,9 @@ itau
 
 // itv : 2015-07-09 ITV Services Limited
 itv
+
+// iveco : 2015-09-03 CNH Industrial N.V.
+iveco
 
 // iwc : 2014-06-23 Richemont DNS Inc.
 iwc
@@ -8859,6 +8883,9 @@ monash
 // money : 2014-10-16 Outer McCook, LLC
 money
 
+// monster : 2015-09-11 Monster Worldwide, Inc.
+monster
+
 // montblanc : 2014-06-23 Richemont DNS Inc.
 montblanc
 
@@ -8954,6 +8981,9 @@ neustar
 
 // new : 2014-01-30 Charleston Road Registry Inc.
 new
+
+// newholland : 2015-09-03 CNH Industrial N.V.
+newholland
 
 // news : 2014-12-18
 news
@@ -9126,6 +9156,9 @@ party
 // passagens : 2015-03-05 Travel Reservations SRL
 passagens
 
+// pay : 2015-08-27 Amazon EU S.à r.l.
+pay
+
 // payu : 2015-02-12 MIH PayU B.V.
 payu
 
@@ -9134,6 +9167,9 @@ pccw
 
 // pet : 2015-05-07 Afilias plc
 pet
+
+// pfizer : 2015-09-11 Pfizer Inc.
+pfizer
 
 // pharmacy : 2014-06-19 National Association of Boards of Pharmacy
 pharmacy
@@ -9278,6 +9314,9 @@ raid
 
 // read : 2014-12-18 Amazon EU S.à r.l.
 read
+
+// realestate : 2015-09-11 dotRealEstate LLC
+realestate
 
 // realtor : 2014-05-29 Real Estate Domains LLC
 realtor
@@ -9492,6 +9531,9 @@ scot
 // seat : 2014-05-22 SEAT, S.A. (Sociedad Unipersonal)
 seat
 
+// secure : 2015-08-27 Amazon EU S.à r.l.
+secure
+
 // security : 2015-05-14
 security
 
@@ -9521,6 +9563,9 @@ sexy
 
 // sfr : 2015-08-13 Societe Francaise du Radiotelephone - SFR
 sfr
+
+// shangrila : 2015-09-03 Shangri‐La International Hotel Management Limited
+shangrila
 
 // sharp : 2014-05-01 Sharp Corporation
 sharp
@@ -9927,6 +9972,9 @@ vacations
 // vana : 2014-12-11 Lifestyle Domain Holdings, Inc.
 vana
 
+// vanguard : 2015-09-03 The Vanguard Group, Inc.
+vanguard
+
 // vegas : 2014-01-16 Dot Vegas, Inc.
 vegas
 
@@ -10164,6 +10212,9 @@ xin
 // xn--55qx5d : 2013-11-14 Computer Network Information Center of Chinese Academy of Sciences （China Internet Network Information Center）
 公司
 
+// xn--5su34j936bgsg : 2015-09-03 Shangri‐La International Hotel Management Limited
+香格里拉
+
 // xn--5tzm5g : 2014-12-22 Global Website TLD Asia Limited
 网站
 
@@ -10295,6 +10346,9 @@ xin
 
 // xn--mgba7c0bbn0a : 2015-05-14 Crescent Holding GmbH
 العليان
+
+// xn--mgbaakc7dvf : 2015-09-03 Emirates Telecommunications Corporation (trading as Etisalat)
+اتصالات
 
 // xn--mgbab2bd : 2013-10-31 CORE Association
 بازار
