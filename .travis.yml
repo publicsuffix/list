@@ -1,9 +1,3 @@
-# build branches - whitelist
-branches:
-  only:
-    - master
-    - xaks-patch-israel
-# general settings
 language: c
 compiler:
   - gcc
