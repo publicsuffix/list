@@ -6927,7 +6927,7 @@ web.za
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2015-09-25T01:37:01Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2015-10-11T22:21:58Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7553,6 +7553,9 @@ click
 // clinic : 2014-03-20 Goose Park, LLC
 clinic
 
+// clinique : 2015-10-01 The Estée Lauder Companies Inc.
+clinique
+
 // clothing : 2013-08-27 Steel Lake, LLC
 clothing
 
@@ -7591,6 +7594,9 @@ community
 
 // company : 2013-11-07 Silver Avenue, LLC
 company
+
+// compare : 2015-10-08 iSelect Ltd
+compare
 
 // computer : 2013-10-24 Pine Mill, LLC
 computer
@@ -8588,6 +8594,9 @@ ladbrokes
 // lamborghini : 2015-06-04 Automobili Lamborghini S.p.A.
 lamborghini
 
+// lamer : 2015-10-01 The Estée Lauder Companies Inc.
+lamer
+
 // lancaster : 2015-02-12 LANCASTER
 lancaster
 
@@ -9122,6 +9131,9 @@ organic
 // orientexpress : 2015-02-05 Belmond Ltd.
 orientexpress
 
+// origins : 2015-10-01 The Estée Lauder Companies Inc.
+origins
+
 // osaka : 2014-09-04 Interlink Co., Ltd.
 osaka
 
@@ -9548,6 +9560,9 @@ security
 // seek : 2014-12-04 Seek Limited
 seek
 
+// select : 2015-10-08 iSelect Ltd
+select
+
 // sener : 2014-10-24 Sener Ingeniería y Sistemas, S.A.
 sener
 
@@ -9698,7 +9713,7 @@ staples
 // star : 2015-01-08 Star India Private Limited
 star
 
-// starhub : 2015-02-05 StarHub Limited
+// starhub : 2015-02-05 StarHub Ltd
 starhub
 
 // statebank : 2015-03-12 STATE BANK OF INDIA
@@ -10157,6 +10172,9 @@ works
 // world : 2014-06-12 Bitter Fields, LLC
 world
 
+// wow : 2015-10-08 Amazon EU S.à r.l.
+wow
+
 // wtc : 2013-12-19 World Trade Centers Association, Inc.
 wtc
 
@@ -10318,6 +10336,9 @@ xin
 
 // xn--gckr3f0f : 2015-02-26 Amazon EU S.à r.l.
 クラウド
+
+// xn--gk3at1e : 2015-10-08 Amazon EU S.à r.l.
+通販
 
 // xn--hxt814e : 2014-05-15 Zodiac Libra Limited
 网店
