@@ -6927,7 +6927,7 @@ web.za
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2015-10-11T22:21:58Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2015-11-12T22:43:48Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7196,6 +7196,9 @@ barefoot
 // bargains : 2013-11-14 Half Hallow, LLC
 bargains
 
+// baseball : 2015-10-29 MLB Advanced Media DH, LLC
+baseball
+
 // basketball : 2015-08-20 Fédération Internationale de Basketball (FIBA)
 basketball
 
@@ -7453,6 +7456,9 @@ casino
 
 // catering : 2013-12-05 New Falls. LLC
 catering
+
+// catholic : 2015-10-21 Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)
+catholic
 
 // cba : 2014-06-26 COMMONWEALTH BANK OF AUSTRALIA
 cba
@@ -7771,6 +7777,9 @@ discover
 
 // dish : 2015-07-30 Dish DBS Corporation
 dish
+
+// diy : 2015-11-05 Lifestyle Domain Holdings, Inc.
+diy
 
 // dnp : 2013-12-13 Dai Nippon Printing Co., Ltd.
 dnp
@@ -9038,6 +9047,9 @@ ninja
 // nissan : 2014-03-27 NISSAN MOTOR CO., LTD.
 nissan
 
+// nissay : 2015-10-29 Nippon Life Insurance Company
+nissay
+
 // nokia : 2015-01-08 Nokia Corporation
 nokia
 
@@ -9313,6 +9325,9 @@ prudential
 
 // pub : 2013-12-12 United TLD Holdco Ltd.
 pub
+
+// pwc : 2015-10-29 PricewaterhouseCoopers LLP
+pwc
 
 // qpon : 2013-11-14 dotCOOL, Inc.
 qpon
@@ -9977,6 +9992,9 @@ ubs
 // uconnect : 2015-07-30 FCA US LLC.
 uconnect
 
+// unicom : 2015-10-15 China United Network Communications Corporation Limited
+unicom
+
 // university : 2014-03-06 Little Station, LLC
 university
 
@@ -10253,6 +10271,9 @@ xin
 // xn--80adxhks : 2013-12-19 Foundation for Assistance for Internet Technologies and Infrastructure Development (FAITID)
 москва
 
+// xn--80aqecdr1a : 2015-10-21 Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)
+католик
+
 // xn--80asehdb : 2013-07-14 CORE Association
 онлайн
 
@@ -10388,6 +10409,9 @@ xin
 // xn--mgbca7dzdo : 2015-07-30 Abu Dhabi Systems and Information Centre
 ابوظبي
 
+// xn--mgbi4ecexp : 2015-10-21 Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)
+كاثوليك
+
 // xn--mgbt3dhd : 2014-09-04 Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.
 همراه
 
@@ -10441,6 +10465,9 @@ xin
 
 // xn--tckwe : 2015-01-15 VeriSign Sarl
 コム
+
+// xn--tiq49xqyj : 2015-10-21 Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)
+天主教
 
 // xn--unup4y : 2013-07-14 Spring Fields, LLC
 游戏
