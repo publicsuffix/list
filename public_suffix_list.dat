@@ -4430,8 +4430,21 @@ gov.ng
 mil.ng
 mobi.ng
 
-// ni : http://www.nic.ni/dominios.htm
-*.ni
+// ni : http://www.nic.ni/
+com.ni    
+gob.ni    
+edu.ni
+org.ni
+nom.ni
+net.ni
+mil.ni  
+co.ni
+biz.ni
+web.ni    
+int.ni
+ac.ni
+in.ni  
+info.ni
 
 // nl : http://en.wikipedia.org/wiki/.nl
 //      https://www.sidn.nl/
