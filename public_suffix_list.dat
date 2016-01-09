@@ -11190,7 +11190,6 @@ withgoogle.com
 withyoutube.com
 
 // Hashbang : https://hashbang.sh
-// Hashbang is a non-profit that provides shells and various other services.
 hashbang.sh
 
 // Heroku : https://www.heroku.com/
@@ -11299,10 +11298,7 @@ vipsinaapp.com
 
 // Synology, Inc. : https://www.synology.com/
 // Submitted by Rony Weng <ronyweng@synology.com> 2015-12-02
-synology.me
 diskstation.me
-i234.me
-myds.me
 dscloud.biz
 dscloud.me
 dscloud.mobi
@@ -11312,6 +11308,9 @@ dsmynas.org
 familyds.com
 familyds.net
 familyds.org
+i234.me
+myds.me
+synology.me
 
 // TASK geographical domains (www.task.gda.pl/uslugi/dns)
 gda.pl
