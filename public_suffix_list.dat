@@ -11078,6 +11078,10 @@ tr.eu.org
 uk.eu.org
 us.eu.org
 
+// Facebook, Inc.
+// Submitted by Peter Ruibal <public-suffix@fb.com> 2016-01-22
+apps.fbsbx.com
+
 // Fastly Inc. http://www.fastly.com/
 // Submitted by Vladimir Vuksan <vladimir@fastly.com> 2013-05-31
 a.ssl.fastly.net
