@@ -11103,18 +11103,9 @@ flynnhub.com
 service.gov.uk
 
 // GitHub, Inc.
-// Changed by Patrick Toomey <security@github.com>
+// Submitted by Ben Toews <btoews@github.com> 2014-02-06
 github.io
 githubusercontent.com
-githubcloudusercontent.com
-*.githubcloudusercontent.com
-*.*.githubcloudusercontent.com
-githubcloud.com
-api.githubcloud.com
-ext.githubcloud.com
-gist.githubcloud.com
-*.api.githubcloud.com
-*.ext.githubcloud.com
 
 // GlobeHosting, Inc.
 // Submitted by Zoltan Egresi <egresi@globehosting.com> 2013-07-12
