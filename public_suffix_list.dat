@@ -4419,17 +4419,17 @@ info.nf
 other.nf
 store.nf
 
-// ng : http://psg.com/dns/ng/
+// ng : http://www.nira.org.ng/pdf/NIRA_Domain_Names_Policy.pdf
 ng
 com.ng
 edu.ng
+gov.ng
+mil.ng
+mobi.ng
 name.ng
 net.ng
 org.ng
 sch.ng
-gov.ng
-mil.ng
-mobi.ng
 
 // ni : http://www.nic.ni/
 com.ni
