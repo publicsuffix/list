@@ -29,21 +29,4 @@ describe "Lint" do
     assert_nil(index, -> { "List contains a space in suffix at line #{index+1}: #{list[index]}" })
   end
 
-
-  def suffix_line?(line)
-    non_comment_line?(line) && non_blank_line?(line)
-  end
-
-  def non_comment_line?(line)
-    !line.start_with?('//')
-  end
-
-  def non_blank_line?(line)
-    line.strip != ""
-  end
-
-  def non_empty_line?(line)
-    line != ""
-  end
-
 end
