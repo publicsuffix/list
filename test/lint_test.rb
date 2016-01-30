@@ -18,12 +18,7 @@ describe "Lint" do
   end
 
   it "does not contain leading spaces" do
-    index = list.find_index.each do |line|
-      # beginning of non-comment non-empty line, followed by 0-more spaces
-      non_comment_line?(line) && 
-      non_empty_line?(line)   &&
-      line =~ /\A\s+/
-    end
+    index = Linter.leading_space_index(list)
     assert_nil(index, -> { "List contains a leading space at line #{index+1}: #{list[index]}" })
   end
 
