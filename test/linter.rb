@@ -32,4 +32,30 @@ module Linter
     end
   end
 
+  # If any suffix line is not lowercase returns the index,
+  # nil otherwise.
+  def suffix_non_lowercase_index(lines)
+    lines.find_index.each do |line|
+      non_comment_line?(line) && line =~ /[A-Z]/
+    end
+  end
+
+  # If any suffix line has a leading dot returns the index,
+  # nil otherwise.
+  def suffix_with_leading_dot_index(lines)
+    lines.find_index.each do |line|
+      string = line.strip
+      non_comment_line?(string) && string =~ /\A\./
+    end
+  end
+
+  # If any suffix line has a space in the rule returns the index,
+  # nil otherwise.
+  def suffix_with_space_index(lines)
+    lines.find_index.each do |line|
+      string = line.strip
+      non_comment_line?(string) && string =~ /\s/
+    end
+  end
+
 end

@@ -9,33 +9,23 @@ describe "Lint" do
   def list; self.class.list; end
 
 
-  it "contains only lower-case suffixes" do
-    index = list.find_index.each do |line|
-      non_comment_line?(line) && 
-      line =~ /[A-Z]/
-    end
-    assert_nil(index, -> { "List contains non-lowercase suffix at line #{index+1}: #{list[index]}" })
-  end
-
   it "does not contain leading spaces" do
     index = Linter.leading_space_index(list)
     assert_nil(index, -> { "List contains a leading space at line #{index+1}: #{list[index]}" })
   end
 
-  it "does not contain leading dots" do
-    index = list.find_index.each do |line|
-      # beginning of non-comment, followed by 0-more spaces, followed by leading .
-      non_comment_line?(line) && 
-      line =~ /\A\s*\./
-    end
+  it "contains only lower-case suffixes" do
+    index = Linter.suffix_non_lowercase_index(list)
+    assert_nil(index, -> { "List contains non-lowercase suffix at line #{index+1}: #{list[index]}" })
+  end
+
+  it "does not contain suffix with leading dots" do
+    index = Linter.suffix_with_leading_dot_index(list)
     assert_nil(index, -> { "List contains a leading dot at line #{index+1}: #{list[index]}" })
   end
 
   it "does not contain spaces in suffixes" do
-    index = list.find_index.each do |line|
-      suffix_line?(line) && 
-      line =~ /([a-z0-9\-]+)(\s+)([a-z0-9\-]*)/
-    end
+    index = Linter.suffix_with_space_index(list)
     assert_nil(index, -> { "List contains a space in suffix at line #{index+1}: #{list[index]}" })
   end
 
