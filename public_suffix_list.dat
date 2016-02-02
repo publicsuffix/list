@@ -10622,6 +10622,9 @@ elasticbeanstalk.com
 // Submitted by Scott Vidmar <svidmar@amazon.com> 2013-03-27
 elb.amazonaws.com
 
+// Asuscomm
+asuscomm.com
+
 // Amazon S3 : https://aws.amazon.com/s3/
 // Submitted by Eric Kinolik <kilo@amazon.com> 2015-04-08
 s3.amazonaws.com
