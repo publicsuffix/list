@@ -6,5 +6,6 @@ require_relative 'linter'
 
 Minitest::Reporters.use! Minitest::Reporters::DefaultReporter.new(:color => true)
 
+ROOT          = File.expand_path('../../', __FILE__)
 LIST_FILENAME = 'public_suffix_list.dat'
-LIST_PATH     = File.join(File.expand_path('../../', __FILE__), LIST_FILENAME)
+LIST_PATH     = File.join(ROOT, LIST_FILENAME)
