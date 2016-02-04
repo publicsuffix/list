@@ -22,25 +22,21 @@ describe "PSL" do
     end
   end
 
-  def self.define!
-    defs = File.read(LIST_PATH)
-    PublicSuffix::List.default = PublicSuffix::List.parse(defs)
 
-    self.tests.each do |input, output|
-      class_eval <<-RUBY, __FILE__, __LINE__+1
-        it "xx" do
-          domain = begin
-            d = PublicSuffix.parse(#{input.inspect})
-            [d.sld, d.tld].join(".")
-          rescue
-            nil
-          end
-          assert_equal(#{output.inspect}, domain, "Expected `%s` -> `%s`" % [#{input.inspect}, #{output.inspect}])
-        end
-      RUBY
+  # Parse the PSL and run the tests
+  defs = File.read(LIST_PATH)
+  PublicSuffix::List.default = PublicSuffix::List.parse(defs)
+
+  self.tests.each do |input, output|
+    it "test a rule" do
+      domain = begin
+        d = PublicSuffix.parse(input)
+        [d.sld, d.tld].join(".")
+      rescue
+        nil
+      end
+      assert_equal(output, domain, "Expected `%s` -> `%s`" % [input, output])
     end
   end
-
-  define!
 
 end
