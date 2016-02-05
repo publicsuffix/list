@@ -1,5 +1,6 @@
 require 'test_helper'
 require 'public_suffix'
+require 'simpleidn'
 
 # This test runs against the current PSL file and ensures
 # the definitions satisfies the test suite.
@@ -31,11 +32,16 @@ describe "PSL" do
     failures = []
     self.class.tests.each do |input, output|
       domain = begin
-        d = PublicSuffix.parse(input)
-        [d.sld, d.tld].join(".")
-      rescue
+        # The PublicSuffix gem doesn't handle unicode/punycode conversion (yet)
+        if input =~ /xn--/
+          SimpleIDN.to_ascii(PublicSuffix.domain(SimpleIDN.to_unicode(input)))
+        else
+          PublicSuffix.domain(input)
+        end
+      rescue PublicSuffix::Error
         nil
       end
+
       failures << [input, output, domain] if output != domain
     end
 
