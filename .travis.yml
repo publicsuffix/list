@@ -3,7 +3,7 @@ language: ruby
 sudo: false
 cache: bundler
 
-install:
+before_install:
   - wget https://dl.dropboxusercontent.com/u/152412/pslint/pslint_linux_386 -O pslint
   - chmod u+x pslint
 
