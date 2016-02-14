@@ -5,4 +5,7 @@ cache: bundler
 
 install:
   - wget https://dl.dropboxusercontent.com/u/152412/pslint/pslint_linux_386 -O pslint
-  - chmod u+x pslint && ./pslint
+  - chmod u+x pslint
+
+before_script:
+  - ./pslint --file public_suffix_list.dat
