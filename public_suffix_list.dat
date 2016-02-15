@@ -10790,6 +10790,7 @@ co.no
 // Cryptonomic
 // Submitted by Andrew Cady <public-suffix-list@cryptonomic.net> 2016-02-02
 cryptonomic.net
+*.cryptonomic.net
 
 // Cupcake : https://cupcake.io/
 // Submitted by Jonathan Rudenberg <jonathan@cupcake.io>
