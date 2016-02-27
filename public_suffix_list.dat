@@ -11124,14 +11124,11 @@ service.gov.uk
 // Submitted by Patrick Toomey <security@github.com>
 github.io
 githubusercontent.com
-githubcloudusercontent.com
-*.githubcloudusercontent.com
 githubcloud.com
-api.githubcloud.com
 *.api.githubcloud.com
-ext.githubcloud.com
 *.ext.githubcloud.com
 gist.githubcloud.com
+*.githubcloudusercontent.com
 
 // GlobeHosting, Inc.
 // Submitted by Zoltan Egresi <egresi@globehosting.com>
