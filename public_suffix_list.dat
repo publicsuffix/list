@@ -6933,7 +6933,7 @@ web.za
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-01-04T22:39:54Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-03-01T00:46:32Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7820,9 +7820,6 @@ doha
 // domains : 2013-10-17 Sugar Cross, LLC
 domains
 
-// doosan : 2014-04-03 Doosan Corporation
-doosan
-
 // dot : 2015-05-21 Dish DBS Corporation
 dot
 
@@ -8111,6 +8108,9 @@ fujitsu
 // fujixerox : 2015-07-23 Xerox DNHC LLC
 fujixerox
 
+// fun : 2016-01-14 Oriental Trading Company, Inc.
+fun
+
 // fund : 2014-03-20 John Castle, LLC
 fund
 
@@ -8197,6 +8197,9 @@ globo
 
 // gmail : 2014-05-01 Charleston Road Registry Inc.
 gmail
+
+// gmbh : 2016-01-29 Extra Dynamite, LLC
+gmbh
 
 // gmo : 2014-01-09 GMO Internet, Inc.
 gmo
@@ -9784,6 +9787,9 @@ storage
 
 // store : 2015-04-09 DotStore Inc.
 store
+
+// stream : 2016-01-08 dot Stream Limited
+stream
 
 // studio : 2015-02-11
 studio
