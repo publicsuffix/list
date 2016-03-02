@@ -1,0 +1,10 @@
+// test:
+// - label is punycode
+// - label has double minus
+
+// ===BEGIN ICANN DOMAINS===
+
+a.xn--0zwm56d
+a.ex--ample.com
+
+// ===END ICANN DOMAINS===
