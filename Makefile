@@ -9,18 +9,18 @@ test-rules: libpsl-libicu
 
 test-syntax:
 	@
-	  cd linter;                            	\
+	  cd linter;                                \
 	  ./pslint_selftest.sh;                     \
 	  ./pslint.py ../public_suffix_list.dat;
 
 libpsl-config:
 	@
-	  test -d libpsl || git clone --depth=1 https://github.com/rockdaboot/libpsl; \
-	  cd libpsl;  \
-	  git pull;  \
-	  echo "EXTRA_DIST =" >  gtk-doc.make;  \
-	  echo "CLEANFILES =" >> gtk-doc.make;  \
-	  autoreconf --install --force --symlink;  \
+	  test -d libpsl || git clone --depth=1 https://github.com/rockdaboot/libpsl;   \
+	  cd libpsl;                                                                    \
+	  git pull;                                                                     \
+	  echo "EXTRA_DIST =" >  gtk-doc.make;                                          \
+	  echo "CLEANFILES =" >> gtk-doc.make;                                          \
+	  autoreconf --install --force --symlink;
 
 # Test PSL data with libicu (IDNA2008 UTS#46)
 libpsl-libicu: libpsl-config
