@@ -31,5 +31,5 @@ libpsl-libidn2: libpsl-config
 	cd libpsl && ./configure -q -C --enable-runtime=libidn2 --enable-builtin=libidn2 $(Options) && make -s clean && make -s check -j4
 
 # TEST PSL data with libidn (IDNA2003)
-libpsl-libidn2: libpsl-config
+libpsl-libidn: libpsl-config
 	cd libpsl && ./configure -q -C --enable-runtime=libidn --enable-builtin=libidn $(Options) && make -s clean && make -s check -j4
