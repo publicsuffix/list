@@ -1,5 +1,8 @@
 language: c
 compiler: gcc
+
+script: make
+
 addons:
     apt:
         packages:
