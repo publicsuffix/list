@@ -10600,6 +10600,25 @@ zuerich
 // ===BEGIN PRIVATE DOMAINS===
 // (Note: these are in alphabetical order by company name)
 
+//3CX LTD : http://www.3cx.com/
+//Submitted by Andreas Christodoulou <ac@3cx.com>
+
+pbx.3cx.eu 
+pbx.3cx.us
+pbx.3cx.asia 
+3cx.com.au
+3cx.net
+3cx.com.nz
+3cx.co.uk
+3cx.net
+3cx.fr
+3cx.es 
+3cx.it
+3cx.ru
+3cx.nl
+3cx.de
+3cx.nu
+
 // Amazon CloudFront : https://aws.amazon.com/cloudfront/
 // Submitted by Donavan Miller <donavanm@amazon.com>
 cloudfront.net
