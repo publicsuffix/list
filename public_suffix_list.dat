@@ -6936,7 +6936,7 @@ web.za
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-03-01T00:46:32Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-03-25T21:39:59Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7120,6 +7120,9 @@ archi
 
 // army : 2014-03-06 United TLD Holdco Ltd.
 army
+
+// art : 2016-03-24 UK Creative Ideas Limited
+art
 
 // arte : 2014-12-11 Association Relative à la Télévision Européenne G.E.I.E.
 arte
