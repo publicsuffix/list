@@ -6929,8 +6929,20 @@ school.za
 tm.za
 web.za
 
-// zm : https://en.wikipedia.org/wiki/.zm
-*.zm
+// zm : https://zicta.zm/
+// Submitted by registry <info@zicta.zm>
+zm
+zm.ac
+zm.biz
+zm.co
+zm.com
+zm.edu
+zm.gov
+zm.info
+zm.mil
+zm.net
+zm.org
+zm.sch
 
 // zw : https://en.wikipedia.org/wiki/.zw
 *.zw
