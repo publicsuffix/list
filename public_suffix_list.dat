@@ -6936,7 +6936,7 @@ web.za
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-03-25T21:39:59Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-04-04T20:12:16Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -9661,6 +9661,9 @@ shiksha
 
 // shoes : 2013-10-02 Binky Galley, LLC
 shoes
+
+// shopping : 2016-03-31 Uniregistry, Corp.
+shopping
 
 // shouji : 2015-01-08 QIHOO 360 TECHNOLOGY CO. LTD.
 shouji
