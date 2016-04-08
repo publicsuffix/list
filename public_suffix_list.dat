@@ -6727,6 +6727,9 @@ yt
 // http://www.dotmasr.eg/
 مصر
 
+// xn--e1a4c ("eu", Cyrillic) : EU
+ею
+
 // xn--node ("ge", Georgian Mkhedruli) : GE
 გე
 
@@ -6933,7 +6936,7 @@ web.za
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-03-01T00:46:32Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-04-04T20:12:16Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7117,6 +7120,9 @@ archi
 
 // army : 2014-03-06 United TLD Holdco Ltd.
 army
+
+// art : 2016-03-24 UK Creative Ideas Limited
+art
 
 // arte : 2014-12-11 Association Relative à la Télévision Européenne G.E.I.E.
 arte
@@ -9656,6 +9662,9 @@ shiksha
 // shoes : 2013-10-02 Binky Galley, LLC
 shoes
 
+// shopping : 2016-03-31 Uniregistry, Corp.
+shopping
+
 // shouji : 2015-01-08 QIHOO 360 TECHNOLOGY CO. LTD.
 shouji
 
@@ -11295,6 +11304,10 @@ operaunite.com
 // Submitted by Duarte Santos <domain-admin@outsystemscloud.com>
 outsystemscloud.com
 
+// oy.lc
+// Submitted by Charly Coste <changaco@changaco.oy.lc>
+oy.lc
+
 // Pagefront : https://www.pagefronthq.com/
 // Submitted by Jason Kriss <jason@pagefronthq.com>
 pagefrontapp.com
@@ -11311,6 +11324,10 @@ zakopane.pl
 // Submitted by Gary Dylina <gary@pantheon.io>
 pantheonsite.io
 gotpantheon.com
+
+// Peplink | Pepwave : http://peplink.com/
+// Submitted by Steve Leung <steveleung@peplink.com>
+mypep.link
 
 // P. P. COM (Publication Presse Communication SARL): ppcom.fr
 // submitted by Yaacov Akiba Slama <admin@chirurgiens-dentistes-en-france.fr>
@@ -11336,6 +11353,10 @@ rackmaze.net
 // Red Hat, Inc. OpenShift : https://openshift.redhat.com/
 // Submitted by Tim Kramer <tkramer@rhcloud.com>
 rhcloud.com
+
+// RethinkDB : https://www.rethinkdb.com/
+// Submitted by Chris Kastorff <info@rethinkdb.com>
+hzc.io
 
 // Sandstorm Development Group, Inc. : https://sandcats.io/
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
