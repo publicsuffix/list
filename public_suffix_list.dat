@@ -664,6 +664,7 @@ web.co
 
 // com : https://en.wikipedia.org/wiki/.com
 com
+*.0emm.com
 
 // coop : https://en.wikipedia.org/wiki/.coop
 coop
