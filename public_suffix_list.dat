@@ -11164,6 +11164,7 @@ ro.com
 
 // Google, Inc.
 // Submitted by Eduardo Vela <evn@google.com>
+*.0emm.com
 appspot.com
 blogspot.ae
 blogspot.al
@@ -11246,7 +11247,6 @@ googlecode.com
 pagespeedmobilizer.com
 withgoogle.com
 withyoutube.com
-*.0emm.com
 
 // Hashbang : https://hashbang.sh
 hashbang.sh
