@@ -664,7 +664,6 @@ web.co
 
 // com : https://en.wikipedia.org/wiki/.com
 com
-*.0emm.com
 
 // coop : https://en.wikipedia.org/wiki/.coop
 coop
@@ -11247,6 +11246,7 @@ googlecode.com
 pagespeedmobilizer.com
 withgoogle.com
 withyoutube.com
+*.0emm.com
 
 // Hashbang : https://hashbang.sh
 hashbang.sh
