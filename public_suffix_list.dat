@@ -10661,6 +10661,12 @@ s3.ap-northeast-2.amazonaws.com
 s3.cn-north-1.amazonaws.com.cn
 s3.eu-central-1.amazonaws.com
 
+// b-tix b-OX: http://b-tix.de http://www.b-OX.de
+// Submitted by Markus Heussen <heussen@b-tix.de> 2016-01-28
+b-ox.biz
+b-ox.cloud
+b-ox.de
+
 // BetaInABox
 // Submitted by Adrian <adrian@betainabox.com>
 betainabox.com
