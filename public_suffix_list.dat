@@ -10621,8 +10621,8 @@ zuerich
 // ===BEGIN PRIVATE DOMAINS===
 // (Note: these are in alphabetical order by company name)
 
-// Alces Software Ltd: http://alces-software.com
-// Submitted by Mark J. Titorenko <mark.titorenko@alces-software.com> 2015-12-23
+// Alces Software Ltd : http://alces-software.com
+// Submitted by Mark J. Titorenko <mark.titorenko@alces-software.com>
 *.compute.estate
 *.alces.network
 
