@@ -11442,6 +11442,10 @@ hk.org
 ltd.hk
 inc.hk
 
+// Viprinet Europe GmbH : http://www.viprinet.com
+// Submitted by Simon Kissel <hostmaster@viprinet.com>
+router.management
+
 // Yola : https://www.yola.com/
 // Submitted by Stefano Rivera <stefano@yola.com>
 yolasite.com
