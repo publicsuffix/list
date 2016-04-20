@@ -1,0 +1,26 @@
+// test:
+// - valid wildcard usage
+// - invalid wildcard usage
+
+// ===BEGIN ICANN DOMAINS===
+
+// *.com implicitely includes .com
+com
+*.com
+
+// double exception
+!www.com
+!www.com
+
+// double wildcard
+*.example.com
+*.example.com
+
+// double plain rule
+example1.com
+example1.com
+
+// redundant/overlapping rule
+example.com
+
+// ===END ICANN DOMAINS===

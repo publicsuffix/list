@@ -13,7 +13,7 @@ description of effective TLDs and of the file format that this script
 processes (although for the latter you're better off just reading this file's
 short source code).
 
-http://wiki.mozilla.org/Gecko:Effective_TLD_Service
+https://wiki.mozilla.org/Gecko:Effective_TLD_Service
 """
 
 def getEffectiveTLDs(path):

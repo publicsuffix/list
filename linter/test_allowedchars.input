@@ -1,0 +1,15 @@
+// test:
+// - label contains illegal character
+// - c. is valid UTF-8
+// - d. has invalid UTF-8 code for the TLD
+//
+// best viewed with 'LC_ALL=C vi <filename>'
+
+// ===BEGIN ICANN DOMAINS===
+
+a.exam#ple.com
+b.exam ple.com
+c.测试
+d.测�
+
+// ===END ICANN DOMAINS===

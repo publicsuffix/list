@@ -1,0 +1,13 @@
+// test:
+// - leading dot
+// - trailing dot
+// - consecutive dots
+
+// ===BEGIN ICANN DOMAINS===
+
+// example.com: https://www.iana.org/domains/reserved
+.a.example.com
+b.example.com.
+c..example.com
+
+// ===END ICANN DOMAINS===

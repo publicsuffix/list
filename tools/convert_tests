@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Written 2016 by Tim Ruehsen (tim dot ruehsen at gmx dot de)
+#
+# Convert test_psl.txt to tests.txt (sed hack)
+
+sed -e "s/checkPublicSuffix('*\([^']*\)'*, '*\([^']*\)'*);/\1 \2/g" test_psl.txt >tests.txt
