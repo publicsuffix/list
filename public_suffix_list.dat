@@ -6948,7 +6948,7 @@ sch.zm
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-04-04T20:12:16Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-05-09T22:17:27Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7430,6 +7430,9 @@ call
 // calvinklein : 2015-07-30 PVH gTLD Holdings LLC
 calvinklein
 
+// cam : 2016-04-21 AC Webconnecting Holding B.V.
+cam
+
 // camera : 2013-08-27 Atomic Maple, LLC
 camera
 
@@ -7865,7 +7868,7 @@ dunlop
 // duns : 2015-08-06 The Dun & Bradstreet Corporation
 duns
 
-// dupont : 2015-06-25 E.I. du Pont de Nemours and Company
+// dupont : 2015-06-25 E. I. du Pont de Nemours and Company
 dupont
 
 // durban : 2014-03-24 ZA Central Registry NPC trading as ZA Central Registry
@@ -8074,6 +8077,9 @@ fly
 
 // foo : 2014-01-23 Charleston Road Registry Inc.
 foo
+
+// food : 2016-04-21 Lifestyle Domain Holdings, Inc.
+food
 
 // foodnetwork : 2015-07-02 Lifestyle Domain Holdings, Inc.
 foodnetwork
@@ -8396,6 +8402,9 @@ hot
 // hoteles : 2015-03-05 Travel Reservations SRL
 hoteles
 
+// hotels : 2016-04-07 Booking.com B.V.
+hotels
+
 // hotmail : 2014-12-18 Microsoft Corporation
 hotmail
 
@@ -8534,7 +8543,7 @@ jcp
 // jeep : 2015-07-30 FCA US LLC.
 jeep
 
-// jetzt : 2014-01-09 New TLD Company AB
+// jetzt : 2014-01-09
 jetzt
 
 // jewelry : 2015-03-05 Wild Bloom, LLC
@@ -9674,7 +9683,10 @@ shiksha
 // shoes : 2013-10-02 Binky Galley, LLC
 shoes
 
-// shopping : 2016-03-31 Uniregistry, Corp.
+// shop : 2016-04-08 GMO Registry, Inc.
+shop
+
+// shopping : 2016-03-31
 shopping
 
 // shouji : 2015-01-08 QIHOO 360 TECHNOLOGY CO. LTD.
