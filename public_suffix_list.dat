@@ -1,4 +1,4 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+﻿// This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -11407,6 +11407,13 @@ chirurgiens-dentistes-en-france.fr
 // QA2
 // Submitted by Daniel Dent (https://www.danieldent.com/)
 qa2.com
+
+
+// QNAP System, Inc. : https://www.qnap.com/
+// Submitted by Nick Chang <nickchang@qnap.com>
+dev-myqnapcloud.com
+alpha-myqnapcloud.com
+myqnapcloud.com
 
 // Rackmaze LLC : https://www.rackmaze.com
 // Submitted by Kirill Pertsev <kika@rackmaze.com>
