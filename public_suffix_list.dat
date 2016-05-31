@@ -11747,4 +11747,17 @@ yolasite.com
 za.net
 za.org
 
+// Securepoint Dynamic DNS - spdyn
+// Submitted by Erik Anders <erik.anders@securepoint.de>
+firewall-gateway.com
+firewall-gateway.de
+firewall-gateway.net
+my-firewall.org
+my-gateway.de
+my-router.de
+myfirewall.org
+spdns.de
+spdns.eu
+spdns.org
+
 // ===END PRIVATE DOMAINS===
