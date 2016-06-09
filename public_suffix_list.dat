@@ -10701,6 +10701,10 @@ myfritz.net
 // Submitted by Adrian <adrian@betainabox.com>
 betainabox.com
 
+// bugzilla.org Attachment Subdomain Service
+// Submitted by Gervase Markham <gerv@gerv.net>
+*.bzattachments.org
+
 // CentralNic : http://www.centralnic.com/names/domains
 // Submitted by registry <gavin.brown@centralnic.com>
 ae.org
