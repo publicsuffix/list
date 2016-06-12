@@ -267,18 +267,14 @@ name.az
 pro.az
 biz.az
 
-// ba : https://en.wikipedia.org/wiki/.ba
+// ba : http://nic.ba/users_data/files/pravilnik_o_registraciji.pdf
 ba
-org.ba
-net.ba
+com.ba
 edu.ba
 gov.ba
 mil.ba
-unsa.ba
-unbi.ba
-co.ba
-com.ba
-rs.ba
+net.ba
+org.ba
 
 // bb : https://en.wikipedia.org/wiki/.bb
 bb
