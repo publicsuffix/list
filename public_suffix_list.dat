@@ -11349,6 +11349,10 @@ iki.fi
 biz.at
 info.at
 
+// Magento Commerce
+// Submitted by Damien Tournoud <dtournoud@magento.cloud>
+*.magentosite.cloud
+
 // Michau Enterprises Limited : http://www.co.pl/
 co.pl
 
