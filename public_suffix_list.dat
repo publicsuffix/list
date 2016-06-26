@@ -10805,14 +10805,6 @@ co.no
 // Submitted by Damien Tournoud <damien@commerceguys.com>
 *.platform.sh
 
-// Craynic, s.r.o. : http://www.craynic.com/
-// Submitted by Ales Krajnik <ales.krajnik@craynic.com>
-realm.cz
-
-// Cryptonomic : https://cryptonomic.net/
-// Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
-*.cryptonomic.net
-
 // Cupcake : https://cupcake.io/
 // Submitted by Jonathan Rudenberg <jonathan@cupcake.io>
 cupcake.is
