@@ -10627,6 +10627,13 @@ zuerich
 // ===BEGIN PRIVATE DOMAINS===
 // (Note: these are in alphabetical order by company name)
 
+// Actindo AG : https://www.actindo.com/
+// Submitted by Patrick Prasse <hostmaster@actindo.com>
+actindo.com
+dev.actindo.com
+actindo.io
+dev.actindo.io
+
 // Alces Software Ltd : http://alces-software.com
 // Submitted by Mark J. Titorenko <mark.titorenko@alces-software.com>
 *.compute.estate
