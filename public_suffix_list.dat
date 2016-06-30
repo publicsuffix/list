@@ -267,18 +267,14 @@ name.az
 pro.az
 biz.az
 
-// ba : https://en.wikipedia.org/wiki/.ba
+// ba : http://nic.ba/users_data/files/pravilnik_o_registraciji.pdf
 ba
-org.ba
-net.ba
+com.ba
 edu.ba
 gov.ba
 mil.ba
-unsa.ba
-unbi.ba
-co.ba
-com.ba
-rs.ba
+net.ba
+org.ba
 
 // bb : https://en.wikipedia.org/wiki/.bb
 bb
@@ -2549,7 +2545,6 @@ hitoyoshi.kumamoto.jp
 kamiamakusa.kumamoto.jp
 kashima.kumamoto.jp
 kikuchi.kumamoto.jp
-kosa.kumamoto.jp
 kumamoto.kumamoto.jp
 mashiki.kumamoto.jp
 mifune.kumamoto.jp
@@ -10642,24 +10637,24 @@ zuerich
 cloudfront.net
 
 // Amazon Elastic Compute Cloud: https://aws.amazon.com/ec2/
-// Submitted by Luke Wells <lawells@amazon.com>
+// Submitted by Philip Allchin <pallchin@amazon.com>
+compute.amazonaws.com
 ap-northeast-1.compute.amazonaws.com
 ap-northeast-2.compute.amazonaws.com
 ap-southeast-1.compute.amazonaws.com
 ap-southeast-2.compute.amazonaws.com
-cn-north-1.compute.amazonaws.cn
-compute-1.amazonaws.com
-compute.amazonaws.cn
-compute.amazonaws.com
 eu-central-1.compute.amazonaws.com
 eu-west-1.compute.amazonaws.com
 sa-east-1.compute.amazonaws.com
-us-east-1.amazonaws.com
 us-gov-west-1.compute.amazonaws.com
 us-west-1.compute.amazonaws.com
 us-west-2.compute.amazonaws.com
+us-east-1.amazonaws.com
+compute-1.amazonaws.com
 z-1.compute-1.amazonaws.com
 z-2.compute-1.amazonaws.com
+compute.amazonaws.com.cn
+cn-north-1.compute.amazonaws.com.cn 
 
 // Amazon Elastic Beanstalk : https://aws.amazon.com/elasticbeanstalk/
 // Submitted by Adam Stein <astein@amazon.com>
@@ -10693,6 +10688,13 @@ s3.eu-central-1.amazonaws.com
 // Submitted by Thomas Orozco <thomas@aptible.com>
 on-aptible.com
 
+// Association potager.org : https://potager.org/
+// Submitted by Lunar <jardiniers@potager.org>
+potager.org
+poivron.org
+sweetpepper.org
+pimienta.org
+
 // AVM : https://avm.de
 // Submitted by Andreas Weise <a.weise@avm.de>
 myfritz.net
@@ -10700,6 +10702,10 @@ myfritz.net
 // BetaInABox
 // Submitted by Adrian <adrian@betainabox.com>
 betainabox.com
+
+// Boxfuse : https://boxfuse.com
+// Submitted by Axel Fontaine <axel@boxfuse.com>
+boxfuse.io
 
 // callidomus: https://www.callidomus.com/
 // Submitted by Marcus Popp <admin@callidomus.com>
@@ -10759,9 +10765,17 @@ co.com
 // c.la : http://www.c.la/
 c.la
 
+// certmgr.org : https://certmgr.org
+// Submitted by B. Blechschmidt <hostmaster@certmgr.org>
+certmgr.org
+
 // Citrix : https://citrix.com
 // Submitted by Alex Stoddard <alex.stoddard@citrix.com>
 xenapponazure.com
+
+// ClearVox : http://www.clearvox.nl/
+// Submitted by Leon Rowland <leon@clearvox.nl>
+virtueeldomein.nl
 
 // cloudControl : https://www.cloudcontrol.com/
 // Submitted by Tobias Wilken <tw@cloudcontrol.com>
@@ -10790,6 +10804,14 @@ co.no
 // Commerce Guys, SAS
 // Submitted by Damien Tournoud <damien@commerceguys.com>
 *.platform.sh
+
+// Craynic, s.r.o. : http://www.craynic.com/
+// Submitted by Ales Krajnik <ales.krajnik@craynic.com>
+realm.cz
+
+// Cryptonomic : https://cryptonomic.net/
+// Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
+*.cryptonomic.net
 
 // Cupcake : https://cupcake.io/
 // Submitted by Jonathan Rudenberg <jonathan@cupcake.io>
@@ -11185,6 +11207,13 @@ tr.eu.org
 uk.eu.org
 us.eu.org
 
+// Evennode : http://www.evennode.com/
+// Submitted by Michal Kralik <support@evennode.com>
+eu-1.evennode.com
+eu-2.evennode.com
+us-1.evennode.com
+us-2.evennode.com
+
 // Facebook, Inc.
 // Submitted by Peter Ruibal <public-suffix@fb.com>
 apps.fbsbx.com
@@ -11196,6 +11225,10 @@ b.ssl.fastly.net
 global.ssl.fastly.net
 a.prod.fastly.net
 global.prod.fastly.net
+
+// Featherhead : https://featherhead.xyz/
+// Submitted by Simon Menke <simon@featherhead.xyz>
+fhapp.xyz
 
 // Firebase, Inc.
 // Submitted by Chris Raynor <chris@firebase.com>
@@ -11325,6 +11358,14 @@ withyoutube.com
 // Hashbang : https://hashbang.sh
 hashbang.sh
 
+// Hasura : https://hasura.io
+// Submitted by Shahidh K Muhammed <shahidh@hasura.io>
+hasura-app.io
+
+// Hepforge : https://www.hepforge.org
+// Submitted by David Grellscheid <admin@hepforge.org>
+hepforge.org
+
 // Heroku : https://www.heroku.com/
 // Submitted by Tom Maher <tmaher@heroku.com>
 herokuapp.com
@@ -11337,6 +11378,10 @@ iki.fi
 // info.at : http://www.info.at/
 biz.at
 info.at
+
+// Magento Commerce
+// Submitted by Damien Tournoud <dtournoud@magento.cloud>
+*.magentosite.cloud
 
 // Michau Enterprises Limited : http://www.co.pl/
 co.pl
@@ -11538,11 +11583,20 @@ hzc.io
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
 sandcats.io
 
+// SBE network solutions GmbH : https://www.sbe.de/
+// Submitted by Norman Meilick <nm@sbe.de>
+logoip.de
+logoip.com
+
 // Service Online LLC : http://drs.ua/
 // Submitted by Serhii Bulakh <support@drs.ua>
 biz.ua
 co.ua
 pp.ua
+
+// Shopblocks : http://www.shopblocks.com/
+// Submitted by Alex Bowers <alex@shopblocks.com>
+myshopblocks.com
 
 // SinaAppEngine : http://sae.sina.com.cn/
 // Submitted by SinaAppEngine <saesupport@sinacloud.com>
@@ -11555,6 +11609,10 @@ vipsinaapp.com
 bounty-full.com
 alpha.bounty-full.com
 beta.bounty-full.com
+
+// SpaceKit : https://www.spacekit.io/
+// Submitted by Reza Akhavan <spacekit.io@gmail.com>
+spacekit.io
 
 // Synology, Inc. : https://www.synology.com/
 // Submitted by Rony Weng <ronyweng@synology.com>
@@ -11579,10 +11637,14 @@ gdynia.pl
 med.pl
 sopot.pl
 
-// TownNews.com domains : http://www.townnews.com
+// TownNews.com : http://www.townnews.com
 // Submitted by Dustin Ward <dward@townnews.com>
 bloxcms.com
 townnews-staging.com
+
+// TuxFamily : http://tuxfamily.org
+// Submitted by TuxFamily administrators <adm@staff.tuxfamily.org>
+tuxfamily.org
 
 // UDR Limited : http://www.udr.hk.com
 // Submitted by registry <hostmaster@udr.hk.com>
