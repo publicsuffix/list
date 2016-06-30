@@ -11218,6 +11218,10 @@ global.ssl.fastly.net
 a.prod.fastly.net
 global.prod.fastly.net
 
+// Featherhead : https://featherhead.xyz/
+// Submitted by Simon Menke <simon@featherhead.xyz>
+fhapp.xyz
+
 // Firebase, Inc.
 // Submitted by Chris Raynor <chris@firebase.com>
 firebaseapp.com
