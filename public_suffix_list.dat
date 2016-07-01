@@ -6526,7 +6526,7 @@ lib.ca.us
 lib.co.us
 lib.ct.us
 lib.dc.us
-lib.de.us
+// lib.de.us - Moved to Private section at request of Ed Moore <Ed.Moore@lib.de.us>
 lib.fl.us
 lib.ga.us
 lib.gu.us
@@ -11652,6 +11652,10 @@ hk.com
 hk.org
 ltd.hk
 inc.hk
+
+// .US
+// Submitted by Ed Moore <Ed.Moore@lib.de.us>
+lib.de.us
 
 // Viprinet Europe GmbH : http://www.viprinet.com
 // Submitted by Simon Kissel <hostmaster@viprinet.com>
