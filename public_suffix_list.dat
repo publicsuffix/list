@@ -11670,6 +11670,10 @@ router.management
 // Submitted by Stefano Rivera <stefano@yola.com>
 yolasite.com
 
+// Thisisatestingserver.com : http://www.thisisatestingserver.com
+// Submitted by Chris Sinclair <chris@global-initiative.com> 2015-12-15
+thisisatestingserver.com
+
 // ZaNiC : http://www.za.net/
 // Submitted by registry <hostmaster@nic.za.net>
 za.net
