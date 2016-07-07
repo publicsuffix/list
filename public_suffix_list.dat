@@ -3,8 +3,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 // Please pull this list from, and only from https://publicsuffix.org/list/public_suffix_list.dat , 
-// rather than any other VCS sites. These sites are not intended to be used that way and will likely
-// be gone in the future.
+// rather than any other VCS sites. Pulling from any other URL is not guaranteed to be supported.
 
 // Instructions on pulling and using this list can be found at https://publicsuffix.org/list/ .
 
