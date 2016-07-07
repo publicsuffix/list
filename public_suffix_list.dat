@@ -10653,8 +10653,12 @@ sa-east-1.compute.amazonaws.com
 us-gov-west-1.compute.amazonaws.com
 us-west-1.compute.amazonaws.com
 us-west-2.compute.amazonaws.com
+us-east-1.amazonaws.com
+compute-1.amazonaws.com
 z-1.compute-1.amazonaws.com
 z-2.compute-1.amazonaws.com
+compute.amazonaws.com.cn
+cn-north-1.compute.amazonaws.com.cn 
 
 // Amazon Elastic Beanstalk : https://aws.amazon.com/elasticbeanstalk/
 // Submitted by Adam Stein <astein@amazon.com>
@@ -10690,9 +10694,8 @@ on-aptible.com
 
 // Association potager.org : https://potager.org/
 // Submitted by Lunar <jardiniers@potager.org>
-pimienta.org
-poivron.org
 potager.org
+poivron.org
 sweetpepper.org
 
 // AVM : https://avm.de
