@@ -11383,10 +11383,22 @@ iki.fi
 biz.at
 info.at
 
+<<<<<<< 07d3ace9a311c6252d2183905887d370cfe654f9
 // JS.ORG : http://dns.js.org
 // submitted by indus (admin@js.org)
 js.org
  
+=======
+// Magento Commerce
+// Submitted by Damien Tournoud <dtournoud@magento.cloud>
+*.magentosite.cloud
+
+// Meteor Development Group : https://www.meteor.com/hosting
+// Submitted by Pierre Carrier <pierre@meteor.com>
+meteorapp.com
+eu.meteorapp.com
+
+>>>>>>> Add meteorapp.com (#238)
 // Michau Enterprises Limited : http://www.co.pl/
 co.pl
 
