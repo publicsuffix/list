@@ -11378,10 +11378,15 @@ iki.fi
 biz.at
 info.at
 
-// JS.ORG : http://dns.js.org
-// submitted by indus (admin@js.org)
-js.org
- 
+// Magento Commerce
+// Submitted by Damien Tournoud <dtournoud@magento.cloud>
+*.magentosite.cloud
+
+// Meteor Development Group : https://www.meteor.com/hosting
+// Submitted by Pierre Carrier <pierre@meteor.com>
+meteorapp.com
+eu.meteorapp.com
+
 // Michau Enterprises Limited : http://www.co.pl/
 co.pl
 
