@@ -10653,12 +10653,12 @@ sa-east-1.compute.amazonaws.com
 us-gov-west-1.compute.amazonaws.com
 us-west-1.compute.amazonaws.com
 us-west-2.compute.amazonaws.com
+us-east-1.amazonaws.com
 compute-1.amazonaws.com
 z-1.compute-1.amazonaws.com
 z-2.compute-1.amazonaws.com
-us-east-1.amazonaws.com
 compute.amazonaws.com.cn
-cn-north-1.compute.amazonaws.com.cn
+cn-north-1.compute.amazonaws.com.cn 
 
 // Amazon Elastic Beanstalk : https://aws.amazon.com/elasticbeanstalk/
 // Submitted by Adam Stein <astein@amazon.com>
@@ -10694,9 +10694,8 @@ on-aptible.com
 
 // Association potager.org : https://potager.org/
 // Submitted by Lunar <jardiniers@potager.org>
-pimienta.org
-poivron.org
 potager.org
+poivron.org
 sweetpepper.org
 
 // AVM : https://avm.de
@@ -10808,10 +10807,6 @@ co.no
 // Commerce Guys, SAS
 // Submitted by Damien Tournoud <damien@commerceguys.com>
 *.platform.sh
-
-// Craynic, s.r.o. : http://www.craynic.com/
-// Submitted by Ales Krajnik <ales.krajnik@craynic.com>
-realm.cz
 
 // Cryptonomic : https://cryptonomic.net/
 // Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
@@ -11646,7 +11641,7 @@ sopot.pl
 bloxcms.com
 townnews-staging.com
 
-// TuxFamily : http://tuxfamily.org
+// TuxFamily domains http://tuxfamily.org
 // Submitted by TuxFamily administrators <adm@staff.tuxfamily.org>
 tuxfamily.org
 
