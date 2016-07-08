@@ -11383,6 +11383,15 @@ iki.fi
 biz.at
 info.at
 
+<<<<<<< HEAD
+=======
+<<<<<<< 07d3ace9a311c6252d2183905887d370cfe654f9
+// JS.ORG : http://dns.js.org
+// submitted by indus (admin@js.org)
+js.org
+ 
+=======
+>>>>>>> 75f97cf2cad2da90663e6085dafd90f1c6e86192
 // Magento Commerce
 // Submitted by Damien Tournoud <dtournoud@magento.cloud>
 *.magentosite.cloud
@@ -11392,6 +11401,10 @@ info.at
 meteorapp.com
 eu.meteorapp.com
 
+<<<<<<< HEAD
+=======
+>>>>>>> Add meteorapp.com (#238)
+>>>>>>> 75f97cf2cad2da90663e6085dafd90f1c6e86192
 // Michau Enterprises Limited : http://www.co.pl/
 co.pl
 
