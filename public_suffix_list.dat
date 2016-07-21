@@ -11279,6 +11279,10 @@ githubcloud.com
 gist.githubcloud.com
 *.githubcloudusercontent.com
 
+// GitLab, Inc.
+// Submitted by Alex Hanselka <alex@gitlab.com>
+gitlab.io
+
 // GlobeHosting, Inc.
 // Submitted by Zoltan Egresi <egresi@globehosting.com>
 ro.com
