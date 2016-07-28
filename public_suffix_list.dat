@@ -11602,6 +11602,8 @@ rackmaze.net
 // Submitted by Tim Kramer <tkramer@rhcloud.com>
 rhcloud.com
 
+
+
 // RethinkDB : https://www.rethinkdb.com/
 // Submitted by Chris Kastorff <info@rethinkdb.com>
 hzc.io
@@ -11692,5 +11694,19 @@ yolasite.com
 // Submitted by registry <hostmaster@nic.za.net>
 za.net
 za.org
+
+// ClouDNS Ltd : http://www.cloudns.net
+// Submitted by Aleksander Hristov <noc@cloudns.net
+cloudns.cc
+cloudns.asia
+cloudns.org
+cloudns.biz
+cloudns.info
+cloudns.us
+cloudns.eu
+cloudns.in
+cloudns.club
+cloudns.pro
+cloudns.pw
 
 // ===END PRIVATE DOMAINS===
