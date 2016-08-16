@@ -6526,7 +6526,7 @@ lib.ca.us
 lib.co.us
 lib.ct.us
 lib.dc.us
-// lib.de.us - Moved to Private section at request of Ed Moore <Ed.Moore@lib.de.us>
+// lib.de.us  Issue #243 - Moved to Private section at request of Ed Moore <Ed.Moore@lib.de.us>
 lib.fl.us
 lib.ga.us
 lib.gu.us
