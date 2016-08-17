@@ -2,7 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-// Please pull this list from, and only from https://publicsuffix.org/list/public_suffix_list.dat , 
+// Please pull this list from, and only from https://publicsuffix.org/list/public_suffix_list.dat ,
 // rather than any other VCS sites. Pulling from any other URL is not guaranteed to be supported.
 
 // Instructions on pulling and using this list can be found at https://publicsuffix.org/list/ .
@@ -11651,6 +11651,19 @@ sandcats.io
 logoip.de
 logoip.com
 
+// Securepoint GmbH : https://www.securepoint.de
+// Submitted by Erik Anders <erik.anders@securepoint.de>
+firewall-gateway.com
+firewall-gateway.de
+my-gateway.de
+my-router.de
+spdns.de
+spdns.eu
+firewall-gateway.net
+my-firewall.org
+myfirewall.org
+spdns.org
+
 // Service Online LLC : http://drs.ua/
 // Submitted by Serhii Bulakh <support@drs.ua>
 biz.ua
@@ -11746,18 +11759,5 @@ yolasite.com
 // Submitted by registry <hostmaster@nic.za.net>
 za.net
 za.org
-
-// Securepoint Dynamic DNS - spdyn
-// Submitted by Erik Anders <erik.anders@securepoint.de>
-firewall-gateway.com
-firewall-gateway.de
-firewall-gateway.net
-my-firewall.org
-my-gateway.de
-my-router.de
-myfirewall.org
-spdns.de
-spdns.eu
-spdns.org
 
 // ===END PRIVATE DOMAINS===
