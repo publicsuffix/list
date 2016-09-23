@@ -10841,6 +10841,10 @@ realm.cz
 // Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
 *.cryptonomic.net
 
+// Cu.cc : https://www.registry.cu.cc
+// Submitted by Bence Ivady <iben@iben.hu>
+cu.cc
+
 // Cupcake : https://cupcake.io/
 // Submitted by Jonathan Rudenberg <jonathan@cupcake.io>
 cupcake.is
