@@ -501,7 +501,6 @@ org.bw
 // list of other 2nd level tlds ?
 by
 gov.by
-mil.by
 // Official information does not indicate that com.by is a reserved
 // second-level domain, but it's being used as one (see www.google.com.by and
 // www.yahoo.com.by, for example), so we list it here for safety's sake.
