@@ -10810,6 +10810,20 @@ r.cdn77.net
 rsc.cdn77.org
 ssl.origin.cdn77-secure.org
 
+// Cloud DNS Ltd : http://www.cloudns.net
+// Submitted by Aleksander Hristov <noc@cloudns.net>
+cloudns.asia
+cloudns.biz
+cloudns.club
+cloudns.cc
+cloudns.eu
+cloudns.in
+cloudns.info
+cloudns.org
+cloudns.pw
+cloudns.pro
+cloudns.us
+
 // CoDNS B.V.
 co.nl
 co.no
@@ -11602,8 +11616,6 @@ rackmaze.net
 // Submitted by Tim Kramer <tkramer@rhcloud.com>
 rhcloud.com
 
-
-
 // RethinkDB : https://www.rethinkdb.com/
 // Submitted by Chris Kastorff <info@rethinkdb.com>
 hzc.io
@@ -11694,19 +11706,5 @@ yolasite.com
 // Submitted by registry <hostmaster@nic.za.net>
 za.net
 za.org
-
-// Cloud DNS Ltd : http://www.cloudns.net
-// Submitted by Aleksander Hristov <noc@cloudns.net>
-cloudns.cc
-cloudns.asia
-cloudns.org
-cloudns.biz
-cloudns.info
-cloudns.us
-cloudns.eu
-cloudns.in
-cloudns.club
-cloudns.pro
-cloudns.pw
 
 // ===END PRIVATE DOMAINS===
