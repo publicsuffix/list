@@ -11288,6 +11288,12 @@ fbxos.fr
 freebox-os.fr
 freeboxos.fr
 
+// Futureweb OG : http://www.futureweb.at
+// Submitted by Andreas Schnederle-Wagner <schnederle@futureweb.at>
+futuremailing.at
+*.ex.ortsinfo.at
+*.kunden.ortsinfo.at
+
 // GDS : https://www.gov.uk/service-manual/operations/operating-servicegovuk-subdomains
 // Submitted by David Illsley <david.illsley@digital.cabinet-office.gov.uk>
 service.gov.uk
