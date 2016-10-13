@@ -10833,6 +10833,18 @@ co.no
 // Submitted by Damien Tournoud <damien@commerceguys.com>
 *.platform.sh
 
+// COSIMO GmbH http://www.cosimo.de
+// Submitted by Rene Marticke <rmarticke@cosimo.de>
+dynamisches-dns.de
+dnsupdater.de
+dyn.cosidns.de
+internet-dns.de
+l-o-g-i-n.de
+dynamic-dns.info
+feste-ip.net
+knx-server.net
+static-access.net
+
 // Craynic, s.r.o. : http://www.craynic.com/
 // Submitted by Ales Krajnik <ales.krajnik@craynic.com>
 realm.cz
@@ -11262,16 +11274,6 @@ global.prod.fastly.net
 // Featherhead : https://featherhead.xyz/
 // Submitted by Simon Menke <simon@featherhead.xyz>
 fhapp.xyz
-
-// DynamicDNS Service by http://www.feste-ip.net
-// Submitted by Rene Marticke <support@feste-ip.net>
-dynamisches-dns.de
-dnsupdater.de
-dyn.cosimo.de
-l-o-g-i-n.de
-dynamic-dns.info
-feste-ip.net
-static-access.net
 
 // Firebase, Inc.
 // Submitted by Chris Raynor <chris@firebase.com>
