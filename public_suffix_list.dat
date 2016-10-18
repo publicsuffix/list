@@ -11695,9 +11695,12 @@ townnews-staging.com
 
 // TransIP : htts://www.transip.nl
 // Submitted by Rory Breuk <rbreuk@transip.nl>
-transurl.be
-transurl.eu
-transurl.nl
+*.transurl.be
+*.transurl.eu
+*.transurl.nl
+co.uk.transurl.be
+co.uk.transurl.eu
+co.uk.transurl.nl
 
 // TuxFamily : http://tuxfamily.org
 // Submitted by TuxFamily administrators <adm@staff.tuxfamily.org>
