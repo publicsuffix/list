@@ -11054,7 +11054,6 @@ writesthisblog.com
 
 // ddnss.de . : https://www.ddnss.de/
 // Submitted by Robert Niedziela <webmaster@ddnss.de>
-ddnss.org
 ddnss.de
 dyn.ddnss.de
 dyndns.ddnss.de
@@ -11063,6 +11062,8 @@ dyn-ip24.de
 home-webserver.de
 dyn.home-webserver.de
 myhome-server.de
+ddnss.org
+
 // dynv6 : https://dynv6.com
 // Submitted by Dominik Menke <dom@digineo.de> 2016-01-18
 dynv6.net
