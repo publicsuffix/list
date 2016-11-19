@@ -5696,6 +5696,12 @@ altai.ru
 amur.ru
 arkhangelsk.ru
 astrakhan.ru
+abkhazia.su
+aktyubinsk.su
+armenia.su
+ashgabad.su
+azerbaijan.su
+bukhara.su
 bashkiria.ru
 belgorod.ru
 bir.ru
@@ -5703,6 +5709,7 @@ bryansk.ru
 buryatia.ru
 cbg.ru
 chel.ru
+chimkent.su
 chelyabinsk.ru
 chita.ru
 chukotka.ru
@@ -5710,16 +5717,23 @@ chuvashia.ru
 dagestan.ru
 dudinka.ru
 e-burg.ru
+east-kazakhstan.su
+exnet.su
+georgia.su
 grozny.ru
 irkutsk.ru
 ivanovo.ru
 izhevsk.ru
 jar.ru
+jambyl.su
 joshkar-ola.ru
 kalmykia.ru
 kaluga.ru
 kamchatka.ru
 karelia.ru
+karacol.su
+karaganda.su
+kustanai.su
 kazan.ru
 kchr.ru
 kemerovo.ru
@@ -5736,6 +5750,7 @@ kurgan.ru
 kursk.ru
 lipetsk.ru
 magadan.ru
+mangyshlak.su
 mari.ru
 mari-el.ru
 marine.ru
@@ -5744,9 +5759,11 @@ mordovia.ru
 msk.ru
 murmansk.ru
 nalchik.ru
+navoi.su
 nnov.ru
 nov.ru
 novosibirsk.ru
+north-kazakhstan.su
 nsk.ru
 omsk.ru
 orenburg.ru
@@ -5756,6 +5773,7 @@ penza.ru
 perm.ru
 ptz.ru
 rnd.ru
+ru.net
 ryazan.ru
 sakhalin.ru
 samara.ru
@@ -5767,10 +5785,13 @@ stavropol.ru
 stv.ru
 surgut.ru
 tambov.ru
+tashkent.su
 tatarstan.ru
+termez.su
 tom.ru
 tomsk.ru
 tsaritsyn.ru
+tselinograd.su
 tsk.ru
 tula.ru
 tuva.ru
@@ -9527,9 +9548,6 @@ room
 
 // rsvp : 2014-05-08 Charleston Road Registry Inc.
 rsvp
-
-// ru.net : 2015-05-21 Foundation for Assistance for Internet Technologies and Infrastructure Development (FAITID)
-ru.net
 
 // ruhr : 2013-10-02 regiodot GmbH & Co. KG
 ruhr
