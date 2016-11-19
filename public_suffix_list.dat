@@ -11324,9 +11324,11 @@ myfusion.cloud
 
 // Futureweb OG : http://www.futureweb.at
 // Submitted by Andreas Schnederle-Wagner <schnederle@futureweb.at>
+futurehosting.at
 futuremailing.at
 *.ex.ortsinfo.at
 *.kunden.ortsinfo.at
+*.statics.cloud
 
 // GDS : https://www.gov.uk/service-manual/operations/operating-servicegovuk-subdomains
 // Submitted by David Illsley <david.illsley@digital.cabinet-office.gov.uk>
