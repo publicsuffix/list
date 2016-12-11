@@ -4441,20 +4441,20 @@ sch.ng
 
 // ni : http://www.nic.ni/
 ni
-com.ni
-gob.ni
-edu.ni
-org.ni
-nom.ni
-net.ni
-mil.ni
-co.ni
-biz.ni
-web.ni
-int.ni
 ac.ni
+biz.ni
+co.ni
+com.ni
+edu.ni
+gob.ni
 in.ni
 info.ni
+int.ni
+mil.ni
+net.ni
+nom.ni
+org.ni
+web.ni
 
 // nl : https://en.wikipedia.org/wiki/.nl
 //      https://www.sidn.nl/
