@@ -11559,10 +11559,6 @@ knightpoint.systems
 co.krd
 edu.krd
 
-// Oderland  Webbhotell AB
-// Submitted by Josef Johansson <registry@oderland.se>
-hemsida.eu
-
 // Magento Commerce
 // Submitted by Damien Tournoud <dtournoud@magento.cloud>
 *.magentosite.cloud
@@ -11693,6 +11689,10 @@ zapto.org
 // NYC.mn : http://www.information.nyc.mn
 // Submitted by Matthew Brown <mattbrown@nyc.mn>
 nyc.mn
+
+// Oderland  Webbhotell AB : https://oderland.se
+// Submitted by Josef Johansson <registry@oderland.se>
+hemsida.eu
 
 // One Fold Media : http://www.onefoldmedia.com/
 // Submitted by Eddie Jones <eddie@onefoldmedia.com>
