@@ -847,7 +847,16 @@ fi
 aland.fi
 
 // fj : https://en.wikipedia.org/wiki/.fj
-*.fj
+// fj : http://domains.fj/public/register.php
+ac.fj
+biz.fj
+com.fj
+info.fj
+mil.fj
+name.fj
+net.fj
+org.fj
+pro.fj
 
 // fk : https://en.wikipedia.org/wiki/.fk
 *.fk
