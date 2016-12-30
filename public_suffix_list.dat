@@ -3519,7 +3519,12 @@ seoul.kr
 ulsan.kr
 
 // kw : https://en.wikipedia.org/wiki/.kw
-*.kw
+// http://www.kw/
+com.kw
+edu.kw
+gov.kw
+net.kw
+org.kw
 
 // ky : http://www.icta.ky/da_ky_reg_dom.php
 // Confirmed by registry <kysupport@perimeterusa.com> 2008-06-17
