@@ -381,7 +381,12 @@ net.bm
 org.bm
 
 // bn : https://en.wikipedia.org/wiki/.bn
-*.bn
+// http://www.bnnic.bn/faqs
+com.bn
+edu.bn
+org.bn
+net.bn
+gov.bn
 
 // bo : http://www.nic.bo/
 bo
