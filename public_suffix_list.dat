@@ -3431,8 +3431,15 @@ edu.kg
 gov.kg
 mil.kg
 
-// kh : http://www.mptc.gov.kh/dns_registration.htm
-*.kh
+// kh : https://en.wikipedia.org/wiki/.kh
+// kh : https://www.trc.gov.kh/online-services/dns-registration/
+gov.kh
+com.kh
+net.kh
+org.kh
+edu.kh
+mil.kh
+per.kh
 
 // ki : http://www.ki/dns/index.html
 ki
