@@ -295,7 +295,14 @@ store.bb
 tv.bb
 
 // bd : https://en.wikipedia.org/wiki/.bd
-*.bd
+bd
+ac.bd
+com.bd
+edu.bd
+net.bd
+org.bg
+// gov.bd - registration not allowed
+// mil.bd - registration not allowed
 
 // be : https://en.wikipedia.org/wiki/.be
 // Confirmed by registry <tech@dns.be> 2008-06-08
