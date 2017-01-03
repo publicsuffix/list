@@ -11205,12 +11205,13 @@ us-2.evennode.com
 apps.fbsbx.com
 
 // Fastly Inc. http://www.fastly.com/
-// Submitted by Vladimir Vuksan <vladimir@fastly.com>
+// Submitted by Fastly Security <team-security@fastly.com>
 a.ssl.fastly.net
 b.ssl.fastly.net
 global.ssl.fastly.net
 a.prod.fastly.net
 global.prod.fastly.net
+fastlylb.net
 
 // Featherhead : https://featherhead.xyz/
 // Submitted by Simon Menke <simon@featherhead.xyz>
