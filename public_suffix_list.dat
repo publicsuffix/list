@@ -11212,6 +11212,8 @@ global.ssl.fastly.net
 a.prod.fastly.net
 global.prod.fastly.net
 fastlylb.net
+map.fastlylb.net 
+map.fastly.net
 
 // Featherhead : https://featherhead.xyz/
 // Submitted by Simon Menke <simon@featherhead.xyz>
