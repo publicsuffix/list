@@ -11206,14 +11206,14 @@ apps.fbsbx.com
 
 // Fastly Inc. http://www.fastly.com/
 // Submitted by Fastly Security <security@fastly.com>
+map.fastlylb.net
+map.fastly.net
+a.prod.fastly.net
+global.prod.fastly.net
 a.ssl.fastly.net
 b.ssl.fastly.net
 global.ssl.fastly.net
-a.prod.fastly.net
-global.prod.fastly.net
 fastlylb.net
-map.fastlylb.net 
-map.fastly.net
 
 // Featherhead : https://featherhead.xyz/
 // Submitted by Simon Menke <simon@featherhead.xyz>
