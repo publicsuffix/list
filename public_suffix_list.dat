@@ -11379,6 +11379,12 @@ hepforge.org
 herokuapp.com
 herokussl.com
 
+// howCode : https://howcode.org
+// Submitted by Francis McNamee <francis@howcode.org>
+*.howcode.org
+cz.ie
+zz.ie
+
 // iki.fi
 // Submitted by Hannu Aronsson <haa@iki.fi>
 iki.fi
