@@ -5690,6 +5690,27 @@ int.ru
 mil.ru
 test.ru
 
+// ru subTLDs : https://faitid.org/ru/node/346
+adygeya.ru
+bashkiria.ru
+bir.ru
+cbg.ru
+com.ru
+dagestan.ru
+grozny.ru
+kalmykia.ru
+kustanai.ru
+marine.ru
+mordovia.ru
+msk.ru
+mytis.ru
+nalchik.ru
+nov.ru
+pyatigorsk.ru
+spb.ru
+vladikavkaz.ru
+vladimir.ru
+
 // rw : http://www.nic.rw/cgi-bin/policy.pl
 rw
 gov.rw
@@ -5859,35 +5880,55 @@ principe.st
 saotome.st
 store.st
 
-// su : https://en.wikipedia.org/wiki/.su
+// su : https://faitid.org/ru/node/346
 su
+abkhazia.su
 adygeya.su
+aktyubinsk.su
 arkhangelsk.su
+armenia.su
+ashgabad.su
+azerbaijan.su
 balashov.su
 bashkiria.su
 bryansk.su
+bukhara.su
+chimkent.su
 dagestan.su
+east-kazakhstan.su
+exnet.su
+georgia.su
 grozny.su
 ivanovo.su
+jambyl.su
 kalmykia.su
 kaluga.su
+karacol.su
+karaganda.su
 karelia.su
 khakassia.su
 krasnodar.su
 kurgan.su
+kustanai.su
 lenug.su
+mangyshlak.su
 mordovia.su
 msk.su
 murmansk.su
 nalchik.su
+navoi.su
+north-kazakhstan.su
 nov.su
 obninsk.su
 penza.su
 pokrovsk.su
 sochi.su
 spb.su
+tashkent.su
+termez.su
 togliatti.su
 troitsk.su
+tselinograd.su
 tula.su
 tuva.su
 vladikavkaz.su
