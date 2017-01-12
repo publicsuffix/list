@@ -5861,38 +5861,6 @@ store.st
 
 // su : https://en.wikipedia.org/wiki/.su
 su
-adygeya.su
-arkhangelsk.su
-balashov.su
-bashkiria.su
-bryansk.su
-dagestan.su
-grozny.su
-ivanovo.su
-kalmykia.su
-kaluga.su
-karelia.su
-khakassia.su
-krasnodar.su
-kurgan.su
-lenug.su
-mordovia.su
-msk.su
-murmansk.su
-nalchik.su
-nov.su
-obninsk.su
-penza.su
-pokrovsk.su
-sochi.su
-spb.su
-togliatti.su
-troitsk.su
-tula.su
-tuva.su
-vladikavkaz.su
-vladimir.su
-vologda.su
 
 // sv : http://www.svnet.org.sv/niveldos.pdf
 sv
@@ -11203,6 +11171,80 @@ us-2.evennode.com
 // Facebook, Inc.
 // Submitted by Peter Ruibal <public-suffix@fb.com>
 apps.fbsbx.com
+
+// FAITID : https://faitid.org/ru/node/346
+com.ru
+exnet.su
+ru.net
+abkhazia.su
+adygeya.ru
+adygeya.su
+aktyubinsk.su
+arkhangelsk.su
+armenia.su
+ashgabad.su
+azerbaijan.su
+balashov.su
+bashkiria.ru
+bashkiria.su
+bir.ru
+bryansk.su
+bukhara.su
+cbg.ru
+chimkent.su
+dagestan.ru
+dagestan.su
+east-kazakhstan.su
+georgia.su
+grozny.ru
+grozny.su
+ivanovo.su
+kalmykia.ru
+jambyl.su
+kalmykia.su
+kaluga.su
+karacol.su
+karaganda.su
+karelia.su
+khakassia.su
+krasnodar.su
+kurgan.su
+kustanai.ru
+kustanai.su
+lenug.su
+mangyshlak.su
+marine.ru
+mordovia.ru
+mordovia.su
+msk.ru
+msk.su
+murmansk.su
+mytis.ru
+nalchik.ru
+nalchik.su
+navoi.su
+north-kazakhstan.su
+nov.ru
+nov.su
+obninsk.su
+penza.su
+pokrovsk.su
+pyatigorsk.ru
+sochi.su
+spb.ru
+spb.su
+tashkent.su
+termez.su
+togliatti.su
+troitsk.su
+tselinograd.su
+tula.su
+tuva.su
+vladikavkaz.ru
+vladikavkaz.su
+vladimir.ru
+vladimir.su
+vologda.su
 
 // Fastly Inc. http://www.fastly.com/
 // Submitted by Vladimir Vuksan <vladimir@fastly.com>
