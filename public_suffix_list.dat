@@ -11423,6 +11423,10 @@ se.leg.br
 sp.leg.br
 to.leg.br
 
+// IPName : https://ipna.me/
+// Submitted by Ben Schwartz <bemasc@ipna.me>
+ipna.me
+
 // Joyent : https://www.joyent.com/
 // Submitted by Brian Bennett <brian.bennett@joyent.com>
 *.triton.zone
