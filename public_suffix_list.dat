@@ -6779,14 +6779,6 @@ yt
 // xn--nnx388a ("Taiwan", Chinese, variant) : TW
 臺灣
 
-// Company : https://hosting.url.com.tw/
-// Submitted by Ken <ken@corp.url.com.tw>
-url.tw
-mymailer.com.tw
-twmail.cc
-twmail.net
-twmail.org
-
 // xn--j1amh ("ukr", Cyrillic) : UA
 укр
 
@@ -11859,5 +11851,13 @@ now.sh
 cc.ua
 inf.ua
 ltd.ua
+
+// URL web hosting : https://hosting.url.com.tw/
+// Submitted by Ken <ken@corp.url.com.tw>
+url.tw
+mymailer.com.tw
+twmail.cc
+twmail.net
+twmail.org
 
 // ===END PRIVATE DOMAINS===
