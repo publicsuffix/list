@@ -6795,6 +6795,9 @@ sch.zm
 
 // zw : https://en.wikipedia.org/wiki/.zw
 *.zw
+ac.zw
+co.zw
+org.zw
 
 
 // List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-11-29T01:06:51Z
