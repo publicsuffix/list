@@ -6797,7 +6797,7 @@ sch.zm
 *.zw
 
 
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2016-11-29T01:06:51Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2017-02-23T00:46:09Z
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7729,9 +7729,6 @@ dvag
 // dvr : 2016-05-26 Hughes Satellite Systems Corporation
 dvr
 
-// dwg : 2015-07-23 Autodesk, Inc.
-dwg
-
 // earth : 2014-12-04 Interlink Co., Ltd.
 earth
 
@@ -8298,9 +8295,6 @@ ieee
 
 // ifm : 2014-01-30 ifm electronic gmbh
 ifm
-
-// iinet : 2014-07-03 Connect West Pty. Ltd.
-iinet
 
 // ikano : 2015-07-09 Ikano S.A.
 ikano
@@ -8869,9 +8863,6 @@ mtr
 // mutual : 2015-04-02 Northwestern Mutual MU TLD Registry, LLC
 mutual
 
-// mutuelle : 2015-06-18 Fédération Nationale de la Mutualité Française
-mutuelle
-
 // nab : 2015-08-20 National Australia Bank Limited
 nab
 
@@ -9370,6 +9361,9 @@ room
 // rsvp : 2014-05-08 Charleston Road Registry Inc.
 rsvp
 
+// rugby : 2016-12-15 World Rugby Strategic Developments Limited
+rugby
+
 // ruhr : 2013-10-02 regiodot GmbH & Co. KG
 ruhr
 
@@ -9796,9 +9790,6 @@ theater
 // theatre : 2015-05-07
 theatre
 
-// theguardian : 2015-04-30 Guardian News and Media Limited
-theguardian
-
 // tiaa : 2015-07-23 Teachers Insurance and Annuity Association of America
 tiaa
 
@@ -9946,7 +9937,7 @@ ventures
 // verisign : 2015-08-13 VeriSign, Inc.
 verisign
 
-// versicherung : 2014-03-20 dotversicherung-registry GmbH
+// versicherung : 2014-03-20
 versicherung
 
 // vet : 2014-03-06
@@ -10171,9 +10162,6 @@ xin
 // xn--4gbrim : 2013-10-04 Suhub Electronic Establishment
 موقع
 
-// xn--4gq48lf9j : 2015-07-31 Wal-Mart Stores, Inc.
-一号店
-
 // xn--55qw42g : 2013-11-08 China Organizational Name Administration Center
 公益
 
@@ -10234,7 +10222,7 @@ xin
 // xn--cg4bki : 2013-09-27 SAMSUNG SDS CO., LTD
 삼성
 
-// xn--czr694b : 2014-01-16 Dot Trademark TLD Holding Company Limted
+// xn--czr694b : 2014-01-16 Dot Trademark TLD Holding Company Limited
 商标
 
 // xn--czrs0t : 2013-12-19 Wild Island, LLC
@@ -10291,7 +10279,7 @@ xin
 // xn--i1b6b1a6a2e : 2013-11-14 Public Interest Registry
 संगठन
 
-// xn--imr513n : 2014-12-11 Dot Trademark TLD Holding Company Limted
+// xn--imr513n : 2014-12-11 Dot Trademark TLD Holding Company Limited
 餐厅
 
 // xn--io0a7i : 2013-11-14 Computer Network Information Center of Chinese Academy of Sciences （China Internet Network Information Center）
