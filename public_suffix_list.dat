@@ -724,6 +724,11 @@ tm.cy
 // cz : https://en.wikipedia.org/wiki/.cz
 cz
 
+ // wvg : https://www.wvg.cz/
+ // Submitted by Michal Kolar <michalkolar@wvg.cz>
+ testurl.cz
+
+
 // de : https://en.wikipedia.org/wiki/.de
 // Confirmed by registry <ops@denic.de> (with technical
 // reservations) 2008-07-01
