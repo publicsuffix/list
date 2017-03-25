@@ -11892,4 +11892,8 @@ cc.ua
 inf.ua
 ltd.ua
 
+// SensioLabs, SAS
+// Submitted by Fabien Potencier <fabien.potencier@sensiolabs.com>
+*.sensiosite.cloud
+
 // ===END PRIVATE DOMAINS===
