@@ -11250,6 +11250,7 @@ a.prod.fastly.net
 global.prod.fastly.net
 a.ssl.fastly.net
 b.ssl.fastly.net
+freetls.fastly.net
 global.ssl.fastly.net
 fastlylb.net
 map.fastlylb.net
