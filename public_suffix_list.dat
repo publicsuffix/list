@@ -11690,6 +11690,10 @@ dev-myqnapcloud.com
 alpha-myqnapcloud.com
 myqnapcloud.com
 
+// Quip : https://quip.com
+// Submitted by Patrick Linehan <plinehan@quip.com>
+*.quipelements.com
+
 // Rackmaze LLC : https://www.rackmaze.com
 // Submitted by Kirill Pertsev <kika@rackmaze.com>
 rackmaze.com
