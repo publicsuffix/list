@@ -11245,14 +11245,15 @@ vologda.su
 
 // Fastly Inc. : http://www.fastly.com/
 // Submitted by Fastly Security <security@fastly.com>
+fastlylb.net
+map.fastlylb.net
+freetls.fastly.net
 map.fastly.net
 a.prod.fastly.net
 global.prod.fastly.net
 a.ssl.fastly.net
 b.ssl.fastly.net
 global.ssl.fastly.net
-fastlylb.net
-map.fastlylb.net
 
 // Featherhead : https://featherhead.xyz/
 // Submitted by Simon Menke <simon@featherhead.xyz>
