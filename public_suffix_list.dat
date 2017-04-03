@@ -11460,6 +11460,10 @@ se.leg.br
 sp.leg.br
 to.leg.br
 
+// IPiFony Systems, Inc. : https://www.ipifony.com/
+// Submitted by Matthew Hardeman <mhardeman@ipifony.com>
+ipifony.net
+
 // Joyent : https://www.joyent.com/
 // Submitted by Brian Bennett <brian.bennett@joyent.com>
 *.triton.zone
