@@ -6793,9 +6793,14 @@ net.zm
 org.zm
 sch.zm
 
-// zw : https://en.wikipedia.org/wiki/.zw
-*.zw
-
+// zw : https://www.potraz.gov.zw/
+// Confirmed by registry <bmtengwa@potraz.gov.zw> 2017-01-25
+zw
+ac.zw
+co.zw
+gov.zw
+mil.zw
+org.zw
 
 // List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2017-02-23T00:46:09Z
 
