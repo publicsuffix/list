@@ -11856,44 +11856,7 @@ lib.de.us
 // Submitted by Simon Kissel <hostmaster@viprinet.com>
 router.management
 
-// Western Digital Technologies, Inc : https://www.wdc.com
-// Submitted by Jung Jin <jungseok.jin@wdc.com>
-remotewd.com
-
-// Wikimedia Labs : https://wikitech.wikimedia.org
-// Submitted by Yuvi Panda <yuvipanda@wikimedia.org>
-wmflabs.org
-
-// Yola : https://www.yola.com/
-// Submitted by Stefano Rivera <stefano@yola.com>
-yolasite.com
-
-// Yombo : https://yombo.net
-// Submitted by Mitch Schwenk <mitch@yombo.net>
-ybo.faith
-yombo.me
-homelink.one
-ybo.party
-ybo.review
-ybo.science
-ybo.trade
-
-// ZaNiC : http://www.za.net/
-// Submitted by registry <hostmaster@nic.za.net>
-za.net
-za.org
-
-// Zeit, Inc. : https://zeit.domains/
-// Submitted by Olli Vanhoja <olli@zeit.co>
-now.sh
-
-// 1GB LLC : https://www.1gb.ua/
-// Submitted by 1GB LLC <noc@1gb.com.ua>
-cc.ua
-inf.ua
-ltd.ua
-
-// Wego Pte Ltd : https://www.wego.com
+// Wego Pte. Limited : https://www.wego.com
 // Submitted by Xavier Er <xavier@wego.com>
 *.wego.com
 wego.ae
@@ -11936,5 +11899,42 @@ wegotravel.jp
 wegotravel.ma
 wegoviaggio.it
 wegoviajar.com.br
+
+// Western Digital Technologies, Inc : https://www.wdc.com
+// Submitted by Jung Jin <jungseok.jin@wdc.com>
+remotewd.com
+
+// Wikimedia Labs : https://wikitech.wikimedia.org
+// Submitted by Yuvi Panda <yuvipanda@wikimedia.org>
+wmflabs.org
+
+// Yola : https://www.yola.com/
+// Submitted by Stefano Rivera <stefano@yola.com>
+yolasite.com
+
+// Yombo : https://yombo.net
+// Submitted by Mitch Schwenk <mitch@yombo.net>
+ybo.faith
+yombo.me
+homelink.one
+ybo.party
+ybo.review
+ybo.science
+ybo.trade
+
+// ZaNiC : http://www.za.net/
+// Submitted by registry <hostmaster@nic.za.net>
+za.net
+za.org
+
+// Zeit, Inc. : https://zeit.domains/
+// Submitted by Olli Vanhoja <olli@zeit.co>
+now.sh
+
+// 1GB LLC : https://www.1gb.ua/
+// Submitted by 1GB LLC <noc@1gb.com.ua>
+cc.ua
+inf.ua
+ltd.ua
 
 // ===END PRIVATE DOMAINS===
