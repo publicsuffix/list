@@ -11858,6 +11858,7 @@ router.management
 
 // Wego Pte. Limited : https://www.wego.com
 // Submitted by Xavier Er <xavier@wego.com>
+*.wegostaging.com
 *.wego.com
 wego.ae
 wego.cl
