@@ -11767,6 +11767,10 @@ my-firewall.org
 myfirewall.org
 spdns.org
 
+// SensioLabs, SAS : https://sensiolabs.com/
+// Submitted by Fabien Potencier <fabien.potencier@sensiolabs.com>
+*.sensiosite.cloud
+
 // Service Online LLC : http://drs.ua/
 // Submitted by Serhii Bulakh <support@drs.ua>
 biz.ua
