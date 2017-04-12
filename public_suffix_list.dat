@@ -11469,10 +11469,6 @@ hepforge.org
 herokuapp.com
 herokussl.com
 
-// Hotbox : https://hb.cldmail.ru 
-// Submitted by Ilya Zaretskiy <zaretskiy@corp.mail.ru>
-hb.cldmail.ru 
-
 // Ici la Lune : http://www.icilalune.com/
 // Submitted by Simon Morvan <simon@icilalune.com>
 moonscale.net
@@ -11543,6 +11539,10 @@ edu.krd
 // Magento Commerce
 // Submitted by Damien Tournoud <dtournoud@magento.cloud>
 *.magentosite.cloud
+
+// Mail.Ru Group : https://hb.cldmail.ru 
+// Submitted by Ilya Zaretskiy <zaretskiy@corp.mail.ru>
+hb.cldmail.ru
 
 // Meteor Development Group : https://www.meteor.com/hosting
 // Submitted by Pierre Carrier <pierre@meteor.com>
