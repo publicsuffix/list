@@ -10746,10 +10746,6 @@ cloudns.us
 co.nl
 co.no
 
-// Commerce Guys, SAS
-// Submitted by Damien Tournoud <damien@commerceguys.com>
-*.platform.sh
-
 // COSIMO GmbH http://www.cosimo.de
 // Submitted by Rene Marticke <rmarticke@cosimo.de>
 dyn.cosidns.de
@@ -11727,6 +11723,11 @@ mypep.link
 // Planet-Work : https://www.planet-work.com/
 // Submitted by Frédéric VANNIÈRE <f.vanniere@planet-work.com>
 on-web.fr
+
+// Platform.sh : https://platform.sh
+// Submitted by Nikola Kotur <nikola@platform.sh>
+*.platform.sh
+*.platformsh.site
 
 // prgmr.com : https://prgmr.com/
 // Submitted by Sarah Newman <owner@prgmr.com>
