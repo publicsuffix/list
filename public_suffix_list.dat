@@ -10502,7 +10502,7 @@ beep.pl
 // Submitted by Donavan Miller <donavanm@amazon.com>
 cloudfront.net
 
-// Amazon Elastic Compute Cloud: https://aws.amazon.com/ec2/
+// Amazon Elastic Compute Cloud : https://aws.amazon.com/ec2/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
 *.compute.amazonaws.com
 *.compute-1.amazonaws.com
@@ -10634,7 +10634,7 @@ square7.net
 // Submitted by Dave Tharp <browsersafetymark.io@quicinc.com>
 browsersafetymark.io
 
-// callidomus: https://www.callidomus.com/
+// callidomus : https://www.callidomus.com/
 // Submitted by Marcus Popp <admin@callidomus.com>
 mycd.eu
 
@@ -10746,7 +10746,7 @@ cloudns.us
 co.nl
 co.no
 
-// COSIMO GmbH http://www.cosimo.de
+// COSIMO GmbH : http://www.cosimo.de
 // Submitted by Rene Marticke <rmarticke@cosimo.de>
 dyn.cosidns.de
 dynamisches-dns.de
@@ -11112,7 +11112,7 @@ myhome-server.de
 ddnss.org
 
 // dynv6 : https://dynv6.com
-// Submitted by Dominik Menke <dom@digineo.de> 2016-01-18
+// Submitted by Dominik Menke <dom@digineo.de>
 dynv6.net
 
 // E4YOU spol. s.r.o. : https://e4you.cz/
@@ -11536,7 +11536,7 @@ edu.krd
 // Submitted by Damien Tournoud <dtournoud@magento.cloud>
 *.magentosite.cloud
 
-// Mail.Ru Group : https://hb.cldmail.ru 
+// Mail.Ru Group : https://hb.cldmail.ru
 // Submitted by Ilya Zaretskiy <zaretskiy@corp.mail.ru>
 hb.cldmail.ru
 
@@ -11946,7 +11946,7 @@ remotewd.com
 // Submitted by Yuvi Panda <yuvipanda@wikimedia.org>
 wmflabs.org
 
-// XS4ALL Internet bv: https://www.xs4all.nl/
+// XS4ALL Internet bv : https://www.xs4all.nl/
 // Submitted by Daniel Mostertman <unixbeheer+publicsuffix@xs4all.net>
 xs4all.space
 
