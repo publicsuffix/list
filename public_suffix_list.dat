@@ -10482,6 +10482,15 @@ zuerich
 
 
 // ===END ICANN DOMAINS===
+// ===BEGIN RESERVED DOMAINS===
+
+// Reserved Top Level DNS Names (RFC 2606): https://tools.ietf.org/html/rfc2606
+test
+example
+invalid
+localhost
+
+// ===END RESERVED DOMAINS===
 // ===BEGIN PRIVATE DOMAINS===
 // (Note: these are in alphabetical order by company name)
 
