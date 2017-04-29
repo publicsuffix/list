@@ -295,8 +295,18 @@ org.bb
 store.bb
 tv.bb
 
-// bd : https://en.wikipedia.org/wiki/.bd
-*.bd
+// bd : http://www.registry.com.bd/extensions.aspx
+ac.bd
+co.bd
+com.bd
+edu.bd
+gov.bd
+info.bd
+mil.bd
+net.bd
+org.bd
+tv.bd
+ws.bd
 
 // be : https://en.wikipedia.org/wiki/.be
 // Confirmed by registry <tech@dns.be> 2008-06-08
