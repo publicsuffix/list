@@ -5320,7 +5320,13 @@ org.pf
 edu.pf
 
 // pg : https://en.wikipedia.org/wiki/.pg
-*.pg
+// pg : http://www.unitech.ac.pg/InformationAbout/Services/ICTS/DomainRegistry
+com.pg
+net.pg
+gov.pg
+mil.pg
+org.pg
+ac.pg
 
 // ph : http://www.domains.ph/FAQ2.asp
 // Submitted by registry <jed@email.com.ph>
