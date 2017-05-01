@@ -10519,6 +10519,9 @@ elasticbeanstalk.cn-north-1.amazonaws.com.cn
 *.elb.amazonaws.com
 *.elb.amazonaws.com.cn
 
+// Asuscomm
+asuscomm.com
+
 // Amazon S3 : https://aws.amazon.com/s3/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
 s3.amazonaws.com
