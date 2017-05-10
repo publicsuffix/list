@@ -11121,6 +11121,11 @@ dyn.home-webserver.de
 myhome-server.de
 ddnss.org
 
+// Definima : http://www.definima.com/
+// Submitted by Maxence Bitterli <maxence@definima.com>
+definima.net
+definima.io
+
 // dynv6 : https://dynv6.com
 // Submitted by Dominik Menke <dom@digineo.de> 2016-01-18
 dynv6.net
@@ -11845,9 +11850,5 @@ now.sh
 cc.ua
 inf.ua
 ltd.ua
-
-// Definima : http://www.definima.com/
-// Submitted by Maxence Bitterli <maxence@definima.com>
-definima.net
 
 // ===END PRIVATE DOMAINS===
