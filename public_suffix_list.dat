@@ -11888,6 +11888,10 @@ gdynia.pl
 med.pl
 sopot.pl
 
+// TicketSwap : https://www.ticketswap.com
+// Submitted by Ruud Kamphuis <ruud@ticketswap.com>
+*.ticketswap.pizza
+
 // TownNews.com : http://www.townnews.com
 // Submitted by Dustin Ward <dward@townnews.com>
 bloxcms.com
