@@ -5320,7 +5320,10 @@ org.pf
 edu.pf
 
 // pg : https://en.wikipedia.org/wiki/.pg
-*.pg
+// co.pg : http://www.zispa.org.zw/
+co.zw
+ac.zw
+org.zw
 
 // ph : http://www.domains.ph/FAQ2.asp
 // Submitted by registry <jed@email.com.ph>
