@@ -407,6 +407,7 @@ arq.br
 art.br
 ato.br
 b.br
+belem.br
 bio.br
 blog.br
 bmd.br
@@ -415,6 +416,8 @@ cng.br
 cnt.br
 com.br
 coop.br
+cri.br
+def.br
 ecn.br
 eco.br
 edu.br
@@ -425,6 +428,7 @@ etc.br
 eti.br
 far.br
 flog.br
+floripa.br
 fm.br
 fnd.br
 fot.br
@@ -432,9 +436,38 @@ fst.br
 g12.br
 ggf.br
 gov.br
+// gov.br 26 states + df https://en.wikipedia.org/wiki/States_of_Brazil
+ac.gov.br
+al.gov.br
+am.gov.br
+ap.gov.br
+ba.gov.br
+ce.gov.br
+df.gov.br
+es.gov.br
+go.gov.br
+ma.gov.br
+mg.gov.br
+ms.gov.br
+mt.gov.br
+pa.gov.br
+pb.gov.br
+pe.gov.br
+pi.gov.br
+pr.gov.br
+rj.gov.br
+rn.gov.br
+ro.gov.br
+rr.gov.br
+rs.gov.br
+sc.gov.br
+se.gov.br
+sp.gov.br
+to.gov.br
 imb.br
 ind.br
 inf.br
+jampa.br
 jor.br
 jus.br
 leg.br
@@ -450,6 +483,7 @@ not.br
 ntr.br
 odo.br
 org.br
+poa.br
 ppg.br
 pro.br
 psc.br
@@ -457,6 +491,7 @@ psi.br
 qsl.br
 radio.br
 rec.br
+recife.br
 slg.br
 srv.br
 taxi.br
@@ -466,6 +501,7 @@ trd.br
 tur.br
 tv.br
 vet.br
+vix.br
 vlog.br
 wiki.br
 zlg.br
