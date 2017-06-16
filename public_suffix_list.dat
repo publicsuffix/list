@@ -11542,6 +11542,12 @@ knightpoint.systems
 co.krd
 edu.krd
 
+// LCube - Professional hosting e.K. : https://www.lcube-webhosting.de
+// Submitted by Lars Laehn <info@lcube.de>
+lcube-server.de
+svn-repos.de
+git-repos.de
+
 // Magento Commerce
 // Submitted by Damien Tournoud <dtournoud@magento.cloud>
 *.magentosite.cloud
@@ -11988,11 +11994,5 @@ now.sh
 cc.ua
 inf.ua
 ltd.ua
-
-// LCube - Professional hosting e.K. : https://www.lcube-webhosting.de
-// Submitted by Lars Laehn <info@lcube.de>
-lcube-server.de
-svn-repos.de
-git-repos.de
 
 // ===END PRIVATE DOMAINS===
