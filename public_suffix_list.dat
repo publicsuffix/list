@@ -11970,6 +11970,13 @@ gdynia.pl
 med.pl
 sopot.pl
 
+// Thingdust AG : https://thingdust.com/
+// Submitted by Adrian Imboden <adi@thingdust.com>
+cust.dev.thingdust.io
+cust.disrec.thingdust.io
+cust.prod.thingdust.io
+cust.testing.thingdust.io
+
 // TownNews.com : http://www.townnews.com
 // Submitted by Dustin Ward <dward@townnews.com>
 bloxcms.com
