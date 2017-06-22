@@ -11405,11 +11405,6 @@ service.gov.uk
 // Submitted by Patrick Toomey <security@github.com>
 github.io
 githubusercontent.com
-githubcloud.com
-*.api.githubcloud.com
-*.ext.githubcloud.com
-gist.githubcloud.com
-*.githubcloudusercontent.com
 
 // GitLab, Inc.
 // Submitted by Alex Hanselka <alex@gitlab.com>
