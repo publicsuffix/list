@@ -6593,6 +6593,9 @@ yt
 // xn--54b7fta0cc ("Bangla", Bangla) : BD
 বাংলা
 
+// xn--90ae ("bg", Bulgarian) : BG
+БГ
+
 // xn--90ais ("bel", Belarusian/Russian Cyrillic) : BY
 // Operated by .by registry
 бел
@@ -6627,6 +6630,34 @@ yt
 // xn--j6w193g ("Hong Kong", Chinese) : HK
 // https://www2.hkirc.hk/register/rules.jsp
 香港
+
+// xn--2scrj9c ("Bharat", Kannada) : IN
+// India
+ಭಾರತ
+
+// xn--3hcrj9c ("Bharat", Oriya) : IN
+// India
+ଭାରତ
+
+// xn--45br5cyl ("Bharatam", Assamese) : IN
+// India
+ভাৰত
+
+// xn--h2breg3eve ("Bharatam", Sanskrit) : IN
+// India
+भारतम्
+
+// xn--h2brj9c8c ("Bharot", Santali) : IN
+// India
+भारोत
+
+// xn--mgbgu82a ("Bharat", Sindhi) : IN
+// India
+ڀارت
+
+// xn--rvc1e0am3e ("Bharatam", Malayalam) : IN
+// India
+ഭാരതം
 
 // xn--h2brj9c ("Bharat", Devanagari) : IN
 // India
