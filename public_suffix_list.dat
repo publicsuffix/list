@@ -399,9 +399,11 @@ tv.bo
 // br : http://registro.br/dominio/categoria.html
 // Submitted by registry <fneves@registro.br>
 br
+abc.br
 adm.br
 adv.br
 agr.br
+aju.br
 am.br
 arq.br
 art.br
@@ -411,12 +413,14 @@ belem.br
 bio.br
 blog.br
 bmd.br
+bsb.br
 cim.br
 cng.br
 cnt.br
 com.br
 coop.br
 cri.br
+cuiaba.br
 def.br
 ecn.br
 eco.br
@@ -472,17 +476,21 @@ jor.br
 jus.br
 leg.br
 lel.br
+macapa.br
+maceio.br
 mat.br
 med.br
 mil.br
 mp.br
 mus.br
+natal.br
 net.br
 *.nom.br
 not.br
 ntr.br
 odo.br
 org.br
+osasco.br
 poa.br
 ppg.br
 pro.br
@@ -490,8 +498,11 @@ psc.br
 psi.br
 qsl.br
 radio.br
+rio.br
+riobranco.br
 rec.br
 recife.br
+sjc.br
 slg.br
 srv.br
 taxi.br
@@ -500,6 +511,7 @@ tmp.br
 trd.br
 tur.br
 tv.br
+udi.br
 vet.br
 vix.br
 vlog.br
