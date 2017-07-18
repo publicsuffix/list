@@ -12141,6 +12141,10 @@ lima.zone
 *.transurl.eu
 *.transurl.nl
 
+// Tucha : https://tuchacloud.com/
+// Submitted by Vladimir Melnik <info@tuchacloud.com>
+tuchacloud.com
+
 // TuxFamily : http://tuxfamily.org
 // Submitted by TuxFamily administrators <adm@staff.tuxfamily.org>
 tuxfamily.org
