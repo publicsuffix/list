@@ -11454,6 +11454,10 @@ futuremailing.at
 *.kunden.ortsinfo.at
 *.statics.cloud
 
+// Gaggle Mail : https://gaggle.email
+// Submitted by Simon Hutton <help@gaggle.email>
+gaggle.email
+
 // GDS : https://www.gov.uk/service-manual/operations/operating-servicegovuk-subdomains
 // Submitted by David Illsley <david.illsley@digital.cabinet-office.gov.uk>
 service.gov.uk
