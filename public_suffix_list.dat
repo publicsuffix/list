@@ -6489,6 +6489,17 @@ lib.wy.us
 pvt.k12.ma.us
 chtr.k12.ma.us
 paroch.k12.ma.us
+// Merit Network, Inc. maintains the registry for =~ /(k12|cc|lib).mi.us/ and the following
+//    see also: http://domreg.merit.edu
+//    see also: whois -h whois.domreg.merit.edu help
+ann-arbor.mi.us
+cog.mi.us
+dst.mi.us
+eaton.mi.us
+gen.mi.us
+mus.mi.us
+tec.mi.us
+washtenaw.mi.us
 
 // uy : http://www.nic.org.uy/
 uy
@@ -10599,8 +10610,23 @@ us-east-1.amazonaws.com
 
 // Amazon Elastic Beanstalk : https://aws.amazon.com/elasticbeanstalk/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
-elasticbeanstalk.cn-north-1.amazonaws.com.cn
-*.elasticbeanstalk.com
+cn-north-1.eb.amazonaws.com.cn
+elasticbeanstalk.com
+ap-northeast-1.elasticbeanstalk.com
+ap-northeast-2.elasticbeanstalk.com
+ap-south-1.elasticbeanstalk.com
+ap-southeast-1.elasticbeanstalk.com
+ap-southeast-2.elasticbeanstalk.com
+ca-central-1.elasticbeanstalk.com
+eu-central-1.elasticbeanstalk.com
+eu-west-1.elasticbeanstalk.com
+eu-west-2.elasticbeanstalk.com
+sa-east-1.elasticbeanstalk.com
+us-east-1.elasticbeanstalk.com
+us-east-2.elasticbeanstalk.com
+us-gov-west-1.elasticbeanstalk.com
+us-west-1.elasticbeanstalk.com
+us-west-2.elasticbeanstalk.com
 
 // Amazon Elastic Load Balancing : https://aws.amazon.com/elasticloadbalancing/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
@@ -11415,6 +11441,10 @@ vladikavkaz.su
 vladimir.su
 vologda.su
 
+// Fancy Bits, LLC : http://getchannels.com
+// Submitted by Aman Gupta <aman@getchannels.com>
+channelsdvr.net
+
 // Fastly Inc. : http://www.fastly.com/
 // Submitted by Fastly Security <security@fastly.com>
 fastlylb.net
@@ -11647,6 +11677,10 @@ sc.leg.br
 se.leg.br
 sp.leg.br
 to.leg.br
+
+// intermetrics GmbH : https://pixolino.com/
+// Submitted by Wolfgang Schwarz <admin@intermetrics.de>
+pixolino.com
 
 // IPiFony Systems, Inc. : https://www.ipifony.com/
 // Submitted by Matthew Hardeman <mhardeman@ipifony.com>
@@ -12199,10 +12233,15 @@ lib.de.us
 // Submitted by Simon Kissel <hostmaster@viprinet.com>
 router.management
 
+// Virtual-Info : https://www.virtual-info.info/
+// Submitted by Adnan RIHAN <hostmaster@v-info.info>
+v-info.info
+
 // WeDeploy by Liferay, Inc. : https://www.wedeploy.com
 // Submitted by Henrique Vicente <security@wedeploy.com>
 wedeploy.io
 wedeploy.me
+wedeploy.sh
 
 // Western Digital Technologies, Inc : https://www.wdc.com
 // Submitted by Jung Jin <jungseok.jin@wdc.com>
