@@ -1416,6 +1416,10 @@ at.it
 av.it
 avellino.it
 ba.it
+balsan-sudtirol.it
+// balsan-südtirol.it
+xn--balsan-sdtirol-nsb.it
+balsan-suedtirol.it
 balsan.it
 bari.it
 barletta-trani-andria.it
@@ -1430,13 +1434,23 @@ bl.it
 bn.it
 bo.it
 bologna.it
+bolzano-altoadige.it
 bolzano.it
+bozen-sudtirol.it
+// bozen-südtirol.it
+xn--bozen-sdtirol-2ob.it
+bozen-suedtirol.it
 bozen.it
 br.it
 brescia.it
 brindisi.it
 bs.it
 bt.it
+bulsan-sudtirol.it
+// bulsan-südtirol.it
+xn--bulsan-sdtirol-nsb.it
+bulsan-suedtirol.it
+bulsan.it
 bz.it
 ca.it
 cagliari.it
@@ -1454,7 +1468,11 @@ catanzaro.it
 cb.it
 ce.it
 cesena-forli.it
+// cesena-forlì.it
+xn--cesena-forl-mcb.it
 cesenaforli.it
+// cesenaforlì.it
+xn--cesenaforl-i8a.it
 ch.it
 chieti.it
 ci.it
@@ -1485,7 +1503,11 @@ florence.it
 fm.it
 foggia.it
 forli-cesena.it
+// forlì-cesena.it
+xn--forl-cesena-fcb.it
 forlicesena.it
+// forlìcesena.it
+xn--forlcesena-c8a.it
 fr.it
 frosinone.it
 ge.it
@@ -1616,6 +1638,8 @@ sp.it
 sr.it
 ss.it
 suedtirol.it
+// südtirol.it
+xn--sdtirol-n2a.it
 sv.it
 ta.it
 taranto.it
