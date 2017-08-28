@@ -1259,10 +1259,8 @@ int.is
 it
 gov.it
 edu.it
-// Reserved geo-names:
-// http://www.nic.it/documenti/regolamenti-e-linee-guida/regolamento-assegnazione-versione-6.0.pdf
-// There is also a list of reserved geo-names corresponding to Italian municipalities
-// http://www.nic.it/documenti/appendice-c.pdf, but it is not included here.
+// Reserved geo-names (regions and provinces):
+// http://www.nic.it/sites/default/files/docs/Regulation_assignation_v7.1.pdf
 // Regions
 abr.it
 abruzzo.it
@@ -1316,6 +1314,14 @@ sicily.it
 taa.it
 tos.it
 toscana.it
+trentin-sud-tirol.it
+// trentin-süd-tirol.it
+xn--trentin-sd-tirol-rzb.it
+trentin-sudtirol.it
+// trentin-südtirol.it
+xn--trentin-sdtirol-7vb.it
+trentin-sued-tirol.it
+trentin-suedtirol.it
 trentino-a-adige.it
 trentino-aadige.it
 trentino-alto-adige.it
@@ -1323,9 +1329,14 @@ trentino-altoadige.it
 trentino-s-tirol.it
 trentino-stirol.it
 trentino-sud-tirol.it
+// trentino-süd-tirol.it
+xn--trentino-sd-tirol-c3b.it
 trentino-sudtirol.it
+// trentino-südtirol.it
+xn--trentino-sdtirol-szb.it
 trentino-sued-tirol.it
 trentino-suedtirol.it
+trentino.it
 trentinoa-adige.it
 trentinoaadige.it
 trentinoalto-adige.it
@@ -1333,9 +1344,21 @@ trentinoaltoadige.it
 trentinos-tirol.it
 trentinostirol.it
 trentinosud-tirol.it
+// trentinosüd-tirol.it
+xn--trentinosd-tirol-rzb.it
 trentinosudtirol.it
+// trentinosüdtirol.it
+xn--trentinosdtirol-7vb.it
 trentinosued-tirol.it
 trentinosuedtirol.it
+trentinsud-tirol.it
+// trentinsüd-tirol.it
+xn--trentinsd-tirol-6vb.it
+trentinsudtirol.it
+// trentinsüdtirol.it
+xn--trentinsdtirol-nsb.it
+trentinsued-tirol.it
+trentinsuedtirol.it
 tuscany.it
 umb.it
 umbria.it
@@ -1350,7 +1373,17 @@ valleaosta.it
 valled-aosta.it
 valledaosta.it
 vallee-aoste.it
+// vallée-aoste.it
+xn--valle-aoste-ebb.it
+vallee-d-aoste.it
+// vallée-d-aoste.it
+xn--valle-d-aoste-ehb.it
 valleeaoste.it
+// valléeaoste.it
+xn--valleaoste-e7a.it
+valleedaoste.it
+// valléedaoste.it
+xn--valledaoste-ebb.it
 vao.it
 vda.it
 ven.it
@@ -1601,7 +1634,6 @@ trani-barletta-andria.it
 traniandriabarletta.it
 tranibarlettaandria.it
 trapani.it
-trentino.it
 trento.it
 treviso.it
 trieste.it
