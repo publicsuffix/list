@@ -5697,6 +5697,8 @@ sch.qa
 re
 asso.re
 com.re
+// Association Alsace Réseau Neutre: https://www.arn-fai.net
+// Submitted by Philippe Pittoli <admins@arn-fai.net>
 netlib.re
 nom.re
 
