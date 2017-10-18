@@ -11636,14 +11636,12 @@ hepforge.org
 herokuapp.com
 herokussl.com
 
-
 // Hibernating Rhinos
 // Submitted by Oren Eini <oren@ravendb.net>
 *.dbs.ravendb.net
 *.live.ravendb.net
 *.local.ravendb.net
 *.dbs.local.ravendb.net
-
 
 // Ici la Lune : http://www.icilalune.com/
 // Submitted by Simon Morvan <simon@icilalune.com>
