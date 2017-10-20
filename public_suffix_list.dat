@@ -11461,6 +11461,11 @@ a.ssl.fastly.net
 b.ssl.fastly.net
 global.ssl.fastly.net
 
+// FASTVPS EESTI OU : https://fastvps.ru/
+// Submitted by Likhachev Vasiliy <lihachev@fastvps.ru>
+fastpanel.direct
+fastvps-server.com
+
 // Featherhead : https://featherhead.xyz/
 // Submitted by Simon Menke <simon@featherhead.xyz>
 fhapp.xyz
