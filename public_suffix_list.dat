@@ -10869,6 +10869,10 @@ cloudns.pro
 cloudns.pw
 cloudns.us
 
+// Code404 S.L. : http://code404.es
+// Submitted by Aleix Canal <contact@code404.es>
+*.d.gt
+
 // CoDNS B.V.
 co.nl
 co.no
