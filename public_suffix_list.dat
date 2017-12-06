@@ -1197,11 +1197,6 @@ or.id
 sch.id
 web.id
 
-// zone.id : https://zone.id
-// Submitted by Su Hendro <admin@zone.id>
-zone.id
-*.zone.id
-
 // ie : https://en.wikipedia.org/wiki/.ie
 ie
 gov.ie
@@ -12289,5 +12284,9 @@ za.org
 // Zeit, Inc. : https://zeit.domains/
 // Submitted by Olli Vanhoja <olli@zeit.co>
 now.sh
+
+// Zone.id : https://zone.id/
+// Submitted by Su Hendro <admin@zone.id>
+zone.id
 
 // ===END PRIVATE DOMAINS===
