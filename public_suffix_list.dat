@@ -12107,6 +12107,7 @@ spdns.org
 
 // SensioLabs, SAS : https://sensiolabs.com/
 // Submitted by Fabien Potencier <fabien.potencier@sensiolabs.com>
+*.s5y.io
 *.sensiosite.cloud
 
 // Service Online LLC : http://drs.ua/
