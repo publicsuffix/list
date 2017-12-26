@@ -384,17 +384,50 @@ org.bm
 // bn : https://en.wikipedia.org/wiki/.bn
 *.bn
 
-// bo : http://www.nic.bo/
+// bo : https://nic.bo/delegacion2015.php#h-1.10
 bo
 com.bo
 edu.bo
-gov.bo
 gob.bo
 int.bo
 org.bo
 net.bo
 mil.bo
 tv.bo
+web.bo
+// Social Domains 
+academia.bo
+agro.bo
+arte.bo
+blog.bo
+bolivia.bo
+ciencia.bo
+cooperativa.bo
+democracia.bo
+deporte.bo
+ecologia.bo
+economia.bo
+empresa.bo
+indigena.bo
+industria.bo
+info.bo
+medicina.bo
+movimiento.bo
+musica.bo
+natural.bo
+nombre.bo
+noticias.bo
+patria.bo
+politica.bo
+profesional.bo
+plurinacional.bo
+pueblo.bo
+revista.bo
+salud.bo
+tecnologia.bo
+tksat.bo
+transporte.bo
+wiki.bo
 
 // br : http://registro.br/dominio/categoria.html
 // Submitted by registry <fneves@registro.br>
@@ -411,14 +444,19 @@ art.br
 ato.br
 b.br
 belem.br
+bhz.br
 bio.br
 blog.br
 bmd.br
+boavista.br
 bsb.br
+campinas.br
+caxias.br
 cim.br
 cng.br
 cnt.br
 com.br
+contagem.br
 coop.br
 cri.br
 cuiaba.br
@@ -432,15 +470,17 @@ esp.br
 etc.br
 eti.br
 far.br
+feira.br
 flog.br
 floripa.br
-fortal.br
 fm.br
 fnd.br
+fortal.br
 fot.br
 fst.br
 g12.br
 ggf.br
+goiania.br
 gov.br
 // gov.br 26 states + df https://en.wikipedia.org/wiki/States_of_Brazil
 ac.gov.br
@@ -474,7 +514,10 @@ gru.br
 imb.br
 ind.br
 inf.br
+jab.br
 jampa.br
+jdf.br
+joinville.br
 jor.br
 jus.br
 leg.br
@@ -485,6 +528,7 @@ maceio.br
 mat.br
 med.br
 mil.br
+morena.br
 mp.br
 mus.br
 natal.br
@@ -502,16 +546,24 @@ ppg.br
 pro.br
 psc.br
 psi.br
+pvh.br
 qsl.br
 radio.br
 rec.br
 recife.br
+ribeirao.br
+rio.br
 riobranco.br
+salvador.br
+sampa.br
 sjc.br
 slg.br
+slz.br
+sorocaba.br
 srv.br
 taxi.br
 teo.br
+the.br
 tmp.br
 trd.br
 tur.br
@@ -7501,9 +7553,6 @@ cheap
 // chintai : 2015-06-11 CHINTAI Corporation
 chintai
 
-// chloe : 2014-10-16 Richemont DNS Inc.
-chloe
-
 // christmas : 2013-11-21 Uniregistry, Corp.
 christmas
 
@@ -8374,9 +8423,6 @@ how
 // hsbc : 2014-10-24 HSBC Holdings PLC
 hsbc
 
-// htc : 2015-04-02 HTC corporation
-htc
-
 // hughes : 2015-07-30 Hughes Satellite Systems Corporation
 hughes
 
@@ -8830,12 +8876,6 @@ mattel
 // mba : 2015-04-02 Lone Hollow, LLC
 mba
 
-// mcd : 2015-07-30 McDonald’s Corporation
-mcd
-
-// mcdonalds : 2015-07-30 McDonald’s Corporation
-mcdonalds
-
 // mckinsey : 2015-07-31 McKinsey Holdings, Inc.
 mckinsey
 
@@ -8925,9 +8965,6 @@ money
 
 // monster : 2015-09-11 Monster Worldwide, Inc.
 monster
-
-// montblanc : 2014-06-23 Richemont DNS Inc.
-montblanc
 
 // mopar : 2015-07-30 FCA US LLC.
 mopar
@@ -9159,9 +9196,6 @@ ovh
 
 // page : 2014-12-04 Charleston Road Registry Inc.
 page
-
-// pamperedchef : 2015-02-05 The Pampered Chef, Ltd.
-pamperedchef
 
 // panasonic : 2015-07-30 Panasonic Corporation
 panasonic
@@ -10584,6 +10618,12 @@ cc.ua
 inf.ua
 ltd.ua
 
+// AgileBits Inc : https://agilebits.com
+// Submitted by Roustem Karimov <roustem@agilebits.com>
+1password.ca
+1password.com
+1password.eu
+
 // Agnat sp. z o.o. : https://domena.pl
 // Submitted by Przemyslaw Plewa <it-admin@domena.pl>
 beep.pl
@@ -10595,7 +10635,7 @@ beep.pl
 
 // alwaysdata : https://www.alwaysdata.com
 // Submitted by Cyril <admin@alwaysdata.com>
-*.alwaysdata.net
+alwaysdata.net
 
 // Amazon CloudFront : https://aws.amazon.com/cloudfront/
 // Submitted by Donavan Miller <donavanm@amazon.com>
@@ -10871,6 +10911,11 @@ cloudns.us
 // CoDNS B.V.
 co.nl
 co.no
+
+// Combell.com : https://www.combell.com
+// Submitted by Thomas Wouters <thomas.wouters@combellgroup.com>
+webhosting.be
+hosting-cluster.nl
 
 // COSIMO GmbH : http://www.cosimo.de
 // Submitted by Rene Marticke <rmarticke@cosimo.de>
@@ -11470,6 +11515,8 @@ fhapp.xyz
 fedorainfracloud.org
 fedorapeople.org
 cloud.fedoraproject.org
+app.os.fedoraproject.org
+app.os.stg.fedoraproject.org
 
 // Filegear Inc. : https://www.filegear.com
 // Submitted by Jason Zhu <jason@owtware.com>
@@ -11782,6 +11829,10 @@ netlify.com
 // Submitted by Alan Shreve <alan@ngrok.com>
 ngrok.io
 
+// Nimbus Hosting Ltd. : https://www.nimbushosting.co.uk/
+// Submitted by Nicholas Ford <nick@nimbushosting.co.uk>
+nh-serv.co.uk
+
 // NFSN, Inc. : https://www.NearlyFreeSpeech.NET/
 // Submitted by Jeff Wheelhouse <support@nearlyfreespeech.net>
 nfshost.com
@@ -12039,6 +12090,11 @@ rackmaze.net
 // Submitted by Tim Kramer <tkramer@rhcloud.com>
 rhcloud.com
 
+// Resin.io : https://resin.io
+// Submitted by Tim Perry <tim@resin.io>
+resindevice.io
+devices.resinstaging.io
+
 // RethinkDB : https://www.rethinkdb.com/
 // Submitted by Chris Kastorff <info@rethinkdb.com>
 hzc.io
@@ -12062,6 +12118,10 @@ logoip.com
 // Submitted by Hanno Böck <hanno@schokokeks.org>
 schokokeks.net
 
+// Scry Security : http://www.scrysec.com
+// Submitted by Shante Adam <shante@skyhat.io>
+scrysec.com
+
 // Securepoint GmbH : https://www.securepoint.de
 // Submitted by Erik Anders <erik.anders@securepoint.de>
 firewall-gateway.com
@@ -12077,6 +12137,7 @@ spdns.org
 
 // SensioLabs, SAS : https://sensiolabs.com/
 // Submitted by Fabien Potencier <fabien.potencier@sensiolabs.com>
+*.s5y.io
 *.sensiosite.cloud
 
 // Service Online LLC : http://drs.ua/
