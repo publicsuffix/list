@@ -11638,6 +11638,8 @@ herokussl.com
 
 // Hibernating Rhinos
 // Submitted by Oren Eini <oren@ravendb.net>
+ravendb.me
+myravendb.com
 *.dbs.ravendb.net
 *.live.ravendb.net
 *.local.ravendb.net
