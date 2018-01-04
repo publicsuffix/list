@@ -10644,7 +10644,7 @@ cloudfront.net
 // Amazon Elastic Compute Cloud : https://aws.amazon.com/ec2/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
 *.compute.amazonaws.com
-*.compute-1.amazonaws.com
+compute-1.amazonaws.com
 *.compute.amazonaws.com.cn
 us-east-1.amazonaws.com
 
