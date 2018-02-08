@@ -10907,16 +10907,16 @@ cloudcontrolapp.com
 
 // Cloud Optimized SMB LLC : https://www.cloudoptimizedsmb.com/
 // Submitted by Glenn McGurrin <psl-maintainers@cloudoptimizedsmb.com>
+client.cloud-optimized.com
 clnt-infra.cloud-optimized.com
+client.hostinfr.com
+remoting.io
+*.remoting.io
 hostcdn.net
 *.hostcdn.net
 *.*.hostcdn.net
-client.hostinfr.com
 client.hostinfr.net
-client.cloud-optimized.com
 client.cloud-optimized.website
-remoting.io
-*.remoting.io
 
 // co.ca : http://registry.co.ca/
 co.ca
