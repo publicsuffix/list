@@ -33,3 +33,6 @@ libpsl-libidn2: libpsl-config
 # TEST PSL data with libidn (IDNA2003)
 libpsl-libidn: libpsl-config
 	cd libpsl && ./configure -q -C --enable-runtime=libidn --enable-builtin=libidn $(Options) && make -s clean && make -s check -j4
+
+make checkdns:
+	./tests/check_dns.sh -v

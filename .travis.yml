@@ -1,7 +1,9 @@
 language: c
 compiler: gcc
 
-script: make
+script:
+  - make
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then make checkdns; fi'
 
 addons:
     apt:
