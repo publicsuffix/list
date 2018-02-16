@@ -20,4 +20,5 @@ addons:
             - libicu-dev
             - libunistring0
             - libunistring-dev
+            - dnsutils
 
