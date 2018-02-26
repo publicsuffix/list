@@ -1735,7 +1735,11 @@ mil.jo
 name.jo
 
 // jobs : https://en.wikipedia.org/wiki/.jobs
+// Company : Employ Media, LLC.
+// Submitted by John Winkler <jwinkler@find.jobs>
 jobs
+// Main jobs property
+find.jobs
 
 // jp : https://en.wikipedia.org/wiki/.jp
 // http://jprs.co.jp/en/jpdomain.html
