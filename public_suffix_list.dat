@@ -1297,6 +1297,10 @@ info
 int
 eu.int
 
+//Upenn: https://upenn.edu
+//Submitted by Andrew Hojnowski <amh5366@upenn.edu> 
+*.isc.upenn.edu
+
 // io : http://www.nic.io/rules.html
 // list of other 2nd level tlds ?
 io
