@@ -11765,6 +11765,14 @@ pixolino.com
 // Submitted by Matthew Hardeman <mhardeman@ipifony.com>
 ipifony.net
 
+// Jino : https://www.jino.ru
+// Submitted by Sergey Ulyashin <ulyashin@jino.ru>
+myjino.ru
+*.hosting.myjino.ru
+*.landing.myjino.ru
+*.spectrum.myjino.ru
+*.vps.myjino.ru
+
 // Joyent : https://www.joyent.com/
 // Submitted by Brian Bennett <brian.bennett@joyent.com>
 *.triton.zone
