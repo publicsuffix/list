@@ -5502,6 +5502,7 @@ mil.pl
 nieruchomosci.pl
 nom.pl
 pc.pl
+nf.pl
 powiat.pl
 priv.pl
 realestate.pl
@@ -5752,6 +5753,7 @@ int.pt
 publ.pt
 com.pt
 nome.pt
+co.pt
 
 // pw : https://en.wikipedia.org/wiki/.pw
 pw
