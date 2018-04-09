@@ -5973,10 +5973,6 @@ com.so
 net.so
 org.so
 
-// Linki Tools UG : https://linki.tools
-// Submitted by Paulo Matos <pmatos@linki.tools>
-linkitools.space
-
 // sr : https://en.wikipedia.org/wiki/.sr
 sr
 
@@ -11803,6 +11799,10 @@ edu.krd
 git-repos.de
 lcube-server.de
 svn-repos.de
+
+// Linki Tools UG : https://linki.tools
+// Submitted by Paulo Matos <pmatos@linki.tools>
+linkitools.space
 
 // linkyard ldt: https://www.linkyard.ch/
 // Submitted by Mario Siegenthaler <mario.siegenthaler@linkyard.ch>
