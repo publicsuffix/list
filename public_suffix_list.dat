@@ -10924,6 +10924,10 @@ cloudcontrolapp.com
 // co.ca : http://registry.co.ca/
 co.ca
 
+// Co & Co : https://co-co.nl/
+// Submitted by Govert Versluis <govert@co-co.nl>
+*.otap.co
+
 // i-registry s.r.o. : http://www.i-registry.cz/
 // Submitted by Martin Semrad <semrad@i-registry.cz>
 co.cz
