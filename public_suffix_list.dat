@@ -6189,9 +6189,6 @@ nc.tr
 // Used by government agencies of Northern Cyprus
 gov.nc.tr
 
-// travel : https://en.wikipedia.org/wiki/.travel
-travel
-
 // tt : http://www.nic.tt/
 tt
 co.tt
@@ -7248,7 +7245,7 @@ auspost
 // author : 2014-12-18 Amazon Registry Services, Inc.
 author
 
-// auto : 2014-11-13 Cars Registry Limited 
+// auto : 2014-11-13 Cars Registry Limited
 auto
 
 // autos : 2014-01-09 DERAutos, LLC
@@ -7530,7 +7527,7 @@ capital
 // capitalone : 2015-08-06 Capital One Financial Corporation
 capitalone
 
-// car : 2015-01-22 Cars Registry Limited 
+// car : 2015-01-22 Cars Registry Limited
 car
 
 // caravan : 2013-12-12 Caravan International, Inc.
@@ -7548,7 +7545,7 @@ career
 // careers : 2013-10-02 Binky Moon, LLC
 careers
 
-// cars : 2014-11-13 Cars Registry Limited 
+// cars : 2014-11-13 Cars Registry Limited
 cars
 
 // cartier : 2014-06-23 Richemont DNS Inc.
