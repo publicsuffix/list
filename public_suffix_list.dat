@@ -11642,6 +11642,8 @@ freeboxos.fr
 // Futureweb OG : http://www.futureweb.at
 // Submitted by Andreas Schnederle-Wagner <schnederle@futureweb.at>
 *.futurecms.at
+*.ex.futurecms.at
+*.in.futurecms.at
 futurehosting.at
 futuremailing.at
 *.ex.ortsinfo.at
