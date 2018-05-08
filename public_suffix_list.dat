@@ -7029,7 +7029,7 @@ org.zw
 
 
 // newGTLDs
-// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2018-04-18T19:16:57Z
+// List of new gTLDs imported from https://newgtlds.icann.org/newgtlds.csv on 2018-05-08T19:40:37Z
 // This list is auto-generated, don't edit it manually.
 
 // aaa : 2015-02-26 American Automobile Association, Inc.
@@ -7749,7 +7749,7 @@ cookingchannel
 // cool : 2013-11-14 Binky Moon, LLC
 cool
 
-// corsica : 2014-09-25 Collectivité Territoriale de Corse
+// corsica : 2014-09-25 Collectivité de Corse
 corsica
 
 // country : 2013-12-19 DotCountry LLC
@@ -9117,7 +9117,7 @@ netflix
 // network : 2013-11-14 Binky Moon, LLC
 network
 
-// neustar : 2013-12-05 NeuStar, Inc.
+// neustar : 2013-12-05 Registry Services, LLC
 neustar
 
 // new : 2014-01-30 Charleston Road Registry Inc.
@@ -10082,6 +10082,9 @@ trading
 
 // training : 2013-11-07 Binky Moon, LLC
 training
+
+// travel :  Dog Beach, LLC
+travel
 
 // travelchannel : 2015-07-02 Lifestyle Domain Holdings, Inc.
 travelchannel
