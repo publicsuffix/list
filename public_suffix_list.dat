@@ -1341,10 +1341,8 @@ int.is
 it
 gov.it
 edu.it
-// Reserved geo-names:
-// http://www.nic.it/documenti/regolamenti-e-linee-guida/regolamento-assegnazione-versione-6.0.pdf
-// There is also a list of reserved geo-names corresponding to Italian municipalities
-// http://www.nic.it/documenti/appendice-c.pdf, but it is not included here.
+// Reserved geo-names (regions and provinces):
+// http://www.nic.it/sites/default/files/docs/Regulation_assignation_v7.1.pdf
 // Regions
 abr.it
 abruzzo.it
@@ -1398,6 +1396,12 @@ sicily.it
 taa.it
 tos.it
 toscana.it
+trentin-sud-tirol.it
+trentin-süd-tirol.it
+trentin-sudtirol.it
+trentin-südtirol.it
+trentin-sued-tirol.it
+trentin-suedtirol.it
 trentino-a-adige.it
 trentino-aadige.it
 trentino-alto-adige.it
@@ -1405,9 +1409,12 @@ trentino-altoadige.it
 trentino-s-tirol.it
 trentino-stirol.it
 trentino-sud-tirol.it
+trentino-süd-tirol.it
 trentino-sudtirol.it
+trentino-südtirol.it
 trentino-sued-tirol.it
 trentino-suedtirol.it
+trentino.it
 trentinoa-adige.it
 trentinoaadige.it
 trentinoalto-adige.it
@@ -1415,9 +1422,17 @@ trentinoaltoadige.it
 trentinos-tirol.it
 trentinostirol.it
 trentinosud-tirol.it
+trentinosüd-tirol.it
 trentinosudtirol.it
+trentinosüdtirol.it
 trentinosued-tirol.it
 trentinosuedtirol.it
+trentinsud-tirol.it
+trentinsüd-tirol.it
+trentinsudtirol.it
+trentinsüdtirol.it
+trentinsued-tirol.it
+trentinsuedtirol.it
 tuscany.it
 umb.it
 umbria.it
@@ -1432,7 +1447,13 @@ valleaosta.it
 valled-aosta.it
 valledaosta.it
 vallee-aoste.it
+vallée-aoste.it
+vallee-d-aoste.it
+vallée-d-aoste.it
 valleeaoste.it
+valléeaoste.it
+valleedaoste.it
+valléedaoste.it
 vao.it
 vda.it
 ven.it
@@ -1465,6 +1486,9 @@ at.it
 av.it
 avellino.it
 ba.it
+balsan-sudtirol.it
+balsan-südtirol.it
+balsan-suedtirol.it
 balsan.it
 bari.it
 barletta-trani-andria.it
@@ -1479,13 +1503,21 @@ bl.it
 bn.it
 bo.it
 bologna.it
+bolzano-altoadige.it
 bolzano.it
+bozen-sudtirol.it
+bozen-südtirol.it
+bozen-suedtirol.it
 bozen.it
 br.it
 brescia.it
 brindisi.it
 bs.it
 bt.it
+bulsan-sudtirol.it
+bulsan-südtirol.it
+bulsan-suedtirol.it
+bulsan.it
 bz.it
 ca.it
 cagliari.it
@@ -1503,7 +1535,9 @@ catanzaro.it
 cb.it
 ce.it
 cesena-forli.it
+cesena-forlì.it
 cesenaforli.it
+cesenaforlì.it
 ch.it
 chieti.it
 ci.it
@@ -1534,7 +1568,9 @@ florence.it
 fm.it
 foggia.it
 forli-cesena.it
+forlì-cesena.it
 forlicesena.it
+forlìcesena.it
 fr.it
 frosinone.it
 ge.it
@@ -1665,6 +1701,7 @@ sp.it
 sr.it
 ss.it
 suedtirol.it
+südtirol.it
 sv.it
 ta.it
 taranto.it
@@ -1683,7 +1720,6 @@ trani-barletta-andria.it
 traniandriabarletta.it
 tranibarlettaandria.it
 trapani.it
-trentino.it
 trento.it
 treviso.it
 trieste.it
