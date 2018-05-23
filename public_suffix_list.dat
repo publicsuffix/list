@@ -1114,8 +1114,18 @@ mil.gt
 net.gt
 org.gt
 
-// gu : http://gadao.gov.gu/registration.txt
-*.gu
+// gu : http://gadao.gov.gu/register.html
+// University of Guam : https://www.uog.edu
+// Submitted by uognoc@triton.uog.edu
+gu
+com.gu
+edu.gu
+gov.gu
+guam.gu
+info.gu
+net.gu
+org.gu
+web.gu
 
 // gw : https://en.wikipedia.org/wiki/.gw
 gw
