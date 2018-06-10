@@ -11807,6 +11807,10 @@ hashbang.sh
 hasura.app
 hasura-app.io
 
+// RHCALAB Gitlab : https://gitlab.rhcalab.net
+// Submitted by Jerry Smith <jdsmith1012@me.com>
+*.rhcalab.app
+
 // Hepforge : https://www.hepforge.org
 // Submitted by David Grellscheid <admin@hepforge.org>
 hepforge.org
