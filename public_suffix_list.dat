@@ -12432,6 +12432,10 @@ bounty-full.com
 alpha.bounty-full.com
 beta.bounty-full.com
 
+// ssl.fun : https://ssl.fun
+// Submitted by Markus Hänel <ssl@ssl.fun>
+*.ssl.fun
+
 // staticland : https://static.land
 // Submitted by Seth Vincent <sethvincent@gmail.com>
 static.land
