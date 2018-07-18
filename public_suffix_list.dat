@@ -3693,7 +3693,15 @@ seoul.kr
 ulsan.kr
 
 // kw : https://en.wikipedia.org/wiki/.kw
-*.kw
+// see also "Registration BiLaws" : https://www.nic.kw/policies/
+kw
+com.kw
+edu.kw
+emb.kw
+gov.kw
+ind.kw
+net.kw
+org.kw
 
 // ky : http://www.icta.ky/da_ky_reg_dom.php
 // Confirmed by registry <kysupport@perimeterusa.com> 2008-06-17
