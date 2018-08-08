@@ -381,8 +381,13 @@ gov.bm
 net.bm
 org.bm
 
-// bn : https://en.wikipedia.org/wiki/.bn
-*.bn
+// bn : http://www.bnnic.bn/faqs
+bn
+com.bn
+edu.bn
+gov.bn
+net.bn
+org.bn
 
 // bo : https://nic.bo/delegacion2015.php#h-1.10
 bo
