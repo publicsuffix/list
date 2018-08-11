@@ -1,16 +1,43 @@
-Reason of this Pull Request
-====
+<!-- #### READ THIS FIRST ####
 
-<!--
 If you haven't yet, please read our guidelines:
 https://github.com/publicsuffix/list/wiki/Guidelines#submit-the-change
 
-Please tell us what you do (i.e. DynDNS, Hosting, etc)
-and why your domain(s) should be listed in the PSL
-(i.e. Cookie Security, Let's Encrypt issuance, etc).
-
 If you'd like an example of what an excellent PR looks like
 see https://github.com/publicsuffix/list/pull/615
+-->
+
+* [ ] Description of Organization
+* [ ] Reason for PSL Inclusion
+* [ ] DNS verification via dig
+* [ ] Run Syntax Checker (make test)
+
+<!--
+
+As you complete each item in the checklist please mark it with an X
+
+Example:
+
+* [x] Description of Organization
+
+-->
+
+Description of Organization
+====
+
+Organization Website: <!-- https://example.com -->
+
+<!--
+Please tell us who you are and represent (i.e. individual, non-profit volunteer, engineer at a business)
+and what you do (i.e. DynDNS, Hosting, etc)
+-->
+
+Reason for PSL Inclusion
+====
+
+<!--
+Please tell us why your domain(s) should be listed in the PSL
+(i.e. Cookie Security, Let's Encrypt issuance, etc).
 -->
 
 DNS Verification via dig
