@@ -1,2 +1,2 @@
 #!/bin/sh
-`dirname $0`/newgtlds | `dirname $0`/replace-between `dirname $0`/../public_suffix_list.dat "*.zw" "// ===END ICANN DOMAINS" 
+`dirname $0`/newgtlds | `dirname $0`/replace-between `dirname $0`/../public_suffix_list.dat "// newGTLDs" "// ===END ICANN DOMAINS" 
