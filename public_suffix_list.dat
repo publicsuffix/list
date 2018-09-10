@@ -11084,6 +11084,11 @@ firm.dk
 reg.dk
 store.dk
 
+// dapps.earth : https://dapps.earth/
+// Submitted by Daniil Burdakov <icqkill@gmail.com>
+*.dapps.earth
+*.bzz.dapps.earth
+
 // Debian : https://www.debian.org/
 // Submitted by Peter Palfrader / Debian Sysadmin Team <dsa-publicsuffixlist@debian.org>
 debian.net
