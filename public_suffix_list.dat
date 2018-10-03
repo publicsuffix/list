@@ -12000,6 +12000,26 @@ co.pl
 // Microsoft Corporation : http://microsoft.com
 // Submitted by Justin Luk <juluk@microsoft.com>
 azurecontainer.io
+australiaeast.azurecontainer.io
+brazilsouth.azurecontainer.io
+canadacentral.azurecontainer.io
+canadaeast.azurecontainer.io
+centralindia.azurecontainer.io
+centralus.azurecontainer.io
+eastasia.azurecontainer.io
+eastus.azurecontainer.io
+eastus2.azurecontainer.io
+japaneast.azurecontainer.io
+koreacentral.azurecontainer.io
+northcentralus.azurecontainer.io
+northeurope.azurecontainer.io
+southcentralus.azurecontainer.io
+southeastasia.azurecontainer.io
+southindia.azurecontainer.io
+uksouth.azurecontainer.io
+westeurope.azurecontainer.io
+westus.azurecontainer.io
+westus2.azurecontainer.io
 azurewebsites.net
 azure-mobile.net
 cloudapp.net
