@@ -12352,6 +12352,11 @@ rhcloud.com
 resindevice.io
 devices.resinstaging.io
 
+// Balena : https://balena-devices.com
+// Submitted by Jack Brown <jack@balena.io>
+balena-devices.com
+balena-staging-devices.com
+
 // RethinkDB : https://www.rethinkdb.com/
 // Submitted by Chris Kastorff <info@rethinkdb.com>
 hzc.io
