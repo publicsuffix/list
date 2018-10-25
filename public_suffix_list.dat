@@ -3791,9 +3791,17 @@ org.lr
 net.lr
 
 // ls : https://en.wikipedia.org/wiki/.ls
+// see also: http://www.nic.ls/
 ls
+ac.ls
+biz.ls
 co.ls
+edu.ls
+gov.ls
+info.ls
 org.ls
+net.ls
+sc.ls
 
 // lt : https://en.wikipedia.org/wiki/.lt
 lt
