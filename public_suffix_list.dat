@@ -3790,8 +3790,7 @@ gov.lr
 org.lr
 net.lr
 
-// ls : https://en.wikipedia.org/wiki/.ls
-// see also: http://www.nic.ls/
+// ls : http://www.nic.ls/
 ls
 ac.ls
 biz.ls
