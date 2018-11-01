@@ -3791,6 +3791,7 @@ org.lr
 net.lr
 
 // ls : http://www.nic.ls/
+// Confirmed by registry <lsadmin@nic.ls>
 ls
 ac.ls
 biz.ls
@@ -3798,8 +3799,8 @@ co.ls
 edu.ls
 gov.ls
 info.ls
-org.ls
 net.ls
+org.ls
 sc.ls
 
 // lt : https://en.wikipedia.org/wiki/.lt
