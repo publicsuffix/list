@@ -7278,7 +7278,7 @@ auspost
 // author : 2014-12-18 Amazon Registry Services, Inc.
 author
 
-// auto : 2014-11-13 Cars Registry Limited
+// auto : 2014-11-13 Cars Registry Limited
 auto
 
 // autos : 2014-01-09 DERAutos, LLC
@@ -7560,7 +7560,7 @@ capital
 // capitalone : 2015-08-06 Capital One Financial Corporation
 capitalone
 
-// car : 2015-01-22 Cars Registry Limited
+// car : 2015-01-22 Cars Registry Limited
 car
 
 // caravan : 2013-12-12 Caravan International, Inc.
@@ -7578,7 +7578,7 @@ career
 // careers : 2013-10-02 Binky Moon, LLC
 careers
 
-// cars : 2014-11-13 Cars Registry Limited
+// cars : 2014-11-13 Cars Registry Limited
 cars
 
 // cartier : 2014-06-23 Richemont DNS Inc.
@@ -12691,5 +12691,23 @@ now.sh
 // Zone.id : https://zone.id/
 // Submitted by Su Hendro <admin@zone.id>
 zone.id
+
+// selfhost.de : https://selfhost.de
+// Submitted by Johannes Scholz <johannes@selfhost.de>
+selfhost.de
+selfhost.at
+selfhost.eu
+selfhost.it
+selfhost.tv
+selfhost.es
+selfhost.se
+selfhost.info
+selfhost.biz
+selfhost.cc
+selfhost.ch
+selfhost.bz
+selfhost.pro
+selfhost.me
+selfhost.tk
 
 // ===END PRIVATE DOMAINS===
