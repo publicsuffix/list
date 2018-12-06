@@ -145,6 +145,12 @@ off.ai
 com.ai
 net.ai
 org.ai
+subut.ai
+envs.subut.ai
+master.subut.ai
+envs.master.subut.ai
+dev.subut.ai
+envs.dev.subut.ai
 
 // al : http://www.ert.gov.al/ert_alb/faq_det.html?Id=31
 al
