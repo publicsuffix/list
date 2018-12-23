@@ -6191,9 +6191,8 @@ org.to
 edu.to
 mil.to
 
-// subTLDs: https://www.nic.tr/forms/eng/policies.pdf
-//     and: https://www.nic.tr/forms/politikalar.pdf
-// Submitted by <mehmetgurevin@gmail.com>
+// subTLDs: https://nic.tr/index.php?USRACTN=PRICELST
+// Submitted by <ilhan@ilhan.name>
 tr
 com.tr
 info.tr
@@ -6211,7 +6210,7 @@ tel.tr
 gov.tr
 bel.tr
 pol.tr
-mil.tr
+tsk.tr
 k12.tr
 edu.tr
 kep.tr
