@@ -12711,4 +12711,8 @@ now.sh
 // Submitted by Su Hendro <admin@zone.id>
 zone.id
 
+// IPv4 Hex Resolver @ Cynthia.re : https://cynthia.re
+// Submitted by Cynthia Revstrom <me@cynthia.re> 
+*.ipv4.cynthia.re
+
 // ===END PRIVATE DOMAINS===
