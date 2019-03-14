@@ -180,7 +180,7 @@ def lint_psl(infile):
 		# strip leading wildcards
 		flags = section
 		# while line[0:2] == '*.':
-		if line[0:2] == '*.':
+		while line[0:2] == '*.':
 			flags |= PSL_FLAG_WILDCARD
 			line = line[2:]
 
