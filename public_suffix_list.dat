@@ -11083,9 +11083,15 @@ debian.net
 // Submitted by Peter Thomassen <peter@desec.io>
 dedyn.io
 
-// DNShome : https://www.dnshome.de/
+// dnsHome : https://www.dnshome.de/
 // Submitted by Norbert Auler <mail@dnshome.de>
-dnshome.de
+*.ddnssec.de
+*.dnshome.de
+*.dnshome.icu
+*.dyndns.icu
+*.dyndnssec.de
+*.resolve.bar
+*.srvdns.de
 
 // DotArai : https://www.dotarai.com/
 // Submitted by Atsadawat Netcharadsang <atsadawat@dotarai.co.th>
