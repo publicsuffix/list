@@ -3953,13 +3953,15 @@ org.mt
 
 // mu : https://en.wikipedia.org/wiki/.mu
 mu
-com.mu
-net.mu
-org.mu
-gov.mu
 ac.mu
+biz.mu
 co.mu
+com.mu
+edu.mu
+gov.mu
+net.mu
 or.mu
+org.mu
 
 // museum : http://about.museum/naming/
 // http://index.museum/
