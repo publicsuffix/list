@@ -984,17 +984,16 @@ fm
 fo
 
 // fr : http://www.afnic.fr/
-// domaines descriptifs : http://www.afnic.fr/obtenir/chartes/nommage-fr/annexe-descriptifs
+// domaines descriptifs : https://www.afnic.fr/medias/documents/Cadre_legal/Afnic_Naming_Policy_12122016_VEN.pdf
 fr
-com.fr
 asso.fr
+com.fr
+gouv.fr
 nom.fr
 prd.fr
-presse.fr
 tm.fr
-// domaines sectoriels : http://www.afnic.fr/obtenir/chartes/nommage-fr/annexe-sectoriels
+// domaines sectoriels : https://www.afnic.fr/en/products-and-services/the-fr-tld/sector-based-fr-domains-4.html
 aeroport.fr
-assedic.fr
 avocat.fr
 avoues.fr
 cci.fr
@@ -1002,7 +1001,6 @@ chambagri.fr
 chirurgiens-dentistes.fr
 experts-comptables.fr
 geometre-expert.fr
-gouv.fr
 greta.fr
 huissier-justice.fr
 medecin.fr
