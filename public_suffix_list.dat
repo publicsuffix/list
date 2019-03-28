@@ -12547,6 +12547,10 @@ temp-dns.com
 applicationcloud.io
 scapp.io
 
+// Syncloud : https://syncloud.org
+// Submitted by Boris Rybalkin <syncloud@syncloud.it>
+syncloud.it
+
 // Synology, Inc. : https://www.synology.com/
 // Submitted by Rony Weng <ronyweng@synology.com>
 diskstation.me
@@ -12751,9 +12755,5 @@ site.builder.nu
 // Zone.id : https://zone.id/
 // Submitted by Su Hendro <admin@zone.id>
 zone.id
-
-// Syncloud : https://syncloud.org
-// Submitted by Boris Rybalkin <syncloud@syncloud.it>
-syncloud.it
 
 // ===END PRIVATE DOMAINS===
