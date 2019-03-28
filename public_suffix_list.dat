@@ -12405,6 +12405,11 @@ vaporcloud.io
 rackmaze.com
 rackmaze.net
 
+// Rancher Labs, Inc : https://rancher.com
+// Submitted by Vincent Fiduccia <domains@rancher.com>
+*.on-rancher.cloud
+*.on-rio.io
+
 // Read The Docs, Inc : https://www.readthedocs.org
 // Submitted by David Fischer <team@readthedocs.org>
 readthedocs.io
