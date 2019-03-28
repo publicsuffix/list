@@ -155,8 +155,13 @@ mil.al
 net.al
 org.al
 
-// am : https://en.wikipedia.org/wiki/.am
+// am : https://www.amnic.net/policy/en/Policy_EN.pdf
 am
+co.am
+com.am
+commune.am
+net.am
+org.am
 
 // ao : https://en.wikipedia.org/wiki/.ao
 // http://www.dns.ao/REGISTR.DOC
