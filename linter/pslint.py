@@ -25,6 +25,7 @@
 
 import sys
 import codecs
+import unicodedata
 
 nline = 0
 line = ""
@@ -104,7 +105,7 @@ def lint_psl(infile):
 	for line in lines:
 		nline += 1
 
-		# check for leadind/trailing whitespace
+		# check for leading/trailing whitespace
 		stripped = line.strip()
 		if stripped != line:
 			line = line.replace('\t','\\t')
@@ -167,6 +168,10 @@ def lint_psl(infile):
 			orig_line = None
 			error('Invalid UTF-8 character')
 			continue
+
+		# rules must be NFC coded (Unicode's Normal Form Kanonical Composition)
+		if unicodedata.normalize("NFKC", line) != line:
+			error('Rule must be NFKC')
 
 		# each rule must be lowercase (or more exactly: not uppercase and not titlecase)
 		if line != line.lower():
