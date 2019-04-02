@@ -983,6 +983,11 @@ aland.fi
 *.fk
 
 // fm : https://en.wikipedia.org/wiki/.fm
+com.fm
+edu.fm
+gov.fm
+net.fm
+org.fm
 fm
 
 // fo : https://en.wikipedia.org/wiki/.fo
@@ -1022,6 +1027,8 @@ ga
 gb
 
 // gd : https://en.wikipedia.org/wiki/.gd
+edu.gd
+gov.gd
 gd
 
 // ge : http://www.nic.net.ge/policy_en.pdf
@@ -6692,6 +6699,7 @@ tec.ve
 web.ve
 
 // vg : https://en.wikipedia.org/wiki/.vg
+edu.vg
 vg
 
 // vi : http://www.nic.vi/newdomainform.htm
