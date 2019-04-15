@@ -6191,35 +6191,33 @@ org.to
 edu.to
 mil.to
 
-// subTLDs: https://nic.tr/index.php?USRACTN=PRICELST
-//     and: https://nic.tr/index.php?USRACTN=YEARSTAT
-// Submitted by <ilhan@ilhan.name>
+// tr : https://nic.tr/
+// https://nic.tr/forms/eng/policies.pdf
+// https://nic.tr/index.php?USRACTN=PRICELST
 tr
-com.tr
-info.tr
+av.tr
+bbs.tr
+bel.tr
 biz.tr
+com.tr
+dr.tr
+edu.tr
+gen.tr
+gov.tr
+info.tr
+mil.tr
+k12.tr
+kep.tr
+name.tr
 net.tr
 org.tr
-web.tr
-gen.tr
-tv.tr
-av.tr
-dr.tr
-bbs.tr
-name.tr
-tel.tr
-gov.tr
-bel.tr
 pol.tr
-mil.tr
+tel.tr
 tsk.tr
-k12.tr
-edu.tr
-kep.tr
-
+tv.tr
+web.tr
 // Used by Northern Cyprus
 nc.tr
-
 // Used by government agencies of Northern Cyprus
 gov.nc.tr
 
