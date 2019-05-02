@@ -12775,4 +12775,9 @@ site.builder.nu
 // Submitted by Su Hendro <admin@zone.id>
 zone.id
 
+// Linode : https://linode.com
+// Submitted by <security@linode.com>
+members.linode.com
+nodebalancer.linode.com
+
 // ===END PRIVATE DOMAINS===
