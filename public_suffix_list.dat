@@ -11991,6 +11991,11 @@ linkitools.space
 linkyard.cloud
 linkyard-cloud.ch
 
+// Linode : https://linode.com
+// Submitted by <security@linode.com>
+members.linode.com
+nodebalancer.linode.com
+
 // LiquidNet Ltd : http://www.liquidnetlimited.com/
 // Submitted by Victor Velchev <admin@liquidnetlimited.com>
 we.bs
@@ -12774,10 +12779,5 @@ site.builder.nu
 // Zone.id : https://zone.id/
 // Submitted by Su Hendro <admin@zone.id>
 zone.id
-
-// Linode : https://linode.com
-// Submitted by <security@linode.com>
-members.linode.com
-nodebalancer.linode.com
 
 // ===END PRIVATE DOMAINS===
