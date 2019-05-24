@@ -5892,17 +5892,15 @@ int.ru
 mil.ru
 test.ru
 
-// rw : http://www.nic.rw/cgi-bin/policy.pl
+// rw : https://www.ricta.org.rw/sites/default/files/resources/registry_registrar_contract_0.pdf
 rw
-gov.rw
-net.rw
-edu.rw
 ac.rw
-com.rw
 co.rw
-int.rw
+coop.rw
+gov.rw
 mil.rw
-gouv.rw
+net.rw
+org.rw
 
 // sa : http://www.nic.net.sa/
 sa
