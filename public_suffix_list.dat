@@ -12482,6 +12482,10 @@ on-web.fr
 *.platform.sh
 *.platformsh.site
 
+// Port53 : https://port53.io/
+// Submitted by Maximilian Schieder <maxi@zeug.co>
+dyn53.io
+
 // Positive Codes Technology Company : http://co.bn/faq.html
 // Submitted by Zulfais <pc@co.bn>
 co.bn
