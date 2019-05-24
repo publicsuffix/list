@@ -12379,6 +12379,10 @@ on-web.fr
 *.platform.sh
 *.platformsh.site
 
+// Port53 : https://port53.io/
+// Submitted by Maximilian Schieder <maxi@zeug.co>
+dyn53.io
+
 // prgmr.com : https://prgmr.com/
 // Submitted by Sarah Newman <owner@prgmr.com>
 xen.prgmr.com
@@ -12693,10 +12697,6 @@ lib.de.us
 // VeryPositive SIA : http://very.lv
 // Submitted by Danko Aleksejevs <danko@very.lv>
 2038.io
-
-// Port53 : https://port53.io/
-// Submitted by Maximilian Schieder <maxi@zeug.co>
-dyn53.io
 
 // Viprinet Europe GmbH : http://www.viprinet.com
 // Submitted by Simon Kissel <hostmaster@viprinet.com>
