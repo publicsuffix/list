@@ -12425,6 +12425,10 @@ xen.prgmr.com
 // Submitted by registry <lendl@nic.at>
 priv.at
 
+// Protocol Labs : https://protocol.ai/
+// Submitted by Michael Burns <noc@protocol.ai>
+*.dweb.link
+
 // Protonet GmbH : http://protonet.io
 // Submitted by Martin Meier <admin@protonet.io>
 protonet.io
