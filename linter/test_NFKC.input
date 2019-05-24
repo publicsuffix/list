@@ -1,0 +1,11 @@
+// test:
+// - label contains non-NFKC character(s)
+//
+// best viewed with 'LC_ALL=C.UTF-8 vi <filename>' (or any other UTF-8 locale)
+
+// ===BEGIN ICANN DOMAINS===
+
+südtirol.it
+südtirol.it
+
+// ===END ICANN DOMAINS===

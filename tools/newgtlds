@@ -14,9 +14,9 @@ url = "https://newgtlds.icann.org/newgtlds.csv"
 response = urllib2.urlopen(url)
 csvreader = csv.reader(response, doublequote=False, escapechar='\\')
 
-print "\n"
-print "// List of new gTLDs imported from " + url + \
-      " on %s" % strftime("%Y-%m-%dT%H:%M:%SZ", gmtime())
+print "// List of new gTLDs imported from " + url + " on %s" % strftime("%Y-%m-%dT%H:%M:%SZ", gmtime())
+print "// This list is auto-generated, don't edit it manually."
+
 print
 
 # Skip first two lines (datestamp and field definitions)
