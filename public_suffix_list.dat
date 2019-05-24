@@ -10806,10 +10806,6 @@ apigee.io
 // Submitted by Thomas Orozco <thomas@aptible.com>
 on-aptible.com
 
-// Arvo : https://arvo.network
-// Submitted by Mark Staarink <mark@tlon.io>
-arvo.network
-
 // Asociación Amigos de la Informática "Euskalamiga" : http://encounter.eus/
 // Submitted by Hector Martin <marcan@euskalencounter.org>
 user.party.eus
@@ -10839,10 +10835,6 @@ myfritz.net
 // Submitted by James Kennedy <domains@advisorwebsites.com>
 *.awdev.ca
 *.advisor.ws
-
-// Azimuth : https://azimuth.network
-// Submitted by Mark Staarink <mark@tlon.io>
-azimuth.network
 
 // backplane : https://www.backplane.io
 // Submitted by Anthony Voutas <anthony@backplane.io>
@@ -12622,6 +12614,11 @@ cust.dev.thingdust.io
 cust.disrec.thingdust.io
 cust.prod.thingdust.io
 cust.testing.thingdust.io
+
+// Tlon.io : https://tlon.io
+// Submitted by Mark Staarink <mark@tlon.io>
+arvo.network
+azimuth.network
 
 // TownNews.com : http://www.townnews.com
 // Submitted by Dustin Ward <dward@townnews.com>
