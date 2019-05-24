@@ -10965,6 +10965,11 @@ virtueeldomein.nl
 // Submitted by Quentin Adam <noc@clever-cloud.com>
 cleverapps.io
 
+// Clerk : https://www.clerk.dev
+// Submitted by Colin Sidoti <colin@clerk.dev>
+*.lcl.dev
+*.stg.dev
+
 // Cloud66 : https://www.cloud66.com/
 // Submitted by Khash Sajadi <khash@cloud66.com>
 c66.me
