@@ -1,0 +1,270 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"io"
+	"net/http"
+	"net/http/httptest"
+	"reflect"
+	"strings"
+	"testing"
+)
+
+func TestEntryNormalize(t *testing.T) {
+	testCases := []struct {
+		name          string
+		inputEntry    pslEntry
+		expectedEntry pslEntry
+	}{
+		{
+			name: "already normalized",
+			inputEntry: pslEntry{
+				GTLD:                    "cpu",
+				ULabel:                  "ｃｐｕ",
+				DateOfContractSignature: "2019-06-13",
+				RegistryOperator:        "@cpu's bargain gTLD emporium",
+			},
+			expectedEntry: pslEntry{
+				GTLD:                    "cpu",
+				ULabel:                  "ｃｐｕ",
+				DateOfContractSignature: "2019-06-13",
+				RegistryOperator:        "@cpu's bargain gTLD emporium",
+			},
+		},
+		{
+			name: "extra whitespace",
+			inputEntry: pslEntry{
+				GTLD:                    "  cpu    ",
+				ULabel:                  "   ｃｐｕ   ",
+				DateOfContractSignature: "   2019-06-13    ",
+				RegistryOperator: "     @cpu's bargain gTLD emporium " +
+					"(now with bonus whitespace)    ",
+			},
+			expectedEntry: pslEntry{
+				GTLD:                    "cpu",
+				ULabel:                  "ｃｐｕ",
+				DateOfContractSignature: "2019-06-13",
+				RegistryOperator: "@cpu's bargain gTLD emporium " +
+					"(now with bonus whitespace)",
+			},
+		},
+		{
+			name: "no explicit uLabel",
+			inputEntry: pslEntry{
+				GTLD:                    "cpu",
+				DateOfContractSignature: "2019-06-13",
+				RegistryOperator:        "@cpu's bargain gTLD emporium",
+			},
+			expectedEntry: pslEntry{
+				GTLD:                    "cpu",
+				ULabel:                  "cpu",
+				DateOfContractSignature: "2019-06-13",
+				RegistryOperator:        "@cpu's bargain gTLD emporium",
+			},
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			entry := &tc.inputEntry
+			entry.normalize()
+			if deepEqual := reflect.DeepEqual(*entry, tc.expectedEntry); !deepEqual {
+				t.Errorf("entry did not match expected after normalization. %v vs %v",
+					*entry, tc.expectedEntry)
+			}
+		})
+	}
+}
+
+func TestEntryComment(t *testing.T) {
+	testCases := []struct {
+		name     string
+		entry    pslEntry
+		expected string
+	}{
+		{
+			name: "Full entry",
+			entry: pslEntry{
+				GTLD:                    "cpu",
+				DateOfContractSignature: "2019-06-13",
+				RegistryOperator:        "@cpu's bargain gTLD emporium",
+			},
+			expected: "// cpu : 2019-06-13 @cpu's bargain gTLD emporium",
+		},
+		{
+			name: "Entry with empty contract signature date and operator",
+			entry: pslEntry{
+				GTLD: "cpu",
+			},
+			expected: "// cpu : ",
+		},
+		{
+			name: "Entry with empty contract signature and non-empty operator",
+			entry: pslEntry{
+				GTLD:             "cpu",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
+			},
+			expected: "// cpu :  @cpu's bargain gTLD emporium",
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			if actual := tc.entry.Comment(); actual != tc.expected {
+				t.Errorf("entry %v Comment() == %q expected == %q",
+					tc.entry, actual, tc.expected)
+			}
+		})
+	}
+}
+
+type badStatusHandler struct{}
+
+func (h *badStatusHandler) ServeHTTP(w http.ResponseWriter, _ *http.Request) {
+	w.WriteHeader(http.StatusUnavailableForLegalReasons)
+	w.Write([]byte("sorry"))
+}
+
+func TestGetData(t *testing.T) {
+	handler := &badStatusHandler{}
+	server := httptest.NewServer(handler)
+	defer server.Close()
+
+	// NOTE: TestGetData only tests the handling of non-200 status codes in
+	// getData as anything else is just testing stdlib code.
+	resp, err := getData(server.URL)
+	if err == nil {
+		t.Error("expected getData() to a bad status handler server to return an " +
+			"error, got nil")
+	}
+	if resp != nil {
+		t.Errorf("expected getData() to a bad status handler server to return a "+
+			"nil response body byte slice, got: %v",
+			resp)
+	}
+}
+
+type mockHandler struct {
+	respData []byte
+}
+
+func (h *mockHandler) ServeHTTP(w http.ResponseWriter, _ *http.Request) {
+	w.Write(h.respData)
+}
+
+func TestGetPSLEntries(t *testing.T) {
+	mockData := struct {
+		GTLDs []pslEntry
+	}{
+		GTLDs: []pslEntry{
+			{
+				GTLD:                    "ceepeeyou",
+				DateOfContractSignature: "2099-06-13",
+				RegistryOperator:        "@cpu's bargain gTLD emporium",
+			},
+			{
+				// NOTE: we include whitespace in this entry to test that normalization
+				// occurs
+				GTLD:                    "  cpu    ",
+				ULabel:                  "   ｃｐｕ   ",
+				DateOfContractSignature: "   2019-06-13    ",
+				RegistryOperator: "     @cpu's bargain gTLD emporium " +
+					"(now with bonus whitespace)    ",
+			},
+		},
+	}
+	// NOTE: swallowing the possible err return here because the mock data is
+	// assumed to be static/correct and it simplifies the handler.
+	jsonBytes, _ := json.Marshal(mockData)
+
+	expectedEntries := []pslEntry{
+		{
+			GTLD:                    "ceepeeyou",
+			ULabel:                  "ceepeeyou",
+			DateOfContractSignature: "2099-06-13",
+			RegistryOperator:        "@cpu's bargain gTLD emporium",
+		},
+		{
+			GTLD:                    "cpu",
+			ULabel:                  "ｃｐｕ",
+			DateOfContractSignature: "2019-06-13",
+			RegistryOperator: "@cpu's bargain gTLD emporium " +
+				"(now with bonus whitespace)",
+		},
+	}
+
+	handler := &mockHandler{jsonBytes}
+	server := httptest.NewServer(handler)
+	defer server.Close()
+
+	entries, err := getPSLEntries(server.URL)
+	if err != nil {
+		t.Fatalf("expected no error from getPSLEntries with mockHandler. Got %v",
+			err)
+	}
+
+	if len(entries) != len(expectedEntries) {
+		t.Fatalf("expected %d entries from getPSLEntries with mockHandler. Got %d",
+			len(expectedEntries),
+			len(entries))
+	}
+
+	for i, entry := range entries {
+		if deepEqual := reflect.DeepEqual(*entry, expectedEntries[i]); !deepEqual {
+			t.Errorf("getPSLEntries() entry index %d was %#v, expected %#v",
+				i,
+				*entry,
+				expectedEntries[i])
+		}
+	}
+}
+
+func TestRenderData(t *testing.T) {
+	entries := []*pslEntry{
+		{
+			GTLD:                    "ceepeeyou",
+			ULabel:                  "ceepeeyou",
+			DateOfContractSignature: "2099-06-13",
+			RegistryOperator:        "@cpu's bargain gTLD emporium",
+		},
+		{
+			GTLD:                    "cpu",
+			ULabel:                  "ｃｐｕ",
+			DateOfContractSignature: "2019-06-13",
+		},
+		{
+			GTLD: "ccppuu",
+			// NOTE: we include an entry with ContractTerminated: true to ensure
+			// that it is omitted from the templated data.
+			ContractTerminated: true,
+		},
+	}
+
+	expectedList := `// ceepeeyou : 2099-06-13 @cpu's bargain gTLD emporium
+ceepeeyou
+
+// cpu : 2019-06-13
+ｃｐｕ
+
+`
+
+	var buf bytes.Buffer
+	if err := renderData(entries, io.Writer(&buf)); err != nil {
+		t.Fatalf("unexpected error from renderData: %v", err)
+	}
+
+	rendered := buf.String()
+
+	lines := strings.Split(rendered, "\n")
+	if len(lines) < 3 {
+		t.Fatalf("expected at least two header lines in rendered data. "+
+			"Found only %d lines", len(lines))
+	}
+
+	listContent := strings.Join(lines[3:], "\n")
+	if listContent != expectedList {
+		t.Errorf("expected rendered list content %q, got %q",
+			expectedList, listContent)
+	}
+}
