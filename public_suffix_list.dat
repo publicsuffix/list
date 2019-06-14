@@ -7058,7 +7058,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-06-13 17:55:08.243818818 -0400 EDT m=+0.864578039
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-06-14 09:45:36.007079932 -0400 EDT m=+1.485245945
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7119,9 +7119,6 @@ adult
 
 // aeg : 2015-03-19 Aktiebolaget Electrolux
 aeg
-
-// aero :  SITA
-aero
 
 // aetna : 2015-05-21 Aetna Life Insurance Company
 aetna
@@ -7248,9 +7245,6 @@ arte
 
 // asda : 2015-07-31 Wal-Mart Stores, Inc.
 asda
-
-// asia :  DotAsia Organisation Limited
-asia
 
 // associates : 2014-03-06 Binky Moon, LLC
 associates
@@ -7404,9 +7398,6 @@ bingo
 
 // bio : 2014-03-06 Afilias Limited
 bio
-
-// biz :  Registry Services, LLC
-biz
 
 // black : 2014-01-16 Afilias Limited
 black
@@ -7600,9 +7591,6 @@ cash
 // casino : 2014-12-18 Binky Moon, LLC
 casino
 
-// cat :  Fundació puntCAT
-cat
-
 // catering : 2013-12-05 Binky Moon, LLC
 catering
 
@@ -7738,9 +7726,6 @@ college
 // cologne : 2014-02-05 dotKoeln GmbH
 cologne
 
-// com :  VeriSign, Inc.
-com
-
 // comcast : 2015-07-23 Comcast IP Holdings I, LLC
 comcast
 
@@ -7785,9 +7770,6 @@ cookingchannel
 
 // cool : 2013-11-14 Binky Moon, LLC
 cool
-
-// coop :  DotCooperation LLC
-coop
 
 // corsica : 2014-09-25 Collectivité de Corse
 corsica
@@ -8584,9 +8566,6 @@ industries
 // infiniti : 2014-03-27 NISSAN MOTOR CO., LTD.
 infiniti
 
-// info :  Afilias Limited
-info
-
 // ing : 2014-01-23 Charleston Road Registry Inc.
 ing
 
@@ -8673,9 +8652,6 @@ jmp
 
 // jnj : 2015-06-18 Johnson & Johnson Services, Inc.
 jnj
-
-// jobs :  Employ Media LLC
-jobs
 
 // joburg : 2014-03-24 ZA Central Registry NPC trading as ZA Central Registry
 joburg
@@ -9052,9 +9028,6 @@ mls
 // mma : 2014-11-07 MMA IARD
 mma
 
-// mobi :  Afilias Technologies Limited
-mobi
-
 // mobile : 2016-06-02 Dish DBS Corporation
 mobile
 
@@ -9118,9 +9091,6 @@ mtn
 // mtr : 2015-03-12 MTR Corporation Limited
 mtr
 
-// museum :  Museum Domain Management Association International (MDI)
-museum
-
 // mutual : 2015-04-02 Northwestern Mutual MU TLD Registry, LLC
 mutual
 
@@ -9132,9 +9102,6 @@ nadex
 
 // nagoya : 2013-10-24 GMO Registry, Inc.
 nagoya
-
-// name :  VeriSign, Inc.
-name
 
 // nationwide : 2015-07-23 Nationwide Mutual Insurance Company
 nationwide
@@ -9150,9 +9117,6 @@ nba
 
 // nec : 2015-01-08 NEC Corporation
 nec
-
-// net :  VeriSign, Inc.
-net
 
 // netbank : 2014-06-26 COMMONWEALTH BANK OF AUSTRALIA
 netbank
@@ -9298,9 +9262,6 @@ oracle
 // orange : 2015-03-12 Orange Brand Services Limited
 orange
 
-// org :  Public Interest Registry
-org
-
 // organic : 2014-03-27 Afilias Limited
 organic
 
@@ -9439,9 +9400,6 @@ politie
 // porn : 2014-10-16 ICM Registry PN LLC
 porn
 
-// post :  Universal Postal Union
-post
-
 // pramerica : 2015-07-30 Prudential Financial, Inc.
 pramerica
 
@@ -9453,9 +9411,6 @@ press
 
 // prime : 2015-06-25 Amazon Registry Services, Inc.
 prime
-
-// pro :  Afilias Limited
-pro
 
 // prod : 2014-01-23 Charleston Road Registry Inc.
 prod
@@ -10026,9 +9981,6 @@ tech
 
 // technology : 2013-09-13 Binky Moon, LLC
 technology
-
-// tel :  Telnames Limited
-tel
 
 // telefonica : 2014-10-16 Telefónica S.A.
 telefonica
@@ -10674,9 +10626,6 @@ vermögensberatung
 
 // xn--zfr164b : 2013-11-08 China Organizational Name Administration Center
 政务
-
-// xxx :  ICM Registry LLC
-xxx
 
 // xyz : 2013-12-05 XYZ.COM LLC
 xyz
