@@ -235,6 +235,61 @@ func TestGetPSLEntries(t *testing.T) {
 	}
 }
 
+func TestGetPSLEntriesEmptyResults(t *testing.T) {
+	// Mock an empty result
+	mockData := struct {
+		GTLDs []pslEntry
+	}{}
+
+	// NOTE: swallowing the possible err return here because the mock data is
+	// assumed to be static/correct and it simplifies the handler.
+	jsonBytes, _ := json.Marshal(mockData)
+
+	handler := &mockHandler{jsonBytes}
+	server := httptest.NewServer(handler)
+	defer server.Close()
+
+	_, err := getPSLEntries(server.URL)
+	if err == nil {
+		t.Error("expected error from getPSLEntries with empty results mockHandler. Got nil")
+	}
+}
+
+func TestGetPSLEntriesEmptyFilteredResults(t *testing.T) {
+	// Mock data that will be filtered to an empty list
+	mockData := struct {
+		GTLDs []pslEntry
+	}{
+		GTLDs: []pslEntry{
+			{
+				// NOTE: GTLD matches a legacyGTLDs map entry to ensure filtering.
+				GTLD:                    "aero",
+				DateOfContractSignature: "1999-10-31",
+				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
+			},
+			{
+				GTLD:                    "terminated",
+				DateOfContractSignature: "1987-10-31",
+				// NOTE: Setting ContractTerminated to ensure filtering.
+				ContractTerminated: true,
+			},
+		},
+	}
+
+	// NOTE: swallowing the possible err return here because the mock data is
+	// assumed to be static/correct and it simplifies the handler.
+	jsonBytes, _ := json.Marshal(mockData)
+
+	handler := &mockHandler{jsonBytes}
+	server := httptest.NewServer(handler)
+	defer server.Close()
+
+	_, err := getPSLEntries(server.URL)
+	if err == nil {
+		t.Error("expected error from getPSLEntries with empty filtered results mockHandler. Got nil")
+	}
+}
+
 func TestRenderData(t *testing.T) {
 	entries := []*pslEntry{
 		{
