@@ -21,17 +21,44 @@ import (
 // more information.
 const ICANN_GTLD_JSON_URL = "https://www.icann.org/resources/registries/gtlds/v2/gtlds.json"
 
-// pslTemplate is a parsed text/template instance for rendering a list of pslEntry
-// objects in the format used by the public suffix list.
-//
-// It expects the following template data:
-//   URL - the string URL that the data was fetched from.
-//   Date - the time.Date that the data was fetched.
-//   Entries - a list of pslEntry objects.
-//
-// Only Entries that have ContractTerminated = false are rendered by this
-// template.
-var pslTemplate = template.Must(template.New("public-suffix-list-gtlds").Parse(`
+var (
+	// legacyGTLDs are gTLDs that predate ICANN's new gTLD program. These legacy
+	// gTLDs are present in the ICANN_GTLD_JSON_URL data but we do not want to
+	// include them in the new gTLD section of the PSL data because it will create
+	// duplicates with existing entries alongside registry-reserved second level
+	// domains present in the PSL data. Entries present in legacyGTLDs will not be
+	// output by this tool when generating the new gTLD data.
+	legacyGTLDs = map[string]bool{
+		"aero":   true,
+		"asia":   true,
+		"biz":    true,
+		"cat":    true,
+		"com":    true,
+		"coop":   true,
+		"info":   true,
+		"jobs":   true,
+		"mobi":   true,
+		"museum": true,
+		"name":   true,
+		"net":    true,
+		"org":    true,
+		"post":   true,
+		"pro":    true,
+		"tel":    true,
+		"xxx":    true,
+	}
+
+	// pslTemplate is a parsed text/template instance for rendering a list of pslEntry
+	// objects in the format used by the public suffix list.
+	//
+	// It expects the following template data:
+	//   URL - the string URL that the data was fetched from.
+	//   Date - the time.Date that the data was fetched.
+	//   Entries - a list of pslEntry objects.
+	//
+	// Only Entries that have ContractTerminated = false are rendered by this
+	// template.
+	pslTemplate = template.Must(template.New("public-suffix-list-gtlds").Parse(`
 // List of new gTLDs imported from {{ .URL }} on {{ .Date }}
 // This list is auto-generated, don't edit it manually.
 
@@ -42,6 +69,7 @@ var pslTemplate = template.Must(template.New("public-suffix-list-gtlds").Parse(`
   {{- end }}
 {{- end }}
 `))
+)
 
 // pslEntry is a struct matching a subset of the gTLD data fields present in
 // each object entry of the "GLTDs" array from ICANN_GTLD_JSON_URL.
@@ -129,13 +157,26 @@ func getData(url string) ([]byte, error) {
 	return respBody, nil
 }
 
+// filterLegacyGTLDs removes entries that are present in the legacyGTLDs map.
+func filterLegacyGTLDs(entries []*pslEntry) []*pslEntry {
+	var filtered []*pslEntry
+	for _, entry := range entries {
+		if _, isLegacy := legacyGTLDs[entry.GTLD]; isLegacy {
+			continue
+		}
+		filtered = append(filtered, entry)
+	}
+	return filtered
+}
+
 // getPSLEntries fetches a list of pslEntry objects (or returns an error) by:
 //   1. getting the raw JSON data from the provided url string.
 //   2. unmarshaling the JSON data to create pslEntry objects.
 //   3. normalizing the pslEntry objects.
+//   4. filtering out any legacy gTLDs
 //
-// If there are no pslEntry objects after unmarshaling the data in step 2 it is
-// considered an error condition.
+// If there are no pslEntry objects after unmarshaling the data in step 2 or
+// filtering out the legacy gTLDs in step 4 it is considered an error condition.
 func getPSLEntries(url string) ([]*pslEntry, error) {
 	respBody, err := getData(url)
 	if err != nil {
@@ -161,7 +202,12 @@ func getPSLEntries(url string) ([]*pslEntry, error) {
 	for _, tldEntry := range results.GTLDs {
 		tldEntry.normalize()
 	}
-	return results.GTLDs, nil
+
+	filtered := filterLegacyGTLDs(results.GTLDs)
+	if len(filtered) == 0 {
+		return nil, errors.New("found no gTLD information after removing legacy gTLDs")
+	}
+	return filtered, nil
 }
 
 // renderData renders the given list of pslEntry objects using the pslTemplate.
@@ -190,8 +236,8 @@ func renderData(entries []*pslEntry, writer io.Writer) error {
 }
 
 // main will fetch the PSL entires from the ICANN gTLD JSON registry, parse
-// them, normalize them, and finally render them with the pslTemplate, printing
-// the results to standard out.
+// them, normalize them, remove legacy gTLDs, and finally render them with the
+// pslTemplate, printing the results to standard out.
 func main() {
 	ifErrQuit := func(err error) {
 		if err != nil {
@@ -202,6 +248,8 @@ func main() {
 
 	entries, err := getPSLEntries(ICANN_GTLD_JSON_URL)
 	ifErrQuit(err)
+
+	entries = filterLegacyGTLDs(entries)
 
 	err = renderData(entries, os.Stdout)
 	ifErrQuit(err)

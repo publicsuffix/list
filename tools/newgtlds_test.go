@@ -165,12 +165,18 @@ func TestGetPSLEntries(t *testing.T) {
 			},
 			{
 				// NOTE: we include whitespace in this entry to test that normalization
-				// occurs
+				// occurs.
 				GTLD:                    "  cpu    ",
 				ULabel:                  "   ｃｐｕ   ",
 				DateOfContractSignature: "   2019-06-13    ",
 				RegistryOperator: "     @cpu's bargain gTLD emporium " +
 					"(now with bonus whitespace)    ",
+			},
+			{
+				// NOTE: we include a legacy gTLD here to test that filtering occurs.
+				GTLD:                    "aero",
+				DateOfContractSignature: "1999-10-31",
+				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
 			},
 		},
 	}
