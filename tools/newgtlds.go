@@ -56,7 +56,7 @@ var (
 	//   Date - the time.Date that the data was fetched.
 	//   Entries - a list of pslEntry objects.
 	pslTemplate = template.Must(template.New("public-suffix-list-gtlds").Parse(`
-// List of new gTLDs imported from {{ .URL }} on {{ .Date }}
+// List of new gTLDs imported from {{ .URL }} on {{ .Date.Format "2006-01-02T15:04:05Z07:00" }}
 // This list is auto-generated, don't edit it manually.
 
 {{- range .Entries }}
