@@ -55,18 +55,13 @@ var (
 	//   URL - the string URL that the data was fetched from.
 	//   Date - the time.Date that the data was fetched.
 	//   Entries - a list of pslEntry objects.
-	//
-	// Only Entries that have ContractTerminated = false are rendered by this
-	// template.
 	pslTemplate = template.Must(template.New("public-suffix-list-gtlds").Parse(`
 // List of new gTLDs imported from {{ .URL }} on {{ .Date }}
 // This list is auto-generated, don't edit it manually.
 
 {{- range .Entries }}
-  {{- if not .ContractTerminated }}
 {{ .Comment }}
 {{ printf "%s\n" .ULabel}}
-  {{- end }}
 {{- end }}
 `))
 )
@@ -157,11 +152,15 @@ func getData(url string) ([]byte, error) {
 	return respBody, nil
 }
 
-// filterLegacyGTLDs removes entries that are present in the legacyGTLDs map.
-func filterLegacyGTLDs(entries []*pslEntry) []*pslEntry {
+// filterGTLDs removes entries that are present in the legacyGTLDs map or have
+// ContractTerminated equal to true.
+func filterGTLDs(entries []*pslEntry) []*pslEntry {
 	var filtered []*pslEntry
 	for _, entry := range entries {
 		if _, isLegacy := legacyGTLDs[entry.GTLD]; isLegacy {
+			continue
+		}
+		if entry.ContractTerminated {
 			continue
 		}
 		filtered = append(filtered, entry)
@@ -173,10 +172,10 @@ func filterLegacyGTLDs(entries []*pslEntry) []*pslEntry {
 //   1. getting the raw JSON data from the provided url string.
 //   2. unmarshaling the JSON data to create pslEntry objects.
 //   3. normalizing the pslEntry objects.
-//   4. filtering out any legacy gTLDs
+//   4. filtering out any legacy or contract terminated gTLDs
 //
 // If there are no pslEntry objects after unmarshaling the data in step 2 or
-// filtering out the legacy gTLDs in step 4 it is considered an error condition.
+// filtering the gTLDs in step 4 it is considered an error condition.
 func getPSLEntries(url string) ([]*pslEntry, error) {
 	respBody, err := getData(url)
 	if err != nil {
@@ -203,9 +202,10 @@ func getPSLEntries(url string) ([]*pslEntry, error) {
 		tldEntry.normalize()
 	}
 
-	filtered := filterLegacyGTLDs(results.GTLDs)
+	filtered := filterGTLDs(results.GTLDs)
 	if len(filtered) == 0 {
-		return nil, errors.New("found no gTLD information after removing legacy gTLDs")
+		return nil, errors.New(
+			"found no gTLD information after removing legacy and contract terminated gTLDs")
 	}
 	return filtered, nil
 }
@@ -236,8 +236,8 @@ func renderData(entries []*pslEntry, writer io.Writer) error {
 }
 
 // main will fetch the PSL entires from the ICANN gTLD JSON registry, parse
-// them, normalize them, remove legacy gTLDs, and finally render them with the
-// pslTemplate, printing the results to standard out.
+// them, normalize them, remove legacy and terminated gTLDs, and finally render
+// them with the pslTemplate, printing the results to standard out.
 func main() {
 	ifErrQuit := func(err error) {
 		if err != nil {
@@ -248,8 +248,6 @@ func main() {
 
 	entries, err := getPSLEntries(ICANN_GTLD_JSON_URL)
 	ifErrQuit(err)
-
-	entries = filterLegacyGTLDs(entries)
 
 	err = renderData(entries, os.Stdout)
 	ifErrQuit(err)

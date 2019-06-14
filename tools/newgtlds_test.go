@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -173,10 +174,18 @@ func TestGetPSLEntries(t *testing.T) {
 					"(now with bonus whitespace)    ",
 			},
 			{
-				// NOTE: we include a legacy gTLD here to test that filtering occurs.
+				// NOTE: we include a legacy gTLD here to test that filtering of legacy
+				// gTLDs occurs.
 				GTLD:                    "aero",
 				DateOfContractSignature: "1999-10-31",
 				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
+			},
+			{
+				GTLD:                    "terminated",
+				DateOfContractSignature: "1987-10-31",
+				// NOTE: we include a contract terminated = true entry here to test that
+				// filtering of terminated entries occurs.
+				ContractTerminated: true,
 			},
 		},
 	}
@@ -239,12 +248,6 @@ func TestRenderData(t *testing.T) {
 			ULabel:                  "ｃｐｕ",
 			DateOfContractSignature: "2019-06-13",
 		},
-		{
-			GTLD: "ccppuu",
-			// NOTE: we include an entry with ContractTerminated: true to ensure
-			// that it is omitted from the templated data.
-			ContractTerminated: true,
-		},
 	}
 
 	expectedList := `// ceepeeyou : 2099-06-13 @cpu's bargain gTLD emporium
@@ -269,6 +272,8 @@ ceepeeyou
 	}
 
 	listContent := strings.Join(lines[3:], "\n")
+	fmt.Printf("Got: \n%s\n", listContent)
+	fmt.Printf("Expected: \n%s\n", expectedList)
 	if listContent != expectedList {
 		t.Errorf("expected rendered list content %q, got %q",
 			expectedList, listContent)
