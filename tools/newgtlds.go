@@ -103,26 +103,25 @@ func (e *pslEntry) normalize() {
 }
 
 // Comment generates a comment string for the pslEntry. This string has a `//`
-// prefix and includes:
-//   * the ASCII representation of the gTLD (punycode for internationalized
-//     gTLDs).
-//   * the date of the contract signature (may be empty).
-//   * the name of the registry operator (only if not empty).
+// prefix and matches one of the following two forms.
+//
+// If the registry operator field is empty the comment will be of the form:
+//
+//    '// <ALabel> : <DateOfContractSignature>'
+//
+// If the registry operator field is not empty the comment will be of the form:
+//
+//    '// <ALabel> : <DateOfContractSignature> <RegistryOperator>'
+//
+// In both cases the <DateOfContractSignature> may be empty.
 func (e pslEntry) Comment() string {
-	// all entries have a comment of the form:
-	//
-	// // <ALabel> : <Contract Signature Date>
-	//
-	// If the entry has a non-empty RegistryOperator field the comment is
-	//extended to include it:
-	//
-	// // <ALabel> : <Contract Signature Date> <RegistryOperator>
 	parts := []string{
 		"//",
 		e.ALabel,
 		":",
 		e.DateOfContractSignature,
 	}
+	// Avoid two trailing spaces if registry operator is empty
 	if e.RegistryOperator != "" {
 		parts = append(parts, e.RegistryOperator)
 	}
