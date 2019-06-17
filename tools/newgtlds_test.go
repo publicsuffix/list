@@ -21,13 +21,13 @@ func TestEntryNormalize(t *testing.T) {
 		{
 			name: "already normalized",
 			inputEntry: pslEntry{
-				GTLD:                    "cpu",
+				ALabel:                  "cpu",
 				ULabel:                  "ｃｐｕ",
 				DateOfContractSignature: "2019-06-13",
 				RegistryOperator:        "@cpu's bargain gTLD emporium",
 			},
 			expectedEntry: pslEntry{
-				GTLD:                    "cpu",
+				ALabel:                  "cpu",
 				ULabel:                  "ｃｐｕ",
 				DateOfContractSignature: "2019-06-13",
 				RegistryOperator:        "@cpu's bargain gTLD emporium",
@@ -36,14 +36,14 @@ func TestEntryNormalize(t *testing.T) {
 		{
 			name: "extra whitespace",
 			inputEntry: pslEntry{
-				GTLD:                    "  cpu    ",
+				ALabel:                  "  cpu    ",
 				ULabel:                  "   ｃｐｕ   ",
 				DateOfContractSignature: "   2019-06-13    ",
 				RegistryOperator: "     @cpu's bargain gTLD emporium " +
 					"(now with bonus whitespace)    ",
 			},
 			expectedEntry: pslEntry{
-				GTLD:                    "cpu",
+				ALabel:                  "cpu",
 				ULabel:                  "ｃｐｕ",
 				DateOfContractSignature: "2019-06-13",
 				RegistryOperator: "@cpu's bargain gTLD emporium " +
@@ -53,12 +53,12 @@ func TestEntryNormalize(t *testing.T) {
 		{
 			name: "no explicit uLabel",
 			inputEntry: pslEntry{
-				GTLD:                    "cpu",
+				ALabel:                  "cpu",
 				DateOfContractSignature: "2019-06-13",
 				RegistryOperator:        "@cpu's bargain gTLD emporium",
 			},
 			expectedEntry: pslEntry{
-				GTLD:                    "cpu",
+				ALabel:                  "cpu",
 				ULabel:                  "cpu",
 				DateOfContractSignature: "2019-06-13",
 				RegistryOperator:        "@cpu's bargain gTLD emporium",
@@ -87,7 +87,7 @@ func TestEntryComment(t *testing.T) {
 		{
 			name: "Full entry",
 			entry: pslEntry{
-				GTLD:                    "cpu",
+				ALabel:                  "cpu",
 				DateOfContractSignature: "2019-06-13",
 				RegistryOperator:        "@cpu's bargain gTLD emporium",
 			},
@@ -96,14 +96,14 @@ func TestEntryComment(t *testing.T) {
 		{
 			name: "Entry with empty contract signature date and operator",
 			entry: pslEntry{
-				GTLD: "cpu",
+				ALabel: "cpu",
 			},
 			expected: "// cpu : ",
 		},
 		{
 			name: "Entry with empty contract signature and non-empty operator",
 			entry: pslEntry{
-				GTLD:             "cpu",
+				ALabel:           "cpu",
 				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
 			expected: "// cpu :  @cpu's bargain gTLD emporium",
@@ -160,14 +160,14 @@ func TestGetPSLEntries(t *testing.T) {
 	}{
 		GTLDs: []pslEntry{
 			{
-				GTLD:                    "ceepeeyou",
+				ALabel:                  "ceepeeyou",
 				DateOfContractSignature: "2099-06-13",
 				RegistryOperator:        "@cpu's bargain gTLD emporium",
 			},
 			{
 				// NOTE: we include whitespace in this entry to test that normalization
 				// occurs.
-				GTLD:                    "  cpu    ",
+				ALabel:                  "  cpu    ",
 				ULabel:                  "   ｃｐｕ   ",
 				DateOfContractSignature: "   2019-06-13    ",
 				RegistryOperator: "     @cpu's bargain gTLD emporium " +
@@ -176,12 +176,12 @@ func TestGetPSLEntries(t *testing.T) {
 			{
 				// NOTE: we include a legacy gTLD here to test that filtering of legacy
 				// gTLDs occurs.
-				GTLD:                    "aero",
+				ALabel:                  "aero",
 				DateOfContractSignature: "1999-10-31",
 				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
 			},
 			{
-				GTLD:                    "terminated",
+				ALabel:                  "terminated",
 				DateOfContractSignature: "1987-10-31",
 				// NOTE: we include a contract terminated = true entry here to test that
 				// filtering of terminated entries occurs.
@@ -195,13 +195,13 @@ func TestGetPSLEntries(t *testing.T) {
 
 	expectedEntries := []pslEntry{
 		{
-			GTLD:                    "ceepeeyou",
+			ALabel:                  "ceepeeyou",
 			ULabel:                  "ceepeeyou",
 			DateOfContractSignature: "2099-06-13",
 			RegistryOperator:        "@cpu's bargain gTLD emporium",
 		},
 		{
-			GTLD:                    "cpu",
+			ALabel:                  "cpu",
 			ULabel:                  "ｃｐｕ",
 			DateOfContractSignature: "2019-06-13",
 			RegistryOperator: "@cpu's bargain gTLD emporium " +
@@ -263,12 +263,12 @@ func TestGetPSLEntriesEmptyFilteredResults(t *testing.T) {
 		GTLDs: []pslEntry{
 			{
 				// NOTE: GTLD matches a legacyGTLDs map entry to ensure filtering.
-				GTLD:                    "aero",
+				ALabel:                  "aero",
 				DateOfContractSignature: "1999-10-31",
 				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
 			},
 			{
-				GTLD:                    "terminated",
+				ALabel:                  "terminated",
 				DateOfContractSignature: "1987-10-31",
 				// NOTE: Setting ContractTerminated to ensure filtering.
 				ContractTerminated: true,
@@ -293,13 +293,13 @@ func TestGetPSLEntriesEmptyFilteredResults(t *testing.T) {
 func TestRenderData(t *testing.T) {
 	entries := []*pslEntry{
 		{
-			GTLD:                    "ceepeeyou",
+			ALabel:                  "ceepeeyou",
 			ULabel:                  "ceepeeyou",
 			DateOfContractSignature: "2099-06-13",
 			RegistryOperator:        "@cpu's bargain gTLD emporium",
 		},
 		{
-			GTLD:                    "cpu",
+			ALabel:                  "cpu",
 			ULabel:                  "ｃｐｕ",
 			DateOfContractSignature: "2019-06-13",
 		},

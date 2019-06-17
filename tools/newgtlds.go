@@ -69,12 +69,12 @@ var (
 // pslEntry is a struct matching a subset of the gTLD data fields present in
 // each object entry of the "GLTDs" array from ICANN_GTLD_JSON_URL.
 type pslEntry struct {
-	// GTLD contains the gTLD name. For internationalized gTLDs the GTLD field is
-	// expressed in punycode.
-	GTLD string
+	// ALabel contains the ASCII gTLD name. For internationalized gTLDs the GTLD
+	// field is expressed in punycode.
+	ALabel string `json:"gTLD"`
 	// ULabel contains the unicode representation of the gTLD name. When the gTLD
 	// ULabel in the ICANN gTLD data is empty (e.g for an ASCII gTLD like
-	// '.pizza') the PSL entry will use the GTLD as the ULabel.
+	// '.pizza') the PSL entry will use the ALabel as the ULabel.
 	ULabel string
 	// RegistryOperator holds the name of the registry operator that operates the
 	// gTLD (may be empty).
@@ -88,17 +88,17 @@ type pslEntry struct {
 }
 
 // normalize will normalize a pslEntry by mutating it in place to trim the
-// string fields of whitespace and by populating the ULabel with the GTLD if
+// string fields of whitespace and by populating the ULabel with the ALabel if
 // the ULabel is empty.
 func (e *pslEntry) normalize() {
-	e.GTLD = strings.TrimSpace(e.GTLD)
+	e.ALabel = strings.TrimSpace(e.ALabel)
 	e.ULabel = strings.TrimSpace(e.ULabel)
 	e.RegistryOperator = strings.TrimSpace(e.RegistryOperator)
 	e.DateOfContractSignature = strings.TrimSpace(e.DateOfContractSignature)
 
 	// If there is no explicit uLabel use the gTLD as the uLabel.
 	if e.ULabel == "" {
-		e.ULabel = e.GTLD
+		e.ULabel = e.ALabel
 	}
 }
 
@@ -111,15 +111,15 @@ func (e *pslEntry) normalize() {
 func (e pslEntry) Comment() string {
 	// all entries have a comment of the form:
 	//
-	// // <gTLD> : <Contract Signature Date>
+	// // <ALabel> : <Contract Signature Date>
 	//
 	// If the entry has a non-empty RegistryOperator field the comment is
 	//extended to include it:
 	//
-	// // <gTLD> : <Contract Signature Date> <RegistryOperator>
+	// // <ALabel> : <Contract Signature Date> <RegistryOperator>
 	parts := []string{
 		"//",
-		e.GTLD,
+		e.ALabel,
 		":",
 		e.DateOfContractSignature,
 	}
@@ -157,7 +157,7 @@ func getData(url string) ([]byte, error) {
 func filterGTLDs(entries []*pslEntry) []*pslEntry {
 	var filtered []*pslEntry
 	for _, entry := range entries {
-		if _, isLegacy := legacyGTLDs[entry.GTLD]; isLegacy {
+		if _, isLegacy := legacyGTLDs[entry.ALabel]; isLegacy {
 			continue
 		}
 		if entry.ContractTerminated {
@@ -197,7 +197,7 @@ func getPSLEntries(url string) ([]*pslEntry, error) {
 	}
 
 	// Normalize each tldEntry. This will remove leading/trailing whitespace and
-	// populate the ULabel with the ascii GTLD if the entry has no ULabel.
+	// populate the ULabel with the ALabel if the entry has no ULabel.
 	for _, tldEntry := range results.GTLDs {
 		tldEntry.normalize()
 	}
