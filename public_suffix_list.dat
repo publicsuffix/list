@@ -11008,6 +11008,8 @@ cloudera.site
 // Cloudflare, Inc. : https://www.cloudflare.com/
 // Submitted by Jake Riesterer <publicsuffixlist@cloudflare.com>
 workers.dev
+// Submitted by Adam Chalmers <publicsuffixlist@cloudflare.com>
+trycloudflare.com
 
 // Clovyr : https://clovyr.io
 // Submitted by Patrick Nielsen <patrick@clovyr.io>
