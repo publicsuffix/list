@@ -11880,11 +11880,6 @@ publishproxy.com
 withgoogle.com
 withyoutube.com
 
-// Handshake : https://handshake.org
-// Submitted by Mike Damm <md@md.vc>
-hs.zone
-hs.run
-
 // Hakaran group: http://hakaran.cz
 // Submited by Arseniy Sokolov <security@hakaran.cz>
 fin.ci
@@ -11892,6 +11887,11 @@ free.hr
 caa.li
 ua.rs
 conf.se
+
+// Handshake : https://handshake.org
+// Submitted by Mike Damm <md@md.vc>
+hs.zone
+hs.run
 
 // Hashbang : https://hashbang.sh
 hashbang.sh
