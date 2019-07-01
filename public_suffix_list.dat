@@ -11013,6 +11013,7 @@ cloudera.site
 
 // Cloudflare, Inc. : https://www.cloudflare.com/
 // Submitted by Jake Riesterer <publicsuffixlist@cloudflare.com>
+trycloudflare.com
 workers.dev
 
 // Clovyr : https://clovyr.io
