@@ -6506,7 +6506,7 @@ k12.ut.us
 k12.vi.us
 k12.vt.us
 k12.va.us
-k12.wa.us
+// k12.wa.us - Removed at the request of Dan Heisel <dan.heisel@watech.wa.gov>
 k12.wi.us
 // k12.wv.us  Bug 947705 - Removed at request of Verne Britton <verne@wvnet.edu>
 k12.wy.us
