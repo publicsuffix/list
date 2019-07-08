@@ -7010,7 +7010,12 @@ yt
 xxx
 
 // ye : http://www.y.net.ye/services/domain_name.htm
-*.ye
+ye
+com.ye
+me.ye
+net.ye
+org.ye
+gov.ye
 
 // za : http://www.zadna.org.za/content/page/domain-information
 ac.za
