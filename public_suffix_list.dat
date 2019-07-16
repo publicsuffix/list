@@ -12915,6 +12915,10 @@ voorloper.cloud
 // Submitted by Masayuki Note <masa@blade.wafflecell.com>
 wafflecell.com
 
+// WebHare bv: https://www.webhare.com/
+// Submitted by Arnold Hendriks <info@webhare.com>
+*.webhare.dev
+
 // WeDeploy by Liferay, Inc. : https://www.wedeploy.com
 // Submitted by Henrique Vicente <security@wedeploy.com>
 wedeploy.io
