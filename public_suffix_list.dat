@@ -12672,8 +12672,8 @@ my-firewall.org
 myfirewall.org
 spdns.org
 
-// SensioLabs, SAS : https://sensiolabs.com/
-// Submitted by Fabien Potencier <fabien.potencier@sensiolabs.com>
+// Symfony, SAS : https://symfony.com/
+// Submitted by Fabien Potencier <fabien@symfony.com>
 *.s5y.io
 *.sensiosite.cloud
 
