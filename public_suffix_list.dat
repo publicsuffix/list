@@ -240,6 +240,8 @@ vic.au
 wa.au
 // 3LDs
 act.edu.au
+catholic.edu.au
+eq.edu.au
 nsw.edu.au
 nt.edu.au
 qld.edu.au
@@ -255,6 +257,9 @@ sa.gov.au
 tas.gov.au
 vic.gov.au
 wa.gov.au
+// 4LDs
+education.tas.edu.au
+schools.nsw.edu.au
 
 // aw : https://en.wikipedia.org/wiki/.aw
 aw
