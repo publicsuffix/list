@@ -273,6 +273,12 @@ func TestGetPSLEntriesEmptyFilteredResults(t *testing.T) {
 				// NOTE: Setting ContractTerminated to ensure filtering.
 				ContractTerminated: true,
 			},
+			{
+				ALabel:                  "removed",
+				DateOfContractSignature: "1999-10-31",
+				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
+				RemovalDate:             "2019-08-06",
+			},
 		},
 	}
 
