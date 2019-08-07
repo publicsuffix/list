@@ -7062,7 +7062,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-08-02T16:08:27Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-08-07T16:16:07Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -8482,9 +8482,6 @@ homesense
 
 // honda : 2014-12-18 Honda Motor Co., Ltd.
 honda
-
-// honeywell : 2015-07-23 Honeywell GTLD LLC
-honeywell
 
 // horse : 2013-11-21 Minds + Machines Group Limited
 horse
