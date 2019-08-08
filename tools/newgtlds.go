@@ -85,6 +85,9 @@ type pslEntry struct {
 	// ICANN. When rendered by the pslTemplate only entries with
 	// ContractTerminated = false are included.
 	ContractTerminated bool
+	// RemovalDate indicates the date the gTLD delegation was removed from the
+	// root zones.
+	RemovalDate string
 }
 
 // normalize will normalize a pslEntry by mutating it in place to trim the
@@ -152,7 +155,7 @@ func getData(url string) ([]byte, error) {
 }
 
 // filterGTLDs removes entries that are present in the legacyGTLDs map or have
-// ContractTerminated equal to true.
+// ContractTerminated equal to true, or a non-empty RemovalDate.
 func filterGTLDs(entries []*pslEntry) []*pslEntry {
 	var filtered []*pslEntry
 	for _, entry := range entries {
@@ -160,6 +163,9 @@ func filterGTLDs(entries []*pslEntry) []*pslEntry {
 			continue
 		}
 		if entry.ContractTerminated {
+			continue
+		}
+		if entry.RemovalDate != "" {
 			continue
 		}
 		filtered = append(filtered, entry)
