@@ -12572,6 +12572,11 @@ ras.ru
 // Submitted by Daniel Dent (https://www.danieldent.com/)
 qa2.com
 
+// QCX
+// Submitted by Cassandra Beelen <cassandra@beelen.one>
+qcx.io
+*.sys.qcx.io
+
 // QNAP System Inc : https://www.qnap.com
 // Submitted by Nick Chang <nickchang@qnap.com>
 dev-myqnapcloud.com
