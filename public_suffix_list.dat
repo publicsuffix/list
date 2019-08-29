@@ -7062,7 +7062,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-08-23T16:26:02Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-08-29T16:29:48Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -8857,6 +8857,9 @@ lixil
 
 // llc : 2017-12-14 Afilias Limited
 llc
+
+// llp : 2019-08-26 Dot Registry LLC
+llp
 
 // loan : 2014-11-20 dot Loan Limited
 loan
