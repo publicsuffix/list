@@ -7062,7 +7062,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-08-29T16:29:48Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-08-30T19:02:57Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7966,9 +7966,6 @@ duck
 
 // dunlop : 2015-07-02 The Goodyear Tire & Rubber Company
 dunlop
-
-// duns : 2015-08-06 The Dun & Bradstreet Corporation
-duns
 
 // dupont : 2015-06-25 E. I. du Pont de Nemours and Company
 dupont
