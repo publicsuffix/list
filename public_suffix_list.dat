@@ -7059,6 +7059,17 @@ gov.zw
 mil.zw
 org.zw
 
+// ss : https://registry.nic.ss/
+// IANA https://www.iana.org/domains/root/db/ss.html
+// Enquiries <technical@nic.ss>
+// Please note that the 2nd level(.ss) is only used by the registry (e.g nic.ss) not open to the public
+ss
+edu.ss
+com.ss
+net.ss
+biz.ss
+gov.ss
+org.ss
 
 // newGTLDs
 
