@@ -11891,6 +11891,8 @@ conf.se
 // Submitted by Mike Damm <md@md.vc>
 hs.zone
 hs.run
+// Submitted by Jacob H. Haven <jacob@jhaven.me>
+hsd.zone
 
 // Hashbang : https://hashbang.sh
 hashbang.sh
