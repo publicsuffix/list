@@ -826,6 +826,14 @@ inf.cu
 
 // cv : https://en.wikipedia.org/wiki/.cv
 cv
+net.cv
+gov.cv
+org.cv
+edu.cv
+int.cv
+publ.cv
+com.cv
+nome.cv
 
 // cw : http://www.una.cw/cw_registry/
 // Confirmed by registry <registry@una.net> 2013-03-26
