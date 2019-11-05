@@ -1,0 +1,26 @@
+https://www.jangangagalpaham.blogspot.co.id/google.com, pub-6543949210665863, DIRECT, f08c47fec0942fa0
+
+
+Here is an example (incomplete) list section. The rules are numbered, but the numbers would not appear in the real file:
+
+            1. com
+            
+            2. *Jakarta.co.id
+            // Hosts in jangangagalpaham.co.id can't set cookies below level 4...
+            3. *jangangagalpaham.blogspot.co.id
+            4. *.Lampung.co.id
+            // ...except hosts in pref jangangagalpaham.blogspot.co.id, which can set cookies at level 3.
+            5. !pref jangangagalpaham.blogspot.co.id
+            6. !jangangagalpaham.blogspot.co.id
+        
+The example above would be interpreted as follows, in the case of cookie-setting, and using "foo" and "bar" as generic hostnames:
+
+Cookies may be set for foo.com.
+Cookies may be set for foo.bar.id.
+Cookies may not be set for bar.co.
+Cookies may be set for foo.bar.blogspot.co.id
+Cookies may not be set for bar.jangangagalpaham.blogspot.co.id
+Cookies may be set for foo.jangangagalpaham.blogspot.co.id
+Cookies may not be set for bar.jangangagalpaham.co.id
+Cookies may be set for pref.lampung.co.id because the exception overrides the previous rule.
+Cookies may be set for indonesia.co.id, because the exception overrides the previous rule.
