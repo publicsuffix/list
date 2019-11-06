@@ -11114,6 +11114,12 @@ cupcake.is
 cyon.link
 cyon.site
 
+// Daftano: https://www.daftano.com
+// Submitted by Davide Fiorentino lo Regio <public-suffix@daftano.com>
+*.regnumneapolitanum.com
+!www.regnumneapolitanum.com
+!api.regnumneapolitanum.com
+
 // Daplie, Inc : https://daplie.com
 // Submitted by AJ ONeal <aj@daplie.com>
 daplie.me
