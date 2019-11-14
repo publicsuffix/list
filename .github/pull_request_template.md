@@ -7,10 +7,10 @@ If you'd like an example of what an excellent PR looks like
 see https://github.com/publicsuffix/list/pull/615
 -->
 
-* [ ] Description of Organization
-* [ ] Reason for PSL Inclusion
-* [ ] DNS verification via dig
-* [ ] Run Syntax Checker (make test)
+* [X] Description of Organization
+* [X] Reason for PSL Inclusion
+* [X] DNS verification via dig
+* [X] Run Syntax Checker (make test)
 
 <!--
 
@@ -25,7 +25,8 @@ Example:
 Description of Organization
 ====
 
-Organization Website: <!-- https://example.com -->
+Organization Website:
+https://v.ua
 
 <!--
 Please tell us who you are and represent (i.e. individual, non-profit volunteer, engineer at a business)
@@ -34,7 +35,7 @@ and what you do (i.e. DynDNS, Hosting, etc)
 
 Reason for PSL Inclusion
 ====
-
+The third level domains available to registration in the domain zone V.UA
 <!--
 Please tell us why your domain(s) should be listed in the PSL
 (i.e. Cookie Security, Let's Encrypt issuance, etc).
@@ -42,6 +43,10 @@ Please tell us why your domain(s) should be listed in the PSL
 
 DNS Verification via dig
 =======
+```
+dig +short TXT _psl.v.ua
+"https://github.com/publicsuffix/list/pull/917"
+```
 
 <!--
 For each domain you'd like to add to the list please create
@@ -49,16 +54,6 @@ a DNS verification record pointing to your pull request.
 
 For example, if you'd like to add example.com and example.net
 you would need to provide the following verifications:
-
-```
-dig +short TXT _psl.example.com
-"https://github.com/publicsuffix/list/pull/XXXX"
-```
-
-```
-dig +short TXT _psl.example.net
-"https://github.com/publicsuffix/list/pull/XXXX"
-```
 
 Note that XXXX is replaced with the number of your pull request.
 -->
