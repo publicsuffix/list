@@ -12600,6 +12600,7 @@ rackmaze.net
 
 // Rancher Labs, Inc : https://rancher.com
 // Submitted by Vincent Fiduccia <domains@rancher.com>
+*.on-k3s.io
 *.on-rancher.cloud
 *.on-rio.io
 
