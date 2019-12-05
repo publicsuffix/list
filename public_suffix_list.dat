@@ -5886,14 +5886,9 @@ gov.rs
 in.rs
 org.rs
 
-// ru : https://cctld.ru/en/domains/domens_ru/reserved/
+// ru : https://cctld.ru/files/pdf/docs/en/rules_ru-rf.pdf
+// Submitted by George Georgievsky <gug@cctld.ru>
 ru
-ac.ru
-edu.ru
-gov.ru
-int.ru
-mil.ru
-test.ru
 
 // rw : https://www.ricta.org.rw/sites/default/files/resources/registry_registrar_contract_0.pdf
 rw
@@ -6958,7 +6953,8 @@ yt
 ак.срб
 
 // xn--p1ai ("rf", Russian-Cyrillic) : RU
-// http://www.cctld.ru/en/docs/rulesrf.php
+// https://cctld.ru/files/pdf/docs/en/rules_ru-rf.pdf
+// Submitted by George Georgievsky <gug@cctld.ru>
 рф
 
 // xn--wgbl6a ("Qatar", Arabic) : QA
@@ -7078,7 +7074,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-11-15T17:07:54Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-12-02T17:16:24Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7668,9 +7664,6 @@ christmas
 // chrome : 2014-07-24 Charleston Road Registry Inc.
 chrome
 
-// chrysler : 2015-07-30 FCA US LLC.
-chrysler
-
 // church : 2014-02-06 Binky Moon, LLC
 church
 
@@ -7949,9 +7942,6 @@ docs
 
 // doctor : 2016-06-02 Binky Moon, LLC
 doctor
-
-// dodge : 2015-07-30 FCA US LLC.
-dodge
 
 // dog : 2014-12-04 Binky Moon, LLC
 dog
@@ -8742,9 +8732,6 @@ kyoto
 // lacaixa : 2014-01-09 Fundación Bancaria Caixa d’Estalvis i Pensions de Barcelona, “la Caixa”
 lacaixa
 
-// ladbrokes : 2015-08-06 LADBROKES INTERNATIONAL PLC
-ladbrokes
-
 // lamborghini : 2015-06-04 Automobili Lamborghini S.p.A.
 lamborghini
 
@@ -8756,9 +8743,6 @@ lancaster
 
 // lancia : 2015-07-31 Fiat Chrysler Automobiles N.V.
 lancia
-
-// lancome : 2015-07-23 L'Oréal
-lancome
 
 // land : 2013-09-10 Binky Moon, LLC
 land
@@ -9056,9 +9040,6 @@ money
 
 // monster : 2015-09-11 XYZ.COM LLC
 monster
-
-// mopar : 2015-07-30 FCA US LLC.
-mopar
 
 // mormon : 2013-12-05 IRI Domain Management, LLC ("Applicant")
 mormon
@@ -9852,9 +9833,6 @@ spreadbetting
 // srl : 2015-05-07 InterNetX, Corp
 srl
 
-// srt : 2015-07-30 FCA US LLC.
-srt
-
 // stada : 2014-11-13 STADA Arzneimittel AG
 stada
 
@@ -10116,9 +10094,6 @@ ubank
 // ubs : 2014-12-11 UBS AG
 ubs
 
-// uconnect : 2015-07-30 FCA US LLC.
-uconnect
-
 // unicom : 2015-10-15 China United Network Communications Corporation Limited
 unicom
 
@@ -10238,9 +10213,6 @@ wang
 
 // wanggou : 2014-12-18 Amazon Registry Services, Inc.
 wanggou
-
-// warman : 2015-06-18 Weir Group IP Limited
-warman
 
 // watch : 2013-11-14 Binky Moon, LLC
 watch
@@ -11070,6 +11042,15 @@ co.no
 webhosting.be
 hosting-cluster.nl
 
+// Coordination Center for TLD RU and XN--P1AI : https://cctld.ru/en/domains/domens_ru/reserved/
+// Submitted by George Georgievsky <gug@cctld.ru>
+ac.ru
+edu.ru
+gov.ru
+int.ru
+mil.ru
+test.ru
+
 // COSIMO GmbH : http://www.cosimo.de
 // Submitted by Rene Marticke <rmarticke@cosimo.de>
 dyn.cosidns.de
@@ -11093,6 +11074,14 @@ realm.cz
 // Cupcake : https://cupcake.io/
 // Submitted by Jonathan Rudenberg <jonathan@cupcake.io>
 cupcake.is
+
+// Customer OCI - Oracle Dyn https://cloud.oracle.com/home https://dyn.com/dns/
+// Submitted by Gregory Drake <support@dyn.com>
+// Note: This is intended to also include customer-oci.com due to wildcards implicitly including the current label
+*.customer-oci.com
+*.oci.customer-oci.com
+*.ocp.customer-oci.com
+*.ocs.customer-oci.com
 
 // cyon GmbH : https://www.cyon.ch/
 // Submitted by Dominic Luechinger <dol@cyon.ch>
@@ -11125,6 +11114,10 @@ store.dk
 // Submitted by Daniil Burdakov <icqkill@gmail.com>
 *.dapps.earth
 *.bzz.dapps.earth
+
+// Dark, Inc. : https://darklang.com
+// Submitted by Paul Biggar <ops@darklang.com>
+builtwithdark.com
 
 // Datawire, Inc : https://www.datawire.io
 // Submitted by Richard Li <secalert@datawire.io>
@@ -11732,6 +11725,10 @@ firebaseapp.com
 flynnhub.com
 flynnhosting.net
 
+// Frederik Braun https://frederik-braun.com
+// Submitted by Frederik Braun <fb@frederik-braun.com>
+0e.vc
+
 // Freebox : http://www.freebox.fr
 // Submitted by Romain Fliedel <rfliedel@freebox.fr>
 freebox-os.com
@@ -11765,8 +11762,9 @@ service.gov.uk
 gehirn.ne.jp
 usercontent.jp
 
-// Gentlent, Limited : https://www.gentlent.com
-// Submitted by Tom Klein <tklein@gentlent.com>
+// Gentlent, Inc. : https://www.gentlent.com
+// Submitted by Tom Klein <tom@gentlent.com>
+gentapps.com
 lab.ms
 
 // GitHub, Inc.
@@ -11811,6 +11809,7 @@ a.run.app
 web.app
 *.0emm.com
 appspot.com
+*.r.appspot.com
 blogspot.ae
 blogspot.al
 blogspot.am
@@ -11895,6 +11894,10 @@ publishproxy.com
 withgoogle.com
 withyoutube.com
 
+// Group 53, LLC : https://www.group53.com
+// Submitted by Tyler Todd <noc@nova53.net>
+awsmppl.com
+
 // Hakaran group: http://hakaran.cz
 // Submited by Arseniy Sokolov <security@hakaran.cz>
 fin.ci
@@ -11944,6 +11947,7 @@ col.ng
 firm.ng
 gen.ng
 ltd.ng
+ngo.ng
 ng.school
 sch.so
 
@@ -12063,6 +12067,10 @@ uni5.net
 // KnightPoint Systems, LLC : http://www.knightpoint.com/
 // Submitted by Roy Keene <rkeene@knightpoint.com>
 knightpoint.systems
+
+// KUROKU LTD : https://kuroku.ltd/
+// Submitted by DisposaBoy <security@oya.to>
+oya.to
 
 // .KRD : http://nic.krd/data/krd/Registration%20Policy.pdf
 co.krd
@@ -12478,6 +12486,10 @@ opencraft.hosting
 // Submitted by Yngve Pettersen <yngve@opera.com>
 operaunite.com
 
+// Oursky Limited : https://skygear.io/
+// Submited by Skygear Developer <hello@skygear.io>
+skygearapp.com
+
 // OutSystems
 // Submitted by Duarte Santos <domain-admin@outsystemscloud.com>
 outsystemscloud.com
@@ -12519,6 +12531,10 @@ gotpantheon.com
 // Peplink | Pepwave : http://peplink.com/
 // Submitted by Steve Leung <steveleung@peplink.com>
 mypep.link
+
+// Perspecta : https://perspecta.com/
+// Submitted by Kenneth Van Alstyne <kvanalstyne@perspecta.com>
+perspecta.cloud
 
 // Planet-Work : https://www.planet-work.com/
 // Submitted by Frédéric VANNIÈRE <f.vanniere@planet-work.com>
@@ -12582,6 +12598,11 @@ ras.ru
 // Submitted by Daniel Dent (https://www.danieldent.com/)
 qa2.com
 
+// QCX
+// Submitted by Cassandra Beelen <cassandra@beelen.one>
+qcx.io
+*.sys.qcx.io
+
 // QNAP System Inc : https://www.qnap.com
 // Submitted by Nick Chang <nickchang@qnap.com>
 dev-myqnapcloud.com
@@ -12604,6 +12625,7 @@ rackmaze.net
 
 // Rancher Labs, Inc : https://rancher.com
 // Submitted by Vincent Fiduccia <domains@rancher.com>
+*.on-k3s.io
 *.on-rancher.cloud
 *.on-rio.io
 
