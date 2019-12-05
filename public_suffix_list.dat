@@ -11058,7 +11058,7 @@ cupcake.is
 
 // Customer OCI - Oracle Dyn https://cloud.oracle.com/home https://dyn.com/dns/
 // Submitted by Gregory Drake <support@dyn.com>
-customer-oci.com
+// Note: This is intended to also include customer-oci.com due to wildcards implicitly including the current label
 *.customer-oci.com
 *.oci.customer-oci.com
 *.ocp.customer-oci.com
