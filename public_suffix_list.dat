@@ -11075,6 +11075,14 @@ realm.cz
 // Submitted by Jonathan Rudenberg <jonathan@cupcake.io>
 cupcake.is
 
+// Customer OCI - Oracle Dyn https://cloud.oracle.com/home https://dyn.com/dns/
+// Submitted by Gregory Drake <support@dyn.com>
+// Note: This is intended to also include customer-oci.com due to wildcards implicitly including the current label
+*.customer-oci.com
+*.oci.customer-oci.com
+*.ocp.customer-oci.com
+*.ocs.customer-oci.com
+
 // cyon GmbH : https://www.cyon.ch/
 // Submitted by Dominic Luechinger <dol@cyon.ch>
 cyon.link
