@@ -5886,14 +5886,9 @@ gov.rs
 in.rs
 org.rs
 
-// ru : https://cctld.ru/en/domains/domens_ru/reserved/
+// ru : https://cctld.ru/files/pdf/docs/en/rules_ru-rf.pdf
+// Submitted by George Georgievsky <gug@cctld.ru>
 ru
-ac.ru
-edu.ru
-gov.ru
-int.ru
-mil.ru
-test.ru
 
 // rw : https://www.ricta.org.rw/sites/default/files/resources/registry_registrar_contract_0.pdf
 rw
@@ -6958,7 +6953,8 @@ yt
 ак.срб
 
 // xn--p1ai ("rf", Russian-Cyrillic) : RU
-// http://www.cctld.ru/en/docs/rulesrf.php
+// https://cctld.ru/files/pdf/docs/en/rules_ru-rf.pdf
+// Submitted by George Georgievsky <gug@cctld.ru>
 рф
 
 // xn--wgbl6a ("Qatar", Arabic) : QA
@@ -11045,6 +11041,15 @@ co.no
 // Submitted by Thomas Wouters <thomas.wouters@combellgroup.com>
 webhosting.be
 hosting-cluster.nl
+
+// Coordination Center for TLD RU and XN--P1AI : https://cctld.ru/en/domains/domens_ru/reserved/
+// Submitted by George Georgievsky <gug@cctld.ru>
+ac.ru
+edu.ru
+gov.ru
+int.ru
+mil.ru
+test.ru
 
 // COSIMO GmbH : http://www.cosimo.de
 // Submitted by Rene Marticke <rmarticke@cosimo.de>
