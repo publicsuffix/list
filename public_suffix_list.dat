@@ -11808,10 +11808,6 @@ homeoffice.gov.uk
 ro.im
 shop.ro
 
-// Group 53, LLC : https://www.group53.com
-// Submitted by Tyler Todd <noc@nova53.net>
-awsmppl.com
-
 // GoIP DNS Services : http://www.goip.de
 // Submitted by Christian Poulter <milchstrasse@goip.de>
 goip.de
@@ -11906,6 +11902,10 @@ pagespeedmobilizer.com
 publishproxy.com
 withgoogle.com
 withyoutube.com
+
+// Group 53, LLC : https://www.group53.com
+// Submitted by Tyler Todd <noc@nova53.net>
+awsmppl.com
 
 // Hakaran group: http://hakaran.cz
 // Submited by Arseniy Sokolov <security@hakaran.cz>
