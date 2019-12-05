@@ -5882,7 +5882,7 @@ gov.rs
 in.rs
 org.rs
 
-// Coordination Center for TLD RU and XN--P1AI : https://cctld.ru/files/pdf/docs/en/rules_ru-rf.pdf
+// ru : https://cctld.ru/files/pdf/docs/en/rules_ru-rf.pdf
 // Submitted by George Georgievsky <gug@cctld.ru>
 ru
 
@@ -11028,6 +11028,15 @@ co.no
 webhosting.be
 hosting-cluster.nl
 
+// Coordination Center for TLD RU and XN--P1AI : https://cctld.ru/en/domains/domens_ru/reserved/
+// Submitted by George Georgievsky <gug@cctld.ru>
+ac.ru
+edu.ru
+gov.ru
+int.ru
+mil.ru
+test.ru
+
 // COSIMO GmbH : http://www.cosimo.de
 // Submitted by Rene Marticke <rmarticke@cosimo.de>
 dyn.cosidns.de
@@ -12770,14 +12779,5 @@ site.builder.nu
 // Zone.id : https://zone.id/
 // Submitted by Su Hendro <admin@zone.id>
 zone.id
-
-// Coordination Center for TLD RU and XN--P1AI : https://cctld.ru/en/domains/domens_ru/reserved/
-// Submitted by George Georgievsky <gug@cctld.ru>
-ac.ru
-edu.ru
-gov.ru
-int.ru
-mil.ru
-test.ru
 
 // ===END PRIVATE DOMAINS===
