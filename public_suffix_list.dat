@@ -12952,6 +12952,10 @@ v-info.info
 // Submitted by Nathan van Bakel <info@voorloper.com>
 voorloper.cloud
 
+// V.UA Domain Administrator : https://domain.v.ua/
+// Submitted by Serhii Rostilo <sergey@rostilo.kiev.ua>
+v.ua
+
 // Waffle Computer Inc., Ltd. : https://docs.waffleinfo.com
 // Submitted by Masayuki Note <masa@blade.wafflecell.com>
 wafflecell.com
@@ -13038,9 +13042,5 @@ basicserver.io
 virtualserver.io
 site.builder.nu
 enterprisecloud.nu
-
-// V.UA Domain administrator : https://domain.v.ua/
-// Submitted by Serhii Rostilo <sergey@rostilo.kiev.ua>
-v.ua
 
 // ===END PRIVATE DOMAINS===
