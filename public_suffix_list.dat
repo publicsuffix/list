@@ -10657,6 +10657,12 @@ cc.ua
 inf.ua
 ltd.ua
 
+// Adobe : https://www.adobe.com/
+// Submitted by Ian Boston <boston@adobe.com>
+adobeaemcloud.com
+adobeaemcloud.net
+*.dev.adobeaemcloud.com
+
 // Agnat sp. z o.o. : https://domena.pl
 // Submitted by Przemyslaw Plewa <it-admin@domena.pl>
 beep.pl
