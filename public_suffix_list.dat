@@ -7074,7 +7074,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-12-20T17:24:23Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2019-12-25T17:26:24Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -9065,9 +9065,6 @@ mov
 // movie : 2015-02-05 Binky Moon, LLC
 movie
 
-// movistar : 2014-10-16 Telefónica S.A.
-movistar
-
 // msd : 2015-07-23 MSD Registry Holdings, Inc.
 msd
 
@@ -9961,9 +9958,6 @@ tech
 
 // technology : 2013-09-13 Binky Moon, LLC
 technology
-
-// telefonica : 2014-10-16 Telefónica S.A.
-telefonica
 
 // temasek : 2014-08-07 Temasek Holdings (Private) Limited
 temasek
