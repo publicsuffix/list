@@ -13060,6 +13060,10 @@ za.org
 // Submitted by Olli Vanhoja <olli@zeit.co>
 now.sh
 
+// Zerops.io : https://www.zerops.io/
+// Submitted by Jan Hajek <dev@zerops.dev>
+*.zerops.dev
+
 // Zine EOOD : https://zine.bg/
 // Submitted by Martin Angelov <martin@zine.bg>
 bss.design
