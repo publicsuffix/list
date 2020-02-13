@@ -3732,9 +3732,7 @@ net.ky
 // see also: http://www.nic.kz/rules/index.jsp
 kz
 org.kz
-edu.kz
 net.kz
-gov.kz
 mil.kz
 com.kz
 
@@ -12070,6 +12068,11 @@ js.org
 // Submitted by Wouter Bakker <hostmaster@kaashosting.nl>
 kaas.gg
 khplay.nl
+
+// KazNIC Organization : https://www.nic.kz/
+// Submitted by Ruslan Bektemirov <ruslan@nic.kz>
+edu.kz
+gov.kz
 
 // Keyweb AG : https://www.keyweb.de
 // Submitted by Martin Dannehl <postmaster@keymachine.de>
