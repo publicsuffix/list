@@ -13006,8 +13006,10 @@ wedeploy.sh
 remotewd.com
 
 // Wikimedia Labs : https://wikitech.wikimedia.org
-// Submitted by Yuvi Panda <yuvipanda@wikimedia.org>
+// Submitted by Arturo Borrero Gonzalez <aborrero@wikimedia.org>
 wmflabs.org
+toolforge.org
+wmcloud.org
 
 // WoltLab GmbH : https://www.woltlab.com
 // Submitted by Tim Düsterhus <security@woltlab.cloud>
