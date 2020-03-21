@@ -719,15 +719,20 @@ gouv.ci
 *.ck
 !www.ck
 
-// cl : https://en.wikipedia.org/wiki/.cl
+// cl : https://www.nic.cl
+// Confirmed by .CL registry <hsalgado@nic.cl>
 cl
 // Chilean Ministry of Education : https://www.mineduc.cl/
 // Submitted by .CL registry <hsalgado@nic.cl> on behalf of Mineduc
 aprendemas.cl
-gov.cl
-gob.cl
+// Entel Chile S.A., private subregistry
+// Confirmed by registry <hsalgado@nic.cl>
 co.cl
+// Chilean government subregistries
+// Confirmed by registry <hsalgado@nic.cl>
 mil.cl
+gob.cl
+gov.cl
 
 // cm : https://en.wikipedia.org/wiki/.cm plus bug 981927
 cm
