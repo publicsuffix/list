@@ -719,11 +719,13 @@ gouv.ci
 *.ck
 !www.ck
 
-// cl : https://en.wikipedia.org/wiki/.cl
+// cl : https://www.nic.cl
+// Confirmed by .CL registry <hsalgado@nic.cl>
 cl
-gov.cl
-gob.cl
+aprendemas.cl
 co.cl
+gob.cl
+gov.cl
 mil.cl
 
 // cm : https://en.wikipedia.org/wiki/.cm plus bug 981927
