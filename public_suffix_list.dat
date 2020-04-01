@@ -12238,8 +12238,8 @@ eu.meteorapp.com
 co.pl
 
 // Microsoft Corporation : http://microsoft.com
-// Submitted by Justin Luk <juluk@microsoft.com>
-azurecontainer.io
+// Submitted by Mostafa Elzeiny <moelzein@microsoft.com>
+*.azurecontainer.io
 azurewebsites.net
 azure-mobile.net
 cloudapp.net
