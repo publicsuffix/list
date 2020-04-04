@@ -12575,6 +12575,12 @@ on-web.fr
 *.platform.sh
 *.platformsh.site
 
+// Platter: https://platter.dev
+// Submitted by Patrick Flor <patrick@platter.dev>
+platter-app.com
+platter-app.dev
+platterp.us
+
 // Port53 : https://port53.io/
 // Submitted by Maximilian Schieder <maxi@zeug.co>
 dyn53.io
