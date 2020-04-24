@@ -12963,10 +12963,6 @@ hk.org
 ltd.hk
 inc.hk
 
-// www.com.vc : http://www.com.vc
-// Submitted by Li Hui <214274110@qq.com>
-cn.vu
-
 // United Gameserver GmbH : https://united-gameserver.de
 // Submitted by Stefan Schwarz <sysadm@united-gameserver.de>
 virtualuser.de
@@ -13030,6 +13026,10 @@ community-pro.de
 diskussionsbereich.de
 community-pro.net
 meinforum.net
+
+// www.com.vc : http://www.com.vc
+// Submitted by Li Hui <lihui@sinopub.com>
+cn.vu
 
 // XenonCloud GbR: https://xenoncloud.net
 // Submitted by Julian Uphoff <publicsuffixlist@xenoncloud.net>
