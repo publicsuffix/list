@@ -11728,12 +11728,11 @@ global.ssl.fastly.net
 
 // FASTVPS EESTI OU : https://fastvps.ru/
 // Submitted by Likhachev Vasiliy <lihachev@fastvps.ru>
-fastpanel.direct
 fastvps-server.com
-myfast.space
+fastvps.host
 myfast.host
 fastvps.site
-fastvps.host
+myfast.space
 
 // Featherhead : https://featherhead.xyz/
 // Submitted by Simon Menke <simon@featherhead.xyz>
