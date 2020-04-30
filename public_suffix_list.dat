@@ -12174,7 +12174,8 @@ linkyard-cloud.ch
 // Linode : https://linode.com
 // Submitted by <security@linode.com>
 members.linode.com
-nodebalancer.linode.com
+*.nodebalancer.linode.com
+*.linodeobjects.com
 
 // LiquidNet Ltd : http://www.liquidnetlimited.com/
 // Submitted by Victor Velchev <admin@liquidnetlimited.com>
