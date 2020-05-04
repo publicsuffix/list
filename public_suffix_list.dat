@@ -10852,6 +10852,7 @@ balena-devices.com
 // Submitted by Gabor Kozma <info@banzaicloud.com>
 app.banzaicloud.io
 *.backyards.banzaicloud.io
+*.banzai.cloud
 
 // BetaInABox
 // Submitted by Adrian <adrian@betainabox.com>
