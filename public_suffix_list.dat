@@ -10849,10 +10849,11 @@ backplaneapp.io
 balena-devices.com
 
 // Banzai Cloud
-// Submitted by Gabor Kozma <info@banzaicloud.com>
+// Submitted by Janos Matyas <info@banzaicloud.com>
+*.banzai.cloud
 app.banzaicloud.io
 *.backyards.banzaicloud.io
-*.banzai.cloud
+
 
 // BetaInABox
 // Submitted by Adrian <adrian@betainabox.com>
