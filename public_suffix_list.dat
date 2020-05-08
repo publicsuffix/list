@@ -631,6 +631,9 @@ bv
 bw
 co.bw
 org.bw
+net.bw
+ac.bw
+gov.bw
 
 // by : https://en.wikipedia.org/wiki/.by
 // http://tld.by/rules_2006_en.html
@@ -1073,6 +1076,16 @@ edu.gh
 gov.gh
 org.gh
 mil.gh
+net.gh
+biz.gh
+info.gh
+name.gh
+mobi.gh
+web.gh
+media.gh
+ac.gh
+store.gh
+tm.gh
 
 // gi : http://www.nic.gi/rules.html
 gi
