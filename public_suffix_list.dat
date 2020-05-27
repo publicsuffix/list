@@ -7092,7 +7092,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2020-05-06T16:23:34Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2020-05-27T16:35:17Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -8053,9 +8053,6 @@ esq
 
 // estate : 2013-08-27 Binky Moon, LLC
 estate
-
-// esurance : 2015-07-23 Esurance Insurance Company
-esurance
 
 // etisalat : 2015-09-03 Emirates Telecommunications Corporation (trading as Etisalat)
 etisalat
