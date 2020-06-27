@@ -7091,7 +7091,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2020-06-24T16:52:00Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2020-06-27T16:53:37Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7173,9 +7173,6 @@ agency
 
 // aig : 2014-12-18 American International Group, Inc.
 aig
-
-// aigo : 2015-08-06 aigo Digital Technology Co,Ltd.
-aigo
 
 // airbus : 2015-07-30 Airbus S.A.S.
 airbus
@@ -10483,9 +10480,6 @@ xin
 // xn--kcrx77d1x4a : 2014-11-07 Koninklijke Philips N.V.
 飞利浦
 
-// xn--kpu716f : 2014-12-22 Richemont DNS Inc.
-手表
-
 // xn--kput3i : 2014-02-13 Beijing RITT-Net Technology Development Co., Ltd
 手机
 
@@ -10539,9 +10533,6 @@ xin
 
 // xn--p1acf : 2013-12-12 Rusnames Limited
 рус
-
-// xn--pbt977c : 2014-12-22 Richemont DNS Inc.
-珠宝
 
 // xn--pssy2u : 2015-01-15 VeriSign Sarl
 大拿
