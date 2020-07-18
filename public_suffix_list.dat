@@ -7103,7 +7103,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2020-06-27T16:53:37Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2020-07-18T17:05:44Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -9921,9 +9921,6 @@ swiss
 
 // sydney : 2014-09-18 State of New South Wales, Department of Premier and Cabinet
 sydney
-
-// symantec : 2014-12-04 Symantec Corporation
-symantec
 
 // systems : 2013-11-07 Binky Moon, LLC
 systems
