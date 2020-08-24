@@ -12318,7 +12318,7 @@ memset.net
 
 // MetaCentrum, CESNET z.s.p.o. : https://www.metacentrum.cz/en/
 // Submitted by Zdeněk Šustr <zdenek.sustr@cesnet.cz>
-cloud.metacentrum.cz
+*.cloud.metacentrum.cz
 custom.metacentrum.cz
 
 // MetaCentrum, CESNET z.s.p.o. : https://www.metacentrum.cz/en/
