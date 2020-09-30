@@ -11920,8 +11920,6 @@ web.app
 *.0emm.com
 appspot.com
 *.r.appspot.com
-*.translate.goog
-*.tr-test.goog
 blogspot.ae
 blogspot.al
 blogspot.am
@@ -12003,6 +12001,7 @@ googleapis.com
 googlecode.com
 pagespeedmobilizer.com
 publishproxy.com
+translate.goog
 withgoogle.com
 withyoutube.com
 
