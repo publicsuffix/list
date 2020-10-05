@@ -37,7 +37,10 @@ Reason for PSL Inclusion
 
 <!--
 Please tell us why your domain(s) should be listed in the PSL
-(i.e. Cookie Security, Let's Encrypt issuance, etc).
+(i.e. Cookie Security, Let's Encrypt issuance, etc) and clearly
+confirm that any private section names hold registration term
+longer than 2 years and shall maintain more than 1 year 
+term in order to remain listed.
 -->
 
 DNS Verification via dig
