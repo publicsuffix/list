@@ -12,6 +12,12 @@ see https://github.com/publicsuffix/list/pull/615
 * [ ] DNS verification via dig
 * [ ] Run Syntax Checker (make test)
 
+If submission includes entries in the PRIVATE section:
+I attest that:
+* [ ] Domain(s) submitted have 2 or more years before they expire.
+* [ ] I (or my organization) shall maintain the registrations in good standing and will keep the expiry date >1 year at all times.
+* [ ] I understand that my entry could be revoked or rejected where these conditions are not met.
+
 <!--
 
 As you complete each item in the checklist please mark it with an X
