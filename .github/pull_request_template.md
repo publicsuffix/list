@@ -12,7 +12,7 @@ see https://github.com/publicsuffix/list/pull/615
 * [ ] DNS verification via dig
 * [ ] Run Syntax Checker (make test)
 
-* [ ] Each domain listed in the PRIVATE section has at least two years remaining on registration.
+* [ ] Each domain listed in the PRIVATE section has and shall maintain at least two years remaining on registration.
 <!--
 
 As you complete each item in the checklist please mark it with an X
