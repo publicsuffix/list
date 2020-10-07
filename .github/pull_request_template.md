@@ -12,6 +12,7 @@ see https://github.com/publicsuffix/list/pull/615
 * [ ] DNS verification via dig
 * [ ] Run Syntax Checker (make test)
 
+* [ ] Each domain listed in the PRIVATE section has and shall maintain at least two years remaining on registration.
 <!--
 
 As you complete each item in the checklist please mark it with an X
@@ -37,7 +38,10 @@ Reason for PSL Inclusion
 
 <!--
 Please tell us why your domain(s) should be listed in the PSL
-(i.e. Cookie Security, Let's Encrypt issuance, etc).
+(i.e. Cookie Security, Let's Encrypt issuance, etc) and clearly
+confirm that any private section names hold registration term
+longer than 2 years and shall maintain more than 1 year 
+term in order to remain listed.
 -->
 
 DNS Verification via dig
