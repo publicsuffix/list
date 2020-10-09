@@ -11923,6 +11923,17 @@ web.app
 *.0emm.com
 appspot.com
 *.r.appspot.com
+codespot.com
+googleapis.com
+googlecode.com
+pagespeedmobilizer.com
+publishproxy.com
+withgoogle.com
+withyoutube.com
+cloudfunctions.net
+cloud.goog
+translate.goog
+
 blogspot.ae
 blogspot.al
 blogspot.am
@@ -11997,16 +12008,6 @@ blogspot.td
 blogspot.tw
 blogspot.ug
 blogspot.vn
-cloudfunctions.net
-cloud.goog
-codespot.com
-googleapis.com
-googlecode.com
-pagespeedmobilizer.com
-publishproxy.com
-translate.goog
-withgoogle.com
-withyoutube.com
 
 // Aaron Marais' Gitlab pages: https://lab.aaronleem.co.za
 // Submitted by Aaron Marais <its_me@aaronleem.co.za>
