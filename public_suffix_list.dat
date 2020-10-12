@@ -10698,6 +10698,28 @@ alwaysdata.net
 // Submitted by Donavan Miller <donavanm@amazon.com>
 cloudfront.net
 
+// AWS Cloud9 : https://aws.amazon.com/cloud9/
+// Submitted by Rermy Willems <psl-maintainers@amazon.com>
+*.webview-assets.cloud9.ap-east1-1.amazonaws.com
+*.webview-assets.cloud9.ap-northeast-1.amazonaws.com
+*.webview-assets.cloud9.ap-northeast-2.amazonaws.com
+*.webview-assets.cloud9.ap-south-1.amazonaws.com
+*.webview-assets.cloud9.ap-southeast-1.amazonaws.com
+*.webview-assets.cloud9.ap-southeast-2.amazonaws.com
+*.webview-assets.cloud9.ca-central-1.amazonaws.com
+*.webview-assets.cloud9.eu-central-1.amazonaws.com
+*.webview-assets.cloud9.eu-north-1.amazonaws.com
+*.webview-assets.cloud9.eu-south-1.amazonaws.com
+*.webview-assets.cloud9.eu-west-1.amazonaws.com
+*.webview-assets.cloud9.eu-west-2.amazonaws.com
+*.webview-assets.cloud9.eu-west-3.amazonaws.com
+*.webview-assets.cloud9.me-south-1.amazonaws.com
+*.webview-assets.cloud9.sa-east-1.amazonaws.com
+*.webview-assets.cloud9.us-east-1.amazonaws.com
+*.webview-assets.cloud9.us-east-2.amazonaws.com
+*.webview-assets.cloud9.us-west-1.amazonaws.com
+*.webview-assets.cloud9.us-west-2.amazonaws.com
+
 // Amazon Elastic Compute Cloud : https://aws.amazon.com/ec2/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
 *.compute.amazonaws.com
