@@ -11932,9 +11932,10 @@ pagespeedmobilizer.com
 publishproxy.com
 withgoogle.com
 withyoutube.com
-cloudfunctions.net
+*.gateway.dev
 cloud.goog
 translate.goog
+cloudfunctions.net
 
 blogspot.ae
 blogspot.al
