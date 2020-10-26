@@ -12448,11 +12448,17 @@ eu.meteorapp.com
 co.pl
 
 // Microsoft Corporation : http://microsoft.com
-// Submitted by Mostafa Elzeiny <moelzein@microsoft.com>
+// Submitted by Mitch Webster <miwebst@microsoft.com>
 *.azurecontainer.io
 azurewebsites.net
 azure-mobile.net
 cloudapp.net
+azurestaticapps.net
+centralus.azurestaticapps.net
+eastasia.azurestaticapps.net
+eastus2.azurestaticapps.net
+westeurope.azurestaticapps.net
+westus2.azurestaticapps.net
 
 // minion.systems : http://minion.systems
 // Submitted by Robert Böttinger <r@minion.systems>
