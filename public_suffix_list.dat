@@ -10680,12 +10680,6 @@ barsy.ca
 // Submitted by Werner Kaltofen <wk@all-inkl.com>
 kasserver.com
 
-// Algorithmia, Inc. : algorithmia.com
-// Submitted by Eli Perelman <eperelman@algorithmia.io>
-*.algorithmia.com
-!teams.algorithmia.com
-!test.algorithmia.com
-
 // Altervista: https://www.altervista.org
 // Submitted by Carlo Cannas <tech_staff@altervista.it>
 altervista.org
