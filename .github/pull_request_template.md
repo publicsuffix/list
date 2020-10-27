@@ -42,6 +42,9 @@ Please tell us why your domain(s) should be listed in the PSL
 confirm that any private section names hold registration term
 longer than 2 years and shall maintain more than 1 year 
 term in order to remain listed.
+
+Please also include the numbers of any past Issue # or PR # 
+specifically related to this submission or section.
 -->
 
 DNS Verification via dig
