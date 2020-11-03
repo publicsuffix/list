@@ -7110,7 +7110,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2020-10-28T17:55:28Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2020-11-03T17:59:28Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7337,7 +7337,7 @@ avianca
 // aws : 2015-06-25 Amazon Registry Services, Inc.
 aws
 
-// axa : 2013-12-19 AXA SA
+// axa : 2013-12-19 AXA Group Operations SAS
 axa
 
 // azure : 2014-12-18 Microsoft Corporation
