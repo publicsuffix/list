@@ -12170,7 +12170,7 @@ iserv.dev
 // Submitted by Yuji Minagawa <domains-admin@iodata.jp>
 iobb.net
 
-//Jelastic, Inc. : https://jelastic.com/
+// Jelastic, Inc. : https://jelastic.com/
 // Submited by Ihor Kolodyuk <ik@jelastic.com>
 mel.cloudlets.com.au
 cloud.interhostsolutions.be
@@ -12185,6 +12185,9 @@ jele.cloud
 it1.eur.aruba.jenv-aruba.cloud
 it1.jenv-aruba.cloud
 it1-eur.jenv-arubabiz.cloud
+oxa.cloud
+tn.oxa.cloud
+uk.oxa.cloud
 primetel.cloud
 uk.primetel.cloud
 ca.reclaim.cloud
@@ -12255,6 +12258,7 @@ jelastic.regruhosting.ru
 enscaled.sg
 jele.site
 jelastic.team
+orangecloud.tn
 j.layershift.co.uk
 phx.enscaled.us
 mircloud.us
