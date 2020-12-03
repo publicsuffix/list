@@ -10532,16 +10532,6 @@ xin
 
 // xn--p1acf : 2013-12-12 Rusnames Limited
 рус
-биз.рус
-ком.рус
-крым.рус
-мир.рус
-мск.рус
-орг.рус
-самара.рус
-сочи.рус
-спб.рус
-я.рус
 
 // xn--pssy2u : 2015-01-15 VeriSign Sarl
 大拿
@@ -13498,4 +13488,18 @@ impertrix.com
 // GignoSystemJapan: http://gsj.bz
 // Submitted by GignoSystemJapan <kakutou-ec@gsj.bz>
 gsj.bz
+
+// Rusnames Limited: http://rusnames.ru/
+// Submitted by Sergey Zotov <admin@rusnames.ru>
+биз.рус
+ком.рус
+крым.рус
+мир.рус
+мск.рус
+орг.рус
+самара.рус
+сочи.рус
+спб.рус
+я.рус
+
 // ===END PRIVATE DOMAINS===
