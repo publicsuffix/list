@@ -18,8 +18,9 @@ jobs:
         with:
           go-version: ^1.15
 
-      - name: Set current date as env variable
-        run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S %Z')" >> $GITHUB_ENV
+      - name: Set current date
+        id: get-date
+        run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S %Z')"
 
       - name: Run patchnewgtlds
         run: tools/patchnewgtlds
@@ -30,9 +31,9 @@ jobs:
         with:
           token: "${{ secrets.BOT_PAT }}"
           push-to-fork: tld-update-bot/list
-          commit-message: "util: gTLD data autopull updates for ${{ env.NOW }}"
-          title: "util: gTLD autopull updates for ${{ env.NOW }}"
-          body: "Public suffix list gTLD data updates from `tools/patchnewgtlds` for ${{ env.NOW }}."
+          commit-message: "util: gTLD data autopull updates for ${{ steps.get-date.outputs.now }}"
+          title: "util: gTLD autopull updates for ${{ steps.get-date.outputs.now }}"
+          body: "Public suffix list gTLD data updates from `tools/patchnewgtlds` for ${{ steps.get-date.outputs.now }}."
           committer: "GitHub <noreply@github.com>"
           author: "GitHub <noreply@github.com>"
           labels: tld-update
