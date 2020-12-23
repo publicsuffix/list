@@ -6805,6 +6805,9 @@ yt
 // xn--90ae ("bg", Bulgarian) : BG
 бг
 
+// xn--mgbcpq6gpa1a ("albahrain", Arabic) : BH
+البحرين
+
 // xn--90ais ("bel", Belarusian/Russian Cyrillic) : BY
 // Operated by .by registry
 бел
@@ -6937,6 +6940,9 @@ yt
 // xn--80ao21a ("Kaz", Kazakh) : KZ
 қаз
 
+// xn--q7ce6a ("Lao", Lao) : LA
+ລາວ
+
 // xn--fzc2c9e2c ("Lanka", Sinhalese-Sinhala) : LK
 // https://nic.lk
 ලංකා
@@ -7065,6 +7071,7 @@ xxx
 *.ye
 
 // za : https://www.zadna.org.za/content/page/domain-information/
+za
 ac.za
 agric.za
 alt.za
@@ -10226,6 +10233,9 @@ weber
 
 // website : 2014-04-03 DotWebsite Inc.
 website
+
+// wed : 2013-10-01 Atgron, Inc.
+wed
 
 // wedding : 2014-04-24 Minds + Machines Group Limited
 wedding
