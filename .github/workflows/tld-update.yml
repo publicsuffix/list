@@ -1,0 +1,46 @@
+name: tld-update
+on:
+  schedule:
+    # Run every hour, at the 15 minute mark. E.g.
+    # 2020-11-29 00:15:00 UTC, 2020-11-29 01:15:00 UTC, 2020-11-29 02:15:00 UTC
+    - cron:  '15 * * * *'
+jobs:
+  psl-gtld-update:
+    name: Check for TLD data updates
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ^1.15
+
+      - name: Set current date
+        id: get-date
+        run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S %Z')"
+
+      - name: Run patchnewgtlds
+        run: tools/patchnewgtlds
+
+      - name: Create pull-request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: "${{ secrets.BOT_PAT }}"
+          push-to-fork: tld-update-bot/list
+          commit-message: "util: gTLD data autopull updates for ${{ steps.get-date.outputs.now }}"
+          title: "util: gTLD autopull updates for ${{ steps.get-date.outputs.now }}"
+          body: "Public suffix list gTLD data updates from `tools/patchnewgtlds` for ${{ steps.get-date.outputs.now }}."
+          committer: "GitHub <noreply@github.com>"
+          author: "GitHub <noreply@github.com>"
+          labels: tld-update
+          branch: psl-gtld-update
+          delete-branch: true
+
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
