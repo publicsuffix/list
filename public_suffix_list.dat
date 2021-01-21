@@ -7062,7 +7062,13 @@ yt
 xxx
 
 // ye : http://www.y.net.ye/services/domain_name.htm
-*.ye
+ye
+com.ye
+edu.ye
+gov.ye
+net.ye
+mil.ye
+org.ye
 
 // za : https://www.zadna.org.za/content/page/domain-information/
 ac.za
