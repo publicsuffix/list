@@ -158,6 +158,8 @@ type gTLDDatSpan struct {
 var (
 	errNoHeader = fmt.Errorf("did not find expected header line %q",
 		PSL_GTLDS_SECTION_HEADER)
+	errMultipleHeaders = fmt.Errorf("found expected header line %q more than once",
+		PSL_GTLDS_SECTION_HEADER)
 	errNoFooter = fmt.Errorf("did not find expected footer line %q",
 		PSL_GTLDS_SECTION_FOOTER)
 )
@@ -273,11 +275,24 @@ func readDatFileContent(pslData string) (*datFile, error) {
 
 	headerIndex, footerIndex := 0, 0
 	for i := 0; i < len(pslDatLines); i++ {
-		if line := pslDatLines[i]; line == PSL_GTLDS_SECTION_HEADER && headerIndex == 0 {
+		line := pslDatLines[i]
+
+		if line == PSL_GTLDS_SECTION_HEADER && headerIndex == 0 {
+			// If the line matches the header and we haven't seen the header yet, capture
+			// the index
 			headerIndex = i
+		} else if line == PSL_GTLDS_SECTION_HEADER && headerIndex != 0 {
+			// If the line matches the header and we've already seen the header return
+			// an error. This is unexpected.
+			return nil, errMultipleHeaders
 		} else if line == PSL_GTLDS_SECTION_FOOTER && footerIndex == 0 {
+			// If the line matches the footer, capture the index. We don't need
+			// to consider the case where we've already seen a footer because we break
+			// below when we have both a header and footer index.
 			footerIndex = i
 		}
+
+		// Break when we have found one header and one footer.
 		if headerIndex != 0 && footerIndex != 0 {
 			break
 		}

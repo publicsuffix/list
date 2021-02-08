@@ -560,6 +560,18 @@ func TestReadDatFile(t *testing.T) {
 	noFooterFile := mustWriteTemp(t, noFooterContent)
 	defer os.Remove(noFooterFile)
 
+	multiHeaderContent := strings.Join([]string{
+		"foo",
+		PSL_GTLDS_SECTION_HEADER,
+		"test",
+		PSL_GTLDS_SECTION_HEADER,
+		"test",
+		PSL_GTLDS_SECTION_FOOTER,
+		"bar",
+	}, "\n")
+	multiHeaderFile := mustWriteTemp(t, multiHeaderContent)
+	defer os.Remove(multiHeaderFile)
+
 	invertedContent := strings.Join([]string{
 		"foo",
 		PSL_GTLDS_SECTION_FOOTER,
@@ -600,6 +612,11 @@ func TestReadDatFile(t *testing.T) {
 			name:           "no footer",
 			path:           noFooterFile,
 			expectedErrMsg: errNoFooter.Error(),
+		},
+		{
+			name:           "multiple headers",
+			path:           multiHeaderFile,
+			expectedErrMsg: errMultipleHeaders.Error(),
 		},
 		{
 			name:           "inverted header/footer",
