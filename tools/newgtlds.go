@@ -212,7 +212,7 @@ func (e errSpanOutOfBounds) Error() string {
 		e.span.startIndex, e.span.endIndex, e.numLines)
 }
 
-// validate validates the state of the datFile. It erturns an error if
+// validate validates the state of the datFile. It returns an error if
 // the gTLD span validate() returns an error, or if gTLD span endIndex is >= the
 // number of lines in the file.
 func (d datFile) validate() error {
@@ -485,7 +485,7 @@ func process(datFile *datFile, dataURL string, clk clock) (string, error) {
 
 	// We should have at least that many lines in the existing span data.
 	if len(spanLines) <= headerLen {
-		return "", errors.New("gtld span data was too small, misisng header?")
+		return "", errors.New("gtld span data was too small, missing header?")
 	}
 
 	// The gTLD data can be found by skipping the header lines
@@ -544,7 +544,7 @@ func main() {
 	content, err := process(datFile, ICANN_GTLD_JSON_URL, nil)
 	ifErrQuit(err)
 
-	// If we're not overwiting the file, print the content to stdout.
+	// If we're not overwriting the file, print the content to stdout.
 	if !*overwrite {
 		fmt.Println(content)
 		os.Exit(0)
