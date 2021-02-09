@@ -772,7 +772,7 @@ accountants
 				lines:    []string{"a", "b", "c"},
 				gTLDSpan: gTLDDatSpan{startIndex: 1, endIndex: 2},
 			},
-			expectedErrMsg: "gtld span data was too small, misisng header?",
+			expectedErrMsg: "gtld span data was too small, missing header?",
 		},
 		{
 			name:            "no change in data",
