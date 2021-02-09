@@ -66,8 +66,9 @@ var (
 	// Expected template data:
 	//   URL - the string URL that the data was fetched from.
 	//   Date - the time.Date that the data was fetched.
+	//   DateFormat - the format string to use with the date.
 	pslHeaderTemplate = template.Must(template.New("public-suffix-list-gtlds-header").Parse(`
-// List of new gTLDs imported from {{ .URL }} on {{ .Date.Format "2006-01-02T15:04:05Z07:00" }}
+// List of new gTLDs imported from {{ .URL }} on {{ .Date.Format .DateFormat }}
 // This list is auto-generated, don't edit it manually.`))
 
 	// pslTemplate is a parsed text/template instance for rendering a list of pslEntry
@@ -438,11 +439,13 @@ func renderHeader(writer io.Writer, clk clock) error {
 		clk = &realClock{}
 	}
 	templateData := struct {
-		URL  string
-		Date time.Time
+		URL        string
+		Date       time.Time
+		DateFormat string
 	}{
-		URL:  ICANN_GTLD_JSON_URL,
-		Date: clk.Now(),
+		URL:        ICANN_GTLD_JSON_URL,
+		Date:       clk.Now().UTC(),
+		DateFormat: time.RFC3339,
 	}
 
 	return renderTemplate(writer, pslHeaderTemplate, templateData)
