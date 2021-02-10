@@ -653,13 +653,11 @@ func TestReadDatFile(t *testing.T) {
 }
 
 type mockClock struct {
-	fakeTime string
+	fakeUnixTime int64
 }
 
 func (m mockClock) Now() time.Time {
-	format := "Jan 2, 2006 at 3:04pm (MST)"
-	t, _ := time.Parse(format, m.fakeTime)
-	return t
+	return time.Unix(m.fakeUnixTime, 0)
 }
 
 func TestProcess(t *testing.T) {
@@ -725,14 +723,14 @@ aaa
 `
 
 	fakeClock := mockClock{
-		fakeTime: "Feb 7, 2021 at 3:58pm (EST)",
+		fakeUnixTime: 1612916654,
 	}
 	newData := `
 ...
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-02-07T20:58:00Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-02-10T00:24:14Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
