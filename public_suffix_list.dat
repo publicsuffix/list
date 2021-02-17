@@ -4594,15 +4594,17 @@ gob.mx
 edu.mx
 net.mx
 
-// my : http://www.mynic.net.my/
+// my : http://www.mynic.my/
+// Available strings: https://mynic.my/resources/domains/buying-a-domain/
 my
+biz.my
 com.my
-net.my
-org.my
-gov.my
 edu.my
+gov.my
 mil.my
 name.my
+net.my
+org.my
 
 // mz : http://www.uem.mz/
 // Submitted by registry <antonio@uem.mz>
