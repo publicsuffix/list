@@ -19,6 +19,9 @@ jobs:
         with:
           go-version: ^1.15
 
+      - name: Run unit tests
+        run: go test tools/*.go
+
       - name: Set current date
         id: get-date
         run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S %Z')"

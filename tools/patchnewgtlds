@@ -11,8 +11,6 @@ fi
 
 BASEDIR=$(dirname "$0")
 
-go run "$BASEDIR/newgtlds.go" | \
-  "$BASEDIR/replace-between" \
-    "$BASEDIR/../public_suffix_list.dat" \
-    "// newGTLDs" \
-    "// ===END ICANN DOMAINS"
+go run "$BASEDIR/newgtlds.go" \
+  -overwrite \
+  -psl-dat-file="$BASEDIR/../public_suffix_list.dat"
