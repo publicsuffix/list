@@ -12614,6 +12614,10 @@ nfshost.com
 *.northflank.app
 *.code.run
 
+// Noticeable : https://noticeable.io
+// Submitted by Laurent Pellegrino <security@noticeable.io>
+noticeable.news
+
 // Now-DNS : https://now-dns.com
 // Submitted by Steve Russell <steve@now-dns.com>
 dnsking.ch
