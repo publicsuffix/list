@@ -40,7 +40,6 @@ jobs:
           body: "Public suffix list gTLD data updates from `tools/patchnewgtlds` for ${{ steps.get-date.outputs.now }}."
           committer: "GitHub <noreply@github.com>"
           author: "GitHub <noreply@github.com>"
-          labels: tld-update
           branch: psl-gtld-update
           delete-branch: true
 
