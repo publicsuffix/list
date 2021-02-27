@@ -10999,9 +10999,11 @@ virtueeldomein.nl
 cleverapps.io
 
 // Clerk : https://www.clerk.dev
-// Submitted by Colin Sidoti <colin@clerk.dev>
+// Submitted by Colin Sidoti <systems@clerk.dev>
 *.lcl.dev
+*.lclstage.dev
 *.stg.dev
+*.stgstage.dev
 
 // Clic2000 : https://clic2000.fr
 // Submitted by Mathilde Blanchemanche <mathilde@clic2000.fr>
