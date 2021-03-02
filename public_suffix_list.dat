@@ -11036,6 +11036,8 @@ cloudera.site
 
 // Cloudflare, Inc. : https://www.cloudflare.com/
 // Submitted by Cloudflare Team <publicsuffixlist@cloudflare.com>
+cf.dev
+cloudflare.dev
 pages.dev
 trycloudflare.com
 workers.dev
