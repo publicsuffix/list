@@ -2,9 +2,8 @@
 name: tld-update
 on:
   schedule:
-    # Run every hour, at the 15 minute mark. E.g.
-    # 2020-11-29 00:15:00 UTC, 2020-11-29 01:15:00 UTC, 2020-11-29 02:15:00 UTC
-    - cron:  '15 * * * *'
+    # Run once a day at 15:00 UTC
+    - cron:  '0 15 * * *'
 jobs:
   psl-gtld-update:
     name: Check for TLD data updates
