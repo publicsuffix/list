@@ -13002,6 +13002,11 @@ byen.site
 // Submitted by Kor Nielsen <kor@pubtls.org>
 pubtls.org
 
+// PythonAnywhere LLP: https://www.pythonanywhere.com
+// Submitted by Giles Thomas <giles@pythonanywhere.com>
+*.pythonanywhere.com
+*.eu.pythonanywhere.com
+
 // QOTO, Org.
 // Submitted by Jeffrey Phillips Freeman <jeffrey.freeman@qoto.org>
 qoto.io
