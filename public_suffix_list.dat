@@ -12916,6 +12916,10 @@ pagefrontapp.com
 // Submitted by Yann Guichard <yann@pagexl.com>
 pagexl.com
 
+// Paywhirl, Inc : https://paywhirl.com/
+// Submitted by Daniel Netzer <dan@paywhirl.com>
+*.paywhirl.com
+
 // pcarrier.ca Software Inc: https://pcarrier.ca/
 // Submitted by Pierre Carrier <pc@rrier.ca>
 bar0.net
