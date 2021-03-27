@@ -7125,7 +7125,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-03-24T15:07:35Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-03-27T15:15:50Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -8263,9 +8263,6 @@ ftr
 
 // fujitsu : 2015-07-30 Fujitsu Limited
 fujitsu
-
-// fujixerox : 2015-07-23 Xerox DNHC LLC
-fujixerox
 
 // fun : 2016-01-14 DotSpace Inc.
 fun
@@ -9986,7 +9983,7 @@ theatre
 // tiaa : 2015-07-23 Teachers Insurance and Annuity Association of America
 tiaa
 
-// tickets : 2015-02-05 Accent Media Limited
+// tickets : 2015-02-05 XYZ.COM LLC
 tickets
 
 // tienda : 2013-11-14 Binky Moon, LLC
