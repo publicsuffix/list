@@ -7125,7 +7125,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-03-04T15:37:38Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-03-27T15:15:50Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -8263,9 +8263,6 @@ ftr
 
 // fujitsu : 2015-07-30 Fujitsu Limited
 fujitsu
-
-// fujixerox : 2015-07-23 Xerox DNHC LLC
-fujixerox
 
 // fun : 2016-01-14 DotSpace Inc.
 fun
@@ -9644,7 +9641,7 @@ saxo
 // sbi : 2015-03-12 STATE BANK OF INDIA
 sbi
 
-// sbs : 2014-11-07 SPECIAL BROADCASTING SERVICE CORPORATION
+// sbs : 2014-11-07 ShortDot SA
 sbs
 
 // sca : 2014-03-13 SVENSKA CELLULOSA AKTIEBOLAGET SCA (publ)
@@ -9986,7 +9983,7 @@ theatre
 // tiaa : 2015-07-23 Teachers Insurance and Annuity Association of America
 tiaa
 
-// tickets : 2015-02-05 Accent Media Limited
+// tickets : 2015-02-05 XYZ.COM LLC
 tickets
 
 // tienda : 2013-11-14 Binky Moon, LLC
@@ -10653,6 +10650,10 @@ ltd.ua
 
 // 611coin : https://611project.org/
 611.to
+
+// accesso Technology Group, plc. : https://accesso.com/
+// Submitted by accesso Team <accessoecommerce@accesso.com>
+*.devcdnaccesso.com
 
 // Adobe : https://www.adobe.com/
 // Submitted by Ian Boston <boston@adobe.com>
@@ -11867,10 +11868,18 @@ shw.io
 // Submitted by Jonathan Rudenberg <jonathan@flynn.io>
 flynnhosting.net
 
+// Forgerock : https://www.forgerock.com
+// Submitted by Roderick Parr <roderick.parr@forgerock.com>
+forgeblocks.com
+
 // Framer : https://www.framer.com
 // Submitted by Koen Rouwhorst <koenrh@framer.com>
 framer.app
 framercanvas.com
+
+// RavPage : https://www.ravpage.co.il
+// Submitted by Roni Horowitz <roni@responder.co.il>
+ravpage.co.il
 
 // Frederik Braun https://frederik-braun.com
 // Submitted by Frederik Braun <fb@frederik-braun.com>
@@ -12316,8 +12325,6 @@ jelastic.saveincloud.net
 nordeste-idc.saveincloud.net
 j.scaleforce.net
 jelastic.tsukaeru.net
-atl.jelastic.vps-host.net
-njs.jelastic.vps-host.net
 unicloud.pl
 mircloud.ru
 jelastic.regruhosting.ru
@@ -13655,4 +13662,11 @@ gsj.bz
 спб.рус
 я.рус
 
+// Strategic System Consulting (eApps Hosting): https://www.eapps.com/
+// Submitted by Alex Oancea <aoancea@cloudscale365.com>
+vps-host.net
+atl.jelastic.vps-host.net
+njs.jelastic.vps-host.net
+ric.jelastic.vps-host.net
 // ===END PRIVATE DOMAINS===
+
