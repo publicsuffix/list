@@ -12993,6 +12993,7 @@ ent.platform.sh
 eu.platform.sh
 us.platform.sh
 *.platformsh.site
+*.tst.site
 
 // Platter: https://platter.dev
 // Submitted by Patrick Flor <patrick@platter.dev>
