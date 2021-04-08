@@ -13602,6 +13602,11 @@ wmcloud.org
 panel.gg
 daemon.panel.gg
 
+// Wolfspyre Labs : Wolfspyre.io
+// Submitted by Wolf Noble <admin@wolfspyre.io>
+*.static.wolfspyre.io
+*.rke.wolfspyre.io
+
 // WoltLab GmbH : https://www.woltlab.com
 // Submitted by Tim Düsterhus <security@woltlab.cloud>
 woltlab-demo.com
