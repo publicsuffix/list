@@ -11995,6 +11995,8 @@ goip.de
 
 // Google, Inc.
 // Submitted by Eduardo Vela <evn@google.com>
+*.kctf.cloud
+*.ctfcompetition.com
 run.app
 a.run.app
 web.app
