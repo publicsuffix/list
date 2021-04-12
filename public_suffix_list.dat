@@ -13682,4 +13682,8 @@ basicserver.io
 virtualserver.io
 enterprisecloud.nu
 
+//myshopmatic : https://myshopmatic.com/login
+// submitted by santoshs.encora@goshopmatic.com  
+*.myshopmatic.com
+
 // ===END PRIVATE DOMAINS===
