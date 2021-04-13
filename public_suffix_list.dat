@@ -13390,6 +13390,11 @@ cust.testing.thingdust.io
 *.firenet.ch
 *.svc.firenet.ch
 
+// ticket i/O GmbH : https://ticket.io
+// Submitted by Christian Franke <it@ticket.io>
+ticket.io
+
+
 // Tlon.io : https://tlon.io
 // Submitted by Mark Staarink <mark@tlon.io>
 arvo.network
