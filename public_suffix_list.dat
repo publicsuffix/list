@@ -13276,6 +13276,10 @@ static.land
 dev.static.land
 sites.static.land
 
+// Storebase : https://www.storebase.io
+// Submitted by Tony Schirmer <tony@storebase.io>
+storebase.store
+
 // Strategic System Consulting (eApps Hosting): https://www.eapps.com/
 // Submitted by Alex Oancea <aoancea@cloudscale365.com>
 vps-host.net
