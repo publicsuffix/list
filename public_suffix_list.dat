@@ -12653,6 +12653,11 @@ nh-serv.co.uk
 // Submitted by Jeff Wheelhouse <support@nearlyfreespeech.net>
 nfshost.com
 
+// Noop : https://noop.app
+// Submitted by Nathaniel Schweinberg <noop@rearc.io>
+*.developer.app
+noop.app
+
 // Northflank Ltd. : https://northflank.com/
 // Submitted by Marco Suter <marco@northflank.com>
 *.northflank.app
