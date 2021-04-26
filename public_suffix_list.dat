@@ -10640,6 +10640,10 @@ ltd.ua
 // 611coin : https://611project.org/
 611.to
 
+// A+ Educação : https://www.grupoa.com.br/
+// Submitted by Tayro Toledo <ttoledo@maiscampus.com.br>
+*.grupoa.education
+
 // Aaron Marais' Gitlab pages: https://lab.aaronleem.co.za
 // Submitted by Aaron Marais <its_me@aaronleem.co.za>
 graphox.us
@@ -13670,9 +13674,5 @@ bss.design
 basicserver.io
 virtualserver.io
 enterprisecloud.nu
-
-// Company : http://www.grupoa.education
-// Submitted by Tayro Toledo <ttoledo@maiscampus.com.br>
-*.grupoa.education
 
 // ===END PRIVATE DOMAINS===
