@@ -13671,4 +13671,8 @@ basicserver.io
 virtualserver.io
 enterprisecloud.nu
 
+// Company : http://www.grupoa.education
+// Submitted by Tayro Toledo <ttoledo@maiscampus.com.br>
+*.grupoa.education
+
 // ===END PRIVATE DOMAINS===
