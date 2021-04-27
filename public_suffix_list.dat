@@ -11702,6 +11702,10 @@ onfabrica.com
 // Submitted by Peter Ruibal <public-suffix@fb.com>
 apps.fbsbx.com
 
+// FAESA : https://faesa.br/
+// Submitted by Tayro Toledo <ttoledo@maiscampus.com.br>
+*.faesa.br
+
 // FAITID : https://faitid.org/
 // Submitted by Maxim Alzoba <tech.contact@faitid.org>
 // https://www.flexireg.net/stat_info
