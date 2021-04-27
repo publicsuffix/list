@@ -13675,4 +13675,8 @@ basicserver.io
 virtualserver.io
 enterprisecloud.nu
 
+// Coachy : https://www.coachy.net
+// Submitted by Dennis Spohr <support@coachy.net>
+*.coachy.net
+
 // ===END PRIVATE DOMAINS===
