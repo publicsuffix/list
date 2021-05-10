@@ -11815,10 +11815,11 @@ app.os.stg.fedoraproject.org
 
 // FearWorks Media Ltd. : https://fearworksmedia.co.uk
 // submitted by Keith Fairley <domains@fearworksmedia.co.uk>
-conn.uk
-copro.uk
 couk.me
 ukco.me
+conn.uk
+copro.uk
+hosp.uk
 
 // Fermax : https://fermax.com/
 // submitted by Koen Van Isterdael <k.vanisterdael@fermax.be>
@@ -11936,8 +11937,10 @@ gsj.bz
 
 // GitHub, Inc.
 // Submitted by Patrick Toomey <security@github.com>
-github.io
 githubusercontent.com
+github.dev
+githubpreview.dev
+github.io
 
 // GitLab, Inc.
 // Submitted by Alex Hanselka <alex@gitlab.com>
@@ -12075,6 +12078,10 @@ blogspot.td
 blogspot.tw
 blogspot.ug
 blogspot.vn
+
+// Goupile : https://goupile.fr
+// Submitted by Niels Martignene <hello@goupile.fr>
+goupile.fr
 
 // Group 53, LLC : https://www.group53.com
 // Submitted by Tyler Todd <noc@nova53.net>
@@ -12649,6 +12656,11 @@ nh-serv.co.uk
 // Submitted by Jeff Wheelhouse <support@nearlyfreespeech.net>
 nfshost.com
 
+// Noop : https://noop.app
+// Submitted by Nathaniel Schweinberg <noop@rearc.io>
+*.developer.app
+noop.app
+
 // Northflank Ltd. : https://northflank.com/
 // Submitted by Marco Suter <marco@northflank.com>
 *.northflank.app
@@ -12894,8 +12906,10 @@ orsites.com
 // Submitted by Yngve Pettersen <yngve@opera.com>
 operaunite.com
 
-// Oursky Limited : https://skygear.io/
-// Submited by Skygear Developer <hello@skygear.io>
+// Oursky Limited : https://authgear.com/, https://skygear.io/
+// Submited by Authgear Team <hello@authgear.com>, Skygear Developer <hello@skygear.io>
+authgear-staging.com
+authgearapps.com
 skygearapp.com
 
 // OutSystems
@@ -13038,8 +13052,8 @@ pubtls.org
 
 // PythonAnywhere LLP: https://www.pythonanywhere.com
 // Submitted by Giles Thomas <giles@pythonanywhere.com>
-*.pythonanywhere.com
-*.eu.pythonanywhere.com
+pythonanywhere.com
+eu.pythonanywhere.com
 
 // QOTO, Org.
 // Submitted by Jeffrey Phillips Freeman <jeffrey.freeman@qoto.org>
@@ -13275,6 +13289,10 @@ stackhero-network.com
 static.land
 dev.static.land
 sites.static.land
+
+// Storebase : https://www.storebase.io
+// Submitted by Tony Schirmer <tony@storebase.io>
+storebase.store
 
 // Strategic System Consulting (eApps Hosting): https://www.eapps.com/
 // Submitted by Alex Oancea <aoancea@cloudscale365.com>
