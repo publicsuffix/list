@@ -11121,6 +11121,10 @@ static-access.net
 // Submitted by Ales Krajnik <ales.krajnik@craynic.com>
 realm.cz
 
+// Crowdrole : https://crowdrole.com
+// Submitted by Emanuel Ones <emanuelones@crowdrole.com>
+crowdrole.io
+
 // Cryptonomic : https://cryptonomic.net/
 // Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
 *.cryptonomic.net
