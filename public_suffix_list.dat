@@ -12363,6 +12363,10 @@ myjino.ru
 *.spectrum.myjino.ru
 *.vps.myjino.ru
 
+// Jotelulu S.L. : https://jotelulu.com
+// Submitted by Daniel Fariña <ingenieria@jotelulu.com>
+jotelulu.cloud
+
 // Joyent : https://www.joyent.com/
 // Submitted by Brian Bennett <brian.bennett@joyent.com>
 *.triton.zone
