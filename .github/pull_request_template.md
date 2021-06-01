@@ -12,12 +12,34 @@ see https://github.com/publicsuffix/list/pull/615
 * [ ] DNS verification via dig
 * [ ] Run Syntax Checker (make test)
 
-* [ ] Each domain listed in the PRIVATE section has and shall maintain at least two years remaining on registration.
+* [ ] Each domain listed in the PRIVATE section has and shall maintain at least two years remaining on registration, and we shall keep the _PSL txt record in place
+
 
 __Submitter affirms the following:__ 
-  * [ ] This request was _not_ made to work around vendor limits other than those listed in rationale (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as an example)
+  * [ ] We are listing any third party limits that we seek to work around in our rationale such as those between IOS 14.5+ and Facebook (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as a well-documented example)
+  * [ ] This request was _not_ submitted with the objective of working around other third party limits
   * [ ] The [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) were carefully _read_ and _understood_, and this request conforms
-  * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting 
+  * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting
+
+---
+__For Private section requests that are submitting entries for domains that match their organization website's primary domain:__
+
+``` 
+Seriously, carefully read the downline flow of the PSL and the guidelines.
+Your request could very likely alter the cookie and certificate (as well as other) behaviours on your 
+core domain name in ways that could be problematic for your business.
+
+Rollback is really not predicatable, as those who use or incorporate the PSL do what they do, and when.
+It is not within the PSL volunteers' control to do anything about that.  
+
+The volunteers are busy with new requests, and rollbacks are lowest priority, so if something gets broken 
+it will stay that way for an indefinitely long while.
+```
+(Link: [about propogation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
+
+ * [ ] Yes, I understand.  I could break my organization's website cookies etc. and the rollback timing, etc is acceptable.  Proceed.
+---
+
 
 <!--
 
@@ -100,3 +122,4 @@ make test
 
 Simply let us know that you ran the test
 -->
+
