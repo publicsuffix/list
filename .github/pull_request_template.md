@@ -123,3 +123,5 @@ make test
 Simply let us know that you ran the test
 -->
 
+/assign @dnsguru
+/project publicsuffix/2 
