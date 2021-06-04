@@ -74,7 +74,7 @@ DNS Verification via dig
 =======
 
 dig +short TXT _psl.example.net
-https://github.com/publicsuffix/list/pull/XXXX
+https://github.com/publicsuffix/list/pull/1346
 
 
 make test
