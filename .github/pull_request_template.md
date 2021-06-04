@@ -54,38 +54,73 @@ Example:
 Description of Organization
 ====
 
-Organization Website: https://adoveo.com
+Organization Website: <!-- https://example.com -->
 
-Adoveo is a digital marketing company which provide creation of interactive landing pages for high end brands in FMCG, Retail and charity. We need to become a part of the list to make it possible for our customers own their subdomains under adoveo.com.
+<!--
+Please tell us who you are and represent (i.e. individual, 
+non-profit volunteer, engineer at a business) and what you 
+do (i.e. DynDNS, Hosting, etc)
 
+For the org description, there is less interest in the 
+promotional / marketing information about the org and more 
+a focus on having concise description of the core focus of 
+the submitting org, specifically with context/connection 
+to this request.
+-->
 
 Reason for PSL Inclusion
 ====
 
-With iOS14.5 launch, in accordance with their AppTrackingTransparency framework, Facebook will start processing pixel conversion events from iOS 14 devices using Aggregated Event Measurement to preserve user privacy and help running effective campaigns. Specifically, Facebook would associate events triggered from a website to be associated with a Domain, the corresponding merchant's owned Facebook Ad Account, and the corresponding Pixel.
+<!--
+Please tell us why your domain(s) should be listed in the PSL
+(i.e. Cookie Security, Let's Encrypt issuance, IOS/Facebook, 
+Cloudflare etc) and clearly confirm that any private section 
+names hold registration term longer than 2 years and shall 
+maintain more than 1 year term in order to remain listed.
 
-Our customers needs to verify their website's domain with Facebook and this would be done at eTLD+1 level. In our case, it would be boutir.com
-
-However, as with our model, each merchant operates separately and independently. adoveo.com products, data, events are totally separated from those from bbb.adoveo.com. But now we cannot do it, as Facebook only verify eTLD+1 (i.e. adoveo.com) and would not verify and associate events with aaa.adoveo.com separately with bbb.adoveo.com. Our customers from aaa.adoveo.com and bbb.adoveo.com cannot pass through the verification step, and cannot effectively associate events triggered from their website to their domain.
-
-If adoveo.com can be listed in the PSL, Facebook can separately verify aaa.adoveo.com and bbb.adoveo.com, and different customers can associate events and track separately with different domain aaa.adoveo.com and bbb.adoveo.com
+Please also include the numbers of any past Issue # or PR # 
+specifically related to this submission or section.
+-->
 
 DNS Verification via dig
 =======
 
-dig +short TXT _psl.example.net
-https://github.com/publicsuffix/list/pull/1346
+<!--
+For each domain you'd like to add to the list please create
+a DNS verification record pointing to your pull request.
 
+For example, if you'd like to add example.com and example.net
+you would need to provide the following verifications:
+
+```
+dig +short TXT _psl.example.com
+"https://github.com/publicsuffix/list/pull/XXXX"
+```
+
+```
+dig +short TXT _psl.example.net
+"https://github.com/publicsuffix/list/pull/XXXX"
+```
+
+Note that XXXX is replaced with the number of your pull request.
+
+We ask that you leave this record in place while you want 
+your entry to remain in the PSL, so that future (TBD) 
+automation can remove entries where the record is not present.
+
+-->
 
 make test
 =========
 
-# TOTAL: 5
-# PASS:  5
-# SKIP:  0
-# XFAIL: 0
-# FAIL:  0
-# XPASS: 0
-# ERROR: 0
+<!--
+Please verify that you followed the correct syntax and nothing broke
+
+git clone https://github.com/publicsuffix/list.git
+cd list
+make test
+
+Simply let us know that you ran the test
+-->
 
 
