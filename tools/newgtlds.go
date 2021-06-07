@@ -22,6 +22,10 @@ const (
 	// 2). See https://www.icann.org/resources/pages/registries/registries-en for
 	// more information.
 	ICANN_GTLD_JSON_URL = "https://www.icann.org/resources/registries/gtlds/v2/gtlds.json"
+	// IANA_TLDS_TXT_URL is the URL for the IANA "Public Suffix List" of TLDs 
+	// in the ICP-3 Root - including new ccTLDs, EBRERO gTLDS or things not in
+	// the JSON File above that should be included in the PSL.  Note: UPPERCASE
+	IANA_TLDS_TXT_URL = "http://data.iana.org/TLD/tlds-alpha-by-domain.txt"
 	// PSL_GTLDS_SECTION_HEADER marks the start of the newGTLDs section of the
 	// overall public suffix dat file.
 	PSL_GTLDS_SECTION_HEADER = "// newGTLDs"
