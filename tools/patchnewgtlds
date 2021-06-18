@@ -1,2 +1,16 @@
-#!/bin/sh
-`dirname $0`/newgtlds | `dirname $0`/replace-between `dirname $0`/../public_suffix_list.dat "// newGTLDs" "// ===END ICANN DOMAINS" 
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+if ! [ -x "$(command -v go)" ]
+then
+  echo "error: a go binary in \$PATH is required to run newgtlds.go" >&2
+  exit 1
+fi
+
+BASEDIR=$(dirname "$0")
+
+go run "$BASEDIR/newgtlds.go" \
+  -overwrite \
+  -psl-dat-file="$BASEDIR/../public_suffix_list.dat"
