@@ -11609,8 +11609,8 @@ e4.cz
 
 // eero : https://eero.com/
 // Submitted by Yue Kang <eero-dynamic-dns@amazon.com>
-*.eero-stage.online
-*.eero.online
+eero-stage.online
+eero.online
 
 // En root‽ : https://en-root.org
 // Submitted by Emmanuel Raviart <emmanuel@raviart.com>
