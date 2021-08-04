@@ -734,7 +734,6 @@ gouv.ci
 // cl : https://www.nic.cl
 // Confirmed by .CL registry <hsalgado@nic.cl>
 cl
-aprendemas.cl
 co.cl
 gob.cl
 gov.cl
@@ -7126,7 +7125,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-04-22T15:17:15Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-07-24T15:13:29Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7152,7 +7151,7 @@ abc
 // able : 2015-06-25 Able Inc.
 able
 
-// abogado : 2014-04-24 Minds + Machines Group Limited
+// abogado : 2014-04-24 Registry Services, LLC
 abogado
 
 // abudhabi : 2015-07-30 Abu Dhabi Systems and Information Centre
@@ -7428,7 +7427,7 @@ beats
 // beauty : 2015-12-03 XYZ.COM LLC
 beauty
 
-// beer : 2014-01-09 Minds + Machines Group Limited
+// beer : 2014-01-09 Registry Services, LLC
 beer
 
 // bentley : 2014-12-18 Bentley Motors Limited
@@ -7545,7 +7544,7 @@ bridgestone
 // broadway : 2014-12-22 Celebrate Broadway, Inc.
 broadway
 
-// broker : 2014-12-11 Dotbroker Registry Limited
+// broker : 2014-12-11 Dog Beach, LLC
 broker
 
 // brother : 2015-01-29 Brother Industries, Ltd.
@@ -7638,7 +7637,7 @@ careers
 // cars : 2014-11-13 XYZ.COM LLC
 cars
 
-// casa : 2013-11-21 Minds + Machines Group Limited
+// casa : 2013-11-21 Registry Services, LLC
 casa
 
 // case : 2015-09-03 CNH Industrial N.V.
@@ -7758,7 +7757,7 @@ clothing
 // cloud : 2015-04-16 Aruba PEC S.p.A.
 cloud
 
-// club : 2013-11-08 .CLUB DOMAINS, LLC
+// club : 2013-11-08 Registry Services, LLC
 club
 
 // clubmed : 2015-06-25 Club Méditerranée S.A.
@@ -7815,7 +7814,7 @@ contact
 // contractors : 2013-09-10 Binky Moon, LLC
 contractors
 
-// cooking : 2013-11-21 Minds + Machines Group Limited
+// cooking : 2013-11-21 Registry Services, LLC
 cooking
 
 // cookingchannel : 2015-07-02 Lifestyle Domain Holdings, Inc.
@@ -7905,7 +7904,7 @@ day
 // dclk : 2014-11-20 Charleston Road Registry Inc.
 dclk
 
-// dds : 2015-05-07 Minds + Machines Group Limited
+// dds : 2015-05-07 Registry Services, LLC
 dds
 
 // deal : 2015-06-25 Amazon Registry Services, Inc.
@@ -7944,7 +7943,7 @@ dentist
 // desi : 2013-11-14 Desi Networks LLC
 desi
 
-// design : 2014-11-07 Top Level Design, LLC
+// design : 2014-11-07 Registry Services, LLC
 design
 
 // dev : 2014-10-16 Charleston Road Registry Inc.
@@ -8133,7 +8132,7 @@ farm
 // farmers : 2015-07-09 Farmers Insurance Exchange
 farmers
 
-// fashion : 2014-07-03 Minds + Machines Group Limited
+// fashion : 2014-07-03 Registry Services, LLC
 fashion
 
 // fast : 2014-12-18 Amazon Registry Services, Inc.
@@ -8184,10 +8183,10 @@ firmdale
 // fish : 2013-12-12 Binky Moon, LLC
 fish
 
-// fishing : 2013-11-21 Minds + Machines Group Limited
+// fishing : 2013-11-21 Registry Services, LLC
 fishing
 
-// fit : 2014-11-07 Minds + Machines Group Limited
+// fit : 2014-11-07 Registry Services, LLC
 fit
 
 // fitness : 2014-03-06 Binky Moon, LLC
@@ -8226,7 +8225,7 @@ football
 // ford : 2014-11-13 Ford Motor Company
 ford
 
-// forex : 2014-12-11 Dotforex Registry Limited
+// forex : 2014-12-11 Dog Beach, LLC
 forex
 
 // forsale : 2014-05-22 Dog Beach, LLC
@@ -8301,7 +8300,7 @@ games
 // gap : 2015-07-31 The Gap, Inc.
 gap
 
-// garden : 2014-06-26 Minds + Machines Group Limited
+// garden : 2014-06-26 Registry Services, LLC
 garden
 
 // gay : 2019-05-23 Top Level Design, LLC
@@ -8517,7 +8516,7 @@ homesense
 // honda : 2014-12-18 Honda Motor Co., Ltd.
 honda
 
-// horse : 2013-11-21 Minds + Machines Group Limited
+// horse : 2013-11-21 Registry Services, LLC
 horse
 
 // hospital : 2016-10-20 Binky Moon, LLC
@@ -8796,7 +8795,7 @@ latino
 // latrobe : 2014-06-16 La Trobe University
 latrobe
 
-// law : 2015-01-22 LW TLD Limited
+// law : 2015-01-22 Registry Services, LLC
 law
 
 // lawyer : 2014-03-20 Dog Beach, LLC
@@ -8925,7 +8924,7 @@ ltda
 // lundbeck : 2015-08-06 H. Lundbeck A/S
 lundbeck
 
-// luxe : 2014-01-09 Minds + Machines Group Limited
+// luxe : 2014-01-09 Registry Services, LLC
 luxe
 
 // luxury : 2013-10-17 Luxury Partners, LLC
@@ -8964,7 +8963,7 @@ market
 // marketing : 2013-11-07 Binky Moon, LLC
 marketing
 
-// markets : 2014-12-11 Dotmarkets Registry Limited
+// markets : 2014-12-11 Dog Beach, LLC
 markets
 
 // marriott : 2014-10-09 Marriott Worldwide Corporation
@@ -9092,6 +9091,9 @@ mtn
 
 // mtr : 2015-03-12 MTR Corporation Limited
 mtr
+
+// music : 2021-05-04 DotMusic Limited
+music
 
 // mutual : 2015-04-02 Northwestern Mutual MU TLD Registry, LLC
 mutual
@@ -9555,7 +9557,7 @@ rocher
 // rocks : 2013-11-14 Dog Beach, LLC
 rocks
 
-// rodeo : 2013-12-19 Minds + Machines Group Limited
+// rodeo : 2013-12-19 Registry Services, LLC
 rodeo
 
 // rogers : 2015-08-06 Rogers Communications Canada Inc.
@@ -9882,7 +9884,7 @@ supply
 // support : 2013-10-24 Binky Moon, LLC
 support
 
-// surf : 2014-01-09 Minds + Machines Group Limited
+// surf : 2014-01-09 Registry Services, LLC
 surf
 
 // surgery : 2014-03-20 Binky Moon, LLC
@@ -10038,7 +10040,7 @@ toys
 // trade : 2014-01-23 Elite Registry Limited
 trade
 
-// trading : 2014-12-11 Dottrading Registry Limited
+// trading : 2014-12-11 Dog Beach, LLC
 trading
 
 // training : 2013-11-07 Binky Moon, LLC
@@ -10140,7 +10142,7 @@ villas
 // vin : 2015-06-18 Binky Moon, LLC
 vin
 
-// vip : 2015-01-22 Minds + Machines Group Limited
+// vip : 2015-01-22 Registry Services, LLC
 vip
 
 // virgin : 2014-09-25 Virgin Enterprises Limited
@@ -10161,7 +10163,7 @@ vivo
 // vlaanderen : 2014-02-06 DNS.be vzw
 vlaanderen
 
-// vodka : 2013-12-19 Minds + Machines Group Limited
+// vodka : 2013-12-19 Registry Services, LLC
 vodka
 
 // volkswagen : 2015-05-14 Volkswagen Group of America Inc.
@@ -10221,7 +10223,7 @@ weber
 // website : 2014-04-03 DotWebsite Inc.
 website
 
-// wedding : 2014-04-24 Minds + Machines Group Limited
+// wedding : 2014-04-24 Registry Services, LLC
 wedding
 
 // weibo : 2015-03-05 Sina Corporation
@@ -10263,7 +10265,7 @@ wolterskluwer
 // woodside : 2015-07-09 Woodside Petroleum Limited
 woodside
 
-// work : 2013-12-19 Minds + Machines Group Limited
+// work : 2013-12-19 Registry Services, LLC
 work
 
 // works : 2013-11-14 Binky Moon, LLC
@@ -10581,7 +10583,7 @@ xyz
 // yachts : 2014-01-09 XYZ.COM LLC
 yachts
 
-// yahoo : 2015-04-02 Yahoo! Domain Services Inc.
+// yahoo : 2015-04-02 Oath Inc.
 yahoo
 
 // yamaxun : 2014-12-18 Amazon Registry Services, Inc.
@@ -10593,7 +10595,7 @@ yandex
 // yodobashi : 2014-11-20 YODOBASHI CAMERA CO.,LTD.
 yodobashi
 
-// yoga : 2014-05-29 Minds + Machines Group Limited
+// yoga : 2014-05-29 Registry Services, LLC
 yoga
 
 // yokohama : 2013-12-12 GMO Registry, Inc.
@@ -10649,10 +10651,13 @@ graphox.us
 *.devcdnaccesso.com
 
 // Adobe : https://www.adobe.com/
-// Submitted by Ian Boston <boston@adobe.com>
+// Submitted by Ian Boston <boston@adobe.com> and Lars Trieloff <trieloff@adobe.com>
 adobeaemcloud.com
-adobeaemcloud.net
 *.dev.adobeaemcloud.com
+hlx.live
+adobeaemcloud.net
+hlx.page
+hlx3.page
 
 // Agnat sp. z o.o. : https://domena.pl
 // Submitted by Przemyslaw Plewa <it-admin@domena.pl>
@@ -10797,6 +10802,10 @@ apigee.io
 appspacehosted.com
 appspaceusercontent.com
 
+// Appudo UG (haftungsbeschränkt) : https://www.appudo.com
+// Submitted by Alexander Hochbaum <admin@appudo.com>
+appudo.net
+
 // Aptible : https://www.aptible.com/
 // Submitted by Thomas Orozco <thomas@aptible.com>
 on-aptible.com
@@ -10822,9 +10831,17 @@ sweetpepper.org
 // Submitted by Vincent Tseng <vincenttseng@asustor.com>
 myasustor.com
 
+// Atlassian : https://atlassian.com
+// Submitted by Sam Smyth <devloop@atlassian.com>
+cdn.prod.atlassian-dev.net
+
 // AVM : https://avm.de
 // Submitted by Andreas Weise <a.weise@avm.de>
 myfritz.net
+
+// AVStack Pte. Ltd. : https://avstack.io
+// Submitted by Jasper Hugo <jasper@avstack.io>
+onavstack.net
 
 // AW AdvisorWebsites.com Software Inc : https://advisorwebsites.com
 // Submitted by James Kennedy <domains@advisorwebsites.com>
@@ -10843,6 +10860,11 @@ backplaneapp.io
 // Submitted by Petros Angelatos <petrosagg@balena.io>
 balena-devices.com
 
+// University of Banja Luka : https://unibl.org
+// Domains for Republic of Srpska administrative entity.
+// Submitted by Marko Ivanovic <kormang@hotmail.rs>
+rs.ba
+
 // Banzai Cloud
 // Submitted by Janos Matyas <info@banzaicloud.com>
 *.banzai.cloud
@@ -10858,6 +10880,10 @@ betainabox.com
 // Submitted by Nathan O'Sullivan <nathan@mammoth.com.au>
 bnr.la
 
+// Bitbucket : http://bitbucket.org
+// Submitted by Andy Ortlieb <aortlieb@atlassian.com>
+bitbucket.io
+
 // Blackbaud, Inc. : https://www.blackbaud.com
 // Submitted by Paul Crowder <paul.crowder@blackbaud.com>
 blackbaudcdn.net
@@ -10865,6 +10891,10 @@ blackbaudcdn.net
 // Blatech : http://www.blatech.net
 // Submitted by Luke Bratch <luke@bratch.co.uk>
 of.je
+
+// Blue Bite, LLC : https://bluebite.com
+// Submitted by Joshua Weiss <admin.engineering@bluebite.com>
+bluebite.io
 
 // Boomla : https://boomla.com
 // Submitted by Tibor Halter <thalter@boomla.com>
@@ -10887,6 +10917,10 @@ square7.de
 bplaced.net
 square7.net
 
+// Brendly : https://brendly.rs
+// Submitted by Dusan Radovanovic <dusan.radovanovic@brendly.rs>
+shop.brendly.rs
+
 // BrowserSafetyMark
 // Submitted by Dave Tharp <browsersafetymark.io@quicinc.com>
 browsersafetymark.io
@@ -10907,9 +10941,11 @@ mycd.eu
 
 // Carrd : https://carrd.co
 // Submitted by AJ <aj@carrd.co>
+drr.ac
+uwu.ai
 carrd.co
 crd.co
-uwu.ai
+ju.mp
 
 // CentralNic : http://www.centralnic.com/names/domains
 // Submitted by registry <gavin.brown@centralnic.com>
@@ -11130,11 +11166,6 @@ cupcake.is
 // Submitted by Marvin Wiesner <Marvin@curv-labs.de>
 curv.dev
 
-// Curvegrid Inc. : https://www.curvegrid.com/
-// Submitted by Pierre Rousset <security@curvegrid.com>
-multibaas.app
-multibaas.com
-
 // Customer OCI - Oracle Dyn https://cloud.oracle.com/home https://dyn.com/dns/
 // Submitted by Gregory Drake <support@dyn.com>
 // Note: This is intended to also include customer-oci.com due to wildcards implicitly including the current label
@@ -11189,9 +11220,18 @@ dyndns.dappnode.io
 // Submitted by Paul Biggar <ops@darklang.com>
 builtwithdark.com
 
+// DataDetect, LLC. : https://datadetect.com
+// Submitted by Andrew Banchich <abanchich@sceven.com>
+demo.datadetect.com
+instance.datadetect.com
+
 // Datawire, Inc : https://www.datawire.io
 // Submitted by Richard Li <secalert@datawire.io>
 edgestack.me
+
+// DDNS5 : https://ddns5.com
+// Submitted by Cameron Elliott <cameron@cameronelliott.com>
+ddns5.com
 
 // Debian : https://www.debian.org/
 // Submitted by Peter Palfrader / Debian Sysadmin Team <dsa-publicsuffixlist@debian.org>
@@ -11590,6 +11630,11 @@ dynv6.net
 // Submitted by Vladimir Dudr <info@e4you.cz>
 e4.cz
 
+// eero : https://eero.com/
+// Submitted by Yue Kang <eero-dynamic-dns@amazon.com>
+eero.online
+eero-stage.online
+
 // En root‽ : https://en-root.org
 // Submitted by Emmanuel Raviart <emmanuel@raviart.com>
 en-root.fr
@@ -11597,6 +11642,7 @@ en-root.fr
 // Enalean SAS: https://www.enalean.com
 // Submitted by Thomas Cottier <thomas.cottier@enalean.com>
 mytuleap.com
+tuleap-partners.com
 
 // ECG Robotics, Inc: https://ecgrobotics.org
 // Submitted by <frc1533@ecgrobotics.org>
@@ -11815,10 +11861,11 @@ app.os.stg.fedoraproject.org
 
 // FearWorks Media Ltd. : https://fearworksmedia.co.uk
 // submitted by Keith Fairley <domains@fearworksmedia.co.uk>
-conn.uk
-copro.uk
 couk.me
 ukco.me
+conn.uk
+copro.uk
+hosp.uk
 
 // Fermax : https://fermax.com/
 // submitted by Koen Van Isterdael <k.vanisterdael@fermax.be>
@@ -11863,12 +11910,16 @@ flynnhosting.net
 // Forgerock : https://www.forgerock.com
 // Submitted by Roderick Parr <roderick.parr@forgerock.com>
 forgeblocks.com
-*.id.forgerock.io
+id.forgerock.io
 
 // Framer : https://www.framer.com
 // Submitted by Koen Rouwhorst <koenrh@framer.com>
 framer.app
 framercanvas.com
+
+// Frusky MEDIA&PR : https://www.frusky.de
+// Submitted by Victor Pupynin <hallo@frusky.de>
+*.frusky.de
 
 // RavPage : https://www.ravpage.co.il
 // Submitted by Roni Horowitz <roni@responder.co.il>
@@ -11937,7 +11988,6 @@ gsj.bz
 // GitHub, Inc.
 // Submitted by Patrick Toomey <security@github.com>
 githubusercontent.com
-github.dev
 githubpreview.dev
 github.io
 
@@ -11953,6 +12003,10 @@ gitpage.si
 // Glitch, Inc : https://glitch.com
 // Submitted by Mads Hartmann <mads@glitch.com>
 glitch.me
+
+// Global NOG Alliance : https://nogalliance.org/
+// Submitted by Sander Steffann <sander@nogalliance.org>
+nog.community
 
 // Globe Hosting SRL : https://www.globehosting.com/
 // Submitted by Gavin Brown <gavin.brown@centralnic.com>
@@ -12077,6 +12131,10 @@ blogspot.td
 blogspot.tw
 blogspot.ug
 blogspot.vn
+
+// Goupile : https://goupile.fr
+// Submitted by Niels Martignene <hello@goupile.fr>
+goupile.fr
 
 // Group 53, LLC : https://www.group53.com
 // Submitted by Tyler Todd <noc@nova53.net>
@@ -12343,6 +12401,10 @@ myjino.ru
 *.spectrum.myjino.ru
 *.vps.myjino.ru
 
+// Jotelulu S.L. : https://jotelulu.com
+// Submitted by Daniel Fariña <ingenieria@jotelulu.com>
+jotelulu.cloud
+
 // Joyent : https://www.joyent.com/
 // Submitted by Brian Bennett <brian.bennett@joyent.com>
 *.triton.zone
@@ -12521,6 +12583,11 @@ mcdir.me
 mcdir.ru
 mcpre.ru
 vps.mcdir.ru
+
+// Mediatech : https://mediatech.by
+// Submitted by Evgeniy Kozhuhovskiy <ugenk@mediatech.by>
+mediatech.by
+mediatech.dev
 
 // Medicom Health : https://medicomhealth.com
 // Submitted by Michael Olson <molson@medicomhealth.com>
@@ -12897,8 +12964,10 @@ orsites.com
 // Submitted by Yngve Pettersen <yngve@opera.com>
 operaunite.com
 
-// Oursky Limited : https://skygear.io/
-// Submited by Skygear Developer <hello@skygear.io>
+// Oursky Limited : https://authgear.com/, https://skygear.io/
+// Submited by Authgear Team <hello@authgear.com>, Skygear Developer <hello@skygear.io>
+authgear-staging.com
+authgearapps.com
 skygearapp.com
 
 // OutSystems
@@ -12974,8 +13043,6 @@ perspecta.cloud
 // PE Ulyanov Kirill Sergeevich : https://airy.host
 // Submitted by Kirill Ulyanov <k.ulyanov@airy.host>
 lk3.ru
-ra-ru.ru
-zsew.ru
 
 // Planet-Work : https://www.planet-work.com/
 // Submitted by Frédéric VANNIÈRE <f.vanniere@planet-work.com>
@@ -13009,6 +13076,13 @@ dyn53.io
 // Positive Codes Technology Company : http://co.bn/faq.html
 // Submitted by Zulfais <pc@co.bn>
 co.bn
+
+// Postman, Inc : https://postman.com
+// Submitted by Rahul Dhawan <security@postman.com>
+postman-echo.com
+pstmn.io
+mock.pstmn.io
+httpbin.org
 
 // prgmr.com : https://prgmr.com/
 // Submitted by Sarah Newman <owner@prgmr.com>
@@ -13140,6 +13214,14 @@ hzc.io
 wellbeingzone.eu
 wellbeingzone.co.uk
 
+// Rico Developments Limited : https://adimo.co
+// Submitted by Colin Brown <hello@adimo.co>
+adimo.co.uk
+
+// Riseup Networks : https://riseup.net
+// Submitted by Micah Anderson <micah@riseup.net>
+itcouldbewor.se
+
 // Rochester Institute of Technology : http://www.rit.edu/
 // Submitted by Jennifer Herting <jchits@rit.edu>
 git-pages.rit.edu
@@ -13196,9 +13278,17 @@ spdns.org
 // Submitted by Artem Kondratev <accounts@seidat.com>
 seidat.net
 
+// Sellfy : https://sellfy.com
+// Submitted by Yuriy Romadin <contact@sellfy.com>
+sellfy.store
+
 // Senseering GmbH : https://www.senseering.de
 // Submitted by Felix Mönckemeyer <f.moenckemeyer@senseering.de>
 senseering.net
+
+// Sendmsg: https://www.sendmsg.co.il
+// Submitted by Assaf Stern <domains@comstar.co.il>
+minisite.ms
 
 // Service Magnet : https://myservicemagnet.com
 // Submitted by Dave Sanders <dave@myservicemagnet.com>
@@ -13273,6 +13363,10 @@ srht.site
 // Submitted by Adrien Gillon <adrien+public-suffix-list@stackhero.io>
 stackhero-network.com
 
+// Staclar : https://staclar.com
+// Submitted by Matthias Merkel <matthias.merkel@staclar.com>
+novecore.site
+
 // staticland : https://static.land
 // Submitted by Seth Vincent <sethvincent@gmail.com>
 static.land
@@ -13307,6 +13401,28 @@ spacekit.io
 // Submitted by Stefan Neufeind <info@speedpartner.de>
 customer.speedpartner.de
 
+// Spreadshop (sprd.net AG) : https://www.spreadshop.com/
+// Submitted by Martin Breest <security@spreadshop.com>
+myspreadshop.at
+myspreadshop.com.au
+myspreadshop.be
+myspreadshop.ca
+myspreadshop.ch
+myspreadshop.com
+myspreadshop.de
+myspreadshop.dk
+myspreadshop.es
+myspreadshop.fi
+myspreadshop.fr
+myspreadshop.ie
+myspreadshop.it
+myspreadshop.net
+myspreadshop.nl
+myspreadshop.no
+myspreadshop.pl
+myspreadshop.se
+myspreadshop.co.uk
+
 // Standard Library : https://stdlib.com
 // Submitted by Jacob Lee <jacob@stdlib.com>
 api.stdlib.com
@@ -13327,6 +13443,13 @@ user.srcf.net
 // Sub 6 Limited: http://www.sub6.com
 // Submitted by Dan Miller <dm@sub6.com>
 temp-dns.com
+
+// Supabase : https://supabase.io
+// Submitted by Inian Parameshwaran <security@supabase.io>
+supabase.co
+supabase.in
+supabase.net
+su.paba.se
 
 // Symfony, SAS : https://symfony.com/
 // Submitted by Fabien Potencier <fabien@symfony.com>
@@ -13382,13 +13505,17 @@ gwiddle.co.uk
 
 // Thingdust AG : https://thingdust.com/
 // Submitted by Adrian Imboden <adi@thingdust.com>
+*.firenet.ch
+*.svc.firenet.ch
+reservd.com
 thingdustdata.com
 cust.dev.thingdust.io
 cust.disrec.thingdust.io
 cust.prod.thingdust.io
 cust.testing.thingdust.io
-*.firenet.ch
-*.svc.firenet.ch
+reservd.dev.thingdust.io
+reservd.disrec.thingdust.io
+reservd.testing.thingdust.io
 
 // Tlon.io : https://tlon.io
 // Submitted by Mark Staarink <mark@tlon.io>
@@ -13537,7 +13664,6 @@ at.md
 de.md
 jp.md
 to.md
-uwu.nu
 indie.porn
 vxl.sh
 ch.tc
@@ -13664,6 +13790,7 @@ ybo.trade
 
 // Yunohost : https://yunohost.org
 // Submitted by Valentin Grimaud <security@yunohost.org>
+ynh.fr
 nohost.me
 noho.st
 
