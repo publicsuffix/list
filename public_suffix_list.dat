@@ -13760,4 +13760,10 @@ basicserver.io
 virtualserver.io
 enterprisecloud.nu
 
+// Diher Solutions : https://diher.solutions
+*.diher.solutions
+diher.solutions
+*.rss.my.id
+rss.my.id
+
 // ===END PRIVATE DOMAINS===
