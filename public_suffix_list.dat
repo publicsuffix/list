@@ -6058,10 +6058,6 @@ org.sl
 // sm : https://en.wikipedia.org/wiki/.sm
 sm
 
-// Smoove.io : https://www.smoove.io/
-// Submitted by Dan Kozak <dan@smoove.io>
-vp4.me
-
 // sn : https://en.wikipedia.org/wiki/.sn
 sn
 art.sn
@@ -13272,6 +13268,10 @@ beta.bounty-full.com
 // Small Technology Foundation : https://small-tech.org
 // Submitted by Aral Balkan <aral@small-tech.org>
 small-web.org
+
+// Smoove.io : https://www.smoove.io/
+// Submitted by Dan Kozak <dan@smoove.io>
+vp4.me
 
 // Snowplow Analytics : https://snowplowanalytics.com/
 // Submitted by Ian Streeter <ian@snowplowanalytics.com>
