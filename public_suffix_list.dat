@@ -11248,10 +11248,10 @@ dedyn.io
 
 // Diher Solutions : https://diher.solutions
 // Submitted by Didi Hermawan <mail@diher.solutions>
-diher.solutions
-*.diher.solutions
 rss.my.id
 *.rss.my.id
+diher.solutions
+*.diher.solutions
 
 // DNS Africa Ltd https://dns.business
 // Submitted by Calvin Browne <calvin@dns.business>
@@ -13766,6 +13766,5 @@ bss.design
 basicserver.io
 virtualserver.io
 enterprisecloud.nu
-
 
 // ===END PRIVATE DOMAINS===
