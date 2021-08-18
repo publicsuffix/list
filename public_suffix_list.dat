@@ -13466,6 +13466,11 @@ tabitorder.co.il
 // Submitted by Bjoern Henke <dev-server@taifun-software.de>
 taifun-dns.de
 
+// Tailscale Inc. : https://www.tailscale.com
+// Submitted by David Anderson <danderson@tailscale.com>
+beta.tailscale.net
+ts.net
+
 // TASK geographical domains (www.task.gda.pl/uslugi/dns)
 gda.pl
 gdansk.pl
