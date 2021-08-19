@@ -7125,7 +7125,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-08-05T15:14:20Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-08-19T15:13:52Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -8716,6 +8716,9 @@ kfh
 
 // kia : 2015-07-09 KIA MOTORS CORPORATION
 kia
+
+// kids : 2021-08-13 DotKids Foundation Limited
+kids
 
 // kim : 2013-09-23 Afilias Limited
 kim
