@@ -11052,8 +11052,8 @@ cloudcontrolled.com
 cloudcontrolapp.com
 
 // Cloudera, Inc. : https://www.cloudera.com/
-// Submitted by Philip Langdale <security@cloudera.com>
-cloudera.site
+// Submitted by Kedarnath Waikar <security@cloudera.com>
+*.cloudera.site
 
 // Cloudflare, Inc. : https://www.cloudflare.com/
 // Submitted by Cloudflare Team <publicsuffixlist@cloudflare.com>
