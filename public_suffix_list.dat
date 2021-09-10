@@ -11260,8 +11260,8 @@ dedyn.io
 
 // Diher Solutions : https://diher.solutions
 // Submitted by Didi Hermawan <mail@diher.solutions>
-*.rss.my.id
-*.diher.solutions
+rss.my.id
+diher.solutions
 
 // DNS Africa Ltd https://dns.business
 // Submitted by Calvin Browne <calvin@dns.business>
