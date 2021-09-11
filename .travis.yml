@@ -1,0 +1,25 @@
+language: c
+compiler: gcc
+
+script: 
+  - make
+  - go test -v -coverprofile=coverage.out tools/*.go
+
+go:
+  - "1.15.x"
+
+addons:
+    apt:
+        packages:
+            - python3
+            - autoconf
+            - automake
+            - autopoint
+            - libtool
+            - gettext
+            - libidn11-dev
+            - libidn2-0
+            - libidn2-0-dev
+            - libicu-dev
+            - libunistring0
+            - libunistring-dev
