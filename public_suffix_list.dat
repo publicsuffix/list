@@ -11619,6 +11619,34 @@ definima.io
 // Submitted by Braxton Huggins <bhuggins@digitalocean.com>
 ondigitalocean.app
 
+// DigitalOcean Spaces : https://www.digitalocean.com/products/spaces/
+// Submitted by Robin H. Johnson <psl-maintainers@digitalocean.com>
+digitaloceanspaces.com
+ams3.digitaloceanspaces.com
+fra1.digitaloceanspaces.com
+nyc3.digitaloceanspaces.com
+sfo2.digitaloceanspaces.com
+sfo3.digitaloceanspaces.com
+sgp1.digitaloceanspaces.com
+
+// DigitalOcean Spaces - Static Sites : https://www.digitalocean.com/products/spaces/
+// Submitted by Robin H. Johnson <psl-maintainers@digitalocean.com>
+ams3-static.digitaloceanspaces.com
+fra1-static.digitaloceanspaces.com
+nyc3-static.digitaloceanspaces.com
+sfo2-static.digitaloceanspaces.com
+sfo3-static.digitaloceanspaces.com
+sgp1-static.digitaloceanspaces.com
+
+// DigitalOcean Spaces - CDN : https://www.digitalocean.com/products/spaces/
+// Submitted by Robin H. Johnson <psl-maintainers@digitalocean.com>
+ams3.cdn.digitaloceanspaces.com
+fra1.cdn.digitaloceanspaces.com
+nyc3.cdn.digitaloceanspaces.com
+sfo2.cdn.digitaloceanspaces.com
+sfo3.cdn.digitaloceanspaces.com
+sgp1.cdn.digitaloceanspaces.com
+
 // dnstrace.pro : https://dnstrace.pro/
 // Submitted by Chris Partridge <chris@partridge.tech>
 bci.dnstrace.pro
