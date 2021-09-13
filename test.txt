@@ -1,0 +1,180 @@
+cd linter;                                \
+  ./pslint_selftest.sh;                     \
+  ./pslint.py ../public_suffix_list.dat;
+test_allowedchars: OK
+test_dots: OK
+test_duplicate: OK
+test_exception: OK
+test_NFKC: FAILED
+--- test_NFKC.expected  2021-09-13 16:09:48.191389171 +0700
++++ log/test_NFKC.log   2021-09-13 16:09:55.111303513 +0700
+@@ -1,2 +1,10 @@
+-9: error: Rule must be NFKC: 'südtirol.it'
+-11: warning: No PRIVATE section found
++Traceback (most recent call last):
++  File "./pslint.py", line 276, in <module>
++    sys.exit(main())
++  File "./pslint.py", line 270, in main
++    lint_psl(infile)
++  File "./pslint.py", line 174, in lint_psl
++    error('Rule must be NFKC')
++  File "./pslint.py", line 44, in error
++    print('%d: error: %s%s' % (nline, msg, ": \'" + orig_line + "\'" if orig_line else ""))
++UnicodeEncodeError: 'latin-1' codec can't encode character '\u0308' in position 32: ordinal not in range(256)
+test_punycode: OK
+test_section1: OK
+test_section2: OK
+test_section3: OK
+test_section4: OK
+test_spaces: OK
+test_wildcard: OK
+test -d libpsl || git clone --depth=1 https://github.com/rockdaboot/libpsl;   \
+  cd libpsl;                                                                    \
+  git pull;                                                                     \
+  echo "EXTRA_DIST =" >  gtk-doc.make;                                          \
+  echo "CLEANFILES =" >> gtk-doc.make;                                          \
+  autoreconf --install --force --symlink;
+Cloning into 'libpsl'...
+remote: Enumerating objects: 847, done.
+remote: Counting objects: 100% (847/847), done.
+remote: Compressing objects: 100% (442/442), done.
+remote: Total 847 (delta 103), reused 761 (delta 95), pack-reused 0
+Receiving objects: 100% (847/847), 4.11 MiB | 7.35 MiB/s, done.
+Resolving deltas: 100% (103/103), done.
+Already up to date.
+Copying file ABOUT-NLS
+Creating directory build-aux
+Copying file build-aux/config.rpath
+Copying file m4/codeset.m4
+Copying file m4/fcntl-o.m4
+Copying file m4/gettext.m4
+Copying file m4/glibc2.m4
+Copying file m4/glibc21.m4
+Copying file m4/iconv.m4
+Copying file m4/intdiv0.m4
+Copying file m4/intl.m4
+Copying file m4/intldir.m4
+Copying file m4/intlmacosx.m4
+Copying file m4/intmax.m4
+Copying file m4/inttypes-pri.m4
+Copying file m4/inttypes_h.m4
+Copying file m4/lcmessage.m4
+Copying file m4/lib-ld.m4
+Copying file m4/lib-link.m4
+Copying file m4/lib-prefix.m4
+Copying file m4/lock.m4
+Copying file m4/longlong.m4
+Copying file m4/nls.m4
+Copying file m4/po.m4
+Copying file m4/printf-posix.m4
+Copying file m4/progtest.m4
+Copying file m4/size_max.m4
+Copying file m4/stdint_h.m4
+Copying file m4/threadlib.m4
+Copying file m4/uintmax_t.m4
+Copying file m4/visibility.m4
+Copying file m4/wchar_t.m4
+Copying file m4/wint_t.m4
+Copying file m4/xsize.m4
+Copying file po/Makefile.in.in
+Copying file po/Makevars.template
+Copying file po/Rules-quot
+Copying file po/boldquot.sed
+Copying file po/en@boldquot.header
+Copying file po/en@quot.header
+Copying file po/insert-header.sin
+Copying file po/quot.sed
+Copying file po/remove-potcdate.sin
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: linking file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: linking file 'm4/libtool.m4'
+libtoolize: linking file 'm4/ltoptions.m4'
+libtoolize: linking file 'm4/ltsugar.m4'
+libtoolize: linking file 'm4/ltversion.m4'
+libtoolize: linking file 'm4/lt~obsolete.m4'
+configure.ac:36: warning: The 'AM_PROG_MKDIR_P' macro is deprecated, and its use is discouraged.
+configure.ac:36: You should use the Autoconf-provided 'AC_PROG_MKDIR_P' macro instead,
+configure.ac:36: and use '$(MKDIR_P)' instead of '$(mkdir_p)'in your Makefile.am files.
+configure.ac:12: installing 'build-aux/ar-lib'
+configure.ac:11: installing 'build-aux/compile'
+configure.ac:14: installing 'build-aux/config.guess'
+configure.ac:14: installing 'build-aux/config.sub'
+configure.ac:5: installing 'build-aux/install-sh'
+configure.ac:5: installing 'build-aux/missing'
+fuzz/Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+cd libpsl && ./configure -q -C --enable-runtime=libicu --enable-builtin=libicu --with-psl-file=/root/list/public_suffix_list.dat --with-psl-testfile=/root/list/tests/tests.txt && make -s clean && make -s check -j4
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+Making clean in po
+Making clean in include
+Making clean in src
+rm -f ./so_locations
+Making clean in tools
+ rm -f psl
+Making clean in fuzz
+ rm -f libpsl_icu_fuzzer libpsl_icu_load_fuzzer libpsl_icu_load_dafsa_fuzzer
+Making clean in tests
+ rm -f test-is-public test-is-public-all test-is-cookie-domain-acceptable test-is-public-builtin test-registrable-domain
+Making clean in msvc
+Making check in po
+Making check in include
+Making check in src
+  CC       libpsl_la-lookup_string_in_fixed_set.lo
+  CC       libpsl_la-psl.lo
+  CCLD     libpsl.la
+ar: `u' modifier ignored since `D' is the default (see `U')
+Making check in tools
+  CC       psl.o
+  CCLD     psl
+Making check in fuzz
+  CC       libpsl_load_fuzzer.o
+  CC       main.o
+  CC       libpsl_load_dafsa_fuzzer.o
+  CC       libpsl_fuzzer.o
+  CCLD     libpsl_icu_load_fuzzer
+  CCLD     libpsl_icu_load_dafsa_fuzzer
+  CCLD     libpsl_icu_fuzzer
+PASS: libpsl_icu_fuzzer
+PASS: libpsl_icu_load_dafsa_fuzzer
+PASS: libpsl_icu_load_fuzzer
+============================================================================
+Testsuite summary for libpsl 0.21.1
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+Making check in tests
+  CC       test-is-cookie-domain-acceptable.o
+  CC       test-is-public-all.o
+  CC       test-is-public-builtin.o
+  CC       test-is-public.o
+  CC       test-registrable-domain.o
+  CCLD     test-is-cookie-domain-acceptable
+  CCLD     test-is-public-builtin
+  CCLD     test-is-public
+  CCLD     test-is-public-all
+  CCLD     test-registrable-domain
+PASS: test-is-public-builtin
+PASS: test-is-cookie-domain-acceptable
+PASS: test-is-public
+PASS: test-registrable-domain
+PASS: test-is-public-all
+============================================================================
+Testsuite summary for libpsl 0.21.1
+============================================================================
+# TOTAL: 5
+# PASS:  5
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+Making check in msvc
