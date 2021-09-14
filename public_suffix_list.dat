@@ -10885,6 +10885,18 @@ rs.ba
 app.banzaicloud.io
 *.backyards.banzaicloud.io
 
+// BASE, Inc. : https://binc.jp
+// Submitted by Yuya NAGASAWA <public-suffix-list@binc.jp>
+base.ec
+official.ec
+buyshop.jp
+fashionstore.jp
+handcrafted.jp
+kawaiishop.jp
+supersale.jp
+theshop.jp
+shopselect.net
+base.shop
 
 // BetaInABox
 // Submitted by Adrian <adrian@betainabox.com>
