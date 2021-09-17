@@ -10694,6 +10694,10 @@ altervista.org
 // Submitted by Cyril <admin@alwaysdata.com>
 alwaysdata.net
 
+// Amazon App Runner : https://aws.amazon.com/apprunner/
+// Submitted by Eric Hays <psl-maintainers@amazon.com>
+*.awsapprunner.com
+
 // Amazon CloudFront : https://aws.amazon.com/cloudfront/
 // Submitted by Donavan Miller <donavanm@amazon.com>
 cloudfront.net
