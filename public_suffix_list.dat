@@ -11677,8 +11677,8 @@ mytuleap.com
 tuleap-partners.com
 
 // encoway GmbH : https://www.encoway.de
-// Submitted by Marcel Daus <marcel.daus@encoway.de>
-*.eu.encoway.cloud
+// Submitted by Marcel Daus <cloudops@encoway.de>
+eu.encoway.cloud
 
 // ECG Robotics, Inc: https://ecgrobotics.org
 // Submitted by <frc1533@ecgrobotics.org>
