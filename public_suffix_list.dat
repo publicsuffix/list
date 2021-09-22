@@ -11612,6 +11612,10 @@ definima.io
 // Submitted by Braxton Huggins <bhuggins@digitalocean.com>
 ondigitalocean.app
 
+// DigitalOcean Spaces : https://www.digitalocean.com/products/spaces/
+// Submitted by Robin H. Johnson <psl-maintainers@digitalocean.com>
+*.digitaloceanspaces.com
+
 // dnstrace.pro : https://dnstrace.pro/
 // Submitted by Chris Partridge <chris@partridge.tech>
 bci.dnstrace.pro
