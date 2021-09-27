@@ -11051,10 +11051,6 @@ clerkstage.app
 *.stg.dev
 *.stgstage.dev
 
-// Clic2000 : https://clic2000.fr
-// Submitted by Mathilde Blanchemanche <mathilde@clic2000.fr>
-clic2000.net
-
 // ClickRising : https://clickrising.com/
 // Submitted by Umut Gumeli <infrastructure-publicsuffixlist@clickrising.com>
 clickrising.net
