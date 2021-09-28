@@ -1016,7 +1016,14 @@ org.fj
 pro.fj
 
 // fk : https://en.wikipedia.org/wiki/.fk
+// Enumerating SLDs for convenience.
 *.fk
+ac.fk
+co.fk
+gov.fk
+net.fk
+nom.fk
+org.fk
 
 // fm : https://en.wikipedia.org/wiki/.fm
 com.fm
