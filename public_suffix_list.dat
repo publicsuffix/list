@@ -3950,7 +3950,13 @@ org.ml
 presse.ml
 
 // mm : https://en.wikipedia.org/wiki/.mm
+// Enumerating SLDs for convenience.
 *.mm
+com.mm
+edu.mm
+gov.mm
+net.mm
+org.mm
 
 // mn : https://en.wikipedia.org/wiki/.mn
 mn
