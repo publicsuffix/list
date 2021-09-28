@@ -3658,7 +3658,16 @@ gov.kg
 mil.kg
 
 // kh : http://www.mptc.gov.kh/dns_registration.htm
+// kh : https://www.trc.gov.kh/en/dns-registration/ has current list
+// Enumerating SLDs for convenience.
 *.kh
+com.kh
+edu.kh
+gov.kh
+mil.kh
+net.kh
+org.kh
+per.kh
 
 // ki : http://www.ki/dns/index.html
 ki
