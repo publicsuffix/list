@@ -310,19 +310,7 @@ store.bb
 tv.bb
 
 // bd : https://en.wikipedia.org/wiki/.bd
-// Enumerating SLDs and one 3LD entry for convenience.
 *.bd
-ac.bd
-co.bd
-com.bd
-edu.bd
-gov.bd
-info.bd
-mil.bd
-net.bd
-org.bd
-sw.bd
-tv.bd
 
 // be : https://en.wikipedia.org/wiki/.be
 // Confirmed by registry <tech@dns.be> 2008-06-08
