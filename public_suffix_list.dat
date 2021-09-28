@@ -7125,7 +7125,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-08-19T15:13:52Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-09-28T15:12:53Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -9550,9 +9550,6 @@ rio
 
 // rip : 2014-07-10 Dog Beach, LLC
 rip
-
-// rmit : 2015-11-19 Royal Melbourne Institute of Technology
-rmit
 
 // rocher : 2014-12-18 Ferrero Trading Lux S.A.
 rocher
