@@ -732,7 +732,15 @@ md.ci
 gouv.ci
 
 // ck : https://en.wikipedia.org/wiki/.ck
+// ck : https://www.vodafone.co.ck/domain-admin-policy
+// Enumerating SLDs for convenience.
 *.ck
+biz.ck
+co.ck
+edu.ck
+gen.ck
+net.ck
+org.ck
 !www.ck
 
 // cl : https://www.nic.cl
