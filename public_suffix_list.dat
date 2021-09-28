@@ -1820,7 +1820,14 @@ net.je
 org.je
 
 // jm : http://www.com.jm/register.html
+// Enumerating SLDs for convenience.
 *.jm
+com.jm
+edu.jm
+gov.jm
+mil.jm
+net.jm
+org.jm
 
 // jo : http://www.dns.jo/Registration_policy.aspx
 jo
