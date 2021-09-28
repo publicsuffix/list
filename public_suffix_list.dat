@@ -5559,7 +5559,14 @@ org.pf
 edu.pf
 
 // pg : https://en.wikipedia.org/wiki/.pg
+// Enumerating SLDs for convenience.
 *.pg
+ac.pg
+com.pg
+gov.pg
+mil.pg
+net.pg
+org.pg
 
 // ph : http://www.domains.ph/FAQ2.asp
 // Submitted by registry <jed@email.com.ph>
