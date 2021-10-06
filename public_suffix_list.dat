@@ -12516,6 +12516,7 @@ linkyard-cloud.ch
 members.linode.com
 *.nodebalancer.linode.com
 *.linodeobjects.com
+ip.linodeusercontent.com
 
 // LiquidNet Ltd : http://www.liquidnetlimited.com/
 // Submitted by Victor Velchev <admin@liquidnetlimited.com>
