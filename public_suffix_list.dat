@@ -12645,7 +12645,7 @@ eu.meteorapp.com
 co.pl
 
 // Microsoft Corporation : http://microsoft.com
-// Submitted by Mitch Webster <miwebst@microsoft.com>
+// Submitted by Joseph Lin <joslin@microsoft.com>
 *.azurecontainer.io
 azurewebsites.net
 azure-mobile.net
@@ -12656,6 +12656,24 @@ eastasia.azurestaticapps.net
 eastus2.azurestaticapps.net
 westeurope.azurestaticapps.net
 westus2.azurestaticapps.net
+1.azurestaticapps.net
+centralus.1.azurestaticapps.net
+eastasia.1.azurestaticapps.net
+eastus2.1.azurestaticapps.net
+westeurope.1.azurestaticapps.net
+westus2.1.azurestaticapps.net
+2.azurestaticapps.net
+centralus.2.azurestaticapps.net
+eastasia.2.azurestaticapps.net
+eastus2.2.azurestaticapps.net
+westeurope.2.azurestaticapps.net
+westus2.2.azurestaticapps.net
+3.azurestaticapps.net
+centralus.3.azurestaticapps.net
+eastasia.3.azurestaticapps.net
+eastus2.3.azurestaticapps.net
+westeurope.3.azurestaticapps.net
+westus2.3.azurestaticapps.net
 
 // minion.systems : http://minion.systems
 // Submitted by Robert Böttinger <r@minion.systems>
