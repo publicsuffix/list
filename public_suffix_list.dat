@@ -845,10 +845,10 @@ inf.cu
 // cv : http://www.dns.cv/tldcv_portal/do?com=DS;5446457100;111;+PAGE(4000018)+K-CAT-CODIGO(RDOM)+RCNT(100); <- registration rules
 cv
 com.cv
-org.cv
 edu.cv
 int.cv
 nome.cv
+org.cv
 
 // cw : http://www.una.cw/cw_registry/
 // Confirmed by registry <registry@una.net> 2013-03-26
