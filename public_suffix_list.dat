@@ -11676,10 +11676,6 @@ tuleap-partners.com
 onred.one
 staging.onred.one
 
-// One.com: https://www.one.com/
-// Submitted by Jacob Bunk Nielsen <jbn@one.com>
-service.one
-
 // EU.org https://eu.org/
 // Submitted by Pierre Beyssac <hostmaster@eu.org>
 eu.org
@@ -12922,6 +12918,10 @@ cloudycluster.net
 // OmniWe Limited: https://omniwe.com
 // Submitted by Vicary Archangel <vicary@omniwe.com>
 omniwe.site
+
+// One.com: https://www.one.com/
+// Submitted by Jacob Bunk Nielsen <jbn@one.com>
+service.one
 
 // One Fold Media : http://www.onefoldmedia.com/
 // Submitted by Eddie Jones <eddie@onefoldmedia.com>
