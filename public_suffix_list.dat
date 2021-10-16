@@ -10685,51 +10685,17 @@ altervista.org
 // Submitted by Cyril <admin@alwaysdata.com>
 alwaysdata.net
 
-// Amazon CloudFront : https://aws.amazon.com/cloudfront/
-// Submitted by Donavan Miller <donavanm@amazon.com>
-cloudfront.net
-
-// Amazon Elastic Compute Cloud : https://aws.amazon.com/ec2/
-// Submitted by Luke Wells <psl-maintainers@amazon.com>
-*.compute.amazonaws.com
-*.compute-1.amazonaws.com
-*.compute.amazonaws.com.cn
-us-east-1.amazonaws.com
-
-// Amazon Elastic Beanstalk : https://aws.amazon.com/elasticbeanstalk/
+// Amazon : https://aws.amazon.com/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
 cn-north-1.eb.amazonaws.com.cn
 cn-northwest-1.eb.amazonaws.com.cn
-elasticbeanstalk.com
-ap-northeast-1.elasticbeanstalk.com
-ap-northeast-2.elasticbeanstalk.com
-ap-northeast-3.elasticbeanstalk.com
-ap-south-1.elasticbeanstalk.com
-ap-southeast-1.elasticbeanstalk.com
-ap-southeast-2.elasticbeanstalk.com
-ca-central-1.elasticbeanstalk.com
-eu-central-1.elasticbeanstalk.com
-eu-west-1.elasticbeanstalk.com
-eu-west-2.elasticbeanstalk.com
-eu-west-3.elasticbeanstalk.com
-sa-east-1.elasticbeanstalk.com
-us-east-1.elasticbeanstalk.com
-us-east-2.elasticbeanstalk.com
-us-gov-west-1.elasticbeanstalk.com
-us-west-1.elasticbeanstalk.com
-us-west-2.elasticbeanstalk.com
-
-// Amazon Elastic Load Balancing : https://aws.amazon.com/elasticloadbalancing/
-// Submitted by Luke Wells <psl-maintainers@amazon.com>
-*.elb.amazonaws.com
-*.elb.amazonaws.com.cn
-
-// Amazon Global Accelerator : https://aws.amazon.com/global-accelerator/
-// Submitted by Daniel Massaguer <psl-maintainers@amazon.com>
 awsglobalaccelerator.com
-
-// Amazon S3 : https://aws.amazon.com/s3/
-// Submitted by Luke Wells <psl-maintainers@amazon.com>
+*.elb.amazonaws.com.cn
+*.compute.amazonaws.com.cn
+s3.cn-north-1.amazonaws.com.cn
+*.compute.amazonaws.com
+*.compute-1.amazonaws.com
+*.elb.amazonaws.com
 s3.amazonaws.com
 s3-ap-northeast-1.amazonaws.com
 s3-ap-northeast-2.amazonaws.com
@@ -10750,7 +10716,6 @@ s3-us-west-1.amazonaws.com
 s3-us-west-2.amazonaws.com
 s3.ap-northeast-2.amazonaws.com
 s3.ap-south-1.amazonaws.com
-s3.cn-north-1.amazonaws.com.cn
 s3.ca-central-1.amazonaws.com
 s3.eu-central-1.amazonaws.com
 s3.eu-west-2.amazonaws.com
@@ -10784,6 +10749,26 @@ s3-website.eu-central-1.amazonaws.com
 s3-website.eu-west-2.amazonaws.com
 s3-website.eu-west-3.amazonaws.com
 s3-website.us-east-2.amazonaws.com
+us-east-1.amazonaws.com
+elasticbeanstalk.com
+ap-northeast-1.elasticbeanstalk.com
+ap-northeast-2.elasticbeanstalk.com
+ap-northeast-3.elasticbeanstalk.com
+ap-south-1.elasticbeanstalk.com
+ap-southeast-1.elasticbeanstalk.com
+ap-southeast-2.elasticbeanstalk.com
+ca-central-1.elasticbeanstalk.com
+eu-central-1.elasticbeanstalk.com
+eu-west-1.elasticbeanstalk.com
+eu-west-2.elasticbeanstalk.com
+eu-west-3.elasticbeanstalk.com
+sa-east-1.elasticbeanstalk.com
+us-east-1.elasticbeanstalk.com
+us-east-2.elasticbeanstalk.com
+us-gov-west-1.elasticbeanstalk.com
+us-west-1.elasticbeanstalk.com
+us-west-2.elasticbeanstalk.com
+cloudfront.net
 
 // Amsterdam Wireless: https://www.amsterdamwireless.nl/
 // Submitted by Imre Jonk <hostmaster@amsterdamwireless.nl>
