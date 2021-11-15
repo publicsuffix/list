@@ -10877,6 +10877,9 @@ rs.ba
 app.banzaicloud.io
 *.backyards.banzaicloud.io
 
+// Beget Ltd
+// Submitted by Lev Nekrasov <lnekrasov@beget.com>
+*.beget.host
 
 // BetaInABox
 // Submitted by Adrian <adrian@betainabox.com>
