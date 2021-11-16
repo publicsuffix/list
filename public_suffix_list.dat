@@ -10879,7 +10879,7 @@ app.banzaicloud.io
 
 // Beget Ltd
 // Submitted by Lev Nekrasov <lnekrasov@beget.com>
-*.beget.host
+*.beget.app
 
 // BetaInABox
 // Submitted by Adrian <adrian@betainabox.com>
