@@ -13595,16 +13595,14 @@ hk.org
 ltd.hk
 inc.hk
 
-
 // UNIVERSAL DOMAIN REGISTRY : https://www.udr.org.yt/
+// see also: whois -h whois.udr.org.yt help
 // Submitted by Atanunu Igbunuroghene <publicsuffixlist@udr.org.yt>
 name.pm
 sch.tf
 biz.wf
 sch.wf
-mobi.yt
 org.yt
-
 
 // United Gameserver GmbH : https://united-gameserver.de
 // Submitted by Stefan Schwarz <sysadm@united-gameserver.de>
