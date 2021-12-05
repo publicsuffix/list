@@ -7132,7 +7132,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-11-13T15:12:42Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-12-04T15:13:28Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7196,9 +7196,6 @@ aeg
 
 // aetna : 2015-05-21 Aetna Life Insurance Company
 aetna
-
-// afamilycompany : 2015-07-23 Johnson Shareholdings, Inc.
-afamilycompany
 
 // afl : 2014-10-02 Australian Football League
 afl
@@ -8016,9 +8013,6 @@ dtv
 // dubai : 2015-01-01 Dubai Smart Government Department
 dubai
 
-// duck : 2015-07-23 Johnson Shareholdings, Inc.
-duck
-
 // dunlop : 2015-07-02 The Goodyear Tire & Rubber Company
 dunlop
 
@@ -8345,9 +8339,6 @@ gives
 
 // giving : 2014-11-13 Giving Limited
 giving
-
-// glade : 2015-07-23 Johnson Shareholdings, Inc.
-glade
 
 // glass : 2013-11-07 Binky Moon, LLC
 glass
@@ -9216,9 +9207,6 @@ obi
 // observer : 2015-04-30 Dog Beach, LLC
 observer
 
-// off : 2015-07-23 Johnson Shareholdings, Inc.
-off
-
 // office : 2015-03-12 Microsoft Corporation
 office
 
@@ -9462,9 +9450,6 @@ racing
 // radio : 2016-07-21 European Broadcasting Union (EBU)
 radio
 
-// raid : 2015-07-23 Johnson Shareholdings, Inc.
-raid
-
 // read : 2014-12-18 Amazon Registry Services, Inc.
 read
 
@@ -9668,9 +9653,6 @@ schwarz
 
 // science : 2014-09-11 dot Science Limited
 science
-
-// scjohnson : 2015-07-23 Johnson Shareholdings, Inc.
-scjohnson
 
 // scot : 2014-01-23 Dot Scot Registry Limited
 scot
