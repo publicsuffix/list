@@ -13633,6 +13633,10 @@ router.management
 // Submitted by Adnan RIHAN <hostmaster@v-info.info>
 v-info.info
 
+// VogelHosting GitLab Pages: https://gitlab.vogelhosting.de/
+// Submitted by Merlin Glander <merlinglander@vogelhosting.de>
+*.vogelhosting.xyz
+
 // Voorloper.com: https://voorloper.com
 // Submitted by Nathan van Bakel <info@voorloper.com>
 voorloper.cloud
