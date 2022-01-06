@@ -12753,6 +12753,7 @@ noop.app
 *.northflank.app
 *.build.run
 *.code.run
+*.database.run
 *.migration.run
 
 // Noticeable : https://noticeable.io
