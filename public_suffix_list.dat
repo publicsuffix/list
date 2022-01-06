@@ -12751,7 +12751,9 @@ noop.app
 // Northflank Ltd. : https://northflank.com/
 // Submitted by Marco Suter <marco@northflank.com>
 *.northflank.app
+*.build.run
 *.code.run
+*.migration.run
 
 // Noticeable : https://noticeable.io
 // Submitted by Laurent Pellegrino <security@noticeable.io>
