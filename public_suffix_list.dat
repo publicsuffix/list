@@ -10665,6 +10665,10 @@ alwaysdata.net
 // Submitted by Donavan Miller <donavanm@amazon.com>
 cloudfront.net
 
+// AWS Amplify Hosting : https://aws.amazon.com/amplify/
+// Submitted by Amplify Hosting <aws-amplify-customer@amazon.com>
+amplifyapp.com
+
 // Amazon Elastic Compute Cloud : https://aws.amazon.com/ec2/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
 *.compute.amazonaws.com
