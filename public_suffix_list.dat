@@ -10760,6 +10760,10 @@ s3-website.eu-west-2.amazonaws.com
 s3-website.eu-west-3.amazonaws.com
 s3-website.us-east-2.amazonaws.com
 
+// Aiven: https://aiven.io/
+// Submitted by Etienne Stalmans <security@aiven.io>
+aivencloud.com
+
 // Amune : https://amune.org/
 // Submitted by Team Amune <cert@amune.org>
 t3l3p0rt.net
