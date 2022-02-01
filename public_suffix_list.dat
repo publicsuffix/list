@@ -11964,8 +11964,15 @@ futuremailing.at
 *.kunden.ortsinfo.at
 *.statics.cloud
 
-// GDS : https://www.gov.uk/service-manual/operations/operating-servicegovuk-subdomains
-// Submitted by David Illsley <david.illsley@digital.cabinet-office.gov.uk>
+// GDS : https://www.gov.uk/service-manual/technology/managing-domain-names
+// Submitted by Stephen Ford <hostmaster@digital.cabinet-office.gov.uk>
+independent-commission.uk
+independent-inquest.uk
+independent-inquiry.uk
+independent-panel.uk
+independent-review.uk
+public-inquiry.uk
+royal-commission.uk
 service.gov.uk
 
 // CDDO : https://www.gov.uk/guidance/get-an-api-domain-on-govuk
