@@ -7131,7 +7131,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-12-30T15:13:57Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2022-02-02T15:12:37Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7595,7 +7595,7 @@ call
 // calvinklein : 2015-07-30 PVH gTLD Holdings LLC
 calvinklein
 
-// cam : 2016-04-21 AC Webconnecting Holding B.V.
+// cam : 2016-04-21 Cam Connecting SARL
 cam
 
 // camera : 2013-08-27 Binky Moon, LLC
@@ -7867,9 +7867,6 @@ cruise
 
 // cruises : 2013-12-05 Binky Moon, LLC
 cruises
-
-// csc : 2014-09-25 Alliance-One Services, Inc.
-csc
 
 // cuisinella : 2014-04-03 SCHMIDT GROUPE S.A.S.
 cuisinella
