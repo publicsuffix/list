@@ -998,6 +998,9 @@ net.et
 // eu : https://en.wikipedia.org/wiki/.eu
 eu
 
+// example : https://en.wikipedia.org/wiki/.example
+example
+
 // fi : https://en.wikipedia.org/wiki/.fi
 fi
 // aland.fi : https://en.wikipedia.org/wiki/.ax
@@ -6157,6 +6160,9 @@ td
 // tel: https://en.wikipedia.org/wiki/.tel
 // http://www.telnic.org/
 tel
+
+// test : https://en.wikipedia.org/wiki/.test
+test
 
 // tf : https://en.wikipedia.org/wiki/.tf
 tf
