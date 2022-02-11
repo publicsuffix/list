@@ -10639,6 +10639,10 @@ hlx3.page
 // Submitted by Przemyslaw Plewa <it-admin@domena.pl>
 beep.pl
 
+// Aiven: https://aiven.io/
+// Submitted by Etienne Stalmans <security@aiven.io>
+aivencloud.com
+
 // alboto.ca : http://alboto.ca
 // Submitted by Anton Avramov <avramov@alboto.ca>
 barsy.ca
@@ -10759,10 +10763,6 @@ s3-website.eu-central-1.amazonaws.com
 s3-website.eu-west-2.amazonaws.com
 s3-website.eu-west-3.amazonaws.com
 s3-website.us-east-2.amazonaws.com
-
-// Aiven: https://aiven.io/
-// Submitted by Etienne Stalmans <security@aiven.io>
-aivencloud.com
 
 // Amune : https://amune.org/
 // Submitted by Team Amune <cert@amune.org>
