@@ -13698,6 +13698,10 @@ me.vu
 // Submitted by Serhii Rostilo <sergey@rostilo.kiev.ua>
 v.ua
 
+// Vultr Objects : https://www.vultr.com/products/object-storage/
+// Submitted by Niels Maumenee <storage@vultr.com>
+*.vultrobjects.com
+
 // Waffle Computer Inc., Ltd. : https://docs.waffleinfo.com
 // Submitted by Masayuki Note <masa@blade.wafflecell.com>
 wafflecell.com
