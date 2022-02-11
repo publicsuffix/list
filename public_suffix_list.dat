@@ -10861,6 +10861,10 @@ theshop.jp
 shopselect.net
 base.shop
 
+// Beget Ltd
+// Submitted by Lev Nekrasov <lnekrasov@beget.com>
+*.beget.app
+
 // BetaInABox
 // Submitted by Adrian <adrian@betainabox.com>
 betainabox.com
