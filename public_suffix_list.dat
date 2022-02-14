@@ -13740,6 +13740,14 @@ wedeploy.sh
 // Submitted by Jung Jin <jungseok.jin@wdc.com>
 remotewd.com
 
+// TicketSearch
+// Submitted by Dennis Doulgeridis <dennisd@ticketsearch.com>
+ticketsearch.com
+artshouse.sales.ticketsearch.com
+norpa.sales.ticketsearch.com
+*.sales.ticketsearch.com
+
+
 // WIARD Enterprises : https://wiardweb.com
 // Submitted by Kidd Hustle <kiddhustle@wiardweb.com>
 pages.wiardweb.com
