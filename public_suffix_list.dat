@@ -10766,6 +10766,13 @@ tele.amune.org
 // Submitted by Apigee Security Team <security@apigee.com>
 apigee.io
 
+// TicketSearch : https://ticketsearch.com/
+// Submitted by TicketSearch <dennisd@ticketsearch.com>
+artshouse.sales.ticketsearch.com
+norpa.sales.ticketsearch.com
+ticketsearch.com
+*.sales.ticketsearch.com
+
 // Apphud : https://apphud.com
 // Submitted by Alexander Selivanov <alex@apphud.com>
 siiites.com
