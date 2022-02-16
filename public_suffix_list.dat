@@ -7131,7 +7131,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2022-02-02T15:12:37Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2022-02-16T15:13:59Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -9692,7 +9692,7 @@ sexy
 // sfr : 2015-08-13 Societe Francaise du Radiotelephone - SFR
 sfr
 
-// shangrila : 2015-09-03 Shangri‐La International Hotel Management Limited
+// shangrila : 2015-09-03 Shangri?La International Hotel Management Limited
 shangrila
 
 // sharp : 2014-05-01 Sharp Corporation
@@ -10310,7 +10310,7 @@ xin
 // xn--55qx5d : 2013-11-14 China Internet Network Information Center (CNNIC)
 公司
 
-// xn--5su34j936bgsg : 2015-09-03 Shangri‐La International Hotel Management Limited
+// xn--5su34j936bgsg : 2015-09-03 Shangri?La International Hotel Management Limited
 香格里拉
 
 // xn--5tzm5g : 2014-12-22 Global Website TLD Asia Limited
