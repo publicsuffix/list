@@ -13580,6 +13580,10 @@ lima.zone
 *.transurl.eu
 *.transurl.nl
 
+// TransIP: https://www.transip.nl
+// Submitted by Cedric Dubois <cedric.dubois@team.blue>
+site.transip.me
+
 // TuxFamily : http://tuxfamily.org
 // Submitted by TuxFamily administrators <adm@staff.tuxfamily.org>
 tuxfamily.org
