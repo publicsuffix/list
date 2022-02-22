@@ -9244,7 +9244,6 @@ oracle
 
 // orange : 2015-03-12 Orange Brand Services Limited
 orange
-tech.orange
 
 // organic : 2014-03-27 Afilias Limited
 organic
@@ -13842,5 +13841,9 @@ bss.design
 basicserver.io
 virtualserver.io
 enterprisecloud.nu
+
+// Orange : https://www.orange.com
+// Submitted by Alexandre Linte <alexandre.linte@orange.com>
+tech.orange
 
 // ===END PRIVATE DOMAINS===
