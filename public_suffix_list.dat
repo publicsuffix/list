@@ -13239,7 +13239,6 @@ fnc.fr-par.scw.cloud
 functions.fnc.fr-par.scw.cloud
 k8s.fr-par.scw.cloud
 nodes.k8s.fr-par.scw.cloud
-lb.fr-par.scw.cloud
 s3.fr-par.scw.cloud
 s3-website.fr-par.scw.cloud
 whm.fr-par.scw.cloud
@@ -13248,13 +13247,11 @@ pub.instances.scw.cloud
 k8s.scw.cloud
 k8s.nl-ams.scw.cloud
 nodes.k8s.nl-ams.scw.cloud
-lb.nl-ams.scw.cloud
 s3.nl-ams.scw.cloud
 s3-website.nl-ams.scw.cloud
 whm.nl-ams.scw.cloud
 k8s.pl-waw.scw.cloud
 nodes.k8s.pl-waw.scw.cloud
-lb.pl-waw.scw.cloud
 s3.pl-waw.scw.cloud
 s3-website.pl-waw.scw.cloud
 scalebook.scw.cloud
