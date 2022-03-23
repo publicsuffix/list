@@ -10866,6 +10866,10 @@ theshop.jp
 shopselect.net
 base.shop
 
+// BBZW: https://beruf.lu.ch/bbzw
+// Submitted by Adrian Imboden <adrian.imboden@sluz.ch>
+*.bbzw-labor.ch
+
 // Beget Ltd
 // Submitted by Lev Nekrasov <lnekrasov@beget.com>
 *.beget.app
