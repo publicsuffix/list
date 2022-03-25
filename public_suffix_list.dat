@@ -12668,6 +12668,10 @@ ip.linodeusercontent.com
 // Submitted by Victor Velchev <admin@liquidnetlimited.com>
 we.bs
 
+// Localcert : https://localcert.dev
+// Submitted by Lann Martin <security@localcert.dev>
+*.user.localcert.dev
+
 // localzone.xyz
 // Submitted by Kenny Niehage <hello@yahe.sh>
 localzone.xyz
