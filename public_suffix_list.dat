@@ -12900,6 +12900,10 @@ nh-serv.co.uk
 // Submitted by Jeff Wheelhouse <support@nearlyfreespeech.net>
 nfshost.com
 
+// NFT.Storage : https://nft.storage/
+// Submitted by Vasco Santos <vasco.santos@protocol.ai>
+*.nftstorage.link
+
 // Noop : https://noop.app
 // Submitted by Nathaniel Schweinberg <noop@rearc.io>
 *.developer.app
