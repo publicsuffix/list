@@ -9,7 +9,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
@@ -268,7 +267,7 @@ func (d datFile) String() string {
 // data is found within the dat file. An error is returned if the file can't be read
 // or if the gTLD data span can't be found or is invalid.
 func readDatFile(datFilePath string) (*datFile, error) {
-	pslDatBytes, err := ioutil.ReadFile(datFilePath)
+	pslDatBytes, err := os.ReadFile(datFilePath)
 	if err != nil {
 		return nil, err
 	}
@@ -339,7 +338,7 @@ func getData(url string) ([]byte, error) {
 			url, http.StatusOK, resp.StatusCode)
 	}
 
-	respBody, err := ioutil.ReadAll(resp.Body)
+	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
@@ -559,6 +558,6 @@ func main() {
 
 	// Otherwise print nothing to stdout and write the content over the exiting
 	// pslDatFile path we read earlier.
-	err = ioutil.WriteFile(*pslDatFile, []byte(content), 0644)
+	err = os.WriteFile(*pslDatFile, []byte(content), 0644)
 	ifErrQuit(err)
 }
