@@ -22,7 +22,7 @@ const (
 	// 2). See https://www.icann.org/resources/pages/registries/registries-en for
 	// more information.
 	ICANN_GTLD_JSON_URL = "https://www.icann.org/resources/registries/gtlds/v2/gtlds.json"
-	// IANA_TLDS_TXT_URL is the URL for the IANA "Public Suffix List" of TLDs 
+	// IANA_TLDS_TXT_URL is the URL for the IANA "Public Suffix List" of TLDs
 	// in the ICP-3 Root - including new ccTLDs, EBRERO gTLDS or things not in
 	// the JSON File above that should be included in the PSL.  Note: UPPERCASE
 	IANA_TLDS_TXT_URL = "http://data.iana.org/TLD/tlds-alpha-by-domain.txt"
@@ -533,7 +533,7 @@ func main() {
 	pslDatFile := flag.String(
 		"psl-dat-file",
 		"public_suffix_list.dat",
-		"file path to the public_suffix.dat data file to be updated with new gTLDs")
+		"file path to the public_suffix_list.dat data file to be updated with new gTLDs")
 
 	overwrite := flag.Bool(
 		"overwrite",
