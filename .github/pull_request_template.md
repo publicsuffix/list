@@ -60,7 +60,7 @@ The volunteers are busy with new requests, and rollbacks are lowest
 priority, so if something gets broken by your PR, it will potentially 
 stay that way for an indefinitely long while.
 ```
-(Link: [about propogation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
+(Link: [about propagation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
 
  * [ ] *Yes, I understand*.  I could break my organization's website cookies etc. and the rollback timing, etc is acceptable.  *Proceed*.
 ---
