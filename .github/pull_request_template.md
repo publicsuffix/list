@@ -29,19 +29,36 @@ To be clear, it is appropriate to address how those limits impact
 your domain(s) directly with that third-party, and it is inappropriate 
 to submit entries to the PSL in order to work around those limits or 
 restrictions.
-
-If there are third party limits that the PR seeks to overcome, those
-must be listed.
 -->
   * [ ] We are listing *any* third-party limits that we seek to work around in our rationale such as those between IOS 14.5+ and Facebook (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as a well-documented example)
+
+<!--
+If there are third party limits that the PR seeks to overcome, those
+must be listed within the rationale section of this request, and 
+provide a good level of detail the effort that was made to work directly 
+with the third part(y|ies) in attempting to address this within their 
+rationale responsse below.
+-->
+
   * [ ] This request was _not_ submitted with the objective of working around other third-party limits
+
 <!--
 The guidelines describe which section to place the entry, what the 
 order of commented org placement, order of sorting of entries. 
-(hint: TLD then SLD, Ascending sort) 
+(hint: TLD then SLD, Ascending sort)   Although it seems pedantic, 
+the sorting and formatting rules help ensure all of the automation 
+that uses the PSL operates correctly.
 -->
+
   * [ ] The [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) were carefully _read_ and _understood_, and this request conforms
   * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting
+
+<!-- 
+Sorting and formatting of the entries is outlined in the guidelines 
+and non-conforming requests are one of the largest sources of delay,
+so getting this right initially will aid successfully having it 
+proceed.  Miss-located entries and trailing spaces should be avoided.
+-->
 
 ---
 __For Private section requests that are submitting entries for domains that match their organization website's primary domain:__
@@ -60,7 +77,7 @@ The volunteers are busy with new requests, and rollbacks are lowest
 priority, so if something gets broken by your PR, it will potentially 
 stay that way for an indefinitely long while.
 ```
-(Link: [about propogation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
+(Link: [about propagation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
 
  * [ ] *Yes, I understand*.  I could break my organization's website cookies etc. and the rollback timing, etc is acceptable.  *Proceed*.
 ---
@@ -82,18 +99,22 @@ Description of Organization
 Organization Website: <!-- https://example.com -->
 
 <!--
-Please tell us who you are and represent (i.e. individual, 
-non-profit volunteer, engineer at a business) and what you 
-do (i.e. DynDNS, Hosting, etc)
+PROVIDE AT LEAST THREE SENTENCES (the more the better) but
+avoid the promotional stuff about how wonderful it is, and 
+please do not copy and paste the mission statement or 
+elevator pitch from your org's website.
+
+Also tell us who you (submitter) are and represent (i.e. 
+individual, non-profit volunteer, engineer at a business) 
+and what you do (i.e. DynDNS, Hosting, etc), and what your 
+role is as submitter with respect to the org and the 
+submission.
 
 For the org description, there is less interest in the 
 promotional / marketing information about the org and more 
 a focus on having concise description of the core focus of 
 the submitting org, specifically with context/connection 
 to this request.
-
-Provide at least three sentences, the more the better, but
-avoid the promotional stuff about how wonderful it is.
 -->
 
 Reason for PSL Inclusion
@@ -105,6 +126,11 @@ Please tell us why your domain(s) should be listed in the PSL
 Cloudflare etc) and clearly confirm that any private section 
 names hold registration term longer than 2 years and shall 
 maintain more than 1 year term in order to remain listed.
+
+If you are attempting to work around third party limits, use 
+this area to describe how and detail the mannner in which you 
+have first attempted to engage those third parties on the 
+matter.
 
 Please also include the numbers of any past Issue # or PR # 
 specifically related to this submission or section.
