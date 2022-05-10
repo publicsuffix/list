@@ -1,3 +1,8 @@
+Public Suffix List (PSL) Pull Request (PR) Template
+====
+
+Each PSL PR needs to have a description, rationale, indication of DNS validation and syntax checking, as well as a number of acknowlegements from the submitter.  This template must be included with each PR, and the submitting party MUST provide responses to all of the elements in order to be considered.
+
 <!-- #### READ THIS FIRST ####
 
 If you haven't yet, please read our guidelines:
@@ -10,13 +15,14 @@ not get accepted when theirs didn't follow them.
 If you'd like an example of what an excellent PR looks like
 see https://github.com/publicsuffix/list/pull/615
 -->
+### Checklist of required steps
 
 * [ ] Description of Organization
 * [ ] Reason for PSL Inclusion
 * [ ] DNS verification via dig
 * [ ] Run Syntax Checker (make test)
 
-* [ ] Each domain listed in the PRIVATE section has and shall maintain at least two years remaining on registration, and we shall keep the _PSL txt record in place
+* [ ] Each domain listed in the PRIVATE section has and shall maintain at least two years remaining on registration, and we shall keep the \_PSL txt record in place in the respective zone(s) in the affected section
 
 __Submitter affirms the following:__ 
 <!--
@@ -47,11 +53,12 @@ The guidelines describe which section to place the entry, what the
 order of commented org placement, order of sorting of entries. 
 (hint: TLD then SLD, Ascending sort)   Although it seems pedantic, 
 the sorting and formatting rules help ensure all of the automation 
-that uses the PSL operates correctly.
+that uses the PSL operates correctly.  Typically both are solved or
+neither.
 -->
 
   * [ ] The [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) were carefully _read_ and _understood_, and this request conforms
-  * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting
+  * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting and sorting
 
 <!-- 
 Sorting and formatting of the entries is outlined in the guidelines 
@@ -61,9 +68,21 @@ proceed.  Miss-located entries and trailing spaces should be avoided.
 -->
 
 ---
-__For Private section requests that are submitting entries for domains that match their organization website's primary domain:__
 
-``` 
+For Private section requests that are submitting entries for domains 
+that match their organization website's primary domain, please 
+understand that this can have impacts that may not match the 
+desired outcome and take a long time to rollback, if at all.
+
+To ensure that requested changes are entirely intentional, make sure 
+that you read the affectation and propagation expectations, 
+that you understand them, and confirm this understanding. 
+
+PR Rollbacks have lower priority, and the volunteers are unable 
+to control when or if browsers or other parties using the 
+PSL will refresh or update.
+
+<!-- 
 Seriously, carefully read the downline flow of the PSL and the 
 guidelines. Your request could very likely alter the cookie and 
 certificate (as well as other) behaviours on your core domain name in 
@@ -75,8 +94,9 @@ control to do anything about that.
 
 The volunteers are busy with new requests, and rollbacks are lowest 
 priority, so if something gets broken by your PR, it will potentially 
-stay that way for an indefinitely long while.
-```
+stay that way for an indefinite period of time (typically long).
+-->
+
 (Link: [about propagation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
 
  * [ ] *Yes, I understand*.  I could break my organization's website cookies etc. and the rollback timing, etc is acceptable.  *Proceed*.
@@ -96,8 +116,6 @@ Example:
 Description of Organization
 ====
 
-Organization Website: <!-- https://example.com -->
-
 <!--
 PROVIDE AT LEAST THREE SENTENCES (the more the better) but
 avoid the promotional stuff about how wonderful it is, and 
@@ -115,6 +133,12 @@ promotional / marketing information about the org and more
 a focus on having concise description of the core focus of 
 the submitting org, specifically with context/connection 
 to this request.
+-->
+
+Organization Website: 
+<!-- 
+Provide the website address of 
+the Org as a full URL ie https://example.com 
 -->
 
 Reason for PSL Inclusion
@@ -168,7 +192,7 @@ automation can remove entries where the record is not present.
 
 -->
 
-make test
+Results of Syntax Checker (`make test`)
 =========
 
 <!--
@@ -178,7 +202,7 @@ git clone https://github.com/publicsuffix/list.git
 cd list
 make test
 
-Simply let us know that you ran the test
+Simply let us know that you ran the test and those results
 -->
 
 
