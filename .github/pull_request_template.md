@@ -69,18 +69,11 @@ proceed.  Miss-located entries and trailing spaces should be avoided.
 
 ---
 
-For Private section requests that are submitting entries for domains 
-that match their organization website's primary domain, please 
-understand that this can have impacts that may not match the 
-desired outcome and take a long time to rollback, if at all.
+For Private section requests that are submitting entries for domains that match their organization website's primary domain, please understand that this can have impacts that may not match the desired outcome and take a long time to rollback, if at all.
 
-To ensure that requested changes are entirely intentional, make sure 
-that you read the affectation and propagation expectations, 
-that you understand them, and confirm this understanding. 
+To ensure that requested changes are entirely intentional, make sure that you read the affectation and propagation expectations, that you understand them, and confirm this understanding. 
 
-PR Rollbacks have lower priority, and the volunteers are unable 
-to control when or if browsers or other parties using the 
-PSL will refresh or update.
+PR Rollbacks have lower priority, and the volunteers are unable to control when or if browsers or other parties using the PSL will refresh or update.
 
 <!-- 
 Seriously, carefully read the downline flow of the PSL and the 
@@ -163,6 +156,12 @@ Three or more sentences here that describe the purpose for
 which your PR should be included in the PSL.  There is no 
 upper limit, but six paragraphs seems like a rational stop.
 -->
+
+Number of users this request is being made to serve:
+<!--
+Identify if this is current or an estimate.
+-->
+
 
 DNS Verification via dig
 =======
