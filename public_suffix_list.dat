@@ -13200,6 +13200,10 @@ platter-app.com
 platter-app.dev
 platterp.us
 
+// PlayFilm: https://playfilm.tv
+// Submitted by Miguel Santolaya <miki@playfilm.tv>
+*.vid.playfilm.tv
+
 // Plesk : https://www.plesk.com/
 // Submitted by Anton Akhtyamov <program-managers@plesk.com>
 pdns.page
