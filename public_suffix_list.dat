@@ -11075,6 +11075,12 @@ pages.dev
 trycloudflare.com
 workers.dev
 
+// cloudscale.ch AG : https://www.cloudscale.ch/
+// Submitted by Gaudenz Steinlin <support@cloudscale.ch>
+cust.cloudscale.ch
+objects.lpg.cloudscale.ch
+objects.rma.cloudscale.ch
+
 // Clovyr : https://clovyr.io
 // Submitted by Patrick Nielsen <patrick@clovyr.io>
 wnext.app
