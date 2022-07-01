@@ -12303,9 +12303,6 @@ conf.se
 hs.zone
 hs.run
 
-// Hashbang : https://hashbang.sh
-hashbang.sh
-
 // Hash Hackers : https://hashhackers.com
 // Submitted by TheFirstSpeedster <hostmaster@hashhackers.com>
 hashhackers.win
@@ -12317,6 +12314,9 @@ telegram.ind.in
 *.c.telegram.ind.in
 *.g.telegram.ind.in
 *.u.telegram.ind.in
+
+// Hashbang : https://hashbang.sh
+hashbang.sh
 
 // Hasura : https://hasura.io
 // Submitted by Shahidh K Muhammed <shahidh@hasura.io>
