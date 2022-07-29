@@ -11099,18 +11099,24 @@ rsc.cdn77.org
 ssl.origin.cdn77-secure.org
 
 // Cloud DNS Ltd : http://www.cloudns.net
-// Submitted by Aleksander Hristov <noc@cloudns.net>
+// Submitted by Aleksander Hristov <noc@cloudns.net> & Boyan Peychev <boyan@cloudns.net>
 cloudns.asia
 cloudns.biz
 cloudns.club
 cloudns.cc
+cloudns.cx
+cloudns.cl
 cloudns.eu
 cloudns.in
 cloudns.info
+cloudns.nz
 cloudns.org
+cloudns.ph
 cloudns.pro
 cloudns.pw
 cloudns.us
+dns-cloud.net
+dnsabr.com
 
 // CNPY : https://cnpy.gdn
 // Submitted by Angelo Gladding <angelo@lahacker.net>
