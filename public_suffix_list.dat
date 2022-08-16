@@ -10940,6 +10940,11 @@ of.je
 // Submitted by Joshua Weiss <admin.engineering@bluebite.com>
 bluebite.io
 
+// BNS Services LLC : basednetworking.com
+// Submitted by Eric <eric@basednetworking.com>
+*.bns.sh
+*.eric.si
+
 // Boomla : https://boomla.com
 // Submitted by Tibor Halter <thalter@boomla.com>
 boomla.net
