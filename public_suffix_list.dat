@@ -1315,10 +1315,6 @@ web.id
 ie
 gov.ie
 
-// ie.ua : https://www.ie.ua
-// Submitted by Bohdan Dub <support@hostfly.com.ua>
-ie.ua
-
 // il :         http://www.isoc.org.il/domains/
 // see also:    https://en.isoc.org.il/il-cctld/registration-rules
 // ISOC-IL      (operated by .il Registry)
@@ -11034,6 +11030,10 @@ africa.com
 // iDOT Services Limited : http://www.domain.gr.com
 // Submitted by Gavin Brown <gavin.brown@centralnic.com>
 gr.com
+
+// ie.ua : https://www.ie.ua
+// Submitted by Bohdan Dub <support@hostfly.com.ua>
+ie.ua
 
 // Radix FZC : http://domains.in.net
 // Submitted by Gavin Brown <gavin.brown@centralnic.com>
