@@ -12634,6 +12634,11 @@ jotelulu.cloud
 *.triton.zone
 *.cns.joyent.com
 
+
+// JS.COOL : https://js.cool/
+// Submitted by Willin Wang <willin@willin.org>
+js.cool
+
 // JS.ORG : http://dns.js.org
 // Submitted by Stefan Keim <admin@js.org>
 js.org
