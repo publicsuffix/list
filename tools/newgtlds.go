@@ -9,7 +9,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
@@ -22,7 +21,7 @@ const (
 	// 2). See https://www.icann.org/resources/pages/registries/registries-en for
 	// more information.
 	ICANN_GTLD_JSON_URL = "https://www.icann.org/resources/registries/gtlds/v2/gtlds.json"
-	// IANA_TLDS_TXT_URL is the URL for the IANA "Public Suffix List" of TLDs 
+	// IANA_TLDS_TXT_URL is the URL for the IANA "Public Suffix List" of TLDs
 	// in the ICP-3 Root - including new ccTLDs, EBRERO gTLDS or things not in
 	// the JSON File above that should be included in the PSL.  Note: UPPERCASE
 	IANA_TLDS_TXT_URL = "http://data.iana.org/TLD/tlds-alpha-by-domain.txt"
@@ -268,7 +267,7 @@ func (d datFile) String() string {
 // data is found within the dat file. An error is returned if the file can't be read
 // or if the gTLD data span can't be found or is invalid.
 func readDatFile(datFilePath string) (*datFile, error) {
-	pslDatBytes, err := ioutil.ReadFile(datFilePath)
+	pslDatBytes, err := os.ReadFile(datFilePath)
 	if err != nil {
 		return nil, err
 	}
@@ -339,7 +338,7 @@ func getData(url string) ([]byte, error) {
 			url, http.StatusOK, resp.StatusCode)
 	}
 
-	respBody, err := ioutil.ReadAll(resp.Body)
+	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
@@ -533,7 +532,7 @@ func main() {
 	pslDatFile := flag.String(
 		"psl-dat-file",
 		"public_suffix_list.dat",
-		"file path to the public_suffix.dat data file to be updated with new gTLDs")
+		"file path to the public_suffix_list.dat data file to be updated with new gTLDs")
 
 	overwrite := flag.Bool(
 		"overwrite",
@@ -559,6 +558,6 @@ func main() {
 
 	// Otherwise print nothing to stdout and write the content over the exiting
 	// pslDatFile path we read earlier.
-	err = ioutil.WriteFile(*pslDatFile, []byte(content), 0644)
+	err = os.WriteFile(*pslDatFile, []byte(content), 0644)
 	ifErrQuit(err)
 }
