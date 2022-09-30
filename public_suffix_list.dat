@@ -14168,4 +14168,20 @@ basicserver.io
 virtualserver.io
 enterprisecloud.nu
 
+// CloudIL: https://cloudil.co.il
+// Submitted by Igor Kravchenko <psl@cloudil.co.il>
+cloudil.com
+storage.cloudil.com
+website.cloudil.com
+s3.cloudil.com
+functions.cloudil.com
+functions6.cloudil.com
+containers.cloudil.com
+apigw.cloudil.com
+logging.cloudil.com
+docapi.serverless.cloudil.com
+ydb.serverless.cloudil.com
+mdb.cloudil.com
+gitlab.cloudil.com
+
 // ===END PRIVATE DOMAINS===
