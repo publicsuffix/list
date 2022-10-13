@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -532,7 +531,7 @@ func TestDatFileString(t *testing.T) {
 
 func TestReadDatFile(t *testing.T) {
 	mustWriteTemp := func(t *testing.T, content string) string {
-		tmpfile, err := ioutil.TempFile("", "dat")
+		tmpfile, err := os.CreateTemp("", "dat")
 		if err != nil {
 			t.Fatalf("Failed to create temp file: %v", err)
 		}

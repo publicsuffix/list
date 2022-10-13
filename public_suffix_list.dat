@@ -1315,7 +1315,9 @@ web.id
 ie
 gov.ie
 
-// il : http://www.isoc.org.il/domains/
+// il :         http://www.isoc.org.il/domains/
+// see also:    https://en.isoc.org.il/il-cctld/registration-rules
+// ISOC-IL      (operated by .il Registry)
 il
 ac.il
 co.il
@@ -1325,6 +1327,16 @@ k12.il
 muni.il
 net.il
 org.il
+// xn--4dbrk0ce ("Israel", Hebrew) : IL
+ישראל
+// xn--4dbgdty6c.xn--4dbrk0ce.
+אקדמיה.ישראל
+// xn--5dbhl8d.xn--4dbrk0ce.
+ישוב.ישראל
+// xn--8dbq2a.xn--4dbrk0ce.
+צהל.ישראל
+// xn--hebda8b.xn--4dbrk0ce.
+ממשל.ישראל
 
 // im : https://www.nic.im/
 // Submitted by registry <info@nic.im>
@@ -1340,22 +1352,51 @@ tt.im
 tv.im
 
 // in : https://en.wikipedia.org/wiki/.in
-// see also: https://registry.in/Policies
+// see also: https://registry.in/policies
 // Please note, that nic.in is not an official eTLD, but used by most
 // government institutions.
 in
-co.in
-firm.in
-net.in
-org.in
-gen.in
-ind.in
-nic.in
+5g.in
+6g.in
 ac.in
+ai.in
+am.in
+bihar.in
+biz.in
+business.in
+ca.in
+cn.in
+co.in
+com.in
+coop.in
+cs.in
+delhi.in
+dr.in
 edu.in
-res.in
+er.in
+firm.in
+gen.in
 gov.in
+gujarat.in
+ind.in
+info.in
+int.in
+internet.in
+io.in
+me.in
 mil.in
+net.in
+nic.in
+org.in
+pg.in
+post.in
+pro.in
+res.in
+travel.in
+tv.in
+uk.in
+up.in
+us.in
 
 // info : https://en.wikipedia.org/wiki/.info
 info
@@ -7130,7 +7171,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2022-04-30T15:14:46Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2022-10-11T15:20:33Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7555,9 +7596,6 @@ brother
 // brussels : 2014-02-06 DNS.be vzw
 brussels
 
-// bugatti : 2015-07-23 Bugatti International SA
-bugatti
-
 // build : 2013-11-07 Plan Bee LLC
 build
 
@@ -7600,9 +7638,6 @@ camera
 // camp : 2013-11-07 Binky Moon, LLC
 camp
 
-// cancerresearch : 2014-05-15 Australian Cancer Research Foundation
-cancerresearch
-
 // canon : 2014-09-12 Canon Inc.
 canon
 
@@ -7639,7 +7674,7 @@ cars
 // casa : 2013-11-21 Registry Services, LLC
 casa
 
-// case : 2015-09-03 Helium TLDs Ltd
+// case : 2015-09-03 Digity, LLC
 case
 
 // cash : 2014-03-06 Binky Moon, LLC
@@ -7687,7 +7722,7 @@ chanel
 // channel : 2014-05-08 Charleston Road Registry Inc.
 channel
 
-// charity : 2018-04-11 Binky Moon, LLC
+// charity : 2018-04-11 Public Interest Registry
 charity
 
 // chase : 2015-04-30 JPMorgan Chase Bank, National Association
@@ -7825,7 +7860,7 @@ cool
 // corsica : 2014-09-25 Collectivité de Corse
 corsica
 
-// country : 2013-12-19 DotCountry LLC
+// country : 2013-12-19 Internet Naming Company LLC
 country
 
 // coupon : 2015-02-26 Amazon Registry Services, Inc.
@@ -7834,7 +7869,7 @@ coupon
 // coupons : 2015-03-26 Binky Moon, LLC
 coupons
 
-// courses : 2014-12-04 OPEN UNIVERSITIES AUSTRALIA PTY LTD
+// courses : 2014-12-04 Registry Services, LLC
 courses
 
 // cpa : 2019-06-10 American Institute of Certified Public Accountants
@@ -8020,7 +8055,7 @@ dvag
 // dvr : 2016-05-26 DISH Technologies L.L.C.
 dvr
 
-// earth : 2014-12-04 Interlink Co., Ltd.
+// earth : 2014-12-04 Interlink Systems Innovation Institute K.K.
 earth
 
 // eat : 2014-01-23 Charleston Road Registry Inc.
@@ -8227,7 +8262,7 @@ forsale
 // forum : 2015-04-02 Fegistry, LLC
 forum
 
-// foundation : 2013-12-05 Binky Moon, LLC
+// foundation : 2013-12-05 Public Interest Registry
 foundation
 
 // fox : 2015-09-11 FOX Registry, LLC
@@ -8326,10 +8361,10 @@ gift
 // gifts : 2014-07-03 Binky Moon, LLC
 gifts
 
-// gives : 2014-03-06 Dog Beach, LLC
+// gives : 2014-03-06 Public Interest Registry
 gives
 
-// giving : 2014-11-13 Giving Limited
+// giving : 2014-11-13 Public Interest Registry
 giving
 
 // glass : 2013-11-07 Binky Moon, LLC
@@ -8452,7 +8487,7 @@ health
 // healthcare : 2014-06-12 Binky Moon, LLC
 healthcare
 
-// help : 2014-06-26 UNR Corp.
+// help : 2014-06-26 Innovation service Limited
 help
 
 // helsinki : 2015-02-05 City of Helsinki
@@ -8779,7 +8814,7 @@ lanxess
 // lasalle : 2015-04-02 Jones Lang LaSalle Incorporated
 lasalle
 
-// lat : 2014-10-16 ECOM-LAC Federaciòn de Latinoamèrica y el Caribe para Internet y el Comercio Electrònico
+// lat : 2014-10-16 XYZ.COM LLC
 lat
 
 // latino : 2015-07-30 Dish DBS Corporation
@@ -8851,7 +8886,7 @@ lincoln
 // linde : 2014-12-04 Linde Aktiengesellschaft
 linde
 
-// link : 2013-11-14 UNR Corp.
+// link : 2013-11-14 Nova Registry Ltd
 link
 
 // lipsy : 2015-06-25 Lipsy Ltd
@@ -8866,7 +8901,7 @@ living
 // llc : 2017-12-14 Afilias Limited
 llc
 
-// llp : 2019-08-26 UNR Corp.
+// llp : 2019-08-26 Intercap Registry Inc.
 llp
 
 // loan : 2014-11-20 dot Loan Limited
@@ -9034,7 +9069,7 @@ mobile
 // moda : 2013-11-07 Dog Beach, LLC
 moda
 
-// moe : 2013-11-13 Interlink Co., Ltd.
+// moe : 2013-11-13 Interlink Systems Innovation Institute K.K.
 moe
 
 // moi : 2014-12-18 Amazon Registry Services, Inc.
@@ -9841,7 +9876,7 @@ stream
 // studio : 2015-02-11 Dog Beach, LLC
 studio
 
-// study : 2014-12-11 OPEN UNIVERSITIES AUSTRALIA PTY LTD
+// study : 2014-12-11 Registry Services, LLC
 study
 
 // style : 2014-12-04 Binky Moon, LLC
@@ -10619,6 +10654,10 @@ graphox.us
 // Submitted by accesso Team <accessoecommerce@accesso.com>
 *.devcdnaccesso.com
 
+// Acorn Labs : https://acorn.io
+// Submitted by Craig Jellick <domains@acorn.io>
+*.on-acorn.io
+
 // Adobe : https://www.adobe.com/
 // Submitted by Ian Boston <boston@adobe.com> and Lars Trieloff <trieloff@adobe.com>
 adobeaemcloud.com
@@ -10763,6 +10802,52 @@ s3-website.eu-west-2.amazonaws.com
 s3-website.eu-west-3.amazonaws.com
 s3-website.us-east-2.amazonaws.com
 
+// AWS Cloud9 : https://aws.amazon.com/cloud9/
+// Submitted by: AWS Security <psl-maintainers@amazon.com>
+// Reference: 2b6dfa9a-3a7f-4367-b2e7-0321e77c0d59
+vfs.cloud9.af-south-1.amazonaws.com
+webview-assets.cloud9.af-south-1.amazonaws.com
+vfs.cloud9.ap-east-1.amazonaws.com
+webview-assets.cloud9.ap-east-1.amazonaws.com
+vfs.cloud9.ap-northeast-1.amazonaws.com
+webview-assets.cloud9.ap-northeast-1.amazonaws.com
+vfs.cloud9.ap-northeast-2.amazonaws.com
+webview-assets.cloud9.ap-northeast-2.amazonaws.com
+vfs.cloud9.ap-northeast-3.amazonaws.com
+webview-assets.cloud9.ap-northeast-3.amazonaws.com
+vfs.cloud9.ap-south-1.amazonaws.com
+webview-assets.cloud9.ap-south-1.amazonaws.com
+vfs.cloud9.ap-southeast-1.amazonaws.com
+webview-assets.cloud9.ap-southeast-1.amazonaws.com
+vfs.cloud9.ap-southeast-2.amazonaws.com
+webview-assets.cloud9.ap-southeast-2.amazonaws.com
+vfs.cloud9.ca-central-1.amazonaws.com
+webview-assets.cloud9.ca-central-1.amazonaws.com
+vfs.cloud9.eu-central-1.amazonaws.com
+webview-assets.cloud9.eu-central-1.amazonaws.com
+vfs.cloud9.eu-north-1.amazonaws.com
+webview-assets.cloud9.eu-north-1.amazonaws.com
+vfs.cloud9.eu-south-1.amazonaws.com
+webview-assets.cloud9.eu-south-1.amazonaws.com
+vfs.cloud9.eu-west-1.amazonaws.com
+webview-assets.cloud9.eu-west-1.amazonaws.com
+vfs.cloud9.eu-west-2.amazonaws.com
+webview-assets.cloud9.eu-west-2.amazonaws.com
+vfs.cloud9.eu-west-3.amazonaws.com
+webview-assets.cloud9.eu-west-3.amazonaws.com
+vfs.cloud9.me-south-1.amazonaws.com
+webview-assets.cloud9.me-south-1.amazonaws.com
+vfs.cloud9.sa-east-1.amazonaws.com
+webview-assets.cloud9.sa-east-1.amazonaws.com
+vfs.cloud9.us-east-1.amazonaws.com
+webview-assets.cloud9.us-east-1.amazonaws.com
+vfs.cloud9.us-east-2.amazonaws.com
+webview-assets.cloud9.us-east-2.amazonaws.com
+vfs.cloud9.us-west-1.amazonaws.com
+webview-assets.cloud9.us-west-1.amazonaws.com
+vfs.cloud9.us-west-2.amazonaws.com
+webview-assets.cloud9.us-west-2.amazonaws.com
+
 // Amune : https://amune.org/
 // Submitted by Team Amune <cert@amune.org>
 t3l3p0rt.net
@@ -10870,6 +10955,10 @@ supersale.jp
 theshop.jp
 shopselect.net
 base.shop
+
+// BeagleBoard.org Foundation : https://beagleboard.org
+// Submitted by Jason Kridner <jkridner@beagleboard.org>
+beagleboard.io
 
 // Beget Ltd
 // Submitted by Lev Nekrasov <lnekrasov@beget.com>
@@ -11655,6 +11744,11 @@ dynv6.net
 // Submitted by Vladimir Dudr <info@e4you.cz>
 e4.cz
 
+// Easypanel : https://easypanel.io
+// Submitted by Andrei Canta <andrei@easypanel.io>
+easypanel.app
+easypanel.host
+
 // eero : https://eero.com/
 // Submitted by Yue Kang <eero-dynamic-dns@amazon.com>
 eero.online
@@ -11873,6 +11967,10 @@ a.ssl.fastly.net
 b.ssl.fastly.net
 global.ssl.fastly.net
 
+// Fastmail : https://www.fastmail.com/
+// Submitted by Marc Bradshaw <marc@fastmailteam.com>
+*.user.fm
+
 // FASTVPS EESTI OU : https://fastvps.ru/
 // Submitted by Likhachev Vasiliy <lihachev@fastvps.ru>
 fastvps-server.com
@@ -11949,6 +12047,10 @@ id.forgerock.io
 // Submitted by Koen Rouwhorst <koenrh@framer.com>
 framer.app
 framercanvas.com
+framer.media
+framer.photos
+framer.website
+framer.wiki
 
 // Frusky MEDIA&PR : https://www.frusky.de
 // Submitted by Victor Pupynin <hallo@frusky.de>
@@ -12117,6 +12219,7 @@ kill.jp
 kilo.jp
 kuron.jp
 littlestar.jp
+lolipopmc.jp
 lolitapunk.jp
 lomo.jp
 lovepop.jp
@@ -12287,6 +12390,10 @@ blogspot.vn
 // Submitted by Niels Martignene <hello@goupile.fr>
 goupile.fr
 
+// Government of the Netherlands: https://www.government.nl
+// Submitted by <domeinnaam@minaz.nl>
+gov.nl
+
 // Group 53, LLC : https://www.group53.com
 // Submitted by Tyler Todd <noc@nova53.net>
 awsmppl.com
@@ -12363,7 +12470,6 @@ ltd.ng
 ngo.ng
 edu.scot
 sch.so
-org.yt
 
 // HostyHosting (hostyhosting.com)
 hostyhosting.io
@@ -12380,6 +12486,11 @@ moonscale.net
 // iki.fi
 // Submitted by Hannu Aronsson <haa@iki.fi>
 iki.fi
+
+// iliad italia: https://www.iliad.it
+// Submitted by Marios Makassikis <mmakassikis@freebox.fr>
+ibxos.it
+iliadboxos.it
 
 // Impertrix Solutions : <https://impertrixcdn.com>
 // Submitted by Zhixiang Zhao <csuite@impertrix.com>
@@ -12461,9 +12572,11 @@ iopsys.se
 // Submitted by Matthew Hardeman <mhardeman@ipifony.com>
 ipifony.net
 
-// IServ GmbH : https://iserv.eu
-// Submitted by Kim-Alexander Brodowski <info@iserv.eu>
+// IServ GmbH : https://iserv.de
+// Submitted by Mario Hoberg <info@iserv.de>
+iservschule.de
 mein-iserv.de
+schulplattform.de
 schulserver.de
 test-iserv.de
 iserv.dev
@@ -12785,6 +12898,10 @@ hra.health
 miniserver.com
 memset.net
 
+// Messerli Informatik AG : https://www.messerli.ch/
+// Submitted by Ruben Schmidmeister <psl-maintainers@messerli.ch>
+messerli.app
+
 // MetaCentrum, CESNET z.s.p.o. : https://www.metacentrum.cz/en/
 // Submitted by Zdeněk Šustr <zdenek.sustr@cesnet.cz>
 *.cloud.metacentrum.cz
@@ -12811,6 +12928,7 @@ azure-mobile.net
 cloudapp.net
 azurestaticapps.net
 1.azurestaticapps.net
+2.azurestaticapps.net
 centralus.azurestaticapps.net
 eastasia.azurestaticapps.net
 eastus2.azurestaticapps.net
@@ -12862,25 +12980,6 @@ cust.retrosnub.co.uk
 // Nabu Casa : https://www.nabucasa.com
 // Submitted by Paulus Schoutsen <infra@nabucasa.com>
 ui.nabu.casa
-
-// Names.of.London : https://names.of.london/
-// Submitted by James Stevens <registry[at]names.of.london> or <publiclist[at]jrcs.net>
-pony.club
-of.fashion
-in.london
-of.london
-from.marketing
-with.marketing
-for.men
-repair.men
-and.mom
-for.mom
-for.one
-under.one
-for.sale
-that.win
-from.work
-to.work
 
 // Net at Work Gmbh : https://www.netatwork.de
 // Submitted by Jan Jaeschke <jan.jaeschke@netatwork.de>
@@ -13078,7 +13177,26 @@ omniwe.site
 
 // One.com: https://www.one.com/
 // Submitted by Jacob Bunk Nielsen <jbn@one.com>
+123hjemmeside.dk
+123hjemmeside.no
+123homepage.it
+123kotisivu.fi
+123minsida.se
+123miweb.es
+123paginaweb.pt
+123sait.ru
+123siteweb.fr
+123webseite.at
+123webseite.de
+123website.be
+123website.ch
+123website.lu
+123website.nl
 service.one
+simplesite.com
+simplesite.com.br
+simplesite.gr
+simplesite.pl
 
 // One Fold Media : http://www.onefoldmedia.com/
 // Submitted by Eddie Jones <eddie@onefoldmedia.com>
@@ -13347,7 +13465,9 @@ app.render.com
 onrender.com
 
 // Repl.it : https://repl.it
-// Submitted by Mason Clayton <mason@repl.it>
+// Submitted by Lincoln Bergeson <lincoln@replit.com>
+firewalledreplit.co
+id.firewalledreplit.co
 repl.co
 id.repl.co
 repl.run
@@ -13394,6 +13514,12 @@ rocky.page
 сочи.рус
 спб.рус
 я.рус
+
+// Salesforce.com, Inc. https://salesforce.com/
+// Submitted by Michael Biven <mbiven@salesforce.com>
+*.builder.code.com
+*.dev-builder.code.com
+*.stg-builder.code.com
 
 // Sandstorm Development Group, Inc. : https://sandcats.io/
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
@@ -13538,6 +13664,10 @@ small-web.org
 // Smoove.io : https://www.smoove.io/
 // Submitted by Dan Kozak <dan@smoove.io>
 vp4.me
+
+// Snowflake Inc : https://www.snowflake.com/
+// Submitted by Faith Olapade <faith.olapade@snowflake.com>
+streamlitapp.com
 
 // Snowplow Analytics : https://snowplowanalytics.com/
 // Submitted by Ian Streeter <ian@snowplowanalytics.com>
@@ -13817,6 +13947,15 @@ hk.com
 hk.org
 ltd.hk
 inc.hk
+
+// UNIVERSAL DOMAIN REGISTRY : https://www.udr.org.yt/
+// see also: whois -h whois.udr.org.yt help
+// Submitted by Atanunu Igbunuroghene <publicsuffixlist@udr.org.yt>
+name.pm
+sch.tf
+biz.wf
+sch.wf
+org.yt
 
 // United Gameserver GmbH : https://united-gameserver.de
 // Submitted by Stefan Schwarz <sysadm@united-gameserver.de>
