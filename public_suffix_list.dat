@@ -10702,9 +10702,9 @@ altervista.org
 // Submitted by Cyril <admin@alwaysdata.com>
 alwaysdata.net
 
-// Amazon Web Services : https://aws.amazon.com/
+// Amazon : https://www.amazon.com/
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Subsections of Amazon Web Services will appear until "concludes" tag
+// Subsections of Amazon/subsidiaries will appear until "concludes" tag
 
 // Amazon CloudFront
 // Submitted by Donavan Miller <donavanm@amazon.com>
@@ -10858,7 +10858,13 @@ us-west-2.elasticbeanstalk.com
 // Reference: d916759d-a08b-4241-b536-4db887383a6a
 awsglobalaccelerator.com
 
-// concludes Amazon Web Services
+// eero
+// Submitted by Yue Kang <eero-dynamic-dns@amazon.com>
+// Reference: 264afe70-f62c-4c02-8ab9-b5281ed24461
+eero.online
+eero-stage.online
+
+// concludes Amazon
 
 // Amune : https://amune.org/
 // Submitted by Team Amune <cert@amune.org>
@@ -11754,11 +11760,6 @@ e4.cz
 // Submitted by Andrei Canta <andrei@easypanel.io>
 easypanel.app
 easypanel.host
-
-// eero : https://eero.com/
-// Submitted by Yue Kang <eero-dynamic-dns@amazon.com>
-eero.online
-eero-stage.online
 
 // Elementor : Elementor Ltd.
 // Submitted by Anton Barkan <antonb@elementor.com>
