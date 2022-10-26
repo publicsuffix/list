@@ -12,13 +12,21 @@ Also, read them again, as many skip that part and
 get confused about why their PR is delayed or does
 not get accepted when theirs didn't follow them.
 
-If you'd like an example of what an excellent PR looks like
-see https://github.com/publicsuffix/list/pull/615
+A recent PR using the current template is 
+https://github.com/publicsuffix/list/pull/1591, although 
+the organization and description were not as substantial 
+as desired, which required maintainers time to visit the 
+requestors website to further research. 
+Having more robust org/desc improves the PR processing 
+pace due to the extra cycles not lost to research.
+For an example of what an excellent description in a PR looks like
+see https://github.com/publicsuffix/list/pull/615, 
+although that example uses an earlier template.
 -->
 ### Checklist of required steps
 
 * [ ] Description of Organization
-* [ ] Reason for PSL Inclusion
+* [ ] Robust Reason for PSL Inclusion
 * [ ] DNS verification via dig
 * [ ] Run Syntax Checker (make test)
 
@@ -27,23 +35,31 @@ see https://github.com/publicsuffix/list/pull/615
 __Submitter affirms the following:__ 
 <!--
 Third-party Limits are used elsewhere, such as at Cloudflare, Let's 
-Encrypt, Apple or others, and having an entry in the PSL alters 
+Encrypt, Apple, GitLab or others, and having an entry in the PSL alters 
 the manner in which those third-party systems or products treat 
 a given domain name or sub-domains within it.
 
 To be clear, it is appropriate to address how those limits impact 
 your domain(s) directly with that third-party, and it is inappropriate 
-to submit entries to the PSL in order to work around those limits or 
+to submit entries to the PSL as a means to work around those limits or 
 restrictions.
 -->
   * [ ] We are listing *any* third-party limits that we seek to work around in our rationale such as those between IOS 14.5+ and Facebook (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as a well-documented example)
 
 <!--
+The purpose of the question above is to expose limit workarounds.
 If there are third party limits that the PR seeks to overcome, those
 must be listed within the rationale section of this request, and 
 provide a good level of detail the effort that was made to work directly 
 with the third part(y|ies) in attempting to address this within their 
 rationale responsse below.
+In all cases, software and services should be discouraged from use of
+the PSL as a rate-limiting tool, and provide clear instructions to their
+own clients, partners and users on the manner in which they can directly
+request rate limit increases.
+We treat the following as an attestation in the public record of the 
+requesting party that they are not attempting to bypass rate limits through
+the PR.
 -->
 
   * [ ] This request was _not_ submitted with the objective of working around other third-party limits
