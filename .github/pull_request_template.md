@@ -1,7 +1,7 @@
 Public Suffix List (PSL) Pull Request (PR) Template
 ====
 
-Each PSL PR needs to have a description, rationale, indication of DNS validation and syntax checking, as well as a number of acknowlegements from the submitter.  This template must be included with each PR, and the submitting party MUST provide responses to all of the elements in order to be considered.
+Each PSL PR needs to have a description, rationale, indication of DNS validation and syntax checking, as well as a number of acknowledgements from the submitter.  This template must be included with each PR, and the submitting party MUST provide responses to all of the elements in order to be considered.
 
 <!-- #### READ THIS FIRST ####
 
@@ -52,7 +52,7 @@ If there are third party limits that the PR seeks to overcome, those
 must be listed within the rationale section of this request, and 
 provide a good level of detail the effort that was made to work directly 
 with the third part(y|ies) in attempting to address this within their 
-rationale responsse below.
+rationale response below.
 In all cases, software and services should be discouraged from use of
 the PSL as a rate-limiting tool, and provide clear instructions to their
 own clients, partners and users on the manner in which they can directly
@@ -97,7 +97,7 @@ guidelines. Your request could very likely alter the cookie and
 certificate (as well as other) behaviours on your core domain name in 
 ways that could be problematic for your business.
 
-Rollback is really not predicatable, as those who use or incorporate 
+Rollback is really not predictable, as those who use or incorporate 
 the PSL do what they do, and when. It is not within the PSL volunteers' 
 control to do anything about that.  
 
@@ -147,7 +147,7 @@ to this request.
 Organization Website: 
 <!-- 
 Provide the website address of 
-the Org as a full URL ie https://example.com 
+the Org as a full URL i.e. https://example.com 
 -->
 
 Reason for PSL Inclusion
@@ -161,7 +161,7 @@ names hold registration term longer than 2 years and shall
 maintain more than 1 year term in order to remain listed.
 
 If you are attempting to work around third party limits, use 
-this area to describe how and detail the mannner in which you 
+this area to describe how and detail the manner in which you 
 have first attempted to engage those third parties on the 
 matter.
 
