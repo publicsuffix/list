@@ -11203,6 +11203,22 @@ cloudns.pro
 cloudns.pw
 cloudns.us
 
+// CloudIL: https://cloudil.co.il
+// Submitted by Igor Kravchenko <psl@cloudil.co.il>
+cloudil.com
+apigw.cloudil.com
+containers.cloudil.com
+docapi.serverless.cloudil.com
+functions.cloudil.com
+functions6.cloudil.com
+gitlab.cloudil.com
+logging.cloudil.com
+mdb.cloudil.com
+s3.cloudil.com
+storage.cloudil.com
+website.cloudil.com
+ydb.serverless.cloudil.com
+
 // CNPY : https://cnpy.gdn
 // Submitted by Angelo Gladding <angelo@lahacker.net>
 cnpy.gdn
@@ -14167,21 +14183,5 @@ bss.design
 basicserver.io
 virtualserver.io
 enterprisecloud.nu
-
-// CloudIL: https://cloudil.co.il
-// Submitted by Igor Kravchenko <psl@cloudil.co.il>
-cloudil.com
-apigw.cloudil.com
-containers.cloudil.com
-docapi.serverless.cloudil.com
-functions.cloudil.com
-functions6.cloudil.com
-gitlab.cloudil.com
-logging.cloudil.com
-mdb.cloudil.com
-s3.cloudil.com
-storage.cloudil.com
-website.cloudil.com
-ydb.serverless.cloudil.com
 
 // ===END PRIVATE DOMAINS===
