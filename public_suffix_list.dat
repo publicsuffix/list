@@ -11208,16 +11208,16 @@ cloudns.us
 cloudil.com
 apigw.cloudil.com
 containers.cloudil.com
-docapi.serverless.cloudil.com
 functions.cloudil.com
 functions6.cloudil.com
 gitlab.cloudil.com
 logging.cloudil.com
 mdb.cloudil.com
 s3.cloudil.com
+docapi.serverless.cloudil.com
+ydb.serverless.cloudil.com
 storage.cloudil.com
 website.cloudil.com
-ydb.serverless.cloudil.com
 
 // CNPY : https://cnpy.gdn
 // Submitted by Angelo Gladding <angelo@lahacker.net>
