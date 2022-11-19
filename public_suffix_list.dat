@@ -691,6 +691,11 @@ yk.ca
 // see also: http://registry.gc.ca/en/SubdomainFAQ
 gc.ca
 
+// can.re : https://nic.can.re/
+// Whois Server : whois.can.re
+// Submitted by OsSav Technology Ltd. : support@ossav.com
+can.re
+
 // cat : https://en.wikipedia.org/wiki/.cat
 cat
 
@@ -14179,9 +14184,5 @@ bss.design
 basicserver.io
 virtualserver.io
 enterprisecloud.nu
-
-// OsSav Technology Ltd. : https://ossav.com
-// Submitted by OsSav Technology Ltd. : support@ossav.com
-can.re
 
 // ===END PRIVATE DOMAINS===
