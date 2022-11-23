@@ -691,11 +691,6 @@ yk.ca
 // see also: http://registry.gc.ca/en/SubdomainFAQ
 gc.ca
 
-// can.re : https://nic.can.re/
-// Whois Server : whois.can.re
-// Submitted by OsSav Technology Ltd. : support@ossav.com
-can.re
-
 // cat : https://en.wikipedia.org/wiki/.cat
 cat
 
@@ -11131,6 +11126,11 @@ radio.fm
 
 // c.la : http://www.c.la/
 c.la
+
+// can.re : https://nic.can.re/
+// Whois Server : whois.can.re
+// Submitted by OsSav Technology Ltd. : support@ossav.com
+can.re
 
 // certmgr.org : https://certmgr.org
 // Submitted by B. Blechschmidt <hostmaster@certmgr.org>
