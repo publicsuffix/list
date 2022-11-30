@@ -13004,12 +13004,8 @@ netlify.app
 // Submitted by Alan Shreve <alan@ngrok.com>
 ngrok.app
 ngrok-free.app
-ngrok.buzz
-ngrok-hosted.com
-ngrok-online.com
 ngrok.dev
 ngrok-free.dev
-ngrok.global
 ngrok.io
 ap.ngrok.io
 au.ngrok.io
@@ -13018,12 +13014,7 @@ in.ngrok.io
 jp.ngrok.io
 sa.ngrok.io
 us.ngrok.io
-ngrok.network
-ngrok.ninja
-ngrok.online
 ngrok.pizza
-ngrok.pro
-ngrok.wtf
 
 // Nimbus Hosting Ltd. : https://www.nimbushosting.co.uk/
 // Submitted by Nicholas Ford <nick@nimbushosting.co.uk>
