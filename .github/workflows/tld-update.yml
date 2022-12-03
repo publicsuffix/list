@@ -1,5 +1,5 @@
 # Put this automation on hold, until it is able to ignore changes that only update the header timestamp.
-name: tld-update
+name: TLD Update
 on:
   schedule:
     # Run once a day at 15:00 UTC
@@ -10,25 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Check out code
+      - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Set up Go
+      - name: Setup Go
         uses: actions/setup-go@v2
         with:
           go-version: ^1.15
 
-      - name: Run unit tests
+      - name: Run Unit Tests
         run: go test tools/*.go
 
-      - name: Set current date
+      - name: Set Current Date
         id: get-date
         run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S %Z')"
 
       - name: Run patchnewgtlds
         run: tools/patchnewgtlds
 
-      - name: Create pull-request
+      - name: Generate Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
@@ -36,13 +36,13 @@ jobs:
           push-to-fork: tld-update-bot/list
           commit-message: "util: gTLD data autopull updates for ${{ steps.get-date.outputs.now }}"
           title: "util: gTLD autopull updates for ${{ steps.get-date.outputs.now }}"
-          body: "Public suffix list gTLD data updates from `tools/patchnewgtlds` for ${{ steps.get-date.outputs.now }}."
+          body: "Public Suffix List gTLD data updates from `tools/patchnewgtlds` for ${{ steps.get-date.outputs.now }}."
           committer: "GitHub <noreply@github.com>"
           author: "GitHub <noreply@github.com>"
           branch: psl-gtld-update
           delete-branch: true
 
-      - name: Check outputs
+      - name: Check Outputs
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
           echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
