@@ -12477,6 +12477,7 @@ hoplix.shop
 
 
 // HOSTBIP REGISTRY : https://www.hostbip.com/
+// see also: whois -h whois.udr.org.yt help
 // Submitted by Atanunu Igbunuroghene <publicsuffixlist@hostbip.com>
 orx.biz
 biz.gl
@@ -12486,6 +12487,7 @@ firm.ng
 gen.ng
 ltd.ng
 ngo.ng
+plc.ng
 sch.so
 
 // HostyHosting (hostyhosting.com)
