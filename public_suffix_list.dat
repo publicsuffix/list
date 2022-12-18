@@ -13715,6 +13715,12 @@ atl.jelastic.vps-host.net
 njs.jelastic.vps-host.net
 ric.jelastic.vps-host.net
 
+// SoftEther.net Dynamic DNS Service: https://www.softether.net/
+// Submitted by Daiyuu Nobori <softether-ddns-admin@softether.net>
+softether.net
+v4.softether.net
+v6.softether.net
+
 // Sony Interactive Entertainment LLC : https://sie.com/
 // Submitted by David Coles <david.coles@sony.com>
 playstation-cloud.com
