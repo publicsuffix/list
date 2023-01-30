@@ -1,8 +1,8 @@
 # Put this automation on hold, until it is able to ignore changes that only update the header timestamp.
 name: tld-update
 on:
+  workflow_dispatch:
   schedule:
-    workflow_dispatch:
     # Run once a day at 15:00 UTC
     - cron:  '0 15 * * *'
 jobs:
