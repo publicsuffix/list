@@ -11,12 +11,12 @@ jobs:
     steps:
 
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
-          go-version: ^1.15
+          go-version: '^1.15'
 
       - name: Run unit tests
         run: go test tools/*.go
@@ -30,10 +30,8 @@ jobs:
 
       - name: Create pull-request
         id: cpr
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
-          token: "${{ secrets.BOT_PAT }}"
-          push-to-fork: tld-update-bot/list
           commit-message: "util: gTLD data autopull updates for ${{ steps.get-date.outputs.now }}"
           title: "util: gTLD autopull updates for ${{ steps.get-date.outputs.now }}"
           body: "Public suffix list gTLD data updates from `tools/patchnewgtlds` for ${{ steps.get-date.outputs.now }}."
