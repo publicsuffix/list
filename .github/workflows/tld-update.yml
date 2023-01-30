@@ -2,6 +2,7 @@
 name: tld-update
 on:
   schedule:
+    workflow_dispatch:
     # Run once a day at 15:00 UTC
     - cron:  '0 15 * * *'
 jobs:
