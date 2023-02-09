@@ -380,11 +380,29 @@ org.bi
 // biz : https://en.wikipedia.org/wiki/.biz
 biz
 
-// bj : https://en.wikipedia.org/wiki/.bj
+// bj : https://nic.bj/bj-suffixes.txt
+// submitted by registry <contact@nic.bj>
 bj
-asso.bj
-barreau.bj
-gouv.bj
+africa.bj
+agro.bj
+architectes.bj
+assur.bj
+avocats.bj
+co.bj
+com.bj
+eco.bj
+econo.bj
+edu.bj
+info.bj
+loisirs.bj
+money.bj
+net.bj
+org.bj
+ote.bj
+resto.bj
+restaurant.bj
+tourism.bj
+univ.bj
 
 // bm : http://www.bermudanic.bm/dnr-text.txt
 bm
@@ -7171,7 +7189,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2022-10-29T15:16:24Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2023-01-30T09:23:24Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7220,9 +7238,6 @@ aco
 
 // actor : 2013-12-12 Dog Beach, LLC
 actor
-
-// adac : 2015-07-16 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
-adac
 
 // ads : 2014-12-04 Charleston Road Registry Inc.
 ads
@@ -8511,7 +8526,7 @@ hisamitsu
 // hitachi : 2014-10-31 Hitachi, Ltd.
 hitachi
 
-// hiv : 2014-03-13 UNR Corp.
+// hiv : 2014-03-13 Internet Naming Company LLC
 hiv
 
 // hkt : 2015-05-14 PCCW-HKT DataCom Services Limited
@@ -8715,7 +8730,7 @@ jpmorgan
 // jprs : 2014-09-18 Japan Registry Services Co., Ltd.
 jprs
 
-// juegos : 2014-03-20 UNR Corp.
+// juegos : 2014-03-20 Internet Naming Company LLC
 juegos
 
 // juniper : 2015-07-30 JUNIPER NETWORKS, INC.
@@ -8915,9 +8930,6 @@ locker
 
 // locus : 2015-06-25 Locus Analytics LLC
 locus
-
-// loft : 2015-07-30 Annco, Inc.
-loft
 
 // lol : 2015-01-30 XYZ.COM LLC
 lol
@@ -9441,7 +9453,7 @@ promo
 // properties : 2013-12-05 Binky Moon, LLC
 properties
 
-// property : 2014-05-22 UNR Corp.
+// property : 2014-05-22 Internet Naming Company LLC
 property
 
 // protection : 2015-04-23 XYZ.COM LLC
@@ -9705,9 +9717,6 @@ sener
 // services : 2014-02-27 Binky Moon, LLC
 services
 
-// ses : 2015-07-23 SES
-ses
-
 // seven : 2015-08-06 Seven West Media Ltd
 seven
 
@@ -9717,7 +9726,7 @@ sew
 // sex : 2014-11-13 ICM Registry SX LLC
 sex
 
-// sexy : 2013-09-11 UNR Corp.
+// sexy : 2013-09-11 Internet Naming Company LLC
 sexy
 
 // sfr : 2015-08-13 Societe Francaise du Radiotelephone - SFR
@@ -9792,7 +9801,7 @@ smart
 // smile : 2014-12-18 Amazon Registry Services, Inc.
 smile
 
-// sncf : 2015-02-19 Société Nationale des Chemins de fer Francais S N C F
+// sncf : 2015-02-19 Société Nationale SNCF
 sncf
 
 // soccer : 2015-03-26 Binky Moon, LLC
@@ -10029,7 +10038,7 @@ toray
 // toshiba : 2014-04-10 TOSHIBA Corporation
 toshiba
 
-// total : 2015-08-06 TOTAL SE
+// total : 2015-08-06 TotalEnergies SE
 total
 
 // tours : 2015-01-22 Binky Moon, LLC
@@ -10065,7 +10074,7 @@ travelers
 // travelersinsurance : 2015-03-26 Travelers TLD, LLC
 travelersinsurance
 
-// trust : 2014-10-16 UNR Corp.
+// trust : 2014-10-16 Internet Naming Company LLC
 trust
 
 // trv : 2015-03-26 Travelers TLD, LLC
@@ -10464,9 +10473,6 @@ xin
 // xn--jlq480n2rg : 2019-12-19 Amazon Registry Services, Inc.
 亚马逊
 
-// xn--jlq61u9w7b : 2015-01-08 Nokia Corporation
-诺基亚
-
 // xn--jvr189m : 2015-02-26 Amazon Registry Services, Inc.
 食品
 
@@ -10658,6 +10664,10 @@ graphox.us
 // Submitted by Craig Jellick <domains@acorn.io>
 *.on-acorn.io
 
+// ActiveTrail: https://www.activetrail.biz/
+// Submitted by Ofer Kalaora <postmaster@activetrail.com>
+activetrail.biz
+
 // Adobe : https://www.adobe.com/
 // Submitted by Ian Boston <boston@adobe.com> and Lars Trieloff <trieloff@adobe.com>
 adobeaemcloud.com
@@ -10666,6 +10676,11 @@ hlx.live
 adobeaemcloud.net
 hlx.page
 hlx3.page
+
+// Adobe Developer Platform : https://developer.adobe.com
+// Submitted by Jesse MacFadyen<jessem@adobe.com>
+adobeio-static.net
+adobeioruntime.net
 
 // Agnat sp. z o.o. : https://domena.pl
 // Submitted by Przemyslaw Plewa <it-admin@domena.pl>
@@ -10737,6 +10752,10 @@ altervista.org
 // alwaysdata : https://www.alwaysdata.com
 // Submitted by Cyril <admin@alwaysdata.com>
 alwaysdata.net
+
+// Amaze Software : https://amaze.co
+// Submitted by Domain Admin <domainadmin@amaze.co>
+myamaze.net
 
 // Amazon : https://www.amazon.com/
 // Submitted by AWS Security <psl-maintainers@amazon.com>
@@ -10957,6 +10976,10 @@ cdn.prod.atlassian-dev.net
 // Submitted by Lukas Reschke <lukas@authentick.net>
 translated.page
 
+// Autocode : https://autocode.com
+// Submitted by Jacob Lee <jacob@autocode.com>
+autocode.dev
+
 // AVM : https://avm.de
 // Submitted by Andreas Weise <a.weise@avm.de>
 myfritz.net
@@ -11084,6 +11107,11 @@ cafjs.com
 // callidomus : https://www.callidomus.com/
 // Submitted by Marcus Popp <admin@callidomus.com>
 mycd.eu
+
+// Canva Pty Ltd : https://canva.com/
+// Submitted by Joel Aquilina <publicsuffixlist@canva.com>
+canva-apps.cn
+canva-apps.com
 
 // Carrd : https://carrd.co
 // Submitted by AJ <aj@carrd.co>
@@ -11214,8 +11242,11 @@ cloudcontrolapp.com
 
 // Cloudflare, Inc. : https://www.cloudflare.com/
 // Submitted by Cloudflare Team <publicsuffixlist@cloudflare.com>
-pages.dev
+cf-ipfs.com
+cloudflare-ipfs.com
 trycloudflare.com
+pages.dev
+r2.dev
 workers.dev
 
 // Clovyr : https://clovyr.io
@@ -11999,6 +12030,7 @@ u.channelsdvr.net
 // Fastly Inc. : http://www.fastly.com/
 // Submitted by Fastly Security <security@fastly.com>
 edgecompute.app
+fastly-edge.com
 fastly-terrarium.com
 fastlylb.net
 map.fastlylb.net
@@ -12483,7 +12515,6 @@ herokussl.com
 // Hibernating Rhinos
 // Submitted by Oren Eini <oren@ravendb.net>
 ravendb.cloud
-myravendb.com
 ravendb.community
 ravendb.me
 development.run
@@ -13710,6 +13741,9 @@ vp4.me
 
 // Snowflake Inc : https://www.snowflake.com/
 // Submitted by Faith Olapade <faith.olapade@snowflake.com>
+snowflake.app
+privatelink.snowflake.app
+streamlit.app
 streamlitapp.com
 
 // Snowplow Analytics : https://snowplowanalytics.com/
@@ -13845,6 +13879,8 @@ direct.quickconnect.to
 // Tabit Technologies Ltd. : https://tabit.cloud/
 // Submitted by Oren Agiv <oren@tabit.cloud>
 tabitorder.co.il
+mytabit.co.il
+mytabit.com
 
 // TAIFUN Software AG : http://taifun-software.de
 // Submitted by Bjoern Henke <dev-server@taifun-software.de>
@@ -13876,10 +13912,6 @@ s3.teckids.org
 telebit.app
 telebit.io
 *.telebit.xyz
-
-// The Gwiddle Foundation : https://gwiddlefoundation.org.uk
-// Submitted by Joshua Bayfield <joshua.bayfield@gwiddlefoundation.org.uk>
-gwiddle.co.uk
 
 // Thingdust AG : https://thingdust.com/
 // Submitted by Adrian Imboden <adi@thingdust.com>
@@ -13914,10 +13946,6 @@ pages.torproject.net
 // Submitted by Dustin Ward <dward@townnews.com>
 bloxcms.com
 townnews-staging.com
-
-// TradableBits: https://tradablebits.com
-// Submitted by Dmitry Khrisanov dmitry@tradablebits.com
-tbits.me
 
 // TrafficPlex GmbH : https://www.trafficplex.de/
 // Submitted by Phillipp Röll <phillipp.roell@trafficplex.de>
@@ -13990,6 +14018,10 @@ hk.com
 hk.org
 ltd.hk
 inc.hk
+
+// UK Intis Telecom LTD : https://it.com
+// Submitted by ITComdomains <to@it.com>
+it.com
 
 // UNIVERSAL DOMAIN REGISTRY : https://www.udr.org.yt/
 // see also: whois -h whois.udr.org.yt help
