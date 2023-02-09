@@ -10699,8 +10699,6 @@ aivencloud.com
 // Akamai : https://www.akamai.com/
 // Submitted by Akamai Team <publicsuffixlist@akamai.com>
 akadns.net
-com.akadns.net
-net.akadns.net
 akamai.net
 akamai-staging.net
 akamaiedge.net
@@ -10710,27 +10708,11 @@ akamaihd-staging.net
 akamaiorigin.net
 akamaiorigin-staging.net
 akamaized.net
-com.akamaized.net
-mdc.akamaized.net
-net.akamaized.net
 akamaized-staging.net
-com.akamaized-staging.net
-mdc.akamaized-staging.net
-net.akamaized-staging.net
 edgekey.net
-com.edgekey.net
-test.edgekey.net
 edgekey-staging.net
-com.edgekey-staging.net
-test.edgekey-staging.net
 edgesuite.net
-com.edgesuite.net
-mdc.edgesuite.net
-net.edgesuite.net
 edgesuite-staging.net
-com.edgesuite-staging.net
-mdc.edgesuite-staging.net
-net.edgesuite-staging.net
 
 // alboto.ca : http://alboto.ca
 // Submitted by Anton Avramov <avramov@alboto.ca>
