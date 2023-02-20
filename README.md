@@ -15,4 +15,5 @@ All submissions must conform to the [validation and acceptance factors](https://
 The list is maintained by people volunteering their time.  Iteration back and forth will delay PR review or inclusion.
 
 Important Notice:
+2023-02-20 : Did [guidance from Google related to the changes that they are making to adsense subdomains](https://support.google.com/adsense/answer/12170421) bring you here?  The PSL is volunteer operated and not resourced to answer your advertising questions.  Guidance is in the form of self-help (READ THE WIKI), THERE IS NO PSL CUSTOMER SERVICE RESOURCE TO ASSIST YOU.   *Please work directly with your adsense account manager at Google to ensure you do in fact need an entry, and what the benefits and consequences are, and understand what propagation delays and rollback processing entail before making requests.*
 2021-04-23 : Did guidance related to an issue with Facebook or Apple bring you here?  [Read this before submitting requests](https://github.com/publicsuffix/list/issues/1245)  We are not approving workaround requests per the validation and acceptance standards, but do have open discussion with Facebook on the matter.  
