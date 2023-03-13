@@ -5,10 +5,17 @@ on:
   schedule:
     # Run once a day at 15:00 UTC
     - cron:  '0 15 * * *'
+    
+permissions:
+  contents: read
+
 jobs:
   psl-gtld-update:
     name: Check for TLD data updates
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
 
       - name: Check out code
