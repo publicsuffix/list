@@ -13649,6 +13649,7 @@ logoip.com
 
 // Scaleway : https://www.scaleway.com/
 // Submitted by Rémy Léone <rleone@scaleway.com>
+// Updated by Benjamin Lazarecki <blazarecki@scaleway.com>
 fr-par-1.baremetal.scw.cloud
 fr-par-2.baremetal.scw.cloud
 nl-ams-1.baremetal.scw.cloud
@@ -13673,6 +13674,8 @@ s3.pl-waw.scw.cloud
 s3-website.pl-waw.scw.cloud
 scalebook.scw.cloud
 smartlabeling.scw.cloud
+cockpit.scw.cloud
+obs.fr-par.scw.cloud
 dedibox.fr
 
 // schokokeks.org GbR : https://schokokeks.org/
