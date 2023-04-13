@@ -10540,6 +10540,8 @@ mycd.eu
 // Submitted by Joel Aquilina <publicsuffixlist@canva.com>
 canva-apps.cn
 canva-apps.com
+*.my.canvasite.cn
+*.my.canva.site
 
 // Carrd : https://carrd.co
 // Submitted by AJ <aj@carrd.co>
