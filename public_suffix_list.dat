@@ -12305,8 +12305,6 @@ hs.run
 
 // Hash Hackers : https://hashhackers.com
 // Submitted by TheFirstSpeedster <hostmaster@hashhackers.com>
-hashhackers.win
-*.app.hashhackers.win
 iii.ind.in
 *.app.iii.ind.in
 telegram.ind.in
@@ -12314,6 +12312,8 @@ telegram.ind.in
 *.c.telegram.ind.in
 *.g.telegram.ind.in
 *.u.telegram.ind.in
+hashhackers.win
+*.app.hashhackers.win
 
 // Hashbang : https://hashbang.sh
 hashbang.sh
