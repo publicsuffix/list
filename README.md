@@ -7,12 +7,13 @@ pvt.k12.ma.us. The Public Suffix List is a list of all known public suffixes.
 
 See https://publicsuffix.org/ and the [Wiki](https://github.com/publicsuffix/list/wiki) link above for more information.
 
-[![Build Status](https://travis-ci.org/publicsuffix/list.svg?branch=master)](https://travis-ci.org/publicsuffix/list)
-
 **Are you here to add or update something?**
 
-All submissions must conform to the [validation and acceptance factors](https://github.com/publicsuffix/list/wiki/Guidelines#validation-and-non-acceptance-factors) and provide sufficient rationale or basically be as complete as possible.
-The list is maintained by people volunteering their time.  Iteration back and forth will delay PR review or inclusion.
+All submissions must conform to the [validation and acceptance factors](https://github.com/publicsuffix/list/wiki/Guidelines#validation-and-non-acceptance-factors) and provide sufficient rationale or basically be as complete as possible, and follow the [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines), especially as they relate to format and [sorting](https://github.com/publicsuffix/list/wiki/Guidelines#sort-your-submission-correctly-important).
+
+The list is currently maintained by people who are volunteering their time towards universal acceptance and ensuring there is a bridge between the ICANN world of domain names and the crucial last mile - the world of developers and human users.  
+
+Iteration back and forth will delay PR review or inclusion.  Be extremely thorough, and patient.
 
 Important Notice:
 
