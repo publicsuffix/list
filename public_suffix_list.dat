@@ -6650,7 +6650,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2023-04-14T15:13:16Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2023-05-09T20:59:52Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -9693,6 +9693,9 @@ weber
 
 // website : 2014-04-03 Radix FZC
 website
+
+// wed : 
+wed
 
 // wedding : 2014-04-24 Registry Services, LLC
 wedding
