@@ -96,6 +96,9 @@ type pslEntry struct {
 	// ALabel contains the ASCII gTLD name. For internationalized gTLDs the GTLD
 	// field is expressed in punycode.
 	ALabel string `json:"gTLD"`
+	// DelegationDate holds the date the gTLD was delegated to the root zone.
+	// A TLD should be considered dead if the delegation date is empty.
+	DelegationDate string
 	// ULabel contains the unicode representation of the gTLD name. When the gTLD
 	// ULabel in the ICANN gTLD data is empty (e.g for an ASCII gTLD like
 	// '.pizza') the PSL entry will use the ALabel as the ULabel.
@@ -362,7 +365,7 @@ func filterGTLDs(entries []*pslEntry) []*pslEntry {
 		if _, isLegacy := legacyGTLDs[entry.ALabel]; isLegacy {
 			continue
 		}
-		if entry.ContractTerminated {
+		if entry.DelegationDate == "" {
 			continue
 		}
 		if entry.RemovalDate != "" {
