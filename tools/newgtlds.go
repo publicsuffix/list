@@ -134,11 +134,11 @@ func (e *pslEntry) normalize() {
 //
 // If the registry operator field is empty the comment will be of the form:
 //
-//    '// <ALabel> : <DateOfContractSignature>'
+//	'// <ALabel> : <DateOfContractSignature>'
 //
 // If the registry operator field is not empty the comment will be of the form:
 //
-//    '// <ALabel> : <DateOfContractSignature> <RegistryOperator>'
+//	'// <ALabel> : <DateOfContractSignature> <RegistryOperator>'
 //
 // In both cases the <DateOfContractSignature> may be empty.
 func (e pslEntry) Comment() string {
@@ -349,17 +349,18 @@ func getData(url string) ([]byte, error) {
 }
 
 // filterGTLDs removes entries that are present in the legacyGTLDs map or have
-// ContractTerminated equal to true, or a non-empty RemovalDate.
+// ContractTerminated equal to true and an empty DelegationDate,
+// or a non-empty RemovalDate.
 func filterGTLDs(entries []*pslEntry) []*pslEntry {
 	var filtered []*pslEntry
 	for _, entry := range entries {
 		if _, isLegacy := legacyGTLDs[entry.ALabel]; isLegacy {
 			continue
 		}
-		if entry.DelegationDate == "" {
+		if entry.RemovalDate != "" {
 			continue
 		}
-		if entry.RemovalDate != "" {
+		if entry.ContractTerminated && entry.DelegationDate == "" {
 			continue
 		}
 		filtered = append(filtered, entry)
@@ -368,10 +369,10 @@ func filterGTLDs(entries []*pslEntry) []*pslEntry {
 }
 
 // getPSLEntries fetches a list of pslEntry objects (or returns an error) by:
-//   1. getting the raw JSON data from the provided url string.
-//   2. unmarshaling the JSON data to create pslEntry objects.
-//   3. normalizing the pslEntry objects.
-//   4. filtering out any legacy or contract terminated gTLDs
+//  1. getting the raw JSON data from the provided url string.
+//  2. unmarshaling the JSON data to create pslEntry objects.
+//  3. normalizing the pslEntry objects.
+//  4. filtering out any legacy or contract terminated gTLDs
 //
 // If there are no pslEntry objects after unmarshaling the data in step 2 or
 // filtering the gTLDs in step 4 it is considered an error condition.
