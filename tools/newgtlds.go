@@ -357,10 +357,10 @@ func filterGTLDs(entries []*pslEntry) []*pslEntry {
 		if _, isLegacy := legacyGTLDs[entry.ALabel]; isLegacy {
 			continue
 		}
-		if entry.RemovalDate != "" {
+		if entry.ContractTerminated && entry.DelegationDate == "" {
 			continue
 		}
-		if entry.ContractTerminated && entry.DelegationDate == "" {
+		if entry.RemovalDate != "" {
 			continue
 		}
 		filtered = append(filtered, entry)
