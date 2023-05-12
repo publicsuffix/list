@@ -358,17 +358,18 @@ func getData(url string) ([]byte, error) {
 }
 
 // filterGTLDs removes entries that are present in the legacyGTLDs map or have
-// ContractTerminated equal to true, or a non-empty RemovalDate.
+// ContractTerminated equal to true and an empty DelegationDate,
+// or a non-empty RemovalDate.
 func filterGTLDs(entries []*pslEntry) []*pslEntry {
 	var filtered []*pslEntry
 	for _, entry := range entries {
 		if _, isLegacy := legacyGTLDs[entry.ALabel]; isLegacy {
 			continue
 		}
-		if entry.DelegationDate == "" {
+		if entry.RemovalDate != "" {
 			continue
 		}
-		if entry.RemovalDate != "" {
+		if entry.ContractTerminated && entry.DelegationDate == "" {
 			continue
 		}
 		filtered = append(filtered, entry)
