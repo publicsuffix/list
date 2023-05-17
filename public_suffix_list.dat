@@ -11,9 +11,11 @@
 
 // ac : http://nic.ac/rules.htm
 ac
+com.ac
 edu.ac
 gov.ac
 net.ac
+mil.ac
 org.ac
 
 // ad : https://en.wikipedia.org/wiki/.ad
@@ -32,16 +34,92 @@ mil.ae
 
 // aero : see https://www.information.aero/index.php?id=66
 aero
+accident-investigation.aero
+accident-prevention.aero
+aerobatic.aero
+aeroclub.aero
+aerodrome.aero
+agents.aero
 aircraft.aero
 airline.aero
 airport.aero
+air-surveillance.aero
 airtraffic.aero
+air-traffic-control.aero
+ambulance.aero
+amusement.aero
+association.aero
+author.aero
+ballooning.aero
+broker.aero
+caa.aero
 cargo.aero
+catering.aero
+certification.aero
+championship.aero
 charter.aero
+civilaviation.aero
+club.aero
+conference.aero
+consultant.aero
+consulting.aero
+control.aero
+council.aero
+crew.aero
+design.aero
+dgca.aero
+educator.aero
+emergency.aero
 engine.aero
+engineer.aero
+entertainment.aero
+equipment.aero
+exchange.aero
+express.aero
+federation.aero
+flight.aero
+fuel.aero
+gliding.aero
+government.aero
+groundhandling.aero
+group.aero
+hanggliding.aero
+homebuilt.aero
+insurance.aero
+journal.aero
+journalist.aero
+leasing.aero
+logistics.aero
+magazine.aero
 maintenance.aero
+media.aero
+microlight.aero
+modelling.aero
 navigation.aero
+parachuting.aero
+paragliding.aero
+passenger-association.aero
+pilot.aero
+press.aero
+production.aero
+recreation.aero
+repbody.aero
+res.aero
+research.aero
+rotorcraft.aero
+safety.aero
+scientist.aero
 services.aero
+show.aero
+skydiving.aero
+software.aero
+student.aero
+trader.aero
+trading.aero
+trainer.aero
+union.aero
+workinggroup.aero
+works.aero
 
 // af : http://www.nic.af/help.jsp
 af
@@ -79,6 +157,7 @@ org.al
 am
 co.am
 com.am
+commune.am
 net.am
 org.am
 
@@ -89,6 +168,7 @@ ed.ao
 gv.ao
 og.ao
 co.ao
+pb.ao
 it.ao
 
 // aq : https://en.wikipedia.org/wiki/.aq
@@ -123,6 +203,7 @@ urn.arpa
 
 // as : https://en.wikipedia.org/wiki/.as
 as
+gov.as
 
 // asia : https://en.wikipedia.org/wiki/.asia
 asia
@@ -148,6 +229,7 @@ gov.au
 asn.au
 id.au
 // Historic 2LDs (closed to new registration, but sites still exist)
+info.au
 conf.au
 oz.au
 // CGDNs - http://www.cgdn.org.au/
@@ -199,6 +281,7 @@ org.az
 edu.az
 info.az
 pp.az
+mil.az
 name.az
 pro.az
 biz.az
@@ -355,17 +438,25 @@ arte.bo
 blog.bo
 bolivia.bo
 ciencia.bo
+cooperativa.bo
+democracia.bo
 deporte.bo
+ecologia.bo
 economia.bo
 empresa.bo
 indigena.bo
 industria.bo
 info.bo
+medicina.bo
+movimiento.bo
 musica.bo
 natural.bo
 nombre.bo
 noticias.bo
+patria.bo
+politica.bo
 profesional.bo
+plurinacional.bo
 pueblo.bo
 revista.bo
 salud.bo
@@ -627,6 +718,7 @@ cc
 // cd : https://en.wikipedia.org/wiki/.cd
 // see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1
 cd
+gov.cd
 
 // cf : https://en.wikipedia.org/wiki/.cf
 cf
@@ -649,8 +741,11 @@ ed.ci
 ac.ci
 net.ci
 go.ci
+asso.ci
+aéroport.ci
 int.ci
 presse.ci
+md.ci
 gouv.ci
 
 // ck : https://en.wikipedia.org/wiki/.ck
@@ -724,13 +819,19 @@ tw.cn
 // co : https://en.wikipedia.org/wiki/.co
 // Submitted by registry <tecnico@uniandes.edu.co>
 co
+arts.co
 com.co
 edu.co
+firm.co
 gov.co
+info.co
+int.co
 mil.co
 net.co
 nom.co
 org.co
+rec.co
+web.co
 
 // com : https://en.wikipedia.org/wiki/.com
 com
@@ -762,6 +863,8 @@ inf.cu
 cv
 com.cv
 edu.cv
+int.cv
+nome.cv
 org.cv
 
 // cw : http://www.una.cw/cw_registry/
@@ -770,6 +873,7 @@ cw
 com.cw
 edu.cw
 net.cw
+org.cw
 
 // cx : https://en.wikipedia.org/wiki/.cx
 // list of other 2nd level tlds ?
@@ -810,6 +914,9 @@ dk
 
 // dm : https://en.wikipedia.org/wiki/.dm
 dm
+com.dm
+net.dm
+org.dm
 edu.dm
 gov.dm
 
@@ -834,6 +941,7 @@ com.dz
 edu.dz
 gov.dz
 org.dz
+net.dz
 pol.dz
 soc.dz
 tm.dz
@@ -894,6 +1002,13 @@ gob.es
 edu.es
 
 // et : https://en.wikipedia.org/wiki/.et
+et
+com.et
+gov.et
+org.et
+edu.et
+biz.et
+name.et
 info.et
 net.et
 
@@ -975,7 +1090,13 @@ gd
 
 // ge : http://www.nic.net.ge/policy_en.pdf
 ge
+com.ge
+edu.ge
 gov.ge
+org.ge
+mil.ge
+net.ge
+pvt.ge
 
 // gf : https://en.wikipedia.org/wiki/.gf
 gf
@@ -1012,6 +1133,7 @@ org.gi
 gl
 co.gl
 com.gl
+edu.gl
 net.gl
 org.gl
 
@@ -1073,6 +1195,7 @@ com.gu
 edu.gu
 gov.gu
 guam.gu
+info.gu
 net.gu
 org.gu
 web.gu
@@ -1238,9 +1361,12 @@ im
 ac.im
 co.im
 com.im
+ltd.co.im
 net.im
 org.im
 plc.co.im
+tt.im
+tv.im
 
 // in : https://en.wikipedia.org/wiki/.in
 // see also: https://registry.in/policies
@@ -1330,6 +1456,12 @@ sch.ir
 // is : http://www.isnic.is/domain/rules.php
 // Confirmed by registry <marius@isgate.is> 2008-12-06
 is
+net.is
+com.is
+edu.is
+gov.is
+org.is
+int.is
 
 // it : https://en.wikipedia.org/wiki/.it
 it
@@ -1340,6 +1472,8 @@ edu.it
 // Regions
 abr.it
 abruzzo.it
+aosta-valley.it
+aostavalley.it
 bas.it
 basilicata.it
 cal.it
@@ -1349,10 +1483,18 @@ campania.it
 emilia-romagna.it
 emiliaromagna.it
 emr.it
+friuli-v-giulia.it
 friuli-ve-giulia.it
+friuli-vegiulia.it
 friuli-venezia-giulia.it
+friuli-veneziagiulia.it
+friuli-vgiulia.it
+friuliv-giulia.it
+friulive-giulia.it
 friulivegiulia.it
+friulivenezia-giulia.it
 friuliveneziagiulia.it
+friulivgiulia.it
 fvg.it
 laz.it
 lazio.it
@@ -1380,27 +1522,65 @@ sicily.it
 taa.it
 tos.it
 toscana.it
+trentin-sud-tirol.it
+trentin-süd-tirol.it
+trentin-sudtirol.it
+trentin-südtirol.it
+trentin-sued-tirol.it
+trentin-suedtirol.it
 trentino-a-adige.it
+trentino-aadige.it
 trentino-alto-adige.it
 trentino-altoadige.it
 trentino-s-tirol.it
+trentino-stirol.it
+trentino-sud-tirol.it
+trentino-süd-tirol.it
 trentino-sudtirol.it
+trentino-südtirol.it
+trentino-sued-tirol.it
+trentino-suedtirol.it
 trentino.it
+trentinoa-adige.it
 trentinoaadige.it
+trentinoalto-adige.it
 trentinoaltoadige.it
+trentinos-tirol.it
+trentinostirol.it
+trentinosud-tirol.it
+trentinosüd-tirol.it
 trentinosudtirol.it
+trentinosüdtirol.it
+trentinosued-tirol.it
+trentinosuedtirol.it
+trentinsud-tirol.it
+trentinsüd-tirol.it
+trentinsudtirol.it
+trentinsüdtirol.it
+trentinsued-tirol.it
+trentinsuedtirol.it
 tuscany.it
 umb.it
 umbria.it
 val-d-aosta.it
+val-daosta.it
 vald-aosta.it
 valdaosta.it
 valle-aosta.it
 valle-d-aosta.it
 valle-daosta.it
 valleaosta.it
+valled-aosta.it
 valledaosta.it
 vallee-aoste.it
+vallée-aoste.it
+vallee-d-aoste.it
+vallée-d-aoste.it
+valleeaoste.it
+valléeaoste.it
+valleedaoste.it
+valléedaoste.it
+vao.it
 vda.it
 ven.it
 veneto.it
@@ -1413,9 +1593,13 @@ alto-adige.it
 altoadige.it
 an.it
 ancona.it
+andria-barletta-trani.it
+andria-trani-barletta.it
+andriabarlettatrani.it
 andriatranibarletta.it
 ao.it
 aosta.it
+aoste.it
 ap.it
 aq.it
 aquila.it
@@ -1428,8 +1612,12 @@ at.it
 av.it
 avellino.it
 ba.it
+balsan-sudtirol.it
+balsan-südtirol.it
+balsan-suedtirol.it
 balsan.it
 bari.it
+barletta-trani-andria.it
 barlettatraniandria.it
 belluno.it
 benevento.it
@@ -1441,26 +1629,41 @@ bl.it
 bn.it
 bo.it
 bologna.it
+bolzano-altoadige.it
 bolzano.it
+bozen-sudtirol.it
+bozen-südtirol.it
+bozen-suedtirol.it
 bozen.it
 br.it
 brescia.it
 brindisi.it
 bs.it
 bt.it
+bulsan-sudtirol.it
+bulsan-südtirol.it
+bulsan-suedtirol.it
+bulsan.it
 bz.it
 ca.it
 cagliari.it
 caltanissetta.it
+campidano-medio.it
+campidanomedio.it
 campobasso.it
 carbonia-iglesias.it
 carboniaiglesias.it
 carrara-massa.it
+carraramassa.it
 caserta.it
 catania.it
 catanzaro.it
 cb.it
 ce.it
+cesena-forli.it
+cesena-forlì.it
+cesenaforli.it
+cesenaforlì.it
 ch.it
 chieti.it
 ci.it
@@ -1476,6 +1679,7 @@ cs.it
 ct.it
 cuneo.it
 cz.it
+dell-ogliastra.it
 dellogliastra.it
 en.it
 enna.it
@@ -1490,7 +1694,9 @@ florence.it
 fm.it
 foggia.it
 forli-cesena.it
+forlì-cesena.it
 forlicesena.it
+forlìcesena.it
 fr.it
 frosinone.it
 ge.it
@@ -1500,6 +1706,8 @@ go.it
 gorizia.it
 gr.it
 grosseto.it
+iglesias-carbonia.it
+iglesiascarbonia.it
 im.it
 imperia.it
 is.it
@@ -1624,6 +1832,8 @@ sv.it
 ta.it
 taranto.it
 te.it
+tempio-olbia.it
+tempioolbia.it
 teramo.it
 terni.it
 tn.it
@@ -1632,6 +1842,8 @@ torino.it
 tp.it
 tr.it
 trani-andria-barletta.it
+trani-barletta-andria.it
+traniandriabarletta.it
 tranibarlettaandria.it
 trapani.it
 trento.it
@@ -1642,6 +1854,8 @@ turin.it
 tv.it
 ud.it
 udine.it
+urbino-pesaro.it
+urbinopesaro.it
 va.it
 varese.it
 vb.it
@@ -1681,6 +1895,7 @@ edu.jo
 sch.jo
 gov.jo
 mil.jo
+name.jo
 
 // jobs : https://en.wikipedia.org/wiki/.jobs
 jobs
@@ -1811,6 +2026,7 @@ yamanashi.jp
 !city.sendai.jp
 !city.yokohama.jp
 // 4th level registration
+aisai.aichi.jp
 ama.aichi.jp
 anjo.aichi.jp
 asuke.aichi.jp
@@ -1819,18 +2035,23 @@ chita.aichi.jp
 fuso.aichi.jp
 gamagori.aichi.jp
 handa.aichi.jp
+hazu.aichi.jp
 hekinan.aichi.jp
+higashiura.aichi.jp
 ichinomiya.aichi.jp
 inazawa.aichi.jp
 inuyama.aichi.jp
+isshiki.aichi.jp
 iwakura.aichi.jp
 kanie.aichi.jp
 kariya.aichi.jp
 kasugai.aichi.jp
+kira.aichi.jp
 kiyosu.aichi.jp
 komaki.aichi.jp
 konan.aichi.jp
 kota.aichi.jp
+mihama.aichi.jp
 miyoshi.aichi.jp
 nishio.aichi.jp
 nisshin.aichi.jp
@@ -1840,7 +2061,9 @@ oharu.aichi.jp
 okazaki.aichi.jp
 owariasahi.aichi.jp
 seto.aichi.jp
+shikatsu.aichi.jp
 shinshiro.aichi.jp
+shitara.aichi.jp
 tahara.aichi.jp
 takahama.aichi.jp
 tobishima.aichi.jp
@@ -1848,6 +2071,7 @@ toei.aichi.jp
 togo.aichi.jp
 tokai.aichi.jp
 tokoname.aichi.jp
+toyoake.aichi.jp
 toyohashi.aichi.jp
 toyokawa.aichi.jp
 toyone.aichi.jp
@@ -1862,14 +2086,18 @@ hachirogata.akita.jp
 happou.akita.jp
 higashinaruse.akita.jp
 honjo.akita.jp
+honjyo.akita.jp
 ikawa.akita.jp
 kamikoani.akita.jp
+kamioka.akita.jp
 katagami.akita.jp
 kazuno.akita.jp
 kitaakita.akita.jp
 kosaka.akita.jp
+kyowa.akita.jp
 misato.akita.jp
 mitane.akita.jp
+moriyoshi.akita.jp
 nikaho.akita.jp
 noshiro.akita.jp
 odate.akita.jp
@@ -1917,6 +2145,7 @@ isumi.chiba.jp
 kamagaya.chiba.jp
 kamogawa.chiba.jp
 kashiwa.chiba.jp
+katori.chiba.jp
 katsuura.chiba.jp
 kimitsu.chiba.jp
 kisarazu.chiba.jp
@@ -1924,6 +2153,8 @@ kozaki.chiba.jp
 kujukuri.chiba.jp
 kyonan.chiba.jp
 matsudo.chiba.jp
+midori.chiba.jp
+mihama.chiba.jp
 minamiboso.chiba.jp
 mobara.chiba.jp
 mutsuzawa.chiba.jp
@@ -1938,6 +2169,7 @@ onjuku.chiba.jp
 otaki.chiba.jp
 sakae.chiba.jp
 sakura.chiba.jp
+shimofusa.chiba.jp
 shirako.chiba.jp
 shiroi.chiba.jp
 shisui.chiba.jp
@@ -1951,9 +2183,11 @@ tomisato.chiba.jp
 urayasu.chiba.jp
 yachimata.chiba.jp
 yachiyo.chiba.jp
+yokaichiba.chiba.jp
 yokoshibahikari.chiba.jp
 yotsukaido.chiba.jp
 ainan.ehime.jp
+honai.ehime.jp
 ikata.ehime.jp
 imabari.ehime.jp
 iyo.ehime.jp
@@ -1963,6 +2197,7 @@ kumakogen.ehime.jp
 masaki.ehime.jp
 matsuno.ehime.jp
 matsuyama.ehime.jp
+namikata.ehime.jp
 niihama.ehime.jp
 ozu.ehime.jp
 saijo.ehime.jp
@@ -1990,6 +2225,7 @@ tsuruga.fukui.jp
 wakasa.fukui.jp
 ashiya.fukuoka.jp
 buzen.fukuoka.jp
+chikugo.fukuoka.jp
 chikuho.fukuoka.jp
 chikujo.fukuoka.jp
 chikushino.fukuoka.jp
@@ -1998,6 +2234,7 @@ chuo.fukuoka.jp
 dazaifu.fukuoka.jp
 fukuchi.fukuoka.jp
 hakata.fukuoka.jp
+higashi.fukuoka.jp
 hirokawa.fukuoka.jp
 hisayama.fukuoka.jp
 iizuka.fukuoka.jp
@@ -2009,15 +2246,20 @@ kawara.fukuoka.jp
 keisen.fukuoka.jp
 koga.fukuoka.jp
 kurate.fukuoka.jp
+kurogi.fukuoka.jp
 kurume.fukuoka.jp
+minami.fukuoka.jp
 miyako.fukuoka.jp
 miyama.fukuoka.jp
 miyawaka.fukuoka.jp
 mizumaki.fukuoka.jp
 munakata.fukuoka.jp
+nakagawa.fukuoka.jp
 nakama.fukuoka.jp
+nishi.fukuoka.jp
 nogata.fukuoka.jp
 ogori.fukuoka.jp
+okagaki.fukuoka.jp
 okawa.fukuoka.jp
 oki.fukuoka.jp
 omuta.fukuoka.jp
@@ -2054,6 +2296,7 @@ fukushima.fukushima.jp
 furudono.fukushima.jp
 futaba.fukushima.jp
 hanawa.fukushima.jp
+higashi.fukushima.jp
 hirata.fukushima.jp
 hirono.fukushima.jp
 iitate.fukushima.jp
@@ -2072,9 +2315,11 @@ kunimi.fukushima.jp
 miharu.fukushima.jp
 mishima.fukushima.jp
 namie.fukushima.jp
+nango.fukushima.jp
 nishiaizu.fukushima.jp
 nishigo.fukushima.jp
 okuma.fukushima.jp
+omotego.fukushima.jp
 ono.fukushima.jp
 otama.fukushima.jp
 samegawa.fukushima.jp
@@ -2083,10 +2328,12 @@ shirakawa.fukushima.jp
 showa.fukushima.jp
 soma.fukushima.jp
 sukagawa.fukushima.jp
+taishin.fukushima.jp
 tamakawa.fukushima.jp
 tanagura.fukushima.jp
 tenei.fukushima.jp
 yabuki.fukushima.jp
+yamato.fukushima.jp
 yamatsuri.fukushima.jp
 yanaizu.fukushima.jp
 yugawa.fukushima.jp
@@ -2104,6 +2351,7 @@ ibigawa.gifu.jp
 ikeda.gifu.jp
 kakamigahara.gifu.jp
 kani.gifu.jp
+kasahara.gifu.jp
 kasamatsu.gifu.jp
 kawaue.gifu.jp
 kitagata.gifu.jp
@@ -2158,16 +2406,22 @@ takasaki.gunma.jp
 takayama.gunma.jp
 tamamura.gunma.jp
 tatebayashi.gunma.jp
+tomioka.gunma.jp
+tsukiyono.gunma.jp
 tsumagoi.gunma.jp
 ueno.gunma.jp
 yoshioka.gunma.jp
+asaminami.hiroshima.jp
+daiwa.hiroshima.jp
 etajima.hiroshima.jp
 fuchu.hiroshima.jp
 fukuyama.hiroshima.jp
 hatsukaichi.hiroshima.jp
 higashihiroshima.hiroshima.jp
+hongo.hiroshima.jp
 jinsekikogen.hiroshima.jp
 kaita.hiroshima.jp
+kui.hiroshima.jp
 kumano.hiroshima.jp
 kure.hiroshima.jp
 mihara.hiroshima.jp
@@ -2178,7 +2432,10 @@ osakikamijima.hiroshima.jp
 otake.hiroshima.jp
 saka.hiroshima.jp
 sera.hiroshima.jp
+seranishi.hiroshima.jp
+shinichi.hiroshima.jp
 shobara.hiroshima.jp
+takehara.hiroshima.jp
 abashiri.hokkaido.jp
 abira.hokkaido.jp
 aibetsu.hokkaido.jp
@@ -2201,10 +2458,12 @@ ebetsu.hokkaido.jp
 embetsu.hokkaido.jp
 eniwa.hokkaido.jp
 erimo.hokkaido.jp
+esan.hokkaido.jp
 esashi.hokkaido.jp
 fukagawa.hokkaido.jp
 fukushima.hokkaido.jp
 furano.hokkaido.jp
+furubira.hokkaido.jp
 haboro.hokkaido.jp
 hakodate.hokkaido.jp
 hamatonbetsu.hokkaido.jp
@@ -2245,7 +2504,9 @@ mashike.hokkaido.jp
 matsumae.hokkaido.jp
 mikasa.hokkaido.jp
 minamifurano.hokkaido.jp
+mombetsu.hokkaido.jp
 moseushi.hokkaido.jp
+mukawa.hokkaido.jp
 muroran.hokkaido.jp
 naie.hokkaido.jp
 nakagawa.hokkaido.jp
@@ -2255,6 +2516,7 @@ nanae.hokkaido.jp
 nanporo.hokkaido.jp
 nayoro.hokkaido.jp
 nemuro.hokkaido.jp
+niikappu.hokkaido.jp
 niki.hokkaido.jp
 nishiokoppe.hokkaido.jp
 noboribetsu.hokkaido.jp
@@ -2262,7 +2524,9 @@ numata.hokkaido.jp
 obihiro.hokkaido.jp
 obira.hokkaido.jp
 oketo.hokkaido.jp
+okoppe.hokkaido.jp
 otaru.hokkaido.jp
+otobe.hokkaido.jp
 otofuke.hokkaido.jp
 otoineppu.hokkaido.jp
 oumu.hokkaido.jp
@@ -2270,6 +2534,7 @@ ozora.hokkaido.jp
 pippu.hokkaido.jp
 rankoshi.hokkaido.jp
 rebun.hokkaido.jp
+rikubetsu.hokkaido.jp
 rishiri.hokkaido.jp
 rishirifuji.hokkaido.jp
 saroma.hokkaido.jp
@@ -2299,6 +2564,7 @@ tobetsu.hokkaido.jp
 tohma.hokkaido.jp
 tomakomai.hokkaido.jp
 tomari.hokkaido.jp
+toya.hokkaido.jp
 toyako.hokkaido.jp
 toyotomi.hokkaido.jp
 toyoura.hokkaido.jp
@@ -2321,6 +2587,8 @@ asago.hyogo.jp
 ashiya.hyogo.jp
 awaji.hyogo.jp
 fukusaki.hyogo.jp
+goshiki.hyogo.jp
+harima.hyogo.jp
 himeji.hyogo.jp
 ichikawa.hyogo.jp
 inagawa.hyogo.jp
@@ -2329,10 +2597,12 @@ kakogawa.hyogo.jp
 kamigori.hyogo.jp
 kamikawa.hyogo.jp
 kasai.hyogo.jp
+kasuga.hyogo.jp
 kawanishi.hyogo.jp
 miki.hyogo.jp
 minamiawaji.hyogo.jp
 nishinomiya.hyogo.jp
+nishiwaki.hyogo.jp
 ono.hyogo.jp
 sanda.hyogo.jp
 sannan.hyogo.jp
@@ -2351,19 +2621,24 @@ tamba.hyogo.jp
 tatsuno.hyogo.jp
 toyooka.hyogo.jp
 yabu.hyogo.jp
+yashiro.hyogo.jp
 yoka.hyogo.jp
 yokawa.hyogo.jp
 ami.ibaraki.jp
+asahi.ibaraki.jp
 bando.ibaraki.jp
 chikusei.ibaraki.jp
 daigo.ibaraki.jp
+fujishiro.ibaraki.jp
 hitachi.ibaraki.jp
 hitachinaka.ibaraki.jp
 hitachiomiya.ibaraki.jp
 hitachiota.ibaraki.jp
 ibaraki.ibaraki.jp
+ina.ibaraki.jp
 inashiki.ibaraki.jp
 itako.ibaraki.jp
+iwama.ibaraki.jp
 joso.ibaraki.jp
 kamisu.ibaraki.jp
 kasama.ibaraki.jp
@@ -2375,6 +2650,8 @@ mito.ibaraki.jp
 moriya.ibaraki.jp
 naka.ibaraki.jp
 namegata.ibaraki.jp
+oarai.ibaraki.jp
+ogawa.ibaraki.jp
 omitama.ibaraki.jp
 ryugasaki.ibaraki.jp
 sakai.ibaraki.jp
@@ -2382,14 +2659,21 @@ sakuragawa.ibaraki.jp
 shimodate.ibaraki.jp
 shimotsuma.ibaraki.jp
 shirosato.ibaraki.jp
+sowa.ibaraki.jp
+suifu.ibaraki.jp
 takahagi.ibaraki.jp
+tamatsukuri.ibaraki.jp
 tokai.ibaraki.jp
+tomobe.ibaraki.jp
 tone.ibaraki.jp
 toride.ibaraki.jp
+tsuchiura.ibaraki.jp
 tsukuba.ibaraki.jp
 uchihara.ibaraki.jp
 ushiku.ibaraki.jp
+yachiyo.ibaraki.jp
 yamagata.ibaraki.jp
+yawara.ibaraki.jp
 yuki.ibaraki.jp
 anamizu.ishikawa.jp
 hakui.ishikawa.jp
@@ -2411,6 +2695,7 @@ tsurugi.ishikawa.jp
 uchinada.ishikawa.jp
 wajima.ishikawa.jp
 fudai.iwate.jp
+fujisawa.iwate.jp
 hanamaki.iwate.jp
 hiraizumi.iwate.jp
 hirono.iwate.jp
@@ -2418,6 +2703,7 @@ ichinohe.iwate.jp
 ichinoseki.iwate.jp
 iwaizumi.iwate.jp
 iwate.iwate.jp
+joboji.iwate.jp
 kamaishi.iwate.jp
 kanegasaki.iwate.jp
 karumai.iwate.jp
@@ -2454,6 +2740,7 @@ sanuki.kagawa.jp
 tadotsu.kagawa.jp
 takamatsu.kagawa.jp
 tonosho.kagawa.jp
+uchinomi.kagawa.jp
 utazu.kagawa.jp
 zentsuji.kagawa.jp
 akune.kagoshima.jp
@@ -2464,11 +2751,15 @@ isen.kagoshima.jp
 izumi.kagoshima.jp
 kagoshima.kagoshima.jp
 kanoya.kagoshima.jp
+kawanabe.kagoshima.jp
 kinko.kagoshima.jp
+kouyama.kagoshima.jp
+makurazaki.kagoshima.jp
 matsumoto.kagoshima.jp
 minamitane.kagoshima.jp
 nakatane.kagoshima.jp
 nishinoomote.kagoshima.jp
+satsumasendai.kagoshima.jp
 soo.kagoshima.jp
 tarumizu.kagoshima.jp
 yusui.kagoshima.jp
@@ -2495,6 +2786,7 @@ oi.kanagawa.jp
 oiso.kanagawa.jp
 sagamihara.kanagawa.jp
 samukawa.kanagawa.jp
+tsukui.kanagawa.jp
 yamakita.kanagawa.jp
 yamato.kanagawa.jp
 yokosuka.kanagawa.jp
@@ -2504,6 +2796,7 @@ zushi.kanagawa.jp
 aki.kochi.jp
 geisei.kochi.jp
 hidaka.kochi.jp
+higashitsuno.kochi.jp
 ino.kochi.jp
 kagami.kochi.jp
 kami.kochi.jp
@@ -2514,6 +2807,8 @@ motoyama.kochi.jp
 muroto.kochi.jp
 nahari.kochi.jp
 nakamura.kochi.jp
+nankoku.kochi.jp
+nishitosa.kochi.jp
 niyodogawa.kochi.jp
 ochi.kochi.jp
 okawa.kochi.jp
@@ -2521,6 +2816,7 @@ otoyo.kochi.jp
 otsuki.kochi.jp
 sakawa.kochi.jp
 sukumo.kochi.jp
+susaki.kochi.jp
 tosa.kochi.jp
 tosashimizu.kochi.jp
 toyo.kochi.jp
@@ -2531,6 +2827,7 @@ yusuhara.kochi.jp
 amakusa.kumamoto.jp
 arao.kumamoto.jp
 aso.kumamoto.jp
+choyo.kumamoto.jp
 gyokuto.kumamoto.jp
 kamiamakusa.kumamoto.jp
 kikuchi.kumamoto.jp
@@ -2543,12 +2840,14 @@ nagasu.kumamoto.jp
 nishihara.kumamoto.jp
 oguni.kumamoto.jp
 ozu.kumamoto.jp
+sumoto.kumamoto.jp
 takamori.kumamoto.jp
 uki.kumamoto.jp
 uto.kumamoto.jp
 yamaga.kumamoto.jp
 yamato.kumamoto.jp
 yatsushiro.kumamoto.jp
+ayabe.kyoto.jp
 fukuchiyama.kyoto.jp
 higashiyama.kyoto.jp
 ide.kyoto.jp
@@ -2557,6 +2856,7 @@ joyo.kyoto.jp
 kameoka.kyoto.jp
 kamo.kyoto.jp
 kita.kyoto.jp
+kizu.kyoto.jp
 kumiyama.kyoto.jp
 kyotamba.kyoto.jp
 kyotanabe.kyoto.jp
@@ -2567,6 +2867,7 @@ minamiyamashiro.kyoto.jp
 miyazu.kyoto.jp
 muko.kyoto.jp
 nagaokakyo.kyoto.jp
+nakagyo.kyoto.jp
 nantan.kyoto.jp
 oyamazaki.kyoto.jp
 sakyo.kyoto.jp
@@ -2597,6 +2898,7 @@ miyama.mie.jp
 nabari.mie.jp
 shima.mie.jp
 suzuka.mie.jp
+tado.mie.jp
 taiki.mie.jp
 taki.mie.jp
 tamaki.mie.jp
@@ -2624,6 +2926,7 @@ ohira.miyagi.jp
 onagawa.miyagi.jp
 osaki.miyagi.jp
 rifu.miyagi.jp
+semine.miyagi.jp
 shibata.miyagi.jp
 shichikashuku.miyagi.jp
 shikama.miyagi.jp
@@ -2644,6 +2947,9 @@ hyuga.miyazaki.jp
 kadogawa.miyazaki.jp
 kawaminami.miyazaki.jp
 kijo.miyazaki.jp
+kitagawa.miyazaki.jp
+kitakata.miyazaki.jp
+kitaura.miyazaki.jp
 kobayashi.miyazaki.jp
 kunitomi.miyazaki.jp
 kushima.miyazaki.jp
@@ -2654,9 +2960,11 @@ morotsuka.miyazaki.jp
 nichinan.miyazaki.jp
 nishimera.miyazaki.jp
 nobeoka.miyazaki.jp
+saito.miyazaki.jp
 shiiba.miyazaki.jp
 shintomi.miyazaki.jp
 takaharu.miyazaki.jp
+takanabe.miyazaki.jp
 takazaki.miyazaki.jp
 tsuno.miyazaki.jp
 achi.nagano.jp
@@ -2668,6 +2976,7 @@ azumino.nagano.jp
 chikuhoku.nagano.jp
 chikuma.nagano.jp
 chino.nagano.jp
+fujimi.nagano.jp
 hakuba.nagano.jp
 hara.nagano.jp
 hiraya.nagano.jp
@@ -2681,6 +2990,7 @@ ina.nagano.jp
 karuizawa.nagano.jp
 kawakami.nagano.jp
 kiso.nagano.jp
+kisofukushima.nagano.jp
 kitaaiki.nagano.jp
 komagane.nagano.jp
 komoro.nagano.jp
@@ -2719,15 +3029,20 @@ shiojiri.nagano.jp
 suwa.nagano.jp
 suzaka.nagano.jp
 takagi.nagano.jp
+takamori.nagano.jp
 takayama.nagano.jp
 tateshina.nagano.jp
 tatsuno.nagano.jp
+togakushi.nagano.jp
+togura.nagano.jp
 tomi.nagano.jp
 ueda.nagano.jp
+wada.nagano.jp
 yamagata.nagano.jp
 yamanouchi.nagano.jp
 yasaka.nagano.jp
 yasuoka.nagano.jp
+chijiwa.nagasaki.jp
 futsu.nagasaki.jp
 goto.nagasaki.jp
 hasami.nagasaki.jp
@@ -2735,6 +3050,7 @@ hirado.nagasaki.jp
 iki.nagasaki.jp
 isahaya.nagasaki.jp
 kawatana.nagasaki.jp
+kuchinotsu.nagasaki.jp
 matsuura.nagasaki.jp
 nagasaki.nagasaki.jp
 obama.nagasaki.jp
@@ -2769,6 +3085,7 @@ miyake.nara.jp
 nara.nara.jp
 nosegawa.nara.jp
 oji.nara.jp
+ouda.nara.jp
 oyodo.nara.jp
 sakurai.nara.jp
 sango.nara.jp
@@ -2796,6 +3113,7 @@ kariwa.niigata.jp
 kashiwazaki.niigata.jp
 minamiuonuma.niigata.jp
 mitsuke.niigata.jp
+muika.niigata.jp
 murakami.niigata.jp
 myoko.niigata.jp
 nagaoka.niigata.jp
@@ -2805,20 +3123,24 @@ omi.niigata.jp
 sado.niigata.jp
 sanjo.niigata.jp
 seiro.niigata.jp
+seirou.niigata.jp
 sekikawa.niigata.jp
 shibata.niigata.jp
 tagami.niigata.jp
 tainai.niigata.jp
+tochio.niigata.jp
 tokamachi.niigata.jp
 tsubame.niigata.jp
 tsunan.niigata.jp
 uonuma.niigata.jp
 yahiko.niigata.jp
+yoita.niigata.jp
 yuzawa.niigata.jp
 beppu.oita.jp
 bungoono.oita.jp
 bungotakada.oita.jp
 hasama.oita.jp
+hiji.oita.jp
 himeshima.oita.jp
 hita.oita.jp
 kamitsue.oita.jp
@@ -2868,6 +3190,7 @@ higashi.okinawa.jp
 hirara.okinawa.jp
 iheya.okinawa.jp
 ishigaki.okinawa.jp
+ishikawa.okinawa.jp
 itoman.okinawa.jp
 izena.okinawa.jp
 kadena.okinawa.jp
@@ -2881,6 +3204,7 @@ motobu.okinawa.jp
 nago.okinawa.jp
 naha.okinawa.jp
 nakagusuku.okinawa.jp
+nakijin.okinawa.jp
 nanjo.okinawa.jp
 nishihara.okinawa.jp
 ogimi.okinawa.jp
@@ -2907,6 +3231,7 @@ fujiidera.osaka.jp
 habikino.osaka.jp
 hannan.osaka.jp
 higashiosaka.osaka.jp
+higashisumiyoshi.osaka.jp
 higashiyodogawa.osaka.jp
 hirakata.osaka.jp
 ibaraki.osaka.jp
@@ -2919,17 +3244,21 @@ kaizuka.osaka.jp
 kanan.osaka.jp
 kashiwara.osaka.jp
 katano.osaka.jp
+kawachinagano.osaka.jp
 kishiwada.osaka.jp
 kita.osaka.jp
 kumatori.osaka.jp
 matsubara.osaka.jp
+minato.osaka.jp
 minoh.osaka.jp
 misaki.osaka.jp
 moriguchi.osaka.jp
 neyagawa.osaka.jp
+nishi.osaka.jp
 nose.osaka.jp
 osakasayama.osaka.jp
 sakai.osaka.jp
+sayama.osaka.jp
 sennan.osaka.jp
 settsu.osaka.jp
 shijonawate.osaka.jp
@@ -2938,6 +3267,7 @@ suita.osaka.jp
 tadaoka.osaka.jp
 taishi.osaka.jp
 tajiri.osaka.jp
+takaishi.osaka.jp
 takatsuki.osaka.jp
 tondabayashi.osaka.jp
 toyonaka.osaka.jp
@@ -2947,20 +3277,29 @@ ariake.saga.jp
 arita.saga.jp
 fukudomi.saga.jp
 genkai.saga.jp
+hamatama.saga.jp
+hizen.saga.jp
 imari.saga.jp
+kamimine.saga.jp
 kanzaki.saga.jp
 karatsu.saga.jp
 kashima.saga.jp
+kitagata.saga.jp
+kitahata.saga.jp
 kiyama.saga.jp
 kouhoku.saga.jp
+kyuragi.saga.jp
 nishiarita.saga.jp
 ogi.saga.jp
 omachi.saga.jp
+ouchi.saga.jp
 saga.saga.jp
 shiroishi.saga.jp
 taku.saga.jp
 tara.saga.jp
+tosu.saga.jp
 yoshinogari.saga.jp
+arakawa.saitama.jp
 asaka.saitama.jp
 chichibu.saitama.jp
 fujimi.saitama.jp
@@ -2969,6 +3308,7 @@ fukaya.saitama.jp
 hanno.saitama.jp
 hanyu.saitama.jp
 hasuda.saitama.jp
+hatogaya.saitama.jp
 hatoyama.saitama.jp
 hidaka.saitama.jp
 higashichichibu.saitama.jp
@@ -2976,6 +3316,7 @@ higashimatsuyama.saitama.jp
 honjo.saitama.jp
 ina.saitama.jp
 iruma.saitama.jp
+iwatsuki.saitama.jp
 kamiizumi.saitama.jp
 kamikawa.saitama.jp
 kamisato.saitama.jp
@@ -3003,11 +3344,15 @@ ogawa.saitama.jp
 ogose.saitama.jp
 okegawa.saitama.jp
 omiya.saitama.jp
+otaki.saitama.jp
 ranzan.saitama.jp
+ryokami.saitama.jp
 saitama.saitama.jp
+sakado.saitama.jp
 satte.saitama.jp
 sayama.saitama.jp
 shiki.saitama.jp
+shiraoka.saitama.jp
 soka.saitama.jp
 sugito.saitama.jp
 toda.saitama.jp
@@ -3020,39 +3365,56 @@ yashio.saitama.jp
 yokoze.saitama.jp
 yono.saitama.jp
 yorii.saitama.jp
+yoshida.saitama.jp
 yoshikawa.saitama.jp
 yoshimi.saitama.jp
 aisho.shiga.jp
+gamo.shiga.jp
 higashiomi.shiga.jp
 hikone.shiga.jp
 koka.shiga.jp
 konan.shiga.jp
 kosei.shiga.jp
+koto.shiga.jp
 kusatsu.shiga.jp
 maibara.shiga.jp
 moriyama.shiga.jp
 nagahama.shiga.jp
 nishiazai.shiga.jp
+notogawa.shiga.jp
 omihachiman.shiga.jp
 otsu.shiga.jp
 ritto.shiga.jp
 ryuoh.shiga.jp
 takashima.shiga.jp
 takatsuki.shiga.jp
+torahime.shiga.jp
 toyosato.shiga.jp
 yasu.shiga.jp
+akagi.shimane.jp
 ama.shimane.jp
+gotsu.shimane.jp
 hamada.shimane.jp
+higashiizumo.shimane.jp
+hikawa.shimane.jp
+hikimi.shimane.jp
 izumo.shimane.jp
+kakinoki.shimane.jp
+masuda.shimane.jp
 matsue.shimane.jp
 misato.shimane.jp
 nishinoshima.shimane.jp
 ohda.shimane.jp
 okinoshima.shimane.jp
 okuizumo.shimane.jp
+shimane.shimane.jp
+tamayu.shimane.jp
 tsuwano.shimane.jp
 unnan.shimane.jp
+yakumo.shimane.jp
 yasugi.shimane.jp
+yatsuka.shimane.jp
+arai.shizuoka.jp
 atami.shizuoka.jp
 fuji.shizuoka.jp
 fujieda.shizuoka.jp
@@ -3092,6 +3454,7 @@ ashikaga.tochigi.jp
 bato.tochigi.jp
 haga.tochigi.jp
 ichikai.tochigi.jp
+iwafune.tochigi.jp
 kaminokawa.tochigi.jp
 kanuma.tochigi.jp
 karasuyama.tochigi.jp
@@ -3103,6 +3466,9 @@ motegi.tochigi.jp
 nasu.tochigi.jp
 nasushiobara.tochigi.jp
 nikko.tochigi.jp
+nishikata.tochigi.jp
+nogi.tochigi.jp
+ohira.tochigi.jp
 ohtawara.tochigi.jp
 oyama.tochigi.jp
 sakura.tochigi.jp
@@ -3111,11 +3477,13 @@ shimotsuke.tochigi.jp
 shioya.tochigi.jp
 takanezawa.tochigi.jp
 tochigi.tochigi.jp
+tsuga.tochigi.jp
 ujiie.tochigi.jp
 utsunomiya.tochigi.jp
 yaita.tochigi.jp
 aizumi.tokushima.jp
 anan.tokushima.jp
+ichiba.tokushima.jp
 itano.tokushima.jp
 kainan.tokushima.jp
 komatsushima.tokushima.jp
@@ -3124,6 +3492,7 @@ mima.tokushima.jp
 minami.tokushima.jp
 miyoshi.tokushima.jp
 mugi.tokushima.jp
+nakagawa.tokushima.jp
 naruto.tokushima.jp
 sanagochi.tokushima.jp
 shishikui.tokushima.jp
@@ -3188,6 +3557,7 @@ tama.tokyo.jp
 toshima.tokyo.jp
 chizu.tottori.jp
 hino.tottori.jp
+kawahara.tottori.jp
 koge.tottori.jp
 kotoura.tottori.jp
 misasa.tottori.jp
@@ -3197,11 +3567,15 @@ sakaiminato.tottori.jp
 tottori.tottori.jp
 wakasa.tottori.jp
 yazu.tottori.jp
+yonago.tottori.jp
 asahi.toyama.jp
+fuchu.toyama.jp
 fukumitsu.toyama.jp
 funahashi.toyama.jp
 himi.toyama.jp
 imizu.toyama.jp
+inami.toyama.jp
+johana.toyama.jp
 kamiichi.toyama.jp
 kurobe.toyama.jp
 nakaniikawa.toyama.jp
@@ -3209,12 +3583,15 @@ namerikawa.toyama.jp
 nanto.toyama.jp
 nyuzen.toyama.jp
 oyabe.toyama.jp
+taira.toyama.jp
 takaoka.toyama.jp
 tateyama.toyama.jp
+toga.toyama.jp
 tonami.toyama.jp
 toyama.toyama.jp
 unazuki.toyama.jp
 uozu.toyama.jp
+yamada.toyama.jp
 arida.wakayama.jp
 aridagawa.wakayama.jp
 gobo.wakayama.jp
@@ -3235,6 +3612,7 @@ kozagawa.wakayama.jp
 kudoyama.wakayama.jp
 kushimoto.wakayama.jp
 mihama.wakayama.jp
+misato.wakayama.jp
 nachikatsuura.wakayama.jp
 shingu.wakayama.jp
 shirahama.wakayama.jp
@@ -3277,6 +3655,7 @@ yamagata.yamagata.jp
 yamanobe.yamagata.jp
 yonezawa.yamagata.jp
 yuza.yamagata.jp
+abu.yamaguchi.jp
 hagi.yamaguchi.jp
 hikari.yamaguchi.jp
 hofu.yamaguchi.jp
@@ -3284,9 +3663,14 @@ iwakuni.yamaguchi.jp
 kudamatsu.yamaguchi.jp
 mitou.yamaguchi.jp
 nagato.yamaguchi.jp
+oshima.yamaguchi.jp
 shimonoseki.yamaguchi.jp
+shunan.yamaguchi.jp
 tabuse.yamaguchi.jp
+tokuyama.yamaguchi.jp
+toyota.yamaguchi.jp
 ube.yamaguchi.jp
+yuu.yamaguchi.jp
 chuo.yamanashi.jp
 doshi.yamanashi.jp
 fuefuki.yamanashi.jp
@@ -3353,9 +3737,25 @@ com.ki
 // km : https://en.wikipedia.org/wiki/.km
 // http://www.domaine.km/documents/charte.doc
 km
+org.km
+nom.km
 gov.km
+prd.km
+tm.km
+edu.km
+mil.km
+ass.km
+com.km
 // These are only mentioned as proposed suggestions at domaine.km, but
 // https://en.wikipedia.org/wiki/.km says they're available for registration:
+coop.km
+asso.km
+presse.km
+medecin.km
+notaires.km
+pharmaciens.km
+veterinaire.km
+gouv.km
 
 // kn : https://en.wikipedia.org/wiki/.kn
 // http://www.dot.kn/domainRules.html
@@ -3372,6 +3772,7 @@ edu.kp
 gov.kp
 org.kp
 rep.kp
+tra.kp
 
 // kr : https://en.wikipedia.org/wiki/.kr
 // see also: http://domain.nida.or.kr/eng/registration.jsp
@@ -3444,6 +3845,7 @@ net.la
 info.la
 edu.la
 gov.la
+per.la
 com.la
 org.la
 
@@ -3472,6 +3874,7 @@ li
 // lk : https://www.nic.lk/index.php/domain-registration/lk-domain-naming-structure
 lk
 gov.lk
+sch.lk
 net.lk
 int.lk
 com.lk
@@ -3499,8 +3902,11 @@ net.lr
 // Confirmed by registry <lsadmin@nic.ls>
 ls
 ac.ls
+biz.ls
 co.ls
+edu.ls
 gov.ls
+info.ls
 net.ls
 org.ls
 sc.ls
@@ -3572,6 +3978,7 @@ org.mg
 nom.mg
 gov.mg
 prd.mg
+tm.mg
 edu.mg
 mil.mg
 com.mg
@@ -3639,6 +4046,9 @@ gov.mr
 // ms : http://www.nic.ms/pdf/MS_Domain_Name_Rules.pdf
 ms
 com.ms
+edu.ms
+gov.ms
+net.ms
 org.ms
 
 // mt : https://www.nic.org.mt/go/policy
@@ -3665,6 +4075,8 @@ museum
 // mv : https://en.wikipedia.org/wiki/.mv
 // "mv" included because, contra Wikipedia, google.mv exists.
 mv
+aero.mv
+biz.mv
 com.mv
 coop.mv
 edu.mv
@@ -3688,6 +4100,7 @@ coop.mw
 edu.mw
 gov.mw
 int.mw
+museum.mw
 net.mw
 org.mw
 
@@ -3728,9 +4141,19 @@ org.mz
 // http://www.info.na/domain/
 na
 info.na
+pro.na
+name.na
 school.na
+or.na
 dr.na
+us.na
+mx.na
+ca.na
 in.na
+cc.na
+tv.na
+ws.na
+mobi.na
 co.na
 com.na
 org.na
@@ -3777,6 +4200,7 @@ sch.ng
 
 // ni : http://www.nic.ni/
 ni
+ac.ni
 biz.ni
 co.ni
 com.ni
@@ -3789,6 +4213,7 @@ mil.ni
 net.ni
 nom.ni
 org.ni
+web.ni
 
 // nl : https://en.wikipedia.org/wiki/.nl
 //      https://www.sidn.nl/
@@ -3845,6 +4270,7 @@ gs.bu.no
 gs.fm.no
 gs.hl.no
 gs.hm.no
+gs.jan-mayen.no
 gs.mr.no
 gs.nl.no
 gs.nt.no
@@ -3854,6 +4280,7 @@ gs.oslo.no
 gs.rl.no
 gs.sf.no
 gs.st.no
+gs.svalbard.no
 gs.tm.no
 gs.tr.no
 gs.va.no
@@ -3946,6 +4373,7 @@ askoy.no
 askøy.no
 asnes.no
 åsnes.no
+audnedaln.no
 aukra.no
 aure.no
 aurland.no
@@ -3978,6 +4406,8 @@ bearalvahki.no
 bearalváhki.no
 bindal.no
 birkenes.no
+bjarkoy.no
+bjarkøy.no
 bjerkreim.no
 bjugn.no
 bodo.no
@@ -4604,8 +5034,10 @@ med.om
 museum.om
 net.om
 org.om
+pro.om
 
 // onion : https://tools.ietf.org/html/rfc7686
+onion
 
 // org : https://en.wikipedia.org/wiki/.org
 org
@@ -4655,6 +5087,7 @@ gov.ph
 edu.ph
 ngo.ph
 mil.ph
+i.ph
 
 // pk : http://pk5.pknic.net.pk/pk5/msgNamepk.PK
 pk
@@ -4671,6 +5104,7 @@ gok.pk
 gon.pk
 gop.pk
 gos.pk
+info.pk
 
 // pl http://www.dns.pl/english/index.html
 // Submitted by registry
@@ -4713,16 +5147,21 @@ turystyka.pl
 gov.pl
 ap.gov.pl
 griw.gov.pl
+ic.gov.pl
+is.gov.pl
 kmpsp.gov.pl
 konsulat.gov.pl
 kppsp.gov.pl
+kwp.gov.pl
 kwpsp.gov.pl
 mup.gov.pl
 mw.gov.pl
 oia.gov.pl
+oirm.gov.pl
 oke.gov.pl
 oow.gov.pl
 oschr.gov.pl
+oum.gov.pl
 pa.gov.pl
 pinb.gov.pl
 piw.gov.pl
@@ -4744,6 +5183,7 @@ um.gov.pl
 umig.gov.pl
 upow.gov.pl
 uppo.gov.pl
+us.gov.pl
 uw.gov.pl
 uzs.gov.pl
 wif.gov.pl
@@ -4754,8 +5194,10 @@ witd.gov.pl
 wiw.gov.pl
 wkz.gov.pl
 wsa.gov.pl
+wskr.gov.pl
 wsse.gov.pl
 wuoz.gov.pl
+wzmiuw.gov.pl
 zp.gov.pl
 zpisdn.gov.pl
 // pl regional domains (http://www.dns.pl/english/index.html)
@@ -4927,7 +5369,10 @@ recht.pro
 // ps : https://en.wikipedia.org/wiki/.ps
 // http://www.nic.ps/registration/policy.html#reg
 ps
+edu.ps
 gov.ps
+sec.ps
+plo.ps
 com.ps
 org.ps
 net.ps
@@ -4978,6 +5423,7 @@ sch.qa
 re
 asso.re
 com.re
+nom.re
 
 // ro : http://www.rotld.ro/
 ro
@@ -5079,12 +5525,14 @@ komforb.se
 kommunalforbund.se
 komvux.se
 l.se
+lanbib.se
 m.se
 n.se
 naturbruksgymn.se
 o.se
 org.se
 p.se
+parti.se
 pp.se
 press.se
 r.se
@@ -5112,6 +5560,7 @@ com.sh
 net.sh
 gov.sh
 org.sh
+mil.sh
 
 // si : https://en.wikipedia.org/wiki/.si
 si
@@ -5143,6 +5592,7 @@ com.sn
 edu.sn
 gouv.sn
 org.sn
+perso.sn
 univ.sn
 
 // so : http://sonic.so/policies/
@@ -5171,9 +5621,17 @@ sch.ss
 
 // st : http://www.nic.st/html/policyrules/
 st
+co.st
+com.st
+consulado.st
+edu.st
+embaixada.st
+mil.st
+net.st
 org.st
 principe.st
 saotome.st
+store.st
 
 // su : https://en.wikipedia.org/wiki/.su
 su
@@ -5197,6 +5655,7 @@ sy
 edu.sy
 gov.sy
 net.sy
+mil.sy
 com.sy
 org.sy
 
@@ -5242,8 +5701,10 @@ biz.tj
 co.tj
 com.tj
 edu.tj
+go.tj
 gov.tj
 int.tj
+mil.tj
 name.tj
 net.tj
 nic.tj
@@ -5260,9 +5721,11 @@ gov.tl
 
 // tm : http://www.nic.tm/local.html
 tm
+com.tm
 co.tm
 org.tm
 net.tm
+nom.tm
 gov.tm
 mil.tm
 edu.tm
@@ -5308,6 +5771,7 @@ edu.tr
 gen.tr
 gov.tr
 info.tr
+mil.tr
 k12.tr
 kep.tr
 name.tr
@@ -5333,7 +5797,12 @@ biz.tt
 info.tt
 pro.tt
 int.tt
+coop.tt
+jobs.tt
 mobi.tt
+travel.tt
+museum.tt
+aero.tt
 name.tt
 gov.tt
 edu.tt
@@ -5355,6 +5824,9 @@ idv.tw
 game.tw
 ebiz.tw
 club.tw
+網路.tw
+組織.tw
+商業.tw
 
 // tz : http://www.tznic.or.tz/index.php/domains
 // Submitted by registry <manager@tznic.or.tz>
@@ -5484,6 +5956,7 @@ police.uk
 // us : https://en.wikipedia.org/wiki/.us
 us
 dni.us
+fed.us
 isa.us
 kids.us
 nsn.us
@@ -5491,6 +5964,7 @@ nsn.us
 ak.us
 al.us
 ar.us
+as.us
 az.us
 ca.us
 co.us
@@ -5499,6 +5973,7 @@ dc.us
 de.us
 fl.us
 ga.us
+gu.us
 hi.us
 ia.us
 id.us
@@ -5534,6 +6009,7 @@ sd.us
 tn.us
 tx.us
 ut.us
+vi.us
 vt.us
 va.us
 wa.us
@@ -5549,6 +6025,7 @@ wy.us
 k12.ak.us
 k12.al.us
 k12.ar.us
+k12.as.us
 k12.az.us
 k12.ca.us
 k12.co.us
@@ -5557,6 +6034,7 @@ k12.dc.us
 k12.de.us
 k12.fl.us
 k12.ga.us
+k12.gu.us
 // k12.hi.us  Bug 614565 - Hawaii has a state-wide DOE login
 k12.ia.us
 k12.id.us
@@ -5585,30 +6063,41 @@ k12.oh.us
 k12.ok.us
 k12.or.us
 k12.pa.us
+k12.pr.us
 // k12.ri.us  Removed at request of Kim Cournoyer <netsupport@staff.ri.net>
 k12.sc.us
 // k12.sd.us  Bug 934131 - Removed at request of James Booze <James.Booze@k12.sd.us>
 k12.tn.us
 k12.tx.us
 k12.ut.us
+k12.vi.us
 k12.vt.us
 k12.va.us
 k12.wa.us
 k12.wi.us
 // k12.wv.us  Bug 947705 - Removed at request of Verne Britton <verne@wvnet.edu>
 k12.wy.us
+cc.ak.us
 cc.al.us
 cc.ar.us
+cc.as.us
 cc.az.us
 cc.ca.us
 cc.co.us
+cc.ct.us
+cc.dc.us
+cc.de.us
 cc.fl.us
 cc.ga.us
+cc.gu.us
+cc.hi.us
 cc.ia.us
+cc.id.us
 cc.il.us
 cc.in.us
 cc.ks.us
 cc.ky.us
+cc.la.us
 cc.ma.us
 cc.md.us
 cc.me.us
@@ -5620,6 +6109,7 @@ cc.mt.us
 cc.nc.us
 cc.nd.us
 cc.ne.us
+cc.nh.us
 cc.nj.us
 cc.nm.us
 cc.nv.us
@@ -5628,23 +6118,34 @@ cc.oh.us
 cc.ok.us
 cc.or.us
 cc.pa.us
+cc.pr.us
+cc.ri.us
 cc.sc.us
 cc.sd.us
 cc.tn.us
 cc.tx.us
+cc.ut.us
+cc.vi.us
+cc.vt.us
 cc.va.us
 cc.wa.us
+cc.wi.us
+cc.wv.us
 cc.wy.us
 lib.ak.us
 lib.al.us
 lib.ar.us
+lib.as.us
 lib.az.us
 lib.ca.us
 lib.co.us
 lib.ct.us
+lib.dc.us
 // lib.de.us  Issue #243 - Moved to Private section at request of Ed Moore <Ed.Moore@lib.de.us>
 lib.fl.us
 lib.ga.us
+lib.gu.us
+lib.hi.us
 lib.ia.us
 lib.id.us
 lib.il.us
@@ -5672,11 +6173,14 @@ lib.oh.us
 lib.ok.us
 lib.or.us
 lib.pa.us
+lib.pr.us
+lib.ri.us
 lib.sc.us
 lib.sd.us
 lib.tn.us
 lib.tx.us
 lib.ut.us
+lib.vi.us
 lib.vt.us
 lib.va.us
 lib.wa.us
@@ -5946,6 +6450,7 @@ yt
 ایران
 
 // xn--mgba3a4fra ("Iran", Arabic) : IR
+ايران
 
 // xn--mgbtx2b ("Iraq", Arabic) : IQ
 // Communications and Media Commission
@@ -5988,6 +6493,7 @@ yt
 澳門
 
 // xn--mix082f ("Macao", Chinese, Simplified) : MO
+澳门
 
 // xn--mgbx4cd0ab ("Malaysia", Malay) : MY
 مليسيا
@@ -5996,8 +6502,10 @@ yt
 عمان
 
 // xn--mgbai9azgqp6j ("Pakistan", Urdu/Arabic) : PK
+پاکستان
 
 // xn--mgbai9a5eva00b ("Pakistan", Urdu/Arabic, variant) : PK
+پاكستان
 
 // xn--ygbi2ammx ("Falasteen", Arabic) : PS
 // The Palestinian National Internet Naming Authority (PNINA)
@@ -6028,10 +6536,13 @@ yt
 السعودية
 
 // xn--mgberp4a5d4a87g ("AlSaudiah", Arabic, variant)  : SA
+السعودیة
 
 // xn--mgbqly7c0a67fbc ("AlSaudiah", Arabic, variant) : SA
+السعودیۃ
 
 // xn--mgbqly7cvafr ("AlSaudiah", Arabic, variant) : SA
+السعوديه
 
 // xn--mgbpl2fh ("sudan", Arabic) : SD
 // Operated by .sd registry
@@ -6047,6 +6558,7 @@ yt
 سورية
 
 // xn--mgbtf8fl ("Syria", Arabic, variant) : SY
+سوريا
 
 // xn--o3cw4h ("Thai", Thai) : TH
 // http://www.thnic.co.th
@@ -6071,11 +6583,13 @@ yt
 台湾
 
 // xn--nnx388a ("Taiwan", Chinese, variant) : TW
+臺灣
 
 // xn--j1amh ("ukr", Cyrillic) : UA
 укр
 
 // xn--mgb2ddes ("AlYemen", Arabic) : YE
+اليمن
 
 // xxx : http://icmregistry.com
 xxx
@@ -6100,6 +6614,7 @@ grondar.za
 law.za
 mil.za
 net.za
+ngo.za
 nic.za
 nis.za
 nom.za
@@ -6129,6 +6644,7 @@ zw
 ac.zw
 co.zw
 gov.zw
+mil.zw
 org.zw
 
 
@@ -9593,6 +10109,7 @@ ltd.ua
 
 // Aaron Marais' Gitlab pages: https://lab.aaronleem.co.za
 // Submitted by Aaron Marais <its_me@aaronleem.co.za>
+graphox.us
 
 // accesso Technology Group, plc. : https://accesso.com/
 // Submitted by accesso Team <accessoecommerce@accesso.com>
@@ -9756,26 +10273,47 @@ s3-website.us-east-2.amazonaws.com
 // Submitted by: AWS Security <psl-maintainers@amazon.com>
 // Reference: 2b6dfa9a-3a7f-4367-b2e7-0321e77c0d59
 vfs.cloud9.af-south-1.amazonaws.com
+webview-assets.cloud9.af-south-1.amazonaws.com
 vfs.cloud9.ap-east-1.amazonaws.com
+webview-assets.cloud9.ap-east-1.amazonaws.com
 vfs.cloud9.ap-northeast-1.amazonaws.com
+webview-assets.cloud9.ap-northeast-1.amazonaws.com
 vfs.cloud9.ap-northeast-2.amazonaws.com
+webview-assets.cloud9.ap-northeast-2.amazonaws.com
 vfs.cloud9.ap-northeast-3.amazonaws.com
+webview-assets.cloud9.ap-northeast-3.amazonaws.com
 vfs.cloud9.ap-south-1.amazonaws.com
+webview-assets.cloud9.ap-south-1.amazonaws.com
 vfs.cloud9.ap-southeast-1.amazonaws.com
+webview-assets.cloud9.ap-southeast-1.amazonaws.com
 vfs.cloud9.ap-southeast-2.amazonaws.com
+webview-assets.cloud9.ap-southeast-2.amazonaws.com
 vfs.cloud9.ca-central-1.amazonaws.com
+webview-assets.cloud9.ca-central-1.amazonaws.com
 vfs.cloud9.eu-central-1.amazonaws.com
+webview-assets.cloud9.eu-central-1.amazonaws.com
 vfs.cloud9.eu-north-1.amazonaws.com
+webview-assets.cloud9.eu-north-1.amazonaws.com
 vfs.cloud9.eu-south-1.amazonaws.com
+webview-assets.cloud9.eu-south-1.amazonaws.com
 vfs.cloud9.eu-west-1.amazonaws.com
+webview-assets.cloud9.eu-west-1.amazonaws.com
 vfs.cloud9.eu-west-2.amazonaws.com
+webview-assets.cloud9.eu-west-2.amazonaws.com
 vfs.cloud9.eu-west-3.amazonaws.com
+webview-assets.cloud9.eu-west-3.amazonaws.com
 vfs.cloud9.me-south-1.amazonaws.com
+webview-assets.cloud9.me-south-1.amazonaws.com
 vfs.cloud9.sa-east-1.amazonaws.com
+webview-assets.cloud9.sa-east-1.amazonaws.com
 vfs.cloud9.us-east-1.amazonaws.com
+webview-assets.cloud9.us-east-1.amazonaws.com
 vfs.cloud9.us-east-2.amazonaws.com
+webview-assets.cloud9.us-east-2.amazonaws.com
 vfs.cloud9.us-west-1.amazonaws.com
+webview-assets.cloud9.us-west-1.amazonaws.com
 vfs.cloud9.us-west-2.amazonaws.com
+webview-assets.cloud9.us-west-2.amazonaws.com
 
 // AWS Elastic Beanstalk
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
@@ -9823,6 +10361,7 @@ eero-stage.online
 // Amune : https://amune.org/
 // Submitted by Team Amune <cert@amune.org>
 t3l3p0rt.net
+tele.amune.org
 
 // Apigee : https://apigee.com/
 // Submitted by Apigee Security Team <security@apigee.com>
@@ -9995,6 +10534,8 @@ browsersafetymark.io
 // Bytemark Hosting : https://www.bytemark.co.uk
 // Submitted by Paul Cammish <paul.cammish@bytemark.co.uk>
 uk0.bigv.io
+dh.bytemark.co.uk
+vm.bytemark.co.uk
 
 // Caf.js Labs LLC : https://www.cafjs.com
 // Submitted by Antonio Lain <antlai@cafjs.com>
@@ -10015,6 +10556,7 @@ drr.ac
 uwu.ai
 carrd.co
 crd.co
+ju.mp
 
 // CentralNic : http://www.centralnic.com/names/domains
 // Submitted by registry <gavin.brown@centralnic.com>
@@ -10042,8 +10584,11 @@ za.com
 // No longer operated by CentralNic, these entries should be adopted and/or removed by current operators
 // Submitted by Gavin Brown <gavin.brown@centralnic.com>
 ar.com
+hu.com
+kr.com
 no.com
 qc.com
+uy.com
 
 // Africa.com Web Solutions Ltd : https://registry.africa.com
 // Submitted by Gavin Brown <gavin.brown@centralnic.com>
@@ -10077,6 +10622,7 @@ radio.am
 radio.fm
 
 // c.la : http://www.c.la/
+c.la
 
 // certmgr.org : https://certmgr.org
 // Submitted by B. Blechschmidt <hostmaster@certmgr.org>
@@ -10159,7 +10705,9 @@ co.cz
 // Submitted by Jan Krpes <jan.krpes@cdn77.com>
 c.cdn77.org
 cdn77-ssl.net
+r.cdn77.net
 rsc.cdn77.org
+ssl.origin.cdn77-secure.org
 
 // Cloud DNS Ltd : http://www.cloudns.net
 // Submitted by Aleksander Hristov <noc@cloudns.net>
@@ -10199,6 +10747,7 @@ edu.ru
 gov.ru
 int.ru
 mil.ru
+test.ru
 
 // COSIMO GmbH : http://www.cosimo.de
 // Submitted by Rene Marticke <rmarticke@cosimo.de>
@@ -10222,6 +10771,7 @@ realm.cz
 
 // Cupcake : https://cupcake.io/
 // Submitted by Jonathan Rudenberg <jonathan@cupcake.io>
+cupcake.is
 
 // Curv UG : https://curv-labs.de/
 // Submitted by Marvin Wiesner <Marvin@curv-labs.de>
@@ -10704,6 +11254,7 @@ blogsite.xyz
 
 // dynv6 : https://dynv6.com
 // Submitted by Dominik Menke <dom@digineo.de>
+dynv6.net
 
 // E4YOU spol. s.r.o. : https://e4you.cz/
 // Submitted by Vladimir Dudr <info@e4you.cz>
@@ -10736,6 +11287,7 @@ encoreapi.com
 // ECG Robotics, Inc: https://ecgrobotics.org
 // Submitted by <frc1533@ecgrobotics.org>
 onred.one
+staging.onred.one
 
 // encoway GmbH : https://www.encoway.de
 // Submitted by Marcel Daus <cloudops@encoway.de>
@@ -10777,6 +11329,7 @@ kr.eu.org
 lt.eu.org
 lu.eu.org
 lv.eu.org
+mc.eu.org
 me.eu.org
 mk.eu.org
 mt.eu.org
@@ -10963,6 +11516,7 @@ fh-muenster.io
 // Filegear Inc. : https://www.filegear.com
 // Submitted by Jason Zhu <jason@owtware.com>
 filegear.me
+filegear-au.me
 filegear-de.me
 filegear-gb.me
 filegear-ie.me
@@ -10975,9 +11529,11 @@ firebaseapp.com
 
 // Firewebkit : https://www.firewebkit.com
 // Submitted by Majid Qureshi <mqureshi@amrayn.com>
+fireweb.app
 
 // FLAP : https://www.flap.cloud
 // Submitted by Louis Chemineau <louis@chmn.me>
+flap.id
 
 // FlashDrive : https://flashdrive.io
 // Submitted by Eric Chan <support@flashdrive.io>
@@ -10992,6 +11548,7 @@ shw.io
 
 // Flynn : https://flynn.io
 // Submitted by Jonathan Rudenberg <jonathan@flynn.io>
+flynnhosting.net
 
 // Forgerock : https://www.forgerock.com
 // Submitted by Roderick Parr <roderick.parr@forgerock.com>
@@ -11240,6 +11797,7 @@ homeoffice.gov.uk
 
 // GlobeHosting, Inc.
 // Submitted by Zoltan Egresi <egresi@globehosting.com>
+ro.im
 
 // GoIP DNS Services : http://www.goip.de
 // Submitted by Christian Poulter <milchstrasse@goip.de>
@@ -11257,6 +11815,7 @@ codespot.com
 googleapis.com
 googlecode.com
 pagespeedmobilizer.com
+publishproxy.com
 withgoogle.com
 withyoutube.com
 *.gateway.dev
@@ -11317,6 +11876,7 @@ blogspot.lt
 blogspot.lu
 blogspot.md
 blogspot.mk
+blogspot.mr
 blogspot.mx
 blogspot.my
 blogspot.nl
@@ -11333,6 +11893,7 @@ blogspot.sg
 blogspot.si
 blogspot.sk
 blogspot.sn
+blogspot.td
 blogspot.tw
 blogspot.ug
 blogspot.vn
@@ -11364,6 +11925,8 @@ conf.se
 
 // Handshake : https://handshake.org
 // Submitted by Mike Damm <md@md.vc>
+hs.zone
+hs.run
 
 // Hashbang : https://hashbang.sh
 hashbang.sh
@@ -11384,6 +11947,7 @@ hepforge.org
 // Heroku : https://www.heroku.com/
 // Submitted by Tom Maher <tmaher@heroku.com>
 herokuapp.com
+herokussl.com
 
 // Hibernating Rhinos
 // Submitted by Oren Eini <oren@ravendb.net>
@@ -11415,6 +11979,7 @@ firm.ng
 gen.ng
 ltd.ng
 ngo.ng
+edu.scot
 sch.so
 
 // HostFly : https://www.ie.ua
@@ -11444,6 +12009,8 @@ iliadboxos.it
 
 // Impertrix Solutions : <https://impertrixcdn.com>
 // Submitted by Zhixiang Zhao <csuite@impertrix.com>
+impertrixcdn.com
+impertrix.com
 
 // Incsub, LLC: https://incsub.com/
 // Submitted by Aaron Edwards <sysadmins@incsub.com>
@@ -11573,6 +12140,7 @@ demo.jelastic.com
 kilatiron.com
 paas.massivegrid.com
 jed.wafaicloud.com
+lon.wafaicloud.com
 ryd.wafaicloud.com
 j.scaleforce.com.cy
 jelastic.dogado.eu
@@ -11586,6 +12154,7 @@ sekd1.beebyteapp.io
 jele.io
 cloud-fr1.unispace.io
 jc.neen.it
+cloud.jelastic.open.tim.it
 jcloud.kz
 upaas.kazteleport.kz
 cloudjiffy.net
@@ -11604,9 +12173,11 @@ sg-1.paas.massivegrid.net
 jelastic.saveincloud.net
 nordeste-idc.saveincloud.net
 j.scaleforce.net
+jelastic.tsukaeru.net
 sdscloud.pl
 unicloud.pl
 mircloud.ru
+jelastic.regruhosting.ru
 enscaled.sg
 jele.site
 jelastic.team
@@ -11676,10 +12247,12 @@ kuleuven.cloud
 ezproxy.kuleuven.be
 
 // .KRD : http://nic.krd/data/krd/Registration%20Policy.pdf
+co.krd
 edu.krd
 
 // Krellian Ltd. : https://krellian.com
 // Submitted by Ben Francis <ben@krellian.com>
+krellian.net
 webthings.io
 
 // LCube - Professional hosting e.K. : https://www.lcube-webhosting.de
@@ -11696,6 +12269,7 @@ lpusercontent.com
 
 // Lelux.fi : https://lelux.fi/
 // Submitted by Lelux Admin <publisuffix@lelux.site>
+lelux.site
 
 // Lifetime Hosting : https://Lifetime.Hosting/
 // Submitted by Mike Fillator <support@lifetime.hosting>
@@ -11808,6 +12382,7 @@ hb.cldmail.ru
 
 // Mail Transfer Platform : https://www.neupeer.com
 // Submitted by Li Hui <lihui@neupeer.com>
+cn.vu
 
 // Maze Play: https://www.mazeplay.com
 // Submitted by Adam Humpherys <adam@mws.dev>
@@ -11882,12 +12457,15 @@ csx.cc
 
 // Mintere : https://mintere.com/
 // Submitted by Ben Aubin <security@mintere.com>
+mintere.site
 
 // MobileEducation, LLC : https://joinforte.com
 // Submitted by Grayson Martin <grayson.martin@mobileeducation.us>
+forte.id
 
 // Mozilla Corporation : https://mozilla.com
 // Submitted by Ben Francis <bfrancis@mozilla.com>
+mozilla-iot.org
 
 // Mozilla Foundation : https://mozilla.org/
 // Submitted by glob <glob@mozilla.com>
@@ -11929,6 +12507,7 @@ netlify.app
 
 // Neustar Inc.
 // Submitted by Trung Tran <Trung.Tran@neustar.biz>
+4u.com
 
 // ngrok : https://ngrok.com/
 // Submitted by Alan Shreve <alan@ngrok.com>
@@ -11973,8 +12552,11 @@ noticeable.news
 
 // Now-DNS : https://now-dns.com
 // Submitted by Steve Russell <steve@now-dns.com>
+dnsking.ch
 mypi.co
 n4t.co
+001www.com
+ddnslive.com
 myiphost.com
 forumz.info
 16-b.it
@@ -11983,14 +12565,17 @@ forumz.info
 soundcast.me
 tcp4.me
 dnsup.net
+hicam.net
 now-dns.net
 ownip.net
 vpndns.net
 dynserv.org
 now-dns.org
 x443.pw
+now-dns.top
 ntdll.top
 freeddns.us
+crafting.xyz
 zapto.xyz
 
 // nsupdate.info : https://www.nsupdate.info/
@@ -12092,9 +12677,11 @@ stage.nodeart.io
 
 // Nucleos Inc. : https://nucleos.com
 // Submitted by Piotr Zduniak <piotr@nucleos.com>
+pcloud.host
 
 // NYC.mn : http://www.information.nyc.mn
 // Submitted by Matthew Brown <mattbrown@nyc.mn>
+nyc.mn
 
 // Observable, Inc. : https://observablehq.com
 // Submitted by Mike Bostock <dns@observablehq.com>
@@ -12102,6 +12689,7 @@ static.observableusercontent.com
 
 // Octopodal Solutions, LLC. : https://ulterius.io/
 // Submitted by Andrew Sampson <andrew@ulterius.io>
+cya.gg
 
 // OMG.LOL : <https://omg.lol>
 // Submitted by Adam Newbold <adam@omg.lol>
@@ -12140,6 +12728,7 @@ simplesite.pl
 
 // One Fold Media : http://www.onefoldmedia.com/
 // Submitted by Eddie Jones <eddie@onefoldmedia.com>
+nid.io
 
 // Open Social : https://www.getopensocial.com/
 // Submitted by Alexander Varwijk <security@getopensocial.com>
@@ -12214,6 +12803,7 @@ pagexl.com
 bar0.net
 bar1.net
 bar2.net
+rdv.to
 
 // .pl domains (grandfathered)
 art.pl
@@ -12238,6 +12828,7 @@ perspecta.cloud
 
 // PE Ulyanov Kirill Sergeevich : https://airy.host
 // Submitted by Kirill Ulyanov <k.ulyanov@airy.host>
+lk3.ru
 
 // Planet-Work : https://www.planet-work.com/
 // Submitted by Frédéric VANNIÈRE <f.vanniere@planet-work.com>
@@ -12246,6 +12837,7 @@ on-web.fr
 // Platform.sh : https://platform.sh
 // Submitted by Nikola Kotur <nikola@platform.sh>
 bc.platform.sh
+ent.platform.sh
 eu.platform.sh
 us.platform.sh
 *.platformsh.site
@@ -12265,6 +12857,7 @@ pleskns.com
 
 // Port53 : https://port53.io/
 // Submitted by Maximilian Schieder <maxi@zeug.co>
+dyn53.io
 
 // Porter : https://porter.run/
 // Submitted by Rudraksh MK <rudi@porter.run>
@@ -12406,6 +12999,7 @@ onrender.com
 // Repl.it : https://repl.it
 // Submitted by Lincoln Bergeson <lincoln@replit.com>
 firewalledreplit.co
+id.firewalledreplit.co
 repl.co
 id.repl.co
 repl.run
@@ -12421,6 +13015,7 @@ hzc.io
 
 // Revitalised Limited : http://www.revitalised.co.uk
 // Submitted by Jack Price <jack@revitalised.co.uk>
+wellbeingzone.eu
 wellbeingzone.co.uk
 
 // Rico Developments Limited : https://adimo.co
@@ -12525,6 +13120,7 @@ nl-ams-1.baremetal.scw.cloud
 fnc.fr-par.scw.cloud
 functions.fnc.fr-par.scw.cloud
 k8s.fr-par.scw.cloud
+nodes.k8s.fr-par.scw.cloud
 s3.fr-par.scw.cloud
 s3-website.fr-par.scw.cloud
 whm.fr-par.scw.cloud
@@ -12532,10 +13128,12 @@ priv.instances.scw.cloud
 pub.instances.scw.cloud
 k8s.scw.cloud
 k8s.nl-ams.scw.cloud
+nodes.k8s.nl-ams.scw.cloud
 s3.nl-ams.scw.cloud
 s3-website.nl-ams.scw.cloud
 whm.nl-ams.scw.cloud
 k8s.pl-waw.scw.cloud
+nodes.k8s.pl-waw.scw.cloud
 s3.pl-waw.scw.cloud
 s3-website.pl-waw.scw.cloud
 scalebook.scw.cloud
@@ -12601,6 +13199,7 @@ shiftcrypto.io
 
 // ShiftEdit : https://shiftedit.net/
 // Submitted by Adam Jimenez <adam@shiftcreate.com>
+shiftedit.io
 
 // Shopblocks : http://www.shopblocks.com/
 // Submitted by Alex Bowers <alex@shopblocks.com>
@@ -12627,6 +13226,7 @@ mo-siemens.io
 1kapp.com
 appchizi.com
 applinzi.com
+sinaapp.com
 vipsinaapp.com
 
 // Siteleaf : https://www.siteleaf.com/
@@ -12636,6 +13236,8 @@ siteleaf.net
 // Skyhat : http://www.skyhat.io
 // Submitted by Shante Adam <shante@skyhat.io>
 bounty-full.com
+alpha.bounty-full.com
+beta.bounty-full.com
 
 // Small Technology Foundation : https://small-tech.org
 // Submitted by Aral Balkan <aral@small-tech.org>
@@ -12648,6 +13250,7 @@ vp4.me
 // Snowflake Inc : https://www.snowflake.com/
 // Submitted by Faith Olapade <faith.olapade@snowflake.com>
 snowflake.app
+privatelink.snowflake.app
 streamlit.app
 streamlitapp.com
 
@@ -12672,6 +13275,8 @@ novecore.site
 // staticland : https://static.land
 // Submitted by Seth Vincent <sethvincent@gmail.com>
 static.land
+dev.static.land
+sites.static.land
 
 // Storebase : https://www.storebase.io
 // Submitted by Tony Schirmer <tony@storebase.io>
@@ -12749,6 +13354,7 @@ temp-dns.com
 supabase.co
 supabase.in
 supabase.net
+su.paba.se
 
 // Symfony, SAS : https://symfony.com/
 // Submitted by Fabien Potencier <fabien@symfony.com>
@@ -12790,6 +13396,7 @@ taifun-dns.de
 
 // Tailscale Inc. : https://www.tailscale.com
 // Submitted by David Anderson <danderson@tailscale.com>
+beta.tailscale.net
 ts.net
 
 // TASK geographical domains (www.task.gda.pl/uslugi/dns)
@@ -12944,6 +13551,8 @@ upli.io
 
 // urown.net : https://urown.net
 // Submitted by Hostmaster <hostmaster@urown.net>
+urown.cloud
+dnsupdate.info
 
 // .US
 // Submitted by Ed Moore <Ed.Moore@lib.de.us>
@@ -12973,29 +13582,45 @@ voorloper.cloud
 
 // Voxel.sh DNS : https://voxel.sh/dns/
 // Submitted by Mia Rehlinger <dns@voxel.sh>
+neko.am
 nyaa.am
 be.ax
 cat.ax
+es.ax
+eu.ax
 gg.ax
 mc.ax
+us.ax
 xy.ax
 nl.ci
 xx.gl
+app.gp
+blog.gt
 de.gt
 to.gt
 be.gy
 cc.hn
+blog.kg
 io.kg
 jp.kg
+tv.kg
 uk.kg
+us.kg
 de.ls
 at.md
+de.md
 jp.md
+to.md
 indie.porn
 vxl.sh
+ch.tc
 me.tc
 we.tc
+nyan.to
 at.vg
+blog.vu
+dev.vu
+me.vu
 
 // V.UA Domain Administrator : https://domain.v.ua/
 // Submitted by Serhii Rostilo <sergey@rostilo.kiev.ua>
@@ -13107,7 +13732,13 @@ yolasite.com
 
 // Yombo : https://yombo.net
 // Submitted by Mitch Schwenk <mitch@yombo.net>
+ybo.faith
+yombo.me
 homelink.one
+ybo.party
+ybo.review
+ybo.science
+ybo.trade
 
 // Yunohost : https://yunohost.org
 // Submitted by Valentin Grimaud <security@yunohost.org>
