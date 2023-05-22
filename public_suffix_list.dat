@@ -13761,4 +13761,14 @@ basicserver.io
 virtualserver.io
 enterprisecloud.nu
 
+// Submitted by Dfinity Team <domains@dfinity.org>
+// Internet Computer : https://icp0.io
+
+icp0.io
+*.raw.icp0.io
+
+// Internet Computer : https://ic0.app
+ic0.app
+*.raw.ic0.app
+
 // ===END PRIVATE DOMAINS===
