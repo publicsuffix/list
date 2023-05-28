@@ -1,0 +1,19 @@
+name: Test
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  make-test:
+    name: make test
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: sudo apt install -y autopoint
+
+      - name: Run test
+        run: make test
