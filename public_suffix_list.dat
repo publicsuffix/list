@@ -11250,6 +11250,10 @@ e4.cz
 easypanel.app
 easypanel.host
 
+// EasyWP : https://www.easywp.com
+// Submitted by <infracloudteam@easywp.com>
+*.ewp.live
+
 // Elementor : Elementor Ltd.
 // Submitted by Anton Barkan <antonb@elementor.com>
 elementor.cloud
