@@ -63,7 +63,7 @@ DNS Verification via dig
 
 ```
 dig +short TXT _psl.tino.page
-"https://github.com/publicsuffix/list/pull/XXXX"
+"https://github.com/publicsuffix/list/pull/1775"
 ```
 
 
