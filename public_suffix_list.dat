@@ -13304,6 +13304,10 @@ try-snowplow.com
 // Submitted by Drew DeVault <sir@cmpwn.com>
 srht.site
 
+// SparrowHost : https://sparrowhost.in/
+// Submitted by Anant Pandey <anant@sparrowhost.in>
+ind.mom
+
 // Stackhero : https://www.stackhero.io
 // Submitted by Adrien Gillon <adrien+public-suffix-list@stackhero.io>
 stackhero-network.com
@@ -13802,10 +13806,5 @@ bss.design
 basicserver.io
 virtualserver.io
 enterprisecloud.nu
-
-// SparrowHost : https://sparrowhost.in/
-// Submitted by Anant Pandey <anant@sparrowhost.in>
-ind.mom
-
 
 // ===END PRIVATE DOMAINS===
