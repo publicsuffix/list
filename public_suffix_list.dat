@@ -5756,7 +5756,6 @@ net.to
 org.to
 edu.to
 mil.to
-uk.to
 
 // tr : https://nic.tr/
 // https://nic.tr/forms/eng/policies.pdf
@@ -11671,6 +11670,9 @@ futuremailing.at
 *.ex.ortsinfo.at
 *.kunden.ortsinfo.at
 *.statics.cloud
+
+// FreeDNS
+uk.to
 
 // GDS : https://www.gov.uk/service-manual/technology/managing-domain-names
 // Submitted by Stephen Ford <hostmaster@digital.cabinet-office.gov.uk>
