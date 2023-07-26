@@ -100,8 +100,6 @@ type pslEntry struct {
 	// RegistryOperator holds the name of the registry operator that operates the
 	// gTLD (may be empty).
 	RegistryOperator string
-	// DateOfContractSignature holds the date the gTLD contract was signed (may be empty).
-	DateOfContractSignature string
 	// ContractTerminated indicates whether the contract has been terminated by
 	// ICANN. When rendered by the pslTemplate only entries with
 	// ContractTerminated = false are included.
@@ -118,7 +116,6 @@ func (e *pslEntry) normalize() {
 	e.ALabel = strings.TrimSpace(e.ALabel)
 	e.ULabel = strings.TrimSpace(e.ULabel)
 	e.RegistryOperator = strings.TrimSpace(e.RegistryOperator)
-	e.DateOfContractSignature = strings.TrimSpace(e.DateOfContractSignature)
 
 	// If there is no explicit uLabel use the gTLD as the uLabel.
 	if e.ULabel == "" {
@@ -131,23 +128,19 @@ func (e *pslEntry) normalize() {
 //
 // If the registry operator field is empty the comment will be of the form:
 //
-//    '// <ALabel> : <DateOfContractSignature>'
+//	'// <ALabel>
 //
 // If the registry operator field is not empty the comment will be of the form:
 //
-//    '// <ALabel> : <DateOfContractSignature> <RegistryOperator>'
-//
-// In both cases the <DateOfContractSignature> may be empty.
+//	'// <ALabel> : <RegistryOperator>'
 func (e pslEntry) Comment() string {
 	parts := []string{
 		"//",
 		e.ALabel,
-		":",
-		e.DateOfContractSignature,
 	}
 	// Avoid two trailing spaces if registry operator is empty
 	if e.RegistryOperator != "" {
-		parts = append(parts, e.RegistryOperator)
+		parts = append(parts, []string{":", e.RegistryOperator}...)
 	}
 	return strings.Join(parts, " ")
 }
@@ -365,10 +358,10 @@ func filterGTLDs(entries []*pslEntry) []*pslEntry {
 }
 
 // getPSLEntries fetches a list of pslEntry objects (or returns an error) by:
-//   1. getting the raw JSON data from the provided url string.
-//   2. unmarshaling the JSON data to create pslEntry objects.
-//   3. normalizing the pslEntry objects.
-//   4. filtering out any legacy or contract terminated gTLDs
+//  1. getting the raw JSON data from the provided url string.
+//  2. unmarshaling the JSON data to create pslEntry objects.
+//  3. normalizing the pslEntry objects.
+//  4. filtering out any legacy or contract terminated gTLDs
 //
 // If there are no pslEntry objects after unmarshaling the data in step 2 or
 // filtering the gTLDs in step 4 it is considered an error condition.
