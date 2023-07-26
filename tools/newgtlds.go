@@ -118,7 +118,7 @@ func (e *pslEntry) normalize() {
 	e.ALabel = strings.TrimSpace(e.ALabel)
 	e.ULabel = strings.TrimSpace(e.ULabel)
 	e.RegistryOperator = strings.TrimSpace(e.RegistryOperator)
-	e.DateOfContractSignature = strings.TrimSpace(e.DateOfContractSignature)
+	e.DateOfContractSignature = "Contracted"
 
 	// If there is no explicit uLabel use the gTLD as the uLabel.
 	if e.ULabel == "" {
@@ -131,13 +131,12 @@ func (e *pslEntry) normalize() {
 //
 // If the registry operator field is empty the comment will be of the form:
 //
-//    '// <ALabel> : <DateOfContractSignature>'
+//    '// <ALabel> : Contracted'
 //
 // If the registry operator field is not empty the comment will be of the form:
 //
-//    '// <ALabel> : <DateOfContractSignature> <RegistryOperator>'
+//    '// <ALabel> : Contracted <RegistryOperator>'
 //
-// In both cases the <DateOfContractSignature> may be empty.
 func (e pslEntry) Comment() string {
 	parts := []string{
 		"//",
