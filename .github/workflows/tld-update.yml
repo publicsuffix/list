@@ -39,6 +39,9 @@ jobs:
           committer: "GitHub <noreply@github.com>"
           author: "GitHub <noreply@github.com>"
           branch: psl-gtld-update
+          labels: |
+            ✅ autopull
+            🚩ICANN (IANA/ICP-3) Section
           delete-branch: true
 
       - name: Check outputs
