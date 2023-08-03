@@ -128,11 +128,14 @@ func (e *pslEntry) normalize() {
 //
 // If the registry operator field is empty the comment will be of the form:
 //
-//	'// <ALabel>
+//	'// <ALabel>'
+//	'// https://www.iana.org/domains/root/db/<ALabel>.html'
 //
 // If the registry operator field is not empty the comment will be of the form:
 //
 //	'// <ALabel> : <RegistryOperator>'
+//	'// https://www.iana.org/domains/root/db/<ALabel>.html'
+
 func (e pslEntry) Comment() string {
 	parts := []string{
 		"//",
@@ -142,6 +145,7 @@ func (e pslEntry) Comment() string {
 	if e.RegistryOperator != "" {
 		parts = append(parts, []string{":", e.RegistryOperator}...)
 	}
+	parts = append(parts, "\n// https://www.iana.org/domains/root/db/" + e.ALabel + ".html")
 	return strings.Join(parts, " ")
 }
 
