@@ -49,7 +49,7 @@ jobs:
         uses: peter-evans/create-or-update-project-card@v2
         with:
           project-number: 2
-          column-number: 8657926
+          column-name: To-Do
           issue-number: ${{ steps.cpr.outputs.pull-request-number }}
 
       - name: Check outputs
