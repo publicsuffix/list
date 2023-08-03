@@ -145,7 +145,7 @@ func (e pslEntry) Comment() string {
 	if e.RegistryOperator != "" {
 		parts = append(parts, []string{":", e.RegistryOperator}...)
 	}
-	parts = append(parts, "\n// https://www.iana.org/domains/root/db/" + e.ALabel + ".html")
+	// parts = append(parts, "\n// https://www.iana.org/domains/root/db/" + e.ALabel + ".html")
 	return strings.Join(parts, " ")
 }
 
