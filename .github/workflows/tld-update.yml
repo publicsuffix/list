@@ -1,4 +1,3 @@
-# Put this automation on hold, until it is able to ignore changes that only update the header timestamp.
 name: tld-update
 on:
   workflow_dispatch:
@@ -17,7 +16,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: '^1.15'
+          go-version: 'stable'
 
       - name: Run unit tests
         run: go test tools/*.go
@@ -39,7 +38,18 @@ jobs:
           committer: "GitHub <noreply@github.com>"
           author: "GitHub <noreply@github.com>"
           branch: psl-gtld-update
+          labels: |
+            ✅ autopull
+            🚩ICANN (IANA/ICP-3) Section
           delete-branch: true
+          
+      - name: Create or Update to List Add/Mod/Del To-Do Card
+        if: ${{ steps.cpr.outputs.pull-request-number }}
+        uses: peter-evans/create-or-update-project-card@v2
+        with:
+          project-number: 2
+          column-name: To-Do
+          issue-number: ${{ steps.cpr.outputs.pull-request-number }}
 
       - name: Check outputs
         run: |
