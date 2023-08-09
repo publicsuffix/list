@@ -86,14 +86,14 @@ func TestEntryComment(t *testing.T) {
 				ALabel:           "cpu",
 				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
-			expected: "// cpu : @cpu's bargain gTLD emporium",
+			expected: "// cpu : @cpu's bargain gTLD emporium\n// https://www.iana.org/domains/root/db/cpu.html",
 		},
 		{
 			name: "Entry without operator",
 			entry: pslEntry{
 				ALabel: "cpu",
 			},
-			expected: "// cpu",
+			expected: "// cpu\n// https://www.iana.org/domains/root/db/cpu.html",
 		},
 		{
 			name: "Entry with non-empty operator",
@@ -101,7 +101,7 @@ func TestEntryComment(t *testing.T) {
 				ALabel:           "cpu",
 				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
-			expected: "// cpu : @cpu's bargain gTLD emporium",
+			expected: "// cpu : @cpu's bargain gTLD emporium\n// https://www.iana.org/domains/root/db/cpu.html",
 		},
 	}
 
@@ -296,9 +296,11 @@ func TestRenderData(t *testing.T) {
 	}
 
 	expectedList := `// ceepeeyou : @cpu's bargain gTLD emporium
+// https://www.iana.org/domains/root/db/ceepeeyou.html
 ceepeeyou
 
 // cpu
+// https://www.iana.org/domains/root/db/cpu.html
 ｃｐｕ
 
 `
@@ -658,6 +660,7 @@ func TestProcess(t *testing.T) {
 // List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-02-07T13:25:56-05:00
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
+// https://www.iana.org/domains/root/db/aaa.html
 aaa
 
 
@@ -711,9 +714,11 @@ aaa
 // List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-02-10T00:24:14Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
+// https://www.iana.org/domains/root/db/aaa.html
 aaa
 
 // accountants : Binky Moon, LLC
+// https://www.iana.org/domains/root/db/accountants.html
 accountants
 
 

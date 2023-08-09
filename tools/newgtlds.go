@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"strings"
 	"text/template"
@@ -25,6 +26,8 @@ const (
 	// in the ICP-3 Root - including new ccTLDs, EBRERO gTLDS or things not in
 	// the JSON File above that should be included in the PSL.  Note: UPPERCASE
 	IANA_TLDS_TXT_URL = "http://data.iana.org/TLD/tlds-alpha-by-domain.txt"
+	// IANA_TLD_URL_BASE is the base URL for IANA domain information pages.
+	IANA_TLD_URL_BASE = "https://www.iana.org/domains/root/db"
 	// PSL_GTLDS_SECTION_HEADER marks the start of the newGTLDs section of the
 	// overall public suffix dat file.
 	PSL_GTLDS_SECTION_HEADER = "// newGTLDs"
@@ -128,13 +131,13 @@ func (e *pslEntry) normalize() {
 //
 // If the registry operator field is empty the comment will be of the form:
 //
-//	'// <ALabel>'
-//	'// https://www.iana.org/domains/root/db/<ALabel>.html'
+//	// <ALabel>
+//	// https://www.iana.org/domains/root/db/<ALabel>.html
 //
 // If the registry operator field is not empty the comment will be of the form:
 //
-//	'// <ALabel> : <RegistryOperator>'
-//	'// https://www.iana.org/domains/root/db/<ALabel>.html'
+//	// <ALabel> : <RegistryOperator>
+//	// https://www.iana.org/domains/root/db/<ALabel>.html
 
 func (e pslEntry) Comment() string {
 	parts := []string{
@@ -145,8 +148,17 @@ func (e pslEntry) Comment() string {
 	if e.RegistryOperator != "" {
 		parts = append(parts, []string{":", e.RegistryOperator}...)
 	}
-	// parts = append(parts, "\n// https://www.iana.org/domains/root/db/" + e.ALabel + ".html")
-	return strings.Join(parts, " ")
+
+	ianaUrl, err := url.JoinPath(IANA_TLD_URL_BASE, e.ALabel+".html")
+	if err != nil {
+		panic(fmt.Sprintf("invalid joined IANA TLD URL for %q: %v", e.ALabel, err))
+	}
+	ianaUrl = "// " + ianaUrl
+
+	return strings.Join([]string{
+		strings.Join(parts, " "),
+		ianaUrl,
+	}, "\n")
 }
 
 // gTLDDatSpan represents the span between the PSL_GTLD_SECTION_HEADER and
