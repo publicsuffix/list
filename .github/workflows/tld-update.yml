@@ -43,14 +43,6 @@ jobs:
             🚩ICANN (IANA/ICP-3) Section
           delete-branch: true
           
-      - name: Create or Update to List Add/Mod/Del To-Do Card
-        if: ${{ steps.cpr.outputs.pull-request-number }}
-        uses: peter-evans/create-or-update-project-card@v2
-        with:
-          project-number: 2
-          column-name: To-Do
-          issue-number: ${{ steps.cpr.outputs.pull-request-number }}
-
       - name: Check outputs
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
