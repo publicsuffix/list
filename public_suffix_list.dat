@@ -210,6 +210,7 @@ asia
 
 // at : https://en.wikipedia.org/wiki/.at
 // Confirmed by registry <it@nic.at> 2008-06-17
+// Confirmed by registry <lendl@nic.at> 2023-09-05
 at
 ac.at
 co.at
@@ -14065,10 +14066,6 @@ prequalifyme.today
 // prgmr.com : https://prgmr.com/
 // Submitted by Sarah Newman <owner@prgmr.com>
 xen.prgmr.com
-
-// priv.at : http://www.nic.priv.at/
-// Submitted by registry <lendl@nic.at>
-priv.at
 
 // privacytools.io : https://www.privacytools.io/
 // Submitted by Jonah Aragon <jonah@privacytools.io>
