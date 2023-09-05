@@ -23,31 +23,27 @@ func TestEntryNormalize(t *testing.T) {
 		{
 			name: "already normalized",
 			inputEntry: pslEntry{
-				ALabel:                  "cpu",
-				ULabel:                  "ｃｐｕ",
-				DateOfContractSignature: "2019-06-13",
-				RegistryOperator:        "@cpu's bargain gTLD emporium",
+				ALabel:           "cpu",
+				ULabel:           "ｃｐｕ",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
 			expectedEntry: pslEntry{
-				ALabel:                  "cpu",
-				ULabel:                  "ｃｐｕ",
-				DateOfContractSignature: "2019-06-13",
-				RegistryOperator:        "@cpu's bargain gTLD emporium",
+				ALabel:           "cpu",
+				ULabel:           "ｃｐｕ",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
 		},
 		{
 			name: "extra whitespace",
 			inputEntry: pslEntry{
-				ALabel:                  "  cpu    ",
-				ULabel:                  "   ｃｐｕ   ",
-				DateOfContractSignature: "   2019-06-13    ",
+				ALabel: "  cpu    ",
+				ULabel: "   ｃｐｕ   ",
 				RegistryOperator: "     @cpu's bargain gTLD emporium " +
 					"(now with bonus whitespace)    ",
 			},
 			expectedEntry: pslEntry{
-				ALabel:                  "cpu",
-				ULabel:                  "ｃｐｕ",
-				DateOfContractSignature: "2019-06-13",
+				ALabel: "cpu",
+				ULabel: "ｃｐｕ",
 				RegistryOperator: "@cpu's bargain gTLD emporium " +
 					"(now with bonus whitespace)",
 			},
@@ -55,15 +51,13 @@ func TestEntryNormalize(t *testing.T) {
 		{
 			name: "no explicit uLabel",
 			inputEntry: pslEntry{
-				ALabel:                  "cpu",
-				DateOfContractSignature: "2019-06-13",
-				RegistryOperator:        "@cpu's bargain gTLD emporium",
+				ALabel:           "cpu",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
 			expectedEntry: pslEntry{
-				ALabel:                  "cpu",
-				ULabel:                  "cpu",
-				DateOfContractSignature: "2019-06-13",
-				RegistryOperator:        "@cpu's bargain gTLD emporium",
+				ALabel:           "cpu",
+				ULabel:           "cpu",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
 		},
 	}
@@ -89,26 +83,25 @@ func TestEntryComment(t *testing.T) {
 		{
 			name: "Full entry",
 			entry: pslEntry{
-				ALabel:                  "cpu",
-				DateOfContractSignature: "2019-06-13",
-				RegistryOperator:        "@cpu's bargain gTLD emporium",
+				ALabel:           "cpu",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
-			expected: "// cpu : 2019-06-13 @cpu's bargain gTLD emporium",
+			expected: "// cpu : @cpu's bargain gTLD emporium\n// https://www.iana.org/domains/root/db/cpu.html",
 		},
 		{
-			name: "Entry with empty contract signature date and operator",
+			name: "Entry without operator",
 			entry: pslEntry{
 				ALabel: "cpu",
 			},
-			expected: "// cpu : ",
+			expected: "// cpu\n// https://www.iana.org/domains/root/db/cpu.html",
 		},
 		{
-			name: "Entry with empty contract signature and non-empty operator",
+			name: "Entry with non-empty operator",
 			entry: pslEntry{
 				ALabel:           "cpu",
 				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
-			expected: "// cpu :  @cpu's bargain gTLD emporium",
+			expected: "// cpu : @cpu's bargain gTLD emporium\n// https://www.iana.org/domains/root/db/cpu.html",
 		},
 	}
 
@@ -162,29 +155,25 @@ func TestGetPSLEntries(t *testing.T) {
 	}{
 		GTLDs: []pslEntry{
 			{
-				ALabel:                  "ceepeeyou",
-				DateOfContractSignature: "2099-06-13",
-				RegistryOperator:        "@cpu's bargain gTLD emporium",
+				ALabel:           "ceepeeyou",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
 			},
 			{
 				// NOTE: we include whitespace in this entry to test that normalization
 				// occurs.
-				ALabel:                  "  cpu    ",
-				ULabel:                  "   ｃｐｕ   ",
-				DateOfContractSignature: "   2019-06-13    ",
+				ALabel: "  cpu    ",
+				ULabel: "   ｃｐｕ   ",
 				RegistryOperator: "     @cpu's bargain gTLD emporium " +
 					"(now with bonus whitespace)    ",
 			},
 			{
 				// NOTE: we include a legacy gTLD here to test that filtering of legacy
 				// gTLDs occurs.
-				ALabel:                  "aero",
-				DateOfContractSignature: "1999-10-31",
-				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
+				ALabel:           "aero",
+				RegistryOperator: "Department of Historical Baggage and Technical Debt",
 			},
 			{
-				ALabel:                  "terminated",
-				DateOfContractSignature: "1987-10-31",
+				ALabel: "terminated",
 				// NOTE: we include a contract terminated = true entry here to test that
 				// filtering of terminated entries occurs.
 				ContractTerminated: true,
@@ -197,15 +186,13 @@ func TestGetPSLEntries(t *testing.T) {
 
 	expectedEntries := []pslEntry{
 		{
-			ALabel:                  "ceepeeyou",
-			ULabel:                  "ceepeeyou",
-			DateOfContractSignature: "2099-06-13",
-			RegistryOperator:        "@cpu's bargain gTLD emporium",
+			ALabel:           "ceepeeyou",
+			ULabel:           "ceepeeyou",
+			RegistryOperator: "@cpu's bargain gTLD emporium",
 		},
 		{
-			ALabel:                  "cpu",
-			ULabel:                  "ｃｐｕ",
-			DateOfContractSignature: "2019-06-13",
+			ALabel: "cpu",
+			ULabel: "ｃｐｕ",
 			RegistryOperator: "@cpu's bargain gTLD emporium " +
 				"(now with bonus whitespace)",
 		},
@@ -265,21 +252,18 @@ func TestGetPSLEntriesEmptyFilteredResults(t *testing.T) {
 		GTLDs: []pslEntry{
 			{
 				// NOTE: GTLD matches a legacyGTLDs map entry to ensure filtering.
-				ALabel:                  "aero",
-				DateOfContractSignature: "1999-10-31",
-				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
+				ALabel:           "aero",
+				RegistryOperator: "Department of Historical Baggage and Technical Debt",
 			},
 			{
-				ALabel:                  "terminated",
-				DateOfContractSignature: "1987-10-31",
+				ALabel: "terminated",
 				// NOTE: Setting ContractTerminated to ensure filtering.
 				ContractTerminated: true,
 			},
 			{
-				ALabel:                  "removed",
-				DateOfContractSignature: "1999-10-31",
-				RegistryOperator:        "Department of Historical Baggage and Technical Debt",
-				RemovalDate:             "2019-08-06",
+				ALabel:           "removed",
+				RegistryOperator: "Department of Historical Baggage and Technical Debt",
+				RemovalDate:      "2019-08-06",
 			},
 		},
 	}
@@ -301,22 +285,22 @@ func TestGetPSLEntriesEmptyFilteredResults(t *testing.T) {
 func TestRenderData(t *testing.T) {
 	entries := []*pslEntry{
 		{
-			ALabel:                  "ceepeeyou",
-			ULabel:                  "ceepeeyou",
-			DateOfContractSignature: "2099-06-13",
-			RegistryOperator:        "@cpu's bargain gTLD emporium",
+			ALabel:           "ceepeeyou",
+			ULabel:           "ceepeeyou",
+			RegistryOperator: "@cpu's bargain gTLD emporium",
 		},
 		{
-			ALabel:                  "cpu",
-			ULabel:                  "ｃｐｕ",
-			DateOfContractSignature: "2019-06-13",
+			ALabel: "cpu",
+			ULabel: "ｃｐｕ",
 		},
 	}
 
-	expectedList := `// ceepeeyou : 2099-06-13 @cpu's bargain gTLD emporium
+	expectedList := `// ceepeeyou : @cpu's bargain gTLD emporium
+// https://www.iana.org/domains/root/db/ceepeeyou.html
 ceepeeyou
 
-// cpu : 2019-06-13
+// cpu
+// https://www.iana.org/domains/root/db/cpu.html
 ｃｐｕ
 
 `
@@ -675,7 +659,8 @@ func TestProcess(t *testing.T) {
 
 // List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-02-07T13:25:56-05:00
 // This list is auto-generated, don't edit it manually.
-// aaa : 2015-02-26 American Automobile Association, Inc.
+// aaa : American Automobile Association, Inc.
+// https://www.iana.org/domains/root/db/aaa.html
 aaa
 
 
@@ -688,7 +673,6 @@ aaa
 	"gTLDs": [
 		{
 			"contractTerminated": false,
-			"dateOfContractSignature": "2015-02-26",
 			"gTLD": "aaa",
 			"registryOperator": "American Automobile Association, Inc.",
 			"removalDate": null,
@@ -703,7 +687,6 @@ aaa
 	"gTLDs": [
 		{
 			"contractTerminated": false,
-			"dateOfContractSignature": "2015-02-26",
 			"gTLD": "aaa",
 			"registryOperator": "American Automobile Association, Inc.",
 			"removalDate": null,
@@ -711,7 +694,6 @@ aaa
 		},
 		{
 			"contractTerminated": false,
-			"dateOfContractSignature": "2014-03-20",
 			"gTLD": "accountants",
 			"registryOperator": "Binky Moon, LLC",
 			"removalDate": null,
@@ -731,10 +713,12 @@ aaa
 
 // List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2021-02-10T00:24:14Z
 // This list is auto-generated, don't edit it manually.
-// aaa : 2015-02-26 American Automobile Association, Inc.
+// aaa : American Automobile Association, Inc.
+// https://www.iana.org/domains/root/db/aaa.html
 aaa
 
-// accountants : 2014-03-20 Binky Moon, LLC
+// accountants : Binky Moon, LLC
+// https://www.iana.org/domains/root/db/accountants.html
 accountants
 
 
