@@ -1,8 +1,6 @@
 # Security Policy
 
-## Supported Versions
-
-Security updates are applied only to the latest release.
+Security updates are applied only to the repository itself.
 
 ## Reporting a Vulnerability
 
