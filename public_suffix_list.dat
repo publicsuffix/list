@@ -11260,8 +11260,9 @@ graphox.us
 *.devcdnaccesso.com
 
 // Acorn Labs : https://acorn.io
-// Submitted by Craig Jellick <domains@acorn.io>
+// Submitted by Craig Jellick <domains@acorn.io> and Taylor Price <domains@acorn.io>
 *.on-acorn.io
+*.oss-acorn.io
 
 // ActiveTrail: https://www.activetrail.biz/
 // Submitted by Ofer Kalaora <postmaster@activetrail.com>
