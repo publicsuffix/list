@@ -6707,7 +6707,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2023-08-26T15:11:08Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2023-09-30T15:11:25Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -7405,7 +7405,7 @@ cbs
 // https://www.iana.org/domains/root/db/center.html
 center
 
-// ceo : CEOTLD Pty Ltd
+// ceo : XYZ.COM LLC
 // https://www.iana.org/domains/root/db/ceo.html
 ceo
 
