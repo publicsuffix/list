@@ -11805,6 +11805,10 @@ c.la
 // Submitted by B. Blechschmidt <hostmaster@certmgr.org>
 certmgr.org
 
+// Choreo : https://console.choreo.dev
+// Submitted by Ayoma Wijethunga <ayoma@wso2.com>
+*.choreoapps.dev
+
 // Cityhost LLC  : https://cityhost.ua
 // Submitted by Maksym Rivtin <support@cityhost.net.ua>
 cx.ua
