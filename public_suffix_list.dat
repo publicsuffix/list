@@ -905,10 +905,6 @@ cz
 // reservations) 2008-07-01
 de
 
-// DigitalPlat : https://www.digitalplat.org/
-// Submitted by Edward Hsing <xingyujie@digitalplat.org>
-us.kg
-
 // dj : https://en.wikipedia.org/wiki/.dj
 dj
 
@@ -11231,6 +11227,10 @@ ondigitalocean.app
 // DigitalOcean Spaces : https://www.digitalocean.com/products/spaces/
 // Submitted by Robin H. Johnson <psl-maintainers@digitalocean.com>
 *.digitaloceanspaces.com
+
+// DigitalPlat : https://www.digitalplat.org/
+// Submitted by Edward Hsing <xingyujie@digitalplat.org>
+us.kg
 
 // dnstrace.pro : https://dnstrace.pro/
 // Submitted by Chris Partridge <chris@partridge.tech>
