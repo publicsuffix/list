@@ -11906,6 +11906,11 @@ analytics-gateway.us-west-2.amazonaws.com
 // Reference: 5ecce854-c033-4fc4-a755-1a9916d9a9bb
 *.amplifyapp.com
 
+// AWS App Runner
+// Submitted by AWS Security <psl-maintainers@amazon.com>
+// Reference: 6828c008-ba5d-442f-ade5-48da4e7c2316
+*.awsapprunner.com
+
 // AWS Cloud9
 // Submitted by: AWS Security <psl-maintainers@amazon.com>
 // Reference: 05c44955-977c-4b57-938a-f2af92733f9f
