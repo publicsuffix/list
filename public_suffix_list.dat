@@ -11889,8 +11889,13 @@ studio.cn-northwest-1.sagemaker.com.cn
 
 // Analytics on AWS
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: c02c3a80-f8a0-4fd2-b719-48ea8b7c28de
+// Reference: 955f9f40-a495-4e73-ae85-67b77ac9cadd
 analytics-gateway.ap-northeast-1.amazonaws.com
+analytics-gateway.ap-northeast-2.amazonaws.com
+analytics-gateway.ap-south-1.amazonaws.com
+analytics-gateway.ap-southeast-1.amazonaws.com
+analytics-gateway.ap-southeast-2.amazonaws.com
+analytics-gateway.eu-central-1.amazonaws.com
 analytics-gateway.eu-west-1.amazonaws.com
 analytics-gateway.us-east-1.amazonaws.com
 analytics-gateway.us-east-2.amazonaws.com
