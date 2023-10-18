@@ -11969,25 +11969,33 @@ vfs.cloud9.us-west-2.amazonaws.com
 webview-assets.cloud9.us-west-2.amazonaws.com
 
 // AWS Elastic Beanstalk
-// Submitted by Luke Wells <psl-maintainers@amazon.com>
-// Reference: aa202394-43a0-4857-b245-8db04549137e
+// Submitted by AWS Security <psl-maintainers@amazon.com>
+// Reference: bb5a965c-dec3-4967-aa22-e306ad064797
 cn-north-1.eb.amazonaws.com.cn
 cn-northwest-1.eb.amazonaws.com.cn
 elasticbeanstalk.com
+af-south-1.elasticbeanstalk.com
+ap-east-1.elasticbeanstalk.com
 ap-northeast-1.elasticbeanstalk.com
 ap-northeast-2.elasticbeanstalk.com
 ap-northeast-3.elasticbeanstalk.com
 ap-south-1.elasticbeanstalk.com
 ap-southeast-1.elasticbeanstalk.com
 ap-southeast-2.elasticbeanstalk.com
+ap-southeast-3.elasticbeanstalk.com
 ca-central-1.elasticbeanstalk.com
 eu-central-1.elasticbeanstalk.com
+eu-north-1.elasticbeanstalk.com
+eu-south-1.elasticbeanstalk.com
 eu-west-1.elasticbeanstalk.com
 eu-west-2.elasticbeanstalk.com
 eu-west-3.elasticbeanstalk.com
+il-central-1.elasticbeanstalk.com
+me-south-1.elasticbeanstalk.com
 sa-east-1.elasticbeanstalk.com
 us-east-1.elasticbeanstalk.com
 us-east-2.elasticbeanstalk.com
+us-gov-east-1.elasticbeanstalk.com
 us-gov-west-1.elasticbeanstalk.com
 us-west-1.elasticbeanstalk.com
 us-west-2.elasticbeanstalk.com
