@@ -11345,6 +11345,42 @@ myamaze.net
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Subsections of Amazon/subsidiaries will appear until "concludes" tag
 
+// Amazon API Gateway
+// Submitted by AWS Security <psl-maintainers@amazon.com>
+// Reference: 4d863337-ff98-4501-a6f2-361eba8445d6
+execute-api.cn-north-1.amazonaws.com.cn
+execute-api.cn-northwest-1.amazonaws.com.cn
+execute-api.af-south-1.amazonaws.com
+execute-api.ap-east-1.amazonaws.com
+execute-api.ap-northeast-1.amazonaws.com
+execute-api.ap-northeast-2.amazonaws.com
+execute-api.ap-northeast-3.amazonaws.com
+execute-api.ap-south-1.amazonaws.com
+execute-api.ap-south-2.amazonaws.com
+execute-api.ap-southeast-1.amazonaws.com
+execute-api.ap-southeast-2.amazonaws.com
+execute-api.ap-southeast-3.amazonaws.com
+execute-api.ap-southeast-4.amazonaws.com
+execute-api.ca-central-1.amazonaws.com
+execute-api.eu-central-1.amazonaws.com
+execute-api.eu-central-2.amazonaws.com
+execute-api.eu-north-1.amazonaws.com
+execute-api.eu-south-1.amazonaws.com
+execute-api.eu-south-2.amazonaws.com
+execute-api.eu-west-1.amazonaws.com
+execute-api.eu-west-2.amazonaws.com
+execute-api.eu-west-3.amazonaws.com
+execute-api.il-central-1.amazonaws.com
+execute-api.me-central-1.amazonaws.com
+execute-api.me-south-1.amazonaws.com
+execute-api.sa-east-1.amazonaws.com
+execute-api.us-east-1.amazonaws.com
+execute-api.us-east-2.amazonaws.com
+execute-api.us-gov-east-1.amazonaws.com
+execute-api.us-gov-west-1.amazonaws.com
+execute-api.us-west-1.amazonaws.com
+execute-api.us-west-2.amazonaws.com
+
 // Amazon CloudFront
 // Submitted by Donavan Miller <donavanm@amazon.com>
 // Reference: 54144616-fd49-4435-8535-19c6a601bdb3
