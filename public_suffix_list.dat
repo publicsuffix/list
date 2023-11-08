@@ -11961,6 +11961,12 @@ ravendb.run
 // Submitted by Krzysztof Wolski <krzysztof.wolski@home.eu>
 homesklep.pl
 
+// Homebase : https://homebase.id/
+// Submitted by Jason Babo <info@homebase.id>
+*.id.pub
+*.kin.one
+*.kin.pub
+
 // Hong Kong Productivity Council: https://www.hkpc.org/
 // Submitted by SECaaS Team <summchan@hkpc.org>
 secaas.hk
@@ -12690,12 +12696,6 @@ static.observableusercontent.com
 // Octopodal Solutions, LLC. : https://ulterius.io/
 // Submitted by Andrew Sampson <andrew@ulterius.io>
 cya.gg
-
-// Homebase : https://homebase.id/
-// Submitted by Jason Babo <info@homebase.id>
-*.id.pub
-*.kin.one
-*.kin.pub
 
 // OMG.LOL : <https://omg.lol>
 // Submitted by Adam Newbold <adam@omg.lol>
