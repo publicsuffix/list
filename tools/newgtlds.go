@@ -366,6 +366,7 @@ func filterGTLDs(entries []*pslEntry) []*pslEntry {
 		if _, isLegacy := legacyGTLDs[entry.ALabel]; isLegacy {
 			continue
 		}
+		// If the Delegation Date is not empty, the gTLD is likely in EBERO.
 		if entry.ContractTerminated && entry.DelegationDate == "" {
 			continue
 		}
