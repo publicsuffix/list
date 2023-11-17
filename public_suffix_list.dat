@@ -12507,11 +12507,10 @@ deta.dev
 
 // Dfinity Foundation: https://dfinity.org/
 // Submitted by Dfinity Team <domains@dfinity.org>
-
-icp0.io
 ic0.app
-*.raw.icp0.io
 *.raw.ic0.app
+icp0.io
+*.raw.icp0.io
 
 // Diher Solutions : https://diher.solutions
 // Submitted by Didi Hermawan <mail@diher.solutions>
