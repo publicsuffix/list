@@ -12505,6 +12505,14 @@ dedyn.io
 deta.app
 deta.dev
 
+// Dfinity Foundation: https://dfinity.org/
+// Submitted by Dfinity Team <domains@dfinity.org>
+
+icp0.io
+ic0.app
+*.raw.icp0.io
+*.raw.ic0.app
+
 // Diher Solutions : https://diher.solutions
 // Submitted by Didi Hermawan <mail@diher.solutions>
 *.rss.my.id
@@ -15427,15 +15435,5 @@ bss.design
 basicserver.io
 virtualserver.io
 enterprisecloud.nu
-
-// Submitted by Dfinity Team <domains@dfinity.org>
-// Internet Computer : https://icp0.io
-
-icp0.io
-*.raw.icp0.io
-
-// Internet Computer : https://ic0.app
-ic0.app
-*.raw.ic0.app
 
 // ===END PRIVATE DOMAINS===
