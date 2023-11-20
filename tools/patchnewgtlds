@@ -11,6 +11,6 @@ fi
 
 BASEDIR=$(dirname "$0")
 
-go run "$BASEDIR/newgtlds.go" \
+go run "$BASEDIR/../newgtlds" \
   -overwrite \
   -psl-dat-file="$BASEDIR/../public_suffix_list.dat"

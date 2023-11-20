@@ -26,7 +26,7 @@ jobs:
           go-version: 'stable'
 
       - name: Run unit tests
-        run: go test tools/*.go
+        run: go test ./newgtlds
 
       - name: Set current date
         id: get-date
