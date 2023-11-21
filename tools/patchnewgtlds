@@ -13,6 +13,6 @@ fi
 SCRIPT=$(realpath "$0")
 BASEDIR=$(dirname "$SCRIPT")
 
-go run -C "$BASEDIR/../newgtlds" . \
+go run -C "$BASEDIR/" . \
   -overwrite \
   -psl-dat-file="$BASEDIR/../public_suffix_list.dat"
