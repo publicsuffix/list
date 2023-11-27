@@ -4,7 +4,7 @@ on:
   schedule:
     # Run once a day at 15:00 UTC
     - cron:  '0 15 * * *'
-    
+
 permissions:
   contents: read
 
@@ -26,7 +26,7 @@ jobs:
           go-version: 'stable'
 
       - name: Run unit tests
-        run: go test tools/*.go
+        run: go test -v -C ./tools .
 
       - name: Set current date
         id: get-date
@@ -49,7 +49,7 @@ jobs:
             ✅ autopull
             🚩ICANN (IANA/ICP-3) Section
           delete-branch: true
-          
+
       - name: Check outputs
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
