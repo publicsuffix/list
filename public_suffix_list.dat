@@ -14181,6 +14181,9 @@ id.repl.co
 replit.dev
 archer.replit.dev
 bones.replit.dev
+canary.replit.dev
+global.replit.dev
+hacker.replit.dev
 id.replit.dev
 janeway.replit.dev
 kim.replit.dev
@@ -14189,11 +14192,18 @@ kirk.replit.dev
 odo.replit.dev
 paris.replit.dev
 picard.replit.dev
+pike.replit.dev
+prerelease.replit.dev
 reed.replit.dev
 riker.replit.dev
 sisko.replit.dev
 spock.replit.dev
+staging.replit.dev
+sulu.replit.dev
+tarpit.replit.dev
+teams.replit.dev
 tucker.replit.dev
+wesley.replit.dev
 worf.replit.dev
 repl.run
 
