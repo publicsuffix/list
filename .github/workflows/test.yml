@@ -18,7 +18,7 @@ jobs:
           go-version: 'stable'
 
       - name: Run Go unit tests
-        run: go test tools/*.go
+        run: go test -C ./tools -v .
 
       - name: Install dependencies
         run: sudo apt install -y autopoint
