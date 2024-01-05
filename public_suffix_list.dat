@@ -11498,7 +11498,7 @@ emrstudio-prod.us-west-2.amazonaws.com
 
 // Amazon S3
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: 0e801048-08f2-4064-9cb8-e7373e0b57f4
+// Reference: cd5c8b3a-67b7-4b40-9236-c87ce81a3d10
 s3.dualstack.cn-north-1.amazonaws.com.cn
 s3-accesspoint.dualstack.cn-north-1.amazonaws.com.cn
 s3-website.dualstack.cn-north-1.amazonaws.com.cn
@@ -11597,6 +11597,16 @@ s3-accesspoint-fips.ca-central-1.amazonaws.com
 s3-fips.ca-central-1.amazonaws.com
 s3-object-lambda.ca-central-1.amazonaws.com
 s3-website.ca-central-1.amazonaws.com
+s3.dualstack.ca-west-1.amazonaws.com
+s3-accesspoint.dualstack.ca-west-1.amazonaws.com
+s3-accesspoint-fips.dualstack.ca-west-1.amazonaws.com
+s3-fips.dualstack.ca-west-1.amazonaws.com
+s3-website.dualstack.ca-west-1.amazonaws.com
+s3.ca-west-1.amazonaws.com
+s3-accesspoint.ca-west-1.amazonaws.com
+s3-accesspoint-fips.ca-west-1.amazonaws.com
+s3-fips.ca-west-1.amazonaws.com
+s3-website.ca-west-1.amazonaws.com
 s3.dualstack.eu-central-1.amazonaws.com
 s3-accesspoint.dualstack.eu-central-1.amazonaws.com
 s3-website.dualstack.eu-central-1.amazonaws.com
