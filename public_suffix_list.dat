@@ -11779,7 +11779,7 @@ s3-website.us-west-2.amazonaws.com
 
 // Amazon SageMaker Notebook Instances
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: fe8c9e94-5a22-486d-8750-991a3a9b13c6
+// Reference: ce8ae0b1-0070-496d-be88-37c31837af9d
 notebook.af-south-1.sagemaker.aws
 notebook.ap-east-1.sagemaker.aws
 notebook.ap-northeast-1.sagemaker.aws
@@ -11792,6 +11792,9 @@ notebook.ap-southeast-2.sagemaker.aws
 notebook.ap-southeast-3.sagemaker.aws
 notebook.ap-southeast-4.sagemaker.aws
 notebook.ca-central-1.sagemaker.aws
+notebook-fips.ca-central-1.sagemaker.aws
+notebook.ca-west-1.sagemaker.aws
+notebook-fips.ca-west-1.sagemaker.aws
 notebook.eu-central-1.sagemaker.aws
 notebook.eu-central-2.sagemaker.aws
 notebook.eu-north-1.sagemaker.aws
