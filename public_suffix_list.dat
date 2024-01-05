@@ -11985,6 +11985,11 @@ us-west-2.elasticbeanstalk.com
 // Reference: d916759d-a08b-4241-b536-4db887383a6a
 awsglobalaccelerator.com
 
+// AWS re:Post Private
+// Submitted by AWS Security <psl-maintainers@amazon.com>
+// Reference: 83385945-225f-416e-9aa0-ad0632bfdcee
+*.private.repost.aws
+
 // eero
 // Submitted by Yue Kang <eero-dynamic-dns@amazon.com>
 // Reference: 264afe70-f62c-4c02-8ab9-b5281ed24461
