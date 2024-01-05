@@ -11878,7 +11878,7 @@ analytics-gateway.us-west-2.amazonaws.com
 
 // AWS Cloud9
 // Submitted by: AWS Security <psl-maintainers@amazon.com>
-// Reference: 05c44955-977c-4b57-938a-f2af92733f9f
+// Reference: 30717f72-4007-4f0f-8ed4-864c6f2efec9
 webview-assets.aws-cloud9.af-south-1.amazonaws.com
 vfs.cloud9.af-south-1.amazonaws.com
 webview-assets.cloud9.af-south-1.amazonaws.com
@@ -11924,6 +11924,8 @@ webview-assets.cloud9.eu-west-2.amazonaws.com
 webview-assets.aws-cloud9.eu-west-3.amazonaws.com
 vfs.cloud9.eu-west-3.amazonaws.com
 webview-assets.cloud9.eu-west-3.amazonaws.com
+webview-assets.aws-cloud9.il-central-1.amazonaws.com
+vfs.cloud9.il-central-1.amazonaws.com
 webview-assets.aws-cloud9.me-south-1.amazonaws.com
 vfs.cloud9.me-south-1.amazonaws.com
 webview-assets.cloud9.me-south-1.amazonaws.com
