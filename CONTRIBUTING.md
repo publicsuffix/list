@@ -26,3 +26,9 @@ Make sure to review with the [Guidelines](https://github.com/publicsuffix/list/w
 
 Please also note that there is no guarantee of inclusion, nor we are able to provide an ETA for any inclusion request.  This is also true of projects that incorporate the PSL downline.  This is described, outlined and diagrammed [here](
 https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion).
+
+PSL Mailing List
+
+We suggest that submitters and users/integrators of the PSL to please join the (low traffic) mailing list to be aware of changes to structure, processes or formatting.
+
+Some future changes may include automation of DNS tests for the presence of `_PSL` in `#PRIVATE` section entries to indicate ongoing inclusion or remove entries that do not have them, possible file structure or other changes.  The "list list" is located [HERE](https://groups.google.com/g/publicsuffix-discuss)

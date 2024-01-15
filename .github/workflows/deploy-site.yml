@@ -1,0 +1,17 @@
+---
+name: deploy website
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - master
+
+permissions: {}
+
+jobs:
+  upload-website:
+    uses: publicsuffix/publicsuffix.org/.github/workflows/deploy-site.yaml@master
+    permissions:
+      contents: read
+      id-token: write
+    secrets: inherit
