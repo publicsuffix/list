@@ -14726,10 +14726,11 @@ from.tv
 sakura.tv
 
 // Salesforce.com, Inc. https://salesforce.com/
-// Submitted by Michael Biven <mbiven@salesforce.com>
+// Submitted by Michael Biven <mbiven@salesforce.com> and Aaron Romeo <aaron.romeo@salesforce.com>
 *.builder.code.com
 *.dev-builder.code.com
 *.stg-builder.code.com
+*.001.test.code-builder-stg.platform.salesforce.com
 
 // Sandstorm Development Group, Inc. : https://sandcats.io/
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
