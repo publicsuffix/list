@@ -14466,7 +14466,8 @@ on-web.fr
 
 // Platform.sh : https://platform.sh
 // Submitted by Nikola Kotur <nikola@platform.sh>
-bc.platform.sh
+*.upsun.app
+upsunapp.com
 ent.platform.sh
 eu.platform.sh
 us.platform.sh
