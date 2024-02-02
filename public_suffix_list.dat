@@ -14535,6 +14535,10 @@ pdns.page
 plesk.page
 pleskns.com
 
+// Pley AB : https://www.pley.com/
+// Submitted by Henning Pohl <infra@pley.com>
+pley.games
+
 // Port53 : https://port53.io/
 // Submitted by Maximilian Schieder <maxi@zeug.co>
 dyn53.io
