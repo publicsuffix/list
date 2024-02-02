@@ -13585,6 +13585,12 @@ ravendb.run
 // Submitted by Krzysztof Wolski <krzysztof.wolski@home.eu>
 homesklep.pl
 
+// Homebase : https://homebase.id/
+// Submitted by Jason Babo <info@homebase.id>
+*.kin.one
+*.id.pub
+*.kin.pub
+
 // Hong Kong Productivity Council: https://www.hkpc.org/
 // Submitted by SECaaS Team <summchan@hkpc.org>
 secaas.hk
