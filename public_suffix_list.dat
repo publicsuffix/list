@@ -13272,6 +13272,10 @@ futuremailing.at
 *.kunden.ortsinfo.at
 *.statics.cloud
 
+// GCom Internet : https://www.gcom.net.au
+// Submitted by Leo Julius <support@gcom.net.au>
+aliases121.com
+
 // GDS : https://www.gov.uk/service-manual/technology/managing-domain-names
 // Submitted by Stephen Ford <hostmaster@digital.cabinet-office.gov.uk>
 independent-commission.uk
