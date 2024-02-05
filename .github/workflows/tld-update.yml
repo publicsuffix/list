@@ -1,14 +1,20 @@
-# Put this automation on hold, until it is able to ignore changes that only update the header timestamp.
 name: tld-update
 on:
   workflow_dispatch:
   schedule:
     # Run once a day at 15:00 UTC
     - cron:  '0 15 * * *'
+
+permissions:
+  contents: read
+
 jobs:
   psl-gtld-update:
     name: Check for TLD data updates
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
 
       - name: Check out code
@@ -17,10 +23,10 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: '^1.15'
+          go-version: 'stable'
 
       - name: Run unit tests
-        run: go test tools/*.go
+        run: go test -C ./tools -v .
 
       - name: Set current date
         id: get-date
@@ -39,6 +45,9 @@ jobs:
           committer: "GitHub <noreply@github.com>"
           author: "GitHub <noreply@github.com>"
           branch: psl-gtld-update
+          labels: |
+            ✅ autopull
+            🚩ICANN (IANA/ICP-3) Section
           delete-branch: true
 
       - name: Check outputs
