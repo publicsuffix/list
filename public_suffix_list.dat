@@ -13875,9 +13875,7 @@ jotelulu.cloud
 
 // JouwWeb B.V. : https://www.jouwweb.nl
 // Submitted by Camilo Sperberg <camilo@jouwweb.nl>
-*.jouwweb.nl
 *.jouwweb.site
-*.webador.com
 *.webadorsite.com
 
 // Joyent : https://www.joyent.com/
