@@ -11127,11 +11127,6 @@ radio.fm
 // c.la : http://www.c.la/
 c.la
 
-// can.re : https://nic.can.re/
-// Whois Server : whois.can.re
-// Submitted by OsSav Technology Ltd. : support@ossav.com
-can.re
-
 // certmgr.org : https://certmgr.org
 // Submitted by B. Blechschmidt <hostmaster@certmgr.org>
 certmgr.org
@@ -13236,6 +13231,11 @@ operaunite.com
 // Orange : https://www.orange.com
 // Submitted by Alexandre Linte <alexandre.linte@orange.com>
 tech.orange
+
+// OsSav Technology Ltd. : https://ossav.com/
+// TLD Nic: http://nic.can.re - TLD Whois Server: whois.can.re
+// Submitted by OsSav Technology Ltd. <support@ossav.com>
+can.re
 
 // Oursky Limited : https://authgear.com/, https://skygear.io/
 // Submitted by Authgear Team <hello@authgear.com>, Skygear Developer <hello@skygear.io>
