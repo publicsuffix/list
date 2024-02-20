@@ -12377,11 +12377,13 @@ ssl.origin.cdn77-secure.org
 // Cloud DNS Ltd : http://www.cloudns.net
 // Submitted by Aleksander Hristov <noc@cloudns.net> & Boyan Peychev <boyan@cloudns.net>
 cloudns.asia
+cloudns.be
 cloudns.biz
-cloudns.club
 cloudns.cc
-cloudns.cx
+cloudns.ch
 cloudns.cl
+cloudns.club
+cloudns.cx
 cloudns.eu
 cloudns.in
 cloudns.info
@@ -12393,8 +12395,6 @@ cloudns.pw
 cloudns.us
 dns-cloud.net
 dnsabr.com
-cloudns.be
-cloudns.ch
 
 // CNPY : https://cnpy.gdn
 // Submitted by Angelo Gladding <angelo@lahacker.net>
