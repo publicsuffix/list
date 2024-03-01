@@ -12446,6 +12446,10 @@ static-access.net
 // Submitted by Ales Krajnik <ales.krajnik@craynic.com>
 realm.cz
 
+// Crisp IM SAS : https://crisp.chat/
+// Submitted by Baptiste Jamin <hostmaster@crisp.chat>
+on.crisp.email
+
 // Cryptonomic : https://cryptonomic.net/
 // Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
 *.cryptonomic.net
