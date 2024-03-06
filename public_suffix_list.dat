@@ -14868,7 +14868,6 @@ sakura.tv
 
 // Salesforce.com, Inc. Sales Cloud https://salesforce.com/
 // Submitted by Steven Lawrance <slawrance@salesforce.com>
-*.crm.dev
 *.d.crm.dev
 *.w.crm.dev
 *.wa.crm.dev
