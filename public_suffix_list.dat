@@ -14866,6 +14866,38 @@ sakura.tv
 *.stg-builder.code.com
 *.001.test.code-builder-stg.platform.salesforce.com
 
+// Salesforce.com, Inc. Sales Cloud https://salesforce.com/
+// Submitted by Steven Lawrance <slawrance@salesforce.com>
+*.crm.dev
+*.d.crm.dev
+*.w.crm.dev
+*.wa.crm.dev
+*.wb.crm.dev
+*.wc.crm.dev
+*.wd.crm.dev
+*.we.crm.dev
+*.wf.crm.dev
+*.wg.crm.dev
+*.wh.crm.dev
+*.wi.crm.dev
+*.wj.crm.dev
+*.wk.crm.dev
+*.wl.crm.dev
+*.wm.crm.dev
+*.wn.crm.dev
+*.wo.crm.dev
+*.wp.crm.dev
+*.wq.crm.dev
+*.wr.crm.dev
+*.ws.crm.dev
+*.wt.crm.dev
+*.wu.crm.dev
+*.wv.crm.dev
+*.ww.crm.dev
+*.wx.crm.dev
+*.wy.crm.dev
+*.wx.crm.dev
+
 // Sandstorm Development Group, Inc. : https://sandcats.io/
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
 sandcats.io
