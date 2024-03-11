@@ -13877,9 +13877,9 @@ myjino.ru
 jotelulu.cloud
 
 // JouwWeb B.V. : https://www.jouwweb.nl
-// Submitted by Camilo Sperberg <camilo@jouwweb.nl>
-*.jouwweb.site
-*.webadorsite.com
+// Submitted by Camilo Sperberg <tech@webador.com>
+jouwweb.site
+webadorsite.com
 
 // Joyent : https://www.joyent.com/
 // Submitted by Brian Bennett <brian.bennett@joyent.com>
