@@ -13499,6 +13499,7 @@ goip.de
 
 // Google, Inc.
 // Submitted by Eduardo Vela <evn@google.com>
+*.hosted.app
 *.run.app
 web.app
 *.0emm.com
