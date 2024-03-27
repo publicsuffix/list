@@ -13674,15 +13674,17 @@ hoplix.shop
 
 
 // HOSTBIP REGISTRY : https://www.hostbip.com/
+// see also: whois -h whois.udr.org.yt help
 // Submitted by Atanunu Igbunuroghene <publicsuffixlist@hostbip.com>
 orx.biz
 biz.gl
+biz.ng
 col.ng
 firm.ng
 gen.ng
 ltd.ng
 ngo.ng
-edu.scot
+plc.ng
 sch.so
 
 // HostFly : https://www.ie.ua
