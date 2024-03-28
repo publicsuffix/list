@@ -1,0 +1,52 @@
+name: Check Alphabeitical Order
+
+on:
+    pull_request_target:
+        paths:
+            - "public_suffix_list.dat"
+permissions:
+    pull-requests: write
+
+jobs:
+    Alphabetic-Check:
+        runs-on: ubuntu-latest
+        outputs:
+            output1: ${{ steps.read_results.outputs.contents }}
+        steps:
+            - name: Get PR files
+              uses: actions/checkout@v2
+              with:
+                ref: "${{ github.ref }}"
+                path: "pull-request"
+            - name: Get base ref
+              uses: actions/checkout@v2
+              with:
+                ref: ${{ github.event.pull_request.base.ref }}
+                path: base
+            - name: Content check
+              run: python3 base/alphabet_script.py pull-request/public_suffix_list.dat > results.txt
+            - name: Read the result
+              id: read_results
+              uses: andstor/file-reader-action@v1
+              with:
+                path: "results.txt"
+            - name: Create Comment
+              uses: mshick/add-pr-comment@v2
+              with:
+                message-path: "results.txt"
+                refresh-message-position: true
+            - name: Apply Label
+              if: steps.read_results.outputs.contents == ''
+              uses: actions/github-script@v7
+              with:
+                script: |
+                    github.rest.issues.addLabels({
+                    issue_number: context.payload.pull_request.number,
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    labels: ['Alphabet Check Success']
+                    })
+
+              
+
+            
