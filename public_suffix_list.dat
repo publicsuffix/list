@@ -11826,7 +11826,7 @@ labeling.us-west-2.sagemaker.aws
 
 // Amazon SageMaker Notebook Instances
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: ce8ae0b1-0070-496d-be88-37c31837af9d
+// Reference: b5ea56df-669e-43cc-9537-14aa172f5dfc
 notebook.af-south-1.sagemaker.aws
 notebook.ap-east-1.sagemaker.aws
 notebook.ap-northeast-1.sagemaker.aws
@@ -11863,6 +11863,7 @@ notebook-fips.us-gov-east-1.sagemaker.aws
 notebook.us-gov-west-1.sagemaker.aws
 notebook-fips.us-gov-west-1.sagemaker.aws
 notebook.us-west-1.sagemaker.aws
+notebook-fips.us-west-1.sagemaker.aws
 notebook.us-west-2.sagemaker.aws
 notebook-fips.us-west-2.sagemaker.aws
 notebook.cn-north-1.sagemaker.com.cn
