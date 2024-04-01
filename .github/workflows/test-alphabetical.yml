@@ -31,6 +31,7 @@ jobs:
               with:
                 path: "results.txt"
             - name: Create Comment
+              if: steps.read_results.outputs.contents != ''
               uses: mshick/add-pr-comment@v2
               with:
                 message-path: "results.txt"
