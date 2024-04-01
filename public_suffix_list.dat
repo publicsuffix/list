@@ -11956,6 +11956,11 @@ webview-assets.aws-cloud9.us-west-2.amazonaws.com
 vfs.cloud9.us-west-2.amazonaws.com
 webview-assets.cloud9.us-west-2.amazonaws.com
 
+// AWS Directory Service
+// Submitted by AWS Security <psl-maintainers@amazon.com>
+// Reference: a13203e8-42dc-4045-a0d2-2ee67bed1068
+awsapps.com
+
 // AWS Elastic Beanstalk
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: bb5a965c-dec3-4967-aa22-e306ad064797
