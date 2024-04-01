@@ -11390,7 +11390,7 @@ us-east-1.amazonaws.com
 
 // Amazon EMR
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: 597f3f8e-9283-4e48-8e32-7ee25a1ff6ab
+// Reference: 82f43f9f-bbb8-400e-8349-854f5a62f20d
 emrappui-prod.cn-north-1.amazonaws.com.cn
 emrnotebooks-prod.cn-north-1.amazonaws.com.cn
 emrstudio-prod.cn-north-1.amazonaws.com.cn
@@ -11415,6 +11415,9 @@ emrstudio-prod.ap-northeast-3.amazonaws.com
 emrappui-prod.ap-south-1.amazonaws.com
 emrnotebooks-prod.ap-south-1.amazonaws.com
 emrstudio-prod.ap-south-1.amazonaws.com
+emrappui-prod.ap-south-2.amazonaws.com
+emrnotebooks-prod.ap-south-2.amazonaws.com
+emrstudio-prod.ap-south-2.amazonaws.com
 emrappui-prod.ap-southeast-1.amazonaws.com
 emrnotebooks-prod.ap-southeast-1.amazonaws.com
 emrstudio-prod.ap-southeast-1.amazonaws.com
@@ -11424,18 +11427,30 @@ emrstudio-prod.ap-southeast-2.amazonaws.com
 emrappui-prod.ap-southeast-3.amazonaws.com
 emrnotebooks-prod.ap-southeast-3.amazonaws.com
 emrstudio-prod.ap-southeast-3.amazonaws.com
+emrappui-prod.ap-southeast-4.amazonaws.com
+emrnotebooks-prod.ap-southeast-4.amazonaws.com
+emrstudio-prod.ap-southeast-4.amazonaws.com
 emrappui-prod.ca-central-1.amazonaws.com
 emrnotebooks-prod.ca-central-1.amazonaws.com
 emrstudio-prod.ca-central-1.amazonaws.com
+emrappui-prod.ca-west-1.amazonaws.com
+emrnotebooks-prod.ca-west-1.amazonaws.com
+emrstudio-prod.ca-west-1.amazonaws.com
 emrappui-prod.eu-central-1.amazonaws.com
 emrnotebooks-prod.eu-central-1.amazonaws.com
 emrstudio-prod.eu-central-1.amazonaws.com
+emrappui-prod.eu-central-2.amazonaws.com
+emrnotebooks-prod.eu-central-2.amazonaws.com
+emrstudio-prod.eu-central-2.amazonaws.com
 emrappui-prod.eu-north-1.amazonaws.com
 emrnotebooks-prod.eu-north-1.amazonaws.com
 emrstudio-prod.eu-north-1.amazonaws.com
 emrappui-prod.eu-south-1.amazonaws.com
 emrnotebooks-prod.eu-south-1.amazonaws.com
 emrstudio-prod.eu-south-1.amazonaws.com
+emrappui-prod.eu-south-2.amazonaws.com
+emrnotebooks-prod.eu-south-2.amazonaws.com
+emrstudio-prod.eu-south-2.amazonaws.com
 emrappui-prod.eu-west-1.amazonaws.com
 emrnotebooks-prod.eu-west-1.amazonaws.com
 emrstudio-prod.eu-west-1.amazonaws.com
@@ -11445,6 +11460,9 @@ emrstudio-prod.eu-west-2.amazonaws.com
 emrappui-prod.eu-west-3.amazonaws.com
 emrnotebooks-prod.eu-west-3.amazonaws.com
 emrstudio-prod.eu-west-3.amazonaws.com
+emrappui-prod.il-central-1.amazonaws.com
+emrnotebooks-prod.il-central-1.amazonaws.com
+emrstudio-prod.il-central-1.amazonaws.com
 emrappui-prod.me-central-1.amazonaws.com
 emrnotebooks-prod.me-central-1.amazonaws.com
 emrstudio-prod.me-central-1.amazonaws.com
