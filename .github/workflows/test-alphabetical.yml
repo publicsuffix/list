@@ -16,7 +16,7 @@ jobs:
             - name: Get PR files
               uses: actions/checkout@v2
               with:
-                ref: "${{ github.ref }}"
+                ref: "${{ github.event.pull_request.head.sha }}"
                 path: "pull-request"
             - name: Get base ref
               uses: actions/checkout@v2
