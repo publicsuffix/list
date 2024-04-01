@@ -13,7 +13,7 @@ def check_private_domains(file):
                     before_private = False
                 else:
                     continue
-            if re.search("^\/\/ .* *: *https:\/\/.*", line):
+            if re.search("^\/\/ .* *: *https?:\/\/.*", line):
                 wrong_domains, next_index = title_is_less(content, index)
                 if wrong_domains:
                     wrong_order_submissions.append(wrong_domains)
@@ -28,7 +28,7 @@ def title_is_less(content, starting_index):
     wrong_order = []
     end_index = -1
     for index, line in enumerate(content[starting_index+1:], starting_index+1):
-        if re.search("^\/\/ .* *: *https:\/\/.*", line):
+        if re.search("^\/\/ .* *: *https?:\/\/.*", line):
             end_index = index
             next_domain = line.removeprefix("//").lower().strip()
             if domain > next_domain:
