@@ -24,7 +24,7 @@ jobs:
                 ref: ${{ github.event.pull_request.base.ref }}
                 path: base
             - name: Content check
-              run: python3 base/alphabet_script.py pull-request/public_suffix_list.dat > results.txt
+              run: python3 base/tools/alphabet_script.py pull-request/public_suffix_list.dat > results.txt
             - name: Read the result
               id: read_results
               uses: andstor/file-reader-action@v1
