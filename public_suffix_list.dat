@@ -14860,14 +14860,11 @@ from.tv
 sakura.tv
 
 // Salesforce.com, Inc. https://salesforce.com/
-// Submitted by Michael Biven <mbiven@salesforce.com> and Aaron Romeo <aaron.romeo@salesforce.com>
+// Submitted by Michael Biven <mbiven@salesforce.com>, Aaron Romeo <aaron.romeo@salesforce.com>, and Steven Lawrance <slawrance@salesforce.com>
 *.builder.code.com
 *.dev-builder.code.com
 *.stg-builder.code.com
 *.001.test.code-builder-stg.platform.salesforce.com
-
-// Salesforce.com, Inc. Sales Cloud https://salesforce.com/
-// Submitted by Steven Lawrance <slawrance@salesforce.com>
 *.d.crm.dev
 *.w.crm.dev
 *.wa.crm.dev
