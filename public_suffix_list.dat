@@ -13303,7 +13303,7 @@ futuremailing.at
 aliases121.com
 
 // GDS : https://www.gov.uk/service-manual/technology/managing-domain-names
-// Submitted by Stephen Ford <hostmaster@digital.cabinet-office.gov.uk>
+// Submitted by Stephen Ford and Chris Ashton <hostmaster@digital.cabinet-office.gov.uk>
 independent-commission.uk
 independent-inquest.uk
 independent-inquiry.uk
@@ -13312,6 +13312,7 @@ independent-review.uk
 public-inquiry.uk
 royal-commission.uk
 campaign.gov.uk
+data.gov.uk
 service.gov.uk
 
 // CDDO : https://www.gov.uk/guidance/get-an-api-domain-on-govuk
