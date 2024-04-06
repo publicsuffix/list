@@ -14280,6 +14280,10 @@ noop.app
 // Submitted by Laurent Pellegrino <security@noticeable.io>
 noticeable.news
 
+// Notion Labs, Inc : https://www.notion.so/
+// Submitted by Jess Yao <trust-core-team@makenotion.com>
+notion.site
+
 // Now-DNS : https://now-dns.com
 // Submitted by Steve Russell <steve@now-dns.com>
 dnsking.ch
