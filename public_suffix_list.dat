@@ -14960,6 +14960,10 @@ service.gov.scot
 // Submitted by Shante Adam <shante@skyhat.io>
 scrysec.com
 
+// Scrypted : https://scrypted.app
+// Submitted by Koushik Dutta <public-suffix-list@scrypted.app>
+client.scrypted.io
+
 // Securepoint GmbH : https://www.securepoint.de
 // Submitted by Erik Anders <erik.anders@securepoint.de>
 firewall-gateway.com
