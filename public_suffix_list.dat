@@ -13161,10 +13161,9 @@ us-2.evennode.com
 us-3.evennode.com
 us-4.evennode.com
 
-// Expo : https://expo.dev/
-// Submitted by James Ide <psl@expo.dev>
-expo.app
-staging.expo.app
+// Evervault : https://evervault.com
+// Submitted by Hannah Neary <engineering@evervault.com>
+*.relay.evervault.app
 
 // eDirect Corp. : https://hosting.url.com.tw/
 // Submitted by C.S. chang <cschang@corp.url.com.tw>
