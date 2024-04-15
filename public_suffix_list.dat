@@ -12938,6 +12938,10 @@ ondigitalocean.app
 // Submitted by Robin H. Johnson <psl-maintainers@digitalocean.com>
 *.digitaloceanspaces.com
 
+// DigitalPlat : https://www.digitalplat.org/
+// Submitted by Edward Hsing <contact@digitalplat.org>
+us.kg
+
 // dnstrace.pro : https://dnstrace.pro/
 // Submitted by Chris Partridge <chris@partridge.tech>
 bci.dnstrace.pro
