@@ -13164,6 +13164,7 @@ us-4.evennode.com
 // Evervault : https://evervault.com
 // Submitted by Hannah Neary <engineering@evervault.com>
 *.relay.evervault.app
+*.relay.evervault.dev
 
 // eDirect Corp. : https://hosting.url.com.tw/
 // Submitted by C.S. chang <cschang@corp.url.com.tw>
