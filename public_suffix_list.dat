@@ -12367,7 +12367,10 @@ discourse.team
 
 // Clever Cloud : https://www.clever-cloud.com/
 // Submitted by Quentin Adam <noc@clever-cloud.com>
+cleverapps.cc
 cleverapps.io
+cleverapps.tech
+*.services.clever-cloud.com
 
 // Clerk : https://www.clerk.dev
 // Submitted by Colin Sidoti <systems@clerk.dev>
