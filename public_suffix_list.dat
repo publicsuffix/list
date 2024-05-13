@@ -13618,7 +13618,8 @@ ro.im
 goip.de
 
 // Google, Inc.
-// Submitted by Eduardo Vela <evn@google.com>
+// Submitted by Shannon McCabe <public-suffix-editors@google.com>
+*.hosted.app
 *.run.app
 web.app
 *.0emm.com
