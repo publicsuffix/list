@@ -1,2 +1,2 @@
 click==8.1.7
-dnspython==2.5.0
+dnspython==2.6.1
