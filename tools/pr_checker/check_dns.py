@@ -140,7 +140,7 @@ def main(current_filename, pull_request_filename, pr_id):
     """
     added, removed = psl_diff(current_filename, pull_request_filename)
 
-    if not all(map(lambda rule: check_dns_pr(rule, pr_id), added + removed)):
+    if not all(map(lambda rule: check_dns_pr(rule, pr_id), added.union(removed))):
         exit(1)
 
 
