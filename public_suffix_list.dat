@@ -13171,8 +13171,13 @@ us-4.evennode.com
 
 // Evervault : https://evervault.com
 // Submitted by Hannah Neary <engineering@evervault.com>
-*.relay.evervault.app
-*.relay.evervault.dev
+relay.evervault.app
+relay.evervault.dev
+
+// Expo : https://expo.dev/
+// Submitted by James Ide <psl@expo.dev>
+expo.app
+staging.expo.app
 
 // Fabrica Technologies, Inc. : https://www.fabrica.dev/
 // Submitted by Eric Jiang <eric@fabrica.dev>
