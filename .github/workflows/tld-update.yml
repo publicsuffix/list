@@ -4,10 +4,17 @@ on:
   schedule:
     # Run once a day at 15:00 UTC
     - cron:  '0 15 * * *'
+
+permissions:
+  contents: read
+
 jobs:
   psl-gtld-update:
     name: Check for TLD data updates
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
 
       - name: Check out code
@@ -19,7 +26,7 @@ jobs:
           go-version: 'stable'
 
       - name: Run unit tests
-        run: go test tools/*.go
+        run: go test -C ./tools -v .
 
       - name: Set current date
         id: get-date
@@ -42,14 +49,6 @@ jobs:
             ✅ autopull
             🚩ICANN (IANA/ICP-3) Section
           delete-branch: true
-          
-      - name: Create or Update to List Add/Mod/Del To-Do Card
-        if: ${{ steps.cpr.outputs.pull-request-number }}
-        uses: peter-evans/create-or-update-project-card@v2
-        with:
-          project-number: 2
-          column-name: To-Do
-          issue-number: ${{ steps.cpr.outputs.pull-request-number }}
 
       - name: Check outputs
         run: |

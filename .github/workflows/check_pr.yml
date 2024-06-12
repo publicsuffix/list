@@ -1,0 +1,38 @@
+name: Check PR
+
+on:
+  pull_request_target:
+    paths:
+      - "public_suffix_list.dat"
+
+permissions:
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          path: local
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: other
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - run: pip install -r local/tools/pr_checker/requirements.txt
+      - run: python local/tools/pr_checker/check_dns.py local/public_suffix_list.dat other/public_suffix_list.dat ${{ github.event.pull_request.number }}
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['Autocheck Success']
+            })

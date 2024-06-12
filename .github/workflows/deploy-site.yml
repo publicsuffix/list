@@ -6,11 +6,12 @@ on:
     branches:
       - master
 
-permissions:
-  contents: read
-  id-token: write
+permissions: {}
 
 jobs:
   upload-website:
     uses: publicsuffix/publicsuffix.org/.github/workflows/deploy-site.yaml@master
+    permissions:
+      contents: read
+      id-token: write
     secrets: inherit
