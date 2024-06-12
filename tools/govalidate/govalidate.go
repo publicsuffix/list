@@ -26,7 +26,7 @@ func main() {
 
 	bs, err := os.ReadFile(file)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Reading PSL file: %v", err)
+		fmt.Fprintf(os.Stderr, "Failed to read PSL file: %v", err)
 		os.Exit(1)
 	}
 
@@ -37,7 +37,7 @@ func main() {
 	}
 	if *warnings {
 		for _, err := range psl.Warnings {
-			fmt.Println(err, "(ignored)")
+			fmt.Println(err, "(warning)")
 		}
 	}
 	if len(psl.Errors) > 0 {

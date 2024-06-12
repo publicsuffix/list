@@ -22,8 +22,6 @@ import (
 // warning rather than a validation error.
 func downgradeToWarning(e error) bool {
 	switch v := e.(type) {
-	case MissingEntityName:
-		return sourceIsExempted(missingEntityName, v.Suffixes.Raw)
 	case MissingEntityEmail:
 		return sourceIsExempted(missingEmail, v.Suffixes.Raw)
 	}
@@ -48,13 +46,6 @@ func dedent(s string) string {
 		lines[i] = strings.TrimSpace(lines[i])
 	}
 	return strings.Join(lines, "\n")
-}
-
-// missingEntityName are source code blocks that are allowed to lack
-// an entity name.
-var missingEntityName = []string{
-	dedent(`// http://hoster.by/
-	        of.by`),
 }
 
 // missingEmail are source code blocks in the private domains section

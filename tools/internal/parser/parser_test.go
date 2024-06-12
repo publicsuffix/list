@@ -756,17 +756,6 @@ func TestExceptionsStillNecessary(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	forEachOmitted(missingEntityName, func(omitted string, trimmed []string) {
-		old := missingEntityName
-		defer func() { missingEntityName = old }()
-		missingEntityName = trimmed
-
-		f := Parse(string(bs))
-		if len(f.Errors) == 0 {
-			t.Errorf("missingEntityName exception no longer seems necessary:\n%s", omitted)
-		}
-	})
-
 	forEachOmitted(missingEmail, func(omitted string, trimmed []string) {
 		old := missingEmail
 		defer func() { missingEmail = old }()

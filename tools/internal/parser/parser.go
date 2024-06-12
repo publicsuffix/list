@@ -28,7 +28,8 @@ func parseWithExceptions(src string, downgradeToWarning func(error) bool) *File 
 
 // parser is the state for a single PSL file parse.
 type parser struct {
-	// blockStart, if non-zero, is the line on which the current block began.
+	// blockStart, if non-zero, is the line on which the current block
+	// began. The block continues until the following empty line.
 	blockStart int
 	// blockEnd, if non-zero, is the line on which the last complete
 	// block ended.
@@ -189,6 +190,8 @@ func (p *parser) consumeSections() {
 		marker := p.lines[0]
 		src := Source{p.blockStart, p.blockStart, marker}
 
+		// TODO: verify that the suffix is present before stripping,
+		// right now you could omit it and not get an error.
 		marker = strings.TrimSuffix(marker, "===")
 		if begin := strings.TrimPrefix(marker, beginMarker); begin != marker {
 			start := StartSection{
@@ -229,15 +232,16 @@ func (p *parser) consumeSections() {
 			p.currentSection = nil
 			p.addBlock(endSection)
 		} else {
-			// Looks like a section marker, but not a known form. Stop
-			// processing section markers and punt back to comment
-			// processing.
+			// We've consumed everything that looks like a valid
+			// section marker, recurse to consumeComment to process
+			// any further regular comments.
 			//
 			// consumeComment and consumeSections may recurse into
-			// each other for particularly gnarly comments, but
-			// outside of a deliberately malicious input the stack
-			// depth remains acceptable - and malicious input just
-			// causes a panic, not a safety issue.
+			// each other multiple times for particularly nasty
+			// comment blocks, but outside of a deliberately malicious
+			// input the stack depth remains acceptable - and
+			// malicious input just causes a panic, not a safety
+			// issue.
 			p.consumeComment()
 			return
 		}
