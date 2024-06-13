@@ -1,0 +1,28 @@
+name: govalidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      warnings:
+        description: print warnings as well as errors
+        type: boolean
+        required: true
+        default: false
+
+jobs:
+  govalidate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "stable"
+      - name: run validator
+        # cd in and out of tools/ so that govalidate runs from the
+        # repository root. That way, when it outputs rich error
+        # annotations in future, they will reference the correct repo
+        # paths automatically.
+        run: |
+          (cd tools && go build -o ../govalidate ./govalidate)
+          ./govalidate --with-warnings=${{ inputs.warnings }} public_suffix_list.dat
