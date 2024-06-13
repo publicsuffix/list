@@ -105,8 +105,8 @@ func (p *parser) consumeBlock() {
 		p.blockEnd = 0
 	}()
 
-	// Comment and Suffix blocks are distinguished by whether or not
-	// there are any domain suffixes.
+	// Suffix blocks are distinguished by whether or not there are any
+	// non-comment lines.
 	var header, entries, comments []Source
 	for i, l := range p.lines {
 		src := Source{p.blockStart + i, p.blockStart + i, l}
@@ -119,8 +119,9 @@ func (p *parser) consumeBlock() {
 		}
 	}
 
-	switch {
-	case len(entries) > 0:
+	if len(entries) > 0 {
+		// Suffixes are easy to build, but require a lot more parsing
+		// and validation to extract comment metadata.
 		s := Suffixes{
 			Source:         p.blockSource(),
 			Header:         header,
@@ -129,124 +130,139 @@ func (p *parser) consumeBlock() {
 		}
 		p.enrichSuffixes(&s)
 		p.addBlock(s)
-	case strings.HasPrefix(header[0].Raw, sectionMarker):
-		p.consumeSections()
-	default:
-		p.addBlock(Comment{
-			Source: p.blockSource(),
-		})
+		return
 	}
-}
 
-// sectionMarker is the prefix of a comment line that indicates the
-// start or end of a logical section of the file.
-const beginMarker = "// ===BEGIN "
-const endMarker = "// ===END "
-const sectionMarker = "// ==="
+	// Not a suffix block, so this is a comment block, possibly with
+	// embedded section markers.
 
-// consumeComment generates a Comment block from the given lines. If
-// any lines look like a section marker, those are passed to
-// consumeSections.
-func (p *parser) consumeComment() {
+	linesConsumed := 0
+
+	// maybeOutputComment outputs a Comment block, if there are
+	// accumulated comment lines to output.
+	maybeOutputComment := func(endLine int) {
+		if endLine == linesConsumed {
+			return
+		}
+
+		first := p.blockStart + linesConsumed
+		last := p.blockStart + endLine - 1
+		block := Comment{
+			Source: Source{
+				StartLine: first,
+				EndLine:   last,
+				Raw:       strings.Join(p.lines[linesConsumed:endLine], "\n"),
+			},
+		}
+		p.addBlock(block)
+		linesConsumed = endLine
+	}
+
 	for i, line := range p.lines {
 		if !strings.HasPrefix(line, sectionMarker) {
 			continue
-		} else if strings.HasPrefix(line, beginMarker) || strings.HasPrefix(line, endMarker) {
-			if i > 0 {
-				p.addBlock(Comment{
-					Source: Source{p.blockStart, p.blockStart + i - 1, strings.Join(p.lines[:i], "\n")},
-				})
-				p.lines = p.lines[i:]
-				p.blockStart += i
-			}
-			p.consumeSections()
-		} else {
-			p.addError(UnknownSectionMarker{
-				Line: Source{p.blockStart + i, p.blockStart + i, line},
-			})
 		}
+
+		maybeOutputComment(i)
+
+		// Current line looks like a section marker.
+		p.consumeSectionMarker(Source{
+			StartLine: p.blockStart + i,
+			EndLine:   p.blockStart + i,
+			Raw:       line,
+		})
+		linesConsumed++
 	}
 
-	if len(p.lines) > 0 {
-		p.addBlock(Comment{
-			Source: p.blockSource(),
-		})
-	}
+	// There might be a final bit of comments that haven't been
+	// consumed yet.
+	maybeOutputComment(len(p.lines))
 }
 
-// consumeSections looks for logical section start/end markers in
-// p.lines and generates appropriate StartSection/EndSection blocks.
-//
-// If consumeSections encounters a non-marker line (a normal comment
-// or a domain suffix), it stops and delegates further processing to
-// consumeBlock, with the parser's state suitably adjusted to remove
-// processed markers.
-func (p *parser) consumeSections() {
-	// A single comment block may interleave section markers and
-	// freeform comments, and we want to translate that structure
-	// faithfully. Consume consecutive marker lines, but stop as soon
-	// as a non-marker line shows up.
-	for len(p.lines) > 0 {
-		marker := p.lines[0]
-		src := Source{p.blockStart, p.blockStart, marker}
+const sectionMarker = "// ==="
 
-		// TODO: verify that the suffix is present before stripping,
-		// right now you could omit it and not get an error.
-		marker = strings.TrimSuffix(marker, "===")
-		if begin := strings.TrimPrefix(marker, beginMarker); begin != marker {
-			start := StartSection{
-				Source: src,
-				Name:   begin,
-			}
-			if p.currentSection != nil {
-				// Nested sections aren't allowed, note the error and
-				// continue parsing as if the prior section had been
-				// correctly closed.
-				p.addError(NestedSectionError{
-					Outer: *p.currentSection,
-					Inner: start,
-				})
-			}
-			p.currentSection = &start
-			p.addBlock(start)
-		} else if end := strings.TrimPrefix(marker, endMarker); end != marker {
-			endSection := EndSection{
-				Source: src,
-				Name:   end,
-			}
-			if p.currentSection == nil {
-				// Rogue end marker, note the error and continue
-				// parsing as if the section had been correctly opened
-				// earlier.
-				p.addError(UnstartedSectionError{
-					End: endSection,
-				})
-			} else if p.currentSection.Name != end {
-				// Mismatched start/end. Note the error but keep going
-				// as if the pairing was correct.
-				p.addError(MismatchedSectionError{
-					Start: *p.currentSection,
-					End:   endSection,
-				})
-			}
-			p.currentSection = nil
-			p.addBlock(endSection)
-		} else {
-			// We've consumed everything that looks like a valid
-			// section marker, recurse to consumeComment to process
-			// any further regular comments.
-			//
-			// consumeComment and consumeSections may recurse into
-			// each other multiple times for particularly nasty
-			// comment blocks, but outside of a deliberately malicious
-			// input the stack depth remains acceptable - and
-			// malicious input just causes a panic, not a safety
-			// issue.
-			p.consumeComment()
-			return
+// consumeSectionMarker treats the given line as a section marker and
+// generates appropriate StartSection/EndSection blocks.
+//
+// consumeSectionMarker reports errors for mismatched section
+// start/end pairs, nested sections, and lines that look like section
+// markers but aren't one of the known kinds.
+func (p *parser) consumeSectionMarker(line Source) {
+	markerWithoutStart := strings.TrimPrefix(line.Raw, sectionMarker)
+	if markerWithoutStart == line.Raw {
+		// Somehow we got called with a line that doesn't look have
+		// the right prefix, something is very wrong.
+		panic("consumeSectionMarker called with non-marker line")
+	}
+
+	// Note hasTrailer gets used below to report an error if the
+	// trailing === is missing. We delay reporting the error so that
+	// if the entire line is invalid, we don't report both a
+	// whole-line error and also an unterminated marker error.
+	marker, hasTrailer := strings.CutSuffix(markerWithoutStart, "===")
+
+	markerType, name, ok := strings.Cut(marker, " ")
+	if !ok {
+		// There are no spaces, markerType is the whole text between
+		// the ===. Clear it out, so that the switch below goes to the
+		// error case, otherwise "===BEGIN===" would be accepted as a
+		// no-name section start.
+		markerType = ""
+	}
+
+	switch markerType {
+	case "BEGIN":
+		start := StartSection{
+			Source: line,
+			Name:   name,
 		}
-		p.lines = p.lines[1:]
-		p.blockStart++
+		if p.currentSection != nil {
+			// Nested sections aren't allowed. Note the error and
+			// continue parsing as if the previous section was closed
+			// correctly before this one started.
+			p.addError(NestedSectionError{
+				Outer: *p.currentSection,
+				Inner: start,
+			})
+		}
+		if !hasTrailer {
+			p.addError(UnterminatedSectionMarker{line})
+		}
+		p.currentSection = &start
+		p.addBlock(start)
+	case "END":
+		end := EndSection{
+			Source: line,
+			Name:   name,
+		}
+		if p.currentSection == nil {
+			// Rogue end marker. Note and continue parsing as if this
+			// section name was correctly opened earlier.
+			p.addError(UnstartedSectionError{
+				End: end,
+			})
+		} else if p.currentSection.Name != name {
+			// Mismatched start/end.
+			p.addError(MismatchedSectionError{
+				Start: *p.currentSection,
+				End:   end,
+			})
+		}
+		if !hasTrailer {
+			p.addError(UnterminatedSectionMarker{line})
+		}
+		p.currentSection = nil
+		p.addBlock(end)
+	default:
+		// Unknown kind of marker
+		//
+		// We want all non-whitespace bytes to be present in the
+		// parsed output somewhere, so record this malformed line as a
+		// Comment. Top-level comments are just freeform text, which
+		// is technically correct here since this isn't a valid
+		// section marker.
+		p.addError(UnknownSectionMarker{line})
+		p.addBlock(Comment{line})
 	}
 }
 

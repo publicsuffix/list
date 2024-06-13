@@ -58,6 +58,16 @@ func (e UnknownSectionMarker) Error() string {
 	return fmt.Sprintf("unknown kind of section marker %q at %s", trimComment(e.Line.Raw), e.Line.LocationString())
 }
 
+// UnterminatedSectionMarker reports that a section marker is missing
+// the required trailing "===", e.g. "===BEGIN ICANN DOMAINS".
+type UnterminatedSectionMarker struct {
+	Line Source
+}
+
+func (e UnterminatedSectionMarker) Error() string {
+	return fmt.Sprintf(`section marker %q at %s is missing trailing "==="`, trimComment(e.Line.Raw), e.Line.LocationString())
+}
+
 // MissingEntityName reports that a block of suffixes does not have a
 // parseable owner name in its header comment.
 type MissingEntityName struct {
