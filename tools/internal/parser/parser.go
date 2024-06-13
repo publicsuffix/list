@@ -11,8 +11,11 @@ import (
 //
 // The parser tries to keep going when it encounters errors. Parse and
 // validation errors are accumulated in the Errors field of the
-// returned File. A File with a non-empty Errors field is not a valid
-// PSL file and may contain malformed data.
+// returned File.
+//
+// If the returned File has a non-empty Errors field, the parsed file
+// may not be valid, and should not be used to make decisions about
+// FQDNs.
 func Parse(src string) *File {
 	return parseWithExceptions(src, downgradeToWarning)
 }
