@@ -39,11 +39,11 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "just_comments",
-			psl: dedent(`
-			  // This is an empty PSL file.
-
-			  // Here is a second comment.
-			`),
+			psl: lines(
+				"// This is an empty PSL file.",
+				"",
+				"// Here is a second comment.",
+			),
 			want: File{
 				Blocks: []Block{
 					Comment{Source: src(1, 1, "// This is an empty PSL file.")},
@@ -54,11 +54,11 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "just_suffixes",
-			psl: dedent(`
-              example.com
-              other.example.com
-              *.example.org
-			`),
+			psl: lines(
+				"example.com",
+				"other.example.com",
+				"*.example.org",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
@@ -87,13 +87,13 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "empty_sections",
-			psl: dedent(`
-			  // ===BEGIN IMAGINARY DOMAINS===
-
-              // ===END IMAGINARY DOMAINS===
-              // ===BEGIN FAKE DOMAINS===
-              // ===END FAKE DOMAINS===
-			`),
+			psl: lines(
+				"// ===BEGIN IMAGINARY DOMAINS===",
+				"",
+				"// ===END IMAGINARY DOMAINS===",
+				"// ===BEGIN FAKE DOMAINS===",
+				"// ===END FAKE DOMAINS===",
+			),
 			want: File{
 				Blocks: []Block{
 					StartSection{
@@ -118,9 +118,9 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "missing_section_end",
-			psl: dedent(`
-              // ===BEGIN ICANN DOMAINS===
-            `),
+			psl: lines(
+				"// ===BEGIN ICANN DOMAINS===",
+			),
 			want: File{
 				Blocks: []Block{
 					StartSection{
@@ -141,12 +141,12 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "nested_sections",
-			psl: dedent(`
-              // ===BEGIN ICANN DOMAINS===
-              // ===BEGIN SECRET DOMAINS===
-              // ===END SECRET DOMAINS===
-              // ===END ICANN DOMAINS===
-            `),
+			psl: lines(
+				"// ===BEGIN ICANN DOMAINS===",
+				"// ===BEGIN SECRET DOMAINS===",
+				"// ===END SECRET DOMAINS===",
+				"// ===END ICANN DOMAINS===",
+			),
 			want: File{
 				Blocks: []Block{
 					StartSection{
@@ -188,11 +188,11 @@ func TestParser(t *testing.T) {
 		},
 		{
 			name: "mismatched_sections",
-			psl: dedent(`
-              // ===BEGIN ICANN DOMAINS===
-
-              // ===END PRIVATE DOMAINS===
-            `),
+			psl: lines(
+				"// ===BEGIN ICANN DOMAINS===",
+				"",
+				"// ===END PRIVATE DOMAINS===",
+			),
 			want: File{
 				Blocks: []Block{
 					StartSection{
@@ -221,9 +221,9 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "unknown_section_header",
-			psl: dedent(`
-              // ===TRANSFORM DOMAINS===
-            `),
+			psl: lines(
+				"// ===TRANSFORM DOMAINS===",
+			),
 			want: File{
 				Blocks: []Block{
 					Comment{
@@ -240,20 +240,21 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_with_unstructured_header",
-			psl: dedent(`
-              // Unstructured header.
-              // I'm just going on about random things.
-              example.com
-              example.org
-            `),
+			psl: lines(
+				"// Unstructured header.",
+				"// I'm just going on about random things.",
+				"example.com",
+				"example.org",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(1, 4, dedent(`
-  						  // Unstructured header.
-						  // I'm just going on about random things.
-						  example.com
-						  example.org`)),
+						Source: src(1, 4, lines(
+							"// Unstructured header.",
+							"// I'm just going on about random things.",
+							"example.com",
+							"example.org",
+						)),
 						Header: []Source{
 							src(1, 1, "// Unstructured header."),
 							src(2, 2, "// I'm just going on about random things."),
@@ -270,22 +271,23 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_with_canonical_private_header",
-			psl: dedent(`
-              // DuckCorp Inc: https://example.com
-              // Submitted by Not A Duck <duck@example.com>
-              // Seriously, not a duck
-              example.com
-              example.org
-            `),
+			psl: lines(
+				"// DuckCorp Inc: https://example.com",
+				"// Submitted by Not A Duck <duck@example.com>",
+				"// Seriously, not a duck",
+				"example.com",
+				"example.org",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(1, 5, dedent(`
-  						  // DuckCorp Inc: https://example.com
-                          // Submitted by Not A Duck <duck@example.com>
-                          // Seriously, not a duck
-						  example.com
-						  example.org`)),
+						Source: src(1, 5, lines(
+							"// DuckCorp Inc: https://example.com",
+							"// Submitted by Not A Duck <duck@example.com>",
+							"// Seriously, not a duck",
+							"example.com",
+							"example.org",
+						)),
 						Header: []Source{
 							src(1, 1, "// DuckCorp Inc: https://example.com"),
 							src(2, 2, "// Submitted by Not A Duck <duck@example.com>"),
@@ -305,17 +307,17 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_with_entity_and_submitter",
-			psl: dedent(`
-              // DuckCorp Inc: submitted by Not A Duck <duck@example.com>
-              example.com
-            `),
+			psl: lines(
+				"// DuckCorp Inc: submitted by Not A Duck <duck@example.com>",
+				"example.com",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(1, 2, dedent(`
-  						  // DuckCorp Inc: submitted by Not A Duck <duck@example.com>
-						  example.com
-                        `)),
+						Source: src(1, 2, lines(
+							"// DuckCorp Inc: submitted by Not A Duck <duck@example.com>",
+							"example.com",
+						)),
 						Header: []Source{
 							src(1, 1, "// DuckCorp Inc: submitted by Not A Duck <duck@example.com>"),
 						},
@@ -331,21 +333,21 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_with_all_separate_lines",
-			psl: dedent(`
-              // DuckCorp Inc
-              // https://example.com
-              // Submitted by Not A Duck <duck@example.com>
-              example.com
-            `),
+			psl: lines(
+				"// DuckCorp Inc",
+				"// https://example.com",
+				"// Submitted by Not A Duck <duck@example.com>",
+				"example.com",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(1, 4, dedent(`
-  						  // DuckCorp Inc
-                          // https://example.com
-                          // Submitted by Not A Duck <duck@example.com>
-						  example.com
-                        `)),
+						Source: src(1, 4, lines(
+							"// DuckCorp Inc",
+							"// https://example.com",
+							"// Submitted by Not A Duck <duck@example.com>",
+							"example.com",
+						)),
 						Header: []Source{
 							src(1, 1, "// DuckCorp Inc"),
 							src(2, 2, "// https://example.com"),
@@ -364,19 +366,19 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_standard_header_submitter_first",
-			psl: dedent(`
-              // Submitted by Not A Duck <duck@example.com>
-              // DuckCorp Inc: https://example.com
-              example.com
-            `),
+			psl: lines(
+				"// Submitted by Not A Duck <duck@example.com>",
+				"// DuckCorp Inc: https://example.com",
+				"example.com",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(1, 3, dedent(`
-                          // Submitted by Not A Duck <duck@example.com>
-  						  // DuckCorp Inc: https://example.com
-						  example.com
-                        `)),
+						Source: src(1, 3, lines(
+							"// Submitted by Not A Duck <duck@example.com>",
+							"// DuckCorp Inc: https://example.com",
+							"example.com",
+						)),
 						Header: []Source{
 							src(1, 1, "// Submitted by Not A Duck <duck@example.com>"),
 							src(2, 2, "// DuckCorp Inc: https://example.com"),
@@ -394,21 +396,21 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_standard_header_leading_unstructured",
-			psl: dedent(`
-              // This is an unstructured comment.
-              // DuckCorp Inc: https://example.com
-              // Submitted by Not A Duck <duck@example.com>
-              example.com
-            `),
+			psl: lines(
+				"// This is an unstructured comment.",
+				"// DuckCorp Inc: https://example.com",
+				"// Submitted by Not A Duck <duck@example.com>",
+				"example.com",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(1, 4, dedent(`
-                          // This is an unstructured comment.
-  						  // DuckCorp Inc: https://example.com
-                          // Submitted by Not A Duck <duck@example.com>
-						  example.com
-                        `)),
+						Source: src(1, 4, lines(
+							"// This is an unstructured comment.",
+							"// DuckCorp Inc: https://example.com",
+							"// Submitted by Not A Duck <duck@example.com>",
+							"example.com",
+						)),
 						Header: []Source{
 							src(1, 1, "// This is an unstructured comment."),
 							src(2, 2, "// DuckCorp Inc: https://example.com"),
@@ -427,20 +429,20 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "legacy_error_downgrade",
-			psl: dedent(`
-              // https://example.com
-              example.com
-            `),
+			psl: lines(
+				"// https://example.com",
+				"example.com",
+			),
 			downgradeToWarning: func(e error) bool {
 				return true
 			},
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(1, 2, dedent(`
-                          // https://example.com
-						  example.com
-                        `)),
+						Source: src(1, 2, lines(
+							"// https://example.com",
+							"example.com",
+						)),
 						Header: []Source{
 							src(1, 1, "// https://example.com"),
 						},
@@ -453,10 +455,10 @@ func TestParser(t *testing.T) {
 				Warnings: []error{
 					MissingEntityName{
 						Suffixes: Suffixes{
-							Source: src(1, 2, dedent(`
-                              // https://example.com
-	    					  example.com
-                            `)),
+							Source: src(1, 2, lines(
+								"// https://example.com",
+								"example.com",
+							)),
 							Header: []Source{
 								src(1, 1, "// https://example.com"),
 							},
@@ -474,10 +476,10 @@ func TestParser(t *testing.T) {
 			// Regression test for Future Versatile Group, who use a
 			// unicode fullwidth colon in their header.
 			name: "unicode_colon",
-			psl: dedent(`
-              // Future Versatile Group：https://example.org
-              example.com
-            `),
+			psl: lines(
+				"// Future Versatile Group：https://example.org",
+				"example.com",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
@@ -499,10 +501,10 @@ func TestParser(t *testing.T) {
 			// Regression test for a few blocks that start with "name
 			// (url)" instead of the more common "name: url".
 			name: "url_in_parens",
-			psl: dedent(`
-              // Parens Appreciation Society (https://example.org)
-              example.com
-            `),
+			psl: lines(
+				"// Parens Appreciation Society (https://example.org)",
+				"example.com",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
@@ -525,13 +527,13 @@ func TestParser(t *testing.T) {
 			// (url)" style don't have a scheme on their URL, so
 			// require a bit more fudging to parse.
 			name: "url_in_parens_no_scheme",
-			psl: dedent(`
-              // Parens Appreciation Society (hostyhosting.com)
-              example.com
-
-              // Parens Policy Panel (www.task.gda.pl/uslugi/dns)
-              policy.example.org
-            `),
+			psl: lines(
+				"// Parens Appreciation Society (hostyhosting.com)",
+				"example.com",
+				"",
+				"// Parens Policy Panel (www.task.gda.pl/uslugi/dns)",
+				"policy.example.org",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
@@ -567,18 +569,19 @@ func TestParser(t *testing.T) {
 			// lines, or you might overwrite the correct answer with
 			// someething else that happens to have the right shape.
 			name: "accept_first_valid_entity",
-			psl: dedent(`
-              // cd : https://en.wikipedia.org/wiki/.cd
-              // see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1
-              cd
-            `),
+			psl: lines(
+				"// cd : https://en.wikipedia.org/wiki/.cd",
+				"// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1",
+				"cd",
+			),
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(1, 3, dedent(`
-						  // cd : https://en.wikipedia.org/wiki/.cd
-                          // see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1
-                          cd`)),
+						Source: src(1, 3, lines(
+							"// cd : https://en.wikipedia.org/wiki/.cd",
+							"// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1",
+							"cd",
+						)),
 						Header: []Source{
 							src(1, 1, "// cd : https://en.wikipedia.org/wiki/.cd"),
 							src(2, 2, "// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1"),
@@ -633,7 +636,7 @@ func src(start, end int, text string) Source {
 	return Source{
 		StartLine: start,
 		EndLine:   end,
-		Raw:       dedent(text),
+		Raw:       text,
 	}
 }
 
