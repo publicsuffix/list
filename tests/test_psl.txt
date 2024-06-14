@@ -57,8 +57,8 @@ checkPublicSuffix('a.b.ide.kyoto.jp', 'b.ide.kyoto.jp');
 checkPublicSuffix('c.kobe.jp', null);
 checkPublicSuffix('b.c.kobe.jp', 'b.c.kobe.jp');
 checkPublicSuffix('a.b.c.kobe.jp', 'b.c.kobe.jp');
-checkPublicSuffix('city.kobe.jp', 'city.kobe.jp');
-checkPublicSuffix('www.city.kobe.jp', 'city.kobe.jp');
+checkPublicSuffix('city.kobe.jp', 'kobe.jp');
+checkPublicSuffix('www.city.kobe.jp', 'kobe.jp');
 // TLD with a wildcard rule and exceptions.
 checkPublicSuffix('ck', null);
 checkPublicSuffix('test.ck', null);
