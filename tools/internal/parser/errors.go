@@ -4,6 +4,61 @@ import (
 	"fmt"
 )
 
+// InvalidEncodingError reports that the input is encoded with
+// something other than UTF-8.
+type InvalidEncodingError struct {
+	Encoding string
+}
+
+func (e InvalidEncodingError) Error() string {
+	return fmt.Sprintf("file uses invalid character encoding %s", e.Encoding)
+}
+
+// UTF8BOMError reports that the input has an unnecessary UTF-8 byte
+// order mark (BOM) at the start.
+type UTF8BOMError struct{}
+
+func (e UTF8BOMError) Error() string {
+	return "file starts with an unnecessary UTF-8 BOM (byte order mark)"
+}
+
+// InvalidUTF8Error reports that a line contains bytes that are not
+// valid UTF-8.
+type InvalidUTF8Error struct {
+	Line Source
+}
+
+func (e InvalidUTF8Error) Error() string {
+	return fmt.Sprintf("found non UTF-8 bytes at %s", e.Line.LocationString())
+}
+
+// DOSNewlineError reports that a line has a DOS style line ending.
+type DOSNewlineError struct {
+	Line Source
+}
+
+func (e DOSNewlineError) Error() string {
+	return fmt.Sprintf("%s has a DOS line ending (\\r\\n instead of just \\n)", e.Line.LocationString())
+}
+
+// TrailingWhitespaceError reports that a line has trailing whitespace.
+type TrailingWhitespaceError struct {
+	Line Source
+}
+
+func (e TrailingWhitespaceError) Error() string {
+	return fmt.Sprintf("%s has trailing whitespace", e.Line.LocationString())
+}
+
+// LeadingWhitespaceError reports that a line has leading whitespace.
+type LeadingWhitespaceError struct {
+	Line Source
+}
+
+func (e LeadingWhitespaceError) Error() string {
+	return fmt.Sprintf("%s has leading whitespace", e.Line.LocationString())
+}
+
 // UnclosedSectionError reports that a file section was not closed
 // properly before EOF.
 type UnclosedSectionError struct {

@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"bytes"
 	"fmt"
 	"strconv"
 	"strings"
@@ -8,6 +9,242 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 )
+
+func TestNormalize(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name     string
+		in       []byte
+		want     []string
+		wantErrs []error
+	}{
+		{
+			name: "empty_input",
+			in:   []byte{},
+			want: []string{},
+		},
+		{
+			name: "no_early_errors",
+			in: byteLines(
+				"// This is a small replica",
+				"// of the PSL",
+				"com",
+				"net",
+				"lol",
+				"",
+				"// End of file",
+			),
+			want: []string{
+				"// This is a small replica",
+				"// of the PSL",
+				"com",
+				"net",
+				"lol",
+				"",
+				"// End of file",
+			},
+		},
+		{
+			// "utf-16 text"
+			// linewraps are after the spaces
+			name: "utf16be_input_with_bom",
+			in: []byte{
+				0xfe, 0xff, // BOM
+				0x0, 0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20,
+				0x0, 0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74,
+			},
+			want:     []string{"utf-16 text"},
+			wantErrs: []error{InvalidEncodingError{"UTF-16BE"}},
+		},
+		{
+			name: "utf16le_input_with_bom",
+			// "utf-16 text"
+			// linewraps are after the spaces
+			in: []byte{
+				0xff, 0xfe, // BOM
+				0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20, 0x0,
+				0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0,
+			},
+			want:     []string{"utf-16 text"},
+			wantErrs: []error{InvalidEncodingError{"UTF-16LE"}},
+		},
+		{
+			name: "utf16be_input",
+			// "utf-16 text utf-16 text utf-16 text"
+			// linewraps are after the spaces
+			in: []byte{
+				0x0, 0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20,
+				0x0, 0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0, 0x20,
+				0x0, 0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20,
+				0x0, 0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0, 0x20,
+				0x0, 0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20,
+				0x0, 0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74,
+			},
+			want:     []string{"utf-16 text utf-16 text utf-16 text"},
+			wantErrs: []error{InvalidEncodingError{"UTF-16BE (guessed)"}},
+		},
+		{
+			name: "utf16le_input",
+			// "utf-16 text utf-16 text utf-16 text"
+			// linewraps are after the spaces
+			in: []byte{
+				0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20, 0x0,
+				0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0, 0x20, 0x0,
+				0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20, 0x0,
+				0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0, 0x20, 0x0,
+				0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20, 0x0,
+				0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0,
+			},
+			want:     []string{"utf-16 text utf-16 text utf-16 text"},
+			wantErrs: []error{InvalidEncodingError{"UTF-16LE (guessed)"}},
+		},
+		{
+			name: "utf8_with_bom",
+			// "utf-8 text"
+			in:       byteLines("\xef\xbb\xbfutf-8 text"),
+			want:     []string{"utf-8 text"},
+			wantErrs: []error{UTF8BOMError{}},
+		},
+		{
+			name: "utf8_with_garbage",
+			in: byteLines(
+				"normal UTF-8",
+				"this line is damaged\xc3\x28\xf0\x90\x28\xbca bit",
+				"this line is ok",
+				"this line \xfc\xa1\xa1\xa1\xa1\xa1is bad",
+			),
+			want: []string{
+				"normal UTF-8",
+				"this line is damaged\uFFFD(\uFFFD(\uFFFDa bit",
+				"this line is ok",
+				"this line \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDis bad",
+			},
+			wantErrs: []error{
+				InvalidUTF8Error{
+					Line: mkSrc(1, "this line is damaged\uFFFD(\uFFFD(\uFFFDa bit"),
+				},
+				InvalidUTF8Error{
+					Line: mkSrc(3, "this line \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDis bad"),
+				},
+			},
+		},
+		{
+			name: "dos_line_endings",
+			in: byteLines(
+				"normal file\r",
+				"except the lines\r",
+				"end like it's 1991"),
+			want: []string{
+				"normal file",
+				"except the lines",
+				"end like it's 1991",
+			},
+			wantErrs: []error{
+				DOSNewlineError{
+					Line: mkSrc(0, "normal file\r"),
+				},
+				DOSNewlineError{
+					Line: mkSrc(1, "except the lines\r"),
+				},
+			},
+		},
+		{
+			name: "trailing_whitespace",
+			in: byteLines(
+				"a file  ",
+				"with all kinds\t\t",
+				" \r\t",
+				// Strange "spaces": em space, ideographic space,
+				// 4/18em medium mathematical space.
+				"of trailing space\u2003\u3000\u205f",
+				"and one good line",
+			),
+			want: []string{
+				"a file",
+				"with all kinds",
+				"",
+				"of trailing space",
+				"and one good line",
+			},
+			wantErrs: []error{
+				TrailingWhitespaceError{
+					Line: mkSrc(0, "a file  "),
+				},
+				TrailingWhitespaceError{
+					Line: mkSrc(1, "with all kinds\t\t"),
+				},
+				TrailingWhitespaceError{
+					Line: mkSrc(2, " \r\t"),
+				},
+				TrailingWhitespaceError{
+					Line: mkSrc(3, "of trailing space\u2003\u3000\u205f"),
+				},
+			},
+		},
+		{
+			name: "leading_whitespace",
+			in: byteLines(
+				"  a file",
+				"\t\twith all kinds",
+				" \r\t", // ensure this is reported as trailing, not leading
+				// Strange "spaces": em space, ideographic space,
+				// 4/18em medium mathematical space.
+				"\u2003\u3000\u205fof leading space",
+				"and one good line",
+			),
+			want: []string{
+				"a file",
+				"with all kinds",
+				"",
+				"of leading space",
+				"and one good line",
+			},
+			wantErrs: []error{
+				LeadingWhitespaceError{
+					Line: mkSrc(0, "  a file"),
+				},
+				LeadingWhitespaceError{
+					Line: mkSrc(1, "\t\twith all kinds"),
+				},
+				TrailingWhitespaceError{
+					Line: mkSrc(2, " \r\t"),
+				},
+				LeadingWhitespaceError{
+					Line: mkSrc(3, "\u2003\u3000\u205fof leading space"),
+				},
+			},
+		},
+		{
+			name: "the_most_wrong_line",
+			in:   byteLines("\xef\xbb\xbf  \t  // Hello\xc3\x28 very broken line\t  \r"),
+			want: []string{"// Hello\uFFFD( very broken line"},
+			wantErrs: []error{
+				UTF8BOMError{},
+				InvalidUTF8Error{
+					Line: mkSrc(0, "  \t  // Hello\uFFFD( very broken line\t  \r"),
+				},
+				DOSNewlineError{
+					Line: mkSrc(0, "  \t  // Hello\uFFFD( very broken line\t  \r"),
+				},
+				TrailingWhitespaceError{
+					Line: mkSrc(0, "  \t  // Hello\uFFFD( very broken line\t  \r"),
+				},
+				LeadingWhitespaceError{
+					Line: mkSrc(0, "  \t  // Hello\uFFFD( very broken line\t  \r"),
+				},
+			},
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			src, errs := newSource(tc.in)
+			checkDiff(t, "newSource error set", errs, tc.wantErrs)
+			checkDiff(t, "newSource result", src.lines, tc.want)
+		})
+	}
+}
 
 func TestLineSlicing(t *testing.T) {
 	t.Parallel()
@@ -365,6 +602,21 @@ func TestCut(t *testing.T) {
 			}
 		})
 	}
+}
+
+func byteLines(lines ...any) []byte {
+	var ret [][]byte
+	for _, ln := range lines {
+		switch v := ln.(type) {
+		case string:
+			ret = append(ret, []byte(v))
+		case []byte:
+			ret = append(ret, v)
+		default:
+			panic(fmt.Sprintf("unhandled type %T for bytes()", ln))
+		}
+	}
+	return bytes.Join(ret, []byte("\n"))
 }
 
 func checkDiff(t *testing.T, whatIsBeingDiffed string, got, want any) {
