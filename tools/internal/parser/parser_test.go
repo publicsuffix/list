@@ -239,6 +239,118 @@ func TestParser(t *testing.T) {
 		},
 
 		{
+			name: "suffixes_with_section_markers_in_header",
+			psl: byteLines(
+				"// Just some suffixes",
+				"// ===BEGIN ICANN DOMAINS===",
+				"com",
+				"org",
+				"",
+				"// ===END ICANN DOMAINS===",
+			),
+			want: File{
+				Blocks: []Block{
+					Suffixes{
+						Source: mkSrc(0,
+							"// Just some suffixes",
+							"// ===BEGIN ICANN DOMAINS===",
+							"com",
+							"org",
+						),
+						Header: []Source{
+							mkSrc(0, "// Just some suffixes"),
+							mkSrc(1, "// ===BEGIN ICANN DOMAINS==="),
+						},
+						Entries: []Source{
+							mkSrc(2, "com"),
+							mkSrc(3, "org"),
+						},
+						Entity: "Just some suffixes",
+					},
+					EndSection{
+						Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
+						Name:   "ICANN DOMAINS",
+					},
+				},
+				Errors: []error{
+					SectionInSuffixBlock{
+						Line: mkSrc(1, "// ===BEGIN ICANN DOMAINS==="),
+					},
+					// Note: trying to gracefully parse the
+					// StartSection would require splitting the suffix
+					// block in two, which would need more code and
+					// also result in additional spurious validation
+					// errors. Instead this tests that section markers
+					// within suffix blocks are ignored for section
+					// validation.
+					UnstartedSectionError{
+						End: EndSection{
+							Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
+							Name:   "ICANN DOMAINS",
+						},
+					},
+				},
+			},
+		},
+
+		{
+			name: "suffixes_with_section_markers_inline",
+			psl: byteLines(
+				"// Just some suffixes",
+				"com",
+				"// ===BEGIN ICANN DOMAINS===",
+				"org",
+				"",
+				"// ===END ICANN DOMAINS===",
+			),
+			want: File{
+				Blocks: []Block{
+					Suffixes{
+						Source: mkSrc(0,
+							"// Just some suffixes",
+							"com",
+							"// ===BEGIN ICANN DOMAINS===",
+							"org",
+						),
+						Header: []Source{
+							mkSrc(0, "// Just some suffixes"),
+						},
+						Entries: []Source{
+							mkSrc(1, "com"),
+							mkSrc(3, "org"),
+						},
+						InlineComments: []Source{
+							mkSrc(2, "// ===BEGIN ICANN DOMAINS==="),
+						},
+						Entity: "Just some suffixes",
+					},
+					EndSection{
+						Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
+						Name:   "ICANN DOMAINS",
+					},
+				},
+				Errors: []error{
+					SectionInSuffixBlock{
+						Line: mkSrc(2, "// ===BEGIN ICANN DOMAINS==="),
+					},
+					// Note: trying to gracefully parse the
+					// StartSection would require splitting the suffix
+					// block in two, which would need more code and
+					// also result in additional spurious validation
+					// errors. Instead this tests that section markers
+					// within suffix blocks are ignored for section
+					// validation.
+					UnstartedSectionError{
+						End: EndSection{
+							Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
+							Name:   "ICANN DOMAINS",
+						},
+					},
+				},
+			},
+		},
+
+		{
 			name: "suffixes_with_unstructured_header",
 			psl: byteLines(
 				"// Unstructured header.",

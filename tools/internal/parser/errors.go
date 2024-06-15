@@ -59,6 +59,16 @@ func (e LeadingWhitespaceError) Error() string {
 	return fmt.Sprintf("%s has leading whitespace", e.Line.LocationString())
 }
 
+// SectionInSuffixBlock reports that a comment within a block of
+// suffixes contains a section delimiter.
+type SectionInSuffixBlock struct {
+	Line Source
+}
+
+func (e SectionInSuffixBlock) Error() string {
+	return fmt.Sprintf("section delimiters are not allowed in suffix block comment at %s", e.Line.LocationString())
+}
+
 // UnclosedSectionError reports that a file section was not closed
 // properly before EOF.
 type UnclosedSectionError struct {
