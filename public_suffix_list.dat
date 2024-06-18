@@ -14853,6 +14853,11 @@ cloudsite.builders
 myradweb.net
 servername.us
 
+// Raidboxes GmbH : https://raidboxes.de
+// Submitted by Auke Tembrink <auke@raidboxes.de>
+myrdbx.io
+site.rb-hosting.io
+
 // Redgate Software: https://red-gate.com
 // Submitted by Andrew Farries <andrew.farries@red-gate.com>
 instances.spawn.cc
