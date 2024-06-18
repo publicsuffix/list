@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"strings"
 )
 
 // InvalidEncodingError reports that the input is encoded with
@@ -151,4 +152,49 @@ type MissingEntityEmail struct {
 
 func (e MissingEntityEmail) Error() string {
 	return fmt.Sprintf("could not find a contact email for %s at %s", e.Suffixes.shortName(), e.Suffixes.LocationString())
+}
+
+// SuffixBlocksInWrongPlace reports that some suffix blocks of the
+// private section are in the wrong sort order.
+type SuffixBlocksInWrongPlace struct {
+	// EditScript is a list of suffix block movements to put the
+	// private domains section in the correct order. Note that each
+	// step assumes that the previous steps have already been done.
+	EditScript []MoveSuffixBlock
+}
+
+// MoveSuffixBlock describes the movement of one suffix block to a
+// different place in the PSL file.
+type MoveSuffixBlock struct {
+	// Name is the name of the block to be moved.
+	Name string
+	// InsertAfter is the name of the block that is immediately before
+	// the correct place to insert Block, or the empty string if Block
+	// should go first in the private domains section.
+	InsertAfter string
+}
+
+func (e SuffixBlocksInWrongPlace) Error() string {
+	if len(e.EditScript) == 1 {
+		after := e.EditScript[0].InsertAfter
+		if after == "" {
+			return fmt.Sprintf("suffix block %q is in the wrong place, should be at the start of the private section", e.EditScript[0].Name)
+		} else {
+			return fmt.Sprintf("suffix block %q is in the wrong place, it should go immediately after block %q", e.EditScript[0].Name, e.EditScript[0].InsertAfter)
+		}
+	}
+
+	var ret strings.Builder
+	fmt.Fprintf(&ret, "%d suffix blocks are in the wrong place, make these changes to fix:\n", len(e.EditScript))
+
+	for _, edit := range e.EditScript {
+		fmt.Fprintf(&ret, "\tmove block: %s\n", edit.Name)
+		if edit.InsertAfter == "" {
+			fmt.Fprintf(&ret, "\t        to: start of private section\n")
+		} else {
+			fmt.Fprintf(&ret, "\t     after: %s\n", edit.InsertAfter)
+		}
+	}
+
+	return ret.String()
 }

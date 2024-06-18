@@ -651,8 +651,8 @@ func TestParser(t *testing.T) {
 				// use real exceptions if the test doesn't provide something else
 				exc = downgradeToWarning
 			}
-			got := parseWithExceptions(test.psl, exc)
-			checkDiff(t, "parse result", got, &test.want)
+			got := parseWithExceptions(test.psl, exc, true).File
+			checkDiff(t, "parse result", got, test.want)
 		})
 	}
 }
