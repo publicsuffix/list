@@ -52,16 +52,16 @@ type parser struct {
 }
 
 // Parse parses src as a PSL file and returns the parse result.
-func (p *parser) Parse(src source) {
-	blankLine := func(line source) bool { return line.Text() == "" }
-	blocks := src.Split(blankLine)
+func (p *parser) Parse(src Source) {
+	blankLine := func(line Source) bool { return line.Text() == "" }
+	blocks := src.split(blankLine)
 
 	for _, block := range blocks {
 		// Does this block have any non-comments in it? If so, it's a
 		// suffix block, otherwise it's a comment/section marker
 		// block.
-		notComment := func(line source) bool { return !strings.HasPrefix(line.Text(), "//") }
-		comment, rest, hasSuffixes := block.Cut(notComment)
+		notComment := func(line Source) bool { return !strings.HasPrefix(line.Text(), "//") }
+		comment, rest, hasSuffixes := block.cut(notComment)
 		if hasSuffixes {
 			p.processSuffixes(block, comment, rest)
 		} else {
@@ -79,16 +79,16 @@ func (p *parser) Parse(src source) {
 
 // processSuffixes parses a block that consists of domain suffixes and
 // a metadata header.
-func (p *parser) processSuffixes(block, header, rest source) {
+func (p *parser) processSuffixes(block, header, rest Source) {
 	s := Suffixes{
-		Source: block.Source(),
+		Source: block,
 	}
 
 	var metadataSrc []string
-	for _, line := range header.Lines() {
+	for _, line := range header.lineSources() {
 		// TODO: s.Header should be a single Source for the entire
 		// comment.
-		s.Header = append(s.Header, line.Source())
+		s.Header = append(s.Header, line)
 		// Trim the comment prefix in two steps, because some PSL
 		// comments don't have whitepace between the // and the
 		// following text.
@@ -96,15 +96,15 @@ func (p *parser) processSuffixes(block, header, rest source) {
 	}
 
 	// rest consists of suffixes and possibly inline comments.
-	commentLine := func(line source) bool { return strings.HasPrefix(line.Text(), "//") }
-	rest.ForEachRun(commentLine, func(block source, isComment bool) {
+	commentLine := func(line Source) bool { return strings.HasPrefix(line.Text(), "//") }
+	rest.forEachRun(commentLine, func(block Source, isComment bool) {
 		if isComment {
-			s.InlineComments = append(s.InlineComments, block.Source())
+			s.InlineComments = append(s.InlineComments, block)
 		} else {
 			// TODO: parse entries properly, for how we just
 			// accumulate them as individual Sources, one per suffix.
-			for _, entry := range block.Lines() {
-				s.Entries = append(s.Entries, entry.Source())
+			for _, entry := range block.lineSources() {
+				s.Entries = append(s.Entries, entry)
 			}
 		}
 	})
@@ -118,24 +118,24 @@ const sectionMarkerPrefix = "// ==="
 // processTopLevelComment parses a block that has only comment lines,
 // no suffixes. Some of those comments may be markers for the
 // start/end of file sections.
-func (p *parser) processTopLevelComment(block source) {
-	sectionLine := func(line source) bool {
+func (p *parser) processTopLevelComment(block Source) {
+	sectionLine := func(line Source) bool {
 		return strings.HasPrefix(line.Text(), sectionMarkerPrefix)
 	}
-	block.ForEachRun(sectionLine, func(block source, isSectionLine bool) {
+	block.forEachRun(sectionLine, func(block Source, isSectionLine bool) {
 		if isSectionLine {
-			for _, line := range block.Lines() {
+			for _, line := range block.lineSources() {
 				p.processSectionMarker(line)
 			}
 		} else {
-			p.addBlock(Comment{block.Source()})
+			p.addBlock(Comment{block})
 		}
 	})
 }
 
 // processSectionMarker parses line as a file section marker, and
 // enforces correct start/end pairing.
-func (p *parser) processSectionMarker(line source) {
+func (p *parser) processSectionMarker(line Source) {
 	// Trim here rather than in the caller, so that we still have the
 	// complete input line available to use in errors.
 	marker := strings.TrimPrefix(line.Text(), sectionMarkerPrefix)
@@ -157,7 +157,7 @@ func (p *parser) processSectionMarker(line source) {
 
 	// No matter what, we're going to output something that needs to
 	// reference this line.
-	src := line.Source()
+	src := line
 
 	switch markerType {
 	case "BEGIN":

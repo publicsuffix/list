@@ -46,8 +46,8 @@ func TestParser(t *testing.T) {
 			),
 			want: File{
 				Blocks: []Block{
-					Comment{Source: src(0, 1, "// This is an empty PSL file.")},
-					Comment{Source: src(2, 3, "// Here is a second comment.")},
+					Comment{Source: mkSrc(0, "// This is an empty PSL file.")},
+					Comment{Source: mkSrc(2, "// Here is a second comment.")},
 				},
 			},
 		},
@@ -62,22 +62,22 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 3, "example.com\nother.example.com\n*.example.org"),
+						Source: mkSrc(0, "example.com", "other.example.com", "*.example.org"),
 						Entries: []Source{
-							src(0, 1, "example.com"),
-							src(1, 2, "other.example.com"),
-							src(2, 3, "*.example.org"),
+							mkSrc(0, "example.com"),
+							mkSrc(1, "other.example.com"),
+							mkSrc(2, "*.example.org"),
 						},
 					},
 				},
 				Errors: []error{
 					MissingEntityName{
 						Suffixes: Suffixes{
-							Source: src(0, 3, "example.com\nother.example.com\n*.example.org"),
+							Source: mkSrc(0, "example.com", "other.example.com", "*.example.org"),
 							Entries: []Source{
-								src(0, 1, "example.com"),
-								src(1, 2, "other.example.com"),
-								src(2, 3, "*.example.org"),
+								mkSrc(0, "example.com"),
+								mkSrc(1, "other.example.com"),
+								mkSrc(2, "*.example.org"),
 							},
 						},
 					},
@@ -97,19 +97,19 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					StartSection{
-						Source: src(0, 1, "// ===BEGIN IMAGINARY DOMAINS==="),
+						Source: mkSrc(0, "// ===BEGIN IMAGINARY DOMAINS==="),
 						Name:   "IMAGINARY DOMAINS",
 					},
 					EndSection{
-						Source: src(2, 3, "// ===END IMAGINARY DOMAINS==="),
+						Source: mkSrc(2, "// ===END IMAGINARY DOMAINS==="),
 						Name:   "IMAGINARY DOMAINS",
 					},
 					StartSection{
-						Source: src(3, 4, "// ===BEGIN FAKE DOMAINS==="),
+						Source: mkSrc(3, "// ===BEGIN FAKE DOMAINS==="),
 						Name:   "FAKE DOMAINS",
 					},
 					EndSection{
-						Source: src(4, 5, "// ===END FAKE DOMAINS==="),
+						Source: mkSrc(4, "// ===END FAKE DOMAINS==="),
 						Name:   "FAKE DOMAINS",
 					},
 				},
@@ -124,14 +124,14 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					StartSection{
-						Source: src(0, 1, "// ===BEGIN ICANN DOMAINS==="),
+						Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
 						Name:   "ICANN DOMAINS",
 					},
 				},
 				Errors: []error{
 					UnclosedSectionError{
 						Start: StartSection{
-							Source: src(0, 1, "// ===BEGIN ICANN DOMAINS==="),
+							Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
 							Name:   "ICANN DOMAINS",
 						},
 					},
@@ -150,36 +150,36 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					StartSection{
-						Source: src(0, 1, "// ===BEGIN ICANN DOMAINS==="),
+						Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
 						Name:   "ICANN DOMAINS",
 					},
 					StartSection{
-						Source: src(1, 2, "// ===BEGIN SECRET DOMAINS==="),
+						Source: mkSrc(1, "// ===BEGIN SECRET DOMAINS==="),
 						Name:   "SECRET DOMAINS",
 					},
 					EndSection{
-						Source: src(2, 3, "// ===END SECRET DOMAINS==="),
+						Source: mkSrc(2, "// ===END SECRET DOMAINS==="),
 						Name:   "SECRET DOMAINS",
 					},
 					EndSection{
-						Source: src(3, 4, "// ===END ICANN DOMAINS==="),
+						Source: mkSrc(3, "// ===END ICANN DOMAINS==="),
 						Name:   "ICANN DOMAINS",
 					},
 				},
 				Errors: []error{
 					NestedSectionError{
 						Outer: StartSection{
-							Source: src(0, 1, "// ===BEGIN ICANN DOMAINS==="),
+							Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
 							Name:   "ICANN DOMAINS",
 						},
 						Inner: StartSection{
-							Source: src(1, 2, "// ===BEGIN SECRET DOMAINS==="),
+							Source: mkSrc(1, "// ===BEGIN SECRET DOMAINS==="),
 							Name:   "SECRET DOMAINS",
 						},
 					},
 					UnstartedSectionError{
 						EndSection{
-							Source: src(3, 4, "// ===END ICANN DOMAINS==="),
+							Source: mkSrc(3, "// ===END ICANN DOMAINS==="),
 							Name:   "ICANN DOMAINS",
 						},
 					},
@@ -196,22 +196,22 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					StartSection{
-						Source: src(0, 1, "// ===BEGIN ICANN DOMAINS==="),
+						Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
 						Name:   "ICANN DOMAINS",
 					},
 					EndSection{
-						Source: src(2, 3, "// ===END PRIVATE DOMAINS==="),
+						Source: mkSrc(2, "// ===END PRIVATE DOMAINS==="),
 						Name:   "PRIVATE DOMAINS",
 					},
 				},
 				Errors: []error{
 					MismatchedSectionError{
 						Start: StartSection{
-							Source: src(0, 1, "// ===BEGIN ICANN DOMAINS==="),
+							Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
 							Name:   "ICANN DOMAINS",
 						},
 						End: EndSection{
-							Source: src(2, 3, "// ===END PRIVATE DOMAINS==="),
+							Source: mkSrc(2, "// ===END PRIVATE DOMAINS==="),
 							Name:   "PRIVATE DOMAINS",
 						},
 					},
@@ -227,12 +227,12 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Comment{
-						Source: src(0, 1, "// ===TRANSFORM DOMAINS==="),
+						Source: mkSrc(0, "// ===TRANSFORM DOMAINS==="),
 					},
 				},
 				Errors: []error{
 					UnknownSectionMarker{
-						Line: src(0, 1, "// ===TRANSFORM DOMAINS==="),
+						Line: mkSrc(0, "// ===TRANSFORM DOMAINS==="),
 					},
 				},
 			},
@@ -249,19 +249,19 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 4, lines(
+						Source: mkSrc(0,
 							"// Unstructured header.",
 							"// I'm just going on about random things.",
 							"example.com",
 							"example.org",
-						)),
+						),
 						Header: []Source{
-							src(0, 1, "// Unstructured header."),
-							src(1, 2, "// I'm just going on about random things."),
+							mkSrc(0, "// Unstructured header."),
+							mkSrc(1, "// I'm just going on about random things."),
 						},
 						Entries: []Source{
-							src(2, 3, "example.com"),
-							src(3, 4, "example.org"),
+							mkSrc(2, "example.com"),
+							mkSrc(3, "example.org"),
 						},
 						Entity: "Unstructured header.",
 					},
@@ -281,21 +281,21 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 5, lines(
+						Source: mkSrc(0,
 							"// DuckCorp Inc: https://example.com",
 							"// Submitted by Not A Duck <duck@example.com>",
 							"// Seriously, not a duck",
 							"example.com",
 							"example.org",
-						)),
+						),
 						Header: []Source{
-							src(0, 1, "// DuckCorp Inc: https://example.com"),
-							src(1, 2, "// Submitted by Not A Duck <duck@example.com>"),
-							src(2, 3, "// Seriously, not a duck"),
+							mkSrc(0, "// DuckCorp Inc: https://example.com"),
+							mkSrc(1, "// Submitted by Not A Duck <duck@example.com>"),
+							mkSrc(2, "// Seriously, not a duck"),
 						},
 						Entries: []Source{
-							src(3, 4, "example.com"),
-							src(4, 5, "example.org"),
+							mkSrc(3, "example.com"),
+							mkSrc(4, "example.org"),
 						},
 						Entity:    "DuckCorp Inc",
 						URL:       mustURL("https://example.com"),
@@ -314,15 +314,15 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 2, lines(
+						Source: mkSrc(0,
 							"// DuckCorp Inc: submitted by Not A Duck <duck@example.com>",
 							"example.com",
-						)),
+						),
 						Header: []Source{
-							src(0, 1, "// DuckCorp Inc: submitted by Not A Duck <duck@example.com>"),
+							mkSrc(0, "// DuckCorp Inc: submitted by Not A Duck <duck@example.com>"),
 						},
 						Entries: []Source{
-							src(1, 2, "example.com"),
+							mkSrc(1, "example.com"),
 						},
 						Entity:    "DuckCorp Inc",
 						Submitter: mustEmail("Not A Duck <duck@example.com>"),
@@ -342,19 +342,19 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 4, lines(
+						Source: mkSrc(0,
 							"// DuckCorp Inc",
 							"// https://example.com",
 							"// Submitted by Not A Duck <duck@example.com>",
 							"example.com",
-						)),
+						),
 						Header: []Source{
-							src(0, 1, "// DuckCorp Inc"),
-							src(1, 2, "// https://example.com"),
-							src(2, 3, "// Submitted by Not A Duck <duck@example.com>"),
+							mkSrc(0, "// DuckCorp Inc"),
+							mkSrc(1, "// https://example.com"),
+							mkSrc(2, "// Submitted by Not A Duck <duck@example.com>"),
 						},
 						Entries: []Source{
-							src(3, 4, "example.com"),
+							mkSrc(3, "example.com"),
 						},
 						Entity:    "DuckCorp Inc",
 						URL:       mustURL("https://example.com"),
@@ -374,17 +374,17 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 3, lines(
+						Source: mkSrc(0,
 							"// Submitted by Not A Duck <duck@example.com>",
 							"// DuckCorp Inc: https://example.com",
 							"example.com",
-						)),
+						),
 						Header: []Source{
-							src(0, 1, "// Submitted by Not A Duck <duck@example.com>"),
-							src(1, 2, "// DuckCorp Inc: https://example.com"),
+							mkSrc(0, "// Submitted by Not A Duck <duck@example.com>"),
+							mkSrc(1, "// DuckCorp Inc: https://example.com"),
 						},
 						Entries: []Source{
-							src(2, 3, "example.com"),
+							mkSrc(2, "example.com"),
 						},
 						Entity:    "DuckCorp Inc",
 						URL:       mustURL("https://example.com"),
@@ -405,19 +405,19 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 4, lines(
+						Source: mkSrc(0,
 							"// This is an unstructured comment.",
 							"// DuckCorp Inc: https://example.com",
 							"// Submitted by Not A Duck <duck@example.com>",
 							"example.com",
-						)),
+						),
 						Header: []Source{
-							src(0, 1, "// This is an unstructured comment."),
-							src(1, 2, "// DuckCorp Inc: https://example.com"),
-							src(2, 3, "// Submitted by Not A Duck <duck@example.com>"),
+							mkSrc(0, "// This is an unstructured comment."),
+							mkSrc(1, "// DuckCorp Inc: https://example.com"),
+							mkSrc(2, "// Submitted by Not A Duck <duck@example.com>"),
 						},
 						Entries: []Source{
-							src(3, 4, "example.com"),
+							mkSrc(3, "example.com"),
 						},
 						Entity:    "DuckCorp Inc",
 						URL:       mustURL("https://example.com"),
@@ -439,15 +439,15 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 2, lines(
+						Source: mkSrc(0,
 							"// https://example.com",
 							"example.com",
-						)),
+						),
 						Header: []Source{
-							src(0, 1, "// https://example.com"),
+							mkSrc(0, "// https://example.com"),
 						},
 						Entries: []Source{
-							src(1, 2, "example.com"),
+							mkSrc(1, "example.com"),
 						},
 						URL: mustURL("https://example.com"),
 					},
@@ -455,15 +455,15 @@ func TestParser(t *testing.T) {
 				Warnings: []error{
 					MissingEntityName{
 						Suffixes: Suffixes{
-							Source: src(0, 2, lines(
+							Source: mkSrc(0,
 								"// https://example.com",
 								"example.com",
-							)),
+							),
 							Header: []Source{
-								src(0, 1, "// https://example.com"),
+								mkSrc(0, "// https://example.com"),
 							},
 							Entries: []Source{
-								src(1, 2, "example.com"),
+								mkSrc(1, "example.com"),
 							},
 							URL: mustURL("https://example.com"),
 						},
@@ -483,12 +483,12 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 2, "// Future Versatile Group：https://example.org\nexample.com"),
+						Source: mkSrc(0, "// Future Versatile Group：https://example.org", "example.com"),
 						Header: []Source{
-							src(0, 1, "// Future Versatile Group：https://example.org"),
+							mkSrc(0, "// Future Versatile Group：https://example.org"),
 						},
 						Entries: []Source{
-							src(1, 2, "example.com"),
+							mkSrc(1, "example.com"),
 						},
 						Entity: "Future Versatile Group",
 						URL:    mustURL("https://example.org"),
@@ -508,12 +508,12 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 2, "// Parens Appreciation Society (https://example.org)\nexample.com"),
+						Source: mkSrc(0, "// Parens Appreciation Society (https://example.org)", "example.com"),
 						Header: []Source{
-							src(0, 1, "// Parens Appreciation Society (https://example.org)"),
+							mkSrc(0, "// Parens Appreciation Society (https://example.org)"),
 						},
 						Entries: []Source{
-							src(1, 2, "example.com"),
+							mkSrc(1, "example.com"),
 						},
 						Entity: "Parens Appreciation Society",
 						URL:    mustURL("https://example.org"),
@@ -537,23 +537,23 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 2, "// Parens Appreciation Society (hostyhosting.com)\nexample.com"),
+						Source: mkSrc(0, "// Parens Appreciation Society (hostyhosting.com)", "example.com"),
 						Header: []Source{
-							src(0, 1, "// Parens Appreciation Society (hostyhosting.com)"),
+							mkSrc(0, "// Parens Appreciation Society (hostyhosting.com)"),
 						},
 						Entries: []Source{
-							src(1, 2, "example.com"),
+							mkSrc(1, "example.com"),
 						},
 						Entity: "Parens Appreciation Society",
 						URL:    mustURL("https://hostyhosting.com"),
 					},
 					Suffixes{
-						Source: src(3, 5, "// Parens Policy Panel (www.task.gda.pl/uslugi/dns)\npolicy.example.org"),
+						Source: mkSrc(3, "// Parens Policy Panel (www.task.gda.pl/uslugi/dns)", "policy.example.org"),
 						Header: []Source{
-							src(3, 4, "// Parens Policy Panel (www.task.gda.pl/uslugi/dns)"),
+							mkSrc(3, "// Parens Policy Panel (www.task.gda.pl/uslugi/dns)"),
 						},
 						Entries: []Source{
-							src(4, 5, "policy.example.org"),
+							mkSrc(4, "policy.example.org"),
 						},
 						Entity: "Parens Policy Panel",
 						URL:    mustURL("https://www.task.gda.pl/uslugi/dns"),
@@ -577,17 +577,17 @@ func TestParser(t *testing.T) {
 			want: File{
 				Blocks: []Block{
 					Suffixes{
-						Source: src(0, 3, lines(
+						Source: mkSrc(0,
 							"// cd : https://en.wikipedia.org/wiki/.cd",
 							"// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1",
 							"cd",
-						)),
+						),
 						Header: []Source{
-							src(0, 1, "// cd : https://en.wikipedia.org/wiki/.cd"),
-							src(1, 2, "// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1"),
+							mkSrc(0, "// cd : https://en.wikipedia.org/wiki/.cd"),
+							mkSrc(1, "// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1"),
 						},
 						Entries: []Source{
-							src(2, 3, "cd"),
+							mkSrc(2, "cd"),
 						},
 						Entity: "cd",
 						URL:    mustURL("https://en.wikipedia.org/wiki/.cd"),
@@ -605,9 +605,7 @@ func TestParser(t *testing.T) {
 				exc = downgradeToWarning
 			}
 			got := parseWithExceptions(test.psl, exc)
-			if diff := diff.Diff(&test.want, got); diff != "" {
-				t.Errorf("unexpected parse result (-want +got):\n%s", diff)
-			}
+			checkDiff(t, "parse result", got, &test.want)
 		})
 	}
 }
@@ -631,12 +629,11 @@ func mustEmail(s string) *mail.Address {
 	return a
 }
 
-// src returns a Source with the given start, end, and dedented text.
-func src(start, end int, text string) Source {
+// mkSrc returns a Source with the given start, end, and dedented text.
+func mkSrc(start int, lines ...string) Source {
 	return Source{
-		StartLine: start,
-		EndLine:   end,
-		Raw:       text,
+		lineOffset: start,
+		lines:      lines,
 	}
 }
 
@@ -674,16 +671,16 @@ func TestRoundtripRealList(t *testing.T) {
 	var rebuilt bytes.Buffer
 	for _, block := range f.Blocks {
 		src := block.source()
-		if src.StartLine < prevLine {
-			t.Fatalf("ordering error: previous block ended at %d but this block starts at %d:\n%s", prevLine, src.StartLine, src.Raw)
+		if src.lineOffset < prevLine {
+			t.Fatalf("ordering error: previous block ended at %d but this block starts at %d:\n%s", prevLine, src.lineOffset, src.Text())
 		}
-		for prevLine < src.StartLine {
+		for prevLine < src.lineOffset {
 			rebuilt.WriteByte('\n')
 			prevLine++
 		}
-		rebuilt.WriteString(src.Raw)
+		rebuilt.WriteString(src.Text())
 		rebuilt.WriteByte('\n')
-		prevLine = src.EndLine
+		prevLine = src.lineOffset + len(src.lines)
 	}
 
 	got := strings.Split(strings.TrimSpace(rebuilt.String()), "\n")
@@ -725,21 +722,21 @@ func TestRoundtripRealListDetailed(t *testing.T) {
 				srcs = append(srcs, c)
 			}
 			slices.SortFunc(srcs, func(a, b Source) int {
-				return cmp.Compare(a.StartLine, b.StartLine)
+				return cmp.Compare(a.lineOffset, b.lineOffset)
 			})
 		}
 
 		for _, src := range srcs {
-			if src.StartLine < prevLine {
-				t.Fatalf("ordering error: previous block ended at %d but this block starts at %d:\n%s", prevLine, src.StartLine, src.Raw)
+			if src.lineOffset < prevLine {
+				t.Fatalf("ordering error: previous block ended at %d but this block starts at %d:\n%s", prevLine, src.lineOffset, src.Text())
 			}
-			for prevLine < src.StartLine {
+			for prevLine < src.lineOffset {
 				rebuilt.WriteByte('\n')
 				prevLine++
 			}
-			rebuilt.WriteString(src.Raw)
+			rebuilt.WriteString(src.Text())
 			rebuilt.WriteByte('\n')
-			prevLine = src.EndLine
+			prevLine = src.lineOffset + len(src.lines)
 		}
 	}
 

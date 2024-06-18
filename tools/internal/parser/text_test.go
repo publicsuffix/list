@@ -15,13 +15,13 @@ func TestLineSlicing(t *testing.T) {
 	lines := []string{"abc", "def", "ghi", "jkl"}
 	src := mkSrc(0, lines...)
 
-	wantLines := []source{
+	wantLines := []Source{
 		mkSrc(0, "abc"),
 		mkSrc(1, "def"),
 		mkSrc(2, "ghi"),
 		mkSrc(3, "jkl"),
 	}
-	checkDiff(t, "src.Lines()", src.Lines(), wantLines)
+	checkDiff(t, "src.lineSources()", src.lineSources(), wantLines)
 
 	// slice and line are internal helpers, but if they behave
 	// incorrectly some higher level methods have very confusing
@@ -44,60 +44,41 @@ func TestSourceText(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
-		src       source
-		want      Source
-		wantPanic bool
+		src          Source
+		wantText     string
+		wantLocation string
 	}{
 		{
-			src:       mkSrc(0),
-			wantPanic: true,
+			src:          mkSrc(0),
+			wantText:     "",
+			wantLocation: "<invalid Source, 0-line range before line 1>",
 		},
 		{
-			src: mkSrc(0, "abc"),
-			want: Source{
-				StartLine: 0,
-				EndLine:   1,
-				Raw:       "abc",
-			},
+			src:          mkSrc(0, "abc"),
+			wantText:     "abc",
+			wantLocation: "line 1",
 		},
 		{
-			src: mkSrc(0, "abc", "def"),
-			want: Source{
-				StartLine: 0,
-				EndLine:   2,
-				Raw:       "abc\ndef",
-			},
+			src:          mkSrc(0, "abc", "def"),
+			wantText:     "abc\ndef",
+			wantLocation: "lines 1-2",
 		},
 		{
-			src: mkSrc(0, "abc", "def").line(0),
-			want: Source{
-				StartLine: 0,
-				EndLine:   1,
-				Raw:       "abc",
-			},
+			src:          mkSrc(0, "abc", "def").line(0),
+			wantText:     "abc",
+			wantLocation: "line 1",
 		},
 		{
-			src: mkSrc(0, "abc", "def").line(1),
-			want: Source{
-				StartLine: 1,
-				EndLine:   2,
-				Raw:       "def",
-			},
+			src:          mkSrc(0, "abc", "def").line(1),
+			wantText:     "def",
+			wantLocation: "line 2",
 		},
 	}
 
 	for i, tc := range tests {
 		t.Run(strconv.Itoa(i), func(t *testing.T) {
-			if tc.wantPanic {
-				defer func() {
-					if err := recover(); err == nil {
-						t.Errorf("wanted panic but got success")
-					}
-				}()
-			}
-			got := tc.src.Source()
-			checkDiff(t, "Source()", got, tc.want)
-			checkDiff(t, "Source().Raw vs. Text()", tc.src.Text(), got.Raw)
+			checkDiff(t, "src.Text()", tc.src.Text(), tc.wantText)
+			checkDiff(t, "mkSrc().LocationString()", tc.src.LocationString(), tc.wantLocation)
 		})
 	}
 }
@@ -105,25 +86,25 @@ func TestSourceText(t *testing.T) {
 func TestForEachRun(t *testing.T) {
 	t.Parallel()
 
-	isComment := func(line source) bool {
+	isComment := func(line Source) bool {
 		return strings.HasPrefix(line.Text(), "// ")
 	}
-	// some weird arbitrary classifier, to verify that ForEachRun is
+	// some weird arbitrary classifier, to verify that forEachRun is
 	// using the classifier correctly
 	groupCnt := 0
-	groupsOf2And1 := func(line source) bool {
+	groupsOf2And1 := func(line Source) bool {
 		groupCnt = (groupCnt + 1) % 3
 		return groupCnt == 0
 	}
 
 	type Run struct {
 		IsMatch bool
-		Block   source
+		Block   Source
 	}
 	tests := []struct {
 		name     string
-		src      source
-		classify func(source) bool
+		src      Source
+		classify func(Source) bool
 		want     []Run
 	}{
 		{
@@ -207,10 +188,10 @@ func TestForEachRun(t *testing.T) {
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
 			var got []Run
-			tc.src.ForEachRun(tc.classify, func(block source, isMatch bool) {
+			tc.src.forEachRun(tc.classify, func(block Source, isMatch bool) {
 				got = append(got, Run{isMatch, block})
 			})
-			checkDiff(t, "ForEachRun", got, tc.want)
+			checkDiff(t, "forEachRun", got, tc.want)
 		})
 	}
 }
@@ -229,28 +210,28 @@ func TestSplit(t *testing.T) {
 		"ghi",
 	)
 
-	exact := func(s string) func(source) bool {
-		return func(line source) bool {
+	exact := func(s string) func(Source) bool {
+		return func(line Source) bool {
 			return line.Text() == s
 		}
 	}
-	prefix := func(s string) func(source) bool {
-		return func(line source) bool {
+	prefix := func(s string) func(Source) bool {
+		return func(line Source) bool {
 			return strings.HasPrefix(line.Text(), s)
 		}
 	}
 
 	tests := []struct {
 		name string
-		src  source
-		fn   func(source) bool
-		want []source
+		src  Source
+		fn   func(Source) bool
+		want []Source
 	}{
 		{
 			name: "simple",
 			src:  lines,
 			fn:   exact("abc"),
-			want: []source{
+			want: []Source{
 				mkSrc(0, "// comment"),
 				mkSrc(2, "", "// other", "def", "", "// end", "ghi"),
 			},
@@ -259,7 +240,7 @@ func TestSplit(t *testing.T) {
 			name: "start",
 			src:  lines,
 			fn:   exact("// comment"),
-			want: []source{
+			want: []Source{
 				mkSrc(1, "abc", "", "// other", "def", "", "// end", "ghi"),
 			},
 		},
@@ -267,7 +248,7 @@ func TestSplit(t *testing.T) {
 			name: "end",
 			src:  lines,
 			fn:   exact("ghi"),
-			want: []source{
+			want: []Source{
 				mkSrc(0, "// comment", "abc", "", "// other", "def", "", "// end"),
 			},
 		},
@@ -275,7 +256,7 @@ func TestSplit(t *testing.T) {
 			name: "no_match",
 			src:  lines,
 			fn:   exact("xyz"),
-			want: []source{
+			want: []Source{
 				mkSrc(0, "// comment", "abc", "", "// other", "def", "", "// end", "ghi"),
 			},
 		},
@@ -283,7 +264,7 @@ func TestSplit(t *testing.T) {
 			name: "prefix",
 			src:  lines,
 			fn:   prefix("ab"),
-			want: []source{
+			want: []Source{
 				mkSrc(0, "// comment"),
 				mkSrc(2, "", "// other", "def", "", "// end", "ghi"),
 			},
@@ -292,7 +273,7 @@ func TestSplit(t *testing.T) {
 			name: "prefix_comment",
 			src:  lines,
 			fn:   prefix("// "),
-			want: []source{
+			want: []Source{
 				mkSrc(1, "abc", ""),
 				mkSrc(4, "def", ""),
 				mkSrc(7, "ghi"),
@@ -303,20 +284,20 @@ func TestSplit(t *testing.T) {
 			name: "empty",
 			src:  mkSrc(0),
 			fn:   exact("xyz"),
-			want: []source{},
+			want: []Source{},
 		},
 		{
 			name: "empty_split_blank",
 			src:  mkSrc(0),
 			fn:   exact(""),
-			want: []source{},
+			want: []Source{},
 		},
 	}
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			got := tc.src.Split(tc.fn)
-			checkDiff(t, "Split", got, tc.want)
+			got := tc.src.split(tc.fn)
+			checkDiff(t, "split", got, tc.want)
 		})
 	}
 }
@@ -324,22 +305,22 @@ func TestSplit(t *testing.T) {
 func TestCut(t *testing.T) {
 	t.Parallel()
 
-	exact := func(s string) func(source) bool {
-		return func(line source) bool {
+	exact := func(s string) func(Source) bool {
+		return func(line Source) bool {
 			return line.Text() == s
 		}
 	}
-	prefix := func(s string) func(source) bool {
-		return func(line source) bool {
+	prefix := func(s string) func(Source) bool {
+		return func(line Source) bool {
 			return strings.HasPrefix(line.Text(), s)
 		}
 	}
 
 	tests := []struct {
 		name         string
-		src          source
-		fn           func(source) bool
-		before, rest source
+		src          Source
+		fn           func(Source) bool
+		before, rest Source
 		found        bool
 	}{
 		{
@@ -369,33 +350,26 @@ func TestCut(t *testing.T) {
 			src:    mkSrc(0, "abc", "def", "ghi"),
 			fn:     exact("xyz"),
 			before: mkSrc(0, "abc", "def", "ghi"),
-			rest:   source{},
+			rest:   Source{},
 			found:  false,
 		},
 	}
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			gotBefore, gotRest, gotFound := tc.src.Cut(tc.fn)
-			checkDiff(t, "Cut() before", gotBefore, tc.before)
-			checkDiff(t, "Cut() after", gotRest, tc.rest)
+			gotBefore, gotRest, gotFound := tc.src.cut(tc.fn)
+			checkDiff(t, "cut() before", gotBefore, tc.before)
+			checkDiff(t, "cut() after", gotRest, tc.rest)
 			if gotFound != tc.found {
-				t.Errorf("Cut() found=%v, want %v", gotFound, tc.found)
+				t.Errorf("cut() found=%v, want %v", gotFound, tc.found)
 			}
 		})
 	}
 }
 
-func mkSrc(offset int, lines ...string) source {
-	return source{
-		lineOffset: offset,
-		lines:      lines,
-	}
-}
-
 func checkDiff(t *testing.T, whatIsBeingDiffed string, got, want any) {
 	t.Helper()
-	if diff := cmp.Diff(got, want, cmp.AllowUnexported(source{})); diff != "" {
+	if diff := cmp.Diff(got, want, cmp.AllowUnexported(Source{})); diff != "" {
 		t.Errorf("%s is wrong (-got+want):\n%s", whatIsBeingDiffed, diff)
 	}
 }
