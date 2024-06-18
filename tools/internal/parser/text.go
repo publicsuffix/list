@@ -16,7 +16,7 @@ type source struct {
 	lineOffset int
 }
 
-// newSource returns a source for bs.
+// newSource returns a source for src.
 func newSource(src string) source {
 	return source{
 		lines:      strings.Split(src, "\n"),
