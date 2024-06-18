@@ -32,11 +32,9 @@ func (s source) Source() Source {
 		// it visible.
 		panic("can't construct a zero-line Source")
 	}
-	start := s.lineOffset + 1
-	end := start + len(s.lines) - 1
 	return Source{
-		StartLine: start,
-		EndLine:   end,
+		StartLine: s.lineOffset,
+		EndLine:   s.lineOffset + len(s.lines),
 		Raw:       s.Text(),
 	}
 }

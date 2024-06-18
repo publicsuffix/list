@@ -65,15 +65,18 @@ func (f *File) SuffixBlocksInSection(name string) []Suffixes {
 }
 
 // Source is a piece of source text with location information.
+//
+// A Source is effectively a slice of the input file's lines, with
+// some extra information attached. As such, the start/end indexes
+// behave the same as in Go slices, and select the half-open interval
+// [start:end).
 type Source struct {
-	// StartLine is the first line of this piece of source text in the
-	// original file. The first line of a file is line 1 rather than
-	// line 0, since that is how text editors conventionally number
-	// lines.
+	// StartLine is the line of the input file where this Source
+	// begins.
 	StartLine int
-	// EndLine is the last line of this piece of source text in the
-	// original file. The line named by EndLine is included in the
-	// source block.
+	// EndLine is the line of the input file where this Source
+	// ends. The line identified by EndLine is not included in the
+	// Source block.
 	EndLine int
 	// Raw is the unparsed source text for this block.
 	Raw string
@@ -82,10 +85,25 @@ type Source struct {
 // LocationString returns a short string describing the source
 // location.
 func (s Source) LocationString() string {
-	if s.StartLine == s.EndLine {
-		return fmt.Sprintf("line %d", s.StartLine)
+	// For printing diagnostics, 0-indexed [start:end) is confusing
+	// and not how editors present text to people. Adjust the offsets
+	// to be 1-indexed [start:end] instead. EndLine doesn't need any
+	// adjusting, because 0->1 indexing and open->closed interval
+	// cancel each other out.
+	start := s.StartLine + 1
+	end := s.EndLine
+
+	if end < start {
+		// The parser should never produce this, but Source is
+		// exported and callers could construct invalid
+		// representations. Fail gracefully instead of panicking.
+		return fmt.Sprintf("<invalid Source, %d line range %d-%d>", s.EndLine-s.StartLine, end, start)
 	}
-	return fmt.Sprintf("lines %d-%d", s.StartLine, s.EndLine)
+
+	if start == end {
+		return fmt.Sprintf("line %d", start)
+	}
+	return fmt.Sprintf("lines %d-%d", start, end)
 }
 
 // A Block is a parsed chunk of a PSL file.

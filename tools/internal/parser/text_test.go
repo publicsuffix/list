@@ -55,7 +55,7 @@ func TestSourceText(t *testing.T) {
 		{
 			src: mkSrc(0, "abc"),
 			want: Source{
-				StartLine: 1,
+				StartLine: 0,
 				EndLine:   1,
 				Raw:       "abc",
 			},
@@ -63,7 +63,7 @@ func TestSourceText(t *testing.T) {
 		{
 			src: mkSrc(0, "abc", "def"),
 			want: Source{
-				StartLine: 1,
+				StartLine: 0,
 				EndLine:   2,
 				Raw:       "abc\ndef",
 			},
@@ -71,7 +71,7 @@ func TestSourceText(t *testing.T) {
 		{
 			src: mkSrc(0, "abc", "def").line(0),
 			want: Source{
-				StartLine: 1,
+				StartLine: 0,
 				EndLine:   1,
 				Raw:       "abc",
 			},
@@ -79,7 +79,7 @@ func TestSourceText(t *testing.T) {
 		{
 			src: mkSrc(0, "abc", "def").line(1),
 			want: Source{
-				StartLine: 2,
+				StartLine: 1,
 				EndLine:   2,
 				Raw:       "def",
 			},
