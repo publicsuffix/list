@@ -21,7 +21,7 @@ import "strings"
 func downgradeToWarning(e error) bool {
 	switch v := e.(type) {
 	case MissingEntityEmail:
-		return sourceIsExempted(missingEmail, v.Suffixes.Raw)
+		return sourceIsExempted(missingEmail, v.Suffixes.Text())
 	}
 	return false
 }

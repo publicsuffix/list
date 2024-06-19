@@ -27,23 +27,13 @@ func parseWithExceptions(src string, downgradeToWarning func(error) bool) *File 
 	p := parser{
 		downgradeToWarning: downgradeToWarning,
 	}
-	p.Parse(src)
+	p.Parse(newSource(src))
 	p.Validate()
 	return &p.File
 }
 
 // parser is the state for a single PSL file parse.
 type parser struct {
-	// blockStart, if non-zero, is the line on which the current block
-	// began. The block continues until the following empty line.
-	blockStart int
-	// blockEnd, if non-zero, is the line on which the last complete
-	// block ended.
-	blockEnd int
-	// lines is the lines of source text between blockStart and
-	// blockEnd.
-	lines []string
-
 	// currentSection is the logical file section the parser is
 	// currently in. This is used to verify that StartSection and
 	// EndSection blocks are paired correctly, and may be nil when the
@@ -62,32 +52,21 @@ type parser struct {
 }
 
 // Parse parses src as a PSL file and returns the parse result.
-func (p *parser) Parse(src string) {
-	lines := strings.Split(src, "\n")
-	// Add a final empty line to process, so that the block
-	// consumption logic works even if there is no final empty line in
-	// the source. This avoids the need for some final off-by-one
-	// cleanup after the main parsing loop.
-	lines = append(lines, "\n")
+func (p *parser) Parse(src Source) {
+	blankLine := func(line Source) bool { return line.Text() == "" }
+	blocks := src.split(blankLine)
 
-	// The top-level structure of a PSL file is blocks of non-empty
-	// lines separated by one or more empty lines. This loop
-	// accumulates one block at a time then gets consumeBlock() to
-	// turn it into a parse output.
-	for i, line := range lines {
-		line = strings.TrimSpace(line)
-
-		if line == "" {
-			if len(p.lines) > 0 {
-				p.blockEnd = i
-				p.consumeBlock()
-			}
-			continue
+	for _, block := range blocks {
+		// Does this block have any non-comments in it? If so, it's a
+		// suffix block, otherwise it's a comment/section marker
+		// block.
+		notComment := func(line Source) bool { return !strings.HasPrefix(line.Text(), "//") }
+		comment, rest, hasSuffixes := block.cut(notComment)
+		if hasSuffixes {
+			p.processSuffixes(block, comment, rest)
+		} else {
+			p.processTopLevelComment(comment)
 		}
-		if p.blockStart == 0 {
-			p.blockStart = i + 1 // we 1-index, range 0-indexes
-		}
-		p.lines = append(p.lines, line)
 	}
 
 	// At EOF with an open section.
@@ -98,114 +77,74 @@ func (p *parser) Parse(src string) {
 	}
 }
 
-// consumeBlock consumes the currently accumulated p.lines and
-// produces one or more Blocks into p.File.Blocks.
-//
-// consumeBlock assumes that p.lines contains at least one line, and
-// that p.blockStart and p.blockEnd are both non-zero. It resets all
-// those fields to their zero value when it returns.
-func (p *parser) consumeBlock() {
-	defer func() {
-		p.lines = nil
-		p.blockStart = 0
-		p.blockEnd = 0
-	}()
+// processSuffixes parses a block that consists of domain suffixes and
+// a metadata header.
+func (p *parser) processSuffixes(block, header, rest Source) {
+	s := Suffixes{
+		Source: block,
+	}
 
-	// Suffix blocks are distinguished by whether or not there are any
-	// non-comment lines.
-	var header, entries, comments []Source
-	for i, l := range p.lines {
-		src := Source{p.blockStart + i, p.blockStart + i, l}
-		if !strings.HasPrefix(l, "//") {
-			entries = append(entries, src)
-		} else if len(entries) > 0 {
-			comments = append(comments, src)
+	var metadataSrc []string
+	for _, line := range header.lineSources() {
+		// TODO: s.Header should be a single Source for the entire
+		// comment.
+		s.Header = append(s.Header, line)
+		// Trim the comment prefix in two steps, because some PSL
+		// comments don't have whitepace between the // and the
+		// following text.
+		metadataSrc = append(metadataSrc, strings.TrimSpace(strings.TrimPrefix(line.Text(), "//")))
+	}
+
+	// rest consists of suffixes and possibly inline comments.
+	commentLine := func(line Source) bool { return strings.HasPrefix(line.Text(), "//") }
+	rest.forEachRun(commentLine, func(block Source, isComment bool) {
+		if isComment {
+			s.InlineComments = append(s.InlineComments, block)
 		} else {
-			header = append(header, src)
+			// TODO: parse entries properly, for how we just
+			// accumulate them as individual Sources, one per suffix.
+			for _, entry := range block.lineSources() {
+				s.Entries = append(s.Entries, entry)
+			}
 		}
-	}
+	})
 
-	if len(entries) > 0 {
-		// Suffixes are easy to build, but require a lot more parsing
-		// and validation to extract comment metadata.
-		s := Suffixes{
-			Source:         p.blockSource(),
-			Header:         header,
-			Entries:        entries,
-			InlineComments: comments,
-		}
-		p.enrichSuffixes(&s)
-		p.addBlock(s)
-		return
-	}
-
-	// Not a suffix block, so this is a comment block, possibly with
-	// embedded section markers.
-
-	linesConsumed := 0
-
-	// maybeOutputComment outputs a Comment block, if there are
-	// accumulated comment lines to output.
-	maybeOutputComment := func(endLine int) {
-		if endLine == linesConsumed {
-			return
-		}
-
-		first := p.blockStart + linesConsumed
-		last := p.blockStart + endLine - 1
-		block := Comment{
-			Source: Source{
-				StartLine: first,
-				EndLine:   last,
-				Raw:       strings.Join(p.lines[linesConsumed:endLine], "\n"),
-			},
-		}
-		p.addBlock(block)
-		linesConsumed = endLine
-	}
-
-	for i, line := range p.lines {
-		if !strings.HasPrefix(line, sectionMarker) {
-			continue
-		}
-
-		maybeOutputComment(i)
-
-		// Current line looks like a section marker.
-		p.consumeSectionMarker(Source{
-			StartLine: p.blockStart + i,
-			EndLine:   p.blockStart + i,
-			Raw:       line,
-		})
-		linesConsumed++
-	}
-
-	// There might be a final bit of comments that haven't been
-	// consumed yet.
-	maybeOutputComment(len(p.lines))
+	p.enrichSuffixes(&s, metadataSrc)
+	p.addBlock(s)
 }
 
-const sectionMarker = "// ==="
+const sectionMarkerPrefix = "// ==="
 
-// consumeSectionMarker treats the given line as a section marker and
-// generates appropriate StartSection/EndSection blocks.
-//
-// consumeSectionMarker reports errors for mismatched section
-// start/end pairs, nested sections, and lines that look like section
-// markers but aren't one of the known kinds.
-func (p *parser) consumeSectionMarker(line Source) {
-	markerWithoutStart := strings.TrimPrefix(line.Raw, sectionMarker)
-	if markerWithoutStart == line.Raw {
-		// Somehow we got called with a line that doesn't look have
-		// the right prefix, something is very wrong.
-		panic("consumeSectionMarker called with non-marker line")
+// processTopLevelComment parses a block that has only comment lines,
+// no suffixes. Some of those comments may be markers for the
+// start/end of file sections.
+func (p *parser) processTopLevelComment(block Source) {
+	sectionLine := func(line Source) bool {
+		return strings.HasPrefix(line.Text(), sectionMarkerPrefix)
 	}
+	block.forEachRun(sectionLine, func(block Source, isSectionLine bool) {
+		if isSectionLine {
+			for _, line := range block.lineSources() {
+				p.processSectionMarker(line)
+			}
+		} else {
+			p.addBlock(Comment{block})
+		}
+	})
+}
+
+// processSectionMarker parses line as a file section marker, and
+// enforces correct start/end pairing.
+func (p *parser) processSectionMarker(line Source) {
+	// Trim here rather than in the caller, so that we still have the
+	// complete input line available to use in errors.
+	marker := strings.TrimPrefix(line.Text(), sectionMarkerPrefix)
 
 	// Note hasTrailer gets used below to report an error if the
-	// trailing === is missing. We delay reporting the error so that
+	// trailing "===" is missing. We delay reporting the error so that
 	// if the entire line is invalid, we don't report both a
 	// whole-line error and also an unterminated marker error.
-	marker, hasTrailer := strings.CutSuffix(markerWithoutStart, "===")
+	marker, hasTrailer := strings.CutSuffix(marker, "===")
 
 	markerType, name, ok := strings.Cut(marker, " ")
 	if !ok {
@@ -216,10 +155,14 @@ func (p *parser) consumeSectionMarker(line Source) {
 		markerType = ""
 	}
 
+	// No matter what, we're going to output something that needs to
+	// reference this line.
+	src := line
+
 	switch markerType {
 	case "BEGIN":
 		start := StartSection{
-			Source: line,
+			Source: src,
 			Name:   name,
 		}
 		if p.currentSection != nil {
@@ -232,13 +175,13 @@ func (p *parser) consumeSectionMarker(line Source) {
 			})
 		}
 		if !hasTrailer {
-			p.addError(UnterminatedSectionMarker{line})
+			p.addError(UnterminatedSectionMarker{src})
 		}
 		p.currentSection = &start
 		p.addBlock(start)
 	case "END":
 		end := EndSection{
-			Source: line,
+			Source: src,
 			Name:   name,
 		}
 		if p.currentSection == nil {
@@ -255,7 +198,7 @@ func (p *parser) consumeSectionMarker(line Source) {
 			})
 		}
 		if !hasTrailer {
-			p.addError(UnterminatedSectionMarker{line})
+			p.addError(UnterminatedSectionMarker{src})
 		}
 		p.currentSection = nil
 		p.addBlock(end)
@@ -267,15 +210,15 @@ func (p *parser) consumeSectionMarker(line Source) {
 		// Comment. Top-level comments are just freeform text, which
 		// is technically correct here since this isn't a valid
 		// section marker.
-		p.addError(UnknownSectionMarker{line})
-		p.addBlock(Comment{line})
+		p.addError(UnknownSectionMarker{src})
+		p.addBlock(Comment{src})
 	}
 }
 
 // enrichSuffixes extracts structured metadata from suffixes.Header
 // and populates the appropriate fields of suffixes.
-func (p *parser) enrichSuffixes(suffixes *Suffixes) {
-	if len(suffixes.Header) == 0 {
+func (p *parser) enrichSuffixes(suffixes *Suffixes, metadata []string) {
+	if len(metadata) == 0 {
 		return
 	}
 
@@ -289,8 +232,8 @@ func (p *parser) enrichSuffixes(suffixes *Suffixes) {
 	// validation errors in future, but currently do not.
 	//
 	// See splitNameish for a list of accepted alternate forms.
-	for _, line := range suffixes.Header {
-		name, url, contact := splitNameish(trimComment(line.Raw))
+	for _, line := range metadata {
+		name, url, contact := splitNameish(line)
 		if name == "" {
 			continue
 		}
@@ -307,7 +250,7 @@ func (p *parser) enrichSuffixes(suffixes *Suffixes) {
 	if suffixes.Entity == "" {
 		// Assume the first line is the entity name, if it's not
 		// obviously something else.
-		first := trimComment(suffixes.Header[0].Raw)
+		first := metadata[0]
 		// "see also" is the first line of a number of ICANN TLD
 		// sections.
 		if getSubmitter(first) == nil && getURL(first) == nil && first != "see also" {
@@ -320,16 +263,16 @@ func (p *parser) enrichSuffixes(suffixes *Suffixes) {
 	// "Submitted by <contact>", or failing that a parseable RFC5322
 	// email on a line by itself.
 	if suffixes.Submitter == nil {
-		for _, line := range suffixes.Header {
-			if submitter := getSubmitter(trimComment(line.Raw)); submitter != nil {
+		for _, line := range metadata {
+			if submitter := getSubmitter(line); submitter != nil {
 				suffixes.Submitter = submitter
 				break
 			}
 		}
 	}
 	if suffixes.Submitter == nil {
-		for _, line := range suffixes.Header {
-			if submitter, err := mail.ParseAddress(trimComment(line.Raw)); err == nil {
+		for _, line := range metadata {
+			if submitter, err := mail.ParseAddress(line); err == nil {
 				suffixes.Submitter = submitter
 				break
 			}
@@ -340,8 +283,8 @@ func (p *parser) enrichSuffixes(suffixes *Suffixes) {
 	// only remaining format we understand is a line with a URL by
 	// itself.
 	if suffixes.URL == nil {
-		for _, line := range suffixes.Header {
-			if u := getURL(trimComment(line.Raw)); u != nil {
+		for _, line := range metadata {
+			if u := getURL(line); u != nil {
 				suffixes.URL = u
 				break
 			}
@@ -528,20 +471,6 @@ func getSubmitter(line string) *mail.Address {
 	}
 
 	return nil
-}
-
-// trimComment removes the leading // and outer whitespace from line.
-func trimComment(line string) string {
-	return strings.TrimSpace(strings.TrimPrefix(line, "//"))
-}
-
-// blockSource returns a Source for p.lines.
-func (p *parser) blockSource() Source {
-	return Source{
-		StartLine: p.blockStart,
-		EndLine:   p.blockEnd,
-		Raw:       strings.Join(p.lines, "\n"),
-	}
 }
 
 // addBlock adds b to p.File.Blocks.

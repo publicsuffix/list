@@ -55,7 +55,7 @@ type UnknownSectionMarker struct {
 }
 
 func (e UnknownSectionMarker) Error() string {
-	return fmt.Sprintf("unknown kind of section marker %q at %s", trimComment(e.Line.Raw), e.Line.LocationString())
+	return fmt.Sprintf("unknown kind of section marker %q at %s", e.Line.Text(), e.Line.LocationString())
 }
 
 // UnterminatedSectionMarker reports that a section marker is missing
@@ -65,7 +65,7 @@ type UnterminatedSectionMarker struct {
 }
 
 func (e UnterminatedSectionMarker) Error() string {
-	return fmt.Sprintf(`section marker %q at %s is missing trailing "==="`, trimComment(e.Line.Raw), e.Line.LocationString())
+	return fmt.Sprintf(`section marker %q at %s is missing trailing "==="`, e.Line.Text(), e.Line.LocationString())
 }
 
 // MissingEntityName reports that a block of suffixes does not have a

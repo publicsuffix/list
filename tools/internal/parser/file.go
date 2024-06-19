@@ -64,30 +64,6 @@ func (f *File) SuffixBlocksInSection(name string) []Suffixes {
 	return ret
 }
 
-// Source is a piece of source text with location information.
-type Source struct {
-	// StartLine is the first line of this piece of source text in the
-	// original file. The first line of a file is line 1 rather than
-	// line 0, since that is how text editors conventionally number
-	// lines.
-	StartLine int
-	// EndLine is the last line of this piece of source text in the
-	// original file. The line named by EndLine is included in the
-	// source block.
-	EndLine int
-	// Raw is the unparsed source text for this block.
-	Raw string
-}
-
-// LocationString returns a short string describing the source
-// location.
-func (s Source) LocationString() string {
-	if s.StartLine == s.EndLine {
-		return fmt.Sprintf("line %d", s.StartLine)
-	}
-	return fmt.Sprintf("lines %d-%d", s.StartLine, s.EndLine)
-}
-
 // A Block is a parsed chunk of a PSL file.
 // In Parse's output, a Block is one of the following concrete types:
 // Comment, StartSection, EndSection, Suffixes.
