@@ -12522,6 +12522,11 @@ static-access.net
 // Submitted by Dustin Scherer <public.suffix@cpanel.net>
 *.cprapid.com
 
+// Craft Docs Ltd : https://www.craft.do/
+// Submitted by Zsombor Fuszenecker <security@craft.do>
+craft.do
+craft.me
+
 // Craynic, s.r.o. : http://www.craynic.com/
 // Submitted by Ales Krajnik <ales.krajnik@craynic.com>
 realm.cz
