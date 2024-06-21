@@ -15047,11 +15047,19 @@ from.tv
 sakura.tv
 
 // Salesforce.com, Inc. https://salesforce.com/
-// Submitted by Michael Biven <mbiven@salesforce.com> and Aaron Romeo <aaron.romeo@salesforce.com>
+// Submitted by Salesforce Public Suffix List Team <public-suffix-list@salesforce.com>
 *.builder.code.com
 *.dev-builder.code.com
 *.stg-builder.code.com
 *.001.test.code-builder-stg.platform.salesforce.com
+*.d.crm.dev
+*.w.crm.dev
+*.wa.crm.dev
+*.wb.crm.dev
+*.wc.crm.dev
+*.wd.crm.dev
+*.we.crm.dev
+*.wf.crm.dev
 
 // Sandstorm Development Group, Inc. : https://sandcats.io/
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
