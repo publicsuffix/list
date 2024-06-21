@@ -8,6 +8,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"golang.org/x/text/encoding"
+	"golang.org/x/text/encoding/unicode"
 )
 
 func TestNormalize(t *testing.T) {
@@ -46,87 +48,69 @@ func TestNormalize(t *testing.T) {
 			},
 		},
 		{
-			// "utf-16 text"
-			// linewraps are after the spaces
-			name: "utf16be_input_with_bom",
-			in: []byte{
-				0xfe, 0xff, // BOM
-				0x0, 0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20,
-				0x0, 0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74,
-			},
+			name:     "utf16be_input_with_bom",
+			in:       utf16BigWithBOM("utf-16 text"),
 			want:     []string{"utf-16 text"},
 			wantErrs: []error{InvalidEncodingError{"UTF-16BE"}},
 		},
 		{
-			name: "utf16le_input_with_bom",
-			// "utf-16 text"
-			// linewraps are after the spaces
-			in: []byte{
-				0xff, 0xfe, // BOM
-				0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20, 0x0,
-				0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0,
-			},
+			name:     "utf16le_input_with_bom",
+			in:       utf16LittleWithBOM("utf-16 text"),
 			want:     []string{"utf-16 text"},
 			wantErrs: []error{InvalidEncodingError{"UTF-16LE"}},
 		},
 		{
-			name: "utf16be_input",
-			// "utf-16 text utf-16 text utf-16 text"
-			// linewraps are after the spaces
-			in: []byte{
-				0x0, 0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20,
-				0x0, 0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0, 0x20,
-				0x0, 0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20,
-				0x0, 0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0, 0x20,
-				0x0, 0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20,
-				0x0, 0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74,
-			},
+			name:     "utf16be_input",
+			in:       utf16Big("utf-16 text utf-16 text utf-16 text"),
 			want:     []string{"utf-16 text utf-16 text utf-16 text"},
 			wantErrs: []error{InvalidEncodingError{"UTF-16BE (guessed)"}},
 		},
 		{
-			name: "utf16le_input",
-			// "utf-16 text utf-16 text utf-16 text"
-			// linewraps are after the spaces
-			in: []byte{
-				0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20, 0x0,
-				0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0, 0x20, 0x0,
-				0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20, 0x0,
-				0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0, 0x20, 0x0,
-				0x75, 0x0, 0x74, 0x0, 0x66, 0x0, 0x2d, 0x0, 0x31, 0x0, 0x36, 0x0, 0x20, 0x0,
-				0x74, 0x0, 0x65, 0x0, 0x78, 0x0, 0x74, 0x0,
-			},
+			name:     "utf16le_input",
+			in:       utf16Little("utf-16 text utf-16 text utf-16 text"),
 			want:     []string{"utf-16 text utf-16 text utf-16 text"},
 			wantErrs: []error{InvalidEncodingError{"UTF-16LE (guessed)"}},
 		},
 		{
-			name: "utf8_with_bom",
-			// "utf-8 text"
-			in:       byteLines("\xef\xbb\xbfutf-8 text"),
+			name:     "utf8_with_bom",
+			in:       utf8WithBOM("utf-8 text"),
 			want:     []string{"utf-8 text"},
 			wantErrs: []error{UTF8BOMError{}},
 		},
 		{
 			name: "utf8_with_garbage",
+			// See https://en.wikipedia.org/wiki/UTF-8 for a
+			// description of UTF-8 encoding, to help understand why
+			// these inputs are invalid.
+			//
+			// The invalid patterns are immediately followed by more
+			// valid characters, to verify exactly how normalization
+			// mangles the bytes around an invalid sequence.
 			in: byteLines(
 				"normal UTF-8",
-				"this line is damaged\xc3\x28\xf0\x90\x28\xbca bit",
+				// Illegal start bitpattern (5 leading bits set to 1)
+				"bad1: \xF8abc",
+				// First byte declares 3-byte character, but ends after 2 bytes
+				"bad2: \xE0\xBFabc",
+				// Continuation byte outside of a character
+				"bad3: \xBFabc",
+				// Ascii space (0x20) encoded non-minimally
+				"bad4: \xC0\xA0abc",
 				"this line is ok",
-				"this line \xfc\xa1\xa1\xa1\xa1\xa1is bad",
 			),
 			want: []string{
 				"normal UTF-8",
-				"this line is damaged\uFFFD(\uFFFD(\uFFFDa bit",
+				"bad1: \uFFFDabc",
+				"bad2: \uFFFDabc",
+				"bad3: \uFFFDabc",
+				"bad4: \uFFFD\uFFFDabc",
 				"this line is ok",
-				"this line \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDis bad",
 			},
 			wantErrs: []error{
-				InvalidUTF8Error{
-					Line: mkSrc(1, "this line is damaged\uFFFD(\uFFFD(\uFFFDa bit"),
-				},
-				InvalidUTF8Error{
-					Line: mkSrc(3, "this line \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDis bad"),
-				},
+				InvalidUTF8Error{mkSrc(1, "bad1: \uFFFDabc")},
+				InvalidUTF8Error{mkSrc(2, "bad2: \uFFFDabc")},
+				InvalidUTF8Error{mkSrc(3, "bad3: \uFFFDabc")},
+				InvalidUTF8Error{mkSrc(4, "bad4: \uFFFD\uFFFDabc")},
 			},
 		},
 		{
@@ -617,6 +601,36 @@ func byteLines(lines ...any) []byte {
 		}
 	}
 	return bytes.Join(ret, []byte("\n"))
+}
+
+func encodeFromUTF8(s string, e encoding.Encoding) []byte {
+	ret, err := e.NewEncoder().Bytes([]byte(s))
+	if err != nil {
+		// Only way this can happen is if the input isn't valid UTF-8,
+		// and we don't do that in these tests.
+		panic(err)
+	}
+	return ret
+}
+
+func utf16Big(s string) []byte {
+	return encodeFromUTF8(s, unicode.UTF16(unicode.BigEndian, unicode.IgnoreBOM))
+}
+
+func utf16BigWithBOM(s string) []byte {
+	return encodeFromUTF8(s, unicode.UTF16(unicode.BigEndian, unicode.UseBOM))
+}
+
+func utf16Little(s string) []byte {
+	return encodeFromUTF8(s, unicode.UTF16(unicode.LittleEndian, unicode.IgnoreBOM))
+}
+
+func utf16LittleWithBOM(s string) []byte {
+	return encodeFromUTF8(s, unicode.UTF16(unicode.LittleEndian, unicode.UseBOM))
+}
+
+func utf8WithBOM(s string) []byte {
+	return encodeFromUTF8(s, unicode.UTF8BOM)
 }
 
 func checkDiff(t *testing.T, whatIsBeingDiffed string, got, want any) {
