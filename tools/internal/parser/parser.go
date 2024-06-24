@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-// Parse parses src as a PSL file and returns the parse result.
+// Parse parses bs as a PSL file and returns the parse result.
 //
 // The parser tries to keep going when it encounters errors. Parse and
 // validation errors are accumulated in the Errors field of the
@@ -19,15 +19,19 @@ import (
 // submission guidelines
 // (https://github.com/publicsuffix/list/wiki/Guidelines). A File with
 // errors should not be used to calculate public suffixes for FQDNs.
-func Parse(src string) *File {
-	return parseWithExceptions(src, downgradeToWarning)
+func Parse(bs []byte) *File {
+	return parseWithExceptions(bs, downgradeToWarning)
 }
 
-func parseWithExceptions(src string, downgradeToWarning func(error) bool) *File {
+func parseWithExceptions(bs []byte, downgradeToWarning func(error) bool) *File {
+	src, errs := newSource(bs)
 	p := parser{
 		downgradeToWarning: downgradeToWarning,
 	}
-	p.Parse(newSource(src))
+	for _, err := range errs {
+		p.addError(err)
+	}
+	p.Parse(src)
 	p.Validate()
 	return &p.File
 }
