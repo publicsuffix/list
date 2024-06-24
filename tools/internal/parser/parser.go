@@ -334,15 +334,6 @@ func splitNameish(line string) (name string, url *url.URL, submitter *mail.Addre
 		}
 	}
 
-	// A single entry uses the unicode fullwidth colon codepoint
-	// (U+FF1A) instead of an ascii colon. Correct that before
-	// attempting a parse.
-	//
-	// TODO: fix the source and delete this hack.
-	if strings.Contains(line, "Future Versatile Group") {
-		line = strings.Replace(line, "\uff1a", ":", -1)
-	}
-
 	name, rest, ok := strings.Cut(line, ":")
 	if !ok {
 		return "", nil, nil
@@ -373,14 +364,6 @@ func splitNameAndURLInParens(line string) (name string, url *url.URL, ok bool) {
 	}
 	name = strings.TrimSpace(line[:idx])
 	urlStr := strings.TrimSpace(line[idx+1 : len(line)-1])
-
-	// Two PSL entries omit the scheme at the front of the URL, which
-	// makes them invalid by getURL's standards.
-	//
-	// TODO: fix the source and delete this hack.
-	if urlStr == "www.task.gda.pl/uslugi/dns" || urlStr == "hostyhosting.com" {
-		urlStr = "https://" + urlStr
-	}
 
 	if u := getURL(urlStr); u != nil {
 		return name, u, true
@@ -438,16 +421,6 @@ func getSubmitter(line string) *mail.Address {
 
 	if addr, err := mail.ParseAddress(line); err == nil {
 		return addr
-	}
-
-	// One current entry is missing the closing chevron on the email,
-	// which makes it an invalid address.
-	//
-	// TODO: fix the source and delete this hack.
-	if strings.HasSuffix(line, "torproject.org") {
-		if addr, err := mail.ParseAddress(line + ">"); err == nil {
-			return addr
-		}
 	}
 
 	// One current entry uses old school email obfuscation to foil
