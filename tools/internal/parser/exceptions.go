@@ -341,7 +341,7 @@ var missingEmail = []string{
 		"hashbang.sh",
 	),
 	lines(
-		"// HostyHosting (hostyhosting.com)",
+		"// HostyHosting (https://hostyhosting.com)",
 		"hostyhosting.io",
 	),
 	lines(
@@ -363,7 +363,7 @@ var missingEmail = []string{
 		"torun.pl",
 	),
 	lines(
-		"// TASK geographical domains (www.task.gda.pl/uslugi/dns)",
+		"// TASK geographical domains (https://www.task.gda.pl/uslugi/dns)",
 		"gda.pl",
 		"gdansk.pl",
 		"gdynia.pl",
