@@ -93,16 +93,25 @@ func (p *parser) processSuffixes(block, header, rest Source) {
 		// TODO: s.Header should be a single Source for the entire
 		// comment.
 		s.Header = append(s.Header, line)
-		// Trim the comment prefix in two steps, because some PSL
-		// comments don't have whitepace between the // and the
-		// following text.
-		metadataSrc = append(metadataSrc, strings.TrimSpace(strings.TrimPrefix(line.Text(), "//")))
+		if strings.HasPrefix(line.Text(), sectionMarkerPrefix) {
+			p.addError(SectionInSuffixBlock{line})
+		} else {
+			// Trim the comment prefix in two steps, because some PSL
+			// comments don't have whitepace between the // and the
+			// following text.
+			metadataSrc = append(metadataSrc, strings.TrimSpace(strings.TrimPrefix(line.Text(), "//")))
+		}
 	}
 
 	// rest consists of suffixes and possibly inline comments.
 	commentLine := func(line Source) bool { return strings.HasPrefix(line.Text(), "//") }
 	rest.forEachRun(commentLine, func(block Source, isComment bool) {
 		if isComment {
+			for _, line := range block.lineSources() {
+				if strings.HasPrefix(line.Text(), sectionMarkerPrefix) {
+					p.addError(SectionInSuffixBlock{line})
+				}
+			}
 			s.InlineComments = append(s.InlineComments, block)
 		} else {
 			// TODO: parse entries properly, for how we just
