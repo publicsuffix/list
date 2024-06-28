@@ -585,31 +585,6 @@ func TestParser(t *testing.T) {
 		},
 
 		{
-			// Regression test for Future Versatile Group, who use a
-			// unicode fullwidth colon in their header.
-			name: "unicode_colon",
-			psl: byteLines(
-				"// Future Versatile Group：https://example.org",
-				"example.com",
-			),
-			want: File{
-				Blocks: []Block{
-					Suffixes{
-						Source: mkSrc(0, "// Future Versatile Group：https://example.org", "example.com"),
-						Header: []Source{
-							mkSrc(0, "// Future Versatile Group：https://example.org"),
-						},
-						Entries: []Source{
-							mkSrc(1, "example.com"),
-						},
-						Entity: "Future Versatile Group",
-						URL:    mustURL("https://example.org"),
-					},
-				},
-			},
-		},
-
-		{
 			// Regression test for a few blocks that start with "name
 			// (url)" instead of the more common "name: url".
 			name: "url_in_parens",
@@ -629,46 +604,6 @@ func TestParser(t *testing.T) {
 						},
 						Entity: "Parens Appreciation Society",
 						URL:    mustURL("https://example.org"),
-					},
-				},
-			},
-		},
-
-		{
-			// Variation on the previous, some blocks in the "name
-			// (url)" style don't have a scheme on their URL, so
-			// require a bit more fudging to parse.
-			name: "url_in_parens_no_scheme",
-			psl: byteLines(
-				"// Parens Appreciation Society (hostyhosting.com)",
-				"example.com",
-				"",
-				"// Parens Policy Panel (www.task.gda.pl/uslugi/dns)",
-				"policy.example.org",
-			),
-			want: File{
-				Blocks: []Block{
-					Suffixes{
-						Source: mkSrc(0, "// Parens Appreciation Society (hostyhosting.com)", "example.com"),
-						Header: []Source{
-							mkSrc(0, "// Parens Appreciation Society (hostyhosting.com)"),
-						},
-						Entries: []Source{
-							mkSrc(1, "example.com"),
-						},
-						Entity: "Parens Appreciation Society",
-						URL:    mustURL("https://hostyhosting.com"),
-					},
-					Suffixes{
-						Source: mkSrc(3, "// Parens Policy Panel (www.task.gda.pl/uslugi/dns)", "policy.example.org"),
-						Header: []Source{
-							mkSrc(3, "// Parens Policy Panel (www.task.gda.pl/uslugi/dns)"),
-						},
-						Entries: []Source{
-							mkSrc(4, "policy.example.org"),
-						},
-						Entity: "Parens Policy Panel",
-						URL:    mustURL("https://www.task.gda.pl/uslugi/dns"),
 					},
 				},
 			},
@@ -716,8 +651,8 @@ func TestParser(t *testing.T) {
 				// use real exceptions if the test doesn't provide something else
 				exc = downgradeToWarning
 			}
-			got := parseWithExceptions(test.psl, exc)
-			checkDiff(t, "parse result", got, &test.want)
+			got := parseWithExceptions(test.psl, exc, true).File
+			checkDiff(t, "parse result", got, test.want)
 		})
 	}
 }

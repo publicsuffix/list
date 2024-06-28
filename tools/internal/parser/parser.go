@@ -20,10 +20,10 @@ import (
 // (https://github.com/publicsuffix/list/wiki/Guidelines). A File with
 // errors should not be used to calculate public suffixes for FQDNs.
 func Parse(bs []byte) *File {
-	return parseWithExceptions(bs, downgradeToWarning)
+	return &parseWithExceptions(bs, downgradeToWarning, true).File
 }
 
-func parseWithExceptions(bs []byte, downgradeToWarning func(error) bool) *File {
+func parseWithExceptions(bs []byte, downgradeToWarning func(error) bool, validate bool) *parser {
 	src, errs := newSource(bs)
 	p := parser{
 		downgradeToWarning: downgradeToWarning,
@@ -32,8 +32,10 @@ func parseWithExceptions(bs []byte, downgradeToWarning func(error) bool) *File {
 		p.addError(err)
 	}
 	p.Parse(src)
-	p.Validate()
-	return &p.File
+	if validate {
+		p.Validate()
+	}
+	return &p
 }
 
 // parser is the state for a single PSL file parse.
