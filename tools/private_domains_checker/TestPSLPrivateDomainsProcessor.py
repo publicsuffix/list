@@ -2,7 +2,7 @@ import unittest
 import uuid
 from unittest.mock import patch
 
-from PSLPrivateDomainsProcessor import PSLPrivateDomainsProcessor, check_dns_status, get_whois_data
+from PSLPrivateDomainsProcessor import PSLPrivateDomainsProcessor, check_dns_status, get_whois_data, check_psl_txt_record
 
 
 class TestPSLPrivateDomainsProcessor(unittest.TestCase):
@@ -77,6 +77,25 @@ class TestPSLPrivateDomainsProcessor(unittest.TestCase):
     def test_get_whois_data(self):
         whois_data = get_whois_data("example.com")
         self.assertEqual("ok", whois_data[2])
+
+    @patch('requests.get')
+    def test_check_psl_txt_record(self, mock_get):
+        mock_response_valid = {
+            "Answer": [
+                {"name": "_psl.example.test.", "data": '"https://github.com/publicsuffix/list/pull/1234"'}
+            ]
+        }
+        mock_response_invalid = {
+            "Status": 3
+        }
+        mock_get.side_effect = [
+            MockResponse(mock_response_valid, 200),
+            MockResponse(mock_response_invalid, 200)
+        ]
+
+        self.assertEqual(check_psl_txt_record("example.test"), "valid")
+        random_domain = "_psl." + str(uuid.uuid4()) + ".edu"
+        self.assertEqual(check_psl_txt_record(random_domain), "invalid")
 
 
 class MockResponse:
