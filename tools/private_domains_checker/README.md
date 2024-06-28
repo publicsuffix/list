@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `PSLPrivateDomainsProcessor` is a Python script designed to fetch data from the Public Suffix List (PSL) and check the domain status and expiry dates of the private section domains. 
+The `PSLPrivateDomainsProcessor` is a Python script designed to fetch data from the Public Suffix List (PSL) and check the domain status, expiry dates, and `_psl` TXT records of the private section domains. 
 
 It performs WHOIS checks on these domains and saves the results into CSV files for manual review.
 
@@ -37,6 +37,7 @@ python PSLPrivateDomainsProcessor.py
 
 - `check_dns_status(domain)`: Checks the DNS status of a domain using Google's DNS API. It attempts to recheck DNS status if the initial check fails.
 - `get_whois_data(domain)`: Retrieves WHOIS data for a domain. Note: WHOIS data parsing handles multiple expiration dates by selecting the first one.
+- `check_psl_txt_record(domain)`: Checks the `_psl` TXT record for a domain using Google's DNS API.
 
 ### Class
 
@@ -45,9 +46,11 @@ python PSLPrivateDomainsProcessor.py
 - `fetch_psl_data()`: Fetches the PSL data from the specified URL.
 - `parse_domain(domain)`: Parses and normalizes a domain.
 - `parse_psl_data(psl_data)`: Parses the fetched PSL data and separates ICANN and private domains.
-- `process_domains(domains)`: Processes each domain, performing DNS and WHOIS checks.
+- `process_domains(domains)`: Processes each domain, performing DNS, WHOIS, and `_psl` TXT record checks.
 - `save_results()`: Saves all processed domain data to `data/all.csv`.
 - `save_invalid_results()`: Saves domains with invalid DNS or expired WHOIS data to `data/nxdomain.csv` and `data/expired.csv`.
+- `save_hold_results()`: Saves domains with WHOIS status containing any form of "hold" to `data/hold.csv`.
+- `save_missing_psl_txt_results()`: Saves domains with invalid `_psl` TXT records to `data/missing_psl_txt.csv`.
 - `run()`: Executes the entire processing pipeline.
 
 ## Output
@@ -57,14 +60,16 @@ The script generates the following CSV files in the `data` directory:
 - `all.csv`: Contains all processed domain data.
 - `nxdomain.csv`: Contains domains that could not be resolved (`NXDOMAIN`).
 - `expired.csv`: Contains domains with expired WHOIS records.
+- `hold.csv`: Contains domains with WHOIS status indicating any kind of "hold".
+- `missing_psl_txt.csv`: Contains domains with invalid `_psl` TXT records.
 
 ## Example
 
 An example CSV entry:
 
-| psl_entry      | top_level_domain | dns_status | whois_status | whois_domain_expiry_date | whois_domain_status |
-| -------------- | ---------------- | ---------- | ------------ | ----------------------- | ------------------- |
-| example.com    | example.com      | ok         | ok           | 2024-12-31              | "clientTransferProhibited" |
+| psl_entry      | top_level_domain | dns_status | whois_status | whois_domain_expiry_date | whois_domain_status          | psl_txt_status |
+| -------------- | ---------------- | ---------- | ------------ | ----------------------- | ---------------------------- | -------------- |
+| example.com    | example.com      | ok         | ok           | 2024-12-31              | "clientTransferProhibited"   | "valid"        |
 
 ## Publicly Registrable Namespace Determination
 
