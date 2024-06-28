@@ -40,6 +40,26 @@ def get_whois_data(domain):
     return whois_domain_status, whois_expiry, whois_status
 
 
+def check_psl_txt_record(domain):
+    def make_request():
+        try:
+            url = f"https://dns.google/resolve?name=_psl.{domain}&type=TXT"
+            response = requests.get(url)
+            json_response = response.json()
+            txt_records = json_response.get("Answer", [])
+            for record in txt_records:
+                if "github.com/publicsuffix/list/pull/" in record.get("data", ""):
+                    return "valid"
+            return "invalid"
+        except Exception as e:
+            return "ERROR"
+
+    psl_txt_status = make_request()
+    if psl_txt_status == "ERROR":  # Give it another try
+        psl_txt_status = make_request()
+    return psl_txt_status
+
+
 class PSLPrivateDomainsProcessor:
     def __init__(self):
         self.psl_url = "https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat"
@@ -52,6 +72,7 @@ class PSLPrivateDomainsProcessor:
             "whois_status",
             "whois_domain_expiry_date",
             "whois_domain_status",
+            "psl_txt_status"
         ]
         self.df = pd.DataFrame(columns=self.columns)
         self.icann_domains = set()
@@ -64,7 +85,10 @@ class PSLPrivateDomainsProcessor:
         return psl_data
 
     def parse_domain(self, domain):
+        # Remove any leading '*.' parts
         domain = domain.lstrip('*.')
+
+        # Split the domain into parts
         parts = domain.split('.')
 
         # Traverse the domain parts from the top-level domain upwards
@@ -76,6 +100,7 @@ class PSLPrivateDomainsProcessor:
                 # convert punycode to ASCII to support IDN domains
                 return candidate.encode('idna').decode('ascii')
 
+        # If no valid domain is found, raise an error
         raise ValueError(f"No valid top-level domain found in the provided domain: {domain}")
 
     def parse_psl_data(self, psl_data):
@@ -108,8 +133,10 @@ class PSLPrivateDomainsProcessor:
         print(f"Private domains to be processed: {len(private_domains)}\n"
               f"ICANN domains: {len(self.icann_domains)}")
 
+        # Parse each domain
         private_domains = [self.parse_domain(domain) for domain in private_domains]
 
+        # Remove duplicates
         private_domains = list(set(private_domains))
         print("Private domains in the publicly registrable name space: ", len(private_domains))
 
@@ -121,9 +148,10 @@ class PSLPrivateDomainsProcessor:
 
             whois_domain_status, whois_expiry, whois_status = get_whois_data(domain)
             dns_status = check_dns_status(domain)
+            psl_txt_status = check_psl_txt_record(domain)
 
             print(
-                f"{domain} - DNS Status: {dns_status}, Expiry: {whois_expiry}")
+                f"{domain} - DNS Status: {dns_status}, Expiry: {whois_expiry}, PSL TXT Status: {psl_txt_status}")
 
             data.append({
                 "psl_entry": domain,
@@ -131,17 +159,19 @@ class PSLPrivateDomainsProcessor:
                 "whois_domain_status": json.dumps(whois_domain_status),
                 "whois_domain_expiry_date": whois_expiry,
                 "whois_status": whois_status,
-                "dns_status": dns_status
+                "dns_status": dns_status,
+                "psl_txt_status": psl_txt_status
             })
 
         self.df = pd.DataFrame(data, columns=self.columns)
 
     def save_results(self):
-        self.df.to_csv("data/all.csv", index=False)
+        sorted_df = self.df.sort_values(by="psl_entry")
+        sorted_df.to_csv("data/all.csv", index=False)
 
     def save_invalid_results(self):
         # Save nxdomain.csv
-        nxdomain_df = self.df[self.df["dns_status"] != "ok"]
+        nxdomain_df = self.df[self.df["dns_status"] != "ok"].sort_values(by="psl_entry")
         nxdomain_df.to_csv("data/nxdomain.csv", index=False)
 
         # Save expired.csv
@@ -149,8 +179,18 @@ class PSLPrivateDomainsProcessor:
         expired_df = self.df[
             self.df["whois_domain_expiry_date"].notnull() &
             (self.df["whois_domain_expiry_date"].astype(str).str[:10] < today_str)
-        ]
+        ].sort_values(by="psl_entry")
         expired_df.to_csv("data/expired.csv", index=False)
+
+        # Save missing_psl_txt.csv
+        missing_psl_txt_df = self.df[self.df["psl_txt_status"] == "invalid"].sort_values(by="psl_entry")
+        missing_psl_txt_df.to_csv("data/missing_psl_txt.csv", index=False)
+
+    def save_hold_results(self):
+        hold_df = self.df[
+            self.df["whois_domain_status"].str.contains("hold", case=False, na=False)
+        ].sort_values(by="psl_entry")
+        hold_df.to_csv("data/hold.csv", index=False)
 
     def run(self):
         psl_data = self.fetch_psl_data()
@@ -158,6 +198,7 @@ class PSLPrivateDomainsProcessor:
         self.process_domains(domains)
         self.save_results()
         self.save_invalid_results()
+        self.save_hold_results()
 
 
 if __name__ == "__main__":
