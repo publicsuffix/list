@@ -1014,13 +1014,12 @@ net.et
 // eu : https://en.wikipedia.org/wiki/.eu
 eu
 
-// fi : https://en.wikipedia.org/wiki/.fi
+// fi : https://www.iana.org/domains/root/db/fi.html
 fi
-// aland.fi : https://en.wikipedia.org/wiki/.ax
+// aland.fi : https://www.iana.org/domains/root/db/ax.html
 // This domain is being phased out in favor of .ax. As there are still many
 // domains under aland.fi, we still keep it on the list until aland.fi is
 // completely removed.
-// TODO: Check for updates (expected to be phased out around Q1/2009)
 aland.fi
 
 // fj : http://domains.fj/
