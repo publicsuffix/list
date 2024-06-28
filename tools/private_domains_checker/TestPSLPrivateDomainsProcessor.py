@@ -1,6 +1,5 @@
 import unittest
 import uuid
-from unittest.mock import patch
 
 from PSLPrivateDomainsProcessor import PSLPrivateDomainsProcessor, check_dns_status, get_whois_data, check_psl_txt_record
 
@@ -32,7 +31,7 @@ class TestPSLPrivateDomainsProcessor(unittest.TestCase):
         for domain, expected in test_cases:
             with self.subTest(domain=domain):
                 result = self.processor.parse_domain(domain)
-                self.assertEqual(result, expected)
+                self.assertEqual(expected, result)
 
     def test_parse_domain_no_icann(self):
         # Test case where no valid ICANN domain is found
@@ -42,69 +41,35 @@ class TestPSLPrivateDomainsProcessor(unittest.TestCase):
 
     def test_parse_domain_edge_cases(self):
         # Additional edge case testing
-        self.assertEqual(self.processor.parse_domain("sub.example.org"), "example.org")
-        self.assertEqual(self.processor.parse_domain("example.net"), "example.net")
-        self.assertEqual(self.processor.parse_domain("sub.example.ac.uk"), "example.ac.uk")
+        self.assertEqual("example.org", self.processor.parse_domain("sub.example.org"))
+        self.assertEqual("example.com", self.processor.parse_domain("example.com"))
+        self.assertEqual("example.ac.uk", self.processor.parse_domain("sub.example.ac.uk"))
 
     def test_parse_domain_invalid(self):
         # Test invalid domains which should raise ValueError
-        invalid_domains = ["invalid.domain", "*.invalid.domain", "sub.invalid.domain"]
+        invalid_domains = ["invalid.test", "*.invalid.test", "sub.invalid.test"]
         for domain in invalid_domains:
             with self.subTest(domain=domain):
                 with self.assertRaises(ValueError):
                     self.processor.parse_domain(domain)
 
-    @patch('requests.get')
-    def test_check_dns_status(self, mock_get):
-        mock_response_ok = {
-            "Status": 0,
-            "Answer": [
-                {"name": "example.com."}
-            ]
-        }
-        mock_response_nxdomain = {
-            "Status": 3
-        }
-        mock_get.side_effect = [
-            MockResponse(mock_response_ok, 200),
-            MockResponse(mock_response_nxdomain, 200)
-        ]
+    def test_check_dns_status(self):
+        # Test with a known good domain
+        self.assertEqual("ok", check_dns_status("mozilla.org"))
+        # Test with a likely non-existent domain
+        random_domain = "nxdomain-" + str(uuid.uuid4()) + ".edu"
+        self.assertEqual("NXDOMAIN", check_dns_status(random_domain))
 
-        self.assertEqual(check_dns_status("example.com"), "ok")
-        random_domain = "example" + str(uuid.uuid4()) + ".edu"
-        self.assertEqual(check_dns_status(random_domain), "NXDOMAIN")
+    def test_check_psl_txt_record(self):
+        # Test with a known domain having a valid _psl TXT record
+        self.assertEqual("valid", check_psl_txt_record("cdn.cloudflare.net"))
+        # Test with a domain without a _psl TXT record
+        random_domain = "invalid-" + str(uuid.uuid4()) + ".edu"
+        self.assertEqual("invalid", check_psl_txt_record(random_domain))
 
     def test_get_whois_data(self):
         whois_data = get_whois_data("example.com")
         self.assertEqual("ok", whois_data[2])
-
-    @patch('requests.get')
-    def test_check_psl_txt_record(self, mock_get):
-        mock_response_valid = {
-            "Answer": [
-                {"name": "_psl.example.test.", "data": '"https://github.com/publicsuffix/list/pull/1234"'}
-            ]
-        }
-        mock_response_invalid = {
-            "Status": 3
-        }
-        mock_get.side_effect = [
-            MockResponse(mock_response_valid, 200),
-            MockResponse(mock_response_invalid, 200)
-        ]
-
-        self.assertEqual(check_psl_txt_record("example.test"), "valid")
-        random_domain = "_psl." + str(uuid.uuid4()) + ".edu"
-        self.assertEqual(check_psl_txt_record(random_domain), "invalid")
-
-
-class MockResponse:
-    def __init__(self, json_data, status_code):
-        self.json_data = json_data
-        self.status_code = status_code
-
-    def json(self):
-        return self.json_data
 
 
 if __name__ == "__main__":

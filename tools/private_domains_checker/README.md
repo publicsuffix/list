@@ -11,12 +11,19 @@ It performs WHOIS checks on these domains and saves the results into CSV files f
 - Python 3.x
 - `requests`
 - `pandas`
-- `python-whois`
+- `whoisdomain`
 
 You can install the required packages using pip:
 
 ```sh
 pip install -r requirements.txt
+```
+
+Ensure that `whois` is installed on your operating system.
+
+```sh
+sudo apt install whois  # Debian/Ubuntu
+sudo yum install whois  # Fedora/Centos/Rocky
 ```
 
 ## Usage
@@ -35,9 +42,10 @@ python PSLPrivateDomainsProcessor.py
 
 ### Functions
 
-- `check_dns_status(domain)`: Checks the DNS status of a domain using Google's DNS API. It attempts to recheck DNS status if the initial check fails.
-- `get_whois_data(domain)`: Retrieves WHOIS data for a domain. Note: WHOIS data parsing handles multiple expiration dates by selecting the first one.
-- `check_psl_txt_record(domain)`: Checks the `_psl` TXT record for a domain using Google's DNS API.
+- `make_dns_request(domain, record_type)`: Makes DNS requests to both Google and Cloudflare DNS APIs.
+- `check_dns_status(domain)`: Checks the DNS status of a domain using Google and Cloudflare DNS APIs.
+- `get_whois_data(domain)`: Retrieves WHOIS data for a domain using the whoisdomain package.
+- `check_psl_txt_record(domain)`: Checks the `_psl` TXT record for a domain using Google and Cloudflare DNS APIs.
 
 ### Class
 
@@ -46,11 +54,12 @@ python PSLPrivateDomainsProcessor.py
 - `fetch_psl_data()`: Fetches the PSL data from the specified URL.
 - `parse_domain(domain)`: Parses and normalizes a domain.
 - `parse_psl_data(psl_data)`: Parses the fetched PSL data and separates ICANN and private domains.
-- `process_domains(domains)`: Processes each domain, performing DNS, WHOIS, and `_psl` TXT record checks.
+- `process_domains(raw_domains, domains)`: Processes each domain, performing DNS, WHOIS, and `_psl` TXT record checks.
 - `save_results()`: Saves all processed domain data to `data/all.csv`.
 - `save_invalid_results()`: Saves domains with invalid DNS or expired WHOIS data to `data/nxdomain.csv` and `data/expired.csv`.
 - `save_hold_results()`: Saves domains with WHOIS status containing any form of "hold" to `data/hold.csv`.
 - `save_missing_psl_txt_results()`: Saves domains with invalid `_psl` TXT records to `data/missing_psl_txt.csv`.
+- `save_expiry_less_than_2yrs_results()`: Saves domains with WHOIS expiry date less than 2 years from now to `data/expiry_less_than_2yrs.csv`.
 - `run()`: Executes the entire processing pipeline.
 
 ## Output
@@ -62,14 +71,15 @@ The script generates the following CSV files in the `data` directory:
 - `expired.csv`: Contains domains with expired WHOIS records.
 - `hold.csv`: Contains domains with WHOIS status indicating any kind of "hold".
 - `missing_psl_txt.csv`: Contains domains with invalid `_psl` TXT records.
+- `expiry_less_than_2yrs.csv`: Contains domains with WHOIS expiry date less than 2 years from now.
 
 ## Example
 
 An example CSV entry:
 
-| psl_entry      | top_level_domain | dns_status | whois_status | whois_domain_expiry_date | whois_domain_status          | psl_txt_status |
-| -------------- | ---------------- | ---------- | ------------ | ----------------------- | ---------------------------- | -------------- |
-| example.com    | example.com      | ok         | ok           | 2024-12-31              | "clientTransferProhibited"   | "valid"        |
+| psl_entry      | top_level_domain | dns_status | whois_status | whois_domain_expiry_date | whois_domain_status          | psl_txt_status | expiry_check_status |
+| -------------- | ---------------- | ---------- | ------------ | ----------------------- | ---------------------------- | -------------- | ------------------- |
+| example.com    | example.com      | ok         | ok           | 2024-12-31              | "clientTransferProhibited"   | "valid"        | ok                  |
 
 ## Publicly Registrable Namespace Determination
 
