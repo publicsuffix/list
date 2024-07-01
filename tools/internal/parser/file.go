@@ -27,12 +27,12 @@ type File struct {
 }
 
 // AllSuffixBlocks returns all suffix blocks in f.
-func (f *File) AllSuffixBlocks() []Suffixes {
-	var ret []Suffixes
+func (f *File) AllSuffixBlocks() []*Suffixes {
+	var ret []*Suffixes
 
 	for _, block := range f.Blocks {
 		switch v := block.(type) {
-		case Suffixes:
+		case *Suffixes:
 			ret = append(ret, v)
 		}
 	}
@@ -42,20 +42,20 @@ func (f *File) AllSuffixBlocks() []Suffixes {
 
 // SuffixBlocksInSection returns all suffix blocks within the named
 // file section (for example, "ICANN DOMAINS" or "PRIVATE DOMAINS").
-func (f *File) SuffixBlocksInSection(name string) []Suffixes {
-	var ret []Suffixes
+func (f *File) SuffixBlocksInSection(name string) []*Suffixes {
+	var ret []*Suffixes
 
 	var curSection string
 	for _, block := range f.Blocks {
 		switch v := block.(type) {
-		case StartSection:
+		case *StartSection:
 			curSection = v.Name
-		case EndSection:
+		case *EndSection:
 			if curSection == name {
 				return ret
 			}
 			curSection = ""
-		case Suffixes:
+		case *Suffixes:
 			if curSection == name {
 				ret = append(ret, v)
 			}
@@ -76,7 +76,7 @@ type Comment struct {
 	Source
 }
 
-func (c Comment) source() Source { return c.Source }
+func (c *Comment) source() Source { return c.Source }
 
 // StartSection is a top-level marker that indicates the start of a
 // logical section, such as ICANN suffixes or privately managed
@@ -92,7 +92,7 @@ type StartSection struct {
 	Name string // section name, e.g. "ICANN DOMAINS", "PRIVATE DOMAINS"
 }
 
-func (b StartSection) source() Source { return b.Source }
+func (b *StartSection) source() Source { return b.Source }
 
 // EndSection is a top-level marker that indicates the end of a
 // logical section, such as ICANN suffixes or privately managed
@@ -108,7 +108,7 @@ type EndSection struct {
 	Name string // e.g. "ICANN DOMAINS", "PRIVATE DOMAINS"
 }
 
-func (b EndSection) source() Source { return b.Source }
+func (b *EndSection) source() Source { return b.Source }
 
 // Suffixes is a list of PSL domain suffixes with optional additional
 // metadata.
@@ -168,11 +168,11 @@ type Suffixes struct {
 	Submitter *mail.Address
 }
 
-func (s Suffixes) source() Source { return s.Source }
+func (s *Suffixes) source() Source { return s.Source }
 
 // shortName returns either the quoted name of the responsible Entity,
 // or a generic descriptor of this suffix block if Entity is unset.
-func (s Suffixes) shortName() string {
+func (s *Suffixes) shortName() string {
 	if s.Entity != "" {
 		return fmt.Sprintf("%q", s.Entity)
 	}
