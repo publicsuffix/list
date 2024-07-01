@@ -13937,6 +13937,10 @@ pixolino.com
 // Submitted by Vasiliy Sheredeko <piphon@gmail.com>
 na4u.ru
 
+// IONOS SE, : https://www.ionos.com/
+// submitted by Alexander Gängel <security@ionos.com>
+*.live-website.com
+
 // iopsys software solutions AB : https://iopsys.eu/
 // Submitted by Roman Azarenko <roman.azarenko@iopsys.eu>
 iopsys.se
