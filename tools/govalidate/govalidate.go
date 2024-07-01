@@ -30,7 +30,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	psl := parser.Parse(string(bs))
+	psl := parser.Parse(bs)
 
 	for _, err := range psl.Errors {
 		fmt.Println(err)

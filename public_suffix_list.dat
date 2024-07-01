@@ -1014,13 +1014,12 @@ net.et
 // eu : https://en.wikipedia.org/wiki/.eu
 eu
 
-// fi : https://en.wikipedia.org/wiki/.fi
+// fi : https://www.iana.org/domains/root/db/fi.html
 fi
-// aland.fi : https://en.wikipedia.org/wiki/.ax
+// aland.fi : https://www.iana.org/domains/root/db/ax.html
 // This domain is being phased out in favor of .ax. As there are still many
 // domains under aland.fi, we still keep it on the list until aland.fi is
 // completely removed.
-// TODO: Check for updates (expected to be phased out around Q1/2009)
 aland.fi
 
 // fj : http://domains.fj/
@@ -12674,6 +12673,10 @@ shoparena.pl
 // Submitted by Andrew Farmer <andrew.farmer@dreamhost.com>
 dreamhosters.com
 
+// Dreamyoungs, Inc. : https://durumis.com
+// Submitted by Infra Team <infra@durumis.com>
+durumis.com
+
 // Drobo : http://www.drobo.com/
 // Submitted by Ricardo Padilha <rpadilha@drobo.com>
 mydrobo.com
@@ -13828,7 +13831,7 @@ sch.so
 // Submitted by Bohdan Dub <support@hostfly.com.ua>
 ie.ua
 
-// HostyHosting (hostyhosting.com)
+// HostyHosting (https://hostyhosting.com)
 hostyhosting.io
 
 // Hypernode B.V. : https://www.hypernode.com/
@@ -14380,6 +14383,10 @@ ui.nabu.casa
 // Submitted by Jan Jaeschke <jan.jaeschke@netatwork.de>
 cloud.nospamproxy.com
 
+// Netfy Domains : https://netfy.domains
+// Submitted by Suranga Ranasinghe <security@mavicsoft.com>
+netfy.app
+
 // Netlify : https://www.netlify.com
 // Submitted by Jessica Parsons <jessica@netlify.com>
 netlify.app
@@ -14583,6 +14590,10 @@ nyc.mn
 // Submitted by the prvcy.page Registry Team <psl@registry.prvcy.page>
 prvcy.page
 
+// Obl.ong : <https://obl.ong>
+// Submitted by Reese Armstrong <team@obl.ong>
+obl.ong
+
 // Observable, Inc. : https://observablehq.com
 // Submitted by Mike Bostock <dns@observablehq.com>
 observablehq.cloud
@@ -14764,12 +14775,6 @@ platter-app.com
 platter-app.dev
 platterp.us
 
-// Plesk : https://www.plesk.com/
-// Submitted by Anton Akhtyamov <program-managers@plesk.com>
-pleskns.com
-pdns.page
-plesk.page
-
 // Pley AB : https://www.pley.com/
 // Submitted by Henning Pohl <infra@pley.com>
 pley.games
@@ -14849,13 +14854,14 @@ cloudsite.builders
 myradweb.net
 servername.us
 
+// Raidboxes GmbH : https://raidboxes.de
+// Submitted by Auke Tembrink <hostmaster@raidboxes.de>
+myrdbx.io
+site.rb-hosting.io
+
 // Redgate Software: https://red-gate.com
 // Submitted by Andrew Farries <andrew.farries@red-gate.com>
 instances.spawn.cc
-
-// Redstar Consultants : https://www.redstarconsultants.com/
-// Submitted by Jons Slemmer <jons@redstarconsultants.com>
-instantcloud.cn
 
 // Russian Academy of Sciences
 // Submitted by Tech Support <support@rasnet.ru>
@@ -15047,11 +15053,19 @@ from.tv
 sakura.tv
 
 // Salesforce.com, Inc. https://salesforce.com/
-// Submitted by Michael Biven <mbiven@salesforce.com> and Aaron Romeo <aaron.romeo@salesforce.com>
+// Submitted by Salesforce Public Suffix List Team <public-suffix-list@salesforce.com>
 *.builder.code.com
 *.dev-builder.code.com
 *.stg-builder.code.com
 *.001.test.code-builder-stg.platform.salesforce.com
+*.d.crm.dev
+*.w.crm.dev
+*.wa.crm.dev
+*.wb.crm.dev
+*.wc.crm.dev
+*.wd.crm.dev
+*.we.crm.dev
+*.wf.crm.dev
 
 // Sandstorm Development Group, Inc. : https://sandcats.io/
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
@@ -15425,7 +15439,7 @@ beta.tailscale.net
 ts.net
 *.c.ts.net
 
-// TASK geographical domains (www.task.gda.pl/uslugi/dns)
+// TASK geographical domains (https://www.task.gda.pl/uslugi/dns)
 gda.pl
 gdansk.pl
 gdynia.pl
@@ -15472,7 +15486,7 @@ azimuth.network
 tlon.network
 
 // Tor Project, Inc. : https://torproject.org
-// Submitted by Antoine Beaupré <anarcat@torproject.org
+// Submitted by Antoine Beaupré <anarcat@torproject.org>
 torproject.net
 pages.torproject.net
 
@@ -15642,6 +15656,15 @@ bookonline.app
 hotelwithflight.com
 reserve-online.com
 reserve-online.net
+
+// WebPros International, LLC : https://webpros.com/
+// Submitted by Nicolas Rochelemagne <public.suffix@webpros.com>
+cprapid.com
+pleskns.com
+wp2.host
+pdns.page
+plesk.page
+wpsquared.site
 
 // WebWaddle Ltd: https://webwaddle.com/
 // Submitted by Merlin Glander <hostmaster@webwaddle.com>

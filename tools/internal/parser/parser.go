@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-// Parse parses src as a PSL file and returns the parse result.
+// Parse parses bs as a PSL file and returns the parse result.
 //
 // The parser tries to keep going when it encounters errors. Parse and
 // validation errors are accumulated in the Errors field of the
@@ -19,17 +19,23 @@ import (
 // submission guidelines
 // (https://github.com/publicsuffix/list/wiki/Guidelines). A File with
 // errors should not be used to calculate public suffixes for FQDNs.
-func Parse(src string) *File {
-	return parseWithExceptions(src, downgradeToWarning)
+func Parse(bs []byte) *File {
+	return &parseWithExceptions(bs, downgradeToWarning, true).File
 }
 
-func parseWithExceptions(src string, downgradeToWarning func(error) bool) *File {
+func parseWithExceptions(bs []byte, downgradeToWarning func(error) bool, validate bool) *parser {
+	src, errs := newSource(bs)
 	p := parser{
 		downgradeToWarning: downgradeToWarning,
 	}
-	p.Parse(newSource(src))
-	p.Validate()
-	return &p.File
+	for _, err := range errs {
+		p.addError(err)
+	}
+	p.Parse(src)
+	if validate {
+		p.Validate()
+	}
+	return &p
 }
 
 // parser is the state for a single PSL file parse.
@@ -89,16 +95,25 @@ func (p *parser) processSuffixes(block, header, rest Source) {
 		// TODO: s.Header should be a single Source for the entire
 		// comment.
 		s.Header = append(s.Header, line)
-		// Trim the comment prefix in two steps, because some PSL
-		// comments don't have whitepace between the // and the
-		// following text.
-		metadataSrc = append(metadataSrc, strings.TrimSpace(strings.TrimPrefix(line.Text(), "//")))
+		if strings.HasPrefix(line.Text(), sectionMarkerPrefix) {
+			p.addError(SectionInSuffixBlock{line})
+		} else {
+			// Trim the comment prefix in two steps, because some PSL
+			// comments don't have whitepace between the // and the
+			// following text.
+			metadataSrc = append(metadataSrc, strings.TrimSpace(strings.TrimPrefix(line.Text(), "//")))
+		}
 	}
 
 	// rest consists of suffixes and possibly inline comments.
 	commentLine := func(line Source) bool { return strings.HasPrefix(line.Text(), "//") }
 	rest.forEachRun(commentLine, func(block Source, isComment bool) {
 		if isComment {
+			for _, line := range block.lineSources() {
+				if strings.HasPrefix(line.Text(), sectionMarkerPrefix) {
+					p.addError(SectionInSuffixBlock{line})
+				}
+			}
 			s.InlineComments = append(s.InlineComments, block)
 		} else {
 			// TODO: parse entries properly, for how we just
@@ -330,15 +345,6 @@ func splitNameish(line string) (name string, url *url.URL, submitter *mail.Addre
 		}
 	}
 
-	// A single entry uses the unicode fullwidth colon codepoint
-	// (U+FF1A) instead of an ascii colon. Correct that before
-	// attempting a parse.
-	//
-	// TODO: fix the source and delete this hack.
-	if strings.Contains(line, "Future Versatile Group") {
-		line = strings.Replace(line, "\uff1a", ":", -1)
-	}
-
 	name, rest, ok := strings.Cut(line, ":")
 	if !ok {
 		return "", nil, nil
@@ -369,14 +375,6 @@ func splitNameAndURLInParens(line string) (name string, url *url.URL, ok bool) {
 	}
 	name = strings.TrimSpace(line[:idx])
 	urlStr := strings.TrimSpace(line[idx+1 : len(line)-1])
-
-	// Two PSL entries omit the scheme at the front of the URL, which
-	// makes them invalid by getURL's standards.
-	//
-	// TODO: fix the source and delete this hack.
-	if urlStr == "www.task.gda.pl/uslugi/dns" || urlStr == "hostyhosting.com" {
-		urlStr = "https://" + urlStr
-	}
 
 	if u := getURL(urlStr); u != nil {
 		return name, u, true
@@ -434,16 +432,6 @@ func getSubmitter(line string) *mail.Address {
 
 	if addr, err := mail.ParseAddress(line); err == nil {
 		return addr
-	}
-
-	// One current entry is missing the closing chevron on the email,
-	// which makes it an invalid address.
-	//
-	// TODO: fix the source and delete this hack.
-	if strings.HasSuffix(line, "torproject.org") {
-		if addr, err := mail.ParseAddress(line + ">"); err == nil {
-			return addr
-		}
 	}
 
 	// One current entry uses old school email obfuscation to foil

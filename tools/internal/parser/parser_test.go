@@ -27,19 +27,19 @@ func TestParser(t *testing.T) {
 
 	tests := []struct {
 		name               string
-		psl                string
+		psl                []byte
 		downgradeToWarning func(error) bool
 		want               File
 	}{
 		{
 			name: "empty",
-			psl:  "",
+			psl:  byteLines(""),
 			want: File{},
 		},
 
 		{
 			name: "just_comments",
-			psl: lines(
+			psl: byteLines(
 				"// This is an empty PSL file.",
 				"",
 				"// Here is a second comment.",
@@ -54,7 +54,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "just_suffixes",
-			psl: lines(
+			psl: byteLines(
 				"example.com",
 				"other.example.com",
 				"*.example.org",
@@ -87,7 +87,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "empty_sections",
-			psl: lines(
+			psl: byteLines(
 				"// ===BEGIN IMAGINARY DOMAINS===",
 				"",
 				"// ===END IMAGINARY DOMAINS===",
@@ -118,7 +118,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "missing_section_end",
-			psl: lines(
+			psl: byteLines(
 				"// ===BEGIN ICANN DOMAINS===",
 			),
 			want: File{
@@ -141,7 +141,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "nested_sections",
-			psl: lines(
+			psl: byteLines(
 				"// ===BEGIN ICANN DOMAINS===",
 				"// ===BEGIN SECRET DOMAINS===",
 				"// ===END SECRET DOMAINS===",
@@ -188,7 +188,7 @@ func TestParser(t *testing.T) {
 		},
 		{
 			name: "mismatched_sections",
-			psl: lines(
+			psl: byteLines(
 				"// ===BEGIN ICANN DOMAINS===",
 				"",
 				"// ===END PRIVATE DOMAINS===",
@@ -221,7 +221,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "unknown_section_header",
-			psl: lines(
+			psl: byteLines(
 				"// ===TRANSFORM DOMAINS===",
 			),
 			want: File{
@@ -239,8 +239,120 @@ func TestParser(t *testing.T) {
 		},
 
 		{
+			name: "suffixes_with_section_markers_in_header",
+			psl: byteLines(
+				"// Just some suffixes",
+				"// ===BEGIN ICANN DOMAINS===",
+				"com",
+				"org",
+				"",
+				"// ===END ICANN DOMAINS===",
+			),
+			want: File{
+				Blocks: []Block{
+					Suffixes{
+						Source: mkSrc(0,
+							"// Just some suffixes",
+							"// ===BEGIN ICANN DOMAINS===",
+							"com",
+							"org",
+						),
+						Header: []Source{
+							mkSrc(0, "// Just some suffixes"),
+							mkSrc(1, "// ===BEGIN ICANN DOMAINS==="),
+						},
+						Entries: []Source{
+							mkSrc(2, "com"),
+							mkSrc(3, "org"),
+						},
+						Entity: "Just some suffixes",
+					},
+					EndSection{
+						Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
+						Name:   "ICANN DOMAINS",
+					},
+				},
+				Errors: []error{
+					SectionInSuffixBlock{
+						Line: mkSrc(1, "// ===BEGIN ICANN DOMAINS==="),
+					},
+					// Note: trying to gracefully parse the
+					// StartSection would require splitting the suffix
+					// block in two, which would need more code and
+					// also result in additional spurious validation
+					// errors. Instead this tests that section markers
+					// within suffix blocks are ignored for section
+					// validation.
+					UnstartedSectionError{
+						End: EndSection{
+							Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
+							Name:   "ICANN DOMAINS",
+						},
+					},
+				},
+			},
+		},
+
+		{
+			name: "suffixes_with_section_markers_inline",
+			psl: byteLines(
+				"// Just some suffixes",
+				"com",
+				"// ===BEGIN ICANN DOMAINS===",
+				"org",
+				"",
+				"// ===END ICANN DOMAINS===",
+			),
+			want: File{
+				Blocks: []Block{
+					Suffixes{
+						Source: mkSrc(0,
+							"// Just some suffixes",
+							"com",
+							"// ===BEGIN ICANN DOMAINS===",
+							"org",
+						),
+						Header: []Source{
+							mkSrc(0, "// Just some suffixes"),
+						},
+						Entries: []Source{
+							mkSrc(1, "com"),
+							mkSrc(3, "org"),
+						},
+						InlineComments: []Source{
+							mkSrc(2, "// ===BEGIN ICANN DOMAINS==="),
+						},
+						Entity: "Just some suffixes",
+					},
+					EndSection{
+						Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
+						Name:   "ICANN DOMAINS",
+					},
+				},
+				Errors: []error{
+					SectionInSuffixBlock{
+						Line: mkSrc(2, "// ===BEGIN ICANN DOMAINS==="),
+					},
+					// Note: trying to gracefully parse the
+					// StartSection would require splitting the suffix
+					// block in two, which would need more code and
+					// also result in additional spurious validation
+					// errors. Instead this tests that section markers
+					// within suffix blocks are ignored for section
+					// validation.
+					UnstartedSectionError{
+						End: EndSection{
+							Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
+							Name:   "ICANN DOMAINS",
+						},
+					},
+				},
+			},
+		},
+
+		{
 			name: "suffixes_with_unstructured_header",
-			psl: lines(
+			psl: byteLines(
 				"// Unstructured header.",
 				"// I'm just going on about random things.",
 				"example.com",
@@ -271,7 +383,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_with_canonical_private_header",
-			psl: lines(
+			psl: byteLines(
 				"// DuckCorp Inc: https://example.com",
 				"// Submitted by Not A Duck <duck@example.com>",
 				"// Seriously, not a duck",
@@ -307,7 +419,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_with_entity_and_submitter",
-			psl: lines(
+			psl: byteLines(
 				"// DuckCorp Inc: submitted by Not A Duck <duck@example.com>",
 				"example.com",
 			),
@@ -333,7 +445,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_with_all_separate_lines",
-			psl: lines(
+			psl: byteLines(
 				"// DuckCorp Inc",
 				"// https://example.com",
 				"// Submitted by Not A Duck <duck@example.com>",
@@ -366,7 +478,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_standard_header_submitter_first",
-			psl: lines(
+			psl: byteLines(
 				"// Submitted by Not A Duck <duck@example.com>",
 				"// DuckCorp Inc: https://example.com",
 				"example.com",
@@ -396,7 +508,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "suffixes_standard_header_leading_unstructured",
-			psl: lines(
+			psl: byteLines(
 				"// This is an unstructured comment.",
 				"// DuckCorp Inc: https://example.com",
 				"// Submitted by Not A Duck <duck@example.com>",
@@ -429,7 +541,7 @@ func TestParser(t *testing.T) {
 
 		{
 			name: "legacy_error_downgrade",
-			psl: lines(
+			psl: byteLines(
 				"// https://example.com",
 				"example.com",
 			),
@@ -473,35 +585,10 @@ func TestParser(t *testing.T) {
 		},
 
 		{
-			// Regression test for Future Versatile Group, who use a
-			// unicode fullwidth colon in their header.
-			name: "unicode_colon",
-			psl: lines(
-				"// Future Versatile Group：https://example.org",
-				"example.com",
-			),
-			want: File{
-				Blocks: []Block{
-					Suffixes{
-						Source: mkSrc(0, "// Future Versatile Group：https://example.org", "example.com"),
-						Header: []Source{
-							mkSrc(0, "// Future Versatile Group：https://example.org"),
-						},
-						Entries: []Source{
-							mkSrc(1, "example.com"),
-						},
-						Entity: "Future Versatile Group",
-						URL:    mustURL("https://example.org"),
-					},
-				},
-			},
-		},
-
-		{
 			// Regression test for a few blocks that start with "name
 			// (url)" instead of the more common "name: url".
 			name: "url_in_parens",
-			psl: lines(
+			psl: byteLines(
 				"// Parens Appreciation Society (https://example.org)",
 				"example.com",
 			),
@@ -523,53 +610,13 @@ func TestParser(t *testing.T) {
 		},
 
 		{
-			// Variation on the previous, some blocks in the "name
-			// (url)" style don't have a scheme on their URL, so
-			// require a bit more fudging to parse.
-			name: "url_in_parens_no_scheme",
-			psl: lines(
-				"// Parens Appreciation Society (hostyhosting.com)",
-				"example.com",
-				"",
-				"// Parens Policy Panel (www.task.gda.pl/uslugi/dns)",
-				"policy.example.org",
-			),
-			want: File{
-				Blocks: []Block{
-					Suffixes{
-						Source: mkSrc(0, "// Parens Appreciation Society (hostyhosting.com)", "example.com"),
-						Header: []Source{
-							mkSrc(0, "// Parens Appreciation Society (hostyhosting.com)"),
-						},
-						Entries: []Source{
-							mkSrc(1, "example.com"),
-						},
-						Entity: "Parens Appreciation Society",
-						URL:    mustURL("https://hostyhosting.com"),
-					},
-					Suffixes{
-						Source: mkSrc(3, "// Parens Policy Panel (www.task.gda.pl/uslugi/dns)", "policy.example.org"),
-						Header: []Source{
-							mkSrc(3, "// Parens Policy Panel (www.task.gda.pl/uslugi/dns)"),
-						},
-						Entries: []Source{
-							mkSrc(4, "policy.example.org"),
-						},
-						Entity: "Parens Policy Panel",
-						URL:    mustURL("https://www.task.gda.pl/uslugi/dns"),
-					},
-				},
-			},
-		},
-
-		{
 			// Regression test for a sneaky bug during development:
 			// when an entity name is found when parsing Suffixes
 			// headers, don't keep trying to find it in subsequent
 			// lines, or you might overwrite the correct answer with
 			// someething else that happens to have the right shape.
 			name: "accept_first_valid_entity",
-			psl: lines(
+			psl: byteLines(
 				"// cd : https://en.wikipedia.org/wiki/.cd",
 				"// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1",
 				"cd",
@@ -604,8 +651,8 @@ func TestParser(t *testing.T) {
 				// use real exceptions if the test doesn't provide something else
 				exc = downgradeToWarning
 			}
-			got := parseWithExceptions(test.psl, exc)
-			checkDiff(t, "parse result", got, &test.want)
+			got := parseWithExceptions(test.psl, exc, true).File
+			checkDiff(t, "parse result", got, test.want)
 		})
 	}
 }
@@ -645,7 +692,7 @@ func TestParseRealList(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	f := Parse(string(bs))
+	f := Parse(bs)
 
 	for _, err := range f.Errors {
 		t.Errorf("Parse error: %v", err)
@@ -661,7 +708,7 @@ func TestRoundtripRealList(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	f := Parse(string(bs))
+	f := Parse(bs)
 
 	if len(f.Errors) > 0 {
 		t.Fatal("Parse errors, not attempting to roundtrip")
@@ -700,7 +747,7 @@ func TestRoundtripRealListDetailed(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	f := Parse(string(bs))
+	f := Parse(bs)
 
 	if len(f.Errors) > 0 {
 		t.Fatal("Parse errors, not attempting to roundtrip")
@@ -761,7 +808,7 @@ func TestExceptionsStillNecessary(t *testing.T) {
 		defer func() { missingEmail = old }()
 		missingEmail = trimmed
 
-		f := Parse(string(bs))
+		f := Parse(bs)
 		if len(f.Errors) == 0 {
 			t.Errorf("missingEmail exception no longer necessary:\n%s", omitted)
 		}
