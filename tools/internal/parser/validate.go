@@ -8,43 +8,39 @@ import (
 	"github.com/creachadair/mds/slice"
 )
 
-// Validate runs validations on a parsed File.
-//
-// Validation only runs on a file that does not yet have any
-// errors. The presence of errors may indicate structural issues that
-// can break some validations.
-func (p *parser) Validate() {
-	if len(p.Errors) > 0 {
-		return
+// ValidateOffline runs offline validations on a parsed PSL.
+func ValidateOffline(l *List) []error {
+	var ret []error
+
+	for _, block := range blocksOfType[*Section](l) {
+		if block.Name == "PRIVATE DOMAINS" {
+			ret = append(ret, validateEntityMetadata(block)...)
+			if err := validatePrivateSectionOrder(block); err != nil {
+				ret = append(ret, err)
+			}
+			break
+		}
 	}
 
-	p.requireEntityNames()
-	p.requirePrivateDomainEmailContact()
-	p.requireSortedPrivateSection()
+	return ret
 }
 
-// requireEntityNames verifies that all Suffix blocks have some kind
-// of entity name.
-func (p *parser) requireEntityNames() {
-	for _, block := range p.AllSuffixBlocks() {
+// validateEntityMetadata verifies that all suffix blocks have some
+// kind of entity name.
+func validateEntityMetadata(block *Section) []error {
+	var ret []error
+	for _, block := range blocksOfType[*Suffixes](block) {
 		if block.Entity == "" {
-			p.addError(MissingEntityName{
+			ret = append(ret, ErrMissingEntityName{
+				Suffixes: block,
+			})
+		} else if block.Submitter == nil && !exemptFromContactInfo(block.Entity) {
+			ret = append(ret, ErrMissingEntityEmail{
 				Suffixes: block,
 			})
 		}
 	}
-}
-
-// requirePrivateDomainEmailContact verifies that all Suffix blocks in
-// the private section have email contact information.
-func (p *parser) requirePrivateDomainEmailContact() {
-	for _, block := range p.File.SuffixBlocksInSection("PRIVATE DOMAINS") {
-		if block.Submitter == nil {
-			p.addError(MissingEntityEmail{
-				Suffixes: block,
-			})
-		}
-	}
+	return ret
 }
 
 const (
@@ -52,9 +48,9 @@ const (
 	amazonSuperblockEnd   = "concludes Amazon"
 )
 
-// requireSortedPrivateSection verifies that the blocks in the private
+// validatePrivateSectionOrder verifies that the blocks in the private
 // domains section is sorted according to PSL policy.
-func (p *parser) requireSortedPrivateSection() {
+func validatePrivateSectionOrder(block *Section) error {
 	// Amazon has a semi-automated "superblock" of suffix blocks,
 	// which are in the PSL at the correct sort location for "Amazon",
 	// but are not correctly interleaved with other non-Amazon
@@ -78,44 +74,28 @@ func (p *parser) requireSortedPrivateSection() {
 	var blocks []superblock
 
 	inAmazonSuperblock := false
-	for _, block := range allBlocksInPrivateSection(&p.File) {
-		if comm, ok := block.(*Comment); ok {
-			if !inAmazonSuperblock && strings.Contains(comm.Text(), amazonSuperblockStart) {
+	for _, block := range block.Children() {
+		switch v := block.(type) {
+		case *Comment:
+			if !inAmazonSuperblock && strings.Contains(v.Text[0], amazonSuperblockStart) {
 				// Start of the Amazon superblock. We will accumulate
 				// suffix blocks into here further down.
 				inAmazonSuperblock = true
 				blocks = append(blocks, superblock{
 					Name: "Amazon",
 				})
-			} else if inAmazonSuperblock && strings.Contains(comm.Text(), amazonSuperblockEnd) {
+			} else if inAmazonSuperblock && strings.Contains(v.Text[0], amazonSuperblockEnd) {
 				// End of Amazon superblock, go back to normal
 				// behavior.
 				inAmazonSuperblock = false
 			}
-			continue
-		}
-
-		// Aside from the Amazon superblock comments, we only care
-		// about Suffix blocks in this validation.
-		suffixes, ok := block.(*Suffixes)
-		if !ok {
-			continue
-		}
-
-		// While we're inside the Amazon superblock, all suffix blocks
-		// get grouped into one. Outside of the Amazon superblock,
-		// each suffix block gets its own superblock.
-		if inAmazonSuperblock {
-			last := len(blocks) - 1
-			blocks[last].Suffixes = append(blocks[last].Suffixes, suffixes)
-			continue
-		} else if exemptFromSorting(suffixes.Source) {
-			continue
-		} else {
-			blocks = append(blocks, superblock{
-				Name:     suffixes.Entity,
-				Suffixes: []*Suffixes{suffixes},
-			})
+		case *Suffixes:
+			if inAmazonSuperblock {
+				last := len(blocks) - 1
+				blocks[last].Suffixes = append(blocks[last].Suffixes, v)
+			} else if !exemptFromSorting(v.Entity) {
+				blocks = append(blocks, superblock{v.Entity, []*Suffixes{v}})
+			}
 		}
 	}
 
@@ -137,7 +117,7 @@ func (p *parser) requireSortedPrivateSection() {
 
 	if len(sorted) == len(blocks) {
 		// Already sorted, we're done.
-		return
+		return nil
 	}
 
 	// Scan through the superblocks and find where the incorrectly
@@ -171,7 +151,7 @@ func (p *parser) requireSortedPrivateSection() {
 	fixed := make([]superblock, 0, len(blocks))
 	fixed = append(fixed, sorted...)
 
-	err := SuffixBlocksInWrongPlace{
+	err := ErrSuffixBlocksInWrongPlace{
 		EditScript: make([]MoveSuffixBlock, 0, len(blocks)-len(sorted)),
 	}
 
@@ -223,28 +203,34 @@ func (p *parser) requireSortedPrivateSection() {
 		blocksIdx++
 	}
 
-	// At last, we can report the ordering error.
-	p.addError(err)
+	return err
 }
 
-func allBlocksInPrivateSection(f *File) []Block {
-	start := 0
-	for i, block := range f.Blocks {
-		switch v := block.(type) {
-		case *StartSection:
-			if v.Name != "PRIVATE DOMAINS" {
-				continue
-			}
-			start = i + 1
-		case *EndSection:
-			if v.Name != "PRIVATE DOMAINS" {
-				continue
-			}
-			return f.Blocks[start:i]
+// A childrener can return a list of its children.
+// Yes, the interface name sounds a bit silly, but it's the
+// conventional Go name given what it does.
+type childrener interface {
+	Children() []Block
+}
+
+// blocksOfType recursively walks the subtree rooted at c and returns
+// all tree nodes of concrete block type T.
+//
+// For example, blocksOfType[*Comment](n) returns all comment nodes
+// under n.
+func blocksOfType[T Block](c childrener) []T {
+	var ret []T
+
+	var rec func(childrener)
+	rec = func(c childrener) {
+		if v, ok := c.(T); ok {
+			ret = append(ret, v)
+		}
+		for _, child := range c.Children() {
+			rec(child)
 		}
 	}
-	// We can only get here if there's no private section (so nothing
-	// to validate), or if the file has structural issues (but we
-	// don't run validations in that case).
-	return []Block{}
+	rec(c)
+
+	return ret
 }

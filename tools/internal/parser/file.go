@@ -1,114 +1,62 @@
 package parser
 
 import (
-	"fmt"
 	"net/mail"
 	"net/url"
 )
 
-// File is a parsed PSL file.
-// A PSL file consists of blocks separated by an empty line. Most
-// blocks are annotated lists of suffixes, but some are plain
-// top-level comments or delimiters for sections of the file.
-type File struct {
-	// Blocks are the data blocks of the file, in the order they
-	// appear.
+// List is a parsed public suffix list.
+type List struct {
+	SourceRange
+
+	// Blocks are the top-level elements of the list, in the order
+	// they appear.
 	Blocks []Block
-	// Errors are parse errors encountered while reading the
-	// file. This includes fatal validation errors, not just malformed
-	// syntax.
-	Errors []error
-	// Warnings are errors that were downgraded to just
-	// warnings. Warnings are a concession to old PSL entries that now
-	// have validation errors, due to PSL policy changes. As long as
-	// the entries in question don't change, their preexisting
-	// validation errors are downgraded to lint warnings.
-	Warnings []error
 }
 
-// AllSuffixBlocks returns all suffix blocks in f.
-func (f *File) AllSuffixBlocks() []*Suffixes {
-	var ret []*Suffixes
+func (l *List) Children() []Block { return l.Blocks }
 
-	for _, block := range f.Blocks {
-		switch v := block.(type) {
-		case *Suffixes:
-			ret = append(ret, v)
-		}
-	}
-
-	return ret
-}
-
-// SuffixBlocksInSection returns all suffix blocks within the named
-// file section (for example, "ICANN DOMAINS" or "PRIVATE DOMAINS").
-func (f *File) SuffixBlocksInSection(name string) []*Suffixes {
-	var ret []*Suffixes
-
-	var curSection string
-	for _, block := range f.Blocks {
-		switch v := block.(type) {
-		case *StartSection:
-			curSection = v.Name
-		case *EndSection:
-			if curSection == name {
-				return ret
-			}
-			curSection = ""
-		case *Suffixes:
-			if curSection == name {
-				ret = append(ret, v)
-			}
-		}
-	}
-	return ret
-}
-
-// A Block is a parsed chunk of a PSL file.
-// In Parse's output, a Block is one of the following concrete types:
-// Comment, StartSection, EndSection, Suffixes.
+// A Block is a parsed chunk of a PSL file. Each block is one of the
+// concrete types Blank, Comment, Section, Suffixes, Suffix, or
+// Wildcard.
 type Block interface {
-	source() Source
+	// SrcRange returns the block's SourceRange.
+	SrcRange() SourceRange
+	// Children returns the block's direct children, if any.
+	Children() []Block
 }
 
-// Comment is a standalone top-level comment block.
+// Blank is a set of one or more consecutive blank lines.
+type Blank struct {
+	SourceRange
+}
+
+func (b *Blank) Children() []Block { return nil }
+
+// Comment is a comment block, consisting of one or more contiguous
+// lines of commented text.
 type Comment struct {
-	Source
+	SourceRange
+	// Text is the unprocessed content of the comment lines, with the
+	// leading comment syntax removed.
+	Text []string
 }
 
-func (c *Comment) source() Source { return c.Source }
+func (c *Comment) Children() []Block { return nil }
 
-// StartSection is a top-level marker that indicates the start of a
-// logical section, such as ICANN suffixes or privately managed
-// domains.
-//
-// Sections cannot be nested, at any one point in a file you are
-// either not in any logical section, or within a single section.  In
-// a File that has no parse errors, StartSection and EndSection blocks
-// are correctly paired, and all sections are closed by an EndSection
-// before any following StartSection.
-type StartSection struct {
-	Source
-	Name string // section name, e.g. "ICANN DOMAINS", "PRIVATE DOMAINS"
+// Section is a named part of a PSL file, containing suffixes which
+// behave similarly.
+type Section struct {
+	SourceRange
+
+	// Name is he section name. In a normal well-formed PSL file, the
+	// names are "ICANN DOMAINS" and "PRIVATE DOMAINS".
+	Name string
+	// Blocks are the child blocks contained within the section.
+	Blocks []Block
 }
 
-func (b *StartSection) source() Source { return b.Source }
-
-// EndSection is a top-level marker that indicates the end of a
-// logical section, such as ICANN suffixes or privately managed
-// domains.
-//
-// Sections cannot be nested, at any one point in a file you are
-// either not in any logical section, or within a single section.  In
-// a File that has no parse errors, StartSection and EndSection blocks
-// are correctly paired, and all sections are closed by an EndSection
-// before any following StartSection.
-type EndSection struct {
-	Source
-	Name string // e.g. "ICANN DOMAINS", "PRIVATE DOMAINS"
-}
-
-func (b *EndSection) source() Source { return b.Source }
+func (s *Section) Children() []Block { return s.Blocks }
 
 // Suffixes is a list of PSL domain suffixes with optional additional
 // metadata.
@@ -118,24 +66,7 @@ func (b *EndSection) source() Source { return b.Source }
 // domain suffixes. The suffix list may contain additional
 // unstructured inline comments.
 type Suffixes struct {
-	Source
-
-	// Header lists the comment lines that appear before the first
-	// domain suffix. Any structured data they contain is also parsed
-	// into separate fields.
-	Header []Source
-	// Entries lists the lines that contain domain suffixes. In an
-	// error-free PSL file, each slice element is a single suffix.
-	Entries []Source
-	// InlineComments lists the comment lines that appear between
-	// suffix lines, rather than as part of the header. These are
-	// uncommon in the PSL overall, but some suffix blocks
-	// (particularly hand-curated ICANN blocks) feature some guidance
-	// comments to guide future maintainers.
-	InlineComments []Source
-
-	// The following fields are extracted from Header, if available.
-
+	SourceRange
 	// Entity is the name of the entity responsible for this block of
 	// suffixes.
 	//
@@ -166,15 +97,38 @@ type Suffixes struct {
 	// This field may be nil if the block header doesn't have email
 	// contact information.
 	Submitter *mail.Address
+
+	// Blocks are the child blocks contained within the section.
+	Blocks []Block
 }
 
-func (s *Suffixes) source() Source { return s.Source }
+func (s *Suffixes) Children() []Block { return s.Blocks }
 
-// shortName returns either the quoted name of the responsible Entity,
-// or a generic descriptor of this suffix block if Entity is unset.
-func (s *Suffixes) shortName() string {
-	if s.Entity != "" {
-		return fmt.Sprintf("%q", s.Entity)
-	}
-	return fmt.Sprintf("%d unowned suffixes", len(s.Entries))
+// Suffix is one public suffix, represented in the standard domain
+// name format.
+type Suffix struct {
+	SourceRange
+
+	// Labels are the DNS labels of the public suffix.
+	Labels []string
 }
+
+func (s *Suffix) Children() []Block { return nil }
+
+// Wildcard is a wildcard public suffix, along with any exceptions to
+// that wildcard.
+type Wildcard struct {
+	SourceRange
+
+	// Labels are the DNS labels of the public suffix, without the
+	// leading "*" label.
+	Labels []string
+	// Exceptions are the DNS label values that, when they appear in
+	// the wildcard position, cause a FQDN to _not_ match this
+	// wildcard. For example, if Labels=[foo, com] and
+	// Exceptions=[bar, qux], zot.foo.com is a public suffix, but
+	// bar.foo.com and qux.foo.com are not.
+	Exceptions []string
+}
+
+func (w *Wildcard) Children() []Block { return nil }

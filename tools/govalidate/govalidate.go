@@ -6,12 +6,15 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 
 	"github.com/publicsuffix/list/tools/internal/parser"
 )
 
 func main() {
-	warnings := flag.Bool("with-warnings", false, "also print errors that were downgraded to warnings")
+	debugPrintTree := flag.Bool("debug-print", false, "print the parse tree for debugging")
+
 	flag.Usage = func() {
 		fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s [flags] pslfile\n", os.Args[0])
 		flag.PrintDefaults()
@@ -30,19 +33,91 @@ func main() {
 		os.Exit(1)
 	}
 
-	psl := parser.Parse(bs)
+	psl, errs := parser.Parse(bs)
 
-	for _, err := range psl.Errors {
+	if *debugPrintTree {
+		debugPrint(psl)
+	}
+
+	for _, err := range errs {
 		fmt.Println(err)
 	}
-	if *warnings {
-		for _, err := range psl.Warnings {
-			fmt.Println(err, "(warning)")
-		}
+
+	verrs := parser.ValidateOffline(psl)
+	for _, err := range verrs {
+		fmt.Println(err)
 	}
-	if len(psl.Errors) > 0 {
+
+	if total := len(errs) + len(verrs); total > 0 {
+		fmt.Printf("\nFile has %d errors.\n", total)
 		os.Exit(1)
 	} else {
-		fmt.Printf("%q seems to be a valid PSL file.\n", file)
+		fmt.Println("\nFile is valid.")
+	}
+}
+
+// debugPrint prints out a PSL syntax tree in a private, subject to
+// change text format.
+func debugPrint(p *parser.List) {
+	fmt.Println("List {")
+	for _, b := range p.Blocks {
+		debugPrintRec(b, "    ")
+	}
+	fmt.Println("}")
+}
+
+func debugPrintRec(b parser.Block, indent string) {
+	nextIndent := indent + "    "
+	f := func(msg string, args ...any) {
+		fmt.Printf(indent+msg+"\n", args...)
+	}
+	src := b.SrcRange()
+	loc := fmt.Sprintf("[%d:%d]", src.FirstLine, src.LastLine)
+	if src.FirstLine+1 == src.LastLine {
+		loc = strconv.Itoa(src.FirstLine)
+	}
+
+	switch v := b.(type) {
+	case *parser.Blank:
+		f("Blank(%s)", loc)
+	case *parser.Comment:
+		f("Comment(%s) {", loc)
+		for _, t := range v.Text {
+			f("    %q,", t)
+		}
+		f("}")
+	case *parser.Section:
+		f("Section(%s, %q) {", loc, v.Name)
+		for _, b := range v.Blocks {
+			debugPrintRec(b, nextIndent)
+		}
+		f("}")
+	case *parser.Suffixes:
+		items := []string{loc}
+		if v.Entity != "" {
+			items = append(items, fmt.Sprintf("name=%q", v.Entity))
+		}
+		if v.URL != nil {
+			items = append(items, fmt.Sprintf("url=%q", v.URL))
+		}
+		if v.Submitter != nil {
+			items = append(items, fmt.Sprintf("contact=%q", v.Submitter))
+		}
+
+		f("SuffixBlock(%s) {", strings.Join(items, fmt.Sprintf(",\n%s            ", indent)))
+		for _, b := range v.Blocks {
+			debugPrintRec(b, nextIndent)
+		}
+		f("}")
+	case *parser.Suffix:
+		f("Suffix(%s, %q)", loc, strings.Join(v.Labels, "."))
+	case *parser.Wildcard:
+		if len(v.Exceptions) > 0 {
+			f("Wildcard(%s, %q, except=%v)", loc, strings.Join(v.Labels, "."), v.Exceptions)
+		} else {
+			f("Wildcard(%s, %q)", loc, strings.Join(v.Labels, "."))
+		}
+	default:
+		panic("unknown block type")
 	}
 }

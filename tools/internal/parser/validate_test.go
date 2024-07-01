@@ -1,185 +1,137 @@
 package parser
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
 	"testing"
 )
 
 func TestRequireSortedPrivateSection(t *testing.T) {
-	// Shorthand for a simple suffix block with the right source data.
-	suffixBlock := func(lineOffset int, name, suffix string) Suffixes {
-		// For this test, every suffix block just has one suffix.
-		src := mkSrc(lineOffset, fmt.Sprintf("// %s", name), suffix)
-		return Suffixes{
-			Source:  src,
-			Header:  []Source{src.slice(0, 1)},
-			Entries: []Source{src.slice(1, 2)},
-			Entity:  name,
-		}
-	}
-	// Shorthand for an input file containing a series of suffixes.
-	suffixBlocks := func(suffixes ...Suffixes) []byte {
-		var ret bytes.Buffer
-		ret.WriteString("// ===BEGIN PRIVATE DOMAINS===\n\n")
-		for _, block := range suffixes {
-			for _, ln := range block.lineSources() {
-				ret.WriteString(ln.Text())
-				ret.WriteByte('\n')
-			}
-			ret.WriteByte('\n')
-		}
-		ret.WriteString("// ===END PRIVATE DOMAINS===\n")
-		return ret.Bytes()
-	}
-
-	aaa := suffixBlock(0, "AAA Corp", "aaa.com")
-	bbb := suffixBlock(0, "BBB Inc", "bbb.net")
-	ccc := suffixBlock(0, "CCC Ltd", "ccc.org")
-	dddLeadingDot := suffixBlock(0, ".DDD GmbH", "ddd.de")
-	aaaUmlaut := suffixBlock(0, "AÄA", "aaa.de")
-	aaaUmlautShort := suffixBlock(0, "AÄ", "aaa.ee")
-	aaaUmlautLong := suffixBlock(0, "AÄAA", "aaa.sk")
-	a3b := suffixBlock(0, "a3b", "a3b.com")
-	a24b := suffixBlock(0, "a24b", "a24b.com")
+	aaa := suffixes(0, 1, "AAA Corp", "", "", suffix(0, "aaa.com"))
+	bbb := suffixes(0, 1, "BBB Inc", "", "", suffix(0, "bbb.net"))
+	ccc := suffixes(0, 1, "CCC Ltd", "", "", suffix(0, "ccc.org"))
+	dddLeadingDot := suffixes(0, 1, ".DDD GmbH", "", "", suffix(0, "ddd.de"))
+	aaaUmlaut := suffixes(0, 1, "AÄA", "", "", suffix(0, "aaa.de"))
+	aaaUmlautShort := suffixes(0, 1, "AÄ", "", "", suffix(0, "aaa.ee"))
+	aaaUmlautLong := suffixes(0, 1, "AÄAA", "", "", suffix(0, "aaa.sk"))
+	a3b := suffixes(0, 1, "a3b", "", "", suffix(0, "a3b.com"))
+	a24b := suffixes(0, 1, "a24b", "", "", suffix(0, "a24b.com"))
 
 	tests := []struct {
 		name string
-		in   []byte
-		want []error
+		in   *Section
+		want error
 	}{
 		{
 			name: "easy_correct_order",
-			in:   suffixBlocks(aaa, bbb, ccc),
+			in:   section(0, 0, "", aaa, bbb, ccc),
 		},
+
 		{
 			name: "easy_wrong_order",
 			// correct order: aaa, bbb, ccc
-			in: suffixBlocks(bbb, aaa, ccc),
-			want: []error{
-				SuffixBlocksInWrongPlace{
-					EditScript: []MoveSuffixBlock{
-						{
-							Name:        bbb.Entity,
-							InsertAfter: aaa.Entity,
-						},
+			in: section(0, 0, "", bbb, aaa, ccc),
+			want: ErrSuffixBlocksInWrongPlace{
+				EditScript: []MoveSuffixBlock{
+					{
+						Name:        bbb.Entity,
+						InsertAfter: aaa.Entity,
 					},
 				},
 			},
 		},
+
 		{
 			name: "reversed",
 			// correct order: aaa, bbb, ccc
-			in: suffixBlocks(ccc, bbb, aaa),
-			want: []error{
-				SuffixBlocksInWrongPlace{
-					EditScript: []MoveSuffixBlock{
-						{
-							Name:        ccc.Entity,
-							InsertAfter: aaa.Entity,
-						},
-						{
-							Name:        bbb.Entity,
-							InsertAfter: aaa.Entity,
-						},
+			in: section(0, 0, "", ccc, bbb, aaa),
+			want: ErrSuffixBlocksInWrongPlace{
+				EditScript: []MoveSuffixBlock{
+					{
+						Name:        ccc.Entity,
+						InsertAfter: aaa.Entity,
+					},
+					{
+						Name:        bbb.Entity,
+						InsertAfter: aaa.Entity,
 					},
 				},
 			},
 		},
+
 		{
 			name: "leading_punctuation",
 			// correct order: dddLeadingDot, aaa, bbb, ccc
-			in: suffixBlocks(aaa, bbb, ccc, dddLeadingDot),
-			want: []error{
-				SuffixBlocksInWrongPlace{
-					EditScript: []MoveSuffixBlock{
-						{
-							Name:        dddLeadingDot.Entity,
-							InsertAfter: "",
-						},
+			in: section(0, 0, "", aaa, bbb, ccc, dddLeadingDot),
+			want: ErrSuffixBlocksInWrongPlace{
+				EditScript: []MoveSuffixBlock{
+					{
+						Name:        dddLeadingDot.Entity,
+						InsertAfter: "",
 					},
 				},
 			},
 		},
+
 		{
 			name: "diacritics",
 			// correct order: aaaUmlautShort, aaaUmlaut, aaa, aaaUmlautLong, bbb, ccc
-			in: suffixBlocks(aaa, bbb, ccc, aaaUmlaut, aaaUmlautShort, aaaUmlautLong),
-			want: []error{
-				SuffixBlocksInWrongPlace{
-					EditScript: []MoveSuffixBlock{
-						{
-							Name:        aaaUmlaut.Entity,
-							InsertAfter: "",
-						},
-						{
-							Name:        aaaUmlautShort.Entity,
-							InsertAfter: "",
-						},
-						{
-							Name:        aaaUmlautLong.Entity,
-							InsertAfter: aaa.Entity,
-						},
+			in: section(0, 0, "", aaa, bbb, ccc, aaaUmlaut, aaaUmlautShort, aaaUmlautLong),
+			want: ErrSuffixBlocksInWrongPlace{
+				EditScript: []MoveSuffixBlock{
+					{
+						Name:        aaaUmlaut.Entity,
+						InsertAfter: "",
+					},
+					{
+						Name:        aaaUmlautShort.Entity,
+						InsertAfter: "",
+					},
+					{
+						Name:        aaaUmlautLong.Entity,
+						InsertAfter: aaa.Entity,
 					},
 				},
 			},
 		},
+
 		{
 			name: "numbers",
 			// correct order: a24b, a3b, aaa, bbb
-			in: suffixBlocks(aaa, a3b, a24b, bbb),
-			want: []error{
-				SuffixBlocksInWrongPlace{
-					EditScript: []MoveSuffixBlock{
-						{
-							Name:        aaa.Entity,
-							InsertAfter: a24b.Entity,
-						},
-						{
-							Name:        a3b.Entity,
-							InsertAfter: a24b.Entity,
-						},
+			in: section(0, 0, "", aaa, a3b, a24b, bbb),
+			want: ErrSuffixBlocksInWrongPlace{
+				EditScript: []MoveSuffixBlock{
+					{
+						Name:        aaa.Entity,
+						InsertAfter: a24b.Entity,
+					},
+					{
+						Name:        a3b.Entity,
+						InsertAfter: a24b.Entity,
 					},
 				},
 			},
 		},
+
 		{
 			name: "amazon_superblock",
-			in: byteLines(
-				"// ===BEGIN PRIVATE DOMAINS===",
-				"",
-				"// AA Ltd",
-				"aa.com",
-				"",
-				"// Amazon : https://www.amazon.com",
-				"// several blocks follow",
-				"",
-				// note: incorrect order, but ignored because in Amazon superblock
-				"// eero",
-				"eero.com",
-				"",
-				"// AWS",
-				"aws.com",
-				"",
-				"// concludes Amazon",
-				"",
-				// note: out of order, not ignored
-				"// Altavista",
-				"altavista.com",
-				"",
-				"// BB Ltd",
-				"bb.com",
-				"",
-				"// ===END PRIVATE DOMAINS===",
+			in: section(0, 23, "",
+				suffixes(2, 4, "AA Ltd", "", "", suffix(3, "aa.com")),
+
+				comment(5, "Amazon : https://www.amazon.com", "several blocks follow"),
+				// Note, incorrect sort, but ignored because it's in
+				// the Amazon superblock.
+				suffixes(8, 10, "eero", "", "", suffix(9, "eero.com")),
+				suffixes(11, 13, "AWS", "", "", suffix(12, "aws.com")),
+				comment(14, "concludes Amazon"),
+
+				suffixes(16, 18, "Altavista", "", "", suffix(17, "altavista.com")),
+
+				suffixes(19, 21, "BB Ltd", "", "", suffix(20, "bb.com")),
 			),
-			want: []error{
-				SuffixBlocksInWrongPlace{
-					EditScript: []MoveSuffixBlock{
-						{
-							Name:        `Amazon (all blocks until "concludes ..." comment)`,
-							InsertAfter: "Altavista",
-						},
+			want: ErrSuffixBlocksInWrongPlace{
+				EditScript: []MoveSuffixBlock{
+					{
+						Name:        `Amazon (all blocks until "concludes ..." comment)`,
+						InsertAfter: "Altavista",
 					},
 				},
 			},
@@ -188,13 +140,8 @@ func TestRequireSortedPrivateSection(t *testing.T) {
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			p := parseWithExceptions(tc.in, downgradeToWarning, false)
-			if len(p.File.Errors) > 0 {
-				t.Fatalf("parse error before attempting validation: %v", errors.Join(p.File.Errors...))
-			}
-			p.requireSortedPrivateSection()
-
-			checkDiff(t, "validation result", p.File.Errors, tc.want)
+			errs := validatePrivateSectionOrder(tc.in)
+			checkDiff(t, "validation result", errs, tc.want)
 		})
 	}
 }

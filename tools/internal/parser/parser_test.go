@@ -1,16 +1,11 @@
 package parser
 
 import (
-	"bytes"
-	"cmp"
 	"net/mail"
 	"net/url"
 	"os"
-	"slices"
 	"strings"
 	"testing"
-
-	diff "github.com/google/go-cmp/cmp"
 )
 
 // TestParser runs a battery of synthetic parse and validation tests.
@@ -29,12 +24,13 @@ func TestParser(t *testing.T) {
 		name               string
 		psl                []byte
 		downgradeToWarning func(error) bool
-		want               File
+		want               *List
+		wantErrs           []error
 	}{
 		{
 			name: "empty",
 			psl:  byteLines(""),
-			want: File{},
+			want: list(),
 		},
 
 		{
@@ -44,45 +40,35 @@ func TestParser(t *testing.T) {
 				"",
 				"// Here is a second comment.",
 			),
-			want: File{
-				Blocks: []Block{
-					&Comment{Source: mkSrc(0, "// This is an empty PSL file.")},
-					&Comment{Source: mkSrc(2, "// Here is a second comment.")},
-				},
-			},
+			want: list(
+				comment(0, "This is an empty PSL file."),
+				blank(1, 2),
+				comment(2, "Here is a second comment."),
+			),
 		},
 
 		{
-			name: "just_suffixes",
+			name: "just_suffixes_in_block",
 			psl: byteLines(
+				"// ===BEGIN PRIVATE DOMAINS===",
+				"",
 				"example.com",
 				"other.example.com",
 				"*.example.org",
+				"",
+				"// ===END PRIVATE DOMAINS===",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0, "example.com", "other.example.com", "*.example.org"),
-						Entries: []Source{
-							mkSrc(0, "example.com"),
-							mkSrc(1, "other.example.com"),
-							mkSrc(2, "*.example.org"),
-						},
-					},
-				},
-				Errors: []error{
-					MissingEntityName{
-						Suffixes: &Suffixes{
-							Source: mkSrc(0, "example.com", "other.example.com", "*.example.org"),
-							Entries: []Source{
-								mkSrc(0, "example.com"),
-								mkSrc(1, "other.example.com"),
-								mkSrc(2, "*.example.org"),
-							},
-						},
-					},
-				},
-			},
+			want: list(
+				section(0, 7, "PRIVATE DOMAINS",
+					blank(1, 2),
+					suffixes(2, 5, "", "", "",
+						suffix(2, "example.com"),
+						suffix(3, "other.example.com"),
+						wildcard(4, 5, "example.org"),
+					),
+					blank(5, 6),
+				),
+			),
 		},
 
 		{
@@ -94,26 +80,12 @@ func TestParser(t *testing.T) {
 				"// ===BEGIN FAKE DOMAINS===",
 				"// ===END FAKE DOMAINS===",
 			),
-			want: File{
-				Blocks: []Block{
-					&StartSection{
-						Source: mkSrc(0, "// ===BEGIN IMAGINARY DOMAINS==="),
-						Name:   "IMAGINARY DOMAINS",
-					},
-					&EndSection{
-						Source: mkSrc(2, "// ===END IMAGINARY DOMAINS==="),
-						Name:   "IMAGINARY DOMAINS",
-					},
-					&StartSection{
-						Source: mkSrc(3, "// ===BEGIN FAKE DOMAINS==="),
-						Name:   "FAKE DOMAINS",
-					},
-					&EndSection{
-						Source: mkSrc(4, "// ===END FAKE DOMAINS==="),
-						Name:   "FAKE DOMAINS",
-					},
-				},
-			},
+			want: list(
+				section(0, 3, "IMAGINARY DOMAINS", // TEST RIGHT, CODE WRONG
+					blank(1, 2),
+				),
+				section(3, 5, "FAKE DOMAINS"),
+			),
 		},
 
 		{
@@ -121,21 +93,11 @@ func TestParser(t *testing.T) {
 			psl: byteLines(
 				"// ===BEGIN ICANN DOMAINS===",
 			),
-			want: File{
-				Blocks: []Block{
-					&StartSection{
-						Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
-						Name:   "ICANN DOMAINS",
-					},
-				},
-				Errors: []error{
-					UnclosedSectionError{
-						Start: &StartSection{
-							Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
-							Name:   "ICANN DOMAINS",
-						},
-					},
-				},
+			want: list(
+				section(0, 1, "ICANN DOMAINS"),
+			),
+			wantErrs: []error{
+				ErrUnclosedSection{section(0, 1, "ICANN DOMAINS")},
 			},
 		},
 
@@ -147,74 +109,15 @@ func TestParser(t *testing.T) {
 				"// ===END SECRET DOMAINS===",
 				"// ===END ICANN DOMAINS===",
 			),
-			want: File{
-				Blocks: []Block{
-					&StartSection{
-						Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
-						Name:   "ICANN DOMAINS",
-					},
-					&StartSection{
-						Source: mkSrc(1, "// ===BEGIN SECRET DOMAINS==="),
-						Name:   "SECRET DOMAINS",
-					},
-					&EndSection{
-						Source: mkSrc(2, "// ===END SECRET DOMAINS==="),
-						Name:   "SECRET DOMAINS",
-					},
-					&EndSection{
-						Source: mkSrc(3, "// ===END ICANN DOMAINS==="),
-						Name:   "ICANN DOMAINS",
-					},
-				},
-				Errors: []error{
-					NestedSectionError{
-						Outer: &StartSection{
-							Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
-							Name:   "ICANN DOMAINS",
-						},
-						Inner: &StartSection{
-							Source: mkSrc(1, "// ===BEGIN SECRET DOMAINS==="),
-							Name:   "SECRET DOMAINS",
-						},
-					},
-					UnstartedSectionError{
-						&EndSection{
-							Source: mkSrc(3, "// ===END ICANN DOMAINS==="),
-							Name:   "ICANN DOMAINS",
-						},
-					},
-				},
-			},
-		},
-		{
-			name: "mismatched_sections",
-			psl: byteLines(
-				"// ===BEGIN ICANN DOMAINS===",
-				"",
-				"// ===END PRIVATE DOMAINS===",
+			want: list(
+				section(0, 4, "ICANN DOMAINS"),
 			),
-			want: File{
-				Blocks: []Block{
-					&StartSection{
-						Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
-						Name:   "ICANN DOMAINS",
-					},
-					&EndSection{
-						Source: mkSrc(2, "// ===END PRIVATE DOMAINS==="),
-						Name:   "PRIVATE DOMAINS",
-					},
-				},
-				Errors: []error{
-					MismatchedSectionError{
-						Start: &StartSection{
-							Source: mkSrc(0, "// ===BEGIN ICANN DOMAINS==="),
-							Name:   "ICANN DOMAINS",
-						},
-						End: &EndSection{
-							Source: mkSrc(2, "// ===END PRIVATE DOMAINS==="),
-							Name:   "PRIVATE DOMAINS",
-						},
-					},
+
+			wantErrs: []error{
+				ErrNestedSection{
+					SourceRange: mkSrc(1, 3),
+					Name:        "SECRET DOMAINS",
+					Section:     section(0, 4, "ICANN DOMAINS"),
 				},
 			},
 		},
@@ -224,22 +127,14 @@ func TestParser(t *testing.T) {
 			psl: byteLines(
 				"// ===TRANSFORM DOMAINS===",
 			),
-			want: File{
-				Blocks: []Block{
-					&Comment{
-						Source: mkSrc(0, "// ===TRANSFORM DOMAINS==="),
-					},
-				},
-				Errors: []error{
-					UnknownSectionMarker{
-						Line: mkSrc(0, "// ===TRANSFORM DOMAINS==="),
-					},
-				},
+			want: list(),
+			wantErrs: []error{
+				ErrUnknownSectionMarker{mkSrc(0, 1)},
 			},
 		},
 
 		{
-			name: "suffixes_with_section_markers_in_header",
+			name: "suffixes_with_section_marker_in_header",
 			psl: byteLines(
 				"// Just some suffixes",
 				"// ===BEGIN ICANN DOMAINS===",
@@ -248,105 +143,45 @@ func TestParser(t *testing.T) {
 				"",
 				"// ===END ICANN DOMAINS===",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// Just some suffixes",
-							"// ===BEGIN ICANN DOMAINS===",
-							"com",
-							"org",
-						),
-						Header: []Source{
-							mkSrc(0, "// Just some suffixes"),
-							mkSrc(1, "// ===BEGIN ICANN DOMAINS==="),
-						},
-						Entries: []Source{
-							mkSrc(2, "com"),
-							mkSrc(3, "org"),
-						},
-						Entity: "Just some suffixes",
-					},
-					&EndSection{
-						Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
-						Name:   "ICANN DOMAINS",
-					},
-				},
-				Errors: []error{
-					SectionInSuffixBlock{
-						Line: mkSrc(1, "// ===BEGIN ICANN DOMAINS==="),
-					},
-					// Note: trying to gracefully parse the
-					// StartSection would require splitting the suffix
-					// block in two, which would need more code and
-					// also result in additional spurious validation
-					// errors. Instead this tests that section markers
-					// within suffix blocks are ignored for section
-					// validation.
-					UnstartedSectionError{
-						End: &EndSection{
-							Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
-							Name:   "ICANN DOMAINS",
-						},
-					},
-				},
-			},
+			want: list(
+				comment(0, "Just some suffixes"),
+				section(1, 6, "ICANN DOMAINS",
+					suffixes(2, 4, "", "", "",
+						suffix(2, "com"),
+						suffix(3, "org"),
+					),
+					blank(4, 5),
+				),
+			),
 		},
 
 		{
 			name: "suffixes_with_section_markers_inline",
 			psl: byteLines(
+				"// ===BEGIN ICANN DOMAINS===",
 				"// Just some suffixes",
 				"com",
-				"// ===BEGIN ICANN DOMAINS===",
+				"// ===BEGIN OTHER DOMAINS===",
 				"org",
+				"// ===END OTHER DOMAINS===",
+				"net",
 				"",
 				"// ===END ICANN DOMAINS===",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// Just some suffixes",
-							"com",
-							"// ===BEGIN ICANN DOMAINS===",
-							"org",
-						),
-						Header: []Source{
-							mkSrc(0, "// Just some suffixes"),
-						},
-						Entries: []Source{
-							mkSrc(1, "com"),
-							mkSrc(3, "org"),
-						},
-						InlineComments: []Source{
-							mkSrc(2, "// ===BEGIN ICANN DOMAINS==="),
-						},
-						Entity: "Just some suffixes",
-					},
-					&EndSection{
-						Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
-						Name:   "ICANN DOMAINS",
-					},
-				},
-				Errors: []error{
-					SectionInSuffixBlock{
-						Line: mkSrc(2, "// ===BEGIN ICANN DOMAINS==="),
-					},
-					// Note: trying to gracefully parse the
-					// StartSection would require splitting the suffix
-					// block in two, which would need more code and
-					// also result in additional spurious validation
-					// errors. Instead this tests that section markers
-					// within suffix blocks are ignored for section
-					// validation.
-					UnstartedSectionError{
-						End: &EndSection{
-							Source: mkSrc(5, "// ===END ICANN DOMAINS==="),
-							Name:   "ICANN DOMAINS",
-						},
-					},
-				},
+			want: list(
+				section(0, 9, "ICANN DOMAINS",
+					suffixes(1, 7, "Just some suffixes", "", "",
+						comment(1, "Just some suffixes"),
+						suffix(2, "com"),
+						suffix(4, "org"),
+						suffix(6, "net"),
+					),
+					blank(7, 8),
+				),
+			),
+			wantErrs: []error{
+				ErrSectionInSuffixBlock{mkSrc(3, 4)},
+				ErrSectionInSuffixBlock{mkSrc(5, 6)},
 			},
 		},
 
@@ -358,27 +193,13 @@ func TestParser(t *testing.T) {
 				"example.com",
 				"example.org",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// Unstructured header.",
-							"// I'm just going on about random things.",
-							"example.com",
-							"example.org",
-						),
-						Header: []Source{
-							mkSrc(0, "// Unstructured header."),
-							mkSrc(1, "// I'm just going on about random things."),
-						},
-						Entries: []Source{
-							mkSrc(2, "example.com"),
-							mkSrc(3, "example.org"),
-						},
-						Entity: "Unstructured header.",
-					},
-				},
-			},
+			want: list(
+				suffixes(0, 4, "Unstructured header.", "", "",
+					comment(0, "Unstructured header.", "I'm just going on about random things."),
+					suffix(2, "example.com"),
+					suffix(3, "example.org"),
+				),
+			),
 		},
 
 		{
@@ -390,31 +211,17 @@ func TestParser(t *testing.T) {
 				"example.com",
 				"example.org",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// DuckCorp Inc: https://example.com",
-							"// Submitted by Not A Duck <duck@example.com>",
-							"// Seriously, not a duck",
-							"example.com",
-							"example.org",
-						),
-						Header: []Source{
-							mkSrc(0, "// DuckCorp Inc: https://example.com"),
-							mkSrc(1, "// Submitted by Not A Duck <duck@example.com>"),
-							mkSrc(2, "// Seriously, not a duck"),
-						},
-						Entries: []Source{
-							mkSrc(3, "example.com"),
-							mkSrc(4, "example.org"),
-						},
-						Entity:    "DuckCorp Inc",
-						URL:       mustURL("https://example.com"),
-						Submitter: mustEmail("Not A Duck <duck@example.com>"),
-					},
-				},
-			},
+			want: list(
+				suffixes(0, 5,
+					"DuckCorp Inc",
+					"https://example.com",
+					`"Not A Duck" <duck@example.com>`,
+					comment(0, "DuckCorp Inc: https://example.com", "Submitted by Not A Duck <duck@example.com>",
+						"Seriously, not a duck"),
+					suffix(3, "example.com"),
+					suffix(4, "example.org"),
+				),
+			),
 		},
 
 		{
@@ -423,24 +230,15 @@ func TestParser(t *testing.T) {
 				"// DuckCorp Inc: submitted by Not A Duck <duck@example.com>",
 				"example.com",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// DuckCorp Inc: submitted by Not A Duck <duck@example.com>",
-							"example.com",
-						),
-						Header: []Source{
-							mkSrc(0, "// DuckCorp Inc: submitted by Not A Duck <duck@example.com>"),
-						},
-						Entries: []Source{
-							mkSrc(1, "example.com"),
-						},
-						Entity:    "DuckCorp Inc",
-						Submitter: mustEmail("Not A Duck <duck@example.com>"),
-					},
-				},
-			},
+			want: list(
+				suffixes(0, 2,
+					"DuckCorp Inc",
+					"",
+					`"Not A Duck" <duck@example.com>`,
+					comment(0, "DuckCorp Inc: submitted by Not A Duck <duck@example.com>"),
+					suffix(1, "example.com"),
+				),
+			),
 		},
 
 		{
@@ -451,29 +249,15 @@ func TestParser(t *testing.T) {
 				"// Submitted by Not A Duck <duck@example.com>",
 				"example.com",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// DuckCorp Inc",
-							"// https://example.com",
-							"// Submitted by Not A Duck <duck@example.com>",
-							"example.com",
-						),
-						Header: []Source{
-							mkSrc(0, "// DuckCorp Inc"),
-							mkSrc(1, "// https://example.com"),
-							mkSrc(2, "// Submitted by Not A Duck <duck@example.com>"),
-						},
-						Entries: []Source{
-							mkSrc(3, "example.com"),
-						},
-						Entity:    "DuckCorp Inc",
-						URL:       mustURL("https://example.com"),
-						Submitter: mustEmail("Not A Duck <duck@example.com>"),
-					},
-				},
-			},
+			want: list(
+				suffixes(0, 4,
+					"DuckCorp Inc",
+					"https://example.com",
+					`"Not A Duck" <duck@example.com>`,
+					comment(0, "DuckCorp Inc", "https://example.com", `Submitted by Not A Duck <duck@example.com>`),
+					suffix(3, "example.com"),
+				),
+			),
 		},
 
 		{
@@ -483,27 +267,17 @@ func TestParser(t *testing.T) {
 				"// DuckCorp Inc: https://example.com",
 				"example.com",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// Submitted by Not A Duck <duck@example.com>",
-							"// DuckCorp Inc: https://example.com",
-							"example.com",
-						),
-						Header: []Source{
-							mkSrc(0, "// Submitted by Not A Duck <duck@example.com>"),
-							mkSrc(1, "// DuckCorp Inc: https://example.com"),
-						},
-						Entries: []Source{
-							mkSrc(2, "example.com"),
-						},
-						Entity:    "DuckCorp Inc",
-						URL:       mustURL("https://example.com"),
-						Submitter: mustEmail("Not A Duck <duck@example.com>"),
-					},
-				},
-			},
+			want: list(
+				suffixes(0, 3,
+					"DuckCorp Inc",
+					"https://example.com",
+					`"Not A Duck" <duck@example.com>`,
+					comment(0,
+						"Submitted by Not A Duck <duck@example.com>",
+						"DuckCorp Inc: https://example.com"),
+					suffix(2, "example.com"),
+				),
+			),
 		},
 
 		{
@@ -514,74 +288,17 @@ func TestParser(t *testing.T) {
 				"// Submitted by Not A Duck <duck@example.com>",
 				"example.com",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// This is an unstructured comment.",
-							"// DuckCorp Inc: https://example.com",
-							"// Submitted by Not A Duck <duck@example.com>",
-							"example.com",
-						),
-						Header: []Source{
-							mkSrc(0, "// This is an unstructured comment."),
-							mkSrc(1, "// DuckCorp Inc: https://example.com"),
-							mkSrc(2, "// Submitted by Not A Duck <duck@example.com>"),
-						},
-						Entries: []Source{
-							mkSrc(3, "example.com"),
-						},
-						Entity:    "DuckCorp Inc",
-						URL:       mustURL("https://example.com"),
-						Submitter: mustEmail("Not A Duck <duck@example.com>"),
-					},
-				},
-			},
-		},
-
-		{
-			name: "legacy_error_downgrade",
-			psl: byteLines(
-				"// https://example.com",
-				"example.com",
+			want: list(
+				suffixes(0, 4,
+					"DuckCorp Inc",
+					"https://example.com",
+					`"Not A Duck" <duck@example.com>`,
+					comment(0, "This is an unstructured comment.",
+						"DuckCorp Inc: https://example.com",
+						"Submitted by Not A Duck <duck@example.com>"),
+					suffix(3, "example.com"),
+				),
 			),
-			downgradeToWarning: func(e error) bool {
-				return true
-			},
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// https://example.com",
-							"example.com",
-						),
-						Header: []Source{
-							mkSrc(0, "// https://example.com"),
-						},
-						Entries: []Source{
-							mkSrc(1, "example.com"),
-						},
-						URL: mustURL("https://example.com"),
-					},
-				},
-				Warnings: []error{
-					MissingEntityName{
-						Suffixes: &Suffixes{
-							Source: mkSrc(0,
-								"// https://example.com",
-								"example.com",
-							),
-							Header: []Source{
-								mkSrc(0, "// https://example.com"),
-							},
-							Entries: []Source{
-								mkSrc(1, "example.com"),
-							},
-							URL: mustURL("https://example.com"),
-						},
-					},
-				},
-			},
 		},
 
 		{
@@ -592,21 +309,12 @@ func TestParser(t *testing.T) {
 				"// Parens Appreciation Society (https://example.org)",
 				"example.com",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0, "// Parens Appreciation Society (https://example.org)", "example.com"),
-						Header: []Source{
-							mkSrc(0, "// Parens Appreciation Society (https://example.org)"),
-						},
-						Entries: []Source{
-							mkSrc(1, "example.com"),
-						},
-						Entity: "Parens Appreciation Society",
-						URL:    mustURL("https://example.org"),
-					},
-				},
-			},
+			want: list(
+				suffixes(0, 2, "Parens Appreciation Society", "https://example.org", "",
+					comment(0, "Parens Appreciation Society (https://example.org)"),
+					suffix(1, "example.com"),
+				),
+			),
 		},
 
 		{
@@ -621,67 +329,28 @@ func TestParser(t *testing.T) {
 				"// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1",
 				"cd",
 			),
-			want: File{
-				Blocks: []Block{
-					&Suffixes{
-						Source: mkSrc(0,
-							"// cd : https://en.wikipedia.org/wiki/.cd",
-							"// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1",
-							"cd",
-						),
-						Header: []Source{
-							mkSrc(0, "// cd : https://en.wikipedia.org/wiki/.cd"),
-							mkSrc(1, "// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1"),
-						},
-						Entries: []Source{
-							mkSrc(2, "cd"),
-						},
-						Entity: "cd",
-						URL:    mustURL("https://en.wikipedia.org/wiki/.cd"),
-					},
-				},
-			},
+			want: list(
+				suffixes(0, 3, "cd", "https://en.wikipedia.org/wiki/.cd", "",
+					comment(0, "cd : https://en.wikipedia.org/wiki/.cd",
+						"see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1"),
+					suffix(2, "cd"),
+				),
+			),
 		},
 	}
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			exc := test.downgradeToWarning
-			if exc == nil {
-				// use real exceptions if the test doesn't provide something else
-				exc = downgradeToWarning
-			}
-			got := parseWithExceptions(test.psl, exc, true).File
+			got, errs := Parse(test.psl)
 			checkDiff(t, "parse result", got, test.want)
+			checkDiff(t, "parse errors", errs, test.wantErrs)
 		})
 	}
 }
 
-// mustURL returns the given string as a URL, or panics if not a URL.
-func mustURL(s string) *url.URL {
-	u, err := url.Parse(s)
-	if err != nil {
-		panic(err)
-	}
-	return u
-}
-
-// mustEmail returns the given string as an RFC 5322 address, or
-// panics if the parse fails.
-func mustEmail(s string) *mail.Address {
-	a, err := mail.ParseAddress(s)
-	if err != nil {
-		panic(err)
-	}
-	return a
-}
-
-// mkSrc returns a Source with the given start, end, and dedented text.
-func mkSrc(start int, lines ...string) Source {
-	return Source{
-		lineOffset: start,
-		lines:      lines,
-	}
+// mkSrc returns a SourceRange with the given start and end.
+func mkSrc(start, end int) SourceRange {
+	return SourceRange{start, end}
 }
 
 // TestParseRealList checks that the real public suffix list can parse
@@ -692,133 +361,81 @@ func TestParseRealList(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	f := Parse(bs)
+	_, errs := Parse(bs)
 
-	for _, err := range f.Errors {
+	for _, err := range errs {
 		t.Errorf("Parse error: %v", err)
 	}
 }
 
-// TestRoundtripRealList checks that concatenating the source text of
-// all top-level blocks, with appropriate additional blank lines,
-// exactly reproduces the source text that was parsed. Effectively,
-// this is a "prove that the parser didn't discard any bytes" check.
-func TestRoundtripRealList(t *testing.T) {
-	bs, err := os.ReadFile("../../../public_suffix_list.dat")
-	if err != nil {
-		t.Fatal(err)
-	}
-	f := Parse(bs)
-
-	if len(f.Errors) > 0 {
-		t.Fatal("Parse errors, not attempting to roundtrip")
-	}
-
-	prevLine := 0
-	var rebuilt bytes.Buffer
-	for _, block := range f.Blocks {
-		src := block.source()
-		if src.lineOffset < prevLine {
-			t.Fatalf("ordering error: previous block ended at %d but this block starts at %d:\n%s", prevLine, src.lineOffset, src.Text())
-		}
-		for prevLine < src.lineOffset {
-			rebuilt.WriteByte('\n')
-			prevLine++
-		}
-		rebuilt.WriteString(src.Text())
-		rebuilt.WriteByte('\n')
-		prevLine = src.lineOffset + len(src.lines)
-	}
-
-	got := strings.Split(strings.TrimSpace(rebuilt.String()), "\n")
-	want := strings.Split(strings.TrimSpace(string(bs)), "\n")
-
-	if diff := diff.Diff(want, got); diff != "" {
-		t.Errorf("roundtrip failed (-want +got):\n%s", diff)
+func list(blocks ...Block) *List {
+	return &List{
+		Blocks: blocks,
 	}
 }
 
-// TestRoundtripRealListDetailed is like the prior round-tripping
-// test, but Suffix blocks are written out using their
-// Header/Entries/InlineComments fields, again as proof that no suffix
-// block elements were lost during parsing.
-func TestRoundtripRealListDetailed(t *testing.T) {
-	bs, err := os.ReadFile("../../../public_suffix_list.dat")
-	if err != nil {
-		t.Fatal(err)
-	}
-	f := Parse(bs)
-
-	if len(f.Errors) > 0 {
-		t.Fatal("Parse errors, not attempting to roundtrip")
-	}
-
-	prevLine := 0
-	var rebuilt bytes.Buffer
-	for _, block := range f.Blocks {
-		srcs := []Source{block.source()}
-		if v, ok := block.(*Suffixes); ok {
-			srcs = []Source{}
-			for _, h := range v.Header {
-				srcs = append(srcs, h)
-			}
-			for _, e := range v.Entries {
-				srcs = append(srcs, e)
-			}
-			for _, c := range v.InlineComments {
-				srcs = append(srcs, c)
-			}
-			slices.SortFunc(srcs, func(a, b Source) int {
-				return cmp.Compare(a.lineOffset, b.lineOffset)
-			})
-		}
-
-		for _, src := range srcs {
-			if src.lineOffset < prevLine {
-				t.Fatalf("ordering error: previous block ended at %d but this block starts at %d:\n%s", prevLine, src.lineOffset, src.Text())
-			}
-			for prevLine < src.lineOffset {
-				rebuilt.WriteByte('\n')
-				prevLine++
-			}
-			rebuilt.WriteString(src.Text())
-			rebuilt.WriteByte('\n')
-			prevLine = src.lineOffset + len(src.lines)
-		}
-	}
-
-	got := strings.Split(strings.TrimSpace(rebuilt.String()), "\n")
-	want := strings.Split(strings.TrimSpace(string(bs)), "\n")
-
-	if diff := diff.Diff(want, got); diff != "" {
-		t.Errorf("roundtrip failed (-want +got):\n%s", diff)
+func blank(start, end int) *Blank {
+	return &Blank{
+		SourceRange: mkSrc(start, end),
 	}
 }
 
-// TestExceptionsStillNecessary checks that all the exceptions in
-// exeptions.go are still needed to parse the PSL without errors.
-func TestExceptionsStillNecessary(t *testing.T) {
-	bs, err := os.ReadFile("../../../public_suffix_list.dat")
-	if err != nil {
-		t.Fatal(err)
+func comment(start int, lines ...string) *Comment {
+	return &Comment{
+		SourceRange: mkSrc(start, start+len(lines)),
+		Text:        lines,
 	}
-
-	forEachOmitted(missingEmail, func(omitted string, trimmed []string) {
-		old := missingEmail
-		defer func() { missingEmail = old }()
-		missingEmail = trimmed
-
-		f := Parse(bs)
-		if len(f.Errors) == 0 {
-			t.Errorf("missingEmail exception no longer necessary:\n%s", omitted)
-		}
-	})
 }
 
-func forEachOmitted(exceptions []string, fn func(string, []string)) {
-	for i := range exceptions {
-		next := append([]string(nil), exceptions[:i]...)
-		next = append(next, exceptions[i+1:]...)
-		fn(exceptions[i], next)
+func section(start, end int, name string, blocks ...Block) *Section {
+	if len(blocks) == 0 {
+		return &Section{
+			SourceRange: mkSrc(start, end),
+			Name:        name,
+		}
+	}
+
+	return &Section{
+		SourceRange: mkSrc(start, end),
+		Name:        name,
+		Blocks:      blocks,
+	}
+}
+
+func suffixes(start, end int, entity string, urlStr string, email string, blocks ...Block) *Suffixes {
+	ret := &Suffixes{
+		SourceRange: mkSrc(start, end),
+		Entity:      entity,
+		Blocks:      blocks,
+	}
+	if urlStr != "" {
+		u, err := url.Parse(urlStr)
+		if err != nil {
+			panic(err)
+		}
+		ret.URL = u
+	}
+	if email != "" {
+		e, err := mail.ParseAddress(email)
+		if err != nil {
+			panic(err)
+		}
+		ret.Submitter = e
+	}
+	return ret
+}
+
+func suffix(line int, domain string) *Suffix {
+	return &Suffix{
+		SourceRange: mkSrc(line, line+1),
+		Labels:      strings.Split(domain, "."),
+	}
+}
+
+func wildcard(start, end int, base string, exceptions ...string) *Wildcard {
+	return &Wildcard{
+		SourceRange: mkSrc(start, end),
+		Labels:      strings.Split(base, "."),
+		Exceptions:  exceptions,
 	}
 }
