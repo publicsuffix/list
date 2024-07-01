@@ -12517,10 +12517,6 @@ feste-ip.net
 knx-server.net
 static-access.net
 
-// cPanel L.L.C. : https://www.cpanel.net/
-// Submitted by Dustin Scherer <public.suffix@cpanel.net>
-*.cprapid.com
-
 // Craft Docs Ltd : https://www.craft.do/
 // Submitted by Zsombor Fuszenecker <security@craft.do>
 craft.me
