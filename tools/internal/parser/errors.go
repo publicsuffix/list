@@ -73,7 +73,7 @@ func (e SectionInSuffixBlock) Error() string {
 // UnclosedSectionError reports that a file section was not closed
 // properly before EOF.
 type UnclosedSectionError struct {
-	Start StartSection // The unpaired section start
+	Start *StartSection // The unpaired section start
 }
 
 func (e UnclosedSectionError) Error() string {
@@ -84,8 +84,8 @@ func (e UnclosedSectionError) Error() string {
 // while already within a section, which the PSL format does not
 // allow.
 type NestedSectionError struct {
-	Outer StartSection
-	Inner StartSection
+	Outer *StartSection
+	Inner *StartSection
 }
 
 func (e NestedSectionError) Error() string {
@@ -95,7 +95,7 @@ func (e NestedSectionError) Error() string {
 // UnstartedSectionError reports that a file section end marker was
 // found without a corresponding start.
 type UnstartedSectionError struct {
-	End EndSection
+	End *EndSection
 }
 
 func (e UnstartedSectionError) Error() string {
@@ -105,8 +105,8 @@ func (e UnstartedSectionError) Error() string {
 // MismatchedSectionError reports that a file section was started
 // under one name but ended under another.
 type MismatchedSectionError struct {
-	Start StartSection
-	End   EndSection
+	Start *StartSection
+	End   *EndSection
 }
 
 func (e MismatchedSectionError) Error() string {
@@ -137,7 +137,7 @@ func (e UnterminatedSectionMarker) Error() string {
 // MissingEntityName reports that a block of suffixes does not have a
 // parseable owner name in its header comment.
 type MissingEntityName struct {
-	Suffixes Suffixes
+	Suffixes *Suffixes
 }
 
 func (e MissingEntityName) Error() string {
@@ -147,7 +147,7 @@ func (e MissingEntityName) Error() string {
 // MissingEntityEmail reports that a block of suffixes does not have a
 // parseable contact email address in its header comment.
 type MissingEntityEmail struct {
-	Suffixes Suffixes
+	Suffixes *Suffixes
 }
 
 func (e MissingEntityEmail) Error() string {

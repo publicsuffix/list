@@ -73,13 +73,13 @@ func (p *parser) requireSortedPrivateSection() {
 	// can be tracked more cleanly than this.
 	type superblock struct {
 		Name     string
-		Suffixes []Suffixes
+		Suffixes []*Suffixes
 	}
 	var blocks []superblock
 
 	inAmazonSuperblock := false
 	for _, block := range allBlocksInPrivateSection(&p.File) {
-		if comm, ok := block.(Comment); ok {
+		if comm, ok := block.(*Comment); ok {
 			if !inAmazonSuperblock && strings.Contains(comm.Text(), amazonSuperblockStart) {
 				// Start of the Amazon superblock. We will accumulate
 				// suffix blocks into here further down.
@@ -97,7 +97,7 @@ func (p *parser) requireSortedPrivateSection() {
 
 		// Aside from the Amazon superblock comments, we only care
 		// about Suffix blocks in this validation.
-		suffixes, ok := block.(Suffixes)
+		suffixes, ok := block.(*Suffixes)
 		if !ok {
 			continue
 		}
@@ -114,7 +114,7 @@ func (p *parser) requireSortedPrivateSection() {
 		} else {
 			blocks = append(blocks, superblock{
 				Name:     suffixes.Entity,
-				Suffixes: []Suffixes{suffixes},
+				Suffixes: []*Suffixes{suffixes},
 			})
 		}
 	}
@@ -231,12 +231,12 @@ func allBlocksInPrivateSection(f *File) []Block {
 	start := 0
 	for i, block := range f.Blocks {
 		switch v := block.(type) {
-		case StartSection:
+		case *StartSection:
 			if v.Name != "PRIVATE DOMAINS" {
 				continue
 			}
 			start = i + 1
-		case EndSection:
+		case *EndSection:
 			if v.Name != "PRIVATE DOMAINS" {
 				continue
 			}

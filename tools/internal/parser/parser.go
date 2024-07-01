@@ -76,7 +76,7 @@ func (p *parser) Parse(src Source) {
 	// At EOF with an open section.
 	if p.currentSection != nil {
 		p.addError(UnclosedSectionError{
-			Start: *p.currentSection,
+			Start: p.currentSection,
 		})
 	}
 }
@@ -84,7 +84,7 @@ func (p *parser) Parse(src Source) {
 // processSuffixes parses a block that consists of domain suffixes and
 // a metadata header.
 func (p *parser) processSuffixes(block, header, rest Source) {
-	s := Suffixes{
+	s := &Suffixes{
 		Source: block,
 	}
 
@@ -122,7 +122,7 @@ func (p *parser) processSuffixes(block, header, rest Source) {
 		}
 	})
 
-	enrichSuffixes(&s, metadataSrc)
+	enrichSuffixes(s, metadataSrc)
 	p.addBlock(s)
 }
 
@@ -141,7 +141,7 @@ func (p *parser) processTopLevelComment(block Source) {
 				p.processSectionMarker(line)
 			}
 		} else {
-			p.addBlock(Comment{block})
+			p.addBlock(&Comment{block})
 		}
 	})
 }
@@ -174,7 +174,7 @@ func (p *parser) processSectionMarker(line Source) {
 
 	switch markerType {
 	case "BEGIN":
-		start := StartSection{
+		start := &StartSection{
 			Source: src,
 			Name:   name,
 		}
@@ -183,17 +183,17 @@ func (p *parser) processSectionMarker(line Source) {
 			// continue parsing as if the previous section was closed
 			// correctly before this one started.
 			p.addError(NestedSectionError{
-				Outer: *p.currentSection,
+				Outer: p.currentSection,
 				Inner: start,
 			})
 		}
 		if !hasTrailer {
 			p.addError(UnterminatedSectionMarker{src})
 		}
-		p.currentSection = &start
+		p.currentSection = start
 		p.addBlock(start)
 	case "END":
-		end := EndSection{
+		end := &EndSection{
 			Source: src,
 			Name:   name,
 		}
@@ -206,7 +206,7 @@ func (p *parser) processSectionMarker(line Source) {
 		} else if p.currentSection.Name != name {
 			// Mismatched start/end.
 			p.addError(MismatchedSectionError{
-				Start: *p.currentSection,
+				Start: p.currentSection,
 				End:   end,
 			})
 		}
@@ -224,7 +224,7 @@ func (p *parser) processSectionMarker(line Source) {
 		// is technically correct here since this isn't a valid
 		// section marker.
 		p.addError(UnknownSectionMarker{src})
-		p.addBlock(Comment{src})
+		p.addBlock(&Comment{src})
 	}
 }
 
