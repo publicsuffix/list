@@ -86,7 +86,6 @@ neither.
   * [ ] The [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) were carefully _read_ and _understood_, and this request conforms
   * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting and sorting
 
-
 <!-- 
 Sorting and formatting of the entries is outlined in the guidelines 
 and non-conforming requests are one of the largest sources of delay,
