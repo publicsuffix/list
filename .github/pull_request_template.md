@@ -67,6 +67,13 @@ the PR.
 
   * [ ] This request was _not_ submitted with the objective of working around other third-party limits
 
+
+<!--
+To keep the PSL free of outdated entries it is necessary to be able to remove entries. We may at some point request renewal by e-mail or start to automatically remove entries which do not have DNS validation anymore. The grace period for failures is 4 weeks.
+-->
+  * [ ] The submitter acknowledges that failure to retain the _psl DNS validation entry may result in removal from the PSL.
+  * [ ] The submitter acknowledges that failure to respond to e-mails to the supplied address may result in removal from the PSL.
+
 <!--
 The guidelines describe which section to place the entry, what the 
 order of commented org placement, order of sorting of entries. 
@@ -78,6 +85,7 @@ neither.
 
   * [ ] The [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) were carefully _read_ and _understood_, and this request conforms
   * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting and sorting
+
 
 <!-- 
 Sorting and formatting of the entries is outlined in the guidelines 
