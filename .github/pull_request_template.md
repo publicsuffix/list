@@ -68,9 +68,12 @@ the PR.
   * [ ] This request was _not_ submitted with the objective of working around other third-party limits
 
 <!--
-To keep the PSL free of outdated entries it is necessary to be able to remove entries. We may at some point request renewal by e-mail or start to automatically remove entries which do not have DNS validation anymore. The grace period for failures is 4 weeks.
+Submitter will maintain domains in good standing or may lose section.
+
+The ongoing trust of the PSL requires it to be free of outdated or problematic entries. In making this pull request, there is a commitment by the submitter that they are going to review and maintain their relevant section. By submitting an entry, the requestor acknowledges that their entry and section may be removed if the domain does not maintain the respective _PSL entries in DNS, any domain(s) within their section fail to resolve in DNS, the domain does not get renewed, expires or is otherwise unreachable. Submitter further identifies that it is their responsibility to review their submitted section within the PSL, submitting updates or removals as their domain(s) may change over time. It is also the responsibility of the submitter to provide (and keep up to date) a reachable email address within the section, and to maintain that address as it may change over time, so that they receive notices.
 -->
-  * [ ] The submitter acknowledges the following **Removal warning (v1)**: Failure to retain the _psl DNS validation entry or failure to respond to e-mails to the supplied address may result in removal from the PSL.
+
+  * [ ] The submitter acknowledges that it is their responsibility to maintain the domains within their section. This includes removing names which are no longer used, retaining the _psl DNS entry, responding to e-mails to the supplied address. Failure to maintain entries may result in removal of individual entries or the entire section.
 
 <!--
 The guidelines describe which section to place the entry, what the 
