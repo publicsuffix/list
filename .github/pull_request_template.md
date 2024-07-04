@@ -68,6 +68,14 @@ the PR.
   * [ ] This request was _not_ submitted with the objective of working around other third-party limits
 
 <!--
+Submitter will maintain domains in good standing or may lose section.
+
+The ongoing trust of the PSL requires it to be free of outdated or problematic entries. In making this pull request, there is a commitment by the submitter that they are going to review and maintain their relevant section. By submitting an entry, the requestor acknowledges that their entry and section may be removed if the domain does not maintain the respective _PSL entries in DNS, any domain(s) within their section fail to resolve in DNS, the domain does not get renewed, expires or is otherwise unreachable. Submitter further identifies that it is their responsibility to review their submitted section within the PSL, submitting updates or removals as their domain(s) may change over time. It is also the responsibility of the submitter to provide (and keep up to date) a reachable email address within the section, and to maintain that address as it may change over time, so that they receive notices.
+-->
+
+  * [ ] The submitter acknowledges that it is their responsibility to maintain the domains within their section. This includes removing names which are no longer used, retaining the _psl DNS entry, responding to e-mails to the supplied address. Failure to maintain entries may result in removal of individual entries or the entire section.
+
+<!--
 The guidelines describe which section to place the entry, what the 
 order of commented org placement, order of sorting of entries. 
 (hint: TLD then SLD, Ascending sort)   Although it seems pedantic, 
