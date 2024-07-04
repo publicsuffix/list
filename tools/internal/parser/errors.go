@@ -5,158 +5,148 @@ import (
 	"strings"
 )
 
-// InvalidEncodingError reports that the input is encoded with
+// ErrInvalidEncoding reports that the input is encoded with
 // something other than UTF-8.
-type InvalidEncodingError struct {
+type ErrInvalidEncoding struct {
 	Encoding string
 }
 
-func (e InvalidEncodingError) Error() string {
-	return fmt.Sprintf("file uses invalid character encoding %s", e.Encoding)
+func (e ErrInvalidEncoding) Error() string {
+	return fmt.Sprintf("invalid character encoding %s", e.Encoding)
 }
 
-// UTF8BOMError reports that the input has an unnecessary UTF-8 byte
+// ErrUTF8BOM reports that the input has an unnecessary UTF-8 byte
 // order mark (BOM) at the start.
-type UTF8BOMError struct{}
+type ErrUTF8BOM struct{}
 
-func (e UTF8BOMError) Error() string {
-	return "file starts with an unnecessary UTF-8 BOM (byte order mark)"
-}
+func (e ErrUTF8BOM) Error() string { return "file has a UTF-8 byte order mark (BOM)" }
 
-// InvalidUTF8Error reports that a line contains bytes that are not
+// ErrInvalidUTF8 reports that a line contains bytes that are not
 // valid UTF-8.
-type InvalidUTF8Error struct {
-	Line Source
+type ErrInvalidUTF8 struct {
+	SourceRange
 }
 
-func (e InvalidUTF8Error) Error() string {
-	return fmt.Sprintf("found non UTF-8 bytes at %s", e.Line.LocationString())
+func (e ErrInvalidUTF8) Error() string {
+	return fmt.Sprintf("%s: invalid UTF-8 bytes", e.SourceRange.LocationString())
 }
 
-// DOSNewlineError reports that a line has a DOS style line ending.
-type DOSNewlineError struct {
-	Line Source
+// ErrDOSNewline reports that a line has a DOS style line ending.
+type ErrDOSNewline struct {
+	SourceRange
 }
 
-func (e DOSNewlineError) Error() string {
-	return fmt.Sprintf("%s has a DOS line ending (\\r\\n instead of just \\n)", e.Line.LocationString())
+func (e ErrDOSNewline) Error() string {
+	return fmt.Sprintf("%s: found DOS line ending (\\r\\n instead of just \\n)", e.SourceRange.LocationString())
 }
 
-// TrailingWhitespaceError reports that a line has trailing whitespace.
-type TrailingWhitespaceError struct {
-	Line Source
+// ErrTrailingWhitespace reports that a line has trailing whitespace.
+type ErrTrailingWhitespace struct {
+	SourceRange
 }
 
-func (e TrailingWhitespaceError) Error() string {
-	return fmt.Sprintf("%s has trailing whitespace", e.Line.LocationString())
+func (e ErrTrailingWhitespace) Error() string {
+	return fmt.Sprintf("%s: trailing whitespace", e.SourceRange.LocationString())
 }
 
-// LeadingWhitespaceError reports that a line has leading whitespace.
-type LeadingWhitespaceError struct {
-	Line Source
+// ErrLeadingWhitespace reports that a line has leading whitespace.
+type ErrLeadingWhitespace struct {
+	SourceRange
 }
 
-func (e LeadingWhitespaceError) Error() string {
-	return fmt.Sprintf("%s has leading whitespace", e.Line.LocationString())
+func (e ErrLeadingWhitespace) Error() string {
+	return fmt.Sprintf("%s: leading whitespace", e.SourceRange.LocationString())
 }
 
-// SectionInSuffixBlock reports that a comment within a block of
-// suffixes contains a section delimiter.
-type SectionInSuffixBlock struct {
-	Line Source
+// ErrSectionInSuffixBlock reports that a comment within a suffix
+// block contains a section delimiter.
+type ErrSectionInSuffixBlock struct {
+	SourceRange
 }
 
-func (e SectionInSuffixBlock) Error() string {
-	return fmt.Sprintf("section delimiters are not allowed in suffix block comment at %s", e.Line.LocationString())
+func (e ErrSectionInSuffixBlock) Error() string {
+	return fmt.Sprintf("%s: section delimiter not allowed in suffix block comment", e.SourceRange.LocationString())
 }
 
-// UnclosedSectionError reports that a file section was not closed
+// ErrUnclosedSection reports that a file section was not closed
 // properly before EOF.
-type UnclosedSectionError struct {
-	Start *StartSection // The unpaired section start
+type ErrUnclosedSection struct {
+	Section *Section
 }
 
-func (e UnclosedSectionError) Error() string {
-	return fmt.Sprintf("section %q started at %s, but is never closed", e.Start.Name, e.Start.LocationString())
+func (e ErrUnclosedSection) Error() string {
+	return fmt.Sprintf("%s: section %q is missing its closing marker", e.Section.SourceRange.LocationString(), e.Section.Name)
 }
 
-// NestedSectionError reports that a file section is being started
-// while already within a section, which the PSL format does not
-// allow.
-type NestedSectionError struct {
-	Outer *StartSection
-	Inner *StartSection
+// ErrNestedSection reports that a file section is being started while
+// already within a section.
+type ErrNestedSection struct {
+	SourceRange
+	Name    string
+	Section *Section
 }
 
-func (e NestedSectionError) Error() string {
-	return fmt.Sprintf("new section %q started at %s while still in section %q (started at %s)", e.Inner.Name, e.Inner.LocationString(), e.Outer.Name, e.Outer.LocationString())
+func (e ErrNestedSection) Error() string {
+	return fmt.Sprintf("%s: section %q is nested inside section %q (%s)", e.SourceRange.LocationString(), e.Name, e.Section.Name, e.Section.SourceRange.LocationString())
 }
 
-// UnstartedSectionError reports that a file section end marker was
-// found without a corresponding start.
-type UnstartedSectionError struct {
-	End *EndSection
+// ErrUnstartedSection reports that section end marker was found
+// without a corresponding start.
+type ErrUnstartedSection struct {
+	SourceRange
+	Name string
 }
 
-func (e UnstartedSectionError) Error() string {
-	return fmt.Sprintf("section %q closed at %s but was not started", e.End.Name, e.End.LocationString())
+func (e ErrUnstartedSection) Error() string {
+	return fmt.Sprintf("%s: end marker for non-existent section %q", e.SourceRange.LocationString(), e.Name)
 }
 
-// MismatchedSectionError reports that a file section was started
+// ErrMismatchedSection reports that a file section was started
 // under one name but ended under another.
-type MismatchedSectionError struct {
-	Start *StartSection
-	End   *EndSection
+type ErrMismatchedSection struct {
+	SourceRange
+	EndName string
+	Section *Section
 }
 
-func (e MismatchedSectionError) Error() string {
-	return fmt.Sprintf("section %q closed at %s while in section %q (started at %s)", e.End.Name, e.End.LocationString(), e.Start.Name, e.Start.LocationString())
+func (e ErrMismatchedSection) Error() string {
+	return fmt.Sprintf("%s: section %q (%s) closed with wrong name %q", e.SourceRange.LocationString(), e.Section.Name, e.Section.SourceRange.LocationString(), e.EndName)
 }
 
-// UnknownSectionMarker reports that a line looks like a file section
+// ErrUnknownSectionMarker reports that a line looks like a file section
 // marker (e.g. "===BEGIN ICANN DOMAINS==="), but is not one of the
 // recognized kinds of marker.
-type UnknownSectionMarker struct {
-	Line Source
+type ErrUnknownSectionMarker struct {
+	SourceRange
 }
 
-func (e UnknownSectionMarker) Error() string {
-	return fmt.Sprintf("unknown kind of section marker %q at %s", e.Line.Text(), e.Line.LocationString())
-}
-
-// UnterminatedSectionMarker reports that a section marker is missing
-// the required trailing "===", e.g. "===BEGIN ICANN DOMAINS".
-type UnterminatedSectionMarker struct {
-	Line Source
-}
-
-func (e UnterminatedSectionMarker) Error() string {
-	return fmt.Sprintf(`section marker %q at %s is missing trailing "==="`, e.Line.Text(), e.Line.LocationString())
+func (e ErrUnknownSectionMarker) Error() string {
+	return fmt.Sprintf("%s: unknown kind of section marker", e.SourceRange.LocationString())
 }
 
 // MissingEntityName reports that a block of suffixes does not have a
 // parseable owner name in its header comment.
-type MissingEntityName struct {
+type ErrMissingEntityName struct {
 	Suffixes *Suffixes
 }
 
-func (e MissingEntityName) Error() string {
-	return fmt.Sprintf("could not find entity name for %s at %s", e.Suffixes.shortName(), e.Suffixes.LocationString())
+func (e ErrMissingEntityName) Error() string {
+	return fmt.Sprintf("%s: suffix block has no owner name", e.Suffixes.SourceRange.LocationString())
 }
 
-// MissingEntityEmail reports that a block of suffixes does not have a
+// ErrMissingEntityEmail reports that a block of suffixes does not have a
 // parseable contact email address in its header comment.
-type MissingEntityEmail struct {
+type ErrMissingEntityEmail struct {
 	Suffixes *Suffixes
 }
 
-func (e MissingEntityEmail) Error() string {
-	return fmt.Sprintf("could not find a contact email for %s at %s", e.Suffixes.shortName(), e.Suffixes.LocationString())
+func (e ErrMissingEntityEmail) Error() string {
+	return fmt.Sprintf("%s: suffix block has no contact email", e.Suffixes.SourceRange.LocationString())
 }
 
-// SuffixBlocksInWrongPlace reports that some suffix blocks of the
+// ErrSuffixBlocksInWrongPlace reports that some suffix blocks of the
 // private section are in the wrong sort order.
-type SuffixBlocksInWrongPlace struct {
+type ErrSuffixBlocksInWrongPlace struct {
 	// EditScript is a list of suffix block movements to put the
 	// private domains section in the correct order. Note that each
 	// step assumes that the previous steps have already been done.
@@ -174,7 +164,7 @@ type MoveSuffixBlock struct {
 	InsertAfter string
 }
 
-func (e SuffixBlocksInWrongPlace) Error() string {
+func (e ErrSuffixBlocksInWrongPlace) Error() string {
 	if len(e.EditScript) == 1 {
 		after := e.EditScript[0].InsertAfter
 		if after == "" {
@@ -197,4 +187,16 @@ func (e SuffixBlocksInWrongPlace) Error() string {
 	}
 
 	return ret.String()
+}
+
+// ErrInvalidSuffix reports that a suffix suffix is not a valid PSL
+// entry.
+type ErrInvalidSuffix struct {
+	SourceRange
+	Suffix string
+	Err    error
+}
+
+func (e ErrInvalidSuffix) Error() string {
+	return fmt.Sprintf("%s: invalid suffix %q: %v", e.SourceRange.LocationString(), e.Suffix, e.Err)
 }

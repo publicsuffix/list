@@ -8,11 +8,7 @@ import (
 
 // enrichSuffixes extracts structured metadata from metadata and
 // populates the appropriate fields of suffixes.
-func enrichSuffixes(suffixes *Suffixes, metadata []string) {
-	if len(metadata) == 0 {
-		return
-	}
-
+func enrichSuffixes(suffixes *Suffixes, comment *Comment) {
 	// Try to find an entity name in the header. There are a few
 	// possible ways this can appear, but the canonical is a first
 	// header line of the form "<name>: <url>".
@@ -23,7 +19,7 @@ func enrichSuffixes(suffixes *Suffixes, metadata []string) {
 	// validation errors in future, but currently do not.
 	//
 	// See splitNameish for a list of accepted alternate forms.
-	for _, line := range metadata {
+	for _, line := range comment.Text {
 		name, url, contact := splitNameish(line)
 		if name == "" {
 			continue
@@ -41,7 +37,7 @@ func enrichSuffixes(suffixes *Suffixes, metadata []string) {
 	if suffixes.Entity == "" {
 		// Assume the first line is the entity name, if it's not
 		// obviously something else.
-		first := metadata[0]
+		first := comment.Text[0]
 		// "see also" is the first line of a number of ICANN TLD
 		// sections.
 		if getSubmitter(first) == nil && getURL(first) == nil && first != "see also" {
@@ -54,7 +50,7 @@ func enrichSuffixes(suffixes *Suffixes, metadata []string) {
 	// "Submitted by <contact>", or failing that a parseable RFC5322
 	// email on a line by itself.
 	if suffixes.Submitter == nil {
-		for _, line := range metadata {
+		for _, line := range comment.Text {
 			if submitter := getSubmitter(line); submitter != nil {
 				suffixes.Submitter = submitter
 				break
@@ -62,7 +58,7 @@ func enrichSuffixes(suffixes *Suffixes, metadata []string) {
 		}
 	}
 	if suffixes.Submitter == nil {
-		for _, line := range metadata {
+		for _, line := range comment.Text {
 			if submitter, err := mail.ParseAddress(line); err == nil {
 				suffixes.Submitter = submitter
 				break
@@ -74,7 +70,7 @@ func enrichSuffixes(suffixes *Suffixes, metadata []string) {
 	// only remaining format we understand is a line with a URL by
 	// itself.
 	if suffixes.URL == nil {
-		for _, line := range metadata {
+		for _, line := range comment.Text {
 			if u := getURL(line); u != nil {
 				suffixes.URL = u
 				break
