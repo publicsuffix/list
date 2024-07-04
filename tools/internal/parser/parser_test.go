@@ -395,22 +395,24 @@ func section(start, end int, name string, blocks ...Block) *Section {
 func suffixes(start, end int, entity string, urlStr string, email string, blocks ...Block) *Suffixes {
 	ret := &Suffixes{
 		SourceRange: mkSrc(start, end),
-		Entity:      entity,
-		Blocks:      blocks,
+		Info: MaintainerInfo{
+			Name: entity,
+		},
+		Blocks: blocks,
 	}
 	if urlStr != "" {
 		u, err := url.Parse(urlStr)
 		if err != nil {
 			panic(err)
 		}
-		ret.URL = u
+		ret.Info.URL = u
 	}
 	if email != "" {
 		e, err := mail.ParseAddress(email)
 		if err != nil {
 			panic(err)
 		}
-		ret.Submitter = e
+		ret.Info.Submitter = e
 	}
 	return ret
 }

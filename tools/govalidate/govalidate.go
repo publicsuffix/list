@@ -96,14 +96,14 @@ func debugPrintRec(b parser.Block, indent string) {
 		f("}")
 	case *parser.Suffixes:
 		items := []string{loc}
-		if v.Entity != "" {
-			items = append(items, fmt.Sprintf("name=%q", v.Entity))
+		if v.Info.Name != "" {
+			items = append(items, fmt.Sprintf("name=%q", v.Info.Name))
 		}
-		if v.URL != nil {
-			items = append(items, fmt.Sprintf("url=%q", v.URL))
+		if v.Info.URL != nil {
+			items = append(items, fmt.Sprintf("url=%q", v.Info.URL))
 		}
-		if v.Submitter != nil {
-			items = append(items, fmt.Sprintf("contact=%q", v.Submitter))
+		if v.Info.Submitter != nil {
+			items = append(items, fmt.Sprintf("contact=%q", v.Info.Submitter))
 		}
 
 		f("SuffixBlock(%s) {", strings.Join(items, fmt.Sprintf(",\n%s            ", indent)))

@@ -302,7 +302,7 @@ func (p *parser) parseSuffixBlock(initialComment *Comment) *Suffixes {
 
 	if initialComment != nil {
 		emit(initialComment)
-		enrichSuffixes(ret, initialComment)
+		ret.Info = extractMaintainerInfo(initialComment)
 	}
 
 	for {

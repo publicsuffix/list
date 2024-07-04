@@ -32,8 +32,8 @@ func TestRequireSortedPrivateSection(t *testing.T) {
 			want: ErrSuffixBlocksInWrongPlace{
 				EditScript: []MoveSuffixBlock{
 					{
-						Name:        bbb.Entity,
-						InsertAfter: aaa.Entity,
+						Name:        bbb.Info.Name,
+						InsertAfter: aaa.Info.Name,
 					},
 				},
 			},
@@ -46,12 +46,12 @@ func TestRequireSortedPrivateSection(t *testing.T) {
 			want: ErrSuffixBlocksInWrongPlace{
 				EditScript: []MoveSuffixBlock{
 					{
-						Name:        ccc.Entity,
-						InsertAfter: aaa.Entity,
+						Name:        ccc.Info.Name,
+						InsertAfter: aaa.Info.Name,
 					},
 					{
-						Name:        bbb.Entity,
-						InsertAfter: aaa.Entity,
+						Name:        bbb.Info.Name,
+						InsertAfter: aaa.Info.Name,
 					},
 				},
 			},
@@ -64,7 +64,7 @@ func TestRequireSortedPrivateSection(t *testing.T) {
 			want: ErrSuffixBlocksInWrongPlace{
 				EditScript: []MoveSuffixBlock{
 					{
-						Name:        dddLeadingDot.Entity,
+						Name:        dddLeadingDot.Info.Name,
 						InsertAfter: "",
 					},
 				},
@@ -78,16 +78,16 @@ func TestRequireSortedPrivateSection(t *testing.T) {
 			want: ErrSuffixBlocksInWrongPlace{
 				EditScript: []MoveSuffixBlock{
 					{
-						Name:        aaaUmlaut.Entity,
+						Name:        aaaUmlaut.Info.Name,
 						InsertAfter: "",
 					},
 					{
-						Name:        aaaUmlautShort.Entity,
+						Name:        aaaUmlautShort.Info.Name,
 						InsertAfter: "",
 					},
 					{
-						Name:        aaaUmlautLong.Entity,
-						InsertAfter: aaa.Entity,
+						Name:        aaaUmlautLong.Info.Name,
+						InsertAfter: aaa.Info.Name,
 					},
 				},
 			},
@@ -100,12 +100,12 @@ func TestRequireSortedPrivateSection(t *testing.T) {
 			want: ErrSuffixBlocksInWrongPlace{
 				EditScript: []MoveSuffixBlock{
 					{
-						Name:        aaa.Entity,
-						InsertAfter: a24b.Entity,
+						Name:        aaa.Info.Name,
+						InsertAfter: a24b.Info.Name,
 					},
 					{
-						Name:        a3b.Entity,
-						InsertAfter: a24b.Entity,
+						Name:        a3b.Info.Name,
+						InsertAfter: a24b.Info.Name,
 					},
 				},
 			},

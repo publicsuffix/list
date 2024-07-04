@@ -30,11 +30,11 @@ func ValidateOffline(l *List) []error {
 func validateEntityMetadata(block *Section) []error {
 	var ret []error
 	for _, block := range BlocksOfType[*Suffixes](block) {
-		if block.Entity == "" {
+		if block.Info.Name == "" {
 			ret = append(ret, ErrMissingEntityName{
 				Suffixes: block,
 			})
-		} else if block.Submitter == nil && !exemptFromContactInfo(block.Entity) {
+		} else if block.Info.Submitter == nil && !exemptFromContactInfo(block.Info.Name) {
 			ret = append(ret, ErrMissingEntityEmail{
 				Suffixes: block,
 			})
@@ -93,8 +93,8 @@ func validatePrivateSectionOrder(block *Section) error {
 			if inAmazonSuperblock {
 				last := len(blocks) - 1
 				blocks[last].Suffixes = append(blocks[last].Suffixes, v)
-			} else if !exemptFromSorting(v.Entity) {
-				blocks = append(blocks, superblock{v.Entity, []*Suffixes{v}})
+			} else if !exemptFromSorting(v.Info.Name) {
+				blocks = append(blocks, superblock{v.Info.Name, []*Suffixes{v}})
 			}
 		}
 	}
@@ -180,7 +180,7 @@ func validatePrivateSectionOrder(block *Section) error {
 		insertAfter := ""
 		if targetIdx > 0 {
 			suffixesOfPrev := fixed[targetIdx-1].Suffixes
-			insertAfter = suffixesOfPrev[len(suffixesOfPrev)-1].Entity
+			insertAfter = suffixesOfPrev[len(suffixesOfPrev)-1].Info.Name
 		}
 
 		// Superblocks can contain many suffixes. Move entire
@@ -193,7 +193,7 @@ func validatePrivateSectionOrder(block *Section) error {
 		} else {
 			block := toMove.Suffixes[0]
 			err.EditScript = append(err.EditScript, MoveSuffixBlock{
-				Name:        block.Entity,
+				Name:        block.Info.Name,
 				InsertAfter: insertAfter,
 			})
 		}

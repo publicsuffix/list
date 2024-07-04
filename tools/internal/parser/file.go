@@ -87,42 +87,50 @@ func (s *Section) Children() []Block { return s.Blocks }
 // unstructured inline comments.
 type Suffixes struct {
 	SourceRange
-	// Entity is the name of the entity responsible for this block of
-	// suffixes.
-	//
-	// For ICANN suffixes, this is typically the TLD name or the NIC
-	// that controls the TLD.
-	//
-	// For private domains this is the name of the legal entity (most
-	// commonly a company) that owns all domains in the block.
-	//
-	// In a well-formed PSL file, Entity is non-empty for all suffix
-	// blocks.
-	Entity string
-	// URL is a link to further information about the suffix block and
-	// its managing entity.
-	//
-	// For ICANN domains this is typically the NIC's information page
-	// for the TLD, or failing that a general information page such as
-	// a Wikipedia entry.
-	//
-	// For private domains this is usually the responsible company's
-	// website.
-	//
-	// May be nil when the block header doesn't have a URL.
-	URL *url.URL
-	// Submitter is the contact name and email address of the person
-	// or people responsible for this block of suffixes.
-	//
-	// This field may be nil if the block header doesn't have email
-	// contact information.
-	Submitter *mail.Address
+
+	// Info is information about the authoritative maintainers for
+	// this set of suffixes.
+	Info MaintainerInfo
 
 	// Blocks are the child blocks contained within the section.
 	Blocks []Block
 }
 
 func (s *Suffixes) Children() []Block { return s.Blocks }
+
+type MaintainerInfo struct {
+	// Name is the name of the entity responsible for maintaining a
+	// set of suffixes.
+	//
+	// For ICANN suffixes, this is typically the TLD name, or the name
+	// of NIC that controls the TLD.
+	//
+	// For private domains this is the name of the legal entity
+	// (usually a company, sometimes an individual) that owns all
+	// domains in the block.
+	//
+	// In a well-formed PSL file, Name is non-empty for all suffix
+	// blocks.
+	Name string
+	// URL is a link to further information about the suffix block's
+	// domains and its maintainer.
+	//
+	// For ICANN domains this is typically the NIC's information page
+	// for the TLD, or failing that a general information page such as
+	// a Wikipedia entry.
+	//
+	// For private domains this is usually the website for the owner
+	// of the domains.
+	//
+	// May be nil when the block header doesn't have a URL.
+	URL *url.URL
+	// Submitter is the contact name and email address of the person
+	// or people responsible for maintaining PSL entries.
+	//
+	// This field may be nil if the block header doesn't have email
+	// contact information.
+	Submitter *mail.Address
+}
 
 // Suffix is one public suffix, represented in the standard domain
 // name format.

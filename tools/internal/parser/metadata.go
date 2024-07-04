@@ -6,9 +6,11 @@ import (
 	"strings"
 )
 
-// enrichSuffixes extracts structured metadata from metadata and
-// populates the appropriate fields of suffixes.
-func enrichSuffixes(suffixes *Suffixes, comment *Comment) {
+// extractMaintainerInfo extracts structured maintainer metadata from
+// comment.
+func extractMaintainerInfo(comment *Comment) MaintainerInfo {
+	var ret MaintainerInfo
+
 	// Try to find an entity name in the header. There are a few
 	// possible ways this can appear, but the canonical is a first
 	// header line of the form "<name>: <url>".
@@ -25,23 +27,23 @@ func enrichSuffixes(suffixes *Suffixes, comment *Comment) {
 			continue
 		}
 
-		suffixes.Entity = name
+		ret.Name = name
 		if url != nil {
-			suffixes.URL = url
+			ret.URL = url
 		}
 		if contact != nil {
-			suffixes.Submitter = contact
+			ret.Submitter = contact
 		}
 		break
 	}
-	if suffixes.Entity == "" {
+	if ret.Name == "" {
 		// Assume the first line is the entity name, if it's not
 		// obviously something else.
 		first := comment.Text[0]
 		// "see also" is the first line of a number of ICANN TLD
 		// sections.
 		if getSubmitter(first) == nil && getURL(first) == nil && first != "see also" {
-			suffixes.Entity = first
+			ret.Name = first
 		}
 	}
 
@@ -49,18 +51,18 @@ func enrichSuffixes(suffixes *Suffixes, comment *Comment) {
 	// any. The only remaining formats we understand is a line with
 	// "Submitted by <contact>", or failing that a parseable RFC5322
 	// email on a line by itself.
-	if suffixes.Submitter == nil {
+	if ret.Submitter == nil {
 		for _, line := range comment.Text {
 			if submitter := getSubmitter(line); submitter != nil {
-				suffixes.Submitter = submitter
+				ret.Submitter = submitter
 				break
 			}
 		}
 	}
-	if suffixes.Submitter == nil {
+	if ret.Submitter == nil {
 		for _, line := range comment.Text {
 			if submitter, err := mail.ParseAddress(line); err == nil {
-				suffixes.Submitter = submitter
+				ret.Submitter = submitter
 				break
 			}
 		}
@@ -69,14 +71,16 @@ func enrichSuffixes(suffixes *Suffixes, comment *Comment) {
 	// Try to find a URL, if the previous step didn't find one. The
 	// only remaining format we understand is a line with a URL by
 	// itself.
-	if suffixes.URL == nil {
+	if ret.URL == nil {
 		for _, line := range comment.Text {
 			if u := getURL(line); u != nil {
-				suffixes.URL = u
+				ret.URL = u
 				break
 			}
 		}
 	}
+
+	return ret
 }
 
 // submittedBy is the conventional text that precedes email contact
