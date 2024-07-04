@@ -26,6 +26,26 @@ type Block interface {
 	Children() []Block
 }
 
+// BlocksOfType recursively collects and returns all blocks of
+// concrete type T in the given parse tree.
+//
+// For example, BlocksOfType[*parser.Comment](ast) returns all comment
+// nodes in ast.
+func BlocksOfType[T Block](tree Block) []T {
+	var ret []T
+	blocksOfTypeRec(tree, &ret)
+	return ret
+}
+
+func blocksOfTypeRec[T Block](tree Block, out *[]T) {
+	if v, ok := tree.(T); ok {
+		*out = append(*out, v)
+	}
+	for _, child := range tree.Children() {
+		blocksOfTypeRec(child, out)
+	}
+}
+
 // Blank is a set of one or more consecutive blank lines.
 type Blank struct {
 	SourceRange

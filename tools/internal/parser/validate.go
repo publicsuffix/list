@@ -12,7 +12,7 @@ import (
 func ValidateOffline(l *List) []error {
 	var ret []error
 
-	for _, block := range blocksOfType[*Section](l) {
+	for _, block := range BlocksOfType[*Section](l) {
 		if block.Name == "PRIVATE DOMAINS" {
 			ret = append(ret, validateEntityMetadata(block)...)
 			if err := validatePrivateSectionOrder(block); err != nil {
@@ -29,7 +29,7 @@ func ValidateOffline(l *List) []error {
 // kind of entity name.
 func validateEntityMetadata(block *Section) []error {
 	var ret []error
-	for _, block := range blocksOfType[*Suffixes](block) {
+	for _, block := range BlocksOfType[*Suffixes](block) {
 		if block.Entity == "" {
 			ret = append(ret, ErrMissingEntityName{
 				Suffixes: block,
@@ -204,33 +204,4 @@ func validatePrivateSectionOrder(block *Section) error {
 	}
 
 	return err
-}
-
-// A childrener can return a list of its children.
-// Yes, the interface name sounds a bit silly, but it's the
-// conventional Go name given what it does.
-type childrener interface {
-	Children() []Block
-}
-
-// blocksOfType recursively walks the subtree rooted at c and returns
-// all tree nodes of concrete block type T.
-//
-// For example, blocksOfType[*Comment](n) returns all comment nodes
-// under n.
-func blocksOfType[T Block](c childrener) []T {
-	var ret []T
-
-	var rec func(childrener)
-	rec = func(c childrener) {
-		if v, ok := c.(T); ok {
-			ret = append(ret, v)
-		}
-		for _, child := range c.Children() {
-			rec(child)
-		}
-	}
-	rec(c)
-
-	return ret
 }

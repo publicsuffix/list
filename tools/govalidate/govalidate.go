@@ -58,12 +58,8 @@ func main() {
 
 // debugPrint prints out a PSL syntax tree in a private, subject to
 // change text format.
-func debugPrint(p *parser.List) {
-	fmt.Println("List {")
-	for _, b := range p.Blocks {
-		debugPrintRec(b, "    ")
-	}
-	fmt.Println("}")
+func debugPrint(b parser.Block) {
+	debugPrintRec(b, "")
 }
 
 func debugPrintRec(b parser.Block, indent string) {
@@ -78,6 +74,12 @@ func debugPrintRec(b parser.Block, indent string) {
 	}
 
 	switch v := b.(type) {
+	case *parser.List:
+		f("List(%s) {", loc)
+		for _, b := range v.Blocks {
+			debugPrintRec(b, nextIndent)
+		}
+		f("}")
 	case *parser.Blank:
 		f("Blank(%s)", loc)
 	case *parser.Comment:
