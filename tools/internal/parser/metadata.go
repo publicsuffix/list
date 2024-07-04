@@ -99,8 +99,6 @@ const submittedBy = "submitted by"
 //     omit https://.
 //   - "<entity name>: Submitted by <email address>", where the second
 //     part is any variant accepted by getSubmitter.
-//   - The canonical form, but with a unicode fullwidth colon (U+FF1A)
-//     instead of a regular colon.
 //   - Any amount of whitespace on either side of the colon (or
 //     fullwidth colon).
 func splitNameish(line string) (name string, url *url.URL, submitter *mail.Address) {
