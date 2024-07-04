@@ -5,15 +5,15 @@ import (
 )
 
 func TestRequireSortedPrivateSection(t *testing.T) {
-	aaa := suffixes(0, 1, "AAA Corp", "", "", suffix(0, "aaa.com"))
-	bbb := suffixes(0, 1, "BBB Inc", "", "", suffix(0, "bbb.net"))
-	ccc := suffixes(0, 1, "CCC Ltd", "", "", suffix(0, "ccc.org"))
-	dddLeadingDot := suffixes(0, 1, ".DDD GmbH", "", "", suffix(0, "ddd.de"))
-	aaaUmlaut := suffixes(0, 1, "AÄA", "", "", suffix(0, "aaa.de"))
-	aaaUmlautShort := suffixes(0, 1, "AÄ", "", "", suffix(0, "aaa.ee"))
-	aaaUmlautLong := suffixes(0, 1, "AÄAA", "", "", suffix(0, "aaa.sk"))
-	a3b := suffixes(0, 1, "a3b", "", "", suffix(0, "a3b.com"))
-	a24b := suffixes(0, 1, "a24b", "", "", suffix(0, "a24b.com"))
+	aaa := suffixes(0, 1, info("AAA Corp", nil, nil, nil, true), suffix(0, "aaa.com"))
+	bbb := suffixes(0, 1, info("BBB Inc", nil, nil, nil, true), suffix(0, "bbb.net"))
+	ccc := suffixes(0, 1, info("CCC Ltd", nil, nil, nil, true), suffix(0, "ccc.org"))
+	dddLeadingDot := suffixes(0, 1, info(".DDD GmbH", nil, nil, nil, true), suffix(0, "ddd.de"))
+	aaaUmlaut := suffixes(0, 1, info("AÄA", nil, nil, nil, true), suffix(0, "aaa.de"))
+	aaaUmlautShort := suffixes(0, 1, info("AÄ", nil, nil, nil, true), suffix(0, "aaa.ee"))
+	aaaUmlautLong := suffixes(0, 1, info("AÄAA", nil, nil, nil, true), suffix(0, "aaa.sk"))
+	a3b := suffixes(0, 1, info("a3b", nil, nil, nil, true), suffix(0, "a3b.com"))
+	a24b := suffixes(0, 1, info("a24b", nil, nil, nil, true), suffix(0, "a24b.com"))
 
 	tests := []struct {
 		name string
@@ -114,18 +114,18 @@ func TestRequireSortedPrivateSection(t *testing.T) {
 		{
 			name: "amazon_superblock",
 			in: section(0, 23, "",
-				suffixes(2, 4, "AA Ltd", "", "", suffix(3, "aa.com")),
+				suffixes(2, 4, info("AA Ltd", nil, nil, nil, true), suffix(3, "aa.com")),
 
 				comment(5, "Amazon : https://www.amazon.com", "several blocks follow"),
 				// Note, incorrect sort, but ignored because it's in
 				// the Amazon superblock.
-				suffixes(8, 10, "eero", "", "", suffix(9, "eero.com")),
-				suffixes(11, 13, "AWS", "", "", suffix(12, "aws.com")),
+				suffixes(8, 10, info("eero", nil, nil, nil, true), suffix(9, "eero.com")),
+				suffixes(11, 13, info("AWS", nil, nil, nil, true), suffix(12, "aws.com")),
 				comment(14, "concludes Amazon"),
 
-				suffixes(16, 18, "Altavista", "", "", suffix(17, "altavista.com")),
+				suffixes(16, 18, info("Altavista", nil, nil, nil, true), suffix(17, "altavista.com")),
 
-				suffixes(19, 21, "BB Ltd", "", "", suffix(20, "bb.com")),
+				suffixes(19, 21, info("BB Ltd", nil, nil, nil, true), suffix(20, "bb.com")),
 			),
 			want: ErrSuffixBlocksInWrongPlace{
 				EditScript: []MoveSuffixBlock{

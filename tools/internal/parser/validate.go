@@ -34,7 +34,7 @@ func validateEntityMetadata(block *Section) []error {
 			ret = append(ret, ErrMissingEntityName{
 				Suffixes: block,
 			})
-		} else if block.Info.Submitter == nil && !exemptFromContactInfo(block.Info.Name) {
+		} else if len(block.Info.Maintainers) == 0 && !exemptFromContactInfo(block.Info.Name) {
 			ret = append(ret, ErrMissingEntityEmail{
 				Suffixes: block,
 			})

@@ -61,7 +61,8 @@ func TestParser(t *testing.T) {
 			want: list(
 				section(0, 7, "PRIVATE DOMAINS",
 					blank(1, 2),
-					suffixes(2, 5, "", "", "",
+					suffixes(2, 5,
+						info("", nil, nil, nil, true),
 						suffix(2, "example.com"),
 						suffix(3, "other.example.com"),
 						wildcard(4, 5, "example.org"),
@@ -143,7 +144,8 @@ func TestParser(t *testing.T) {
 			want: list(
 				comment(0, "Just some suffixes"),
 				section(1, 6, "ICANN DOMAINS",
-					suffixes(2, 4, "", "", "",
+					suffixes(2, 4,
+						info("", nil, nil, nil, true),
 						suffix(2, "com"),
 						suffix(3, "org"),
 					),
@@ -167,7 +169,8 @@ func TestParser(t *testing.T) {
 			),
 			want: list(
 				section(0, 9, "ICANN DOMAINS",
-					suffixes(1, 7, "Just some suffixes", "", "",
+					suffixes(1, 7,
+						info("Just some suffixes", nil, nil, nil, true),
 						comment(1, "Just some suffixes"),
 						suffix(2, "com"),
 						suffix(4, "org"),
@@ -191,7 +194,14 @@ func TestParser(t *testing.T) {
 				"example.org",
 			),
 			want: list(
-				suffixes(0, 4, "Unstructured header.", "", "",
+				suffixes(0, 4,
+					info(
+						"Unstructured header.",
+						nil,
+						nil,
+						[]string{"I'm just going on about random things."},
+						true,
+					),
 					comment(0, "Unstructured header.", "I'm just going on about random things."),
 					suffix(2, "example.com"),
 					suffix(3, "example.org"),
@@ -210,9 +220,12 @@ func TestParser(t *testing.T) {
 			),
 			want: list(
 				suffixes(0, 5,
-					"DuckCorp Inc",
-					"https://example.com",
-					`"Not A Duck" <duck@example.com>`,
+					info(
+						"DuckCorp Inc",
+						urls("https://example.com"),
+						emails("Not A Duck", "duck@example.com"),
+						[]string{"Seriously, not a duck"},
+						true),
 					comment(0, "DuckCorp Inc: https://example.com", "Submitted by Not A Duck <duck@example.com>",
 						"Seriously, not a duck"),
 					suffix(3, "example.com"),
@@ -229,9 +242,12 @@ func TestParser(t *testing.T) {
 			),
 			want: list(
 				suffixes(0, 2,
-					"DuckCorp Inc",
-					"",
-					`"Not A Duck" <duck@example.com>`,
+					info(
+						"DuckCorp Inc",
+						nil,
+						emails("Not A Duck", "duck@example.com"),
+						nil,
+						true),
 					comment(0, "DuckCorp Inc: submitted by Not A Duck <duck@example.com>"),
 					suffix(1, "example.com"),
 				),
@@ -248,51 +264,13 @@ func TestParser(t *testing.T) {
 			),
 			want: list(
 				suffixes(0, 4,
-					"DuckCorp Inc",
-					"https://example.com",
-					`"Not A Duck" <duck@example.com>`,
+					info(
+						"DuckCorp Inc",
+						urls("https://example.com"),
+						emails("Not A Duck", "duck@example.com"),
+						nil,
+						true),
 					comment(0, "DuckCorp Inc", "https://example.com", `Submitted by Not A Duck <duck@example.com>`),
-					suffix(3, "example.com"),
-				),
-			),
-		},
-
-		{
-			name: "suffixes_standard_header_submitter_first",
-			psl: byteLines(
-				"// Submitted by Not A Duck <duck@example.com>",
-				"// DuckCorp Inc: https://example.com",
-				"example.com",
-			),
-			want: list(
-				suffixes(0, 3,
-					"DuckCorp Inc",
-					"https://example.com",
-					`"Not A Duck" <duck@example.com>`,
-					comment(0,
-						"Submitted by Not A Duck <duck@example.com>",
-						"DuckCorp Inc: https://example.com"),
-					suffix(2, "example.com"),
-				),
-			),
-		},
-
-		{
-			name: "suffixes_standard_header_leading_unstructured",
-			psl: byteLines(
-				"// This is an unstructured comment.",
-				"// DuckCorp Inc: https://example.com",
-				"// Submitted by Not A Duck <duck@example.com>",
-				"example.com",
-			),
-			want: list(
-				suffixes(0, 4,
-					"DuckCorp Inc",
-					"https://example.com",
-					`"Not A Duck" <duck@example.com>`,
-					comment(0, "This is an unstructured comment.",
-						"DuckCorp Inc: https://example.com",
-						"Submitted by Not A Duck <duck@example.com>"),
 					suffix(3, "example.com"),
 				),
 			),
@@ -307,7 +285,13 @@ func TestParser(t *testing.T) {
 				"example.com",
 			),
 			want: list(
-				suffixes(0, 2, "Parens Appreciation Society", "https://example.org", "",
+				suffixes(0, 2,
+					info(
+						"Parens Appreciation Society",
+						urls("https://example.org"),
+						nil,
+						nil,
+						true),
 					comment(0, "Parens Appreciation Society (https://example.org)"),
 					suffix(1, "example.com"),
 				),
@@ -327,7 +311,13 @@ func TestParser(t *testing.T) {
 				"cd",
 			),
 			want: list(
-				suffixes(0, 3, "cd", "https://en.wikipedia.org/wiki/.cd", "",
+				suffixes(0, 3,
+					info(
+						"cd",
+						urls("https://en.wikipedia.org/wiki/.cd"),
+						nil,
+						[]string{"see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1"},
+						true),
 					comment(0, "cd : https://en.wikipedia.org/wiki/.cd",
 						"see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1"),
 					suffix(2, "cd"),
@@ -392,29 +382,22 @@ func section(start, end int, name string, blocks ...Block) *Section {
 	}
 }
 
-func suffixes(start, end int, entity string, urlStr string, email string, blocks ...Block) *Suffixes {
-	ret := &Suffixes{
+func suffixes(start, end int, info MaintainerInfo, blocks ...Block) *Suffixes {
+	return &Suffixes{
 		SourceRange: mkSrc(start, end),
-		Info: MaintainerInfo{
-			Name: entity,
-		},
-		Blocks: blocks,
+		Info:        info,
+		Blocks:      blocks,
 	}
-	if urlStr != "" {
-		u, err := url.Parse(urlStr)
-		if err != nil {
-			panic(err)
-		}
-		ret.Info.URL = u
+}
+
+func info(name string, urls []*url.URL, emails []*mail.Address, other []string, editable bool) MaintainerInfo {
+	return MaintainerInfo{
+		Name:            name,
+		URLs:            urls,
+		Maintainers:     emails,
+		Other:           other,
+		MachineEditable: editable,
 	}
-	if email != "" {
-		e, err := mail.ParseAddress(email)
-		if err != nil {
-			panic(err)
-		}
-		ret.Info.Submitter = e
-	}
-	return ret
 }
 
 func suffix(line int, domain string) *Suffix {

@@ -297,12 +297,13 @@ func (p *parser) parseCommentOrSuffixBlock() Block {
 // parseSuffixBlock parses a suffix block, starting with the provided
 // optional initial comment.
 func (p *parser) parseSuffixBlock(initialComment *Comment) *Suffixes {
-	ret := &Suffixes{}
+	ret := &Suffixes{
+		Info: extractMaintainerInfo(initialComment),
+	}
 	emit := blockEmitter(&ret.Blocks, &ret.SourceRange)
 
 	if initialComment != nil {
 		emit(initialComment)
-		ret.Info = extractMaintainerInfo(initialComment)
 	}
 
 	for {

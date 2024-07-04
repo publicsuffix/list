@@ -95,15 +95,18 @@ func debugPrintRec(b parser.Block, indent string) {
 		}
 		f("}")
 	case *parser.Suffixes:
-		items := []string{loc}
+		items := []string{loc, fmt.Sprintf("editable=%v", v.Info.MachineEditable)}
 		if v.Info.Name != "" {
 			items = append(items, fmt.Sprintf("name=%q", v.Info.Name))
 		}
-		if v.Info.URL != nil {
-			items = append(items, fmt.Sprintf("url=%q", v.Info.URL))
+		for _, u := range v.Info.URLs {
+			items = append(items, fmt.Sprintf("url=%q", u))
 		}
-		if v.Info.Submitter != nil {
-			items = append(items, fmt.Sprintf("contact=%q", v.Info.Submitter))
+		for _, e := range v.Info.Maintainers {
+			items = append(items, fmt.Sprintf("contact=%q", e))
+		}
+		for _, o := range v.Info.Other {
+			items = append(items, fmt.Sprintf("other=%q", o))
 		}
 
 		f("SuffixBlock(%s) {", strings.Join(items, fmt.Sprintf(",\n%s            ", indent)))

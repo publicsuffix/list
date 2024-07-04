@@ -1,8 +1,10 @@
 package parser
 
 import (
+	"cmp"
 	"net/mail"
 	"net/url"
+	"slices"
 )
 
 // List is a parsed public suffix list.
@@ -112,7 +114,8 @@ type MaintainerInfo struct {
 	// In a well-formed PSL file, Name is non-empty for all suffix
 	// blocks.
 	Name string
-	// URL is a link to further information about the suffix block's
+
+	// URLs are links to further information about the suffix block's
 	// domains and its maintainer.
 	//
 	// For ICANN domains this is typically the NIC's information page
@@ -122,14 +125,63 @@ type MaintainerInfo struct {
 	// For private domains this is usually the website for the owner
 	// of the domains.
 	//
-	// May be nil when the block header doesn't have a URL.
-	URL *url.URL
-	// Submitter is the contact name and email address of the person
-	// or people responsible for maintaining PSL entries.
+	// May be empty when the block header doesn't have
+	// machine-readable URLs.
+	URLs []*url.URL
+
+	// Maintainer is the contact name and email address of the person
+	// or persons responsible for maintaining a block.
 	//
-	// This field may be nil if the block header doesn't have email
-	// contact information.
-	Submitter *mail.Address
+	// This field may be empty if there is no machine-readable contact
+	// information.
+	Maintainers []*mail.Address
+
+	// Other is some unstructured additional notes. They may contain
+	// anything, including some of the above information that wasn't
+	// in a known parseable form.
+	Other []string
+
+	// MachineEditable is whether this information can be
+	// machine-edited and written back out without loss of
+	// information. The exact formatting of the information may
+	// change, but no information will be lost.
+	MachineEditable bool
+}
+
+func (m *MaintainerInfo) Compare(n *MaintainerInfo) int {
+	if r := compareCommentText(m.Name, n.Name); r != 0 {
+		return r
+	}
+
+	if r := cmp.Compare(len(m.URLs), len(n.URLs)); r != 0 {
+		return r
+	}
+	for i := range m.URLs {
+		if r := cmp.Compare(m.URLs[i].String(), n.URLs[i].String()); r != 0 {
+			return r
+		}
+	}
+
+	if r := cmp.Compare(len(m.Maintainers), len(n.Maintainers)); r != 0 {
+		return r
+	}
+	for i := range m.Maintainers {
+		if r := cmp.Compare(m.Maintainers[i].String(), n.Maintainers[i].String()); r != 0 {
+			return r
+		}
+	}
+
+	if r := slices.Compare(m.Other, n.Other); r != 0 {
+		return r
+	}
+
+	if m.MachineEditable == n.MachineEditable {
+		return 0
+	} else if !m.MachineEditable {
+		return -1
+	} else {
+		return 1
+	}
 }
 
 // Suffix is one public suffix, represented in the standard domain
