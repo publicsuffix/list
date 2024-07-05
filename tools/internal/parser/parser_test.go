@@ -4,8 +4,9 @@ import (
 	"net/mail"
 	"net/url"
 	"os"
-	"strings"
 	"testing"
+
+	"github.com/publicsuffix/list/tools/internal/domain"
 )
 
 // TestParser runs a battery of synthetic parse and validation tests.
@@ -389,17 +390,33 @@ func info(name string, urls []*url.URL, emails []*mail.Address, other []string, 
 	}
 }
 
-func suffix(line int, domain string) *Suffix {
+func suffix(line int, domainStr string) *Suffix {
+	domain, err := domain.Parse(domainStr)
+	if err != nil {
+		panic(err)
+	}
 	return &Suffix{
 		SourceRange: mkSrc(line, line+1),
-		Labels:      strings.Split(domain, "."),
+		Domain:      domain,
 	}
 }
 
 func wildcard(start, end int, base string, exceptions ...string) *Wildcard {
-	return &Wildcard{
-		SourceRange: mkSrc(start, end),
-		Labels:      strings.Split(base, "."),
-		Exceptions:  exceptions,
+	dom, err := domain.Parse(base)
+	if err != nil {
+		panic(err)
 	}
+
+	ret := &Wildcard{
+		SourceRange: mkSrc(start, end),
+		Domain:      dom,
+	}
+	for _, s := range exceptions {
+		exc, err := domain.ParseLabel(s)
+		if err != nil {
+			panic(err)
+		}
+		ret.Exceptions = append(ret.Exceptions, exc)
+	}
+	return ret
 }

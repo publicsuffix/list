@@ -3,10 +3,9 @@ package parser
 
 import (
 	"fmt"
-	"slices"
 	"strings"
 
-	"golang.org/x/net/idna"
+	"github.com/publicsuffix/list/tools/internal/domain"
 )
 
 // Parse parses bs as a PSL file and returns the parse result.
@@ -343,7 +342,7 @@ func (p *parser) parseSuffixBlock(initialComment *Comment) *Suffixes {
 func (p *parser) parseSuffix() Block {
 	tok := p.next().(tokenSuffix)
 
-	labels, err := parseDomainString(tok.Text)
+	domain, err := domain.Parse(tok.Text)
 	if err != nil {
 		p.addError(ErrInvalidSuffix{tok.SourceRange, tok.Text, err})
 		return nil
@@ -351,7 +350,7 @@ func (p *parser) parseSuffix() Block {
 
 	return &Suffix{
 		SourceRange: tok.SourceRange,
-		Labels:      labels,
+		Domain:      domain,
 	}
 }
 
@@ -360,7 +359,7 @@ func (p *parser) parseSuffix() Block {
 func (p *parser) parseWildcard() Block {
 	tok := p.next().(tokenWildcard)
 
-	labels, err := parseDomainString(tok.Suffix)
+	domain, err := domain.Parse(tok.Suffix)
 	if err != nil {
 		p.addError(ErrInvalidSuffix{tok.SourceRange, tok.Suffix, err})
 		return nil
@@ -368,7 +367,7 @@ func (p *parser) parseWildcard() Block {
 
 	return &Wildcard{
 		SourceRange: tok.SourceRange,
-		Labels:      labels,
+		Domain:      domain,
 	}
 }
 
@@ -379,7 +378,7 @@ func (p *parser) parseWildcard() Block {
 func (p *parser) parseException(previous []Block) {
 	tok := p.next().(tokenException)
 
-	labels, err := parseDomainString(tok.Suffix)
+	domain, err := domain.Parse(tok.Suffix)
 	if err != nil {
 		p.addError(ErrInvalidSuffix{tok.SourceRange, tok.Suffix, err})
 		return
@@ -391,8 +390,8 @@ func (p *parser) parseException(previous []Block) {
 			continue
 		}
 
-		if len(labels) == len(w.Labels)+1 && slices.Equal(labels[1:], w.Labels) {
-			w.Exceptions = append(w.Exceptions, labels[0])
+		if rest, ok := domain.CutSuffix(w.Domain); ok && len(rest) == 1 {
+			w.Exceptions = append(w.Exceptions, domain.Labels()[0])
 			return
 		}
 	}
@@ -415,26 +414,4 @@ func (p *parser) parseComment() *Comment {
 			return ret
 		}
 	}
-}
-
-// parseDomainString parses a DNS domain string into its component
-// labels, validated and normalized to IDNA ascii representation.
-func parseDomainString(domain string) (labels []string, err error) {
-	cleaned, err := idna.Registration.ToUnicode(domain)
-	if err != nil {
-		return nil, err
-	} else if cleaned != domain {
-		return nil, fmt.Errorf("not in canonical form, should be %q", cleaned)
-	}
-
-	// TODO: the parse tree normalizes to the ASCII (aka punycode)
-	// representation. Should it normalize to the unicode
-	// representation instead, to keep parity with the policy of the
-	// source text?
-	puny, err := idna.Registration.ToASCII(cleaned)
-	if err != nil {
-		panic("punycode translation error on canonical unicode value")
-	}
-
-	return strings.Split(puny, "."), nil
 }

@@ -113,12 +113,12 @@ func debugPrintRec(b parser.Block, indent string) {
 		}
 		f("}")
 	case *parser.Suffix:
-		f("Suffix(%s, %q)", loc, strings.Join(v.Labels, "."))
+		f("Suffix(%s, %q)", loc, v.Domain)
 	case *parser.Wildcard:
 		if len(v.Exceptions) > 0 {
-			f("Wildcard(%s, %q, except=%v)", loc, strings.Join(v.Labels, "."), v.Exceptions)
+			f("Wildcard(%s, %q, except=%v)", loc, v.Domain, v.Exceptions)
 		} else {
-			f("Wildcard(%s, %q)", loc, strings.Join(v.Labels, "."))
+			f("Wildcard(%s, %q)", loc, v.Domain)
 		}
 	default:
 		panic("unknown block type")

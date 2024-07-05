@@ -5,6 +5,8 @@ import (
 	"net/mail"
 	"net/url"
 	"slices"
+
+	"github.com/publicsuffix/list/tools/internal/domain"
 )
 
 // List is a parsed public suffix list.
@@ -181,8 +183,8 @@ func (m *MaintainerInfo) Compare(n *MaintainerInfo) int {
 type Suffix struct {
 	SourceRange
 
-	// Labels are the DNS labels of the public suffix.
-	Labels []string
+	// Domain is the public suffix's domain name.
+	Domain domain.Name
 }
 
 func (s *Suffix) Children() []Block { return nil }
@@ -192,15 +194,15 @@ func (s *Suffix) Children() []Block { return nil }
 type Wildcard struct {
 	SourceRange
 
-	// Labels are the DNS labels of the public suffix, without the
+	// Domain is the base of the wildcard public suffix, without the
 	// leading "*" label.
-	Labels []string
-	// Exceptions are the DNS label values that, when they appear in
-	// the wildcard position, cause a FQDN to _not_ match this
-	// wildcard. For example, if Labels=[foo, com] and
-	// Exceptions=[bar, qux], zot.foo.com is a public suffix, but
-	// bar.foo.com and qux.foo.com are not.
-	Exceptions []string
+	Domain domain.Name
+	// Exceptions are the domain.Labels that, when they appear in the
+	// wildcard position of Domain, cause a FQDN to _not_ match this
+	// wildcard. For example, if Domain="foo.com" and Exceptions=[bar,
+	// qux], zot.foo.com is a public suffix, but bar.foo.com and
+	// qux.foo.com are not.
+	Exceptions []domain.Label
 }
 
 func (w *Wildcard) Children() []Block { return nil }
