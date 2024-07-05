@@ -385,13 +385,6 @@ func comment(start int, lines ...string) *Comment {
 }
 
 func section(start, end int, name string, blocks ...Block) *Section {
-	if len(blocks) == 0 {
-		return &Section{
-			SourceRange: mkSrc(start, end),
-			Name:        name,
-		}
-	}
-
 	return &Section{
 		SourceRange: mkSrc(start, end),
 		Name:        name,
