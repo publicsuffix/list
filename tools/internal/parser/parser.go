@@ -211,7 +211,7 @@ func (p *parser) parseTopLevel() *List {
 		case tokenEOF:
 			return ret
 		case tokenBlank:
-			emit(p.parseBlank())
+			p.next()
 		case tokenComment:
 			emit(p.parseCommentOrSuffixBlock())
 		case tokenSectionStart:
@@ -246,7 +246,7 @@ func (p *parser) parseSection() *Section {
 			p.addError(ErrUnclosedSection{ret})
 			return ret
 		case tokenBlank:
-			emit(p.parseBlank())
+			p.next()
 		case tokenComment:
 			emit(p.parseCommentOrSuffixBlock())
 		case tokenSectionStart:
@@ -411,20 +411,6 @@ func (p *parser) parseComment() *Comment {
 			p.next()
 			ret.SourceRange = ret.SourceRange.merge(tok.SourceRange)
 			ret.Text = append(ret.Text, tok.Text)
-		} else {
-			return ret
-		}
-	}
-}
-
-// parseBlank parses a run of empty lines.
-func (p *parser) parseBlank() Block {
-	tok := p.next().(tokenBlank)
-	ret := &Blank{tok.SourceRange}
-	for {
-		if tok, ok := p.peek().(tokenBlank); ok {
-			p.next()
-			ret.SourceRange = ret.SourceRange.merge(tok.SourceRange)
 		} else {
 			return ret
 		}

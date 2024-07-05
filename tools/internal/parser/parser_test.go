@@ -42,7 +42,6 @@ func TestParser(t *testing.T) {
 			),
 			want: list(
 				comment(0, "This is an empty PSL file."),
-				blank(1, 2),
 				comment(2, "Here is a second comment."),
 			),
 		},
@@ -60,14 +59,12 @@ func TestParser(t *testing.T) {
 			),
 			want: list(
 				section(0, 7, "PRIVATE DOMAINS",
-					blank(1, 2),
 					suffixes(2, 5,
 						info("", nil, nil, nil, true),
 						suffix(2, "example.com"),
 						suffix(3, "other.example.com"),
 						wildcard(4, 5, "example.org"),
 					),
-					blank(5, 6),
 				),
 			),
 		},
@@ -149,7 +146,6 @@ func TestParser(t *testing.T) {
 						suffix(2, "com"),
 						suffix(3, "org"),
 					),
-					blank(4, 5),
 				),
 			),
 		},
@@ -176,7 +172,6 @@ func TestParser(t *testing.T) {
 						suffix(4, "org"),
 						suffix(6, "net"),
 					),
-					blank(7, 8),
 				),
 			),
 			wantErrs: []error{
@@ -358,12 +353,6 @@ func TestParseRealList(t *testing.T) {
 func list(blocks ...Block) *List {
 	return &List{
 		Blocks: blocks,
-	}
-}
-
-func blank(start, end int) *Blank {
-	return &Blank{
-		SourceRange: mkSrc(start, end),
 	}
 }
 

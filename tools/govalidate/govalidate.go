@@ -80,8 +80,6 @@ func debugPrintRec(b parser.Block, indent string) {
 			debugPrintRec(b, nextIndent)
 		}
 		f("}")
-	case *parser.Blank:
-		f("Blank(%s)", loc)
 	case *parser.Comment:
 		f("Comment(%s) {", loc)
 		for _, t := range v.Text {

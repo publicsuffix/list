@@ -19,8 +19,7 @@ type List struct {
 func (l *List) Children() []Block { return l.Blocks }
 
 // A Block is a parsed chunk of a PSL file. Each block is one of the
-// concrete types Blank, Comment, Section, Suffixes, Suffix, or
-// Wildcard.
+// concrete types Comment, Section, Suffixes, Suffix, or Wildcard.
 type Block interface {
 	// SrcRange returns the block's SourceRange.
 	SrcRange() SourceRange
@@ -47,13 +46,6 @@ func blocksOfTypeRec[T Block](tree Block, out *[]T) {
 		blocksOfTypeRec(child, out)
 	}
 }
-
-// Blank is a set of one or more consecutive blank lines.
-type Blank struct {
-	SourceRange
-}
-
-func (b *Blank) Children() []Block { return nil }
 
 // Comment is a comment block, consisting of one or more contiguous
 // lines of commented text.
