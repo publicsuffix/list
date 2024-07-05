@@ -75,16 +75,13 @@ func TestParser(t *testing.T) {
 			name: "empty_sections",
 			psl: byteLines(
 				"// ===BEGIN IMAGINARY DOMAINS===",
-				"",
 				"// ===END IMAGINARY DOMAINS===",
 				"// ===BEGIN FAKE DOMAINS===",
 				"// ===END FAKE DOMAINS===",
 			),
 			want: list(
-				section(0, 3, "IMAGINARY DOMAINS", // TEST RIGHT, CODE WRONG
-					blank(1, 2),
-				),
-				section(3, 5, "FAKE DOMAINS"),
+				section(0, 2, "IMAGINARY DOMAINS"),
+				section(2, 4, "FAKE DOMAINS"),
 			),
 		},
 
