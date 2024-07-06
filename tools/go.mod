@@ -7,3 +7,5 @@ require (
 	golang.org/x/net v0.26.0
 	golang.org/x/text v0.16.0
 )
+
+require github.com/natefinch/atomic v1.0.1
