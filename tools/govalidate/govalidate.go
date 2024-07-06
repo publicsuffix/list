@@ -7,8 +7,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"strconv"
-	"strings"
 
 	"github.com/natefinch/atomic"
 	"github.com/publicsuffix/list/tools/internal/parser"
@@ -47,7 +45,8 @@ func main() {
 	errs = append(errs, parser.ValidateOffline(psl)...)
 
 	if *debugPrintTree {
-		debugPrint(psl)
+		bs := psl.MarshalDebug()
+		os.Stdout.Write(bs)
 		fmt.Println("")
 	}
 
@@ -82,74 +81,5 @@ func main() {
 		fmt.Println("File is valid, rewrote to canonical format.")
 	} else {
 		fmt.Println("File is valid.")
-	}
-}
-
-// debugPrint prints out a PSL syntax tree in a private, subject to
-// change text format.
-func debugPrint(b parser.Block) {
-	debugPrintRec(b, "")
-}
-
-func debugPrintRec(b parser.Block, indent string) {
-	nextIndent := indent + "    "
-	f := func(msg string, args ...any) {
-		fmt.Printf(indent+msg+"\n", args...)
-	}
-	src := b.SrcRange()
-	loc := fmt.Sprintf("[%d:%d]", src.FirstLine, src.LastLine)
-	if src.FirstLine+1 == src.LastLine {
-		loc = strconv.Itoa(src.FirstLine)
-	}
-
-	switch v := b.(type) {
-	case *parser.List:
-		f("List(%s) {", loc)
-		for _, b := range v.Blocks {
-			debugPrintRec(b, nextIndent)
-		}
-		f("}")
-	case *parser.Comment:
-		f("Comment(%s) {", loc)
-		for _, t := range v.Text {
-			f("    %q,", t)
-		}
-		f("}")
-	case *parser.Section:
-		f("Section(%s, %q) {", loc, v.Name)
-		for _, b := range v.Blocks {
-			debugPrintRec(b, nextIndent)
-		}
-		f("}")
-	case *parser.Suffixes:
-		items := []string{loc, fmt.Sprintf("editable=%v", v.Info.MachineEditable)}
-		if v.Info.Name != "" {
-			items = append(items, fmt.Sprintf("name=%q", v.Info.Name))
-		}
-		for _, u := range v.Info.URLs {
-			items = append(items, fmt.Sprintf("url=%q", u))
-		}
-		for _, e := range v.Info.Maintainers {
-			items = append(items, fmt.Sprintf("contact=%q", e))
-		}
-		for _, o := range v.Info.Other {
-			items = append(items, fmt.Sprintf("other=%q", o))
-		}
-
-		f("SuffixBlock(%s) {", strings.Join(items, fmt.Sprintf(",\n%s            ", indent)))
-		for _, b := range v.Blocks {
-			debugPrintRec(b, nextIndent)
-		}
-		f("}")
-	case *parser.Suffix:
-		f("Suffix(%s, %q)", loc, v.Domain)
-	case *parser.Wildcard:
-		if len(v.Exceptions) > 0 {
-			f("Wildcard(%s, %q, except=%v)", loc, v.Domain, v.Exceptions)
-		} else {
-			f("Wildcard(%s, %q)", loc, v.Domain)
-		}
-	default:
-		panic("unknown block type")
 	}
 }
