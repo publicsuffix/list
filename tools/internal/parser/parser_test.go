@@ -60,8 +60,7 @@ func TestParser(t *testing.T) {
 			),
 			want: list(
 				section(0, 7, "PRIVATE DOMAINS",
-					suffixes(2, 5,
-						info("", nil, nil, nil, true),
+					suffixes(2, 5, noInfo,
 						suffix(2, "example.com"),
 						suffix(3, "other.example.com"),
 						wildcard(4, 5, "example.org"),
@@ -142,8 +141,7 @@ func TestParser(t *testing.T) {
 			want: list(
 				comment(0, "Just some suffixes"),
 				section(1, 6, "ICANN DOMAINS",
-					suffixes(2, 4,
-						info("", nil, nil, nil, true),
+					suffixes(2, 4, noInfo,
 						suffix(2, "com"),
 						suffix(3, "org"),
 					),
@@ -390,6 +388,8 @@ func info(name string, urls []*url.URL, emails []*mail.Address, other []string, 
 	}
 }
 
+var noInfo = info("", nil, nil, nil, true)
+
 func suffix(line int, domainStr string) *Suffix {
 	domain, err := domain.Parse(domainStr)
 	if err != nil {
@@ -419,4 +419,31 @@ func wildcard(start, end int, base string, exceptions ...string) *Wildcard {
 		ret.Exceptions = append(ret.Exceptions, exc)
 	}
 	return ret
+}
+
+// zeroSourceRange destructively zeroes the SourceRange of the given
+// block and its children. We use a zero SourceRange to communicate
+// "this block did not exist in the original input", when adding
+// machine-generated blocks.
+func zeroSourceRange(b Block) Block {
+	switch v := b.(type) {
+	case *List:
+		v.SourceRange = SourceRange{}
+	case *Section:
+		v.SourceRange = SourceRange{}
+	case *Suffixes:
+		v.SourceRange = SourceRange{}
+	case *Suffix:
+		v.SourceRange = SourceRange{}
+	case *Wildcard:
+		v.SourceRange = SourceRange{}
+	case *Comment:
+		v.SourceRange = SourceRange{}
+	default:
+		panic("unknown ast node")
+	}
+	for _, child := range b.Children() {
+		zeroSourceRange(child)
+	}
+	return b
 }

@@ -178,6 +178,11 @@ func (m *MaintainerInfo) Compare(n *MaintainerInfo) int {
 	}
 }
 
+// HasInfo reports whether m has any maintainer information at all.
+func (m MaintainerInfo) HasInfo() bool {
+	return m.Name != "" || len(m.URLs) > 0 || len(m.Maintainers) > 0 || len(m.Other) > 0
+}
+
 // Suffix is one public suffix, represented in the standard domain
 // name format.
 type Suffix struct {

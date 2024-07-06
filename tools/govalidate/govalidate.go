@@ -35,20 +35,18 @@ func main() {
 
 	psl, errs := parser.Parse(bs)
 
-	if *debugPrintTree {
-		debugPrint(psl)
-	}
+	errs = append(errs, psl.Clean()...)
+	errs = append(errs, parser.ValidateOffline(psl)...)
 
 	for _, err := range errs {
 		fmt.Println(err)
 	}
 
-	verrs := parser.ValidateOffline(psl)
-	for _, err := range verrs {
-		fmt.Println(err)
+	if *debugPrintTree {
+		debugPrint(psl)
 	}
 
-	if total := len(errs) + len(verrs); total > 0 {
+	if total := len(errs); total > 0 {
 		fmt.Printf("\nFile has %d errors.\n", total)
 		os.Exit(1)
 	} else {
