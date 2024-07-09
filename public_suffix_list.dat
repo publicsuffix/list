@@ -11913,6 +11913,11 @@ studio.us-west-2.sagemaker.aws
 studio.cn-north-1.sagemaker.com.cn
 studio.cn-northwest-1.sagemaker.com.cn
 
+// Amazon SageMaker with MLflow
+// Submited by: AWS Security <psl-maintainers@amazon.com>
+// Reference: c19f92b3-a82a-452d-8189-831b572eea7e
+*.experiments.sagemaker.aws
+
 // Analytics on AWS
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: 955f9f40-a495-4e73-ae85-67b77ac9cadd
