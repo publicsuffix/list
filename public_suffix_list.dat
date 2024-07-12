@@ -11355,8 +11355,9 @@ cloudfront.net
 
 // Amazon Cognito
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: 09588633-91fe-49d8-b4e7-ec36496d11f3
+// Reference: cb38c251-c93d-4cda-81ec-e72c4f0fdb72
 auth.af-south-1.amazoncognito.com
+auth.ap-east-1.amazoncognito.com
 auth.ap-northeast-1.amazoncognito.com
 auth.ap-northeast-2.amazoncognito.com
 auth.ap-northeast-3.amazoncognito.com
@@ -11367,6 +11368,7 @@ auth.ap-southeast-2.amazoncognito.com
 auth.ap-southeast-3.amazoncognito.com
 auth.ap-southeast-4.amazoncognito.com
 auth.ca-central-1.amazoncognito.com
+auth.ca-west-1.amazoncognito.com
 auth.eu-central-1.amazoncognito.com
 auth.eu-central-2.amazoncognito.com
 auth.eu-north-1.amazoncognito.com
@@ -11502,23 +11504,32 @@ emrstudio-prod.us-west-2.amazonaws.com
 
 // Amazon Managed Workflows for Apache Airflow
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: 87f24ece-a77e-40e8-bb4a-f6b74fe9f975
+// Reference: f5ea5d0a-ec6a-4f23-ac1c-553fbff13f5c
 *.cn-north-1.airflow.amazonaws.com.cn
 *.cn-northwest-1.airflow.amazonaws.com.cn
 *.af-south-1.airflow.amazonaws.com
 *.ap-east-1.airflow.amazonaws.com
 *.ap-northeast-1.airflow.amazonaws.com
 *.ap-northeast-2.airflow.amazonaws.com
+*.ap-northeast-3.airflow.amazonaws.com
 *.ap-south-1.airflow.amazonaws.com
+*.ap-south-2.airflow.amazonaws.com
 *.ap-southeast-1.airflow.amazonaws.com
 *.ap-southeast-2.airflow.amazonaws.com
+*.ap-southeast-3.airflow.amazonaws.com
+*.ap-southeast-4.airflow.amazonaws.com
 *.ca-central-1.airflow.amazonaws.com
+*.ca-west-1.airflow.amazonaws.com
 *.eu-central-1.airflow.amazonaws.com
+*.eu-central-2.airflow.amazonaws.com
 *.eu-north-1.airflow.amazonaws.com
 *.eu-south-1.airflow.amazonaws.com
+*.eu-south-2.airflow.amazonaws.com
 *.eu-west-1.airflow.amazonaws.com
 *.eu-west-2.airflow.amazonaws.com
 *.eu-west-3.airflow.amazonaws.com
+*.il-central-1.airflow.amazonaws.com
+*.me-central-1.airflow.amazonaws.com
 *.me-south-1.airflow.amazonaws.com
 *.sa-east-1.airflow.amazonaws.com
 *.us-east-1.airflow.amazonaws.com
@@ -11913,6 +11924,11 @@ studio.us-west-2.sagemaker.aws
 studio.cn-north-1.sagemaker.com.cn
 studio.cn-northwest-1.sagemaker.com.cn
 
+// Amazon SageMaker with MLflow
+// Submited by: AWS Security <psl-maintainers@amazon.com>
+// Reference: c19f92b3-a82a-452d-8189-831b572eea7e
+*.experiments.sagemaker.aws
+
 // Analytics on AWS
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: 955f9f40-a495-4e73-ae85-67b77ac9cadd
@@ -11929,8 +11945,8 @@ analytics-gateway.us-west-2.amazonaws.com
 
 // AWS Amplify
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: 5ecce854-c033-4fc4-a755-1a9916d9a9bb
-*.amplifyapp.com
+// Reference: c35bed18-6f4f-424f-9298-5756f2f7d72b
+amplifyapp.com
 
 // AWS App Runner
 // Submitted by AWS Security <psl-maintainers@amazon.com>
