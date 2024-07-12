@@ -32,22 +32,30 @@ ac.ae
 gov.ae
 mil.ae
 
-// aero : see https://www.information.aero/index.php?id=66
+// aero : https://information.aero/registration/policies/dmp
 aero
+// 2LDs
+airline.aero
+airport.aero
+// 2LDs (currently not accepting registration, seemingly never have)
+// As of 2024-07, these are marked as reserved for potential 3LD
+// registrations (clause 11 "allocated subdomains" in the 2006 TLD
+// policy), but the relevant industry partners have not opened them up
+// for registration. Current status can be determined from the TLD's
+// policy document: 2LDs that are open for registration must list
+// their policy in the TLD's policy. Any 2LD without such a policy is
+// not open for registrations.
 accident-investigation.aero
 accident-prevention.aero
 aerobatic.aero
 aeroclub.aero
 aerodrome.aero
 agents.aero
-aircraft.aero
-airline.aero
-airport.aero
 air-surveillance.aero
-airtraffic.aero
 air-traffic-control.aero
+aircraft.aero
+airtraffic.aero
 ambulance.aero
-amusement.aero
 association.aero
 author.aero
 ballooning.aero
@@ -78,6 +86,7 @@ exchange.aero
 express.aero
 federation.aero
 flight.aero
+freight.aero
 fuel.aero
 gliding.aero
 government.aero
@@ -92,6 +101,7 @@ leasing.aero
 logistics.aero
 magazine.aero
 maintenance.aero
+marketplace.aero
 media.aero
 microlight.aero
 modelling.aero
@@ -114,6 +124,7 @@ show.aero
 skydiving.aero
 software.aero
 student.aero
+taxi.aero
 trader.aero
 trading.aero
 trainer.aero
