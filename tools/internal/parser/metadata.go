@@ -6,77 +6,71 @@ import (
 	"strings"
 )
 
-// enrichSuffixes extracts structured metadata from metadata and
-// populates the appropriate fields of suffixes.
-func enrichSuffixes(suffixes *Suffixes, comment *Comment) {
-	// Try to find an entity name in the header. There are a few
-	// possible ways this can appear, but the canonical is a first
-	// header line of the form "<name>: <url>".
-	//
-	// If the canonical form is missing, a number of other variations
-	// are tried in order to maximize the information we can extract
-	// from the real PSL. Non-canonical representations may produce
-	// validation errors in future, but currently do not.
-	//
-	// See splitNameish for a list of accepted alternate forms.
-	for _, line := range comment.Text {
-		name, url, contact := splitNameish(line)
-		if name == "" {
-			continue
-		}
-
-		suffixes.Entity = name
-		if url != nil {
-			suffixes.URL = url
-		}
-		if contact != nil {
-			suffixes.Submitter = contact
-		}
-		break
-	}
-	if suffixes.Entity == "" {
-		// Assume the first line is the entity name, if it's not
-		// obviously something else.
-		first := comment.Text[0]
-		// "see also" is the first line of a number of ICANN TLD
-		// sections.
-		if getSubmitter(first) == nil && getURL(first) == nil && first != "see also" {
-			suffixes.Entity = first
-		}
+// extractMaintainerInfo extracts structured maintainer metadata from
+// comment.
+func extractMaintainerInfo(comment *Comment) MaintainerInfo {
+	if comment == nil || len(comment.Text) == 0 {
+		return MaintainerInfo{MachineEditable: true}
 	}
 
-	// Try to find contact info, if the previous step didn't find
-	// any. The only remaining formats we understand is a line with
-	// "Submitted by <contact>", or failing that a parseable RFC5322
-	// email on a line by itself.
-	if suffixes.Submitter == nil {
-		for _, line := range comment.Text {
-			if submitter := getSubmitter(line); submitter != nil {
-				suffixes.Submitter = submitter
-				break
+	var (
+		ret = MaintainerInfo{
+			MachineEditable: true,
+		}
+		lines             = comment.Text
+		firstUnusableLine = -1
+	)
+
+	// The first line of metadata usually follows a standard
+	// form. Handle that first, then scan through the rest of the
+	// comment to find any further stuff.
+	name, siteURL, email, ok := splitNameish(lines[0])
+	if ok {
+		ret.Name = name
+		if siteURL != nil {
+			ret.URLs = append(ret.URLs, siteURL)
+		}
+		if email != nil {
+			ret.Maintainers = append(ret.Maintainers, email)
+		}
+		lines = lines[1:]
+	}
+
+	// Aside from the special first line, remaining lines could be
+	// maintainer emails in a few formats, or URLs, or something
+	// else. We accumulate everything we can parse, but also keep
+	// track of whether the information is laid out such that we could
+	// write the information back out without data loss (although not
+	// necessarily in the exact same format).
+	for i, line := range lines {
+		lineUsed := false
+		if emails := getSubmitters(line); len(emails) > 0 {
+			ret.Maintainers = append(ret.Maintainers, emails...)
+			lineUsed = true
+		} else if email, err := mail.ParseAddress(line); err == nil {
+			ret.Maintainers = append(ret.Maintainers, email)
+			lineUsed = true
+		} else if u := getURL(line); u != nil {
+			ret.URLs = append(ret.URLs, u)
+			lineUsed = true
+		} else if i == 0 && ret.Name == "" {
+			ret.Name = line
+			lineUsed = true
+		} else {
+			ret.Other = append(ret.Other, line)
+			if firstUnusableLine < 0 {
+				firstUnusableLine = i + 1
 			}
 		}
-	}
-	if suffixes.Submitter == nil {
-		for _, line := range comment.Text {
-			if submitter, err := mail.ParseAddress(line); err == nil {
-				suffixes.Submitter = submitter
-				break
-			}
+
+		if lineUsed && firstUnusableLine >= 0 {
+			// Parseable lines after non-parseable lines, we cannot
+			// confidently write the data back out without dataloss.
+			ret.MachineEditable = false
 		}
 	}
 
-	// Try to find a URL, if the previous step didn't find one. The
-	// only remaining format we understand is a line with a URL by
-	// itself.
-	if suffixes.URL == nil {
-		for _, line := range comment.Text {
-			if u := getURL(line); u != nil {
-				suffixes.URL = u
-				break
-			}
-		}
-	}
+	return ret
 }
 
 // submittedBy is the conventional text that precedes email contact
@@ -99,27 +93,25 @@ const submittedBy = "submitted by"
 //     omit https://.
 //   - "<entity name>: Submitted by <email address>", where the second
 //     part is any variant accepted by getSubmitter.
-//   - The canonical form, but with a unicode fullwidth colon (U+FF1A)
-//     instead of a regular colon.
 //   - Any amount of whitespace on either side of the colon (or
 //     fullwidth colon).
-func splitNameish(line string) (name string, url *url.URL, submitter *mail.Address) {
+func splitNameish(line string) (name string, url *url.URL, submitter *mail.Address, ok bool) {
 	if strings.HasPrefix(strings.ToLower(line), submittedBy) {
 		// submitted-by lines are handled separately elsewhere, and
 		// can be misinterpreted as entity names.
-		return "", nil, nil
+		return "", nil, nil, false
 	}
 
 	// Some older entries are of the form "entity name (url)".
 	if strings.HasSuffix(line, ")") {
 		if name, url, ok := splitNameAndURLInParens(line); ok {
-			return name, url, nil
+			return name, url, nil, true
 		}
 	}
 
 	name, rest, ok := strings.Cut(line, ":")
 	if !ok {
-		return "", nil, nil
+		return "", nil, nil, false
 	}
 
 	// Clean up whitespace either side of the colon.
@@ -127,11 +119,11 @@ func splitNameish(line string) (name string, url *url.URL, submitter *mail.Addre
 	rest = strings.TrimSpace(rest)
 
 	if u := getURL(rest); u != nil {
-		return name, u, nil
-	} else if contact := getSubmitter(rest); contact != nil {
-		return name, nil, contact
+		return name, u, nil, true
+	} else if emails := getSubmitters(rest); len(emails) == 1 {
+		return name, nil, emails[0], true
 	}
-	return "", nil, nil
+	return "", nil, nil, false
 }
 
 // splitNameAndURLInParens tries to parse line in the form:
@@ -191,19 +183,32 @@ func getURL(line string) *url.URL {
 //
 // Returns the parsed RFC 5322 address, or nil if line does not
 // conform to the expected shape.
-func getSubmitter(line string) *mail.Address {
-	if !strings.HasPrefix(strings.ToLower(line), submittedBy) {
-		return nil
+func getSubmitters(line string) []*mail.Address {
+	if strings.HasPrefix(strings.ToLower(line), submittedBy) {
+		line = line[len(submittedBy):]
 	}
-	line = line[len(submittedBy):]
 	// Some entries read "Submitted by: ..." with an extra colon.
 	line = strings.TrimLeft(line, ":")
 	line = strings.TrimSpace(line)
 	// Some ICANN domains lead with "Submitted by registry".
-	line = strings.TrimLeft(line, "registry ")
+	line = strings.TrimPrefix(line, "registry ")
 
-	if addr, err := mail.ParseAddress(line); err == nil {
-		return addr
+	var ret []*mail.Address
+	emailStrs := strings.Split(line, " and ")
+
+	fullyParsed := true
+	for _, emailStr := range emailStrs {
+		addr, err := mail.ParseAddress(emailStr)
+		if err != nil {
+			fullyParsed = false
+			continue
+		}
+		ret = append(ret, addr)
+	}
+
+	if fullyParsed {
+		// Found a way to consume the entire input, we're done.
+		return ret
 	}
 
 	// One current entry uses old school email obfuscation to foil
@@ -214,7 +219,7 @@ func getSubmitter(line string) *mail.Address {
 		cleaned := strings.Replace(line, " at ", "@", 1)
 		cleaned = strings.Replace(cleaned, " dot ", ".", 1)
 		if addr, err := mail.ParseAddress(cleaned); err == nil {
-			return addr
+			return []*mail.Address{addr}
 		}
 	}
 
@@ -226,7 +231,7 @@ func getSubmitter(line string) *mail.Address {
 			name := strings.Join(fs[:len(fs)-1], " ")
 			name = strings.Trim(name, " ,:")
 			addr.Name = name
-			return addr
+			return []*mail.Address{addr}
 		}
 	}
 

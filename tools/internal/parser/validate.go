@@ -12,7 +12,7 @@ import (
 func ValidateOffline(l *List) []error {
 	var ret []error
 
-	for _, block := range blocksOfType[*Section](l) {
+	for _, block := range BlocksOfType[*Section](l) {
 		if block.Name == "PRIVATE DOMAINS" {
 			ret = append(ret, validateEntityMetadata(block)...)
 			if err := validatePrivateSectionOrder(block); err != nil {
@@ -29,12 +29,12 @@ func ValidateOffline(l *List) []error {
 // kind of entity name.
 func validateEntityMetadata(block *Section) []error {
 	var ret []error
-	for _, block := range blocksOfType[*Suffixes](block) {
-		if block.Entity == "" {
+	for _, block := range BlocksOfType[*Suffixes](block) {
+		if block.Info.Name == "" {
 			ret = append(ret, ErrMissingEntityName{
 				Suffixes: block,
 			})
-		} else if block.Submitter == nil && !exemptFromContactInfo(block.Entity) {
+		} else if len(block.Info.Maintainers) == 0 && !exemptFromContactInfo(block.Info.Name) {
 			ret = append(ret, ErrMissingEntityEmail{
 				Suffixes: block,
 			})
@@ -93,8 +93,8 @@ func validatePrivateSectionOrder(block *Section) error {
 			if inAmazonSuperblock {
 				last := len(blocks) - 1
 				blocks[last].Suffixes = append(blocks[last].Suffixes, v)
-			} else if !exemptFromSorting(v.Entity) {
-				blocks = append(blocks, superblock{v.Entity, []*Suffixes{v}})
+			} else if !exemptFromSorting(v.Info.Name) {
+				blocks = append(blocks, superblock{v.Info.Name, []*Suffixes{v}})
 			}
 		}
 	}
@@ -180,7 +180,7 @@ func validatePrivateSectionOrder(block *Section) error {
 		insertAfter := ""
 		if targetIdx > 0 {
 			suffixesOfPrev := fixed[targetIdx-1].Suffixes
-			insertAfter = suffixesOfPrev[len(suffixesOfPrev)-1].Entity
+			insertAfter = suffixesOfPrev[len(suffixesOfPrev)-1].Info.Name
 		}
 
 		// Superblocks can contain many suffixes. Move entire
@@ -193,7 +193,7 @@ func validatePrivateSectionOrder(block *Section) error {
 		} else {
 			block := toMove.Suffixes[0]
 			err.EditScript = append(err.EditScript, MoveSuffixBlock{
-				Name:        block.Entity,
+				Name:        block.Info.Name,
 				InsertAfter: insertAfter,
 			})
 		}
@@ -204,33 +204,4 @@ func validatePrivateSectionOrder(block *Section) error {
 	}
 
 	return err
-}
-
-// A childrener can return a list of its children.
-// Yes, the interface name sounds a bit silly, but it's the
-// conventional Go name given what it does.
-type childrener interface {
-	Children() []Block
-}
-
-// blocksOfType recursively walks the subtree rooted at c and returns
-// all tree nodes of concrete block type T.
-//
-// For example, blocksOfType[*Comment](n) returns all comment nodes
-// under n.
-func blocksOfType[T Block](c childrener) []T {
-	var ret []T
-
-	var rec func(childrener)
-	rec = func(c childrener) {
-		if v, ok := c.(T); ok {
-			ret = append(ret, v)
-		}
-		for _, child := range c.Children() {
-			rec(child)
-		}
-	}
-	rec(c)
-
-	return ret
 }

@@ -58,12 +58,8 @@ func main() {
 
 // debugPrint prints out a PSL syntax tree in a private, subject to
 // change text format.
-func debugPrint(p *parser.List) {
-	fmt.Println("List {")
-	for _, b := range p.Blocks {
-		debugPrintRec(b, "    ")
-	}
-	fmt.Println("}")
+func debugPrint(b parser.Block) {
+	debugPrintRec(b, "")
 }
 
 func debugPrintRec(b parser.Block, indent string) {
@@ -78,6 +74,12 @@ func debugPrintRec(b parser.Block, indent string) {
 	}
 
 	switch v := b.(type) {
+	case *parser.List:
+		f("List(%s) {", loc)
+		for _, b := range v.Blocks {
+			debugPrintRec(b, nextIndent)
+		}
+		f("}")
 	case *parser.Blank:
 		f("Blank(%s)", loc)
 	case *parser.Comment:
@@ -93,15 +95,18 @@ func debugPrintRec(b parser.Block, indent string) {
 		}
 		f("}")
 	case *parser.Suffixes:
-		items := []string{loc}
-		if v.Entity != "" {
-			items = append(items, fmt.Sprintf("name=%q", v.Entity))
+		items := []string{loc, fmt.Sprintf("editable=%v", v.Info.MachineEditable)}
+		if v.Info.Name != "" {
+			items = append(items, fmt.Sprintf("name=%q", v.Info.Name))
 		}
-		if v.URL != nil {
-			items = append(items, fmt.Sprintf("url=%q", v.URL))
+		for _, u := range v.Info.URLs {
+			items = append(items, fmt.Sprintf("url=%q", u))
 		}
-		if v.Submitter != nil {
-			items = append(items, fmt.Sprintf("contact=%q", v.Submitter))
+		for _, e := range v.Info.Maintainers {
+			items = append(items, fmt.Sprintf("contact=%q", e))
+		}
+		for _, o := range v.Info.Other {
+			items = append(items, fmt.Sprintf("other=%q", o))
 		}
 
 		f("SuffixBlock(%s) {", strings.Join(items, fmt.Sprintf(",\n%s            ", indent)))
