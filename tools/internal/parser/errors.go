@@ -14,47 +14,14 @@ func (e ErrInvalidEncoding) Error() string {
 	return fmt.Sprintf("invalid character encoding %s", e.Encoding)
 }
 
-// ErrUTF8BOM reports that the input has an unnecessary UTF-8 byte
-// order mark (BOM) at the start.
-type ErrUTF8BOM struct{}
-
-func (e ErrUTF8BOM) Error() string { return "file has a UTF-8 byte order mark (BOM)" }
-
-// ErrInvalidUTF8 reports that a line contains bytes that are not
-// valid UTF-8.
-type ErrInvalidUTF8 struct {
+// ErrInvalidUnicode reports that a line contains characters that are
+// not valid Unicode.
+type ErrInvalidUnicode struct {
 	SourceRange
 }
 
-func (e ErrInvalidUTF8) Error() string {
-	return fmt.Sprintf("%s: invalid UTF-8 bytes", e.SourceRange.LocationString())
-}
-
-// ErrDOSNewline reports that a line has a DOS style line ending.
-type ErrDOSNewline struct {
-	SourceRange
-}
-
-func (e ErrDOSNewline) Error() string {
-	return fmt.Sprintf("%s: found DOS line ending (\\r\\n instead of just \\n)", e.SourceRange.LocationString())
-}
-
-// ErrTrailingWhitespace reports that a line has trailing whitespace.
-type ErrTrailingWhitespace struct {
-	SourceRange
-}
-
-func (e ErrTrailingWhitespace) Error() string {
-	return fmt.Sprintf("%s: trailing whitespace", e.SourceRange.LocationString())
-}
-
-// ErrLeadingWhitespace reports that a line has leading whitespace.
-type ErrLeadingWhitespace struct {
-	SourceRange
-}
-
-func (e ErrLeadingWhitespace) Error() string {
-	return fmt.Sprintf("%s: leading whitespace", e.SourceRange.LocationString())
+func (e ErrInvalidUnicode) Error() string {
+	return fmt.Sprintf("%s: invalid Unicode character(s)", e.SourceRange.LocationString())
 }
 
 // ErrSectionInSuffixBlock reports that a comment within a suffix
