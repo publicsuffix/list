@@ -12257,10 +12257,6 @@ uk0.bigv.io
 dh.bytemark.co.uk
 vm.bytemark.co.uk
 
-// Content Addressed Origin : https://caddr.org/
-// Submitted by Kevin Kwok <dns@caddr.org>
-caddr.org
-
 // Caf.js Labs LLC : https://www.cafjs.com
 // Submitted by Antonio Lain <antlai@cafjs.com>
 cafjs.com
@@ -12495,6 +12491,10 @@ co.no
 // Submitted by Thomas Wouters <thomas.wouters@combellgroup.com>
 webhosting.be
 hosting-cluster.nl
+
+// Content Addressed Origin : https://caddr.org/
+// Submitted by Kevin Kwok <dns@caddr.org>
+caddr.org
 
 // Convex : https://convex.dev/
 // Submitted by James Cowling <security@convex.dev>
