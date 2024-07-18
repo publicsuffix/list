@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"strings"
-	"unicode"
 	"unicode/utf8"
 
 	"golang.org/x/text/encoding"
@@ -89,16 +88,18 @@ var (
 func normalizeToUTF8Lines(bs []byte) ([]string, []error) {
 	var errs []error
 
+	// Figure out the byte encoding to use. We try to detect and
+	// correctly parse UTF-16 that doesn't have a BOM, but we also
+	// report an explicit parse error in that case, because we cannot
+	// be confident the parse is 100% correct, and therefore we can't
+	// automatically fix it.
 	enc := utf8Transform
 	switch {
 	case bytes.HasPrefix(bs, []byte(bomUTF8)):
-		errs = append(errs, ErrUTF8BOM{})
 	case bytes.HasPrefix(bs, []byte(bomUTF16BE)):
 		enc = utf16BigEndianTransform
-		errs = append(errs, ErrInvalidEncoding{"UTF-16BE"})
 	case bytes.HasPrefix(bs, []byte(bomUTF16LE)):
 		enc = utf16LittleEndianTransform
-		errs = append(errs, ErrInvalidEncoding{"UTF-16LE"})
 	default:
 		enc = guessUTFVariant(bs)
 		switch enc {
@@ -135,23 +136,11 @@ func normalizeToUTF8Lines(bs []byte) ([]string, []error) {
 		// byte sequences are.
 		src := SourceRange{i, i + 1}
 		if strings.ContainsRune(line, utf8.RuneError) {
-			errs = append(errs, ErrInvalidUTF8{src})
+			// We can't fix invalid Unicode, by definition we don't
+			// know what it's trying to say.
+			errs = append(errs, ErrInvalidUnicode{src})
 		}
-		line, ok := strings.CutSuffix(line, "\r")
-		if ok {
-			ret[i] = line
-			errs = append(errs, ErrDOSNewline{src})
-		}
-		if ln := strings.TrimRightFunc(line, unicode.IsSpace); ln != line {
-			line = ln
-			ret[i] = line
-			errs = append(errs, ErrTrailingWhitespace{src})
-		}
-		if ln := strings.TrimLeftFunc(line, unicode.IsSpace); ln != line {
-			line = ln
-			ret[i] = line
-			errs = append(errs, ErrLeadingWhitespace{src})
-		}
+		ret[i] = strings.TrimSpace(line)
 	}
 
 	return ret, errs

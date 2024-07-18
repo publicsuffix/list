@@ -49,17 +49,13 @@ import (
 // and "default" style choices for English: ordering is
 // case-sensitive, whitespace-sensitive and punctuation-sensitive, and
 // numbers are compared in lexicographic order, not numeric order.
-//
-// Note this collation MUST NOT be used for DNS suffix. Suffixes have
-// unique compatibility and security constraints, and use bespoke
-// rules that are completely different from the rules for human
-// language.
 
 // compareCommentText compares the strings of comment text a and b,
 // using the PSL's chosen collation. It returns -1 if a < b, +1 if a >
 // b, or 0 if a == b.
 //
-// This function MUST NOT be used to compare suffixes or DNS labels.
+// This function MUST NOT be used to compare domain name or DNS label
+// strings. For that, use domain.Name.Compare or domain.Label.Compare.
 func compareCommentText(a string, b string) int {
 	// golang.org/x/text/collate has a few bugs, and in particular the
 	// "CompareString" method uses a special "incremental collation"

@@ -5,6 +5,8 @@ import (
 	"net/mail"
 	"net/url"
 	"slices"
+
+	"github.com/publicsuffix/list/tools/internal/domain"
 )
 
 // List is a parsed public suffix list.
@@ -19,8 +21,7 @@ type List struct {
 func (l *List) Children() []Block { return l.Blocks }
 
 // A Block is a parsed chunk of a PSL file. Each block is one of the
-// concrete types Blank, Comment, Section, Suffixes, Suffix, or
-// Wildcard.
+// concrete types Comment, Section, Suffixes, Suffix, or Wildcard.
 type Block interface {
 	// SrcRange returns the block's SourceRange.
 	SrcRange() SourceRange
@@ -47,13 +48,6 @@ func blocksOfTypeRec[T Block](tree Block, out *[]T) {
 		blocksOfTypeRec(child, out)
 	}
 }
-
-// Blank is a set of one or more consecutive blank lines.
-type Blank struct {
-	SourceRange
-}
-
-func (b *Blank) Children() []Block { return nil }
 
 // Comment is a comment block, consisting of one or more contiguous
 // lines of commented text.
@@ -184,13 +178,18 @@ func (m *MaintainerInfo) Compare(n *MaintainerInfo) int {
 	}
 }
 
+// HasInfo reports whether m has any maintainer information at all.
+func (m MaintainerInfo) HasInfo() bool {
+	return m.Name != "" || len(m.URLs) > 0 || len(m.Maintainers) > 0 || len(m.Other) > 0
+}
+
 // Suffix is one public suffix, represented in the standard domain
 // name format.
 type Suffix struct {
 	SourceRange
 
-	// Labels are the DNS labels of the public suffix.
-	Labels []string
+	// Domain is the public suffix's domain name.
+	Domain domain.Name
 }
 
 func (s *Suffix) Children() []Block { return nil }
@@ -200,15 +199,15 @@ func (s *Suffix) Children() []Block { return nil }
 type Wildcard struct {
 	SourceRange
 
-	// Labels are the DNS labels of the public suffix, without the
+	// Domain is the base of the wildcard public suffix, without the
 	// leading "*" label.
-	Labels []string
-	// Exceptions are the DNS label values that, when they appear in
-	// the wildcard position, cause a FQDN to _not_ match this
-	// wildcard. For example, if Labels=[foo, com] and
-	// Exceptions=[bar, qux], zot.foo.com is a public suffix, but
-	// bar.foo.com and qux.foo.com are not.
-	Exceptions []string
+	Domain domain.Name
+	// Exceptions are the domain.Labels that, when they appear in the
+	// wildcard position of Domain, cause a FQDN to _not_ match this
+	// wildcard. For example, if Domain="foo.com" and Exceptions=[bar,
+	// qux], zot.foo.com is a public suffix, but bar.foo.com and
+	// qux.foo.com are not.
+	Exceptions []domain.Label
 }
 
 func (w *Wildcard) Children() []Block { return nil }

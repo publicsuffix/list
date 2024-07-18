@@ -46,16 +46,14 @@ func TestNormalize(t *testing.T) {
 			},
 		},
 		{
-			name:     "utf16be_input_with_bom",
-			in:       utf16BigWithBOM("utf-16 text"),
-			want:     []string{"utf-16 text"},
-			wantErrs: []error{ErrInvalidEncoding{"UTF-16BE"}},
+			name: "utf16be_input_with_bom",
+			in:   utf16BigWithBOM("utf-16 text"),
+			want: []string{"utf-16 text"},
 		},
 		{
-			name:     "utf16le_input_with_bom",
-			in:       utf16LittleWithBOM("utf-16 text"),
-			want:     []string{"utf-16 text"},
-			wantErrs: []error{ErrInvalidEncoding{"UTF-16LE"}},
+			name: "utf16le_input_with_bom",
+			in:   utf16LittleWithBOM("utf-16 text"),
+			want: []string{"utf-16 text"},
 		},
 		{
 			name:     "utf16be_input",
@@ -70,10 +68,9 @@ func TestNormalize(t *testing.T) {
 			wantErrs: []error{ErrInvalidEncoding{"UTF-16LE (guessed)"}},
 		},
 		{
-			name:     "utf8_with_bom",
-			in:       utf8WithBOM("utf-8 text"),
-			want:     []string{"utf-8 text"},
-			wantErrs: []error{ErrUTF8BOM{}},
+			name: "utf8_with_bom",
+			in:   utf8WithBOM("utf-8 text"),
+			want: []string{"utf-8 text"},
 		},
 		{
 			name: "utf8_with_garbage",
@@ -105,10 +102,10 @@ func TestNormalize(t *testing.T) {
 				"this line is ok",
 			},
 			wantErrs: []error{
-				ErrInvalidUTF8{mkSrc(1, 2)},
-				ErrInvalidUTF8{mkSrc(2, 3)},
-				ErrInvalidUTF8{mkSrc(3, 4)},
-				ErrInvalidUTF8{mkSrc(4, 5)},
+				ErrInvalidUnicode{mkSrc(1, 2)},
+				ErrInvalidUnicode{mkSrc(2, 3)},
+				ErrInvalidUnicode{mkSrc(3, 4)},
+				ErrInvalidUnicode{mkSrc(4, 5)},
 			},
 		},
 		{
@@ -121,10 +118,6 @@ func TestNormalize(t *testing.T) {
 				"normal file",
 				"except the lines",
 				"end like it's 1991",
-			},
-			wantErrs: []error{
-				ErrDOSNewline{mkSrc(0, 1)},
-				ErrDOSNewline{mkSrc(1, 2)},
 			},
 		},
 		{
@@ -145,12 +138,6 @@ func TestNormalize(t *testing.T) {
 				"of trailing space",
 				"and one good line",
 			},
-			wantErrs: []error{
-				ErrTrailingWhitespace{mkSrc(0, 1)},
-				ErrTrailingWhitespace{mkSrc(1, 2)},
-				ErrTrailingWhitespace{mkSrc(2, 3)},
-				ErrTrailingWhitespace{mkSrc(3, 4)},
-			},
 		},
 		{
 			name: "leading_whitespace",
@@ -170,23 +157,13 @@ func TestNormalize(t *testing.T) {
 				"of leading space",
 				"and one good line",
 			},
-			wantErrs: []error{
-				ErrLeadingWhitespace{mkSrc(0, 1)},
-				ErrLeadingWhitespace{mkSrc(1, 2)},
-				ErrTrailingWhitespace{mkSrc(2, 3)},
-				ErrLeadingWhitespace{mkSrc(3, 4)},
-			},
 		},
 		{
 			name: "the_most_wrong_line",
 			in:   byteLines("\xef\xbb\xbf  \t  // Hello\xc3\x28 very broken line\t  \r"),
 			want: []string{"// Hello\uFFFD( very broken line"},
 			wantErrs: []error{
-				ErrUTF8BOM{},
-				ErrInvalidUTF8{mkSrc(0, 1)},
-				ErrDOSNewline{mkSrc(0, 1)},
-				ErrTrailingWhitespace{mkSrc(0, 1)},
-				ErrLeadingWhitespace{mkSrc(0, 1)},
+				ErrInvalidUnicode{mkSrc(0, 1)},
 			},
 		},
 	}
