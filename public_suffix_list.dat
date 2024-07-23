@@ -5087,22 +5087,25 @@ ngo.ph
 mil.ph
 i.ph
 
-// pk : http://pk5.pknic.net.pk/pk5/msgNamepk.PK
+// pk : PKNIC .PK Registry https://pknic.net.pk
+// pk : http://pk5.pknic.net.pk/pk5/msgNamepk.PK + grandfathered old gon.pk
 pk
-com.pk
-net.pk
-edu.pk
-org.pk
-fam.pk
+ac.pk
 biz.pk
-web.pk
-gov.pk
+com.pk
+edu.pk
+fam.pk
+gkp.pk
 gob.pk
+gog.pk
 gok.pk
 gon.pk
 gop.pk
 gos.pk
-info.pk
+gov.pk
+net.pk
+org.pk
+web.pk
 
 // pl http://www.dns.pl/english/index.html
 // Submitted by registry
