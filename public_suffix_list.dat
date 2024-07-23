@@ -12553,10 +12553,6 @@ on.crisp.email
 // Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
 *.cryptonomic.net
 
-// Cupcake : https://cupcake.io/
-// Submitted by Jonathan Rudenberg <jonathan@cupcake.io>
-cupcake.is
-
 // Curv UG : https://curv-labs.de/
 // Submitted by Marvin Wiesner <Marvin@curv-labs.de>
 curv.dev
