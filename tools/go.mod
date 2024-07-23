@@ -1,6 +1,8 @@
 module github.com/publicsuffix/list/tools
 
-go 1.21
+go 1.22
+
+toolchain go1.22.5
 
 require (
 	github.com/google/go-cmp v0.6.0
@@ -8,4 +10,9 @@ require (
 	golang.org/x/text v0.16.0
 )
 
-require github.com/natefinch/atomic v1.0.1
+require (
+	github.com/creachadair/command v0.1.13
+	github.com/creachadair/flax v0.0.0-20240525192034-44db93b3a8ad
+	github.com/creachadair/mds v0.15.2
+	github.com/natefinch/atomic v1.0.1
+)
