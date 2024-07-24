@@ -67,6 +67,10 @@ func (l *List) MarshalDebug() []byte {
 }
 
 func writeBlockDebug(w io.Writer, b Block, indent string) {
+	changemark := ""
+	if b.Changed() {
+		changemark = "!!"
+	}
 	f := func(msg string, args ...any) {
 		fmt.Fprintf(w, indent+msg+"\n", args...)
 	}
@@ -82,13 +86,13 @@ func writeBlockDebug(w io.Writer, b Block, indent string) {
 
 	switch v := b.(type) {
 	case *List:
-		f("List(%s) {", loc)
+		f("%sList(%s) {", changemark, loc)
 		for _, child := range v.Blocks {
 			writeBlockDebug(w, child, nextIndent)
 		}
 		f("} // List")
 	case *Section:
-		f("Section(%s, name=%q) {", loc, v.Name)
+		f("%sSection(%s, name=%q) {", changemark, loc, v.Name)
 		for _, child := range v.Blocks {
 			writeBlockDebug(w, child, nextIndent)
 		}
@@ -111,22 +115,22 @@ func writeBlockDebug(w io.Writer, b Block, indent string) {
 
 		const open = "SuffixBlock("
 		pad := strings.Repeat(" ", len(open))
-		f("%s%s) {", open, strings.Join(items, fmt.Sprintf(",\n%s%s", indent, pad)))
+		f("%s%s%s) {", changemark, open, strings.Join(items, fmt.Sprintf(",\n%s%s", indent, pad)))
 		for _, child := range v.Blocks {
 			writeBlockDebug(w, child, nextIndent)
 		}
 		f("} // SuffixBlock(name=%q)", v.Info.Name)
 	case *Suffix:
-		f("Suffix(%s, %q)", loc, v.Domain)
+		f("%sSuffix(%s, %q)", changemark, loc, v.Domain)
 	case *Wildcard:
 		w := fmt.Sprintf("*.%s", v.Domain)
 		if len(v.Exceptions) > 0 {
-			f("Wildcard(%s, %q, except=%v)", loc, w, v.Exceptions)
+			f("%sWildcard(%s, %q, except=%v)", changemark, loc, w, v.Exceptions)
 		} else {
-			f("Wildcard(%s, %q)", loc, w)
+			f("%sWildcard(%s, %q)", changemark, loc, w)
 		}
 	case *Comment:
-		f("Comment(%s) {", loc)
+		f("%sComment(%s) {", changemark, loc)
 		for _, line := range v.Text {
 			f("%s%s", extraIndent, line)
 		}
