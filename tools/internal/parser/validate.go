@@ -16,14 +16,19 @@ func ValidateOffline(l *List) []error {
 
 // validateEntityMetadata verifies that all suffix blocks have some
 // kind of entity name.
-func validateEntityMetadata(block *Section) []error {
+func validateEntityMetadata(block Block) []error {
 	var ret []error
 	for _, block := range BlocksOfType[*Suffixes](block) {
+		if !block.Changed() {
+			continue
+		}
+
 		if block.Info.Name == "" {
 			ret = append(ret, ErrMissingEntityName{
 				Suffixes: block,
 			})
-		} else if len(block.Info.Maintainers) == 0 && !exemptFromContactInfo(block.Info.Name) {
+		}
+		if len(block.Info.Maintainers) == 0 && !exemptFromContactInfo(block.Info.Name) {
 			ret = append(ret, ErrMissingEntityEmail{
 				Suffixes: block,
 			})
