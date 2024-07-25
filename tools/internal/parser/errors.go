@@ -137,3 +137,47 @@ type ErrCommentPreventsSectionSort struct {
 func (e ErrCommentPreventsSectionSort) Error() string {
 	return fmt.Sprintf("%s: comment prevents full sorting of PSL section", e.SourceRange.LocationString())
 }
+
+type ErrDuplicateSection struct {
+	*Section
+	FirstDefinition *Section
+}
+
+func (e ErrDuplicateSection) Error() string {
+	return fmt.Sprintf("%s: duplicate section %q, first definition at %s", e.LocationString(), e.Name, e.FirstDefinition.LocationString())
+}
+
+type ErrUnknownSection struct {
+	*Section
+}
+
+func (e ErrUnknownSection) Error() string {
+	return fmt.Sprintf("%s: unknown section %q, allowed sections are 'ICANN DOMAINS' and 'PRIVATE DOMAINS'", e.LocationString(), e.Name)
+}
+
+type ErrMissingSection struct {
+	Name string
+}
+
+func (e ErrMissingSection) Error() string {
+	return fmt.Sprintf("missing required section %q", e.Name)
+}
+
+type ErrDuplicateSuffix struct {
+	Name            string
+	Block                 // Suffix or Wildcard
+	FirstDefinition Block // Suffix or Wildcard
+}
+
+func (e ErrDuplicateSuffix) Error() string {
+	return fmt.Sprintf("%s: duplicate suffix definition for %q, first definition at %s", e.SrcRange().LocationString(), e.Name, e.FirstDefinition.SrcRange().LocationString())
+}
+
+type ErrConflictingSuffixAndException struct {
+	*Suffix
+	Wildcard *Wildcard
+}
+
+func (e ErrConflictingSuffixAndException) Error() string {
+	return fmt.Sprintf("%s: suffix %s conflicts with exception in wildcard at %s", e.LocationString(), e.Domain, e.Wildcard.LocationString())
+}

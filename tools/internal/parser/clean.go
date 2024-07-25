@@ -54,7 +54,7 @@ func cleanBlock(b Block) []error {
 		ret = append(ret, sortSuffixes(v)...)
 		rewriteSuffixesMetadata(v)
 	case *Wildcard:
-		slices.SortFunc(v.Exceptions, domain.Label.Compare)
+		cleanWildcard(v)
 	case *Comment, *Suffix:
 		// No cleaning required
 	default:
@@ -62,6 +62,12 @@ func cleanBlock(b Block) []error {
 	}
 
 	return ret
+}
+
+func cleanWildcard(w *Wildcard) {
+	// Sort and deduplicate exception domains.
+	slices.SortFunc(w.Exceptions, domain.Label.Compare)
+	w.Exceptions = slices.Compact(w.Exceptions)
 }
 
 func sortSection(s *Section) []error {
@@ -224,6 +230,9 @@ func sortSuffixes(s *Suffixes) []error {
 		prevGroupEnd   Block    // last suffix/wildcard of previous group
 		prevComment    *Comment // last Comment seen, for error reporting
 		thisGroupStart int
+		// We have to construct a new output slice, because the
+		// deduplicating sort below might shrink s.Blocks.
+		out = make([]Block, 0, len(s.Blocks))
 	)
 
 	sortAndCheck := func(group []Block) {
@@ -231,7 +240,14 @@ func sortSuffixes(s *Suffixes) []error {
 			return
 		}
 
+		// Sort and deduplicate. Within a single group inside a suffix
+		// block, duplicate suffixes are semantically equivalent so
+		// it's safe to remove dupes.
 		slices.SortFunc(group, compareSuffixAndWildcard)
+		group = slices.CompactFunc(group, func(a, b Block) bool {
+			return compareSuffixAndWildcard(a, b) == 0
+		})
+		out = append(out, group...)
 
 		if prevGroupEnd == nil {
 			// First group.
@@ -258,6 +274,7 @@ func sortSuffixes(s *Suffixes) []error {
 				sortAndCheck(group)
 				prevComment = v
 			}
+			out = append(out, v)
 			thisGroupStart = i + 1
 		default:
 			panic("unknown ast node")
@@ -267,8 +284,7 @@ func sortSuffixes(s *Suffixes) []error {
 		sortAndCheck(s.Blocks[thisGroupStart:])
 	}
 
-	// Unlike in sortSection, no need to construct a new s.Blocks,
-	// we've sorted the blocks in-place.
+	s.Blocks = out
 
 	return errs
 }

@@ -142,6 +142,18 @@ func (d Name) CutSuffix(suffix Name) (rest []Label, found bool) {
 	return ret, true
 }
 
+// AddPrefix returns d prefixed with label.
+//
+// For example, AddPrefix of "bar" to "foo.com" is "bar.foo.com".
+func (d Name) AddPrefix(label Label) (Name, error) {
+	// Due to total name length restrictions, we have to fully
+	// re-check the shape of the extended domain name. The simplest
+	// way to do that is to round-trip through a string and leverage
+	// Parse again.
+	retStr := label.String() + "." + d.String()
+	return Parse(retStr)
+}
+
 // Label is a domain name label.
 type Label struct {
 	label string
