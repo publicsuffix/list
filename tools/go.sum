@@ -1,3 +1,9 @@
+github.com/creachadair/command v0.1.13 h1:UDKPF3QYPRS/quZPVYZ7sW1JLxLLOgiyVSLQ+7wwI2o=
+github.com/creachadair/command v0.1.13/go.mod h1:YKwUE49nAi8qxLl8jCQ0GMPvwdxmIBkJW3LqxgZ7ljk=
+github.com/creachadair/flax v0.0.0-20240525192034-44db93b3a8ad h1:Fv6FRWgCJTHsslL0qRhhO7Jj7cL78YW8s1c8UxFGIIo=
+github.com/creachadair/flax v0.0.0-20240525192034-44db93b3a8ad/go.mod h1:K8bFvn8hMdAljQkaKNc7I3os5Wk36JxkyCkfdZ7S8d4=
+github.com/creachadair/mds v0.15.2 h1:es1qGKgRGSaztpvrSQcZ0B9I6NsHYJ1Sa9naD/3OfCM=
+github.com/creachadair/mds v0.15.2/go.mod h1:4vrFYUzTXMJpMBU+OA292I6IUxKWCCfZkgXg+/kBZMo=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
 github.com/natefinch/atomic v1.0.1 h1:ZPYKxkqQOx3KZ+RsbnP/YsgvxWQPGxjC0oBt2AhwV0A=
