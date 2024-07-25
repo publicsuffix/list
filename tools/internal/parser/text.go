@@ -51,12 +51,6 @@ func (s SourceRange) merge(other SourceRange) SourceRange {
 	}
 }
 
-// SrcRange returns the SourceRange. This looks a little strange, but
-// it's to satisfy the Block interface. This allows other code to
-// retrieve the SourceRange of any Block without having to typeswitch
-// all the possible sub-types.
-func (s SourceRange) SrcRange() SourceRange { return s }
-
 const (
 	bomUTF8    = "\xEF\xBB\xBF"
 	bomUTF16BE = "\xFE\xFF"
