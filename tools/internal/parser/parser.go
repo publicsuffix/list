@@ -234,8 +234,10 @@ func (p *parser) parseSection() *Section {
 	// Initialize with the start-of-section marker's data.
 	start := p.next().(tokenSectionStart)
 	ret := &Section{
-		SourceRange: start.SourceRange,
-		Name:        start.Name,
+		blockInfo: blockInfo{
+			SourceRange: start.SourceRange,
+		},
+		Name: start.Name,
 	}
 	emit := blockEmitter(&ret.Blocks, &ret.SourceRange)
 
@@ -349,8 +351,10 @@ func (p *parser) parseSuffix() Block {
 	}
 
 	return &Suffix{
-		SourceRange: tok.SourceRange,
-		Domain:      domain,
+		blockInfo: blockInfo{
+			SourceRange: tok.SourceRange,
+		},
+		Domain: domain,
 	}
 }
 
@@ -366,8 +370,10 @@ func (p *parser) parseWildcard() Block {
 	}
 
 	return &Wildcard{
-		SourceRange: tok.SourceRange,
-		Domain:      domain,
+		blockInfo: blockInfo{
+			SourceRange: tok.SourceRange,
+		},
+		Domain: domain,
 	}
 }
 
@@ -402,8 +408,10 @@ func (p *parser) parseException(previous []Block) {
 func (p *parser) parseComment() *Comment {
 	tok := p.next().(tokenComment)
 	ret := &Comment{
-		SourceRange: tok.SourceRange,
-		Text:        []string{tok.Text},
+		blockInfo: blockInfo{
+			SourceRange: tok.SourceRange,
+		},
+		Text: []string{tok.Text},
 	}
 	for {
 		if tok, ok := p.peek().(tokenComment); ok {
