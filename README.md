@@ -17,7 +17,11 @@ Iteration back and forth will delay PR review or inclusion.  Be extremely thorou
 
 Important Notice:
 
-2023-09-01 : **We are not sending _PSL txt record email notices to anyone**.    
+2024-07-26 : We are sending e-mail asking for confirmation if certain entries are still required
+
+Currently, this process is purely manual and extremely low volume but if you do get an e-mail, please respond.
+
+2023-09-01 : ~~**We are not sending _PSL txt record email notices to anyone**~~
 
 We are getting reports that some parties are receiving email notices about ensuring they have (and maintain/keep) _PSL TXT records tied to the relevant pull request URL in order to maintain their listing on the PSL.   This is not from the maintainers, we're not sending those.  That said, please do leave those in place for domains that you want to keep listed, as their inclusion served two roles.  1: a means to publicly validate a connection between the submitting party and the administration in DNS of submitted name(s). 2: future use for culling the list via automation.  We have never had the resourcing to perform the latter, but at some point will do this, and due to the nature of most submitters having a 'set and forget' attitude about their entries, we felt it best to leverage the only likely time we'd have their attention to preserve their record.
 
