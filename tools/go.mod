@@ -16,4 +16,7 @@ require (
 	github.com/natefinch/atomic v1.0.1
 )
 
-require github.com/google/go-querystring v1.1.0 // indirect
+require (
+	github.com/creachadair/taskgroup v0.9.0 // indirect
+	github.com/google/go-querystring v1.1.0 // indirect
+)

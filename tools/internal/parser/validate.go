@@ -1,7 +1,17 @@
 package parser
 
 import (
+	"context"
+	"errors"
+	"fmt"
+	"net"
+	"strconv"
+	"strings"
+
 	"github.com/creachadair/mds/mapset"
+	"github.com/creachadair/taskgroup"
+	"github.com/publicsuffix/list/tools/internal/domain"
+	"github.com/publicsuffix/list/tools/internal/github"
 )
 
 // ValidateOffline runs offline validations on a parsed PSL.
@@ -108,4 +118,249 @@ func validateSuffixUniqueness(block Block) (errs []error) {
 	}
 
 	return errs
+}
+
+// ValidateOnline runs online validations on a parsed PSL. Online
+// validations are slower than offline validation, especially when
+// checking the entire PSL. All online validations respect
+// cancellation on the given context.
+func ValidateOnline(ctx context.Context, l *List) (errs []error) {
+	for _, section := range BlocksOfType[*Section](l) {
+		if section.Name == "PRIVATE DOMAINS" {
+			errs = append(errs, validateTXTRecords(ctx, section)...)
+			break
+		}
+	}
+	return errs
+}
+
+const (
+	// concurrentDNSRequests is the maximum number of in-flight TXT
+	// lookups. This is primarily limited by the ability of the local
+	// stub resolver and LAN resolver to absorb the traffic without
+	// dropping packets. Empirically 100 is easily manageable (most
+	// ad-ridden websites do more than this).
+	concurrentDNSRequests = 100
+
+	// txtRecordPrefix is the prefix of valid _psl TXT records.
+	txtRecordPrefix = "https://github.com/publicsuffix/list/pull/"
+)
+
+// prExpected is the set of changed suffixes we expect to see in a PR,
+// given TXT record information.
+type prExpected struct {
+	// suffixes maps a domain string (Suffix.Domain.String()) to the
+	// Suffix entry in the PSL that's being validated.
+	suffixes map[string]*Suffix
+	// wildcards maps a wildcard domain (Wildcard.Domain.String()) to
+	// the Wildcard entry in the PSL that's being validated.
+	wildcards map[string]*Wildcard
+}
+
+// txtRecordChecker is the in-flight state for validateTXTRecords.
+type txtRecordChecker struct {
+	resolver net.Resolver
+	ctx      context.Context
+	errs     []error
+	// prExpected maps a Github PR number to the PSL changes we expect
+	// to see in that PR.
+	prExpected map[int]*prExpected
+}
+
+// validateTXTRecords checks the TXT records of all Suffix and
+// Wildcard blocks found under b.
+func validateTXTRecords(ctx context.Context, b Block) (errs []error) {
+	checker := txtRecordChecker{
+		ctx:        ctx,
+		prExpected: map[int]*prExpected{},
+	}
+
+	// TXT checking happens in two phases: first, look up all TXT
+	// records and construct a suffix<>github PR map. Then, check
+	// those Github PRs to verify that the suffixes were indeed
+	// modified in those PRs.
+	//
+	// TXT record lookup is very parallel, so we use a taskgroup to do
+	// (rate-limited) concurrent processing. On the other hand,
+	// checking Github PRs requires hitting Github once for each PR,
+	// so that is serialized to avoid tripping abuse protections.
+	collect := taskgroup.NewCollector(checker.processLookupResult)
+	group, start := taskgroup.New(nil).Limit(concurrentDNSRequests)
+
+	for _, suf := range BlocksOfType[*Suffix](b) {
+		if !suf.Changed() || exemptFromTXT(suf.Domain) {
+			continue
+		}
+		start(collect.NoError(func() txtResult { return checker.checkTXT(suf, suf.Domain) }))
+	}
+	for _, wild := range BlocksOfType[*Wildcard](b) {
+		if !wild.Changed() || exemptFromTXT(wild.Domain) {
+			continue
+		}
+		start(collect.NoError(func() txtResult { return checker.checkTXT(wild, wild.Domain) }))
+	}
+
+	// Wait for all TXT lookups to complete. When that's done,
+	// checker.prToSuffix and checker.domainsToCheck has complete
+	// state for which PRs need to be checked, and we can move on.
+	group.Wait()
+	checker.checkPRs()
+
+	return checker.errs
+}
+
+// txtResult is the result of a DNS TXT lookup for Block.
+type txtResult struct {
+	Block
+	prs []int
+	err error
+}
+
+// checkTXT checks the _psl TXT record for domain. The given block is
+// passed through in the txtResult so that the TXT lookup can be
+// associated with the appropriate PSL entry. It should be a Suffix or
+// a Wildcard, but checkTXT doesn't use it other than to include it in
+// the txtResult.
+func (c *txtRecordChecker) checkTXT(block Block, domain domain.Name) txtResult {
+	res, err := c.resolver.LookupTXT(c.ctx, "_psl."+domain.ASCIIString()+".")
+	if err != nil {
+		return txtResult{
+			Block: block,
+			err:   err,
+		}
+	}
+	return txtResult{
+		Block: block,
+		prs:   extractPSLRecords(res),
+	}
+}
+
+// processLookupResult updates the record checker's state with the
+// information in the given txtResult.
+func (c *txtRecordChecker) processLookupResult(res txtResult) {
+	var dnsErr *net.DNSError
+	if errors.As(res.err, &dnsErr) {
+		if dnsErr.IsNotFound {
+			// DNS server returned NXDOMAIN. Use a specific error for
+			// that.
+			c.errs = append(c.errs, ErrMissingTXTRecord{res.Block})
+		} else {
+			// Other DNS errors, e.g. SERVFAIL or REFUSED.
+			c.errs = append(c.errs, res.err)
+		}
+		return
+	} else if res.err != nil {
+		// Other non-DNS errors, e.g. timeout or "no route to host".
+		c.errs = append(c.errs, res.err)
+		return
+	}
+	if len(res.prs) == 0 {
+		// _psl.<domain> exists, but contains no valid Github PR URLs.
+		c.errs = append(c.errs, ErrMissingTXTRecord{res.Block})
+		return
+	}
+	for _, prNum := range res.prs {
+		// Found some PRs for this suffix, record them in preparation
+		// for PR validation.
+		inf := c.prInfo(prNum)
+		switch v := res.Block.(type) {
+		case *Suffix:
+			inf.suffixes[v.Domain.String()] = v
+		case *Wildcard:
+			inf.wildcards[v.Domain.String()] = v
+		default:
+			panic("unexpected AST node")
+		}
+	}
+}
+
+// checkPRs looks up the Github PRs discovered during TXT record
+// checking, and verifies that each PR is touching the suffix that
+// claimed to be related to the PR.
+func (c *txtRecordChecker) checkPRs() {
+	client := github.Client{}
+
+	for prNum, info := range c.prExpected {
+		beforeBs, afterBs, err := client.PSLForPullRequest(c.ctx, prNum)
+		if err != nil {
+			c.errs = append(c.errs, fmt.Errorf("checking PR %d: %w", prNum, err))
+			continue
+		}
+		before, _ := Parse(beforeBs)
+		after, _ := Parse(afterBs)
+		after.SetBaseVersion(before, false)
+
+		for _, suf := range BlocksOfType[*Suffix](after) {
+			if !suf.Changed() {
+				continue
+			}
+
+			// If the changed suffix is in our prExpected list, remove
+			// it. We found a change to the suffix in the PR that the
+			// TXT record said, everything is good. This doesn't need
+			// to be conditional, because delete() is a no-op if the
+			// key isn't present in the map.
+			delete(info.suffixes, suf.Domain.String())
+		}
+
+		for _, wild := range BlocksOfType[*Wildcard](after) {
+			if !wild.Changed() {
+				continue
+			}
+
+			delete(info.wildcards, wild.Domain.String())
+		}
+
+		// At this point we've eliminated all suffixes that were
+		// changed by this PR. Whatever is left over are TXT records
+		// that incorrectly claim PR #N is related to them.
+		for _, suf := range info.suffixes {
+			c.errs = append(c.errs, ErrTXTRecordMismatch{suf, prNum})
+		}
+		for _, wild := range info.wildcards {
+			c.errs = append(c.errs, ErrTXTRecordMismatch{wild, prNum})
+		}
+	}
+}
+
+func (c *txtRecordChecker) prInfo(pr int) *prExpected {
+	if ret, ok := c.prExpected[pr]; ok {
+		return ret
+	}
+	ret := &prExpected{
+		suffixes:  map[string]*Suffix{},
+		wildcards: map[string]*Wildcard{},
+	}
+	c.prExpected[pr] = ret
+	return ret
+}
+
+// extractPSLRecords extracts github PR numbers from the given TXT
+// records. TXT records which do not match the required PSL record
+// format are ignored.
+func extractPSLRecords(txts []string) []int {
+	// You might think that since we put PSL records under
+	// _psl.<domain>, we would only ever see well formed PSL
+	// records. However, a large number of domains return SPF and
+	// other "well known" records as well, likely because their DNS
+	// server is hardcoded to return those for any TXT query. So, we
+	// have to gracefully ignore "malformed" TXT records here.
+	var ret []int
+	for _, txt := range txts {
+		if !strings.HasPrefix(txt, txtRecordPrefix) {
+			continue
+		}
+		for _, f := range strings.Fields(strings.TrimSpace(txt)) {
+			prStr, ok := strings.CutPrefix(f, txtRecordPrefix)
+			if !ok {
+				continue
+			}
+			prNum, err := strconv.Atoi(prStr)
+			if err != nil {
+				continue
+			}
+			ret = append(ret, prNum)
+		}
+	}
+	return ret
 }
