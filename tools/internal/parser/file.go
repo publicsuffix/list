@@ -9,17 +9,6 @@ import (
 	"github.com/publicsuffix/list/tools/internal/domain"
 )
 
-// List is a parsed public suffix list.
-type List struct {
-	SourceRange
-
-	// Blocks are the top-level elements of the list, in the order
-	// they appear.
-	Blocks []Block
-}
-
-func (l *List) Children() []Block { return l.Blocks }
-
 // A Block is a parsed chunk of a PSL file. Each block is one of the
 // concrete types Comment, Section, Suffixes, Suffix, or Wildcard.
 type Block interface {
@@ -27,6 +16,11 @@ type Block interface {
 	SrcRange() SourceRange
 	// Children returns the block's direct children, if any.
 	Children() []Block
+	// Changed reports whether the tree rooted at block has changed
+	// since the base of comparison (see List.SetBaseVersion).
+	Changed() bool
+
+	info() *blockInfo
 }
 
 // BlocksOfType recursively collects and returns all blocks of
@@ -49,10 +43,45 @@ func blocksOfTypeRec[T Block](tree Block, out *[]T) {
 	}
 }
 
+// blockInfo is common information shared by all Block types.
+type blockInfo struct {
+	SourceRange
+
+	// isUnchanged records that a Block (including any children) is
+	// semantically unchanged from a past base point. The default base
+	// of comparison is a null List, meaning that Unchanged=false for
+	// all blocks. A different base of comparison can be set with
+	// List.Diff.
+	isUnchanged bool
+}
+
+func (b blockInfo) SrcRange() SourceRange {
+	return b.SourceRange
+}
+
+func (b blockInfo) Changed() bool {
+	return !b.isUnchanged
+}
+
+func (b *blockInfo) info() *blockInfo {
+	return b
+}
+
+// List is a parsed public suffix list.
+type List struct {
+	blockInfo
+
+	// Blocks are the top-level elements of the list, in the order
+	// they appear.
+	Blocks []Block
+}
+
+func (l *List) Children() []Block { return l.Blocks }
+
 // Comment is a comment block, consisting of one or more contiguous
 // lines of commented text.
 type Comment struct {
-	SourceRange
+	blockInfo
 	// Text is the unprocessed content of the comment lines, with the
 	// leading comment syntax removed.
 	Text []string
@@ -63,7 +92,7 @@ func (c *Comment) Children() []Block { return nil }
 // Section is a named part of a PSL file, containing suffixes which
 // behave similarly.
 type Section struct {
-	SourceRange
+	blockInfo
 
 	// Name is he section name. In a normal well-formed PSL file, the
 	// names are "ICANN DOMAINS" and "PRIVATE DOMAINS".
@@ -82,7 +111,7 @@ func (s *Section) Children() []Block { return s.Blocks }
 // domain suffixes. The suffix list may contain additional
 // unstructured inline comments.
 type Suffixes struct {
-	SourceRange
+	blockInfo
 
 	// Info is information about the authoritative maintainers for
 	// this set of suffixes.
@@ -186,7 +215,7 @@ func (m MaintainerInfo) HasInfo() bool {
 // Suffix is one public suffix, represented in the standard domain
 // name format.
 type Suffix struct {
-	SourceRange
+	blockInfo
 
 	// Domain is the public suffix's domain name.
 	Domain domain.Name
@@ -197,7 +226,7 @@ func (s *Suffix) Children() []Block { return nil }
 // Wildcard is a wildcard public suffix, along with any exceptions to
 // that wildcard.
 type Wildcard struct {
-	SourceRange
+	blockInfo
 
 	// Domain is the base of the wildcard public suffix, without the
 	// leading "*" label.

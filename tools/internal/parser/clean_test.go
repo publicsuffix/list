@@ -108,6 +108,29 @@ func TestClean(t *testing.T) {
 		},
 
 		{
+			name: "sort_suffixes_dedup",
+			in: list(
+				suffixes(1, 1, noInfo,
+					suffix(1, "com"),
+					wildcard(2, 2, "foo.com"),
+					suffix(3, "zot.com"),
+					suffix(4, "qux.com"),
+					suffix(5, "qux.foo.com"),
+					suffix(6, "zot.com"),
+				),
+			),
+			want: list(
+				suffixes(1, 1, noInfo,
+					suffix(1, "com"),
+					wildcard(2, 2, "foo.com"),
+					suffix(5, "qux.foo.com"),
+					suffix(4, "qux.com"),
+					suffix(3, "zot.com"),
+				),
+			),
+		},
+
+		{
 			name: "sort_suffixes_with_nonblocking_comment",
 			in: list(
 				suffixes(1, 1, noInfo,
@@ -162,7 +185,8 @@ func TestClean(t *testing.T) {
 			name: "sort_suffixes_wildcard_exceptions",
 			in: list(
 				suffixes(1, 1, noInfo,
-					wildcard(1, 1, "foo.com", "mmm", "aaa", "zzz"),
+					// Also has a duplicate exception that needs cleaning up
+					wildcard(1, 1, "foo.com", "mmm", "aaa", "zzz", "aaa"),
 					suffix(2, "foo.com"),
 				),
 			),

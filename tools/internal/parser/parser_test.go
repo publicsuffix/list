@@ -357,24 +357,30 @@ func list(blocks ...Block) *List {
 
 func comment(start int, lines ...string) *Comment {
 	return &Comment{
-		SourceRange: mkSrc(start, start+len(lines)),
-		Text:        lines,
+		blockInfo: blockInfo{
+			SourceRange: mkSrc(start, start+len(lines)),
+		},
+		Text: lines,
 	}
 }
 
 func section(start, end int, name string, blocks ...Block) *Section {
 	return &Section{
-		SourceRange: mkSrc(start, end),
-		Name:        name,
-		Blocks:      blocks,
+		blockInfo: blockInfo{
+			SourceRange: mkSrc(start, end),
+		},
+		Name:   name,
+		Blocks: blocks,
 	}
 }
 
 func suffixes(start, end int, info MaintainerInfo, blocks ...Block) *Suffixes {
 	return &Suffixes{
-		SourceRange: mkSrc(start, end),
-		Info:        info,
-		Blocks:      blocks,
+		blockInfo: blockInfo{
+			SourceRange: mkSrc(start, end),
+		},
+		Info:   info,
+		Blocks: blocks,
 	}
 }
 
@@ -396,8 +402,10 @@ func suffix(line int, domainStr string) *Suffix {
 		panic(err)
 	}
 	return &Suffix{
-		SourceRange: mkSrc(line, line+1),
-		Domain:      domain,
+		blockInfo: blockInfo{
+			SourceRange: mkSrc(line, line+1),
+		},
+		Domain: domain,
 	}
 }
 
@@ -408,8 +416,10 @@ func wildcard(start, end int, base string, exceptions ...string) *Wildcard {
 	}
 
 	ret := &Wildcard{
-		SourceRange: mkSrc(start, end),
-		Domain:      dom,
+		blockInfo: blockInfo{
+			SourceRange: mkSrc(start, end),
+		},
+		Domain: dom,
 	}
 	for _, s := range exceptions {
 		exc, err := domain.ParseLabel(s)
@@ -445,5 +455,15 @@ func zeroSourceRange(b Block) Block {
 	for _, child := range b.Children() {
 		zeroSourceRange(child)
 	}
+	return b
+}
+
+// markUnchanged makes .Changed() return false for b. It does not
+// touch parent or child blocks.
+//
+// It's generic so that it works in places that require a specific
+// instance type, not just places that accept a Block interface.
+func markUnchanged[T Block](b T) T {
+	b.info().isUnchanged = true
 	return b
 }

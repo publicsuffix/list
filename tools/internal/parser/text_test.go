@@ -3,6 +3,7 @@ package parser
 import (
 	"bytes"
 	"fmt"
+	"reflect"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -224,7 +225,27 @@ func utf8WithBOM(s string) []byte {
 
 func checkDiff(t *testing.T, whatIsBeingDiffed string, got, want any) {
 	t.Helper()
-	if diff := cmp.Diff(got, want); diff != "" {
+
+	// cmp.Diff refuses to examine unexported fields by default. Tell
+	// it that it's okay to look at unexported fields of blocks and
+	// blockInfo, since we own those fields and want to include their
+	// values in comparisons.
+	exportInfo := cmp.Exporter(func(t reflect.Type) bool {
+		if t.Kind() != reflect.Pointer {
+			t = reflect.PointerTo(t)
+		}
+
+		if t.Elem() == reflect.TypeFor[blockInfo]() {
+			return true
+		}
+
+		if t.Implements(reflect.TypeFor[Block]()) {
+			return true
+		}
+
+		return false
+	})
+	if diff := cmp.Diff(got, want, exportInfo); diff != "" {
 		t.Errorf("%s is wrong (-got+want):\n%s", whatIsBeingDiffed, diff)
 	}
 }
