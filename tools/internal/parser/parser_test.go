@@ -457,3 +457,13 @@ func zeroSourceRange(b Block) Block {
 	}
 	return b
 }
+
+// markUnchanged makes .Changed() return false for b. It does not
+// touch parent or child blocks.
+//
+// It's generic so that it works in places that require a specific
+// instance type, not just places that accept a Block interface.
+func markUnchanged[T Block](b T) T {
+	b.info().isUnchanged = true
+	return b
+}
