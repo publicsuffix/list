@@ -92,6 +92,19 @@ func (d Name) String() string {
 	return b.String()
 }
 
+// ASCIIString returns the domain name in its canonicalized ASCII (aka
+// "punycode") form.
+func (d Name) ASCIIString() string {
+	var b strings.Builder
+	for i := len(d.labels) - 1; i >= 0; i-- {
+		b.WriteString(d.labels[i].ASCIIString())
+		if i != 0 {
+			b.WriteByte('.')
+		}
+	}
+	return b.String()
+}
+
 // Compare compares domain names. It returns -1 if d < e, +1 if d > e,
 // and 0 if d == e.
 //
@@ -175,6 +188,19 @@ func ParseLabel(s string) (Label, error) {
 }
 
 func (l Label) String() string { return l.label }
+
+func (l Label) ASCIIString() string {
+	ret, err := domainValidator.ToASCII(l.label)
+	if err != nil {
+		// This should be impossible. Domain labels can only be
+		// created by ParseLabel, which applies IDNA validation and
+		// produces a canonical U-label. We're just converting from
+		// U-label representation to A-label, which is guaranteed to
+		// succeed given a valid U-label.
+		panic(fmt.Sprintf("impossible: U-label to A-label conversion failed: %v", err))
+	}
+	return ret
+}
 
 // Compare compares domain labels. It returns -1 if l < m, +1 if l > m,
 // and 0 if l == m.
