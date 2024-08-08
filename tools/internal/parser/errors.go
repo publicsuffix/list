@@ -181,3 +181,54 @@ type ErrConflictingSuffixAndException struct {
 func (e ErrConflictingSuffixAndException) Error() string {
 	return fmt.Sprintf("%s: suffix %s conflicts with exception in wildcard at %s", e.LocationString(), e.Domain, e.Wildcard.LocationString())
 }
+
+type ErrMissingTXTRecord struct {
+	Block
+}
+
+func (e ErrMissingTXTRecord) Error() string {
+	var name string
+	switch v := e.Block.(type) {
+	case *Suffix:
+		name = v.Domain.String()
+	case *Wildcard:
+		name = v.Domain.String()
+	default:
+		panic(fmt.Sprintf("unexpected block type %T in ErrInvalidTXTRecord", e.Block))
+	}
+	return fmt.Sprintf("%s: suffix %s has no TXT record", e.SrcRange().LocationString(), name)
+}
+
+type ErrTXTRecordMismatch struct {
+	Block
+	PR int
+}
+
+func (e ErrTXTRecordMismatch) Error() string {
+	switch v := e.Block.(type) {
+	case *Suffix:
+		return fmt.Sprintf("%s: suffix %s has a TXT record pointing to https://github.com/publicsuffix/list/pull/%d, but that PR does not change this suffix", e.SrcRange().LocationString(), v.Domain, e.PR)
+	case *Wildcard:
+		return fmt.Sprintf("%s: wildcard *.%s has a TXT record pointing to https://github.com/publicsuffix/list/pull/%d, but that PR does not change this wildcard", e.SrcRange().LocationString(), v.Domain, e.PR)
+	default:
+		panic(fmt.Sprintf("unexpected block type %T in ErrTXTRecordMismatch", e.Block))
+	}
+}
+
+type ErrTXTCheckFailure struct {
+	Block
+	Err error
+}
+
+func (e ErrTXTCheckFailure) Error() string {
+	var name string
+	switch v := e.Block.(type) {
+	case *Suffix:
+		name = v.Domain.String()
+	case *Wildcard:
+		name = v.Domain.String()
+	default:
+		panic(fmt.Sprintf("unexpected block type %T in ErrInvalidTXTRecord", e.Block))
+	}
+	return fmt.Sprintf("%s: error checking suffix %s: %v", e.SrcRange().LocationString(), name, e.Err)
+}
