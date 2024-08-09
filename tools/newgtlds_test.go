@@ -680,7 +680,6 @@ func TestProcess(t *testing.T) {
 // https://www.iana.org/domains/root/db/aaa.html
 aaa
 
-
 // ===END ICANN DOMAINS===
 
 ...
@@ -737,7 +736,6 @@ aaa
 // accountants : Binky Moon, LLC
 // https://www.iana.org/domains/root/db/accountants.html
 accountants
-
 
 // ===END ICANN DOMAINS===
 
