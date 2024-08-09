@@ -60,9 +60,6 @@ func (c *Client) PSLForPullRequest(ctx context.Context, prNum int) (withoutPR, w
 		return nil, nil, err
 	}
 
-	if state := pr.GetState(); state != "open" {
-		return nil, nil, fmt.Errorf("cannot get PSL for PR %d with status %q", prNum, state)
-	}
 	if !pr.GetMergeable() {
 		return nil, nil, fmt.Errorf("cannot get PSL for PR %d, needs rebase", prNum)
 	}

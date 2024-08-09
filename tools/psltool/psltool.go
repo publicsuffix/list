@@ -129,11 +129,19 @@ func runFmt(env *command.Env, path string) error {
 }
 
 var validateArgs struct {
-	Online bool `flag:"online-checks,Run validations that require querying third-party servers"`
+	Commit string `flag:"commit,SHA hash of the commit to check"`
+	Online bool   `flag:"online-checks,Run validations that require querying third-party servers"`
 }
 
 func runValidate(env *command.Env, path string) error {
-	bs, err := os.ReadFile(path)
+	var bs []byte
+	var err error
+	if validateArgs.Commit != "" {
+		client := github.Client{}
+		bs, err = client.PSLForHash(context.Background(), validateArgs.Commit)
+	} else {
+		bs, err = os.ReadFile(path)
+	}
 	if err != nil {
 		return fmt.Errorf("Failed to read PSL file: %w", err)
 	}
