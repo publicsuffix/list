@@ -6723,7 +6723,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-08-10T15:15:39Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-08-12T15:17:09Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -11184,7 +11184,6 @@ zone
 // zuerich : Kanton Zürich (Canton of Zurich)
 // https://www.iana.org/domains/root/db/zuerich.html
 zuerich
-
 
 // ===END ICANN DOMAINS===
 
