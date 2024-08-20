@@ -12158,6 +12158,12 @@ translated.page
 // Submitted by Jacob Lee <jacob@autocode.com>
 autocode.dev
 
+// Autonomous Database OCI - Oracle Dyn https://cloud.oracle.com/home https://dyn.com/dns/
+// Submitted by Phaneendhar Mandala <support@dyn.com>
+*.oraclecloudapps.com
+*.oraclegovcloudapps.com
+*.oraclegovcloudapps.uk
+
 // AVM : https://avm.de
 // Submitted by Andreas Weise <a.weise@avm.de>
 myfritz.link
