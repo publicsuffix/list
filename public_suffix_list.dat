@@ -15674,9 +15674,9 @@ toolforge.org
 wmcloud.org
 wmflabs.org
 
-// William Harrison : https://wdh.gg
-// Submitted by William Harrison <domains@wdh.gg>
-*.wdh.app
+// William Harrison : https://wdharrison.com
+// Submitted by William Harrison <publicsuffix@wdharrison.com>
+wdh.app
 
 // WISP : https://wisp.gg
 // Submitted by Stepan Fedotov <stepan@wisp.gg>
