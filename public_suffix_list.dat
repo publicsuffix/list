@@ -12560,11 +12560,6 @@ localhost.daplie.me
 // Submitted by Abel Boldu / DAppNode Team <community@dappnode.io>
 dyndns.dappnode.io
 
-// dapps.earth : https://dapps.earth/
-// Submitted by Daniil Burdakov <icqkill@gmail.com>
-*.dapps.earth
-*.bzz.dapps.earth
-
 // Dark, Inc. : https://darklang.com
 // Submitted by Paul Biggar <ops@darklang.com>
 builtwithdark.com
