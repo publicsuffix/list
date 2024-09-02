@@ -12158,12 +12158,6 @@ translated.page
 // Submitted by Jacob Lee <jacob@autocode.com>
 autocode.dev
 
-// Autonomous Database OCI - Oracle Dyn https://cloud.oracle.com/home https://dyn.com/dns/
-// Submitted by Phaneendhar Mandala <support@dyn.com>
-*.oraclecloudapps.com
-*.oraclegovcloudapps.com
-*.oraclegovcloudapps.uk
-
 // AVM : https://avm.de
 // Submitted by Andreas Weise <a.weise@avm.de>
 myfritz.link
@@ -12537,6 +12531,12 @@ curv.dev
 *.oci.customer-oci.com
 *.ocp.customer-oci.com
 *.ocs.customer-oci.com
+
+// Cloud OCI - Autonomous Database Cloud Service  - Oracle Dyn https://cloud.oracle.com/home https://dyn.com/dns/ https://www.oracle.com/autonomous-database/
+// Submitted by Phaneendhar Mandala <support@dyn.com>
+*.oraclecloudapps.com
+*.oraclegovcloudapps.com
+*.oraclegovcloudapps.uk
 
 // cyber_Folks S.A. : https://cyberfolks.pl
 // Submitted by Bartlomiej Kida <security@cyberfolks.pl>
