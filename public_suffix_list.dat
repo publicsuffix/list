@@ -13785,45 +13785,13 @@ gen.ng
 ltd.ng
 ngo.ng
 plc.ng
-//Reserved GEO NAMES (States) for businesses
-ab.biz.ng
-ad.biz.ng
-ak.biz.ng
-an.biz.ng
-ba.biz.ng
-be.biz.ng
-bo.biz.ng
-by.biz.ng
+//Reserved Third Level Subdomains for BIZ.NG
 co.biz.ng
-cr.biz.ng
 de.biz.ng
-eb.biz.ng
-ed.biz.ng
-ek.biz.ng
-en.biz.ng
-fc.biz.ng
 go.biz.ng
-im.biz.ng
-ji.biz.ng
-kd.biz.ng
-ke.biz.ng
-kn.biz.ng
-ko.biz.ng
-kt.biz.ng
-kw.biz.ng
-la.biz.ng
-na.biz.ng
-ni.biz.ng
-og.biz.ng
+lg.biz.ng
 on.biz.ng
-os.biz.ng
-oy.biz.ng
-pl.biz.ng
-ri.biz.ng
-so.biz.ng
-ta.biz.ng
-yo.biz.ng
-za.biz.ng
+
 
 // HostFly : https://www.ie.ua
 // Submitted by Bohdan Dub <support@hostfly.com.ua>
