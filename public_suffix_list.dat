@@ -12647,8 +12647,8 @@ us.kg
 
 // Diher Solutions : https://diher.solutions
 // Submitted by Didi Hermawan <mail@diher.solutions>
-*.rss.my.id
-*.diher.solutions
+rss.my.id
+diher.solutions
 
 // Discord Inc : https://discord.com
 // Submitted by Sahn Lam <slam@discordapp.com>
