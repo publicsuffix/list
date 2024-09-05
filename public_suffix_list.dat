@@ -12520,7 +12520,7 @@ on.crisp.email
 // Submitted by Marvin Wiesner <Marvin@curv-labs.de>
 curv.dev
 
-// Oracle Dyn https://cloud.oracle.com/home https://dyn.com/dns/
+// Oracle Dyn : https://cloud.oracle.com/home https://dyn.com/dns/
 // Submitted by Gregory Drake <support@dyn.com>
 // Note: This is intended to also include customer-oci.com due to wildcards implicitly including the current label
 *.customer-oci.com
