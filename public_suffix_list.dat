@@ -15592,12 +15592,12 @@ express.val.run
 web.val.run
 
 // Vercel, Inc : https://vercel.com/
-// Submitted by Connor Davis <security@vercel.com>
+// Submitted by Max Leiter <security@vercel.com>
 vercel.app
-vercel.dev
-now.sh
-vusercontent.net
 v0.build
+vercel.dev
+vusercontent.net
+now.sh
 
 // VeryPositive SIA : http://very.lv
 // Submitted by Danko Aleksejevs <danko@very.lv>
