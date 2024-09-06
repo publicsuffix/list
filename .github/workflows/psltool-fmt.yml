@@ -1,0 +1,30 @@
+name: psltool-fmt
+
+on:
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+  contents: write # This should be okay since you cannot easily run this on
+    # something like an untrusted PR. PRs are not offered in the GUI.
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "stable"
+      - name: run validations
+        run: |
+          cd tools
+          go run ./psltool fmt ../public_suffix_list.dat
+      - name: create PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: Apply formatting using `psltool fmt`
+          branch: psltool-fmt
+          title: 'Automatic PR for workflow `psltool-fmt`'
+          body: 'Automatic PR for formatting workflow using `psltool fmt`'
