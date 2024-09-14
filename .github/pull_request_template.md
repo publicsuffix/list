@@ -138,7 +138,6 @@ Example:
 -->
 
 ## Description of Organization
-
 <!--
 Provide at least 3 sentences (the more the better) but
 avoid the promotional stuff about how wonderful it is, and 
@@ -158,14 +157,10 @@ the submitting org, specifically with context/connection
 to this request.
 -->
 
-**Organization Website:** 
-<!-- 
-Provide the website address of 
-the org as a full URL i.e. https://example.com 
--->
+**Organization Website:**
+<!-- Provide the website address of the org as a full URL (i.e. https://example.com) -->
 
 ## Reason for PSL Inclusion
-
 <!--
 Please tell us why your domain(s) should be listed in the PSL
 (i.e. Cookie Security, Let's Encrypt issuance, IOS/Facebook, 
@@ -187,13 +182,10 @@ upper limit, but six paragraphs seems like a rational stop.
 -->
 
 **Number of users this request is being made to serve:**
-<!--
-Identify if this is current or an estimate.
--->
+<!-- Identify if this is current or an estimate. -->
 
 
 ## DNS Verification
-
 <!--
 For each domain you'd like to add to the list please create
 a DNS verification record pointing to your pull request.
@@ -219,10 +211,7 @@ automation can remove entries where the record is not present.
 -->
 
 ## Results of Syntax Checker (`make test`)
-
 <!--
-Please verify that you followed the correct syntax and nothing broke.
-
 git clone https://github.com/publicsuffix/list.git
 cd list
 make test
