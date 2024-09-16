@@ -13781,6 +13781,11 @@ ie.ua
 // HostyHosting : https://hostyhosting.com
 hostyhosting.io
 
+// Hugging Face: https://huggingface.co
+// Submitted by Eliott Coyac <website@huggingace.co>
+hf.space
+static.hf.space
+
 // Hypernode B.V. : https://www.hypernode.com/
 // Submitted by Cipriano Groenendal <security@nl.team.blue>
 hypernode.io
@@ -15762,10 +15767,5 @@ bss.design
 basicserver.io
 virtualserver.io
 enterprisecloud.nu
-
-// Hugging Face: https://huggingface.co
-// Submitted by Eliott Coyac <website@huggingace.co>
-hf.space
-static.hf.space
 
 // ===END PRIVATE DOMAINS===
