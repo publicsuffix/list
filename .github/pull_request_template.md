@@ -18,7 +18,7 @@ https://github.com/publicsuffix/list/pull/1591, although
 the organization and description were not as substantial 
 as desired, which required maintainers time to visit the 
 requestors website to further research.
-Having more robust responses improves the PR processing 
+Having more robust org/desc improves the PR processing 
 pace due to the extra cycles not being lost to research.
 For an example of what an excellent description in a PR looks like
 see https://github.com/publicsuffix/list/pull/615, 
