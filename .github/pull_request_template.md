@@ -47,11 +47,10 @@ to submit entries to the PSL as a means to work around those limits or
 restrictions.
 -->
 
-<!-- MAKE SURE UPDATE THE FOLLOWING LIST WITH YOUR LIMITATIONS! REMOVE ENTRIES WHICH DO NOT APPLY! -->
-
  * [ ] We are listing *any* third-party limits that we seek to work around in our rationale such as those between IOS 14.5+ and Facebook (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as a well-documented example)
  - [Cloudflare](https://developers.cloudflare.com/learning-paths/get-started/add-domain-to-cf/add-site/)
  - [Let's Encrypt](https://letsencrypt.org/docs/rate-limits/)
+ - MAKE SURE UPDATE THE FOLLOWING LIST WITH YOUR LIMITATIONS! REMOVE ENTRIES WHICH DO NOT APPLY AS WELL AS REMOVING THIS LINE!
 
 <!--
 The purpose of the question above is to expose limit workarounds.
@@ -74,7 +73,7 @@ the PR.
 <!--
 Submitter will maintain domains in good standing or may lose section.
 
-The ongoing trust of the PSL requires it to be free of outdated or problematic entries. In making this pull request, there is a commitment by the submitter that they are going to review and maintain their relevant section. By submitting an entry, the requestor acknowledges that their entry and section may be removed if the domain does not maintain the respective _psl entries in DNS, any domain(s) with-in their section fail to resolve in DNS, the domain does not get renewed, expires or is otherwise unreachable. The submitter further identifies that it is their responsibility to review their submitted section within the PSL, submitting updates or removals as their domain(s) may change over time. It is also the responsibility of the submitter to provide (and keep up to date) a reachable email address within the section, and to maintain that address as it may change over time, so that they receive notices.
+The ongoing trust of the PSL requires it to be free of outdated or problematic entries. In making this pull request, there is a commitment by the submitter that they are going to review and maintain their relevant section. By submitting an entry, the requestor acknowledges that their entry and section may be removed if the domain does not maintain the respective _psl entries in DNS, any domain(s) within their section fail to resolve in DNS, the domain does not get renewed, expires or is otherwise unreachable. The submitter further identifies that it is their responsibility to review their submitted section within the PSL, submitting updates or removals as their domain(s) may change over time. It is also the responsibility of the submitter to provide (and keep up to date) a reachable email address within the section, and to maintain that address as it may change over time, so that they receive notices.
 -->
 
  * [ ] The submitter acknowledges that it is their responsibility to maintain the domains within their section. This includes removing names which are no longer used, retaining the _psl DNS entry, and responding to e-mails to the supplied address. Failure to maintain entries may result in removal of individual entries or the entire section.
@@ -173,7 +172,7 @@ this area to describe how and detail the manner in which you
 have first attempted to engage those third parties on the 
 matter.
 
-Please also referance any past issues or PRs 
+Please also reference any past issues or PRs 
 specifically related to this submission or section.
 
 Provide three or more sentences here that describe the purpose 
