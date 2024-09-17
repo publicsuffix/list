@@ -2,6 +2,8 @@ package parser
 
 import (
 	"fmt"
+
+	"github.com/publicsuffix/list/tools/internal/domain"
 )
 
 // ErrInvalidEncoding reports that the input is encoded with
@@ -180,4 +182,15 @@ type ErrConflictingSuffixAndException struct {
 
 func (e ErrConflictingSuffixAndException) Error() string {
 	return fmt.Sprintf("%s: suffix %s conflicts with exception in wildcard at %s", e.LocationString(), e.Domain, e.Wildcard.LocationString())
+}
+
+type ErrIncorrectDNSRecord struct {
+	SourceRange
+	Domain domain.Name
+	gh_pr_id int
+	dns_pr_id int
+}
+
+func (e ErrIncorrectDNSRecord) Error() string {
+	return fmt.Sprintf("%s: domain %s does not have the right PR ID in _psl DNS record: DNS: %d (should be %d like on Github)", e.LocationString(), e.Domain)
 }

@@ -1,7 +1,14 @@
 package parser
 
 import (
+	"errors"
+	"fmt"
+	"net"
+	"regexp"
+	"strconv"
+
 	"github.com/creachadair/mds/mapset"
+	"github.com/publicsuffix/list/tools/internal/domain"
 )
 
 // ValidateOffline runs offline validations on a parsed PSL.
@@ -18,6 +25,74 @@ func ValidateOffline(l *List) []error {
 	validateSuffixUniqueness(l)
 
 	return ret
+}
+
+// ValidateOnline runs additional validations which require connecting to
+// online services.
+// Currently, only DNS records are checked.
+func ValidateOnline(l *List, gh_pr_id *int) []error {
+	var ret []error
+
+	for _, section := range BlocksOfType[*Section](l) {
+		if section.Name == "PRIVATE DOMAINS" {
+			for _, suffixes := range BlocksOfType[*Suffixes](section) {
+				if !suffixes.Changed() {
+					continue
+				}
+				for _, suffix := range BlocksOfType[*Suffix](suffixes) {
+					dns_pr_id, err := validateDNS(suffix.Domain)
+					if err != nil {
+						ret = append(ret, err)
+						continue
+					}
+
+					// We can only check the PR ID if we know what it should be.
+					if suffix.Changed() && gh_pr_id != nil {
+						if *gh_pr_id != dns_pr_id {
+							ret = append(ret, ErrIncorrectDNSRecord{
+								SourceRange: suffix.SourceRange,
+								Domain:      suffix.Domain,
+								gh_pr_id:    *gh_pr_id,
+								dns_pr_id:   dns_pr_id,
+							})
+						}
+					}
+				}
+				for _, wildcardsuffix := range BlocksOfType[*Wildcard](suffixes) {
+					// TODO
+					fmt.Println("Found a wildcard suffix:", wildcardsuffix)
+					panic(errors.ErrUnsupported)
+				}
+			}
+		}
+	}
+
+	return ret
+}
+
+// Checks that each listed suffix has the necessary _psl DNS entry.
+func validateDNS(domain domain.Name) (int, error) {
+	re := regexp.MustCompile(`https://.*/([0-9]+)`)
+
+	lookupDomain := "_psl." + domain.String()
+	txtRecords, err := net.LookupTXT(lookupDomain)
+	if err != nil {
+		return 0, err
+	}
+
+
+	for _, txt := range txtRecords {
+		matches := re.FindStringSubmatch(txt)
+		if len(matches) > 1 {
+			number, err := strconv.Atoi(matches[1])
+			if err != nil {
+				return 0, err
+			}
+			return number, nil
+		}
+	}
+
+	return 0, nil
 }
 
 // validateEntityMetadata verifies that all suffix blocks have some

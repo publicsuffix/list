@@ -143,6 +143,7 @@ func runValidate(env *command.Env, path string) error {
 	errs = append(errs, parser.ValidateOffline(psl)...)
 	if validateArgs.Online {
 		// TODO: no online validations implemented yet.
+		parser.ValidateOnline(psl, nil)
 	}
 
 	clean := psl.MarshalPSL()
@@ -187,11 +188,12 @@ func runCheckPR(env *command.Env, prStr string) error {
 
 	before, _ := parser.Parse(withoutPR)
 	after, errs := parser.Parse(withPR)
-	after.SetBaseVersion(before, true)
+	after.SetBaseVersion(before, false)
 	errs = append(errs, after.Clean()...)
 	errs = append(errs, parser.ValidateOffline(after)...)
-	if validateArgs.Online {
-		// TODO: no online validations implemented yet.
+	if checkPRArgs.Online {
+		parser.ValidateOnline(after, &pr)
+
 	}
 
 	clean := after.MarshalPSL()
