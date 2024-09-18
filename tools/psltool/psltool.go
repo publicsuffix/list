@@ -151,7 +151,7 @@ func runValidate(env *command.Env, path string) error {
 	errs = append(errs, psl.Clean()...)
 	errs = append(errs, parser.ValidateOffline(psl)...)
 	if validateArgs.Online {
-		ctx, cancel := context.WithTimeout(env.Context(), 60*time.Second)
+		ctx, cancel := context.WithTimeout(env.Context(), 1200*time.Second)
 		defer cancel()
 		errs = append(errs, parser.ValidateOnline(ctx, psl)...)
 	}
@@ -202,7 +202,7 @@ func runCheckPR(env *command.Env, prStr string) error {
 	errs = append(errs, after.Clean()...)
 	errs = append(errs, parser.ValidateOffline(after)...)
 	if checkPRArgs.Online {
-		ctx, cancel := context.WithTimeout(env.Context(), 60*time.Second)
+		ctx, cancel := context.WithTimeout(env.Context(), 300*time.Second)
 		defer cancel()
 		errs = append(errs, parser.ValidateOnline(ctx, after)...)
 	}

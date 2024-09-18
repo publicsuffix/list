@@ -837,7 +837,7 @@ var missingTXT = mapset.New(
 	"спб.рус",
 	"я.рус",
 
-	// DNS server down, 2024-08-08
+	// DNS server down, 2024-09-17
 	"amscompute.com",
 	"cloud.jelastic.open.tim.it",
 	"faststacks.net",
@@ -861,7 +861,7 @@ var missingTXT = mapset.New(
 	"ybo.science",
 	"ybo.trade",
 
-	// SERVFAIL, 2024-08-08
+	// SERVFAIL, 2024-09-17
 	"blogspot.td",
 	"ddns5.com",
 	"dyn53.io",

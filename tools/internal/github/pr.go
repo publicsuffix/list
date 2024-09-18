@@ -60,49 +60,49 @@ func (c *Client) PSLForPullRequest(ctx context.Context, prNum int) (withoutPR, w
 		return nil, nil, err
 	}
 
-	if !pr.GetMergeable() {
-		return nil, nil, fmt.Errorf("cannot get PSL for PR %d, needs rebase", prNum)
+	mergeCommit := pr.GetMergeCommitSHA()
+	if mergeCommit == "" {
+		return nil, nil, fmt.Errorf("no merge commit available for PR %d", prNum)
 	}
-	trialMergeCommit := pr.GetMergeCommitSHA()
-	if trialMergeCommit == "" {
-		return nil, nil, fmt.Errorf("no trial merge commit available for PR %d", prNum)
-	}
-
-	prHeadCommit := pr.GetHead().GetSHA()
-	if prHeadCommit == "" {
-		return nil, nil, fmt.Errorf("no commit SHA available for head of PR %d", prNum)
-	}
-
-	// We want to return the trial merge commit's PSL as withPR, and
-	// the non-PR parent of that merge as withoutPR. Github only
-	// provides information about the trial merge commit and the PR
-	// head commit in the PR API. It also provides a "base" ref, but
-	// empirical evidence shows this points at some random commit
-	// somewhere and updates based on unclear triggers. IOW, it is
-	// _not_ "master without the PR applied".
-	//
-	// Instead, we have to ask the git API for information about the
-	// trial merge commit, and find the correct withoutPR SHA from
-	// that.
-	commitInfo, _, err := c.apiClient().Git.GetCommit(ctx, c.owner(), c.repo(), trialMergeCommit)
+	commitInfo, _, err := c.apiClient().Git.GetCommit(ctx, c.owner(), c.repo(), mergeCommit)
 	if err != nil {
-		return nil, nil, fmt.Errorf("getting info for trial merge SHA %q: %w", trialMergeCommit, err)
+		return nil, nil, fmt.Errorf("getting info for trial merge SHA %q: %w", mergeCommit, err)
 	}
+
 	var beforeMergeCommit string
-	if numParents := len(commitInfo.Parents); numParents != 2 {
-		return nil, nil, fmt.Errorf("unexpected parent count %d for trial merge commit on PR %d, expected 2 parents", numParents, prNum)
-	}
-	if commitInfo.Parents[0].GetSHA() == prHeadCommit {
-		beforeMergeCommit = commitInfo.Parents[1].GetSHA()
-	} else {
+	if pr.GetMerged() && len(commitInfo.Parents) == 1 {
+		// PR was merged, PSL policy is to use squash-and-merge, so
+		// the pre-PR commit is simply the parent of the merge commit.
 		beforeMergeCommit = commitInfo.Parents[0].GetSHA()
+	} else if !pr.GetMergeable() {
+		// PR isn't merged, and there's a merge conflict that prevents
+		// us from knowing what the pre- and post-merge states are.
+		return nil, nil, fmt.Errorf("cannot get PSL for PR %d, needs rebase", prNum)
+	} else {
+		// PR is open, which means the merge commit is a "trial merge"
+		// that shows what would happen if you merged the PR. The
+		// trial merge commit has 2 parents, one is the PR head commit
+		// and the other is master without the PR's changes.
+		if numParents := len(commitInfo.Parents); numParents != 2 {
+			return nil, nil, fmt.Errorf("unexpected parent count %d for trial merge commit on PR %d, expected 2 parents", numParents, prNum)
+		}
+
+		prHeadCommit := pr.GetHead().GetSHA()
+		if prHeadCommit == "" {
+			return nil, nil, fmt.Errorf("no commit SHA available for head of PR %d", prNum)
+		}
+		if commitInfo.Parents[0].GetSHA() == prHeadCommit {
+			beforeMergeCommit = commitInfo.Parents[1].GetSHA()
+		} else {
+			beforeMergeCommit = commitInfo.Parents[0].GetSHA()
+		}
 	}
 
 	withoutPR, err = c.PSLForHash(ctx, beforeMergeCommit)
 	if err != nil {
 		return nil, nil, err
 	}
-	withPR, err = c.PSLForHash(ctx, trialMergeCommit)
+	withPR, err = c.PSLForHash(ctx, mergeCommit)
 	if err != nil {
 		return nil, nil, err
 	}
