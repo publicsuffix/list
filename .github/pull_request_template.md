@@ -127,13 +127,10 @@ stay that way for an indefinite period of time (typically long).
 
 
 <!--
+As you complete each item in the checklist please mark it with an X.
 
-As you complete each item in the checklist please mark it with an X
-
-Example:
-
+For example:
 * [x] Description of Organization
-
 -->
 
 ## Description of Organization
@@ -182,7 +179,6 @@ upper limit, but six paragraphs seems like a rational stop.
 
 **Number of users this request is being made to serve:**
 <!-- Identify if this is current or an estimate. -->
-
 
 ## DNS Verification
 <!--
