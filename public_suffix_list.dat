@@ -15341,11 +15341,6 @@ supabase.co
 supabase.in
 supabase.net
 
-// Symfony, SAS : https://symfony.com/
-// Submitted by Fabien Potencier <fabien@symfony.com>
-*.sensiosite.cloud
-*.s5y.io
-
 // Syncloud : https://syncloud.org
 // Submitted by Boris Rybalkin <syncloud@syncloud.it>
 syncloud.it
