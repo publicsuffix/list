@@ -17,7 +17,7 @@ A recent PR using the current template is
 https://github.com/publicsuffix/list/pull/1591, although 
 the organization and description were not as substantial 
 as desired, which required maintainers time to visit the 
-requestors website to further research.
+requestor's website to further research.
 Having more robust org/desc improves the PR processing 
 pace due to the extra cycles not being lost to research.
 For an example of what an excellent description in a PR looks like
@@ -127,13 +127,10 @@ stay that way for an indefinite period of time (typically long).
 
 
 <!--
+As you complete each item in the checklist please mark it with an X.
 
-As you complete each item in the checklist please mark it with an X
-
-Example:
-
+For example:
 * [x] Description of Organization
-
 -->
 
 ## Description of Organization
@@ -182,7 +179,6 @@ upper limit, but six paragraphs seems like a rational stop.
 
 **Number of users this request is being made to serve:**
 <!-- Identify if this is current or an estimate. -->
-
 
 ## DNS Verification
 <!--

@@ -12290,10 +12290,6 @@ vm.bytemark.co.uk
 // Submitted by Antonio Lain <antlai@cafjs.com>
 cafjs.com
 
-// callidomus : https://www.callidomus.com/
-// Submitted by Marcus Popp <admin@callidomus.com>
-mycd.eu
-
 // Canva Pty Ltd : https://canva.com/
 // Submitted by Joel Aquilina <publicsuffixlist@canva.com>
 canva-apps.cn
@@ -15337,11 +15333,6 @@ supabase.co
 supabase.in
 supabase.net
 
-// Symfony, SAS : https://symfony.com/
-// Submitted by Fabien Potencier <fabien@symfony.com>
-*.sensiosite.cloud
-*.s5y.io
-
 // Syncloud : https://syncloud.org
 // Submitted by Boris Rybalkin <syncloud@syncloud.it>
 syncloud.it
@@ -15650,6 +15641,7 @@ wmflabs.org
 // Submitted by William Harrison <publicsuffix@wdharrison.com>
 wdh.app
 preview.wdh.app
+hrsn.dev
 t.hrsn.dev
 t.hrsn.net
 
