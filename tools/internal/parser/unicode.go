@@ -2,6 +2,7 @@ package parser
 
 import (
 	"bytes"
+	"sync"
 
 	"golang.org/x/text/collate"
 	"golang.org/x/text/language"
@@ -67,6 +68,15 @@ func compareCommentText(a string, b string) int {
 	// corresponding "sort keys", and then bytes.Compare those. There
 	// are more exhaustive tests for sort key computation, so there is
 	// higher confidence that it works correctly.
+	//
+	// Also, somehow, despite this collation process being almost
+	// entirely reading from constant read-only tables compiled into
+	// the binary, x/text/collate's KeyFromString is not safe to use
+	// concurrently. Wrap its use in a mutex so that multiple
+	// concurrent parse operations serialize their collation key
+	// generation.
+	commentCollatorMu.Lock()
+	defer commentCollatorMu.Unlock()
 	var buf collate.Buffer
 	ka := commentCollator.KeyFromString(&buf, a)
 	kb := commentCollator.KeyFromString(&buf, b)
@@ -77,3 +87,4 @@ func compareCommentText(a string, b string) int {
 // non-suffix text. See the comment at the start of this file for more
 // details.
 var commentCollator = collate.New(language.MustParse("en"))
+var commentCollatorMu sync.Mutex

@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"slices"
 	"strings"
+	"sync"
 
 	"golang.org/x/net/idna"
 	"golang.org/x/text/collate"
@@ -229,10 +230,7 @@ func (l Label) Compare(m Label) int {
 	// If two labels aren't equal, we are free to order them however
 	// we want. We choose to order them with the English Unicode
 	// collation.
-	var buf collate.Buffer
-	kl := labelCollator.KeyFromString(&buf, l.label)
-	km := labelCollator.KeyFromString(&buf, m.label)
-	if res := bytes.Compare(kl, km); res != 0 {
+	if res := compareLabel(l, m); res != 0 {
 		return res
 	}
 
@@ -323,4 +321,20 @@ var domainValidator = idna.New(
 // byte compare. However, this option is buggy and silently ignored in
 // some cases (https://github.com/golang/go/issues/68379), so we do
 // this tie breaking ourselves in Label.Compare.
+var labelCollatorMu sync.Mutex
 var labelCollator = collate.New(language.English)
+
+func compareLabel(a, b Label) int {
+	// Somehow, despite this collation process being almost entirely
+	// reading from constant read-only tables compiled into the
+	// binary, x/text/collate's KeyFromString is not safe to use
+	// concurrently. Wrap its use in a mutex so that multiple
+	// concurrent parse operations serialize their collation key
+	// generation.
+	labelCollatorMu.Lock()
+	defer labelCollatorMu.Unlock()
+	var buf collate.Buffer
+	kl := labelCollator.KeyFromString(&buf, a.label)
+	km := labelCollator.KeyFromString(&buf, b.label)
+	return bytes.Compare(kl, km)
+}
