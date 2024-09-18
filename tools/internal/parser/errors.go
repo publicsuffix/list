@@ -214,3 +214,21 @@ func (e ErrTXTRecordMismatch) Error() string {
 		panic(fmt.Sprintf("unexpected block type %T in ErrTXTRecordMismatch", e.Block))
 	}
 }
+
+type ErrTXTCheckFailure struct {
+	Block
+	Err error
+}
+
+func (e ErrTXTCheckFailure) Error() string {
+	var name string
+	switch v := e.Block.(type) {
+	case *Suffix:
+		name = v.Domain.String()
+	case *Wildcard:
+		name = v.Domain.String()
+	default:
+		panic(fmt.Sprintf("unexpected block type %T in ErrInvalidTXTRecord", e.Block))
+	}
+	return fmt.Sprintf("%s: error checking suffix %s: %v", e.SrcRange().LocationString(), name, e.Err)
+}

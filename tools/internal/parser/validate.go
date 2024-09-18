@@ -3,10 +3,11 @@ package parser
 import (
 	"context"
 	"errors"
-	"fmt"
+	"log"
 	"net"
 	"strconv"
 	"strings"
+	"sync"
 
 	"github.com/creachadair/mds/mapset"
 	"github.com/creachadair/taskgroup"
@@ -140,7 +141,8 @@ const (
 	// stub resolver and LAN resolver to absorb the traffic without
 	// dropping packets. Empirically 100 is easily manageable (most
 	// ad-ridden websites do more than this).
-	concurrentDNSRequests = 100
+	concurrentDNSRequests    = 100
+	concurrentGithubRequests = 25
 
 	// txtRecordPrefix is the prefix of valid _psl TXT records.
 	txtRecordPrefix = "https://github.com/publicsuffix/list/pull/"
@@ -159,12 +161,17 @@ type prExpected struct {
 
 // txtRecordChecker is the in-flight state for validateTXTRecords.
 type txtRecordChecker struct {
+	gh       github.Client
 	resolver net.Resolver
 	ctx      context.Context
 	errs     []error
 	// prExpected maps a Github PR number to the PSL changes we expect
 	// to see in that PR.
 	prExpected map[int]*prExpected
+
+	// Somehow, x/unicode isn't thread-safe when collating?? Hacky
+	// workaround for now, just serialize parses.
+	parseMu sync.Mutex
 }
 
 // validateTXTRecords checks the TXT records of all Suffix and
@@ -204,7 +211,16 @@ func validateTXTRecords(ctx context.Context, b Block) (errs []error) {
 	// checker.prToSuffix and checker.domainsToCheck has complete
 	// state for which PRs need to be checked, and we can move on.
 	group.Wait()
-	checker.checkPRs()
+
+	collectPR := taskgroup.NewCollector(func(errs []error) {
+		checker.errs = append(checker.errs, errs...)
+	})
+	group, start = taskgroup.New(nil).Limit(concurrentGithubRequests)
+
+	for prNum, info := range checker.prExpected {
+		start(collectPR.NoError(func() []error { return checker.checkPR(prNum, info) }))
+	}
+	group.Wait()
 
 	return checker.errs
 }
@@ -222,6 +238,7 @@ type txtResult struct {
 // a Wildcard, but checkTXT doesn't use it other than to include it in
 // the txtResult.
 func (c *txtRecordChecker) checkTXT(block Block, domain domain.Name) txtResult {
+	log.Printf("Checking TXT for _psl.%s", domain.String())
 	res, err := c.resolver.LookupTXT(c.ctx, "_psl."+domain.ASCIIString()+".")
 	if err != nil {
 		return txtResult{
@@ -246,12 +263,12 @@ func (c *txtRecordChecker) processLookupResult(res txtResult) {
 			c.errs = append(c.errs, ErrMissingTXTRecord{res.Block})
 		} else {
 			// Other DNS errors, e.g. SERVFAIL or REFUSED.
-			c.errs = append(c.errs, res.err)
+			c.errs = append(c.errs, ErrTXTCheckFailure{res.Block, res.err})
 		}
 		return
 	} else if res.err != nil {
 		// Other non-DNS errors, e.g. timeout or "no route to host".
-		c.errs = append(c.errs, res.err)
+		c.errs = append(c.errs, ErrTXTCheckFailure{res.Block, res.err})
 		return
 	}
 	if len(res.prs) == 0 {
@@ -277,50 +294,74 @@ func (c *txtRecordChecker) processLookupResult(res txtResult) {
 // checkPRs looks up the Github PRs discovered during TXT record
 // checking, and verifies that each PR is touching the suffix that
 // claimed to be related to the PR.
-func (c *txtRecordChecker) checkPRs() {
-	client := github.Client{}
+func (c *txtRecordChecker) checkPR(prNum int, info *prExpected) []error {
+	log.Printf("Checking PR %d", prNum)
 
-	for prNum, info := range c.prExpected {
-		beforeBs, afterBs, err := client.PSLForPullRequest(c.ctx, prNum)
-		if err != nil {
-			c.errs = append(c.errs, fmt.Errorf("checking PR %d: %w", prNum, err))
-			continue
-		}
-		before, _ := Parse(beforeBs)
-		after, _ := Parse(afterBs)
-		after.SetBaseVersion(before, false)
-
-		for _, suf := range BlocksOfType[*Suffix](after) {
-			if !suf.Changed() {
-				continue
-			}
-
-			// If the changed suffix is in our prExpected list, remove
-			// it. We found a change to the suffix in the PR that the
-			// TXT record said, everything is good. This doesn't need
-			// to be conditional, because delete() is a no-op if the
-			// key isn't present in the map.
+	// Some PRs have broken state, so we can't use Github's API to
+	// check them even though they _are_ a correct record for some
+	// suffixes. Handle those first.
+	//
+	// There are no wildcard entries in this state, so we just check
+	// suffixes.
+	for _, suf := range info.suffixes {
+		if acceptPRForDomain(suf.Domain, prNum) {
 			delete(info.suffixes, suf.Domain.String())
 		}
+	}
+	if len(info.suffixes) == 0 && len(info.wildcards) == 0 {
+		return nil
+	}
 
-		for _, wild := range BlocksOfType[*Wildcard](after) {
-			if !wild.Changed() {
-				continue
-			}
+	var ret []error
 
-			delete(info.wildcards, wild.Domain.String())
-		}
-
-		// At this point we've eliminated all suffixes that were
-		// changed by this PR. Whatever is left over are TXT records
-		// that incorrectly claim PR #N is related to them.
+	beforeBs, afterBs, err := c.gh.PSLForPullRequest(c.ctx, prNum)
+	if err != nil {
 		for _, suf := range info.suffixes {
-			c.errs = append(c.errs, ErrTXTRecordMismatch{suf, prNum})
+			ret = append(ret, ErrTXTCheckFailure{suf, err})
 		}
 		for _, wild := range info.wildcards {
-			c.errs = append(c.errs, ErrTXTRecordMismatch{wild, prNum})
+			ret = append(ret, ErrTXTCheckFailure{wild, err})
 		}
+		return ret
 	}
+
+	//c.parseMu.Lock()
+	before, _ := Parse(beforeBs)
+	after, _ := Parse(afterBs)
+	after.SetBaseVersion(before, true)
+	//c.parseMu.Unlock()
+
+	for _, suf := range BlocksOfType[*Suffix](after) {
+		if !suf.Changed() {
+			continue
+		}
+
+		// If the changed suffix is in our prExpected list, remove
+		// it. We found a change to the suffix in the PR that the
+		// TXT record said, everything is good. This doesn't need
+		// to be conditional, because delete() is a no-op if the
+		// key isn't present in the map.
+		delete(info.suffixes, suf.Domain.String())
+	}
+
+	for _, wild := range BlocksOfType[*Wildcard](after) {
+		if !wild.Changed() {
+			continue
+		}
+
+		delete(info.wildcards, wild.Domain.String())
+	}
+
+	// At this point we've eliminated all suffixes that were
+	// changed by this PR. Whatever is left over are TXT records
+	// that incorrectly claim PR #N is related to them.
+	for _, suf := range info.suffixes {
+		ret = append(ret, ErrTXTRecordMismatch{suf, prNum})
+	}
+	for _, wild := range info.wildcards {
+		ret = append(ret, ErrTXTRecordMismatch{wild, prNum})
+	}
+	return ret
 }
 
 func (c *txtRecordChecker) prInfo(pr int) *prExpected {
@@ -359,6 +400,21 @@ func extractPSLRecords(txts []string) []int {
 			if err != nil {
 				continue
 			}
+
+			if prNum == 0 {
+				// At least one _psl record points to a bogus zero PR
+				// - presumably a placeholder that was never
+				// updated. Treat it identically to other
+				// missing/malformed records.
+				continue
+			}
+
+			// Apply special cases where the PR in DNS is not quite
+			// right, but not due to procedural issues on the PSL side
+			// rather than suffix owner error. See exceptions.go for
+			// more explanation.
+			prNum = adjustTXTPR(prNum)
+
 			ret = append(ret, prNum)
 		}
 	}
