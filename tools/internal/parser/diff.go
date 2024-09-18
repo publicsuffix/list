@@ -2,7 +2,6 @@ package parser
 
 import (
 	"fmt"
-	"strings"
 )
 
 // SetBaseVersion sets the list's base of comparison to old, and
