@@ -15466,14 +15466,11 @@ webspace.rocks
 lima.zone
 
 // TransIP : https://www.transip.nl
-// Submitted by Rory Breuk <rbreuk@transip.nl>
+// Submitted by Rory Breuk <rbreuk@transip.nl> and Cedric Dubois <cedric.dubois@team.blue>
 *.transurl.be
 *.transurl.eu
-*.transurl.nl
-
-// TransIP: https://www.transip.nl
-// Submitted by Cedric Dubois <cedric.dubois@team.blue>
 site.transip.me
+*.transurl.nl
 
 // TuxFamily : http://tuxfamily.org
 // Submitted by TuxFamily administrators <adm@staff.tuxfamily.org>
