@@ -1,0 +1,45 @@
+name: sync query zone
+
+on:
+  push:
+    branches:
+    - master
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install psl-dns
+    - name: Check out sync tools
+      uses: actions/checkout@v4
+      with:
+        repository: desec-io/desec-tools
+        path: desec-tools
+    - name: Check out PSL
+      uses: actions/checkout@v4
+      with:
+        repository: publicsuffix/list
+        path: list
+        sparse-checkout: 'public_suffix_list.dat'
+        sparse-checkout-cone-mode: false
+    - name: Run sync
+      env:
+        TOKEN: ${{ secrets.DESEC_TOKEN }}
+      working-directory: ./desec-tools
+      run: psl-dns_parse ../list/public_suffix_list.dat | ./patch_zone.sh query.publicsuffix.zone -
+    - name: Print PATCH request data
+      working-directory: ./desec-tools
+      run: cat *.json
+    - name: Print log
+      working-directory: ./desec-tools
+      run: cat *.log
