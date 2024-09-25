@@ -14250,12 +14250,9 @@ atmeta.com
 apps.fbsbx.com
 
 // MetaCentrum, CESNET z.s.p.o. : https://www.metacentrum.cz/en/
-// Submitted by Zdeněk Šustr <zdenek.sustr@cesnet.cz>
+// Submitted by Zdeněk Šustr <zdenek.sustr@cesnet.cz> and Radim Janča <janca@cesnet.cz>
 *.cloud.metacentrum.cz
 custom.metacentrum.cz
-
-// MetaCentrum, CESNET z.s.p.o. : https://www.metacentrum.cz/en/
-// Submitted by Radim Janča <janca@cesnet.cz>
 flt.cloud.muni.cz
 usr.cloud.muni.cz
 
@@ -15470,14 +15467,11 @@ webspace.rocks
 lima.zone
 
 // TransIP : https://www.transip.nl
-// Submitted by Rory Breuk <rbreuk@transip.nl>
+// Submitted by Rory Breuk <rbreuk@transip.nl> and Cedric Dubois <cedric.dubois@team.blue>
 *.transurl.be
 *.transurl.eu
-*.transurl.nl
-
-// TransIP: https://www.transip.nl
-// Submitted by Cedric Dubois <cedric.dubois@team.blue>
 site.transip.me
+*.transurl.nl
 
 // TuxFamily : http://tuxfamily.org
 // Submitted by TuxFamily administrators <adm@staff.tuxfamily.org>
