@@ -2,7 +2,6 @@ package parser
 
 import (
 	"fmt"
-	"strings"
 )
 
 // SetBaseVersion sets the list's base of comparison to old, and
@@ -304,15 +303,7 @@ func (d *differ) makeKey(b Block, parentKey string) string {
 		// indirectly dirty the block, because the metadata comment
 		// includes the entire comment text in its identity, and will
 		// dirty the parent Suffixes.
-		//
-		// Two temporary exceptions: TransIP and MetaCentrum both have
-		// two blocks each, with different contact emails. Until those
-		// are fixed, also include the maintainer email in the
-		// identity to avoid constant false positives.
 		ret := fmt.Sprintf("%s;Suffixes,%q", parentKey, v.Info.Name)
-		if strings.Contains(v.Info.Name, "MetaCentrum") || strings.Contains(v.Info.Name, "TransIP") {
-			ret += fmt.Sprintf(",%v", v.Info.Maintainers)
-		}
 		return ret
 	case *Suffix:
 		return fmt.Sprintf("%s;Suffix,%q", parentKey, v.Domain)
