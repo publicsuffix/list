@@ -14,6 +14,7 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
+	"unicode"
 
 	"github.com/creachadair/command"
 	"github.com/creachadair/flax"
@@ -42,11 +43,14 @@ By default, the given file is updated in place.`,
 			},
 			{
 				Name:  "validate",
-				Usage: "<path>",
+				Usage: "<path or git commit hash>",
 				Help: `Check that a file is a valid PSL file.
 
 Validation includes basic issues like parse errors, as well as
-conformance with the PSL project's style rules and policies.`,
+conformance with the PSL project's style rules and policies.
+
+The argument can be either a local file, or a git commit hash to fetch
+from https://github.com/publicsuffix/list.`,
 				SetFlags: command.Flags(flax.MustBind, &validateArgs),
 				Run:      command.Adapt(runValidate),
 			},
@@ -132,10 +136,30 @@ var validateArgs struct {
 	Online bool `flag:"online-checks,Run validations that require querying third-party servers"`
 }
 
-func runValidate(env *command.Env, path string) error {
-	bs, err := os.ReadFile(path)
+func isHex(s string) bool {
+	for _, r := range s {
+		if !unicode.In(r, unicode.ASCII_Hex_Digit) {
+			return false
+		}
+	}
+	return true
+}
+
+func runValidate(env *command.Env, pathOrHash string) error {
+	var bs []byte
+	var err error
+	if _, err = os.Stat(pathOrHash); err == nil {
+		// input is a local file
+		bs, err = os.ReadFile(pathOrHash)
+	} else if isHex(pathOrHash) {
+		// input looks like a git hash
+		client := github.Client{}
+		bs, err = client.PSLForHash(context.Background(), pathOrHash)
+	} else {
+		return fmt.Errorf("Failed to read PSL file %q, not a local file or a git commit hash", pathOrHash)
+	}
 	if err != nil {
-		return fmt.Errorf("Failed to read PSL file: %w", err)
+		return fmt.Errorf("Failed to read PSL file %q: %w", pathOrHash, err)
 	}
 
 	psl, errs := parser.Parse(bs)
