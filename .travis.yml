@@ -1,7 +1,12 @@
 language: c
 compiler: gcc
 
-script: make
+script: 
+  - make
+  - go test -v -coverprofile=coverage.out tools/*.go
+
+go:
+  - "1.15.x"
 
 addons:
     apt:
@@ -18,4 +23,3 @@ addons:
             - libicu-dev
             - libunistring0
             - libunistring-dev
-

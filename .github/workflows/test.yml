@@ -1,0 +1,27 @@
+name: Test
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  make-test:
+    name: Unit tests
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 'stable'
+
+      - name: Run Go unit tests
+        run: go test -C ./tools -v .
+
+      - name: Install dependencies
+        run: sudo apt install -y autopoint
+
+      - name: Run makefile tests
+        run: make test
