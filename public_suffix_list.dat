@@ -756,8 +756,6 @@ go.ci
 asso.ci
 aéroport.ci
 int.ci
-presse.ci
-md.ci
 gouv.ci
 
 // ck : https://www.iana.org/domains/root/db/ck.html
@@ -4102,7 +4100,6 @@ coop.mw
 edu.mw
 gov.mw
 int.mw
-museum.mw
 net.mw
 org.mw
 
@@ -4143,8 +4140,6 @@ org.mz
 // http://www.info.na/domain/
 na
 info.na
-pro.na
-name.na
 school.na
 or.na
 dr.na
@@ -4155,7 +4150,6 @@ in.na
 cc.na
 tv.na
 ws.na
-mobi.na
 co.na
 com.na
 org.na
@@ -5398,7 +5392,6 @@ nome.pt
 // pw : https://www.iana.org/domains/root/db/pw.html
 pw
 co.pw
-ne.pw
 or.pw
 ed.pw
 go.pw
