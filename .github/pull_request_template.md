@@ -71,6 +71,29 @@ the PR.
  * [ ] This request was _not_ submitted with the objective of working around other third-party limits.
 
 <!--
+For Subdomain Registries: Abuse Contact Confirmation
+
+If your project operates as a subdomain registry, please confirm that you have an accessible abuse contact information on your website. 
+
+This requirement applies to entities including but not limited to:
+- Registries of gTLDs/ccTLDs operating on third-level domains: For example, registries managing domains like .eu.org that offer third-level domain registrations.
+- Registries that resell subdomains to registrars: These are entities that manage domains and sell subdomains of those domains to other registrars, who then distribute them to end users.
+- Registries that directly resell subdomains to end customers: These operators provide subdomains directly to individuals or businesses, acting as an intermediary for domain usage.
+- Hosting providers offering subdomains: Hosting services that offer free/paid subdomains (such as clientname.example.com) as part of their hosting package, making them de facto registries for their hosted clients.
+- Dynamic DNS providers: These are services like Synology's *.quickconnect.to, which provide subdomains for users to dynamically map IP addresses, functioning similarly to subdomain registries.
+- URL shortening services using subdomains: Services that provide shortened URLs utilizing subdomains also fall under this broad definition.
+
+At a minimum, you must provide an abuse contact either in the form of an email address or a web form that can be used to report abuse. This contact should be easily accessible to allow concerned parties to notify the registry or subdomain operator directly when malicious activities such as phishing, malware, or abuse are detected. For example, if you provide subdomains at example.com, where users may register subdomains such as clientname.example.com, then in case of abuse, reporters should be able to visit example.com and easily find the relevant abuse contact information.
+
+Uncomment the following checkbox if applicable:
+
+* [ ] This request is made for a subdomain registry service. Abuse contact information (email or web form) is available and easily accessible.
+
+**URL where abuse contact or abuse reporting form can be found**: 
+
+-->
+
+<!--
 Submitter will maintain domains in good standing or may lose section.
 
 The ongoing trust of the PSL requires it to be free of outdated or problematic entries. In making this pull request, there is a commitment by the submitter that they are going to review and maintain their relevant section. By submitting an entry, the requestor acknowledges that their entry and section may be removed if the domain does not maintain the respective _psl entries in DNS, any domain(s) within their section fail to resolve in DNS, the domain does not get renewed, expires or is otherwise unreachable. The submitter further identifies that it is their responsibility to review their submitted section within the PSL, submitting updates or removals as their domain(s) may change over time. It is also the responsibility of the submitter to provide (and keep up to date) a reachable email address within the section, and to maintain that address as it may change over time, so that they receive notices.
