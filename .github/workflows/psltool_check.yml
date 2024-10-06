@@ -1,0 +1,22 @@
+name: psltool
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "stable"
+      - name: run validations
+        run: |
+          cd tools
+          go run ./psltool fmt -d ../public_suffix_list.dat
+          go run ./psltool validate ../public_suffix_list.dat

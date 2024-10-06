@@ -1,0 +1,21 @@
+// ===BEGIN ICANN DOMAINS===
+
+at
+*.bd
+
+// example.com: https://www.iana.org/domains/reserved
+example.com
+a.example.com
+b.example.com.
+
+// ===END ICANN DOMAINS===
+// ===BEGIN PRIVATE DOMAINS===
+// (Note: these are in alphabetical order by company name)
+
+// Some company
+example.org
+foo.example.org
+*.bar.example.org
+!main.bar.example.org
+
+// ===END PRIVATE DOMAINS===
