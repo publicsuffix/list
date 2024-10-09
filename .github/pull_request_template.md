@@ -97,6 +97,19 @@ so getting this right initially will aid successfully having it
 proceed. Mislocated entries and trailing spaces should be avoided.
 -->
 
+**Abuse Contact:**
+
+<!--
+Please confirm that you have an accessible abuse contact information on your website. 
+
+At a minimum, you must provide an abuse contact either in the form of an email address or a web form that can be used to report abuse. This contact should be easily accessible to allow concerned parties to notify the registry or subdomain operator directly when malicious activities such as phishing, malware, or abuse are detected. For example, if you provide subdomains at example.com, where users may register subdomains such as clientname.example.com, then in case of abuse, reporters should be able to visit example.com and easily find the relevant abuse contact information.
+-->
+
+* [ ] Abuse contact information (email or web form) is available and easily accessible.
+
+  URL where abuse contact or abuse reporting form can be found: 
+  <!-- Provide the URL where an Internet user can access the abuse contact information -->
+
 ---
 
 For PRIVATE section requests that are submitting entries for domains that match their organization website's primary domain, please understand that this can have impacts that may not match the desired outcome and take a long time to rollback, if at all.
@@ -123,29 +136,6 @@ stay that way for an indefinite period of time (typically long).
 (Link: [about propagation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
 
  * [ ] *Yes, I understand*. I could break my organization's website cookies and cause other issues, and the rollback timing is acceptable. *Proceed anyways*.
-
-<!--
-For Subdomain Registries: Abuse Contact Confirmation
-
-If your project operates as a subdomain registry, please confirm that you have an accessible abuse contact information on your website. 
-
-This requirement applies to entities including but not limited to:
-- Registries of gTLDs/ccTLDs operating on third-level domains: For example, registries managing domains like .eu.org that offer third-level domain registrations.
-- Registries that resell subdomains to registrars: These are entities that manage domains and sell subdomains of those domains to other registrars, who then distribute them to end users.
-- Registries that directly resell subdomains to end customers: These operators provide subdomains directly to individuals or businesses, acting as an intermediary for domain usage.
-- Hosting providers offering subdomains: Hosting services that offer free/paid subdomains (such as clientname.example.com) as part of their hosting package, making them de facto registries for their hosted clients.
-- Dynamic DNS providers: These are services like Synology's *.quickconnect.to, which provide subdomains for users to dynamically map IP addresses, functioning similarly to subdomain registries.
-- URL shortening services using subdomains: Services that provide shortened URLs utilizing subdomains also fall under this broad definition.
-
-At a minimum, you must provide an abuse contact either in the form of an email address or a web form that can be used to report abuse. This contact should be easily accessible to allow concerned parties to notify the registry or subdomain operator directly when malicious activities such as phishing, malware, or abuse are detected. For example, if you provide subdomains at example.com, where users may register subdomains such as clientname.example.com, then in case of abuse, reporters should be able to visit example.com and easily find the relevant abuse contact information.
-
-Uncomment the following checkbox if applicable:
-
-* [ ] This request is made for a subdomain registry service. Abuse contact information (email or web form) is available and easily accessible.
-
-**URL where abuse contact or abuse reporting form can be found**: 
-
--->
 
 ---
 
