@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"slices"
 	"strings"
+	"sync"
 
 	"golang.org/x/net/idna"
 	"golang.org/x/text/collate"
@@ -85,6 +86,19 @@ func (d Name) String() string {
 	var b strings.Builder
 	for i := len(d.labels) - 1; i >= 0; i-- {
 		b.WriteString(d.labels[i].String())
+		if i != 0 {
+			b.WriteByte('.')
+		}
+	}
+	return b.String()
+}
+
+// ASCIIString returns the domain name in its canonicalized ASCII (aka
+// "punycode") form.
+func (d Name) ASCIIString() string {
+	var b strings.Builder
+	for i := len(d.labels) - 1; i >= 0; i-- {
+		b.WriteString(d.labels[i].ASCIIString())
 		if i != 0 {
 			b.WriteByte('.')
 		}
@@ -176,6 +190,19 @@ func ParseLabel(s string) (Label, error) {
 
 func (l Label) String() string { return l.label }
 
+func (l Label) ASCIIString() string {
+	ret, err := domainValidator.ToASCII(l.label)
+	if err != nil {
+		// This should be impossible. Domain labels can only be
+		// created by ParseLabel, which applies IDNA validation and
+		// produces a canonical U-label. We're just converting from
+		// U-label representation to A-label, which is guaranteed to
+		// succeed given a valid U-label.
+		panic(fmt.Sprintf("impossible: U-label to A-label conversion failed: %v", err))
+	}
+	return ret
+}
+
 // Compare compares domain labels. It returns -1 if l < m, +1 if l > m,
 // and 0 if l == m.
 //
@@ -203,10 +230,7 @@ func (l Label) Compare(m Label) int {
 	// If two labels aren't equal, we are free to order them however
 	// we want. We choose to order them with the English Unicode
 	// collation.
-	var buf collate.Buffer
-	kl := labelCollator.KeyFromString(&buf, l.label)
-	km := labelCollator.KeyFromString(&buf, m.label)
-	if res := bytes.Compare(kl, km); res != 0 {
+	if res := compareLabel(l, m); res != 0 {
 		return res
 	}
 
@@ -297,4 +321,18 @@ var domainValidator = idna.New(
 // byte compare. However, this option is buggy and silently ignored in
 // some cases (https://github.com/golang/go/issues/68379), so we do
 // this tie breaking ourselves in Label.Compare.
+var labelCollatorMu sync.Mutex
 var labelCollator = collate.New(language.English)
+
+func compareLabel(a, b Label) int {
+	// Unfortunately individual collators are not safe for concurrent
+	// use. Wrap them in a global mutex. We could also construct a new
+	// collator for each use, but that ends up being more expensive
+	// and less performant than sharing one collator with a mutex.
+	labelCollatorMu.Lock()
+	defer labelCollatorMu.Unlock()
+	var buf collate.Buffer
+	kl := labelCollator.KeyFromString(&buf, a.label)
+	km := labelCollator.KeyFromString(&buf, b.label)
+	return bytes.Compare(kl, km)
+}

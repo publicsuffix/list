@@ -24,7 +24,7 @@ func exemptFromSorting(entity string) bool {
 // missingEmail are source code blocks in the private domains section
 // that are allowed to lack email contact information.
 var missingEmail = []string{
-	"611coin",
+	"611 blockchain domain name system",
 	"c.la",
 	"co.ca",
 	"DynDNS.com",
