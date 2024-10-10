@@ -136,7 +136,6 @@ stay that way for an indefinite period of time (typically long).
 (Link: [about propagation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
 
  * [ ] *Yes, I understand*. I could break my organization's website cookies and cause other issues, and the rollback timing is acceptable. *Proceed anyways*.
-
 ---
 
 <!--
