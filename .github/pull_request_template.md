@@ -100,7 +100,7 @@ proceed. Mislocated entries and trailing spaces should be avoided.
 **Abuse Contact:**
 
 <!--
-Please confirm that you have an accessible abuse contact information on your website. 
+Please confirm that you have accessible abuse contact information on your website. 
 
 At a minimum, you must provide an abuse contact either in the form of an email address or a web form that can be used to report abuse. This contact should be easily accessible to allow concerned parties to notify the registry or subdomain operator directly when malicious activities such as phishing, malware, or abuse are detected. For example, if you provide subdomains at example.com, where users may register subdomains such as clientname.example.com, then in case of abuse, reporters should be able to visit example.com and easily find the relevant abuse contact information.
 -->
