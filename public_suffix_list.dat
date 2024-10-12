@@ -15755,4 +15755,8 @@ basicserver.io
 virtualserver.io
 enterprisecloud.nu
 
+// frii.site : https://www.frii.site
+// Submitted by Onni Nevala <nevalaonni@frii.site>
+*.frii.site
+
 // ===END PRIVATE DOMAINS===
