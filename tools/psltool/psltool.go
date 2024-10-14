@@ -14,6 +14,7 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
+	"time"
 	"unicode"
 
 	"github.com/creachadair/command"
@@ -166,7 +167,13 @@ func runValidate(env *command.Env, pathOrHash string) error {
 	errs = append(errs, psl.Clean()...)
 	errs = append(errs, parser.ValidateOffline(psl)...)
 	if validateArgs.Online {
-		// TODO: no online validations implemented yet.
+		if os.Getenv("PSLTOOL_ALLOW_BROKEN") == "" {
+			errs = append(errs, fmt.Errorf("refusing to run online validation on the entire PSL, it's currently broken and gets you rate-limited by github. For development, export PSLTOOL_ALLOW_BROKEN=1."))
+		} else {
+			ctx, cancel := context.WithTimeout(env.Context(), 1200*time.Second)
+			defer cancel()
+			errs = append(errs, parser.ValidateOnline(ctx, psl)...)
+		}
 	}
 
 	clean := psl.MarshalPSL()
@@ -214,8 +221,10 @@ func runCheckPR(env *command.Env, prStr string) error {
 	after.SetBaseVersion(before, true)
 	errs = append(errs, after.Clean()...)
 	errs = append(errs, parser.ValidateOffline(after)...)
-	if validateArgs.Online {
-		// TODO: no online validations implemented yet.
+	if checkPRArgs.Online {
+		ctx, cancel := context.WithTimeout(env.Context(), 300*time.Second)
+		defer cancel()
+		errs = append(errs, parser.ValidateOnline(ctx, after)...)
 	}
 
 	clean := after.MarshalPSL()
@@ -249,12 +258,12 @@ func runCheckPR(env *command.Env, prStr string) error {
 	}
 
 	if l := len(errs); l == 0 {
-		fmt.Fprintln(env, "PSL file is valid")
+		fmt.Fprintln(env, "PSL change is valid")
 		return nil
 	} else if l == 1 {
-		return errors.New("file has 1 error")
+		return errors.New("change has 1 error")
 	} else {
-		return fmt.Errorf("file has %d errors", l)
+		return fmt.Errorf("change has %d errors", l)
 	}
 }
 
