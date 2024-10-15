@@ -12206,12 +12206,6 @@ b-data.io
 // Submitted by Petros Angelatos <petrosagg@balena.io>
 balena-devices.com
 
-// Banzai Cloud
-// Submitted by Janos Matyas <info@banzaicloud.com>
-*.banzai.cloud
-app.banzaicloud.io
-*.backyards.banzaicloud.io
-
 // BASE, Inc. : https://binc.jp
 // Submitted by Yuya NAGASAWA <public-suffix-list@binc.jp>
 base.ec
