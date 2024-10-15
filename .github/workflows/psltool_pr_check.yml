@@ -1,8 +1,7 @@
-name: psltool
+name: psltool PR check
 
 on:
   pull_request:
-  workflow_dispatch:
 
 permissions: {}
 
@@ -18,5 +17,4 @@ jobs:
       - name: run validations
         run: |
           cd tools
-          go run ./psltool fmt -d ../public_suffix_list.dat
-          go run ./psltool validate ../public_suffix_list.dat
+          go run ./psltool fmt -d ../public_suffix_list.dat && go run ./psltool check-pr --gh-owner ${{ github.event.repository.owner.login }} --gh-repo ${{ github.event.repository.name }} --online-checks ${{ github.event.pull_request.number }}
