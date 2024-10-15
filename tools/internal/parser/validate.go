@@ -124,10 +124,10 @@ func validateSuffixUniqueness(block Block) (errs []error) {
 // validations are slower than offline validation, especially when
 // checking the entire PSL. All online validations respect
 // cancellation on the given context.
-func ValidateOnline(ctx context.Context, l *List) (errs []error) {
+func ValidateOnline(ctx context.Context, l *List, client *github.Repo) (errs []error) {
 	for _, section := range BlocksOfType[*Section](l) {
 		if section.Name == "PRIVATE DOMAINS" {
-			errs = append(errs, validateTXTRecords(ctx, section)...)
+			errs = append(errs, validateTXTRecords(ctx, section, client)...)
 			break
 		}
 	}
@@ -170,7 +170,7 @@ type txtRecordChecker struct {
 	ctx context.Context
 
 	// gh is the Github API client used to look up PRs and commits.
-	gh github.Client
+	gh *github.Repo
 	// resolver is the DNS resolver used to do TXT lookups.
 	resolver net.Resolver
 
@@ -188,10 +188,11 @@ type txtRecordChecker struct {
 
 // validateTXTRecords checks the TXT records of all Suffix and
 // Wildcard blocks found under b.
-func validateTXTRecords(ctx context.Context, b Block) (errs []error) {
+func validateTXTRecords(ctx context.Context, b Block, client *github.Repo) (errs []error) {
 	checker := txtRecordChecker{
 		ctx:        ctx,
 		prExpected: map[int]*prExpected{},
+		gh: client,
 	}
 
 	// TXT checking happens in two phases: first, look up all TXT

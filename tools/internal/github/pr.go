@@ -15,7 +15,7 @@ import (
 // Client is a GitHub API client that performs PSL-specific
 // operations. The zero value is a client that interacts with the
 // official publicsuffix/list repository.
-type Client struct {
+type Repo struct {
 	// Owner is the github account of the repository to query. If
 	// empty, defaults to "publicsuffix".
 	Owner string
@@ -25,21 +25,21 @@ type Client struct {
 	client *github.Client
 }
 
-func (c *Client) owner() string {
+func (c *Repo) owner() string {
 	if c.Owner != "" {
 		return c.Owner
 	}
 	return "publicsuffix"
 }
 
-func (c *Client) repo() string {
+func (c *Repo) repo() string {
 	if c.Repo != "" {
 		return c.Repo
 	}
 	return "list"
 }
 
-func (c *Client) apiClient() *github.Client {
+func (c *Repo) apiClient() *github.Client {
 	if c.client == nil {
 		c.client = github.NewClient(nil)
 		if token := os.Getenv("GITHUB_TOKEN"); token != "" {
@@ -52,7 +52,7 @@ func (c *Client) apiClient() *github.Client {
 // PSLForPullRequest fetches the PSL files needed to validate the
 // given pull request. Returns the PSL file for the target branch, and
 // the same but with the PR's changes applied.
-func (c *Client) PSLForPullRequest(ctx context.Context, prNum int) (withoutPR, withPR []byte, err error) {
+func (c *Repo) PSLForPullRequest(ctx context.Context, prNum int) (withoutPR, withPR []byte, err error) {
 	// Github sometimes needs a little time to think to update the PR
 	// state, so we might need to sleep and retry a few times. Usually
 	// the status updates in <5s, but just for safety, give it a more
@@ -111,7 +111,7 @@ var errMergeInfoNotReady = errors.New("PR mergeability information not available
 // an open PR exists, but github needs a bit more time to update the
 // trial merge commit. The caller is expected to retry with
 // appropriate backoff.
-func (c *Client) getPRCommitInfo(ctx context.Context, prNum int) (withoutPRCommit, withPRCommit string, err error) {
+func (c *Repo) getPRCommitInfo(ctx context.Context, prNum int) (withoutPRCommit, withPRCommit string, err error) {
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
 
@@ -168,7 +168,7 @@ func (c *Client) getPRCommitInfo(ctx context.Context, prNum int) (withoutPRCommi
 }
 
 // PSLForHash returns the PSL file at the given git commit hash.
-func (c *Client) PSLForHash(ctx context.Context, hash string) ([]byte, error) {
+func (c *Repo) PSLForHash(ctx context.Context, hash string) ([]byte, error) {
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
 

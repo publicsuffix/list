@@ -134,6 +134,8 @@ func runFmt(env *command.Env, path string) error {
 }
 
 var validateArgs struct {
+	Owner  string `flag:"gh-owner,default=publicsuffix,Owner of the github repository to check"`
+	Repo   string `flag:"gh-repo,default=list,Github repository to check"`
 	Online bool `flag:"online-checks,Run validations that require querying third-party servers"`
 }
 
@@ -149,12 +151,17 @@ func isHex(s string) bool {
 func runValidate(env *command.Env, pathOrHash string) error {
 	var bs []byte
 	var err error
+
+	client := github.Repo{
+		Owner: checkPRArgs.Owner,
+		Repo:  checkPRArgs.Repo,
+	}
+
 	if _, err = os.Stat(pathOrHash); err == nil {
 		// input is a local file
 		bs, err = os.ReadFile(pathOrHash)
 	} else if isHex(pathOrHash) {
 		// input looks like a git hash
-		client := github.Client{}
 		bs, err = client.PSLForHash(context.Background(), pathOrHash)
 	} else {
 		return fmt.Errorf("Failed to read PSL file %q, not a local file or a git commit hash", pathOrHash)
@@ -172,7 +179,7 @@ func runValidate(env *command.Env, pathOrHash string) error {
 		} else {
 			ctx, cancel := context.WithTimeout(env.Context(), 1200*time.Second)
 			defer cancel()
-			errs = append(errs, parser.ValidateOnline(ctx, psl)...)
+			errs = append(errs, parser.ValidateOnline(ctx, psl, &client)...)
 		}
 	}
 
@@ -207,7 +214,7 @@ func runCheckPR(env *command.Env, prStr string) error {
 		return fmt.Errorf("invalid PR number %q: %w", prStr, err)
 	}
 
-	client := github.Client{
+	client := github.Repo{
 		Owner: checkPRArgs.Owner,
 		Repo:  checkPRArgs.Repo,
 	}
@@ -224,7 +231,7 @@ func runCheckPR(env *command.Env, prStr string) error {
 	if checkPRArgs.Online {
 		ctx, cancel := context.WithTimeout(env.Context(), 300*time.Second)
 		defer cancel()
-		errs = append(errs, parser.ValidateOnline(ctx, after)...)
+		errs = append(errs, parser.ValidateOnline(ctx, after, &client)...)
 	}
 
 	clean := after.MarshalPSL()
