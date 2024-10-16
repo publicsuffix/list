@@ -291,7 +291,6 @@ var missingTXT = mapset.New(
 	"blogspot.tw",
 	"blogspot.ug",
 	"blogspot.vn",
-	"bloxcms.com",
 	"boldlygoingnowhere.org",
 	"bookonline.app",
 	"br.com",
