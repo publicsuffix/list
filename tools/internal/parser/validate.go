@@ -11,6 +11,7 @@ import (
 	"github.com/creachadair/mds/mapset"
 	"github.com/creachadair/taskgroup"
 	"github.com/publicsuffix/list/tools/internal/domain"
+	"github.com/publicsuffix/list/tools/internal/githistory"
 	"github.com/publicsuffix/list/tools/internal/github"
 )
 
@@ -124,10 +125,10 @@ func validateSuffixUniqueness(block Block) (errs []error) {
 // validations are slower than offline validation, especially when
 // checking the entire PSL. All online validations respect
 // cancellation on the given context.
-func ValidateOnline(ctx context.Context, l *List, client *github.Repo) (errs []error) {
+func ValidateOnline(ctx context.Context, l *List, client *github.Repo, prHistory *githistory.History) (errs []error) {
 	for _, section := range BlocksOfType[*Section](l) {
 		if section.Name == "PRIVATE DOMAINS" {
-			errs = append(errs, validateTXTRecords(ctx, section, client)...)
+			errs = append(errs, validateTXTRecords(ctx, section, client, prHistory)...)
 			break
 		}
 	}
@@ -184,15 +185,18 @@ type txtRecordChecker struct {
 	// {suffixes: [foo.com]}, meaning if we look at PR 123 on github,
 	// we want to see a change for foo.com.
 	prExpected map[int]*prExpected
+
+	hist *githistory.History
 }
 
 // validateTXTRecords checks the TXT records of all Suffix and
 // Wildcard blocks found under b.
-func validateTXTRecords(ctx context.Context, b Block, client *github.Repo) (errs []error) {
+func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHistory *githistory.History) (errs []error) {
 	checker := txtRecordChecker{
 		ctx:        ctx,
 		prExpected: map[int]*prExpected{},
-		gh: client,
+		gh:         client,
+		hist:       prHistory,
 	}
 
 	// TXT checking happens in two phases: first, look up all TXT
@@ -365,6 +369,24 @@ func (c *txtRecordChecker) processLookupResult(res txtResult) {
 	}
 }
 
+func (c *txtRecordChecker) getPRPSLs(prNum int) (before, after []byte, err error) {
+	if c.hist != nil {
+		if inf, ok := c.hist.PRs[prNum]; ok {
+			before, err = githistory.GetPSL(c.hist.GitPath, inf.ParentHash)
+			if err != nil {
+				return nil, nil, err
+			}
+			after, err = githistory.GetPSL(".", inf.CommitHash)
+			if err != nil {
+				return nil, nil, err
+			}
+			return before, after, nil
+		}
+	}
+
+	return c.gh.PSLForPullRequest(c.ctx, prNum)
+}
+
 // checkPRs looks up the given Github PR, and verifies that it changes
 // all the suffixes and wildcards provided in info.
 func (c *txtRecordChecker) checkPR(prNum int, info *prExpected) []error {
@@ -385,7 +407,7 @@ func (c *txtRecordChecker) checkPR(prNum int, info *prExpected) []error {
 
 	var ret []error
 
-	beforeBs, afterBs, err := c.gh.PSLForPullRequest(c.ctx, prNum)
+	beforeBs, afterBs, err := c.getPRPSLs(prNum)
 	if err != nil {
 		for _, suf := range info.suffixes {
 			ret = append(ret, ErrTXTCheckFailure{suf, err})
