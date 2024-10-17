@@ -15504,6 +15504,11 @@ unison-services.cloud
 virtual-user.de
 virtualuser.de
 
+// United Tech : https://unitedtech.ai/
+// Submitted by Illia Korzh <illia.k@unitedtech.ai>
+*.pages-unitedtech.link
+*.dev-pages-unitedtech.link
+
 // UNIVERSAL DOMAIN REGISTRY : https://www.udr.org.yt/
 // see also: whois -h whois.udr.org.yt help
 // Submitted by Atanunu Igbunuroghene <publicsuffixlist@udr.org.yt>
