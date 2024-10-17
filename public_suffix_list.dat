@@ -206,6 +206,7 @@ tur.ar
 // Confirmed by registry <iana-questions@icann.org> 2008-06-18
 arpa
 e164.arpa
+home.arpa
 in-addr.arpa
 ip6.arpa
 iris.arpa
