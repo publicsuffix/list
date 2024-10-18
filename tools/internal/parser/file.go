@@ -2,6 +2,7 @@ package parser
 
 import (
 	"cmp"
+	"fmt"
 	"net/mail"
 	"net/url"
 	"slices"
@@ -77,6 +78,98 @@ type List struct {
 }
 
 func (l *List) Children() []Block { return l.Blocks }
+
+// PublicSuffix returns the public suffix of n.
+//
+// This follows the PSL algorithm to the letter. Notably: a rule
+// "*.foo.com" does not implicitly create a "foo.com" rule, and there
+// is a hardcoded implicit "*" rule so that unknown TLDs are all
+// public suffixes.
+func (l *List) PublicSuffix(d domain.Name) domain.Name {
+	if d.NumLabels() == 0 {
+		// Edge case: zero domain.Name value
+		return d
+	}
+
+	// Look at wildcards first, because the PSL algorithm says that
+	// exceptions to wildcards take priority over all other rules. So,
+	// if we find a wildcard exception, we can halt early.
+	var (
+		ret          domain.Name
+		matchLen     int
+		gotException bool
+	)
+	for _, w := range BlocksOfType[*Wildcard](l) {
+		suf, isException, ok := w.PublicSuffix(d)
+		switch {
+		case !ok:
+			continue
+		case isException && !gotException:
+			// First matching exception encountered.
+			gotException = true
+			matchLen = suf.NumLabels()
+			ret = suf
+		case isException:
+			// Second or later exception match. According to the
+			// format, only 0 or 1 exceptions can match,
+			// multi-exception matches are undefined and unused. But
+			// just to be safe, handle the N exception case by
+			// accepting the longest matching exception.
+			if nl := suf.NumLabels(); nl > matchLen {
+				matchLen = nl
+				ret = suf
+			}
+		case !gotException:
+			// Non-exception match.
+			if nl := suf.NumLabels(); nl > matchLen {
+				matchLen = nl
+				ret = suf
+			}
+		}
+	}
+	if gotException {
+		return ret
+	}
+
+	// Otherwise, keep scanning through the regular suffixes.
+	for _, s := range BlocksOfType[*Suffix](l) {
+		if suf, ok := s.PublicSuffix(d); ok && suf.NumLabels() > matchLen {
+			matchLen = suf.NumLabels()
+			ret = suf
+		}
+	}
+
+	if matchLen == 0 {
+		// The PSL algorithm includes an implicit "*" to match every
+		// TLD, in the absence of any matching explicit rule.
+		labels := d.Labels()
+		tld := labels[len(labels)-1].AsTLD()
+		return tld
+	}
+
+	return ret
+}
+
+// RegisteredDomain returns the registered/registerable domain of
+// n. Returns (domain, true) when the input is a child of a public
+// suffix, and (zero, false) when the input is itself a public suffix.
+//
+// RegisteredDomain follows the PSL algorithm to the letter. Notably:
+// a rule "*.foo.com" does not implicitly create a "foo.com" rule, and
+// there is a hardcoded implicit "*" rule so that unknown TLDs are all
+// public suffixes.
+func (l *List) RegisteredDomain(d domain.Name) (domain.Name, bool) {
+	suf := l.PublicSuffix(d)
+	if suf.Equal(d) {
+		return domain.Name{}, false
+	}
+
+	next, ok := d.CutSuffix(suf)
+	if !ok {
+		panic(fmt.Sprintf("public suffix %q is not a suffix of domain %q", suf, d))
+	}
+	return suf.MustAddPrefix(next[len(next)-1]), true
+}
 
 // Comment is a comment block, consisting of one or more contiguous
 // lines of commented text.
@@ -223,6 +316,31 @@ type Suffix struct {
 
 func (s *Suffix) Children() []Block { return nil }
 
+// PublicSuffix returns the public suffix of n according to this
+// Suffix rule taken in isolation. If n is not a child domain of s
+// PublicSuffix returns (zeroValue, false).
+func (s *Suffix) PublicSuffix(n domain.Name) (suffix domain.Name, ok bool) {
+	if n.Equal(s.Domain) {
+		return s.Domain, true
+	}
+	if _, ok := n.CutSuffix(s.Domain); ok {
+		return s.Domain, true
+	}
+	return domain.Name{}, false
+}
+
+// RegisteredDomain returns the registered/registerable domain of n
+// according to this Suffix rule taken in isolation. The registered
+// domain is defined as n's public suffix plus one more child
+// label. If n is not a child domain of s, RegisteredDomain returns
+// (zeroValue, false).
+func (s *Suffix) RegisteredDomain(n domain.Name) (regDomain domain.Name, ok bool) {
+	if prefix, ok := n.CutSuffix(s.Domain); ok {
+		return s.Domain.MustAddPrefix(prefix[len(prefix)-1]), true
+	}
+	return domain.Name{}, false
+}
+
 // Wildcard is a wildcard public suffix, along with any exceptions to
 // that wildcard.
 type Wildcard struct {
@@ -240,3 +358,35 @@ type Wildcard struct {
 }
 
 func (w *Wildcard) Children() []Block { return nil }
+
+// PublicSuffix returns the public suffix of n according to this
+// Wildcard rule taken in isolation. If n is not a child domain of w
+// PublicSuffix returns (zeroValue, false).
+func (w *Wildcard) PublicSuffix(n domain.Name) (suffix domain.Name, isException, ok bool) {
+	if prefix, ok := n.CutSuffix(w.Domain); ok {
+		next := prefix[len(prefix)-1]
+		if slices.Contains(w.Exceptions, next) {
+			return w.Domain, true, true
+		}
+
+		return w.Domain.MustAddPrefix(next), false, true
+	}
+	return domain.Name{}, false, false
+}
+
+// RegisteredDomain returns the registered/registerable domain of n
+// according to this Suffix rule taken in isolation. The registered
+// domain is defined as n's public suffix plus one more child
+// label. If n is not a child domain of s, RegisteredDomain returns
+// (zeroValue, false).
+func (w *Wildcard) RegisteredDomain(n domain.Name) (regDomain domain.Name, isException, ok bool) {
+	if prefix, ok := n.CutSuffix(w.Domain); ok && len(prefix) >= 2 {
+		next := prefix[len(prefix)-1]
+		if slices.Contains(w.Exceptions, next) {
+			return w.Domain.MustAddPrefix(next), true, true
+		}
+
+		return w.Domain.MustAddPrefix(prefix[len(prefix)-2:]...), false, true
+	}
+	return domain.Name{}, false, false
+}

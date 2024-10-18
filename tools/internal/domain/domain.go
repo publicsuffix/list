@@ -156,16 +156,31 @@ func (d Name) CutSuffix(suffix Name) (rest []Label, found bool) {
 	return ret, true
 }
 
-// AddPrefix returns d prefixed with label.
+// AddPrefix returns d prefixed with labels.
 //
-// For example, AddPrefix of "bar" to "foo.com" is "bar.foo.com".
-func (d Name) AddPrefix(label Label) (Name, error) {
+// For example, AddPrefix("qux", "bar") to "foo.com" is "qux.bar.foo.com".
+func (d Name) AddPrefix(labels ...Label) (Name, error) {
 	// Due to total name length restrictions, we have to fully
 	// re-check the shape of the extended domain name. The simplest
 	// way to do that is to round-trip through a string and leverage
 	// Parse again.
-	retStr := label.String() + "." + d.String()
+	parts := make([]string, 0, len(labels)+1)
+	for _, l := range labels {
+		parts = append(parts, l.String())
+	}
+	parts = append(parts, d.String())
+	retStr := strings.Join(parts, ".")
 	return Parse(retStr)
+}
+
+// MustAddPrefix is like AddPrefix, but panics if the formed prefix is
+// invalid instead of returning an error.
+func (d Name) MustAddPrefix(labels ...Label) Name {
+	ret, err := d.AddPrefix(labels...)
+	if err != nil {
+		panic(fmt.Sprintf("failed to add prefix %v to domain %q: %v", labels, d, err))
+	}
+	return ret
 }
 
 // Label is a domain name label.
@@ -201,6 +216,13 @@ func (l Label) ASCIIString() string {
 		panic(fmt.Sprintf("impossible: U-label to A-label conversion failed: %v", err))
 	}
 	return ret
+}
+
+// AsTLD returns the label as a top-level domain Name.
+func (l Label) AsTLD() Name {
+	return Name{
+		labels: []Label{l},
+	}
 }
 
 // Compare compares domain labels. It returns -1 if l < m, +1 if l > m,
