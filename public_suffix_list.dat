@@ -15506,8 +15506,8 @@ virtualuser.de
 
 // United Tech : https://unitedtech.ai/
 // Submitted by DevOps Service team <devops@unitedtech.ai>
-*.dev-pages-unitedtech.link
-*.pages-unitedtech.link
+dev-pages-unitedtech.link
+pages-unitedtech.link
 
 // UNIVERSAL DOMAIN REGISTRY : https://www.udr.org.yt/
 // see also: whois -h whois.udr.org.yt help
