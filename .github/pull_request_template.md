@@ -97,6 +97,19 @@ so getting this right initially will aid successfully having it
 proceed. Mislocated entries and trailing spaces should be avoided.
 -->
 
+**Abuse Contact:**
+
+<!--
+Please confirm that you have accessible abuse contact information on your website. 
+
+At a minimum, you must provide an abuse contact either in the form of an email address or a web form that can be used to report abuse. This contact should be easily accessible to allow concerned parties to notify the registry or subdomain operator directly when malicious activities such as phishing, malware, or abuse are detected. For example, if you provide subdomains at example.com, where users may register subdomains such as clientname.example.com, then in case of abuse, reporters should be able to visit example.com and easily find the relevant abuse contact information.
+-->
+
+* [ ] Abuse contact information (email or web form) is available and easily accessible.
+
+  URL where abuse contact or abuse reporting form can be found: 
+  <!-- Provide the URL where an Internet user can access the abuse contact information -->
+
 ---
 
 For PRIVATE section requests that are submitting entries for domains that match their organization website's primary domain, please understand that this can have impacts that may not match the desired outcome and take a long time to rollback, if at all.

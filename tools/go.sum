@@ -4,6 +4,8 @@ github.com/creachadair/flax v0.0.0-20240525192034-44db93b3a8ad h1:Fv6FRWgCJTHssl
 github.com/creachadair/flax v0.0.0-20240525192034-44db93b3a8ad/go.mod h1:K8bFvn8hMdAljQkaKNc7I3os5Wk36JxkyCkfdZ7S8d4=
 github.com/creachadair/mds v0.15.2 h1:es1qGKgRGSaztpvrSQcZ0B9I6NsHYJ1Sa9naD/3OfCM=
 github.com/creachadair/mds v0.15.2/go.mod h1:4vrFYUzTXMJpMBU+OA292I6IUxKWCCfZkgXg+/kBZMo=
+github.com/creachadair/taskgroup v0.9.0 h1:kzXSea5C7R5DtnKFBOTEW3hvmCkiVnRkODMVDMgSS6k=
+github.com/creachadair/taskgroup v0.9.0/go.mod h1:+1hJc8zL1rQkxcMVqEYJ0UPGtwl6Iz1+fd4zcOLtt+A=
 github.com/google/go-cmp v0.5.2/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
