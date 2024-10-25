@@ -1428,9 +1428,9 @@ int
 eu.int
 
 // io : http://www.nic.io/rules.htm
-// list of other 2nd level tlds ?
 io
 com.io
+net.io
 
 // iq : http://www.cmc.iq/english/iq/iqregister1.htm
 iq
