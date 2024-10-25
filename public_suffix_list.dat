@@ -14114,45 +14114,6 @@ ggff.net
 *.localto.net
 localtonet.com
 localto.net
-cdn.localtonet.com
-ns1.localtonet.com
-ns2.localtonet.com
-queue.localtonet.com
-rabbitmq.localtonet.com
-rabbitmqserver.localtonet.com
-clientserver.localtonet.com
-status.localtonet.com
-support.localtonet.com
-backupsc.localtonet.com
-scde1.localtonet.com
-scin1.localtonet.com
-scus1.localtonet.com
-sces1.localtonet.com
-scus3.localtonet.com
-scuk1.localtonet.com
-scbr2.localtonet.com
-scjp1.localtonet.com
-scmx1.localtonet.com
-sctr3.localtonet.com
-scuk2.localtonet.com
-scfr1.localtonet.com
-scau2.localtonet.com
-scsg1.localtonet.com
-scde2.localtonet.com
-scae1.localtonet.com
-scsg2.localtonet.com
-scsg3.localtonet.com
-scid1.localtonet.com
-scus2.localtonet.com
-scat1.localtonet.com
-scsg4.localtonet.com
-scus4.localtonet.com
-scde3.localtonet.com
-scsg5.localtonet.com
-scin3.localtonet.com
-scde4.localtonet.com
-scmy1.localtonet.com
-scfi1.localtonet.com
 
 // Log'in Line : https://www.loginline.com/
 // Submitted by Rémi Mach <remi.mach@loginline.com>
