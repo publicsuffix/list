@@ -763,8 +763,15 @@ int.ci
 gouv.ci
 
 // ck : https://www.iana.org/domains/root/db/ck.html
-*.ck
-!www.ck
+// https://en.wikipedia.org/wiki/.ck#Requirements_of_.ck_registration
+ck
+biz.ck
+co.ck
+edu.ck
+gen.ck
+gov.ck
+net.ck
+org.ck
 
 // cl : https://www.nic.cl
 // Confirmed by .CL registry <hsalgado@nic.cl>
