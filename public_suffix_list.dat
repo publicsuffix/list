@@ -676,11 +676,16 @@ org.bt
 bv
 
 // bw : https://www.iana.org/domains/root/db/bw.html
-// http://www.gobin.info/domainname/bw.doc
-// list of other 2nd level tlds ?
+// https://en.wikipedia.org/wiki/.bw#Structure
 bw
+ac.bw
+agric.bw
 co.bw
+gov.bw
+me.bw
+net.bw
 org.bw
+shop.bw
 
 // by : https://www.iana.org/domains/root/db/by.html
 // http://tld.by/rules_2006_en.html
