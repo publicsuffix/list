@@ -30,7 +30,6 @@ although that example uses an earlier template.
 * [ ] Description of Organization
 * [ ] Robust Reason for PSL Inclusion
 * [ ] DNS verification via dig
-* [ ] Run Syntax Checker (`make test`)
 
 * [ ] Each domain listed in the PRIVATE section has and shall maintain at least two years remaining on registration, and we shall keep the `_psl` TXT record in place in the respective zone(s).
 
@@ -138,7 +137,6 @@ stay that way for an indefinite period of time (typically long).
  * [ ] *Yes, I understand*. I could break my organization's website cookies and cause other issues, and the rollback timing is acceptable. *Proceed anyways*.
 ---
 
-
 <!--
 As you complete each item in the checklist please mark it with an X.
 
@@ -216,13 +214,4 @@ Note that XXXX is replaced with the number of your pull request.
 We ask that you leave this record in place while you want 
 your entry to remain in the PSL, so that future (TBD) 
 automation can remove entries where the record is not present.
--->
-
-## Results of Syntax Checker (`make test`)
-<!--
-git clone https://github.com/publicsuffix/list.git
-cd list
-make test
-
-Simply let us know that you ran the test and the result of it.
 -->
