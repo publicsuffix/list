@@ -14109,6 +14109,15 @@ ggff.net
 // Submitted by Lann Martin <security@localcert.dev>
 *.user.localcert.dev
 
+// Lodz University of Technology LODMAN regional domains https://www.man.lodz.pl/dns
+// Submitted by Piotr Wilk <dns@man.lodz.pl>
+lodz.pl
+pabianice.pl
+plock.pl
+sieradz.pl
+skierniewice.pl
+zgierz.pl
+
 // Log'in Line : https://www.loginline.com/
 // Submitted by Rémi Mach <remi.mach@loginline.com>
 loginline.app
