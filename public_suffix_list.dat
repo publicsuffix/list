@@ -1464,14 +1464,8 @@ sch.ir
 ايران.ir
 
 // is : http://www.isnic.is/domain/rules.php
-// Confirmed by registry <marius@isgate.is> 2008-12-06
+// Confirmed by registry <marius@isgate.is> 2024-11-17
 is
-net.is
-com.is
-edu.is
-gov.is
-org.is
-int.is
 
 // it : https://www.iana.org/domains/root/db/it.html
 it
