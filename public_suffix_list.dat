@@ -1901,16 +1901,16 @@ jo
 agri.jo
 ai.jo
 com.jo
+edu.jo
 eng.jo
 fm.jo
-org.jo
-net.jo
-edu.jo
-sch.jo
 gov.jo
 mil.jo
+net.jo
+org.jo
 per.jo
 phd.jo
+sch.jo
 tv.jo
 
 // jobs : https://www.iana.org/domains/root/db/jobs.html
