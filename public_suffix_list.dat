@@ -5784,23 +5784,17 @@ gov.nc.tr
 
 // tt : http://www.nic.tt/
 tt
+biz.tt
 co.tt
 com.tt
-org.tt
-net.tt
-biz.tt
-info.tt
-pro.tt
-int.tt
-coop.tt
-jobs.tt
-mobi.tt
-travel.tt
-museum.tt
-aero.tt
-name.tt
-gov.tt
 edu.tt
+gov.tt
+info.tt
+mil.tt
+name.tt
+net.tt
+org.tt
+pro.tt
 
 // tv : https://www.iana.org/domains/root/db/tv.html
 // Not listing any 2LDs as reserved since none seem to exist in practice,
