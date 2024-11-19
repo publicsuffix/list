@@ -5109,15 +5109,15 @@ net.pk
 org.pk
 web.pk
 
-// pl http://www.dns.pl/english/index.html
-// Submitted by registry
+// pl : https://www.dns.pl/en/
+// Confirmed by registry <info@dns.pl> 2024-11-18
 pl
 com.pl
 net.pl
 org.pl
-// pl functional domains (http://www.dns.pl/english/index.html)
-aid.pl
+// pl functional domains : https://www.dns.pl/en/list_of_functional_domain_names
 agro.pl
+aid.pl
 atm.pl
 auto.pl
 biz.pl
@@ -5126,8 +5126,8 @@ gmina.pl
 gsm.pl
 info.pl
 mail.pl
-miasta.pl
 media.pl
+miasta.pl
 mil.pl
 nieruchomosci.pl
 nom.pl
@@ -5146,7 +5146,8 @@ tm.pl
 tourism.pl
 travel.pl
 turystyka.pl
-// Government domains
+// Government domains : https://www.dns.pl/informacje_o_rejestracji_domen_gov_pl
+// In accordance with the .gov.pl Domain Name Regulations : https://www.dns.pl/regulamin_gov_pl
 gov.pl
 ap.gov.pl
 griw.gov.pl
@@ -5203,7 +5204,7 @@ wuoz.gov.pl
 wzmiuw.gov.pl
 zp.gov.pl
 zpisdn.gov.pl
-// pl regional domains (http://www.dns.pl/english/index.html)
+// pl regional domains : https://www.dns.pl/en/list_of_regional_domain_names
 augustow.pl
 babia-gora.pl
 bedzin.pl
@@ -5230,11 +5231,11 @@ jaworzno.pl
 jelenia-gora.pl
 jgora.pl
 kalisz.pl
-kazimierz-dolny.pl
 karpacz.pl
 kartuzy.pl
 kaszuby.pl
 katowice.pl
+kazimierz-dolny.pl
 kepno.pl
 ketrzyn.pl
 klodzko.pl
@@ -5277,8 +5278,8 @@ pisz.pl
 podhale.pl
 podlasie.pl
 polkowice.pl
-pomorze.pl
 pomorskie.pl
+pomorze.pl
 prochowice.pl
 pruszkow.pl
 przeworsk.pl
@@ -5289,11 +5290,11 @@ rybnik.pl
 rzeszow.pl
 sanok.pl
 sejny.pl
+skoczow.pl
 slask.pl
 slupsk.pl
 sosnowiec.pl
 stalowa-wola.pl
-skoczow.pl
 starachowice.pl
 stargard.pl
 suwalki.pl
