@@ -5547,14 +5547,14 @@ x.se
 y.se
 z.se
 
-// sg : http://www.nic.net.sg/page/registration-policies-procedures-and-guidelines
+// sg : https://www.sgnic.sg/domain-registration/sg-categories-rules
+// Confirmed by registry <dnq@sgnic.sg> 2024-11-19
 sg
 com.sg
 net.sg
 org.sg
 gov.sg
 edu.sg
-per.sg
 
 // sh : http://nic.sh/rules.htm
 sh
