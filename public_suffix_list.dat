@@ -872,13 +872,13 @@ net.cu
 org.cu
 
 // cv : https://www.iana.org/domains/root/db/cv.html
-// cv : http://www.dns.cv/tldcv_portal/do?com=DS;5446457100;111;+PAGE(4000018)+K-CAT-CODIGO(RDOM)+RCNT(100); <- registration rules
+// cv : https://comprar.cv/cart.php?a=add&domain=register
 cv
 com.cv
 edu.cv
 int.cv
-nome.cv
 org.cv
+publ.cv
 
 // cw : http://www.una.cw/cw_registry/
 // Confirmed by registry <registry@una.net> 2013-03-26
