@@ -5334,7 +5334,11 @@ edu.pn
 net.pn
 
 // post : https://www.iana.org/domains/root/db/post.html
+// https://trust.post/legal/
 post
+com.post
+edu.post
+org.post
 
 // pr : http://www.nic.pr/index.asp?f=1
 pr
