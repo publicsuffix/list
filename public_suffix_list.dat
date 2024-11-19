@@ -5716,14 +5716,14 @@ gov.tl
 
 // tm : http://www.nic.tm/local.html
 tm
-com.tm
 co.tm
-org.tm
-net.tm
-nom.tm
+com.tm
+edu.tm
 gov.tm
 mil.tm
-edu.tm
+net.tm
+nom.tm
+org.tm
 
 // tn : http://www.registre.tn/fr/
 // https://whois.ati.tn/
