@@ -287,19 +287,20 @@ com.aw
 ax
 
 // az : https://www.iana.org/domains/root/db/az.html
+// https://whois.az/?page_id=10
 az
+biz.az
 com.az
-net.az
-int.az
-gov.az
-org.az
 edu.az
+gov.az
 info.az
-pp.az
+int.az
 mil.az
 name.az
+net.az
+org.az
+pp.az
 pro.az
-biz.az
 
 // ba : http://nic.ba/users_data/files/pravilnik_o_registraciji.pdf
 ba
