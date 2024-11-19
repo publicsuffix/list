@@ -1890,16 +1890,23 @@ org.je
 // jm : http://www.com.jm/register.html
 *.jm
 
-// jo : http://www.dns.jo/Registration_policy.aspx
+// jo : https://www.dns.jo/JoFamily.aspx
+// Confirmed by registry <DNS@modee.gov.jo> 2024-11-17
 jo
+agri.jo
+ai.jo
 com.jo
-org.jo
-net.jo
 edu.jo
-sch.jo
+eng.jo
+fm.jo
 gov.jo
 mil.jo
-name.jo
+net.jo
+org.jo
+per.jo
+phd.jo
+sch.jo
+tv.jo
 
 // jobs : https://www.iana.org/domains/root/db/jobs.html
 jobs
