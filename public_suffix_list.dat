@@ -926,12 +926,15 @@ dj
 dk
 
 // dm : https://www.iana.org/domains/root/db/dm.html
+// https://nic.dm/policies/pdf/DMRulesandGuidelines2024v1.pdf
+// Confirmed by registry <admin@dotdm.dm> 2024-11-19
 dm
+co.dm
 com.dm
-net.dm
-org.dm
 edu.dm
 gov.dm
+net.dm
+org.dm
 
 // do : https://www.iana.org/domains/root/db/do.html
 do
