@@ -3980,17 +3980,16 @@ gov.me
 its.me
 priv.me
 
-// mg : http://nic.mg/nicmg/?page_id=39
+// mg : https://nic.mg
 mg
-org.mg
-nom.mg
-gov.mg
-prd.mg
-tm.mg
-edu.mg
-mil.mg
-com.mg
 co.mg
+com.mg
+edu.mg
+gov.mg
+mil.mg
+nom.mg
+org.mg
+prd.mg
 
 // mh : https://www.iana.org/domains/root/db/mh.html
 mh
