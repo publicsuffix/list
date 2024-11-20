@@ -436,15 +436,16 @@ gov.bn
 net.bn
 org.bn
 
-// bo : https://nic.bo/delegacion2015.php#h-1.10
+// bo : https://nic.bo
+// Confirmed by registry <soporte@nic.bo> 2024-11-19
 bo
 com.bo
 edu.bo
 gob.bo
 int.bo
-org.bo
-net.bo
 mil.bo
+net.bo
+org.bo
 tv.bo
 web.bo
 // Social Domains
@@ -470,9 +471,9 @@ natural.bo
 nombre.bo
 noticias.bo
 patria.bo
+plurinacional.bo
 politica.bo
 profesional.bo
-plurinacional.bo
 pueblo.bo
 revista.bo
 salud.bo
