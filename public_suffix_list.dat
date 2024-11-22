@@ -1093,15 +1093,16 @@ edu.gd
 gov.gd
 gd
 
-// ge : http://www.nic.net.ge/policy_en.pdf
+// ge : https://nic.ge/en/administrator/the-ge-domain-regulations
+// Confirmed by registry <info@nic.ge> 2024-11-20
 ge
 com.ge
 edu.ge
 gov.ge
-org.ge
-mil.ge
 net.ge
+org.ge
 pvt.ge
+school.ge
 
 // gf : https://www.iana.org/domains/root/db/gf.html
 gf
