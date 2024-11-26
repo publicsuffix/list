@@ -873,8 +873,8 @@ net.cu
 org.cu
 
 // cv : https://www.iana.org/domains/root/db/cv.html
-// cv : https://ola.cv/
-// Confirmed by registry <support@ola.cv> 2024-11-22
+// https://ola.cv/domain-extensions-under-cv/
+// Confirmed by registry <support@ola.cv> 2024-11-26
 cv
 com.cv
 edu.cv
@@ -883,7 +883,7 @@ int.cv
 net.cv
 nome.cv
 org.cv
-pub.cv
+publ.cv
 
 // cw : https://www.uoc.cw/cw-registry
 // Confirmed by registry <registry@uoc.cw> 2024-11-19
