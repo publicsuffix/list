@@ -873,13 +873,17 @@ net.cu
 org.cu
 
 // cv : https://www.iana.org/domains/root/db/cv.html
-// cv : http://www.dns.cv/tldcv_portal/do?com=DS;5446457100;111;+PAGE(4000018)+K-CAT-CODIGO(RDOM)+RCNT(100); <- registration rules
+// https://ola.cv/domain-extensions-under-cv/
+// Confirmed by registry <support@ola.cv> 2024-11-26
 cv
 com.cv
 edu.cv
+id.cv
 int.cv
+net.cv
 nome.cv
 org.cv
+publ.cv
 
 // cw : https://www.uoc.cw/cw-registry
 // Confirmed by registry <registry@uoc.cw> 2024-11-19
