@@ -5818,7 +5818,7 @@ pro.tt
 tv
 
 // tw : https://www.iana.org/domains/root/db/tw.html
-// https://www.twnic.tw/
+// https://twnic.tw/dnservice_catag.php
 // Confirmed by registry <dns@twnic.tw> 2024-11-26
 tw
 club.tw
@@ -6650,7 +6650,7 @@ yt
 تونس
 
 // xn--kpry57d ("Taiwan", Chinese, Traditional) : TW
-// https://twnic.tw
+// https://twnic.tw/dnservice_catag.php
 台灣
 
 // xn--kprw13d ("Taiwan", Chinese, Simplified) : TW
