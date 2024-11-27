@@ -1000,16 +1000,24 @@ org.ee
 fie.ee
 
 // eg : https://www.iana.org/domains/root/db/eg.html
+// https://domain.eg/en/domain-rules/subdomain-names-types/
 eg
+ac.eg
+adn.eg
 com.eg
 edu.eg
+egregistry.eg
 eun.eg
 gov.eg
+info.eg
+me.eg
 mil.eg
 name.eg
 net.eg
 org.eg
 sci.eg
+sport.eg
+tv.eg
 
 // er : https://www.iana.org/domains/root/db/er.html
 *.er
