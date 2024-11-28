@@ -19,39 +19,42 @@ import (
 // changes, Clean applies as many changes as possible then returns
 // errors describing the cleanups that could not take place.
 func (l *List) Clean() []error {
-	return cleanBlock(l)
+	return cleanBlock(l, true)
 }
 
-func cleanBlock(b Block) []error {
+func cleanBlock(b Block, reportCommentBlockages bool) []error {
 	var ret []error
 
 	switch v := b.(type) {
 	case *List:
 		for _, child := range v.Blocks {
-			ret = append(ret, cleanBlock(child)...)
+			ret = append(ret, cleanBlock(child, reportCommentBlockages)...)
 		}
 	case *Section:
 		switch v.Name {
+		case "ICANN DOMAINS":
+			for _, child := range v.Blocks {
+				// In the ICANN section, never report comments that
+				// prevent reordering, regardless of what the overall
+				// cleaning pass is enforcing. The ICANN section
+				// contains load-bearing comment subsections within
+				// suffix blocks, their presence is not a validation
+				// error.
+				ret = append(ret, cleanBlock(child, false)...)
+			}
 		case "PRIVATE DOMAINS":
 			for _, child := range v.Blocks {
-				ret = append(ret, cleanBlock(child)...)
+				ret = append(ret, cleanBlock(child, reportCommentBlockages)...)
 			}
 			// The private domains section must be sorted according to
 			// the names of the maintainers of suffix blocks.
 			ret = append(ret, sortSection(v)...)
-		case "ICANN DOMAINS":
-			// We don't currently clean the ICANN section, since it
-			// has a lot of historical and non-normalized data. We
-			// want to focus on the private domains section first.
-			//
-			// TODO: when we're ready, apply the same cleaning as the
-			// private section.
 		}
 	case *Suffixes:
 		for _, child := range v.Blocks {
-			ret = append(ret, cleanBlock(child)...)
+			ret = append(ret, cleanBlock(child, reportCommentBlockages)...)
 		}
-		ret = append(ret, sortSuffixes(v)...)
+		ret = append(ret, sortSuffixes(v, reportCommentBlockages)...)
 		rewriteSuffixesMetadata(v)
 	case *Wildcard:
 		cleanWildcard(v)
@@ -216,14 +219,16 @@ func sortSection(s *Section) []error {
 	return errs
 }
 
-func sortSuffixes(s *Suffixes) []error {
+func sortSuffixes(s *Suffixes, reportCommentBlockages bool) []error {
 	// Suffix sorting has the same problem as section sorting: inline
 	// comments act as barriers that prevent movement of a suffix
 	// across them (e.g. "all 3rd-level public suffixes come after
 	// this").
 	//
 	// We do the same thing as for section sorting: sort as much as we
-	// can, report errors for the rest.
+	// can without moving suffixes over inline comments. If
+	// reportCommentBlockages is true, we report an error if sorting
+	// is blocked by a comment.
 
 	var (
 		errs           []error
@@ -256,7 +261,10 @@ func sortSuffixes(s *Suffixes) []error {
 			// Correct order.
 			prevGroupEnd = group[len(group)-1]
 		} else {
-			errs = append(errs, ErrCommentPreventsSuffixSort{prevComment.SourceRange})
+			// An inline comment blocks reordering.
+			if reportCommentBlockages {
+				errs = append(errs, ErrCommentPreventsSuffixSort{prevComment.SourceRange})
+			}
 			// Keep the same prevGroupEnd, since it's the
 			// largest value seen so far and future groups
 			// _should_ sort after it, if future comments
