@@ -1000,16 +1000,22 @@ pri.ee
 riik.ee
 
 // eg : https://www.iana.org/domains/root/db/eg.html
+// https://domain.eg/en/domain-rules/subdomain-names-types/
 eg
+ac.eg
 com.eg
 edu.eg
 eun.eg
 gov.eg
+info.eg
+me.eg
 mil.eg
 name.eg
 net.eg
 org.eg
 sci.eg
+sport.eg
+tv.eg
 
 // er : https://www.iana.org/domains/root/db/er.html
 *.er
@@ -5818,6 +5824,8 @@ pro.tt
 tv
 
 // tw : https://www.iana.org/domains/root/db/tw.html
+// https://twnic.tw/dnservice_catag.php
+// Confirmed by registry <dns@twnic.tw> 2024-11-26
 tw
 club.tw
 com.tw
@@ -5829,9 +5837,6 @@ idv.tw
 mil.tw
 net.tw
 org.tw
-商業.tw
-組織.tw
-網路.tw
 
 // tz : http://www.tznic.or.tz/index.php/domains
 // Submitted by registry <manager@tznic.or.tz>
@@ -6651,7 +6656,7 @@ yt
 تونس
 
 // xn--kpry57d ("Taiwan", Chinese, Traditional) : TW
-// http://www.twnic.net/english/dn/dn_07a.htm
+// https://twnic.tw/dnservice_catag.php
 台灣
 
 // xn--kprw13d ("Taiwan", Chinese, Simplified) : TW
@@ -6725,7 +6730,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-10-31T15:17:42Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-11-27T15:18:01Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -10779,7 +10784,7 @@ xin
 // https://www.iana.org/domains/root/db/xn--3bst00m.html
 集团
 
-// xn--3ds443g : TLD REGISTRY LIMITED OY
+// xn--3ds443g : Beijing TLD Registry Technology Limited
 // https://www.iana.org/domains/root/db/xn--3ds443g.html
 在线
 
@@ -14218,10 +14223,6 @@ mcdir.ru
 vps.mcdir.ru
 mcpre.ru
 
-// mcpe.me : https://mcpe.me
-// Submitted by Noa Heyl <hi@noa.dev>
-mcpe.me
-
 // Mediatech : https://mediatech.by
 // Submitted by Evgeniy Kozhuhovskiy <ugenk@mediatech.by>
 mediatech.by
@@ -14937,6 +14938,12 @@ git-pages.rit.edu
 // Rocky Enterprise Software Foundation : https://resf.org
 // Submitted by Neil Hanlon <neil@resf.org>
 rocky.page
+
+// Ruhr University Bochum http://ruhr-uni-bochum.de
+// Submitted by Andreas Jobs <noc@ruhr-uni-bochum.de>
+rub.de
+ruhr-uni-bochum.de
+io.noc.ruhr-uni-bochum.de
 
 // Rusnames Limited: http://rusnames.ru/
 // Submitted by Sergey Zotov <admin@rusnames.ru>
