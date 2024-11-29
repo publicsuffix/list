@@ -29,7 +29,7 @@ The PSL is volunteer-resourced and is absolutely not resourced to answer questio
 
 ## Email Communication Policy
 
-The Public Suffix List (PSL) team conducts periodic reviews to verify the continued necessity of existing entries. As part of this process, we send confirmation emails to entry requestors. While this verification process is currently manual and low-volume, your timely response to any such communication is important for maintaining the list's accuracy.
+The Public Suffix List (PSL) team conducts reviews from time to time to verify the continued necessity of existing entries. As part of this process, we send confirmation emails to entry requestors. While this verification process is currently manual and low-volume, your timely response to any such communication is important for maintaining the list's accuracy.
 
 We recognize that having your email address listed in the PSL may lead to unwanted spam. To help you identify and properly filter legitimate PSL-related communications, starting December 2024, all outreach from PSL contributors and maintainers will follow these standardized practices:
 
