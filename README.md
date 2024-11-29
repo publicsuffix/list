@@ -35,8 +35,6 @@ We recognize that having your email address listed in the PSL may lead to unwant
 
 1. **Subject Line Format**: All communications from the project use the subject line prefix `[PSL notification]`, allowing straightforward email filtering rules for spam prevention.  
 
-2. **Reference Links**: Every communication includes a relevant GitHub issue or pull request link (`https://github.com/publicsuffix/list/*`). This serves two purposes:  
-   - Verifies message authenticity  
-   - Directs responses to our preferred communication channel, as requestors are encouraged to submit changes and responses directly through GitHub rather than email  
+2. **Reference Links**: Every communication includes a relevant GitHub issue or pull request link (`https://github.com/publicsuffix/list/*`). This helps guide communication to our preferred channel, as requestors are encouraged to submit changes and responses directly through GitHub rather than email  
 
 3. **Transparency**: To provide a referenceable record, communications CC the [psl-discuss mailing list](https://groups.google.com/g/publicsuffix-discuss) or one of the maintainers whenever necessary.  
