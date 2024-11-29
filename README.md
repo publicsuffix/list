@@ -39,4 +39,4 @@ We recognize that having your email address listed in the PSL may lead to unwant
    - Verifies message authenticity  
    - Directs responses to our preferred communication channel, as requestors are encouraged to submit changes and responses directly through GitHub rather than email  
 
-3. **Transparency**: To provide a referenceable record, communications CC the [psl-discuss mailing list](https://groups.google.com/g/publicsuffix-discuss) whenever necessary.  
+3. **Transparency**: To provide a referenceable record, communications CC the [psl-discuss mailing list](https://groups.google.com/g/publicsuffix-discuss) or one of the maintainers whenever necessary.  
