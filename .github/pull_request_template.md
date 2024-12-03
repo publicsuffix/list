@@ -97,7 +97,7 @@ proceed. Mislocated entries and trailing spaces should be avoided.
 -->
 
 <!--
-In your domain block submission, please include a role-based email address (e.g., hostmaster@example.com, noc@example.com) rather than a personal email address (e.g., jane.doe@example.com) under your organization name, so that the PSL project can maintain contact with your organization, independent of personnel changes.
+In your submission, please include a role-based email address (e.g. security@example.com) rather than a personal email address (e.g. jane.doe@example.com) under your organization name, so that we can maintain contact with your organization, independent of personnel changes.
 This email address will be used for any required verification or inquiries regarding your PSL listing. This inbox must be actively maintained and monitored for future communications from the PSL project for as long as the domain remains in the PSL. Any PSL inquiries sent to this address must receive a response within 14 days, as maintaining timely communication is required for continued inclusion in the PSL. If you receive any suspicious emails related to the PSL that deviate from PSL guidelines, please notify the PSL maintainers immediately.
 -->
 
