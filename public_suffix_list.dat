@@ -12425,6 +12425,10 @@ cloudaccess.host
 freesite.host
 cloudaccess.net
 
+// Cloudbees, Inc. : https://www.cloudbees.com/
+// Submitted by Mohideen Shajith <mshajith@cloudbees.com>
+cloudbeesusercontent.io
+
 // Cloudera, Inc. : https://www.cloudera.com/
 // Submitted by Kedarnath Waikar <security@cloudera.com>
 *.cloudera.site
@@ -13403,10 +13407,6 @@ gsj.bz
 githubusercontent.com
 githubpreview.dev
 github.io
-
-// Cloudbees, Inc.
-// Submitted by Mohideen Shajith <mshajith@cloudbees.com>
-cloudbeesusercontent.io
 
 // GitLab, Inc.
 // Submitted by Alex Hanselka <alex@gitlab.com>
