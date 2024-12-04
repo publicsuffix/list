@@ -96,6 +96,13 @@ so getting this right initially will aid successfully having it
 proceed. Mislocated entries and trailing spaces should be avoided.
 -->
 
+<!--
+In your submission, please include a role-based email address (e.g. security@example.com) rather than a personal email address (e.g. jane.doe@example.com) under your organization name, so that we can maintain contact with your organization, independent of personnel changes.
+This email address will be used for any required verification or inquiries regarding your PSL listing. This inbox must be actively maintained and monitored for future communications from the PSL project for as long as the domain remains in the PSL. Any PSL inquiries sent to this address must receive a response within 30 days, as maintaining timely communication is required for continued inclusion in the PSL.
+-->
+
+ * [ ] A role-based email address has been used and this inbox is actively monitored with a response time of no more than 30 days.
+
 **Abuse Contact:**
 
 <!--
