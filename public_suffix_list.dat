@@ -4167,7 +4167,8 @@ gov.na
 net.na
 org.na
 
-// name : has 2nd-level tlds, but there's no list of them
+// name : http://www.nic.name/
+// Regarding 2LDs: https://github.com/publicsuffix/list/issues/2306
 name
 
 // nc : http://www.cctld.nc/
