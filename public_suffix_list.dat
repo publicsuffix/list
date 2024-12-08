@@ -13390,11 +13390,6 @@ gentlentapis.com
 lab.ms
 cdn-edges.net
 
-// GetLocalCert : https://getlocalcert.net
-// Submitted by William Harrison <psl@getlocalcert.net>
-localcert.net
-localhostcert.net
-
 // GignoSystemJapan: http://gsj.bz
 // Submitted by GignoSystemJapan <kakutou-ec@gsj.bz>
 gsj.bz
@@ -14115,6 +14110,11 @@ we.bs
 // Submitted by Gerry Keh <biz@l53.net>
 filegear-sg.me
 ggff.net
+
+// LocalCert : https://localcert.net
+// Submitted by William Harrison <psl@localcert.net>
+localcert.net
+localhostcert.net
 
 // Localcert : https://localcert.dev
 // Submitted by Lann Martin <security@localcert.dev>
