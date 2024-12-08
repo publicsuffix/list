@@ -13390,11 +13390,6 @@ gentlentapis.com
 lab.ms
 cdn-edges.net
 
-// GetLocalCert : https://getlocalcert.net
-// Submitted by William Harrison <psl@getlocalcert.net>
-localcert.net
-localhostcert.net
-
 // GignoSystemJapan: http://gsj.bz
 // Submitted by GignoSystemJapan <kakutou-ec@gsj.bz>
 gsj.bz
@@ -14119,6 +14114,11 @@ ggff.net
 // Localcert : https://localcert.dev
 // Submitted by Lann Martin <security@localcert.dev>
 *.user.localcert.dev
+
+// LocalCert : https://localcert.net
+// Submitted by William Harrison <psl@localcert.net>
+localcert.net
+localhostcert.net
 
 // Lodz University of Technology LODMAN regional domains https://www.man.lodz.pl/dns
 // Submitted by Piotr Wilk <dns@man.lodz.pl>
