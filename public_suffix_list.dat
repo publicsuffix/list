@@ -14111,14 +14111,14 @@ we.bs
 filegear-sg.me
 ggff.net
 
+// Localcert : https://localcert.dev
+// Submitted by Lann Martin <security@localcert.dev>
+*.user.localcert.dev
+
 // LocalCert : https://localcert.net
 // Submitted by William Harrison <psl@localcert.net>
 localcert.net
 localhostcert.net
-
-// Localcert : https://localcert.dev
-// Submitted by Lann Martin <security@localcert.dev>
-*.user.localcert.dev
 
 // Lodz University of Technology LODMAN regional domains https://www.man.lodz.pl/dns
 // Submitted by Piotr Wilk <dns@man.lodz.pl>
