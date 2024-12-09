@@ -14353,13 +14353,13 @@ ui.nabu.casa
 cloud.nospamproxy.com
 o365.cloud.nospamproxy.com
 
-// Netfy Domains : https://netfy.domains
-// Submitted by Suranga Ranasinghe <security@mavicsoft.com>
-netfy.app
-
 // Net libre : https://www.netlib.re
 // Submitted by Philippe PITTOLI <security@netlib.re>
 netlib.re
+
+// Netfy Domains : https://netfy.domains
+// Submitted by Suranga Ranasinghe <security@mavicsoft.com>
+netfy.app
 
 // Netlify : https://www.netlify.com
 // Submitted by Jessica Parsons <jessica@netlify.com>
