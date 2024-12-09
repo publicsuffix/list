@@ -12531,10 +12531,6 @@ on.crisp.email
 // Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
 *.cryptonomic.net
 
-// Curv UG : https://curv-labs.de/
-// Submitted by Marvin Wiesner <Marvin@curv-labs.de>
-curv.dev
-
 // cyber_Folks S.A. : https://cyberfolks.pl
 // Submitted by Bartlomiej Kida <security@cyberfolks.pl>
 cfolks.pl
