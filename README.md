@@ -29,12 +29,4 @@ The PSL is volunteer-resourced and is absolutely not resourced to answer questio
 
 ## Email Communication Policy
 
-The Public Suffix List (PSL) team conducts reviews from time to time to verify the continued necessity of existing entries. As part of this process, we send confirmation emails to entry requestors. While this verification process is currently manual and low-volume, your timely response to any such communication is important for maintaining the list's accuracy.
-
-We recognize that having your email address listed in the PSL may lead to unwanted spam. To help you identify and properly filter legitimate PSL-related communications, starting December 2024, all outreach from PSL contributors and maintainers will follow these standardized practices:
-
-1. **Subject Line Format**: All communications from the project use the subject line prefix `[PSL notification]`, allowing straightforward email filtering rules for spam prevention.  
-
-2. **Reference Links**: Every communication includes a relevant GitHub issue or pull request link (`https://github.com/publicsuffix/list/*`). This helps guide communication to our preferred channel, as requestors are encouraged to submit changes and responses directly through GitHub rather than email  
-
-3. **Transparency**: To provide a referenceable record, communications CC the [psl-discuss mailing list](https://groups.google.com/g/publicsuffix-discuss) or one of the maintainers whenever necessary.  
+We tend to use the subject line tag "[PSL notification]" in all Public Suffix List communications. For effective spam filtering, you can create a case-insensitive filter to allow only emails with exact "[PSL notification]" in the subject line. If you choose to set up such a filter in your email application, please verify the filter is implemented correctly and test it thoroughly to ensure you don't accidentally miss important communications from us.
