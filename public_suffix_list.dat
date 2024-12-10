@@ -5405,12 +5405,9 @@ org.pt
 publ.pt
 
 // pw : https://www.iana.org/domains/root/db/pw.html
+// Confirmed by registry in private correspondence with @dnsguru 2024-12-09
 pw
-belau.pw
-co.pw
-ed.pw
-go.pw
-or.pw
+gov.pw
 
 // py : http://www.nic.py/pautas.html#seccion_9
 // Submitted by registry
