@@ -397,7 +397,7 @@ org.bi
 biz
 
 // bj : https://nic.bj/bj-suffixes.txt
-// submitted by registry <contact@nic.bj>
+// Submitted by registry <contact@nic.bj>
 bj
 africa.bj
 agro.bj
@@ -11191,7 +11191,7 @@ zuerich
 
 // (Note: these are in alphabetical order by company name)
 
-// .KRD : http://nic.krd/data/krd/Registration%20Policy.pdf
+// .KRD : https://nic.krd/
 co.krd
 edu.krd
 
@@ -12603,7 +12603,7 @@ dedyn.io
 deta.app
 deta.dev
 
-// dhosting.pl Sp. z o.o.: https://dhosting.pl/
+// dhosting.pl Sp. z o.o. : https://dhosting.pl/
 // Submitted by Michal Kokoszkiewicz <bok@dhosting.pl>
 dfirma.pl
 dkonto.pl
@@ -12631,7 +12631,7 @@ diher.solutions
 discordsays.com
 discordsez.com
 
-// DNS Africa Ltd https://dns.business
+// DNS Africa Ltd : https://dns.business
 // Submitted by Calvin Browne <calvin@dns.business>
 jozi.biz
 
@@ -13034,7 +13034,7 @@ encoreapi.com
 // Submitted by Marcel Daus <cloudops@encoway.de>
 eu.encoway.cloud
 
-// EU.org https://eu.org/
+// EU.org : https://eu.org/
 // Submitted by Pierre Beyssac <hostmaster@eu.org>
 eu.org
 al.eu.org
@@ -13228,13 +13228,13 @@ fastvps.site
 myfast.space
 
 // FearWorks Media Ltd. : https://fearworksmedia.co.uk
-// submitted by Keith Fairley <domains@fearworksmedia.co.uk>
+// Submitted by Keith Fairley <domains@fearworksmedia.co.uk>
 conn.uk
 copro.uk
 hosp.uk
 
 // Fedora : https://fedoraproject.org/
-// submitted by Patrick Uiterwijk <puiterwijk@fedoraproject.org>
+// Submitted by Patrick Uiterwijk <puiterwijk@fedoraproject.org>
 fedorainfracloud.org
 fedorapeople.org
 cloud.fedoraproject.org
@@ -13242,7 +13242,7 @@ app.os.fedoraproject.org
 app.os.stg.fedoraproject.org
 
 // Fermax : https://fermax.com/
-// submitted by Koen Van Isterdael <k.vanisterdael@fermax.be>
+// Submitted by Koen Van Isterdael <k.vanisterdael@fermax.be>
 mydobiss.com
 
 // FH Muenster : https://www.fh-muenster.de
@@ -13386,11 +13386,11 @@ githubusercontent.com
 githubpreview.dev
 github.io
 
-// GitLab, Inc.
+// GitLab, Inc. : https://about.gitlab.com/
 // Submitted by Alex Hanselka <alex@gitlab.com>
 gitlab.io
 
-// Gitplac.si - https://gitplac.si
+// Gitplac.si : https://gitplac.si
 // Submitted by Aljaž Starc <me@aljaxus.eu>
 gitapp.si
 gitpage.si
@@ -13682,7 +13682,7 @@ hatenablog.jp
 hatenadiary.jp
 hatenadiary.org
 
-// Heilbronn University of Applied Sciences - Faculty Informatics (GitLab Pages): https://www.hs-heilbronn.de
+// Heilbronn University of Applied Sciences - Faculty Informatics (GitLab Pages) : https://www.hs-heilbronn.de
 // Submitted by Richard Zowalla <it-admin@hs-heilbronn.de>
 pages.it.hs-heilbronn.de
 pages-research.it.hs-heilbronn.de
@@ -13717,7 +13717,7 @@ ravendb.community
 development.run
 ravendb.run
 
-// home.pl S.A.: https://home.pl
+// home.pl S.A. : https://home.pl
 // Submitted by Krzysztof Wolski <krzysztof.wolski@home.eu>
 homesklep.pl
 
@@ -13861,9 +13861,9 @@ pixolino.com
 // Submitted by Vasiliy Sheredeko <piphon@gmail.com>
 na4u.ru
 
-// IONOS SE : https://www.ionos.com/,
+// IONOS SE : https://www.ionos.com/
 // IONOS Group SE : https://www.ionos-group.com/
-// submitted by Henrik Willert <security@ionos.com>
+// Submitted by Henrik Willert <security@ionos.com>
 apps-1and1.com
 live-website.com
 apps-1and1.net
@@ -14106,7 +14106,7 @@ ggff.net
 localcert.net
 localhostcert.net
 
-// Lodz University of Technology LODMAN regional domains https://www.man.lodz.pl/dns
+// Lodz University of Technology LODMAN regional domains : https://www.man.lodz.pl/dns
 // Submitted by Piotr Wilk <dns@man.lodz.pl>
 lodz.pl
 pabianice.pl
@@ -14384,7 +14384,7 @@ us.ngrok.io
 ngrok.pizza
 ngrok.pro
 
-// Nicolaus Copernicus University in Torun - MSK TORMAN (https://www.man.torun.pl)
+// Nicolaus Copernicus University in Torun - MSK TORMAN : https://www.man.torun.pl
 torun.pl
 
 // Nimbus Hosting Ltd. : https://www.nimbushosting.co.uk/
@@ -14540,7 +14540,7 @@ nyc.mn
 // Submitted by the prvcy.page Registry Team <info@o3o.foundation>
 prvcy.page
 
-// Obl.ong : <https://obl.ong>
+// Obl.ong : https://obl.ong
 // Submitted by Reese Armstrong <team@obl.ong>
 obl.ong
 
@@ -14630,11 +14630,11 @@ tech.orange
 
 // OsSav Technology Ltd. : https://ossav.com/
 // Submitted by OsSav Technology Ltd. <support@ossav.com>
-// TLD NIC: https://nic.can.re - TLD WHOIS Server: whois.can.re
+/// TLD NIC: https://nic.can.re - TLD WHOIS Server: whois.can.re
 can.re
 
-// Oursky Limited : https://authgear.com/, https://skygear.io/
-// Submitted by Authgear Team <hello@authgear.com>, Skygear Developer <hello@skygear.io>
+// Oursky Limited : https://authgear.com/ https://skygear.io/
+// Submitted by Authgear Team <hello@authgear.com> & Skygear Developer <hello@skygear.io>
 authgear-staging.com
 authgearapps.com
 skygearapp.com
@@ -14773,7 +14773,7 @@ pythonanywhere.com
 eu.pythonanywhere.com
 
 // QA2
-// Submitted by Daniel Dent (https://www.danieldent.com/)
+// Submitted by Daniel Dent : https://www.danieldent.com/
 qa2.com
 
 // QCX
@@ -14931,7 +14931,7 @@ git-pages.rit.edu
 // Submitted by Neil Hanlon <neil@resf.org>
 rocky.page
 
-// Ruhr University Bochum http://ruhr-uni-bochum.de
+// Ruhr University Bochum : https://www.ruhr-uni-bochum.de/
 // Submitted by Andreas Jobs <noc@ruhr-uni-bochum.de>
 rub.de
 ruhr-uni-bochum.de
@@ -15008,7 +15008,7 @@ x0.to
 from.tv
 sakura.tv
 
-// Salesforce.com, Inc. https://salesforce.com/
+// Salesforce.com, Inc. : https://salesforce.com/
 // Submitted by Salesforce Public Suffix List Team <public-suffix-list@salesforce.com>
 *.builder.code.com
 *.dev-builder.code.com
@@ -15306,7 +15306,7 @@ storj.farm
 strapiapp.com
 media.strapiapp.com
 
-// Strategic System Consulting (eApps Hosting): https://www.eapps.com/
+// Strategic System Consulting (eApps Hosting) : https://www.eapps.com/
 // Submitted by Alex Oancea <aoancea@cloudscale365.com>
 vps-host.net
 atl.jelastic.vps-host.net
@@ -15376,7 +15376,7 @@ taifun-dns.de
 ts.net
 *.c.ts.net
 
-// TASK geographical domains (https://www.task.gda.pl/uslugi/dns)
+// TASK geographical domains : https://www.task.gda.pl/uslugi/dns
 gda.pl
 gdansk.pl
 gdynia.pl
@@ -15392,7 +15392,7 @@ taveusercontent.com
 p.tawk.email
 p.tawkto.email
 
-// team.blue https://team.blue
+// team.blue : https://team.blue
 // Submitted by Cedric Dubois <cedric.dubois@team.blue>
 site.tb-hosting.com
 
