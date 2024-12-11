@@ -512,7 +512,6 @@ var missingTXT = mapset.New(
 	"hepforge.org",
 	"here-for-more.info",
 	"herokuapp.com",
-	"herokussl.com",
 	"hk.com",
 	"hk.org",
 	"hobby-site.com",
