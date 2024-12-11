@@ -6727,7 +6727,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-11-27T15:18:01Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-12-10T15:19:18Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -11137,7 +11137,7 @@ yahoo
 // https://www.iana.org/domains/root/db/yamaxun.html
 yamaxun
 
-// yandex : Yandex Europe B.V.
+// yandex : ADC Tech Netherlands B.V.
 // https://www.iana.org/domains/root/db/yandex.html
 yandex
 
@@ -11242,6 +11242,13 @@ activetrail.biz
 // Adaptable.io : https://adaptable.io
 // Submitted by Mark Terrel <support@adaptable.io>
 adaptable.app
+
+// addr.tools : https://addr.tools/
+// Submitted by Brian Shea <publicsuffixlist@addr.tools>
+myaddr.dev
+myaddr.io
+dyn.addr.tools
+myaddr.tools
 
 // Adobe : https://www.adobe.com/
 // Submitted by Ian Boston <boston@adobe.com> and Lars Trieloff <trieloff@adobe.com>
@@ -13705,9 +13712,8 @@ heliohost.us
 hepforge.org
 
 // Heroku : https://www.heroku.com/
-// Submitted by Tom Maher <tmaher@heroku.com>
+// Submitted by Shumon Huque <public-dns@salesforce.com>
 herokuapp.com
-herokussl.com
 
 // Heyflow : https://www.heyflow.com
 // Submitted by Mirko Nitschke <tech@heyflow.com>
