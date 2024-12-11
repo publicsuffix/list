@@ -5110,13 +5110,14 @@ gkp.pk
 gob.pk
 gog.pk
 gok.pk
-gon.pk // grandfathered
 gop.pk
 gos.pk
 gov.pk
 net.pk
 org.pk
 web.pk
+// Grandfathered
+gon.pk
 
 // pl : https://www.dns.pl/en/
 // Confirmed by registry <info@dns.pl> 2024-11-18
