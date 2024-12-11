@@ -1939,7 +1939,7 @@ ne.jp
 or.jp
 // jp prefecture type names
 // 2024-11-22: JPRS confirmed that since regional JP domain names are no longer 
-// accepting new registrations, any registered domain names listed under FQDNs
+// accepting new registrations, any registered domain names listed under FQDNs 
 // are confirmed to have been fully discontinued will be removed from the PSL.
 aichi.jp
 akita.jp
