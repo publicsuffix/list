@@ -2,7 +2,6 @@ package parser
 
 import (
 	"slices"
-	"strings"
 
 	"github.com/creachadair/mds/mapset"
 	"github.com/publicsuffix/list/tools/internal/domain"
@@ -30,14 +29,8 @@ func exemptFromSorting(entity string) bool {
 // exemptFromTXT reports whether the given domain name is exempt from
 // the requirement to have a _psl TXT record.
 func exemptFromTXT(domain domain.Name) bool {
-	s := domain.String()
 	if missingTXT.Has(domain.String()) {
 		return true
-	}
-	for _, suffix := range missingTXTAmazonSuffixes {
-		if strings.HasSuffix(s, suffix) {
-			return true
-		}
 	}
 	return false
 }
@@ -81,78 +74,7 @@ var missingEmail = []string{
 
 // incorrectSort are entities in the private domains section that are
 // allowed to be in the wrong sort order.
-var incorrectSort = []string{
-	"University of Banja Luka",
-	"University of Bielsko-Biala regional domain",
-	"Africa.com Web Solutions Ltd",
-	"iDOT Services Limited",
-	"Radix FZC",
-	"US REGISTRY LLC",
-	"co.com Registry, LLC",
-	"Roar Domains LLC",
-	"BRS Media",
-	"Clever Cloud",
-	"co.ca",
-	"Co & Co",
-	"i-registry s.r.o.",
-	"CDN77.com",
-	"Cloud DNS Ltd",
-	"Daplie, Inc",
-	"Datto, Inc.",
-	"ddnss.de",
-	"Definima",
-	"DigitalOcean App Platform",
-	"DigitalOcean Spaces",
-	"DigitalPlat",
-	"dnstrace.pro",
-	"ECG Robotics, Inc",
-	"Fedora",
-	"Frusky MEDIA&PR",
-	"RavPage",
-	"CDDO",
-	"GOV.UK Platform as a Service",
-	"GOV.UK Pay",
-	"Helio Networks",
-	"Häkkinen.fi",
-	"I-O DATA DEVICE, INC.",
-	"KUROKU LTD",
-	"Katholieke Universiteit Leuven",
-	".KRD",
-	"Lokalized",
-	"May First - People Link",
-	"NFSN, Inc.",
-	"NFT.Storage",
-	"No-IP.com",
-	"NodeArt",
-	"One.com",
-	".pl domains (grandfathered)",
-	"Pantheon Systems, Inc.",
-	"PE Ulyanov Kirill Sergeevich",
-	"Rad Web Hosting",
-	"Raidboxes GmbH",
-	"Redgate Software",
-	"Redstar Consultants",
-	"Russian Academy of Sciences",
-	"QA2",
-	"QCX",
-	"QNAP System Inc",
-	"Senseering GmbH",
-	"Smallregistry by Promopixel SARL",
-	"staticland",
-	"Storebase",
-	"Strapi",
-	"Strategic System Consulting (eApps Hosting)",
-	"Sony Interactive Entertainment LLC",
-	"SourceLair PC",
-	"SpaceKit",
-	"SpeedPartner GmbH",
-	"Spreadshop (sprd.net AG)",
-	"Studenten Net Twente",
-	"UNIVERSAL DOMAIN REGISTRY",
-	".US",
-	"VeryPositive SIA",
-	"V.UA Domain Administrator",
-}
+var incorrectSort = []string{}
 
 // missingTXT are the domains that are exempt from the _psl TXT record
 // requirement.
@@ -813,19 +735,7 @@ var missingTXT = mapset.New(
 	"zakopane.pl",
 	"za.net",
 	"za.org",
-
-	// Amazon suffixes, managed by a different bulk process.
-	"amplifyapp.com",
 )
-
-// missingTXTAmazonSuffixes are Amazon domains that are exempt from
-// the _psl TXT requirement, due to managing their submissions through
-// a separate high-volume process.
-var missingTXTAmazonSuffixes = []string{
-	".amazonaws.com",
-	".amazonaws.com.cn",
-	".amazoncognito.com",
-}
 
 // txtReplacePRs substitutes some TXT PR numbers for
 // replacements. This is to paper over some early PSL submissions that
