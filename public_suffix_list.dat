@@ -1938,9 +1938,9 @@ lg.jp
 ne.jp
 or.jp
 // jp prefecture type names
-// 2024-11-22: JPRS confirmed that since regional JP domain names are no longer 
-// accepting new registrations, any registered domain names listed under FQDNs 
-// are confirmed to have been fully discontinued will be removed from the PSL.
+// 2024-11-22: JPRS confirmed that regional .jp suffixes no longer accept new registrations. 
+// Once all existing registrations expire (marking full discontinuation), these suffixes 
+// will be removed from the PSL.
 aichi.jp
 akita.jp
 aomori.jp
