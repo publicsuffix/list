@@ -1480,12 +1480,12 @@ sch.ir
 is
 
 // it : https://www.iana.org/domains/root/db/it.html
+// https://www.nic.it/
 it
 edu.it
 gov.it
-// Reserved geo-names (regions and provinces):
-// https://www.nic.it/sites/default/files/archivio/docs/Regulation_assignation_v7.1.pdf
-// Regions
+// Regions (3.3.1)
+// https://www.nic.it/en/manage-your-it/forms-and-docs -> "Assignment and Management of domain names"
 abr.it
 abruzzo.it
 aosta-valley.it
@@ -1600,7 +1600,7 @@ vao.it
 vda.it
 ven.it
 veneto.it
-// Provinces
+// Provinces (3.3.2)
 ag.it
 agrigento.it
 al.it
@@ -1925,7 +1925,7 @@ jobs
 
 // jp : https://www.iana.org/domains/root/db/jp.html
 // http://jprs.co.jp/en/jpdomain.html
-// Submitted by registry <info@jprs.jp>
+// Confirmed by registry <info@jprs.jp> 2024-11-22
 jp
 // jp organizational type names
 ac.jp
@@ -1938,6 +1938,9 @@ lg.jp
 ne.jp
 or.jp
 // jp prefecture type names
+// 2024-11-22: JPRS confirmed that since regional JP domain names are no longer 
+// accepting new registrations, any registered domain names listed under FQDNs
+// are confirmed to have been fully discontinued will be removed from the PSL.
 aichi.jp
 akita.jp
 aomori.jp
@@ -5516,7 +5519,8 @@ org.sd
 tv.sd
 
 // se : https://www.iana.org/domains/root/db/se.html
-// Submitted by registry <patrik.wallstrom@iis.se>
+// https://data.internetstiftelsen.se/barred_domains_list.txt -> Second level domains & Sub-domains
+// Confirmed by Registry Services <registry@internetstiftelsen.se> 2024-11-20
 se
 a.se
 ac.se
@@ -6419,12 +6423,12 @@ yt
 
 // xn--fiqs8s ("Zhongguo/China", Chinese, Simplified) : CN
 // CNNIC
-// http://cnnic.cn/html/Dir/2005/10/11/3218.htm
+// https://www.cnnic.cn/11/192/index.html
 中国
 
 // xn--fiqz9s ("Zhongguo/China", Chinese, Traditional) : CN
 // CNNIC
-// http://cnnic.cn/html/Dir/2005/10/11/3218.htm
+// https://www.cnnic.com.cn/AU/MediaC/Announcement/201609/t20160905_54470.htm
 中國
 
 // xn--lgbbat1ad8j ("Algeria/Al Jazair", Arabic) : DZ
