@@ -82,7 +82,6 @@ var missingEmail = []string{
 // incorrectSort are entities in the private domains section that are
 // allowed to be in the wrong sort order.
 var incorrectSort = []string{
-	"AAA workspace",
 	"University of Banja Luka",
 	"University of Bielsko-Biala regional domain",
 	"Africa.com Web Solutions Ltd",
