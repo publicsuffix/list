@@ -1938,8 +1938,8 @@ lg.jp
 ne.jp
 or.jp
 // jp prefecture type names
-// 2024-11-22: JPRS confirmed that regional .jp suffixes no longer accept new registrations. 
-// Once all existing registrations expire (marking full discontinuation), these suffixes 
+// 2024-11-22: JPRS confirmed that regional .jp suffixes no longer accept new registrations.
+// Once all existing registrations expire (marking full discontinuation), these suffixes
 // will be removed from the PSL.
 aichi.jp
 akita.jp
