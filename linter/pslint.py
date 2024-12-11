@@ -85,9 +85,6 @@ def check_order(group):
 def validate_section_header(line, section):
     """Validates section header format for PRIVATE section."""
     if section == 1 << 3:
-        if line.strip().startswith('///'):
-			# Ignore lines that start with '///' as they are exempted comments
-            return
         # Match a line containing multiple URLs or other comments.
         if re.match(r"^//\s+https?://[\w./-]+(\s.*)?$", line):
             # Ignore lines that are just URLs or contain additional comments
