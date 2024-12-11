@@ -143,8 +143,8 @@ const (
 	// false positives.
 	concurrentDNSRequests = 10
 	// concurrentGithubRequests is the maximum number of in-flight
-	// Github API requests. This is limited to avoid tripping Github
-	// DoS protections. Github seems to have made their rate limits
+	// GitHub API requests. This is limited to avoid tripping GitHub
+	// DoS protections. GitHub seems to have made their rate limits
 	// more aggressive recently, so we stick to something very slow.
 	concurrentGithubRequests = 10
 
@@ -170,7 +170,7 @@ type txtRecordChecker struct {
 	// (e.g. user hit ctrl+c, or timeout was reached)
 	ctx context.Context
 
-	// gh is the Github API client used to look up PRs and commits.
+	// gh is the GitHub API client used to look up PRs and commits.
 	gh *github.Repo
 	// resolver is the DNS resolver used to do TXT lookups.
 	resolver net.Resolver
@@ -182,7 +182,7 @@ type txtRecordChecker struct {
 	// prExpected records what changes we expect to see in PRs, based
 	// on TXT lookups. For example, if a TXT lookup for _psl.foo.com
 	// points to PR 123, this map will have an entry for 123 ->
-	// {suffixes: [foo.com]}, meaning if we look at PR 123 on github,
+	// {suffixes: [foo.com]}, meaning if we look at PR 123 on GitHub,
 	// we want to see a change for foo.com.
 	prExpected map[int]*prExpected
 
@@ -200,10 +200,10 @@ func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHis
 	}
 
 	// TXT checking happens in two phases: first, look up all TXT
-	// records and construct a map of suffix<>github PR map (and
+	// records and construct a map of suffix<>GitHub PR map (and
 	// record errors for missing/malformed records, of course).
 	//
-	// Then, check the Github PRs and verify that they are changing
+	// Then, check the GitHub PRs and verify that they are changing
 	// the expected domains. We do this so that someone cannot point
 	// their TXT record to some random PR and pass our validation
 	// check, the PR must be changing the correct suffix(es).
@@ -282,7 +282,7 @@ func (c *txtRecordChecker) checkTXT(block Block, domain domain.Name) txtResult {
 	}
 }
 
-// extractPSLRecords extracts github PR numbers from raw TXT
+// extractPSLRecords extracts GitHub PR numbers from raw TXT
 // records. TXT records which do not match the required PSL record
 // format (e.g. SPF records, DKIM records, other unrelated
 // verification records) are ignored.
@@ -387,12 +387,12 @@ func (c *txtRecordChecker) getPRPSLs(prNum int) (before, after []byte, err error
 	return c.gh.PSLForPullRequest(c.ctx, prNum)
 }
 
-// checkPRs looks up the given Github PR, and verifies that it changes
+// checkPRs looks up the given GitHub PR, and verifies that it changes
 // all the suffixes and wildcards provided in info.
 func (c *txtRecordChecker) checkPR(prNum int, info *prExpected) []error {
 	log.Printf("Checking PR %d", prNum)
 
-	// Some PRs have broken state in Github, the API returns nonsense
+	// Some PRs have broken state in GitHub, the API returns nonsense
 	// information. These cases were verified manually and recorded in
 	// exceptions.go, so we skip those checks to avoid spurious
 	// errors.

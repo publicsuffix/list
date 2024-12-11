@@ -1,4 +1,4 @@
-// Package github provides a github client with functions tailored to
+// Package GitHub provides a GitHub client with functions tailored to
 // the PSL's needs.
 package github
 
@@ -16,7 +16,7 @@ import (
 // operations. The zero value is a client that interacts with the
 // official publicsuffix/list repository.
 type Repo struct {
-	// Owner is the github account of the repository to query. If
+	// Owner is the GitHub account of the repository to query. If
 	// empty, defaults to "publicsuffix".
 	Owner string
 	// Repo is the repository to query. If empty, defaults to "list".
@@ -53,7 +53,7 @@ func (c *Repo) apiClient() *github.Client {
 // given pull request. Returns the PSL file for the target branch, and
 // the same but with the PR's changes applied.
 func (c *Repo) PSLForPullRequest(ctx context.Context, prNum int) (withoutPR, withPR []byte, err error) {
-	// Github sometimes needs a little time to think to update the PR
+	// GitHub sometimes needs a little time to think to update the PR
 	// state, so we might need to sleep and retry a few times. Usually
 	// the status updates in <5s, but just for safety, give it a more
 	// generous timeout.
@@ -99,7 +99,7 @@ var errMergeInfoNotReady = errors.New("PR mergeability information not available
 // no unrelated changes.
 //
 // For an unmerged PR, "after" is a "trial merge commit" created
-// automatically by Github to run CI and check that the PR is
+// automatically by GitHub to run CI and check that the PR is
 // mergeable, and "before" is the master branch state from that trial
 // merge - usually the latest current state.
 //
@@ -108,7 +108,7 @@ var errMergeInfoNotReady = errors.New("PR mergeability information not available
 // before that.
 //
 // getPRCommitInfo returns the sentinel error errMergeInfoNotReady if
-// an open PR exists, but github needs a bit more time to update the
+// an open PR exists, but GitHub needs a bit more time to update the
 // trial merge commit. The caller is expected to retry with
 // appropriate backoff.
 func (c *Repo) getPRCommitInfo(ctx context.Context, prNum int) (withoutPRCommit, withPRCommit string, err error) {
@@ -135,7 +135,7 @@ func (c *Repo) getPRCommitInfo(ctx context.Context, prNum int) (withoutPRCommit,
 		// the pre-PR commit is simply the parent of the merge commit.
 		beforeMergeCommit = commitInfo.Parents[0].GetSHA()
 	} else if pr.Mergeable == nil {
-		// PR isn't merged, but github needs time to rebase the PR and
+		// PR isn't merged, but GitHub needs time to rebase the PR and
 		// create a trial merge. Unfortunately the only way to know
 		// when it's done is to just poll and wait for the mergeable
 		// bool to be valid.
