@@ -679,10 +679,12 @@ org.bt
 bv
 
 // bw : https://www.iana.org/domains/root/db/bw.html
-// http://www.gobin.info/domainname/bw.doc
-// list of other 2nd level tlds ?
+// https://nic.net.bw/bw-name-structure
 bw
+ac.bw
 co.bw
+gov.bw
+net.bw
 org.bw
 
 // by : https://www.iana.org/domains/root/db/by.html
