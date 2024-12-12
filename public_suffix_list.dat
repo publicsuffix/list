@@ -174,7 +174,7 @@ net.am
 org.am
 
 // ao : https://www.iana.org/domains/root/db/ao.html
-// http://www.dns.ao/REGISTR.DOC
+// https://www.dns.ao/ao/
 ao
 co.ao
 ed.ao
@@ -424,7 +424,7 @@ resto.bj
 tourism.bj
 univ.bj
 
-// bm : http://www.bermudanic.bm/dnr-text.txt
+// bm : https://www.bermudanic.bm/domain-registration/index.php
 bm
 com.bm
 edu.bm
@@ -741,7 +741,7 @@ cat
 cc
 
 // cd : https://www.iana.org/domains/root/db/cd.html
-// see also: https://www.nic.cd/domain/insertDomain_2.jsp?act=1
+// https://www.nic.cd
 cd
 gov.cd
 
@@ -755,7 +755,6 @@ cg
 ch
 
 // ci : https://www.iana.org/domains/root/db/ci.html
-// http://www.nic.ci/index.php?page=charte
 ci
 ac.ci
 aéroport.ci
@@ -858,7 +857,7 @@ com
 // coop : https://www.iana.org/domains/root/db/coop.html
 coop
 
-// cr : http://www.nic.cr/niccr_publico/showRegistroDominiosScreen.do
+// cr : https://nic.cr/capitulo-1-registro-de-un-nombre-de-dominio/
 cr
 ac.cr
 co.cr
@@ -905,8 +904,8 @@ cx
 gov.cx
 
 // cy : http://www.nic.cy/
-// Submitted by registry Panayiotou Fotia <cydns@ucy.ac.cy>
-// namespace policies URL https://www.nic.cy/portal//sites/default/files/symfonia_gia_eggrafi.pdf
+// Submitted by Panayiotou Fotia <cydns@ucy.ac.cy>
+// https://nic.cy/wp-content/uploads/2024/01/Create-Request-for-domain-name-registration-1.pdf
 cy
 ac.cy
 biz.cy
@@ -973,7 +972,7 @@ pol.dz
 soc.dz
 tm.dz
 
-// ec : http://www.nic.ec/reg/paso1.asp
+// ec : https://www.nic.ec/
 // Submitted by registry <vabboud@nic.ec>
 ec
 com.ec
@@ -992,7 +991,7 @@ pro.ec
 // edu : https://www.iana.org/domains/root/db/edu.html
 edu
 
-// ee : http://www.eenet.ee/EENet/dom_reeglid.html#lisa_B
+// ee : https://www.internet.ee/domains/general-domains-and-procedure-for-registration-of-sub-domains-under-general-domains
 ee
 aip.ee
 com.ee
@@ -1026,7 +1025,7 @@ tv.eg
 // er : https://www.iana.org/domains/root/db/er.html
 *.er
 
-// es : https://www.nic.es/site_ingles/ingles/dominios/index.html
+// es : https://www.dominios.es/en
 es
 com.es
 edu.es
@@ -1123,7 +1122,7 @@ school.ge
 // gf : https://www.iana.org/domains/root/db/gf.html
 gf
 
-// gg : http://www.channelisles.net/register-domains/
+// gg : https://www.channelisles.net/register-1/register-direct
 // Confirmed by registry <nigel@channelisles.net> 2013-11-28
 gg
 co.gg
@@ -1131,7 +1130,7 @@ net.gg
 org.gg
 
 // gh : https://www.iana.org/domains/root/db/gh.html
-// see also: http://www.nic.gh/reg_now.php
+// https://www.nic.gh/
 // Although domains directly at second level are not possible at the moment,
 // they have been possible for some time and may come back.
 gh
@@ -11205,7 +11204,7 @@ zuerich
 
 // (Note: these are in alphabetical order by company name)
 
-// .KRD : http://nic.krd/data/krd/Registration%20Policy.pdf
+// .KRD : https://nic.krd
 co.krd
 edu.krd
 
@@ -12343,7 +12342,7 @@ c.cdn77.org
 rsc.cdn77.org
 ssl.origin.cdn77-secure.org
 
-// CentralNic : http://www.centralnic.com/names/domains
+// CentralNic : https://teaminternet.com/
 // Submitted by registry <gavin.brown@centralnic.com>
 za.bz
 br.com
@@ -14577,7 +14576,7 @@ tech.orange
 // Submitted by OsSav Technology Ltd. <support@ossav.com>
 can.re
 
-// Oursky Limited : https://authgear.com/, https://skygear.io/
+// Oursky Limited : https://authgear.com/
 // Submitted by Authgear Team <hello@authgear.com>, Skygear Developer <hello@skygear.io>
 authgear-staging.com
 authgearapps.com
@@ -15320,7 +15319,7 @@ taifun-dns.de
 ts.net
 *.c.ts.net
 
-// TASK geographical domains (https://www.task.gda.pl/uslugi/dns)
+// TASK geographical domains : https://task.gda.pl/en/services/for-entrepreneurs/
 gda.pl
 gdansk.pl
 gdynia.pl
