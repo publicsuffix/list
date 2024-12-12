@@ -288,9 +288,10 @@ com.aw
 ax
 
 // az : https://www.iana.org/domains/root/db/az.html
-// https://whois.az/?page_id=10
+// Confirmed via https://whois.az/?page_id=10 2024-12-11
 az
 biz.az
+co.az
 com.az
 edu.az
 gov.az
@@ -301,6 +302,8 @@ name.az
 net.az
 org.az
 pp.az
+// No longer available for registration, however domains exist as of 2024-12-11
+// see https://whois.az/?page_id=783
 pro.az
 
 // ba : http://nic.ba/users_data/files/pravilnik_o_registraciji.pdf
