@@ -1,0 +1,11 @@
+// test:
+// - two ICANN sections
+
+// ===BEGIN ICANN DOMAINS===
+
+example.com
+
+// ===END ICANN DOMAINS===
+
+// ===BEGIN ICANN DOMAINS===
+// ===END ICANN DOMAINS===

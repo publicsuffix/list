@@ -1,0 +1,4 @@
+10: error: Illegal character: 'a.exam#ple.com'
+11: error: Illegal character: 'b.exam ple.com'
+13: error: Invalid UTF-8 character
+15: warning: No PRIVATE section found

@@ -1,0 +1,3 @@
+7: error: Punycode found: 'a.xn--0zwm56d'
+8: error: Double minus found: 'a.ex--ample.com'
+10: warning: No PRIVATE section found

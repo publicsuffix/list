@@ -1,0 +1,6 @@
+12: warning: Leading/Trailing whitespace: ' a.example.com'
+13: warning: Leading/Trailing whitespace: 'b.example.com '
+14: warning: Leading/Trailing whitespace: '\tc.example.com'
+15: warning: Leading/Trailing whitespace: 'd.example.com\t'
+17: warning: Leading/Trailing whitespace: '  '
+19: warning: No PRIVATE section found
