@@ -1,4 +1,0 @@
-9: error: Leading/trailing or multiple dot: '.a.example.com'
-10: error: Leading/trailing or multiple dot: 'b.example.com.'
-11: error: Leading/trailing or multiple dot: 'c..example.com'
-13: warning: No PRIVATE section found

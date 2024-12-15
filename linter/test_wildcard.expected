@@ -1,5 +1,0 @@
-11: error: Illegal character: '**.com'
-12: error: Illegal character: 'a*.com'
-13: error: Illegal character: 'b.*.com'
-14: error: Illegal character: 'a.b.*'
-16: warning: No PRIVATE section found

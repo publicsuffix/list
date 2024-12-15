@@ -1,6 +1,0 @@
-17: error: Leading/trailing or multiple dot: '!.example.com'
-18: error: Illegal character: 'w!w.example.com'
-19: error: Found doublette/ambiguity (previous line was 12): '!www.example.com'
-20: error: Exception without previous wildcard: '!a.b.example.com'
-21: error: Exception without previous wildcard: '!a.c.example.com'
-23: warning: No PRIVATE section found

@@ -1,6 +1,0 @@
-9: error: Found doublette/ambiguity (previous line was 8): '*.com'
-13: error: Found doublette/ambiguity (previous line was 12): '!www.com'
-17: error: Found doublette/ambiguity (previous line was 16): '*.example.com'
-21: error: Found doublette/ambiguity (previous line was 20): 'example1.com'
-24: error: Found doublette/ambiguity (previous line was 17): 'example.com'
-26: warning: No PRIVATE section found
