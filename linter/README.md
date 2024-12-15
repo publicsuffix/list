@@ -1,19 +1,20 @@
 This directory contains a linter for the Public Suffix List.
 
-Before you commit any changes to the PSL, please use the linter to check the syntax.
+Before you commit any changes to the PSL, please use the
+linter to check the syntax.
 
-# Usage
+Usage
+=====
 
-Run this command in the root directory of the repository:
+(from the repo's main directory)
 
-```
 $ linter/pslint.py public_suffix_list.dat
-```
 
-> $? is set to 0 on success, else it is set to 1.
+$? is set to 0 on success, else it is set to 1.
 
 
-# Self Test
+Selftest
+========
 
 Every change on pslint.py should be followed by a self-test.
 
