@@ -23,8 +23,8 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-import re
 import sys
+import codecs
 import unicodedata
 
 nline = 0
@@ -82,17 +82,6 @@ def check_order(group):
 	finally:
 		del group[:]
 
-def validate_section_header(line, section):
-    """Validates section header format for PRIVATE section."""
-    if section == 1 << 3:
-        # Match a line containing multiple URLs or other comments.
-        if re.match(r"^//\s+https?://[\w./-]+(\s.*)?$", line):
-            # Ignore lines that are just URLs or contain additional comments
-            return
-        elif ":" in line and "http" in line:
-            pattern = re.compile(r"^//\s+[^:]+\s+:\s+(https?://[\w./-]+(?:\s+https?://[\w./-]+)*/?)$")
-            if not pattern.match(line):
-                error("Invalid section header format")
 
 def lint_psl(infile):
 	"""Parses PSL file and performs syntax checking"""
@@ -134,7 +123,6 @@ def lint_psl(infile):
 		# check for section begin/end
 		if line[0:2] == "//":
 			# check_order(group)
-			validate_section_header(line, section)
 
 			if section == 0:
 				if line == "// ===BEGIN ICANN DOMAINS===":
