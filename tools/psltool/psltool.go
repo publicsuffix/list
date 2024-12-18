@@ -135,8 +135,8 @@ func runFmt(env *command.Env, path string) error {
 }
 
 var validateArgs struct {
-	Owner  string `flag:"gh-owner,default=publicsuffix,Owner of the GitHub repository to check"`
-	Repo   string `flag:"gh-repo,default=list,GitHub repository to check"`
+	Owner  string `flag:"gh-owner,default=publicsuffix,Owner of the github repository to check"`
+	Repo   string `flag:"gh-repo,default=list,Github repository to check"`
 	Clone  string `flag:"gh-local-clone,Path to a local clone of the repository specified by gh-owner/gh-repo"`
 	Online bool   `flag:"online-checks,Run validations that require querying third-party servers"`
 }
@@ -188,7 +188,7 @@ func runValidate(env *command.Env, pathOrHash string) error {
 		}
 		prHistory, err := githistory.GetPRInfo(validateArgs.Clone)
 		if err != nil {
-			return fmt.Errorf("failed to get local PR history, refusing to run full validation to avoid GitHub DoS: %w", err)
+			return fmt.Errorf("failed to get local PR history, refusing to run full validation to avoid Github DoS: %w", err)
 		}
 
 		ctx, cancel := context.WithTimeout(env.Context(), 1200*time.Second)
@@ -216,8 +216,8 @@ func runValidate(env *command.Env, pathOrHash string) error {
 }
 
 var checkPRArgs struct {
-	Owner  string `flag:"gh-owner,default=publicsuffix,Owner of the GitHub repository to check"`
-	Repo   string `flag:"gh-repo,default=list,GitHub repository to check"`
+	Owner  string `flag:"gh-owner,default=publicsuffix,Owner of the github repository to check"`
+	Repo   string `flag:"gh-repo,default=list,Github repository to check"`
 	Clone  string `flag:"gh-local-clone,Path to a local clone of the repository specified by gh-owner/gh-repo"`
 	Online bool   `flag:"online-checks,Run validations that require querying third-party servers"`
 }

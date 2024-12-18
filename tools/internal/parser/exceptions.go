@@ -46,7 +46,7 @@ func adjustTXTPR(prNum int) int {
 
 // acceptPRForDomain reports whether the given prNum should be
 // accepted as verification for the given domain, without further
-// checking of the GitHub PR.
+// checking of the Github PR.
 func acceptPRForDomain(domain domain.Name, prNum int) bool {
 	if exc, ok := txtAcceptPRs[domain.String()]; ok && exc == prNum {
 		return true
@@ -767,7 +767,7 @@ var txtReplacePRs = map[int]int{
 //
 // This is to work around situations similar to txtReplacePRs, where
 // the suffix owners followed all the rules, but the change was either
-// merged separately from the PR, or GitHub's API has bad data and
+// merged separately from the PR, or Github's API has bad data and
 // returns bogus information that prevents us from tracing the change.
 var txtAcceptPRs = map[string]int{
 	// Change pushed to master by maintainer rather than merging PR.

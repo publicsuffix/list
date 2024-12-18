@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-// PRInfo lists commit metadata for a given GitHub PR.
+// PRInfo lists commit metadata for a given Github PR.
 type PRInfo struct {
 	Num int
 	// CommitHash is the git hash in which the PSL contains the
@@ -69,7 +69,7 @@ func GetPRInfo(gitPath string) (*History, error) {
 		parents := strings.Split(parentsStr, " ")
 		// For merge commits, we have multiple parents, and we want
 		// the "main branch" side of the merge, i.e. the state of the
-		// tree before the PR was merged. Empirically, GitHub always
+		// tree before the PR was merged. Empirically, Github always
 		// lists that commit as the 1st parent in merge commits.
 		//
 		// For squash commits, there is only one parent.
@@ -86,7 +86,7 @@ func GetPRInfo(gitPath string) (*History, error) {
 		if len(ms) != 3 {
 			// The grep on git log returned a false positive where the
 			// PR number is not on the first line of the commit
-			// message. This is not a commit in the standard GitHub
+			// message. This is not a commit in the standard github
 			// format for PRs.
 			continue
 		}
@@ -130,8 +130,8 @@ func GetPSL(gitPath string, hash string) ([]byte, error) {
 }
 
 // Matches either "(#1234)" at the end of a line, or "Merge pull
-// request #1234 from" at the start of a line. The first is how GitHub
-// formats squash-and-merge commits, the second is how GitHub formats
+// request #1234 from" at the start of a line. The first is how github
+// formats squash-and-merge commits, the second is how github formats
 // 2-parent merge commits.
 var prNumberRe = regexp.MustCompile(`(?:\(#(\d+)\)$)|(?:^Merge pull request #(\d+) from)`)
 
