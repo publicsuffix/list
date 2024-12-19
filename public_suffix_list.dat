@@ -14039,15 +14039,15 @@ ggff.net
 // Submitted by Lann Martin <security@localcert.dev>
 *.user.localcert.dev
 
-// Localtonet : https://localtonet.com/
-// Submitted by Burak Isleyici <support@localtonet.com>
-*.localtonet.com
-*.localto.net
-
 // LocalCert : https://localcert.net
 // Submitted by William Harrison <psl@localcert.net>
 localcert.net
 localhostcert.net
+
+// Localtonet : https://localtonet.com/
+// Submitted by Burak Isleyici <support@localtonet.com>
+*.localtonet.com
+*.localto.net
 
 // Lodz University of Technology LODMAN regional domains https://www.man.lodz.pl/dns
 // Submitted by Piotr Wilk <dns@man.lodz.pl>
