@@ -14652,9 +14652,8 @@ us.platform.sh
 *.platformsh.site
 *.tst.site
 
-// Platter: https://platter.dev
+// Platter : https://platter.dev
 // Submitted by Patrick Flor <patrick@platter.dev>
-platter-app.com
 platter-app.dev
 platterp.us
 
