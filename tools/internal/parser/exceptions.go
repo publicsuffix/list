@@ -2,7 +2,6 @@ package parser
 
 import (
 	"slices"
-	"strings"
 
 	"github.com/creachadair/mds/mapset"
 	"github.com/publicsuffix/list/tools/internal/domain"
@@ -30,14 +29,8 @@ func exemptFromSorting(entity string) bool {
 // exemptFromTXT reports whether the given domain name is exempt from
 // the requirement to have a _psl TXT record.
 func exemptFromTXT(domain domain.Name) bool {
-	s := domain.String()
 	if missingTXT.Has(domain.String()) {
 		return true
-	}
-	for _, suffix := range missingTXTAmazonSuffixes {
-		if strings.HasSuffix(s, suffix) {
-			return true
-		}
 	}
 	return false
 }
@@ -65,7 +58,6 @@ func acceptPRForDomain(domain domain.Name, prNum int) bool {
 // that are allowed to lack email contact information.
 var missingEmail = []string{
 	"611 blockchain domain name system",
-	"c.la",
 	"co.ca",
 	"DynDNS.com",
 	"Hashbang",
@@ -82,85 +74,7 @@ var missingEmail = []string{
 
 // incorrectSort are entities in the private domains section that are
 // allowed to be in the wrong sort order.
-var incorrectSort = []string{
-	"AAA workspace",
-	"University of Banja Luka",
-	"University of Bielsko-Biala regional domain",
-	"No longer operated by CentralNic, these entries should be adopted and/or removed by current operators",
-	"Africa.com Web Solutions Ltd",
-	"iDOT Services Limited",
-	"Radix FZC",
-	"US REGISTRY LLC",
-	"co.com Registry, LLC",
-	"Roar Domains LLC",
-	"BRS Media",
-	"c.la",
-	"Clever Cloud",
-	"co.ca",
-	"Co & Co",
-	"i-registry s.r.o.",
-	"CDN77.com",
-	"Cloud DNS Ltd",
-	"Daplie, Inc",
-	"Datto, Inc.",
-	"Bip",
-	"bitbridge.net",
-	"ddnss.de",
-	"Definima",
-	"DigitalOcean App Platform",
-	"DigitalOcean Spaces",
-	"DigitalPlat",
-	"dnstrace.pro",
-	"ECG Robotics, Inc",
-	"Fedora",
-	"Frusky MEDIA&PR",
-	"RavPage",
-	"CDDO",
-	"GOV.UK Platform as a Service",
-	"GOV.UK Pay",
-	"Helio Networks",
-	"Häkkinen.fi",
-	"is-a.dev",
-	"I-O DATA DEVICE, INC.",
-	"KUROKU LTD",
-	"Katholieke Universiteit Leuven",
-	".KRD",
-	"Lokalized",
-	"May First - People Link",
-	"mcpe.me",
-	"NFSN, Inc.",
-	"NFT.Storage",
-	"No-IP.com",
-	"NodeArt",
-	"One.com",
-	".pl domains (grandfathered)",
-	"Pantheon Systems, Inc.",
-	"PE Ulyanov Kirill Sergeevich",
-	"Rad Web Hosting",
-	"Raidboxes GmbH",
-	"Redgate Software",
-	"Redstar Consultants",
-	"Russian Academy of Sciences",
-	"QA2",
-	"QCX",
-	"QNAP System Inc",
-	"Senseering GmbH",
-	"Smallregistry by Promopixel SARL",
-	"staticland",
-	"Storebase",
-	"Strapi",
-	"Strategic System Consulting (eApps Hosting)",
-	"Sony Interactive Entertainment LLC",
-	"SourceLair PC",
-	"SpaceKit",
-	"SpeedPartner GmbH",
-	"Spreadshop (sprd.net AG)",
-	"Studenten Net Twente",
-	"UNIVERSAL DOMAIN REGISTRY",
-	".US",
-	"VeryPositive SIA",
-	"V.UA Domain Administrator",
-}
+var incorrectSort = []string{}
 
 // missingTXT are the domains that are exempt from the _psl TXT record
 // requirement.
@@ -204,11 +118,8 @@ var missingTXT = mapset.New(
 	"azurewebsites.net",
 	"barrell-of-knowledge.info",
 	"barrel-of-knowledge.info",
-	"bci.dnstrace.pro",
 	"beagleboard.io",
 	"be.eu.org",
-	"beta.bounty-full.com",
-	"betainabox.com",
 	"better-than.tv",
 	"bg.eu.org",
 	"biz.at",
@@ -271,7 +182,6 @@ var missingTXT = mapset.New(
 	"blogspot.lu",
 	"blogspot.md",
 	"blogspot.mk",
-	"blogspot.mr",
 	"blogspot.mx",
 	"blogspot.my",
 	"blogspot.nl",
@@ -301,7 +211,6 @@ var missingTXT = mapset.New(
 	"casacam.net",
 	"cd.eu.org",
 	"cechire.com",
-	"certmgr.org",
 	"ch.eu.org",
 	"cloudapp.net",
 	"cloudfront.net",
@@ -338,7 +247,6 @@ var missingTXT = mapset.New(
 	"cyon.link",
 	"cyon.site",
 	"cz.eu.org",
-	"daplie.me",
 	"ddnsfree.com",
 	"ddnsgeek.com",
 	"ddnss.de",
@@ -521,7 +429,6 @@ var missingTXT = mapset.New(
 	"hepforge.org",
 	"here-for-more.info",
 	"herokuapp.com",
-	"herokussl.com",
 	"hk.com",
 	"hk.org",
 	"hobby-site.com",
@@ -531,7 +438,6 @@ var missingTXT = mapset.New(
 	"homeftp.net",
 	"homeftp.org",
 	"homeip.net",
-	"homelink.one",
 	"homelinux.com",
 	"homelinux.net",
 	"homelinux.org",
@@ -662,7 +568,6 @@ var missingTXT = mapset.New(
 	"likescandy.com",
 	"likes-pie.com",
 	"lk3.ru",
-	"localhost.daplie.me",
 	"loseyourip.com",
 	"ltd.hk",
 	"lt.eu.org",
@@ -704,7 +609,6 @@ var missingTXT = mapset.New(
 	"office-on-the.net",
 	"onfabrica.com",
 	"on-rancher.cloud",
-	"onred.one",
 	"onrender.com",
 	"on-rio.io",
 	"on-the-web.tv",
@@ -714,7 +618,6 @@ var missingTXT = mapset.New(
 	"ownprovider.com",
 	"ox.rs",
 	"pagespeedmobilizer.com",
-	"paris.eu.org",
 	"platter-app.com",
 	"pl.eu.org",
 	"podzone.net",
@@ -724,7 +627,6 @@ var missingTXT = mapset.New(
 	"protonet.io",
 	"pt.eu.org",
 	"qa2.com",
-	"q-a.eu.org",
 	"qbuser.com",
 	"rackmaze.com",
 	"rackmaze.net",
@@ -775,14 +677,12 @@ var missingTXT = mapset.New(
 	"sopot.pl",
 	"spacekit.io",
 	"space-to-rent.com",
-	"staging.onred.one",
 	"static.observableusercontent.com",
 	"stg.dev",
 	"stuff-4-sale.org",
 	"stuff-4-sale.us",
 	"synology.me",
 	"teaches-yoga.com",
-	"test.ru",
 	"theworkpc.com",
 	"thruhere.net",
 	"tickets.io",
@@ -826,19 +726,7 @@ var missingTXT = mapset.New(
 	"zakopane.pl",
 	"za.net",
 	"za.org",
-
-	// Amazon suffixes, managed by a different bulk process.
-	"amplifyapp.com",
 )
-
-// missingTXTAmazonSuffixes are Amazon domains that are exempt from
-// the _psl TXT requirement, due to managing their submissions through
-// a separate high-volume process.
-var missingTXTAmazonSuffixes = []string{
-	".amazonaws.com",
-	".amazonaws.com.cn",
-	".amazoncognito.com",
-}
 
 // txtReplacePRs substitutes some TXT PR numbers for
 // replacements. This is to paper over some early PSL submissions that
