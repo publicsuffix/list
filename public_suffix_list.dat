@@ -6736,7 +6736,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-12-12T15:18:58Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-12-23T15:16:32Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -9350,7 +9350,7 @@ norton
 // https://www.iana.org/domains/root/db/now.html
 now
 
-// nowruz : Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.
+// nowruz
 // https://www.iana.org/domains/root/db/nowruz.html
 nowruz
 
@@ -9474,7 +9474,7 @@ panasonic
 // https://www.iana.org/domains/root/db/paris.html
 paris
 
-// pars : Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.
+// pars
 // https://www.iana.org/domains/root/db/pars.html
 pars
 
@@ -10030,7 +10030,7 @@ sharp
 // https://www.iana.org/domains/root/db/shell.html
 shell
 
-// shia : Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.
+// shia
 // https://www.iana.org/domains/root/db/shia.html
 shia
 
@@ -10306,7 +10306,7 @@ tax
 // https://www.iana.org/domains/root/db/taxi.html
 taxi
 
-// tci : Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.
+// tci
 // https://www.iana.org/domains/root/db/tci.html
 tci
 
@@ -11014,7 +11014,7 @@ xin
 // https://www.iana.org/domains/root/db/xn--mgbi4ecexp.html
 كاثوليك
 
-// xn--mgbt3dhd : Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.
+// xn--mgbt3dhd
 // https://www.iana.org/domains/root/db/xn--mgbt3dhd.html
 همراه
 
