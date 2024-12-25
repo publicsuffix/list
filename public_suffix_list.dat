@@ -13594,14 +13594,6 @@ häkkinen.fi
 // Submitted by William Harrison <psl@hrsn.net>
 hrsn.dev
 
-// Harrison Network - PSL Sandbox : https://sandbox.psl.hrsn.dev
-// Submitted by William Harrison <psl@hrsn.net>
-sub.psl.hrsn.dev
-*.wc.psl.hrsn.dev
-!ignored.wc.psl.hrsn.dev
-*.sub.wc.psl.hrsn.dev
-!ignored.sub.wc.psl.hrsn.dev
-
 // Hashbang : https://hashbang.sh
 hashbang.sh
 
@@ -14690,6 +14682,14 @@ priv.at
 // Protonet GmbH : http://protonet.io
 // Submitted by Martin Meier <admin@protonet.io>
 protonet.io
+
+// PSL Sandbox : https://psl.hrsn.dev
+// Submitted by William Harrison <psl@hrsn.net>
+sub.psl.hrsn.dev
+*.wc.psl.hrsn.dev
+!ignored.wc.psl.hrsn.dev
+*.sub.wc.psl.hrsn.dev
+!ignored.sub.wc.psl.hrsn.dev
 
 // Publication Presse Communication SARL : https://ppcom.fr
 // Submitted by Yaacov Akiba Slama <admin@chirurgiens-dentistes-en-france.fr>
