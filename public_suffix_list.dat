@@ -13601,7 +13601,6 @@ hrsn.dev
 *.wc.psl.hrsn.dev
 !ignored.wc.psl.hrsn.dev
 sub.psl.hrsn.dev
-!ignored.sub.psl.hrsn.dev
 
 // Hashbang : https://hashbang.sh
 hashbang.sh
