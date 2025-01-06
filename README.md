@@ -37,4 +37,4 @@ We tend to use the subject line tag "[PSL notification]" in all Public Suffix Li
 
 ## Code of Conduct
 
-This project follows the [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
+Your participation in the Public Suffix List project should follow the [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/ "Mozilla Community Participation Guidelines") as well as the [GitHub Community Participation Guidelines](https://help.github.com/en/github/site-policy/github-community-guidelines "GitHub Community Participation Guidelines"). Behavior that falls into the areas forbidden by either document is unwelcome and will result in further escalation.
