@@ -34,3 +34,7 @@ Did guidance related to an issue with Facebook or Apple bring you here? [Read th
 ## Email Communication Policy
 
 We tend to use the subject line tag "[PSL notification]" in all Public Suffix List communications. For effective spam filtering, you can create a case-insensitive filter to allow only emails with exact "[PSL notification]" in the subject line. If you choose to set up such a filter in your email application, please verify the filter is implemented correctly and test it thoroughly to ensure you don't accidentally miss important communications from us.
+
+## Code of Conduct
+
+Your participation in the Public Suffix List project should follow the [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/ "Mozilla Community Participation Guidelines") as well as the [GitHub Community Participation Guidelines](https://help.github.com/en/github/site-policy/github-community-guidelines "GitHub Community Participation Guidelines"). Behavior that falls into the areas forbidden by either document is unwelcome and will result in further escalation.

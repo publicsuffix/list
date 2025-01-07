@@ -27,7 +27,9 @@ Make sure to review with the [Guidelines](https://github.com/publicsuffix/list/w
 Please also note that there is no guarantee of inclusion, nor we are able to provide an ETA for any inclusion request.  This is also true of projects that incorporate the PSL downline.  This is described, outlined and diagrammed [here](
 https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion).
 
-PSL Mailing List
+Before you attempt to make a contribution or comment, please read the [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
+
+## PSL Mailing List
 
 We suggest that submitters and users/integrators of the PSL to please join the (low traffic) mailing list to be aware of changes to structure, processes or formatting.
 
