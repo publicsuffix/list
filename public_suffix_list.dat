@@ -12425,6 +12425,10 @@ cloudaccess.host
 freesite.host
 cloudaccess.net
 
+// Cloudbees, Inc. : https://www.cloudbees.com/
+// Submitted by Mohideen Shajith <jaas-sre-infra@cloudbees.com>
+cloudbeesusercontent.io
+
 // Cloudera, Inc. : https://www.cloudera.com/
 // Submitted by Kedarnath Waikar <security@cloudera.com>
 *.cloudera.site
