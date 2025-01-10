@@ -6271,7 +6271,9 @@ tec.ve
 web.ve
 
 // vg : https://www.iana.org/domains/root/db/vg.html
+// Confirmed by registry <tld.ops@centralnic.com> 2025-01-10
 vg
+edu.vg
 
 // vi : https://www.iana.org/domains/root/db/vi.html
 vi
