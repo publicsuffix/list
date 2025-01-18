@@ -262,11 +262,9 @@ func runCheckPR(env *command.Env, prStr string) error {
 	}
 
 	// Label the PR base on our errors
-	if len(errs) > 0 {
-		labels := errorsToLabels(errs)
-		if err := client.LabelPullRequest(env.Context(), pr, labels); err != nil {
-			return fmt.Errorf("failed to set labels on PR: %w", err)
-		}
+	labels := errorsToLabels(errs)
+	if err := client.LabelPullRequest(env.Context(), pr, labels); err != nil {
+		return fmt.Errorf("failed to set labels on PR: %w", err)
 	}
 
 	// Print the blocks marked changed, so a human can check that
