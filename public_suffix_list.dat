@@ -4031,7 +4031,7 @@ net.mk
 org.mk
 
 // ml : https://www.iana.org/domains/root/db/ml.html
-// Confirmed by Boubacar NDIAYE <bndiaye@agetic.gouv.ml> 2025-01-19
+// Confirmed by Boubacar NDIAYE <bndiaye@agetic.gouv.ml> 2024-12-31
 ml
 ac.ml
 art.ml
