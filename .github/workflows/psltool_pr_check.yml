@@ -3,7 +3,8 @@ name: psltool PR check
 on:
   pull_request:
 
-permissions: {}
+permissions:
+  pull-requests: write
 
 jobs:
   validate:
@@ -17,4 +18,6 @@ jobs:
       - name: run validations
         run: |
           cd tools
-          go run ./psltool fmt -d ../public_suffix_list.dat && go run ./psltool check-pr --gh-owner ${{ github.event.repository.owner.login }} --gh-repo ${{ github.event.repository.name }} --online-checks ${{ github.event.pull_request.number }}
+          go run ./psltool check-pr --gh-owner ${{ github.event.repository.owner.login }} --gh-repo ${{ github.event.repository.name }} --online-checks ${{ github.event.pull_request.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

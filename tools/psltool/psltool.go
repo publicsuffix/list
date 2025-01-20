@@ -258,7 +258,13 @@ func runCheckPR(env *command.Env, prStr string) error {
 
 	clean := after.MarshalPSL()
 	if !bytes.Equal(withPR, clean) {
-		errs = append(errs, errors.New("file needs reformatting, run 'psltool fmt' to fix"))
+		errs = append(errs, ErrReformat)
+	}
+
+	// Label the PR base on our errors
+	labels := errorsToLabels(errs)
+	if err := client.LabelPullRequest(env.Context(), pr, labels); err != nil {
+		return fmt.Errorf("failed to set labels on PR: %w", err)
 	}
 
 	// Print the blocks marked changed, so a human can check that
