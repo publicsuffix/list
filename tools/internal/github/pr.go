@@ -9,7 +9,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/google/go-github/v67/github"
+	"github.com/google/go-github/v63/github"
 )
 
 // Client is a GitHub API client that performs PSL-specific
@@ -184,12 +184,4 @@ func (c *Repo) PSLForHash(ctx context.Context, hash string) ([]byte, error) {
 		return nil, err
 	}
 	return []byte(ret), nil
-}
-
-func (c *Repo) LabelPullRequest(ctx context.Context, prNum int, labels []string) error {
-	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
-	defer cancel()
-
-	_, _, err := c.apiClient().Issues.ReplaceLabelsForIssue(ctx, c.owner(), c.repo(), prNum, labels)
-	return err
 }
