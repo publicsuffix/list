@@ -11326,6 +11326,10 @@ barsy.ca
 *.compute.estate
 *.alces.network
 
+// Alibaba Cloud API Gateway
+// Submitted by Alibaba Cloud Security <cloud_product_security_team@alibaba-inc.com>
+alibabacloudcs.com
+
 // all-inkl.com : https://all-inkl.com
 // Submitted by Werner Kaltofen <wk@all-inkl.com>
 kasserver.com
