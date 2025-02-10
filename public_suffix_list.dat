@@ -1942,9 +1942,6 @@ lg.jp
 ne.jp
 or.jp
 // jp prefecture type names
-// 2024-11-22: JPRS confirmed that regional .jp suffixes no longer accept new registrations.
-// Once all existing registrations expire (marking full discontinuation), these suffixes
-// will be removed from the PSL.
 aichi.jp
 akita.jp
 aomori.jp
@@ -2041,6 +2038,9 @@ yamanashi.jp
 鹿児島.jp
 // jp geographic type names
 // http://jprs.jp/doc/rule/saisoku-1.html
+// 2024-11-22: JPRS confirmed that jp geographic type names no longer accept new registrations.
+// Once all existing registrations expire (marking full discontinuation), these suffixes
+// will be removed from the PSL.
 *.kawasaki.jp
 !city.kawasaki.jp
 *.kitakyushu.jp
