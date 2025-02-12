@@ -12152,6 +12152,11 @@ transfer-webapp.us-west-2.on.aws
 eero.online
 eero-stage.online
 
+// Stores
+// Submitted by Yue Kang <mnr@amazon.com>
+// Reference: V1672704551
+com.be
+
 // concludes Amazon
 
 // Apigee : https://apigee.com/
