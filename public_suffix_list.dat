@@ -12283,6 +12283,10 @@ blackbaudcdn.net
 // Submitted by Luke Bratch <luke@bratch.co.uk>
 of.je
 
+// Block, Inc. : https://block.xyz
+// Submitted by Jonathan Boice <security@block.xyz>
+*.square.site
+
 // Blue Bite, LLC : https://bluebite.com
 // Submitted by Joshua Weiss <admin.engineering@bluebite.com>
 bluebite.io
