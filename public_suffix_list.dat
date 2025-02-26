@@ -15717,6 +15717,10 @@ zap.cloud
 // Submitted by Zeabur Team <contact@zeabur.com>
 zeabur.app
 
+// Zerops : https://zerops.io/
+// Submitted by Zerops Team <security@zerops.io>
+*.zerops.app
+
 // Zine EOOD : https://zine.bg/
 // Submitted by Martin Angelov <martin@zine.bg>
 bss.design
