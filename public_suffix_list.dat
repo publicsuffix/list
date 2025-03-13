@@ -13846,7 +13846,9 @@ iopsys.se
 
 // IPFS Project : https://ipfs.tech/
 // Submitted by Interplanetary Shipyard <domains@ipshipyard.com>
+*.inbrowser.dev
 *.dweb.link
+*.inbrowser.link
 
 // IPiFony Systems, Inc. : https://www.ipifony.com/
 // Submitted by Matthew Hardeman <mhardeman@ipifony.com>
