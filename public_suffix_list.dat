@@ -15284,8 +15284,8 @@ surveys.so
 
 // Storacha Network : https://storacha.network
 // Submitted by Alan Shaw <support@storacha.network>
-*.storacha.link
-*.w3s.link
+ipfs.storacha.link
+ipfs.w3s.link
 
 // Storebase : https://www.storebase.io
 // Submitted by Tony Schirmer <tony@storebase.io>
