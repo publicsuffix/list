@@ -15282,6 +15282,11 @@ researched.cx
 tests.cx
 surveys.so
 
+// Storacha Network : https://storacha.network
+// Submitted by Alan Shaw <alan@storacha.network>
+*.storacha.link
+*.w3s.link
+
 // Storebase : https://www.storebase.io
 // Submitted by Tony Schirmer <tony@storebase.io>
 storebase.store
