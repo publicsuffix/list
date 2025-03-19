@@ -972,7 +972,7 @@ soc.dz
 tm.dz
 
 // ec : https://www.nic.ec/
-// Submitted by registry <vabboud@nic.ec>
+// Submitted by registry <infraestructura@nic.ec>
 ec
 com.ec
 edu.ec
@@ -986,6 +986,47 @@ mil.ec
 net.ec
 org.ec
 pro.ec
+abg.ec
+adm.ec
+art.ec
+bar.ec
+com.ec
+cpa.ec
+cue.ec
+dgn.ec
+doc.ec
+eng.ec
+esm.ec
+fot.ec
+gal.ec
+gov.ec
+gye.ec
+ibr.ec
+lat.ec
+loj.ec
+mon.ec
+ntr.ec
+pub.ec
+rio.ec
+sal.ec
+tul.ec
+tur.ec
+uio.ec
+vet.ec
+xxx.ec
+arqt.ec
+chef.ec
+cont.ec
+dent.ec
+mktg.ec
+prof.ec
+psic.ec
+psiq.ec
+rrpp.ec
+tech.ec
+agron.ec
+disco.ec
+odont.ec
 
 // edu : https://www.iana.org/domains/root/db/edu.html
 edu
