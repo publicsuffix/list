@@ -740,8 +740,6 @@ cat
 // cc : https://www.iana.org/domains/root/db/cc.html
 cc
 
-loc.cc
-
 // cd : https://www.iana.org/domains/root/db/cd.html
 // https://www.nic.cd
 cd
@@ -14478,6 +14476,10 @@ pointto.us
 // NodeArt : https://nodeart.io
 // Submitted by Konstantin Nosov <Nosov@nodeart.io>
 stage.nodeart.io
+
+// Nodeloc : https://free.nodeloc.com
+// Submitted by James <james@nodeloc.com>
+loc.cc
 
 // Noop : https://noop.app
 // Submitted by Nathaniel Schweinberg <noop@rearc.io>
