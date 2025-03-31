@@ -12495,6 +12495,11 @@ cust.cloudscale.ch
 objects.lpg.cloudscale.ch
 objects.rma.cloudscale.ch
 
+// cloudsoda : https://cloudsoda.io
+// Submitted by Joe Franco <joe.franco@cloudsoda.io>
+*.cloudsoda.io
+*.cloudsoda.dev
+
 // Clovyr : https://clovyr.io
 // Submitted by Patrick Nielsen <patrick@clovyr.io>
 wnext.app
