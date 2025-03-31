@@ -12496,7 +12496,7 @@ objects.lpg.cloudscale.ch
 objects.rma.cloudscale.ch
 
 // cloudsoda : https://cloudsoda.io
-// Submitted by Joe Franco <joe.franco@cloudsoda.io>
+// Submitted by Joe Franco <infra-ops@cloudsoda.io>
 *.cloudsoda.io
 *.cloudsoda.dev
 
