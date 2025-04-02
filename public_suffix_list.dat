@@ -15760,4 +15760,9 @@ enterprisecloud.nu
 // Submitted by Gx1.org <security@gx1.org>
 zone.id
 
+// zstatic: https://zstaticcdn.com
+// Submitted by Ziwen WANG <admin@zstaticcdn.com>
+ip.zstaticcdn.com
+app.zstaticcdn.com
+
 // ===END PRIVATE DOMAINS===
