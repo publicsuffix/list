@@ -12523,11 +12523,6 @@ co.com
 // Submitted by Moritz Marquardt <git@momar.de>
 codeberg.page
 
-// Windsurf : https://windsurf.com
-// Submitted by Douglas Chen <psl@windsurf.com>
-windsurf.app
-windsurf.build
-
 // CodeSandbox B.V. : https://codesandbox.io
 // Submitted by Ives van Hoorne <abuse@codesandbox.io>
 csb.app
@@ -15659,6 +15654,11 @@ wmflabs.org
 // William Harrison : https://wharrison.com.au
 // Submitted by William Harrison <psl@wharrison.com.au>
 wdh.app
+
+// Windsurf : https://windsurf.com
+// Submitted by Douglas Chen <psl@windsurf.com>
+windsurf.app
+windsurf.build
 
 // WISP : https://wisp.gg
 // Submitted by Stepan Fedotov <stepan@wisp.gg>
