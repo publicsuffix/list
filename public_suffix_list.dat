@@ -12674,6 +12674,7 @@ icp0.io
 *.raw.icp0.io
 icp1.io
 *.raw.icp1.io
+icp-api.io
 caffeine.site
 caffeine.website
 
