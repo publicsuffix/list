@@ -14187,6 +14187,11 @@ barsy.uk
 barsy.co.uk
 barsyonline.co.uk
 
+// Luyani Inc. : https://luyani.com/
+// Submitted by Umut Gumeli <public-suffix-list@luyani.com>
+luyani.app
+luyani.net
+
 // Magento Commerce
 // Submitted by Damien Tournoud <dtournoud@magento.cloud>
 *.magentosite.cloud
