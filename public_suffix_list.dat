@@ -15576,7 +15576,7 @@ v.ua
 
 // Val Town, Inc : https://val.town/
 // Submitted by Tom MacWright <security@val.town>
-express.val.run
+val.run
 web.val.run
 
 // Vercel, Inc : https://vercel.com/
