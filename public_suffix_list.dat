@@ -12668,7 +12668,6 @@ deta.dev
 
 // Dfinity Foundation: https://dfinity.org/
 // Submitted by Dfinity Team <domains@dfinity.org>
-ic0.app
 *.raw.ic0.app
 icp0.io
 *.raw.icp0.io
@@ -12676,7 +12675,6 @@ icp1.io
 *.raw.icp1.io
 icp-api.io
 caffeine.site
-caffeine.website
 caffeine.ai
 id.ai
 
