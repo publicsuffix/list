@@ -46,4 +46,4 @@ Number of users this request is being made to serve: we have +- 4500 users and i
 
 DNS Verification
 dig +short TXT _psl.bingbook.cn
-"https://github.com/publicsuffix/list/pull/2396"；
+"https://github.com/publicsuffix/list/pull/2449"；
