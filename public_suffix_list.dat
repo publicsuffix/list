@@ -13642,10 +13642,6 @@ günstigliefern.de
 // Submitted by Eero Häkkinen <Eero+psl@Häkkinen.fi>
 häkkinen.fi
 
-// Harrison Network : https://hrsn.net
-// Submitted by William Harrison <psl@hrsn.net>
-hrsn.dev
-
 // Hashbang : https://hashbang.sh
 hashbang.sh
 
@@ -15662,8 +15658,9 @@ wmcloud.org
 wmflabs.org
 
 // William Harrison : https://wharrison.com.au
-// Submitted by William Harrison <psl@wharrison.com.au>
+// Submitted by William Harrison <security@wharrison.com.au>
 wdh.app
+hrsn.dev
 
 // Windsurf : https://windsurf.com
 // Submitted by Douglas Chen <psl@windsurf.com>
