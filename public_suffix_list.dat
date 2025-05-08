@@ -13080,8 +13080,10 @@ tuleap-partners.com
 // Encoretivity AB : https://encore.cloud
 // Submitted by André Eriksson <security@encore.cloud>
 encr.app
+*.encr.app
 encoreapi.com
 lp.dev
+*.lp.dev
 
 // encoway GmbH : https://www.encoway.de
 // Submitted by Marcel Daus <cloudops@encoway.de>
