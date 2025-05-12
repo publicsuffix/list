@@ -45,7 +45,7 @@ your domain(s) directly with that third-party, and it is inappropriate
 to submit entries to the PSL as a means to work around those limits or 
 restrictions.
 -->
-
+ * [ ] As the submitter, I, on behalf of our organization/company, hereby commit that all information provided in this PR is true and accurate, and that there has been no misrepresentation of the reasons for PSL inclusion or fabrication of service user numbers. Should a trust crisis arising from the foregoing result in our domain’s prolonged exclusion from the PSL, our organization/company will assume full responsibility.
  * [ ] We are listing *any* third-party limits that we seek to work around in our rationale such as those between IOS 14.5+ and Facebook (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as a well-documented example)
  - [Cloudflare](https://developers.cloudflare.com/learning-paths/get-started/add-domain-to-cf/add-site/)
  - [Let's Encrypt](https://letsencrypt.org/docs/rate-limits/)
