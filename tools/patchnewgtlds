@@ -2,6 +2,7 @@
 
 set -e
 set -o pipefail
+set -x
 
 if ! [ -x "$(command -v go)" ]
 then
@@ -9,8 +10,9 @@ then
   exit 1
 fi
 
-BASEDIR=$(dirname "$0")
+SCRIPT=$(realpath "$0")
+BASEDIR=$(dirname "$SCRIPT")
 
-go run "$BASEDIR/newgtlds.go" \
+go run -C "$BASEDIR/" . \
   -overwrite \
   -psl-dat-file="$BASEDIR/../public_suffix_list.dat"

@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"strings"
 	"text/template"
@@ -25,6 +26,8 @@ const (
 	// in the ICP-3 Root - including new ccTLDs, EBRERO gTLDS or things not in
 	// the JSON File above that should be included in the PSL.  Note: UPPERCASE
 	IANA_TLDS_TXT_URL = "http://data.iana.org/TLD/tlds-alpha-by-domain.txt"
+	// IANA_TLD_URL_BASE is the base URL for IANA domain information pages.
+	IANA_TLD_URL_BASE = "https://www.iana.org/domains/root/db"
 	// PSL_GTLDS_SECTION_HEADER marks the start of the newGTLDs section of the
 	// overall public suffix dat file.
 	PSL_GTLDS_SECTION_HEADER = "// newGTLDs"
@@ -93,6 +96,9 @@ type pslEntry struct {
 	// ALabel contains the ASCII gTLD name. For internationalized gTLDs the GTLD
 	// field is expressed in punycode.
 	ALabel string `json:"gTLD"`
+	// DelegationDate holds the date the gTLD was delegated to the root zone.
+	// A TLD should be considered dead if the delegation date is empty.
+	DelegationDate string
 	// ULabel contains the unicode representation of the gTLD name. When the gTLD
 	// ULabel in the ICANN gTLD data is empty (e.g for an ASCII gTLD like
 	// '.pizza') the PSL entry will use the ALabel as the ULabel.
@@ -100,8 +106,6 @@ type pslEntry struct {
 	// RegistryOperator holds the name of the registry operator that operates the
 	// gTLD (may be empty).
 	RegistryOperator string
-	// DateOfContractSignature holds the date the gTLD contract was signed (may be empty).
-	DateOfContractSignature string
 	// ContractTerminated indicates whether the contract has been terminated by
 	// ICANN. When rendered by the pslTemplate only entries with
 	// ContractTerminated = false are included.
@@ -118,7 +122,6 @@ func (e *pslEntry) normalize() {
 	e.ALabel = strings.TrimSpace(e.ALabel)
 	e.ULabel = strings.TrimSpace(e.ULabel)
 	e.RegistryOperator = strings.TrimSpace(e.RegistryOperator)
-	e.DateOfContractSignature = strings.TrimSpace(e.DateOfContractSignature)
 
 	// If there is no explicit uLabel use the gTLD as the uLabel.
 	if e.ULabel == "" {
@@ -131,25 +134,34 @@ func (e *pslEntry) normalize() {
 //
 // If the registry operator field is empty the comment will be of the form:
 //
-//    '// <ALabel> : <DateOfContractSignature>'
+//	// <ALabel>
+//	// https://www.iana.org/domains/root/db/<ALabel>.html
 //
 // If the registry operator field is not empty the comment will be of the form:
 //
-//    '// <ALabel> : <DateOfContractSignature> <RegistryOperator>'
-//
-// In both cases the <DateOfContractSignature> may be empty.
+//	// <ALabel> : <RegistryOperator>
+//	// https://www.iana.org/domains/root/db/<ALabel>.html
+
 func (e pslEntry) Comment() string {
 	parts := []string{
 		"//",
 		e.ALabel,
-		":",
-		e.DateOfContractSignature,
 	}
 	// Avoid two trailing spaces if registry operator is empty
 	if e.RegistryOperator != "" {
-		parts = append(parts, e.RegistryOperator)
+		parts = append(parts, []string{":", e.RegistryOperator}...)
 	}
-	return strings.Join(parts, " ")
+
+	ianaUrl, err := url.JoinPath(IANA_TLD_URL_BASE, e.ALabel+".html")
+	if err != nil {
+		panic(fmt.Sprintf("invalid joined IANA TLD URL for %q: %v", e.ALabel, err))
+	}
+	ianaUrl = "// " + ianaUrl
+
+	return strings.Join([]string{
+		strings.Join(parts, " "),
+		ianaUrl,
+	}, "\n")
 }
 
 // gTLDDatSpan represents the span between the PSL_GTLD_SECTION_HEADER and
@@ -346,14 +358,16 @@ func getData(url string) ([]byte, error) {
 }
 
 // filterGTLDs removes entries that are present in the legacyGTLDs map or have
-// ContractTerminated equal to true, or a non-empty RemovalDate.
+// ContractTerminated equal to true and an empty DelegationDate,
+// or a non-empty RemovalDate.
 func filterGTLDs(entries []*pslEntry) []*pslEntry {
 	var filtered []*pslEntry
 	for _, entry := range entries {
 		if _, isLegacy := legacyGTLDs[entry.ALabel]; isLegacy {
 			continue
 		}
-		if entry.ContractTerminated {
+		// If the Delegation Date is not empty, the gTLD is likely in EBERO.
+		if entry.ContractTerminated && entry.DelegationDate == "" {
 			continue
 		}
 		if entry.RemovalDate != "" {
@@ -365,10 +379,10 @@ func filterGTLDs(entries []*pslEntry) []*pslEntry {
 }
 
 // getPSLEntries fetches a list of pslEntry objects (or returns an error) by:
-//   1. getting the raw JSON data from the provided url string.
-//   2. unmarshaling the JSON data to create pslEntry objects.
-//   3. normalizing the pslEntry objects.
-//   4. filtering out any legacy or contract terminated gTLDs
+//  1. getting the raw JSON data from the provided url string.
+//  2. unmarshaling the JSON data to create pslEntry objects.
+//  3. normalizing the pslEntry objects.
+//  4. filtering out any legacy or contract terminated gTLDs
 //
 // If there are no pslEntry objects after unmarshaling the data in step 2 or
 // filtering the gTLDs in step 4 it is considered an error condition.
@@ -508,11 +522,12 @@ func process(datFile *datFile, dataURL string, clk clock) (string, error) {
 	if err := renderData(&newDataBuf, entries); err != nil {
 		return "", err
 	}
+	newDataBufString := strings.TrimSuffix(newDataBuf.String(), "\n")
 
 	// If the newly rendered data doesn't match the existing data then we want to
 	// update the dat file content by replacing the old span with the new content.
-	if newDataBuf.String() != existingData {
-		newContent := newHeaderBuf.String() + "\n" + newDataBuf.String()
+	if newDataBufString != existingData {
+		newContent := newHeaderBuf.String() + "\n" + newDataBufString
 		if err := datFile.ReplaceGTLDContent(newContent); err != nil {
 			return "", err
 		}
