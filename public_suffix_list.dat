@@ -1134,10 +1134,12 @@ org.gg
 // Although domains directly at second level are not possible at the moment,
 // they have been possible for some time and may come back.
 gh
+biz.gh
 com.gh
 edu.gh
 gov.gh
 mil.gh
+net.gh
 org.gh
 
 // gi : http://www.nic.gi/rules.html
