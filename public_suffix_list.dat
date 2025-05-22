@@ -13632,6 +13632,7 @@ goip.de
 // Google, Inc.
 // Submitted by Shannon McCabe <public-suffix-editors@google.com>
 *.hosted.app
+*.mtls.run.app
 *.run.app
 web.app
 *.0emm.com
