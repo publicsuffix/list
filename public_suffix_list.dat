@@ -9,6 +9,8 @@
 
 // ===BEGIN ICANN DOMAINS===
 
+
+
 // ac : http://nic.ac/rules.htm
 ac
 com.ac
@@ -13127,6 +13129,9 @@ objects.lp.dev
 // encoway GmbH : https://www.encoway.de
 // Submitted by Marcel Daus <cloudops@encoway.de>
 eu.encoway.cloud
+
+// afhz.org : submitted by KRhero <support@afhz.org>
+afhz.org
 
 // EU.org : https://eu.org/
 // Submitted by Pierre Beyssac <hostmaster@eu.org>
