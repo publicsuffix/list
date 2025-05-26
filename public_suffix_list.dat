@@ -973,20 +973,59 @@ soc.dz
 tm.dz
 
 // ec : https://www.nic.ec/
-// Submitted by registry <vabboud@nic.ec>
+// Submitted by registry <infraestructura@nic.ec>
 ec
+abg.ec
+adm.ec
+agron.ec
+arqt.ec
+art.ec
+bar.ec
+chef.ec
 com.ec
+cont.ec
+cpa.ec
+cue.ec
+dent.ec
+dgn.ec
+disco.ec
+doc.ec
 edu.ec
+eng.ec
+esm.ec
 fin.ec
+fot.ec
+gal.ec
 gob.ec
 gov.ec
+gye.ec
+ibr.ec
 info.ec
 k12.ec
+lat.ec
+loj.ec
 med.ec
 mil.ec
+mktg.ec
+mon.ec
 net.ec
+ntr.ec
+odont.ec
 org.ec
 pro.ec
+prof.ec
+psic.ec
+psiq.ec
+pub.ec
+rio.ec
+rrpp.ec
+sal.ec
+tech.ec
+tul.ec
+tur.ec
+uio.ec
+vet.ec
+xxx.ec
 
 // edu : https://www.iana.org/domains/root/db/edu.html
 edu
@@ -1134,10 +1173,12 @@ org.gg
 // Although domains directly at second level are not possible at the moment,
 // they have been possible for some time and may come back.
 gh
+biz.gh
 com.gh
 edu.gh
 gov.gh
 mil.gh
+net.gh
 org.gh
 
 // gi : http://www.nic.gi/rules.html
@@ -6747,7 +6788,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-04-30T15:19:32Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-05-17T15:16:58Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -9609,10 +9650,6 @@ politie
 // https://www.iana.org/domains/root/db/porn.html
 porn
 
-// pramerica : Prudential Financial, Inc.
-// https://www.iana.org/domains/root/db/pramerica.html
-pramerica
-
 // praxi : Praxi S.p.A.
 // https://www.iana.org/domains/root/db/praxi.html
 praxi
@@ -11993,11 +12030,6 @@ analytics-gateway.us-east-1.amazonaws.com
 analytics-gateway.us-east-2.amazonaws.com
 analytics-gateway.us-west-2.amazonaws.com
 
-// Appwrite : https://appwrite.io
-// Submitted by Steven Nguyen <security@appwrite.io>
-appwrite.global
-*.appwrite.run
-
 // AWS Amplify
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: c35bed18-6f4f-424f-9298-5756f2f7d72b
@@ -12171,6 +12203,11 @@ appspaceusercontent.com
 // Appudo UG (haftungsbeschränkt) : https://www.appudo.com
 // Submitted by Alexander Hochbaum <admin@appudo.com>
 appudo.net
+
+// Appwrite : https://appwrite.io
+// Submitted by Steven Nguyen <security@appwrite.io>
+appwrite.global
+*.appwrite.run
 
 // Aptible : https://www.aptible.com/
 // Submitted by Thomas Orozco <thomas@aptible.com>
@@ -12348,9 +12385,9 @@ cafjs.com
 // Canva Pty Ltd : https://canva.com/
 // Submitted by Joel Aquilina <publicsuffixlist@canva.com>
 canva-apps.cn
-*.my.canvasite.cn
+my.canvasite.cn
 canva-apps.com
-*.my.canva.site
+my.canva.site
 
 // Carrd : https://carrd.co
 // Submitted by AJ <aj@carrd.co>
@@ -12457,7 +12494,6 @@ cloudns.us
 // Submitted by Khash Sajadi <khash@cloud66.com>
 c66.me
 cloud66.ws
-cloud66.zone
 
 // CloudAccess.net : https://www.cloudaccess.net/
 // Submitted by Pawel Panek <noc@cloudaccess.net>
@@ -12691,7 +12727,9 @@ ondigitalocean.app
 
 // DigitalPlat : https://www.digitalplat.org/
 // Submitted by Edward Hsing <contact@digitalplat.org>
+qzz.io
 us.kg
+xx.kg
 dpdns.org
 
 // Discord Inc : https://discord.com
@@ -13091,8 +13129,11 @@ tuleap-partners.com
 // Encoretivity AB : https://encore.cloud
 // Submitted by André Eriksson <security@encore.cloud>
 encr.app
+frontend.encr.app
 encoreapi.com
 lp.dev
+api.lp.dev
+objects.lp.dev
 
 // encoway GmbH : https://www.encoway.de
 // Submitted by Marcel Daus <cloudops@encoway.de>
@@ -13454,6 +13495,7 @@ gsj.bz
 
 // GitHub, Inc.
 // Submitted by Patrick Toomey <security@github.com>
+github.app
 githubusercontent.com
 githubpreview.dev
 github.io
@@ -13652,10 +13694,6 @@ günstigliefern.de
 // Häkkinen.fi : https://www.häkkinen.fi/
 // Submitted by Eero Häkkinen <Eero+psl@Häkkinen.fi>
 häkkinen.fi
-
-// Harrison Network : https://hrsn.net
-// Submitted by William Harrison <psl@hrsn.net>
-hrsn.dev
 
 // Hashbang : https://hashbang.sh
 hashbang.sh
@@ -13889,17 +13927,18 @@ ir.md
 is-a-good.dev
 
 // is-a.dev : https://is-a.dev
-// Submitted by William Harrison <psl@is-a.dev>
+// Submitted by William Harrison <security@is-a.dev>
 is-a.dev
 
 // IServ GmbH : https://iserv.de
-// Submitted by Mario Hoberg <info@iserv.de>
+// Submitted by Kim Brodowski <info@iserv.de>
 iservschule.de
 mein-iserv.de
 schulplattform.de
 schulserver.de
 test-iserv.de
 iserv.dev
+iserv.host
 
 // Jelastic, Inc. : https://jelastic.com/
 // Submitted by Ihor Kolodyuk <ik@jelastic.com>
@@ -14105,9 +14144,8 @@ ggff.net
 *.user.localcert.dev
 
 // LocalCert : https://localcert.net
-// Submitted by William Harrison <psl@localcert.net>
+// Submitted by William Harrison <security@localcert.net>
 localcert.net
-localhostcert.net
 
 // Localtonet : https://localtonet.com/
 // Submitted by Burak Isleyici <support@localtonet.com>
@@ -14775,6 +14813,7 @@ priv.at
 // PROJECT ELIV : https://eliv.kr/
 // Submitted by PROJECT ELIV Domain Team <team@eliv.kr>
 c01.kr
+eliv-cdn.kr
 eliv-dns.kr
 mmv.kr
 vki.kr
@@ -14786,14 +14825,6 @@ dev.project-study.com
 // Protonet GmbH : http://protonet.io
 // Submitted by Martin Meier <admin@protonet.io>
 protonet.io
-
-// PSL Sandbox : https://psl.hrsn.dev
-// Submitted by William Harrison <psl@hrsn.net>
-sub.psl.hrsn.dev
-*.wc.psl.hrsn.dev
-!ignored.wc.psl.hrsn.dev
-*.sub.wc.psl.hrsn.dev
-!ignored.sub.wc.psl.hrsn.dev
 
 // Publication Presse Communication SARL : https://ppcom.fr
 // Submitted by Yaacov Akiba Slama <admin@chirurgiens-dentistes-en-france.fr>
@@ -15682,8 +15713,9 @@ wmcloud.org
 wmflabs.org
 
 // William Harrison : https://wharrison.com.au
-// Submitted by William Harrison <psl@wharrison.com.au>
+// Submitted by William Harrison <security@wharrison.com.au>
 wdh.app
+hrsn.dev
 
 // Windsurf : https://windsurf.com
 // Submitted by Douglas Chen <psl@windsurf.com>
