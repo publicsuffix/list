@@ -13645,6 +13645,7 @@ goip.de
 // Submitted by Shannon McCabe <public-suffix-editors@google.com>
 *.hosted.app
 *.run.app
+*.mtls.run.app
 web.app
 *.0emm.com
 appspot.com
