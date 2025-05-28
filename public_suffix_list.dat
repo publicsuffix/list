@@ -11231,6 +11231,10 @@ zone
 // https://www.iana.org/domains/root/db/zuerich.html
 zuerich
 
+// volary.cloud : VolaryDDNS service
+// https://ddns.volary.cloud
+ddns-*.volary.cloud
+
 // ===END ICANN DOMAINS===
 
 // ===BEGIN PRIVATE DOMAINS===
