@@ -15109,6 +15109,8 @@ logoip.de
 
 // Scaleway : https://www.scaleway.com/
 // Submitted by Rémy Léone <rleone@scaleway.com>
+// Subsections of Scaleway/subsidiaries will appear until "concludes" tag
+
 fr-par-1.baremetal.scw.cloud
 fr-par-2.baremetal.scw.cloud
 nl-ams-1.baremetal.scw.cloud
@@ -15137,6 +15139,27 @@ s3-website.pl-waw.scw.cloud
 scalebook.scw.cloud
 smartlabeling.scw.cloud
 dedibox.fr
+
+// Scaleway Managed Products
+// Submitted by Scaleway PSL Maintainer <psl-maintainers@scaleway.com>
+
+dtwh.fr-par.scw.cloud
+dtwh.nl-ams.scw.cloud
+dtwh.pl-waw.scw.cloud
+mgdb.fr-par.scw.cloud
+mgdb.nl-ams.scw.cloud
+mgdb.pl-waw.scw.cloud
+scbl.fr-par.scw.cloud
+scbl.nl-ams.scw.cloud
+scbl.pl-waw.scw.cloud
+kafk.fr-par.scw.cloud
+kafk.nl-ams.scw.cloud
+kafk.pl-waw.scw.cloud
+ifr.fr-par.scw.cloud
+ifr.nl-ams.scw.cloud
+ifr.pl-waw.scw.cloud
+
+// concludes Scaleway
 
 // schokokeks.org GbR : https://schokokeks.org/
 // Submitted by Hanno Böck <hanno@schokokeks.org>
