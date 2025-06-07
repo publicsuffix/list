@@ -16,6 +16,11 @@ Iteration back and forth will delay PR review or inclusion. Be extremely thoroug
 
 ## Important Notices
 
+### 2025-05-27
+Were you directed here to be able to add a subdomain to your **Cloudflare** account? If so, please work directly with Cloudflare for these account limitations. The PSL is **NOT** intended as a workaround for Cloudflare's subdomain restrictions. 
+
+Consult [Cloudflare's subdomain setup documentation](https://developers.cloudflare.com/dns/zone-setups/subdomain-setup/) or contact Cloudflare directly for subdomain setup questions. Only submit a request to the PSL if your domain truly meets our criteria outlined in [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines).
+
 ### 2024-07-26
 We are sending emails asking for confirmation if certain entries are still required or need updating.
 
