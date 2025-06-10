@@ -14652,6 +14652,10 @@ simplesite.pl
 // Submitted by ONID Engineering Team <psl@onid.ca>
 onid.ca
 
+// OpenAI : https://openai.com
+// Submitted by Thomas Shadwell <thomas@openai.com>
+*.oaiusercontent.com
+
 // Open Domains : https://open-domains.net
 // Submitted by William Harrison <admin@open-domains.net>
 is-a-fullstack.dev
