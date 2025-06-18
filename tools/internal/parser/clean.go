@@ -418,7 +418,5 @@ func rewriteSuffixesMetadata(s *Suffixes) {
 		emailStr := strings.TrimSpace(fmt.Sprintf("%s <%s>", m.Name, m.Address))
 		out.Text = append(out.Text, strings.TrimSpace(fmt.Sprintf("Submitted by %s", emailStr)))
 	}
-	for _, o := range inf.Other {
-		out.Text = append(out.Text, o)
-	}
+	out.Text = append(out.Text, inf.Other...)
 }
