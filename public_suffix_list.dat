@@ -14660,6 +14660,10 @@ is-not-a.dev
 localplayer.dev
 is-local.org
 
+// OpenAI : https://openai.com
+// Submitted by Thomas Shadwell <security@openai.com>
+*.oaiusercontent.com
+
 // Open Social : https://www.getopensocial.com/
 // Submitted by Alexander Varwijk <security@getopensocial.com>
 opensocial.site
