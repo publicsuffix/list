@@ -1,0 +1,30 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "A \"public suffix\" is one under which Internet users can (or historically could) directly register names. Some examples of public suffixes are `com`, `co.uk` and `pvt.k12.ma.us`. The Public Suffix List is a list of all known public suffixes.",
+  "main": "tailwind.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/do0en/list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/do0en/list/issues"
+  },
+  "homepage": "https://github.com/do0en/list#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "tailwindcss-animation-delay": "^2.0.2"
+  }
+}

@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* ========================
+tailwindcss-animation-delay
+https://github.com/burnworks/tailwindcss-animation-delay
+======================== */
+@utility animation-delay-none {
+    animation-delay: 0s;
+}
+@utility animation-delay-inherit {
+    animation-delay: inherit;
+}
+@utility animation-delay-initial {
+    animation-delay: initial;
+}
+@utility animation-delay-revert {
+    animation-delay: revert;
+}
+@utility animation-delay-revert-layer {
+    animation-delay: revert-layer;
+}
+@utility animation-delay-unset {
+    animation-delay: unset;
+}
+@utility animation-delay-* {
+    animation-delay: --value([*]);
+    animation-delay: calc(--value(integer) * 1ms);
+}
+
+/* Usage ========================
+1) Integer
+e.g.
+animation-delay-75 -> animation-delay: 75ms;
+animation-delay-300 -> animation-delay: 300ms;
+
+2) Keyword (the following are predefined)
+animation-delay-none -> animation-delay: 0s;
+animation-delay-inherit -> animation-delay: inherit;
+animation-delay-initial -> animation-delay: initial;
+animation-delay-revert -> animation-delay: revert;
+animation-delay-revert-layer -> animation-delay: revert-layer;
+animation-delay-unset -> animation-delay: unset;
+
+3) Any <time> value
+e.g.
+animation-delay-[1.5s] -> animation-delay: 1.5s;
+animation-delay-[-1500ms] -> animation-delay: -1500ms;
+======================== */
+
+/* end of tailwindcss-animation-delay setting */
