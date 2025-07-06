@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .test-animation {
-    @apply animate-fadein delay-300;
-  }
+@layer components {
+  .test-fade { @apply animate-fadein delay-300; }
 }
