@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .test-animation {
+    @apply animate-fadein delay-300;
+  }
+}
