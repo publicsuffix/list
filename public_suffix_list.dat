@@ -14665,6 +14665,10 @@ is-local.org
 // Submitted by Alexander Varwijk <security@getopensocial.com>
 opensocial.site
 
+// OpenAI : https://openai.com
+// Submitted by Thomas Shadwell <security@openai.com>
+*.oaiusercontent.com
+
 // OpenCraft GmbH : http://opencraft.com/
 // Submitted by Sven Marnach <sven@opencraft.com>
 opencraft.hosting
