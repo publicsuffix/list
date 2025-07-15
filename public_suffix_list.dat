@@ -11241,9 +11241,6 @@ zuerich
 
 // (Note: these are in alphabetical order by company name)
 
-072.qzz.io
-836.qzz.io
-
 // .KRD : https://nic.krd
 co.krd
 edu.krd
@@ -15273,6 +15270,11 @@ vipsinaapp.com
 // Siteleaf : https://www.siteleaf.com/
 // Submitted by Skylar Challand <support@siteleaf.com>
 siteleaf.net
+
+// SkyDNS: https://dash.skydns.qzz.io/
+// Submitted by SkyDNS <admin@skydns.qzz.io>
+072.qzz.io
+836.qzz.io
 
 // Small Technology Foundation : https://small-tech.org
 // Submitted by Aral Balkan <aral@small-tech.org>
