@@ -14251,6 +14251,8 @@ servers.run
 // Lovable : https://lovable.dev
 // Submitted by Fabian Hedin <security@lovable.dev>
 lovable.app
+lovable.run
+lovable.sh
 lovableproject.com
 
 // LubMAN UMCS Sp. z o.o : https://lubman.pl/
