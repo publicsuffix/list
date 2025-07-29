@@ -1527,12 +1527,11 @@ sch.ir
 is
 
 // it : https://www.iana.org/domains/root/db/it.html
-// https://www.nic.it/
+// https://www.nic.it/en/manage-your-it/forms-and-docs -> "Assignment and Management of domain names in the ccTLD.it"
 it
 edu.it
 gov.it
 // Regions (3.3.1)
-// https://www.nic.it/en/manage-your-it/forms-and-docs -> "Assignment and Management of domain names"
 abr.it
 abruzzo.it
 aosta-valley.it
@@ -1591,7 +1590,6 @@ trentin-sudtirol.it
 trentin-südtirol.it
 trentin-sued-tirol.it
 trentin-suedtirol.it
-trentino.it
 trentino-a-adige.it
 trentino-aadige.it
 trentino-alto-adige.it
@@ -1711,11 +1709,7 @@ bz.it
 ca.it
 cagliari.it
 caltanissetta.it
-campidano-medio.it
-campidanomedio.it
 campobasso.it
-carbonia-iglesias.it
-carboniaiglesias.it
 carrara-massa.it
 carraramassa.it
 caserta.it
@@ -1729,7 +1723,6 @@ cesenaforli.it
 cesenaforlì.it
 ch.it
 chieti.it
-ci.it
 cl.it
 cn.it
 co.it
@@ -1742,8 +1735,6 @@ cs.it
 ct.it
 cuneo.it
 cz.it
-dell-ogliastra.it
-dellogliastra.it
 en.it
 enna.it
 fc.it
@@ -1769,8 +1760,6 @@ go.it
 gorizia.it
 gr.it
 grosseto.it
-iglesias-carbonia.it
-iglesiascarbonia.it
 im.it
 imperia.it
 is.it
@@ -1799,8 +1788,6 @@ matera.it
 mb.it
 mc.it
 me.it
-medio-campidano.it
-mediocampidano.it
 messina.it
 mi.it
 milan.it
@@ -1823,13 +1810,8 @@ no.it
 novara.it
 nu.it
 nuoro.it
-og.it
-ogliastra.it
-olbia-tempio.it
-olbiatempio.it
 or.it
 oristano.it
-ot.it
 pa.it
 padova.it
 padua.it
@@ -1895,8 +1877,6 @@ sv.it
 ta.it
 taranto.it
 te.it
-tempio-olbia.it
-tempioolbia.it
 teramo.it
 terni.it
 tn.it
@@ -1935,7 +1915,6 @@ vibovalentia.it
 vicenza.it
 viterbo.it
 vr.it
-vs.it
 vt.it
 vv.it
 
