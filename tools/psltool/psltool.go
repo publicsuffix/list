@@ -97,17 +97,23 @@ var fmtArgs struct {
 func runFmt(env *command.Env, path string) error {
 	bs, err := os.ReadFile(path)
 	if err != nil {
-		return fmt.Errorf("Failed to read PSL file: %w", err)
+		return fmt.Errorf("failed to read PSL file: %w", err)
 	}
 
 	psl, parseErrs := parser.Parse(bs)
 	fmtErrs := psl.Clean()
 
 	for _, err := range parseErrs {
-		fmt.Fprintln(env, err)
+		_, err := fmt.Fprintln(env, err)
+		if err != nil {
+			return fmt.Errorf("failed to print: %w", err)
+		}
 	}
 	for _, err := range fmtErrs {
-		fmt.Fprintln(env, err)
+		_, err := fmt.Fprintln(env, err)
+		if err != nil {
+			return fmt.Errorf("failed to print: %w", err)
+		}
 	}
 
 	clean := psl.MarshalPSL()
@@ -117,17 +123,20 @@ func runFmt(env *command.Env, path string) error {
 		if fmtArgs.Diff {
 			lhs, rhs := strings.Split(string(bs), "\n"), strings.Split(string(clean), "\n")
 			diff := mdiff.New(lhs, rhs).AddContext(3)
-			mdiff.FormatUnified(os.Stdout, diff, &mdiff.FileInfo{
+			err := mdiff.FormatUnified(os.Stdout, diff, &mdiff.FileInfo{
 				Left:  "a/" + path,
 				Right: "b/" + path,
 			})
-			return errors.New("File needs reformatting, rerun without -d to fix")
+			if err != nil {
+				return fmt.Errorf("diff failed: %w", err)
+			}
+			return errors.New("file needs reformatting, rerun without -d to fix")
 		}
 		if len(parseErrs) > 0 {
-			return errors.New("Cannot reformat file due to parse errors")
+			return errors.New("cannot reformat file due to parse errors")
 		}
 		if err := atomic.WriteFile(path, bytes.NewReader(clean)); err != nil {
-			return fmt.Errorf("Failed to reformat: %w", err)
+			return fmt.Errorf("failed to reformat: %w", err)
 		}
 	}
 
@@ -168,10 +177,10 @@ func runValidate(env *command.Env, pathOrHash string) error {
 		// input looks like a git hash
 		bs, err = client.PSLForHash(context.Background(), pathOrHash)
 	} else {
-		return fmt.Errorf("Failed to read PSL file %q, not a local file or a git commit hash", pathOrHash)
+		return fmt.Errorf("failed to read PSL file %q, not a local file or a git commit hash", pathOrHash)
 	}
 	if err != nil {
-		return fmt.Errorf("Failed to read PSL file %q: %w", pathOrHash, err)
+		return fmt.Errorf("failed to read PSL file %q: %w", pathOrHash, err)
 	}
 
 	psl, errs := parser.Parse(bs)
@@ -202,11 +211,17 @@ func runValidate(env *command.Env, pathOrHash string) error {
 	}
 
 	for _, err := range errs {
-		fmt.Fprintln(env, err)
+		_, err := fmt.Fprintln(env, err)
+		if err != nil {
+			return fmt.Errorf("failed to print: %w", err)
+		}
 	}
 
 	if l := len(errs); l == 0 {
-		fmt.Fprintln(env, "PSL file is valid")
+		_, err := fmt.Fprintln(env, "PSL file is valid")
+		if err != nil {
+			return fmt.Errorf("failed to print: %w", err)
+		}
 		return nil
 	} else if l == 1 {
 		return errors.New("file has 1 error")
@@ -270,24 +285,45 @@ func runCheckPR(env *command.Env, prStr string) error {
 		}
 	}
 	if len(changed) == 0 {
-		fmt.Fprintln(env, "No suffix blocks changed. This can happen if only top-level comments have been edited.")
+		_, err := fmt.Fprintln(env, "No suffix blocks changed. This can happen if only top-level comments have been edited.")
+		if err != nil {
+			return fmt.Errorf("failed to print: %w", err)
+		}
 	} else {
-		fmt.Fprintln(env, "Checked the following changed suffix blocks:")
+		_, err := fmt.Fprintln(env, "Checked the following changed suffix blocks:")
+		if err != nil {
+			return fmt.Errorf("failed to print: %w", err)
+		}
 		for _, block := range changed {
-			fmt.Fprintf(env, "  %q (%s)\n", block.Info.Name, block.LocationString())
+			_, err := fmt.Fprintf(env, "  %q (%s)\n", block.Info.Name, block.LocationString())
+			if err != nil {
+				return fmt.Errorf("failed to print: %w", err)
+			}
 		}
 	}
-	io.WriteString(env, "\n")
+	_, err = io.WriteString(env, "\n")
+	if err != nil {
+		return fmt.Errorf("failed to write: %w", err)
+	}
 
 	if len(errs) > 0 {
 		for _, err := range errs {
-			fmt.Fprintln(env, err)
+			_, err := fmt.Fprintln(env, err)
+			if err != nil {
+				return fmt.Errorf("failed to print: %w", err)
+			}
 		}
-		io.WriteString(env, "\n")
+		_, err := io.WriteString(env, "\n")
+		if err != nil {
+			return fmt.Errorf("failed to write: %w", err)
+		}
 	}
 
 	if l := len(errs); l == 0 {
-		fmt.Fprintln(env, "PSL change is valid")
+		_, err := fmt.Fprintln(env, "PSL change is valid")
+		if err != nil {
+			return fmt.Errorf("failed to print: %w", err)
+		}
 		return nil
 	} else if l == 1 {
 		return errors.New("change has 1 error")
@@ -324,10 +360,16 @@ func runDebugDump(env *command.Env, path string) error {
 	}
 
 	for _, err := range errs {
-		fmt.Fprintln(env, err)
+		_, err := fmt.Fprintln(env, err)
+		if err != nil {
+			return fmt.Errorf("failed to print debug: %w", err)
+		}
 	}
 
 	bs = dumpFn(psl)
-	os.Stdout.Write(bs)
+	_, err = os.Stdout.Write(bs)
+	if err != nil {
+		return fmt.Errorf("failed to write to stdout: %w", err)
+	}
 	return nil
 }
