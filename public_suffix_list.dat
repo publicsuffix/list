@@ -921,7 +921,9 @@ pro.cy
 tm.cy
 
 // cz : https://www.iana.org/domains/root/db/cz.html
+// Confirmed by registry <tech@nic.cz> 2025-08-06
 cz
+gov.cz
 
 // de : https://www.iana.org/domains/root/db/de.html
 // Confirmed by registry <ops@denic.de> (with technical
