@@ -12775,6 +12775,9 @@ icp0.io
 icp1.io
 *.raw.icp1.io
 caffeine.site
+icp.net
+*.icp.net
+
 
 // dhosting.pl Sp. z o.o. : https://dhosting.pl/
 // Submitted by Michal Kokoszkiewicz <bok@dhosting.pl>
