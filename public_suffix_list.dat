@@ -14961,8 +14961,8 @@ ladesk.com
 
 // Qualy : https://qualyhq.com
 // Submitted by Raphael Arias <security@qualyhq.com>
-*.qualyhqportal.com
 *.qualyhqpartner.com
+*.qualyhqportal.com
 
 // QuickBackend : https://www.quickbackend.com
 // Submitted by Dani Biro <dani@pymet.com>
