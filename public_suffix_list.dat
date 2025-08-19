@@ -6791,7 +6791,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-07-16T15:22:08Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-08-19T15:20:18Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -9401,7 +9401,7 @@ nowruz
 // https://www.iana.org/domains/root/db/nowtv.html
 nowtv
 
-// nra : NRA Holdings Company, INC.
+// nra : National Rifle Association of America
 // https://www.iana.org/domains/root/db/nra.html
 nra
 
