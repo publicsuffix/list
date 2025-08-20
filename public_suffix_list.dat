@@ -13726,6 +13726,12 @@ translate.goog
 *.usercontent.goog
 cloudfunctions.net
 
+// Blogexp : https://www.blogexp.com/
+// Submitted by Serif Gungor <publicsuffixlist@blogexp.com>
+blogexp.com
+
+
+
 // Goupile : https://goupile.fr
 // Submitted by Niels Martignene <hello@goupile.fr>
 goupile.fr
