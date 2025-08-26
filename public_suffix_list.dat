@@ -6214,7 +6214,6 @@ cc.wi.us
 cc.wv.us
 cc.wy.us
 k12.wy.us
-// lib.de.us - Issue #243 - Moved to Private section at request of Ed Moore <Ed.Moore@lib.de.us>
 lib.fl.us
 lib.ga.us
 lib.gu.us
@@ -11254,11 +11253,6 @@ krakow.pl
 poznan.pl
 wroc.pl
 zakopane.pl
-
-// .US
-// Submitted by Ed Moore <Edward.Moore@lib.de.us>
-// lib.de.us - Please remove this from PSL completely.
-
 
 // 12CHARS : https://12chars.com
 // Submitted by Kenny Niehage <psl@12chars.com>
