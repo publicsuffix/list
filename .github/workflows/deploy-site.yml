@@ -4,13 +4,13 @@ on:
   workflow_dispatch: {}
   push:
     branches:
-      - master
+      - main
 
 permissions: {}
 
 jobs:
   upload-website:
-    uses: publicsuffix/publicsuffix.org/.github/workflows/deploy-site.yaml@master
+    uses: publicsuffix/publicsuffix.org/.github/workflows/deploy-site.yaml@main
     permissions:
       contents: read
       id-token: write

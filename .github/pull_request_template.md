@@ -30,7 +30,6 @@ although that example uses an earlier template.
 * [ ] Description of Organization
 * [ ] Robust Reason for PSL Inclusion
 * [ ] DNS verification via dig
-* [ ] Run Syntax Checker (`make test`)
 
 * [ ] Each domain listed in the PRIVATE section has and shall maintain at least two years remaining on registration, and we shall keep the `_psl` TXT record in place in the respective zone(s).
 
@@ -97,6 +96,13 @@ so getting this right initially will aid successfully having it
 proceed. Mislocated entries and trailing spaces should be avoided.
 -->
 
+<!--
+In your submission, please include a role-based email address (e.g. security@example.com) rather than a personal email address (e.g. jane.doe@example.com) under your organization name, so that we can maintain contact with your organization, independent of personnel changes.
+This email address will be used for any required verification or inquiries regarding your PSL listing. This inbox must be actively maintained and monitored for future communications from the PSL project for as long as the domain remains in the PSL. Any PSL inquiries sent to this address must receive a response within 30 days, as maintaining timely communication is required for continued inclusion in the PSL.
+-->
+
+ * [ ] A role-based email address has been used and this inbox is actively monitored with a response time of no more than 30 days.
+
 **Abuse Contact:**
 
 <!--
@@ -137,7 +143,6 @@ stay that way for an indefinite period of time (typically long).
 
  * [ ] *Yes, I understand*. I could break my organization's website cookies and cause other issues, and the rollback timing is acceptable. *Proceed anyways*.
 ---
-
 
 <!--
 As you complete each item in the checklist please mark it with an X.
@@ -216,13 +221,4 @@ Note that XXXX is replaced with the number of your pull request.
 We ask that you leave this record in place while you want 
 your entry to remain in the PSL, so that future (TBD) 
 automation can remove entries where the record is not present.
--->
-
-## Results of Syntax Checker (`make test`)
-<!--
-git clone https://github.com/publicsuffix/list.git
-cd list
-make test
-
-Simply let us know that you ran the test and the result of it.
 -->
