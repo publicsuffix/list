@@ -15611,6 +15611,10 @@ telebit.app
 telebit.io
 *.telebit.xyz
 
+// Teleport : https://goteleport.com
+// Submitted by Rob Picard <security@goteleport.com>
+teleport.sh
+
 // Thingdust AG : https://thingdust.com/
 // Submitted by Adrian Imboden <adi@thingdust.com>
 *.firenet.ch
