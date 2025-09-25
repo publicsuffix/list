@@ -1100,13 +1100,14 @@ fi
 // completely removed.
 aland.fi
 
-// fj : http://domains.fj/
-// Submitted by registry <garth.miller@cocca.org.nz> 2020-02-11
+// fj : https://www.iana.org/domains/root/db/fj.html
 fj
 ac.fj
 biz.fj
 com.fj
+edu.fj
 gov.fj
+id.fj
 info.fj
 mil.fj
 name.fj
