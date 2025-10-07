@@ -11637,6 +11637,46 @@ emrstudio-prod.us-west-2.amazonaws.com
 *.us-west-1.airflow.amazonaws.com
 *.us-west-2.airflow.amazonaws.com
 
+// Amazon Relational Database Service
+// Submitted by: AWS Security <psl-maintainers@amazon.com>
+// Reference: 5aa87906-fd4f-4831-8727-4ffca6094159
+*.rds.cn-north-1.amazonaws.com.cn
+*.rds.cn-northwest-1.amazonaws.com.cn
+*.af-south-1.rds.amazonaws.com
+*.ap-east-1.rds.amazonaws.com
+*.ap-east-2.rds.amazonaws.com
+*.ap-northeast-1.rds.amazonaws.com
+*.ap-northeast-2.rds.amazonaws.com
+*.ap-northeast-3.rds.amazonaws.com
+*.ap-south-1.rds.amazonaws.com
+*.ap-south-2.rds.amazonaws.com
+*.ap-southeast-1.rds.amazonaws.com
+*.ap-southeast-2.rds.amazonaws.com
+*.ap-southeast-3.rds.amazonaws.com
+*.ap-southeast-4.rds.amazonaws.com
+*.ap-southeast-5.rds.amazonaws.com
+*.ap-southeast-6.rds.amazonaws.com
+*.ap-southeast-7.rds.amazonaws.com
+*.ca-central-1.rds.amazonaws.com
+*.ca-west-1.rds.amazonaws.com
+*.eu-central-1.rds.amazonaws.com
+*.eu-central-2.rds.amazonaws.com
+*.eu-west-1.rds.amazonaws.com
+*.eu-west-2.rds.amazonaws.com
+*.eu-west-3.rds.amazonaws.com
+*.il-central-1.rds.amazonaws.com
+*.me-central-1.rds.amazonaws.com
+*.me-south-1.rds.amazonaws.com
+*.mx-central-1.rds.amazonaws.com
+*.sa-east-1.rds.amazonaws.com
+*.us-east-1.rds.amazonaws.com
+*.us-east-2.rds.amazonaws.com
+*.us-gov-east-1.rds.amazonaws.com
+*.us-gov-west-1.rds.amazonaws.com
+*.us-northeast-1.rds.amazonaws.com
+*.us-west-1.rds.amazonaws.com
+*.us-west-2.rds.amazonaws.com
+
 // Amazon S3
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: ada5c9df-55e1-4195-a1ce-732d6c81e357
