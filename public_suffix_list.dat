@@ -11571,7 +11571,7 @@ emrstudio-prod.us-west-2.amazonaws.com
 
 // Amazon Managed Workflows for Apache Airflow
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: 2f697e23-58d6-4b97-be6b-77a26e811dad
+// Reference: bfd043cc-2816-451d-894e-612c6b61a438
 *.airflow.af-south-1.on.aws
 *.airflow.ap-east-1.on.aws
 *.airflow.ap-northeast-1.on.aws
@@ -11618,6 +11618,7 @@ emrstudio-prod.us-west-2.amazonaws.com
 *.ap-southeast-3.airflow.amazonaws.com
 *.ap-southeast-4.airflow.amazonaws.com
 *.ap-southeast-5.airflow.amazonaws.com
+*.ap-southeast-7.airflow.amazonaws.com
 *.ca-central-1.airflow.amazonaws.com
 *.ca-west-1.airflow.amazonaws.com
 *.eu-central-1.airflow.amazonaws.com
