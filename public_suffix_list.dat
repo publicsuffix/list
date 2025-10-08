@@ -13989,10 +13989,6 @@ ir.md
 // Submitted by William Harrison <webmaster@is-a-good.dev>
 is-a-good.dev
 
-// is-a.dev : https://is-a.dev
-// Submitted by William Harrison <security@is-a.dev>
-is-a.dev
-
 // IServ GmbH : https://iserv.de
 // Submitted by Kim Brodowski <info@iserv.de>
 iservschule.de
@@ -14222,10 +14218,6 @@ ggff.net
 // Localcert : https://localcert.dev
 // Submitted by Lann Martin <security@localcert.dev>
 *.user.localcert.dev
-
-// LocalCert : https://localcert.net
-// Submitted by William Harrison <security@localcert.net>
-localcert.net
 
 // Localtonet : https://localtonet.com/
 // Submitted by Burak Isleyici <support@localtonet.com>
@@ -15871,11 +15863,13 @@ beta.wmcloud.org
 wmflabs.org
 
 // William Harrison : https://wharrison.com.au
-// Submitted by William Harrison <security@wharrison.com.au>
+// Submitted by William Harrison <security@hrsn.net>
 wdh.app
 hrsn.au
 vps.hrsn.au
 hrsn.dev
+is-a.dev
+localcert.net
 
 // Windsurf : https://windsurf.com
 // Submitted by Douglas Chen <psl@windsurf.com>
