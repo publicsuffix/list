@@ -12233,6 +12233,32 @@ us-west-2.elasticbeanstalk.com
 // Reference: d916759d-a08b-4241-b536-4db887383a6a
 awsglobalaccelerator.com
 
+// AWS Lambda Function URLs
+// Submitted by AWS Security <psl-maintainers@amazon.com>
+// Reference: 57df74ca-0820-46a5-89ea-0f0d0c4714b7
+lambda-url.af-south-1.on.aws
+lambda-url.ap-east-1.on.aws
+lambda-url.ap-northeast-1.on.aws
+lambda-url.ap-northeast-2.on.aws
+lambda-url.ap-northeast-3.on.aws
+lambda-url.ap-south-1.on.aws
+lambda-url.ap-southeast-1.on.aws
+lambda-url.ap-southeast-2.on.aws
+lambda-url.ap-southeast-3.on.aws
+lambda-url.ca-central-1.on.aws
+lambda-url.eu-central-1.on.aws
+lambda-url.eu-north-1.on.aws
+lambda-url.eu-south-1.on.aws
+lambda-url.eu-west-1.on.aws
+lambda-url.eu-west-2.on.aws
+lambda-url.eu-west-3.on.aws
+lambda-url.me-south-1.on.aws
+lambda-url.sa-east-1.on.aws
+lambda-url.us-east-1.on.aws
+lambda-url.us-east-2.on.aws
+lambda-url.us-west-1.on.aws
+lambda-url.us-west-2.on.aws
+
 // AWS re:Post Private
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: 83385945-225f-416e-9aa0-ad0632bfdcee
