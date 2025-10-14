@@ -14317,6 +14317,10 @@ luyani.net
 // Submitted by Damien Tournoud <dtournoud@magento.cloud>
 *.magentosite.cloud
 
+// Magic Loops : https://magicloops.dev/
+// Submitted by Adam Williams <security@magicloops.dev>
+*.magicloops.app
+
 // Mail.Ru Group : https://hb.cldmail.ru
 // Submitted by Ilya Zaretskiy <zaretskiy@corp.mail.ru>
 hb.cldmail.ru
