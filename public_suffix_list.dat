@@ -330,7 +330,22 @@ store.bb
 tv.bb
 
 // bd : https://www.iana.org/domains/root/db/bd.html
-*.bd
+// Confirmed by registry <dgm.domain@btcl.gov.bd>
+bd
+com.bd
+net.bd
+org.bd
+edu.bd
+gov.bd
+ac.bd
+mil.bd
+tv.bd
+co.bd
+ai.bd
+sch.bd
+id.bd
+it.bd
+info.bd
 
 // be : https://www.iana.org/domains/root/db/be.html
 // Confirmed by registry <tech@dns.be> 2008-06-08
