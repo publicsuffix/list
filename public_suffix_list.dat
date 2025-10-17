@@ -401,6 +401,10 @@ org.bi
 // biz : https://www.iana.org/domains/root/db/biz.html
 biz
 
+// Bigcommerce Pty Ltd : https://www.bigcommerce.com/
+// Submitted by Francis Dong <security@bigcommerce.com>
+mybigcommerce.com
+
 // bj : https://nic.bj/bj-suffixes.txt
 // Submitted by registry <contact@nic.bj>
 bj
