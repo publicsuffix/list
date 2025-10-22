@@ -12578,6 +12578,7 @@ cloudbeesusercontent.io
 
 // Cloudflare, Inc. : https://www.cloudflare.com/
 // Submitted by Cloudflare Team <publicsuffixlist@cloudflare.com>
+cloudflare.app
 cf-ipfs.com
 cloudflare-ipfs.com
 trycloudflare.com
@@ -12589,7 +12590,6 @@ cdn.cloudflare.net
 cdn.cloudflareanycast.net
 cdn.cloudflarecn.net
 cdn.cloudflareglobal.net
-cloudflare.app
 
 // cloudscale.ch AG : https://www.cloudscale.ch/
 // Submitted by Gaudenz Steinlin <support@cloudscale.ch>
