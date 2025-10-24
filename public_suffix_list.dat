@@ -6793,7 +6793,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-10-01T15:18:26Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-10-24T15:19:14Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -7906,10 +7906,6 @@ dtv
 // dubai : Dubai Smart Government Department
 // https://www.iana.org/domains/root/db/dubai.html
 dubai
-
-// dunlop : The Goodyear Tire & Rubber Company
-// https://www.iana.org/domains/root/db/dunlop.html
-dunlop
 
 // dupont : DuPont Specialty Products USA, LLC
 // https://www.iana.org/domains/root/db/dupont.html
