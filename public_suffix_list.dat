@@ -16022,4 +16022,8 @@ zone.id
 // Submitted by ZoneABC Team <support@zoneabc.net>
 zabc.net
 
+// Company : https://hosting.com
+// Submitted by Kristiyan Erdelski <networks@hosting.com>
+*.my.staging.site
+
 // ===END PRIVATE DOMAINS===
