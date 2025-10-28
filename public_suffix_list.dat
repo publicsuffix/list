@@ -16024,6 +16024,15 @@ zabc.net
 
 // Company : https://hosting.com
 // Submitted by Kristiyan Erdelski <networks@hosting.com>
-*.my.staging.site
+*.lon1.mystaging.site
+*.usc1.mystaging.site
+*.use1.mystaging.site
+*.can1.mystaging.site
+*.dxb1.mystaging.site
+*.lux1.mystaging.site
+*.bom1.mystaging.site
+*.sgp1.mystaging.site
+*.fra1.mystaging.site
+*.mex1.mystaging.site
 
 // ===END PRIVATE DOMAINS===
