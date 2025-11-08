@@ -103,6 +103,16 @@ This email address will be used for any required verification or inquiries regar
 
  * [ ] A role-based email address has been used and this inbox is actively monitored with a response time of no more than 30 days.
 
+<!--
+The `__Host-` cookie prefix (RFC 6265bis) provides immediate subdomain isolation 
+by restricting cookies to a specific domain and path with HTTPS requirement—no PSL 
+propagation delays needed. However, PSL serves additional purposes beyond cookie 
+isolation. If your sole need is cookie isolation and you control the application 
+code, `__Host-` prefixes may suffice.
+-->
+
+ * [ ] We are submitting to the PSL because `__Host-` prefixes alone do not meet our full security requirements, and we have documented this reasoning below.
+
 **Abuse Contact:**
 
 <!--
