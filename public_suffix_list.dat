@@ -14523,8 +14523,12 @@ westus2.azurestaticapps.net
 azurewebsites.net
 cloudapp.net
 trafficmanager.net
+servicebus.usgovcloudapi.net
+usgovcloudapp.net
 blob.core.windows.net
 servicebus.windows.net
+azure-api.us
+azurewebsites.usazure-api.us
 
 // MikroTik : https://mikrotik.com
 // Submitted by MikroTik SysAdmin Team <support@mikrotik.com>
