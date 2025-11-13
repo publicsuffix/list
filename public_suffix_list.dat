@@ -13280,6 +13280,10 @@ rt.ht
 elementor.cloud
 elementor.cool
 
+// Emergent : https://emergent.sh
+// Submitted by Emergent Security Team <security@emergent.sh>
+*.emergent.cloud
+
 // En root‽ : https://en-root.org
 // Submitted by Emmanuel Raviart <emmanuel@raviart.com>
 en-root.fr
