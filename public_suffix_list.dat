@@ -13282,8 +13282,9 @@ elementor.cool
 
 // Emergent : https://emergent.sh
 // Submitted by Emergent Security Team <security@emergent.sh>
-*.emergentagent.com
-*.emergent.cloud
+emergent.cloud
+emergent.host
+preview.emergentagent.com
 
 // En root‽ : https://en-root.org
 // Submitted by Emmanuel Raviart <emmanuel@raviart.com>
