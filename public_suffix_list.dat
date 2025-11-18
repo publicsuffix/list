@@ -12497,6 +12497,8 @@ square7.net
 // Submitted by Andrea Brancaleoni <abrancaleoni@brave.com>
 brave.app
 *.s.brave.app
+brave.dev
+*.s.brave.dev
 brave.io
 *.s.brave.io
 
