@@ -13636,6 +13636,11 @@ futuremailing.at
 *.kunden.ortsinfo.at
 *.statics.cloud
 
+// Gadget Software Inc. : https://gadget.dev
+// Submitted by Harry Brundage <security@gadget.dev>
+gadget.app
+gadget.host
+
 // GCom Internet : https://www.gcom.net.au
 // Submitted by Leo Julius <support@gcom.net.au>
 aliases121.com
