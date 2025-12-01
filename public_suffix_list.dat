@@ -15173,6 +15173,11 @@ rhcloud.com
 // Submitted by Andrew Farries <andrew.farries@red-gate.com>
 instances.spawn.cc
 
+// Redpanda Data : https://redpanda.com
+// Submitted by Infrastructure Team <security@redpanda.com>
+*.clusters.rdpa.co
+*.srvrless.rdpa.co
+
 // Render : https://render.com
 // Submitted by Anurag Goel <dev@render.com>
 onrender.com
