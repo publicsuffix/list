@@ -12594,6 +12594,10 @@ uk.net
 ae.org
 com.se
 
+// Choreo : https://console.choreo.dev
+// Submitted by Ayoma Wijethunga <choreo-security+publicsuffixlist@wso2.com>
+*.choreoapps.dev
+
 // Cityhost LLC : https://cityhost.ua
 // Submitted by Maksym Rivtin <support@cityhost.net.ua>
 cx.ua
