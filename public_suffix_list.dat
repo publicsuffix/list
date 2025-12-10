@@ -15014,8 +15014,8 @@ us.platform.sh
 *.platformsh.site
 *.tst.site
 
-// Platter : https://platter.dev
-// Submitted by Patrick Flor <patrick@platter.dev>
+// PSL Sandbox : https://github.com/groundcat/PSL-Sandbox
+// Submitted by groundcat <psl-sandbox@alumni.upenn.edu>
 platter-app.dev
 platterp.us
 
