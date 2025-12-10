@@ -15014,10 +15014,6 @@ us.platform.sh
 *.platformsh.site
 *.tst.site
 
-// PSL Sandbox : https://github.com/groundcat/PSL-Sandbox
-// Submitted by groundcat <psl-sandbox@alumni.upenn.edu>
-platter-app.dev
-
 // Pley AB : https://www.pley.com/
 // Submitted by Henning Pohl <infra@pley.com>
 pley.games
@@ -15064,6 +15060,10 @@ dev.project-study.com
 // Protonet GmbH : http://protonet.io
 // Submitted by Martin Meier <admin@protonet.io>
 protonet.io
+
+// PSL Sandbox : https://github.com/groundcat/PSL-Sandbox
+// Submitted by groundcat <psl-sandbox@alumni.upenn.edu>
+platter-app.dev
 
 // PT Ekossistim Indo Digital : https://e.id
 // Submitted by Eid Team <support@corp.e.id>
