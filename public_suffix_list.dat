@@ -14465,8 +14465,8 @@ hb.cldmail.ru
 
 // Magic Patterns : https://www.magicpatterns.com
 // Submitted by Teddy Ni <security@magicpatterns.com>
-*.magicpatterns.app
-*.magicpatternsapp.com
+magicpatterns.app
+magicpatternsapp.com
 
 // MathWorks : https://www.mathworks.com/
 // Submitted by Emily Reed <psl-maintainers@groups.mathworks.com>
