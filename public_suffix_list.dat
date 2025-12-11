@@ -14463,6 +14463,12 @@ luyani.net
 // Submitted by Ilya Zaretskiy <zaretskiy@corp.mail.ru>
 hb.cldmail.ru
 
+// Magic Patterns : https://magicpatterns.com
+// Submitted by Teddy Ni <security@magicpatterns.com>
+*.magicpatterns.app
+*.magicpatternsapp.com
+*.magicpatternsapps.com
+
 // MathWorks : https://www.mathworks.com/
 // Submitted by Emily Reed <psl-maintainers@groups.mathworks.com>
 matlab.cloud
