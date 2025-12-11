@@ -14554,7 +14554,9 @@ azurewebsites.net
 cloudapp.net
 trafficmanager.net
 servicebus.usgovcloudapi.net
+blob.core.usgovcloudapi.net
 usgovcloudapp.net
+usgovtrafficmanager.net
 blob.core.windows.net
 servicebus.windows.net
 azure-api.us
