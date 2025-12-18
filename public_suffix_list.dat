@@ -12350,6 +12350,24 @@ panel.dev
 // Submitted by Alexander Selivanov <alex@apphud.com>
 siiites.com
 
+// Apple : https://www.apple.com
+// Submitted by Apple DNS <dnscontact@apple.com>
+int.apple
+*.cloud.int.apple
+*.r.cloud.int.apple
+*.ap-north-1.r.cloud.int.apple
+*.ap-south-1.r.cloud.int.apple
+*.ap-south-2.r.cloud.int.apple
+*.eu-central-1.r.cloud.int.apple
+*.eu-north-1.r.cloud.int.apple
+*.us-central-1.r.cloud.int.apple
+*.us-central-2.r.cloud.int.apple
+*.us-east-1.r.cloud.int.apple
+*.us-east-2.r.cloud.int.apple
+*.us-west-1.r.cloud.int.apple
+*.us-west-2.r.cloud.int.apple
+*.us-west-3.r.cloud.int.apple
+
 // Appspace : https://www.appspace.com
 // Submitted by Appspace Security Team <security@appspace.com>
 appspacehosted.com
