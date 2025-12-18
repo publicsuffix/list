@@ -12362,6 +12362,7 @@ appudo.net
 // Appwrite : https://appwrite.io
 // Submitted by Steven Nguyen <security@appwrite.io>
 appwrite.global
+appwrite.network
 *.appwrite.run
 
 // Aptible : https://www.aptible.com/
