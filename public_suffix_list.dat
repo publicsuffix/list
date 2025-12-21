@@ -5670,7 +5670,9 @@ si
 sj
 
 // sk : https://www.iana.org/domains/root/db/sk.html
+// https://sk-nic.sk/
 sk
+org.sk
 
 // sl : http://www.nic.sl
 // Submitted by registry <adam@neoip.com>
