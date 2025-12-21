@@ -14855,10 +14855,6 @@ freeddns.us
 nsupdate.info
 nerdpol.ovh
 
-// NYC.mn : https://dot.nyc.mn/
-// Submitted by NYC.mn Subdomain Service <nyc.mn@mailfence.com>
-nyc.mn
-
 // O3O.Foundation : https://o3o.foundation/
 // Submitted by the prvcy.page Registry Team <info@o3o.foundation>
 prvcy.page
@@ -15109,6 +15105,11 @@ e.id
 // Submitted by Yaacov Akiba Slama <admin@chirurgiens-dentistes-en-france.fr>
 chirurgiens-dentistes-en-france.fr
 byen.site
+
+// PublicZone : https://publiczone.org/
+// Submitted by PublicZone NOC Team <noc@publiczone.org>
+nyc.mn
+*.cn.st
 
 // pubtls.org : https://www.pubtls.org
 // Submitted by Kor Nielsen <kor@pubtls.org>
