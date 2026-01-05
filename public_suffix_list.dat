@@ -14058,10 +14058,6 @@ wpmucdn.com
 tempurl.host
 wpmudev.host
 
-// Stackryze : https://stackryze.com
-// Submitted by Sudheer Bhuvana <security@stackryze.com>
-indevs.in
-
 // Individual Network Berlin e.V. : https://www.in-berlin.de/
 // Submitted by Christian Seitz <chris@in-berlin.de>
 dyn-berlin.de
@@ -15668,6 +15664,10 @@ stackit.gg
 stackit.rocks
 stackit.run
 stackit.zone
+
+// Stackryze : https://stackryze.com
+// Submitted by Sudheer Bhuvana <security@stackryze.com>
+indevs.in
 
 // Staclar : https://staclar.com
 // Submitted by Q Misell <q@staclar.com>
