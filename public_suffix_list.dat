@@ -11446,7 +11446,7 @@ cloudfront.net
 
 // Amazon Cognito
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: e7c02dc1-02f4-4a23-bde3-a8527c830127
+// Reference: d7d4a954-976e-403e-a010-de9ed0cfbbd1
 auth.af-south-1.amazoncognito.com
 auth.ap-east-1.amazoncognito.com
 auth.ap-northeast-1.amazoncognito.com
@@ -11485,6 +11485,7 @@ auth.us-west-1.amazoncognito.com
 auth-fips.us-west-1.amazoncognito.com
 auth.us-west-2.amazoncognito.com
 auth-fips.us-west-2.amazoncognito.com
+auth.cognito-idp.eusc-de-east-1.on.amazonwebservices.eu
 
 // Amazon EC2
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
