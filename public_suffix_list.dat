@@ -11709,7 +11709,7 @@ emrstudio-prod.us-west-2.amazonaws.com
 
 // Amazon S3
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: ada5c9df-55e1-4195-a1ce-732d6c81e357
+// Reference: 6f374c1c-1cc9-47de-8b2a-69ca56a3a3b6
 s3.dualstack.cn-north-1.amazonaws.com.cn
 s3-accesspoint.dualstack.cn-north-1.amazonaws.com.cn
 s3-website.dualstack.cn-north-1.amazonaws.com.cn
@@ -11975,6 +11975,7 @@ s3.dualstack.us-gov-east-1.amazonaws.com
 s3-accesspoint.dualstack.us-gov-east-1.amazonaws.com
 s3-accesspoint-fips.dualstack.us-gov-east-1.amazonaws.com
 s3-fips.dualstack.us-gov-east-1.amazonaws.com
+s3-website.dualstack.us-gov-east-1.amazonaws.com
 s3.us-gov-east-1.amazonaws.com
 s3-accesspoint.us-gov-east-1.amazonaws.com
 s3-accesspoint-fips.us-gov-east-1.amazonaws.com
@@ -11985,6 +11986,7 @@ s3.dualstack.us-gov-west-1.amazonaws.com
 s3-accesspoint.dualstack.us-gov-west-1.amazonaws.com
 s3-accesspoint-fips.dualstack.us-gov-west-1.amazonaws.com
 s3-fips.dualstack.us-gov-west-1.amazonaws.com
+s3-website.dualstack.us-gov-west-1.amazonaws.com
 s3.us-gov-west-1.amazonaws.com
 s3-accesspoint.us-gov-west-1.amazonaws.com
 s3-accesspoint-fips.us-gov-west-1.amazonaws.com
