@@ -1298,12 +1298,6 @@ gov.gy
 net.gy
 org.gy
 
-// Hercules : https://hercules.app
-// Submitted by Brendan Falk <security@hercules.app>
-onhercules.app
-hercules-app.com
-hercules-dev.com
-
 // hk : https://www.hkirc.hk
 // Submitted by registry <hk.tech@hkirc.hk>
 hk
@@ -5693,7 +5687,6 @@ com.sn
 edu.sn
 gouv.sn
 org.sn
-perso.sn
 univ.sn
 
 // so : http://sonic.so/policies/
@@ -12426,18 +12419,10 @@ myasustor.com
 // Submitted by Sam Smyth <devloop@atlassian.com>
 cdn.prod.atlassian-dev.net
 
-// Authentick UG (haftungsbeschränkt) : https://authentick.net
-// Submitted by Lukas Reschke <lukas@authentick.net>
-translated.page
-
 // AVM : https://avm.de
 // Submitted by Andreas Weise <a.weise@avm.de>
 myfritz.link
 myfritz.net
-
-// AVStack Pte. Ltd. : https://avstack.io
-// Submitted by Jasper Hugo <jasper@avstack.io>
-onavstack.net
 
 // AW AdvisorWebsites.com Software Inc : https://advisorwebsites.com
 // Submitted by James Kennedy <domains@advisorwebsites.com>
@@ -13957,6 +13942,12 @@ heliohost.us
 // Submitted by David Grellscheid <admin@hepforge.org>
 hepforge.org
 
+// Hercules : https://hercules.app
+// Submitted by Brendan Falk <security@hercules.app>
+onhercules.app
+hercules-app.com
+hercules-dev.com
+
 // Heroku : https://www.heroku.com/
 // Submitted by Shumon Huque <public-dns@salesforce.com>
 herokuapp.com
@@ -14971,7 +14962,6 @@ can.re
 // Submitted by Authgear Team <hello@authgear.com> & Skygear Developer <hello@skygear.io>
 authgear-staging.com
 authgearapps.com
-skygearapp.com
 
 // OutSystems
 // Submitted by Duarte Santos <domain-admin@outsystemscloud.com>
@@ -15908,22 +15898,6 @@ tunnelmole.net
 // TuxFamily : http://tuxfamily.org
 // Submitted by TuxFamily administrators <adm@staff.tuxfamily.org>
 tuxfamily.org
-
-// TwoDNS : https://www.twodns.de/
-// Submitted by TwoDNS-Support <support@two-dns.de>
-dd-dns.de
-dray-dns.de
-draydns.de
-dyn-vpn.de
-dynvpn.de
-mein-vigor.de
-my-vigor.de
-my-wan.de
-syno-ds.de
-synology-diskstation.de
-synology-ds.de
-diskstation.eu
-diskstation.org
 
 // Typedream : https://typedream.com
 // Submitted by Putri Karunia <putri@typedream.com>
