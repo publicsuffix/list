@@ -12544,6 +12544,10 @@ radio.fm
 cdn.bubble.io
 bubbleapps.io
 
+// bwCloud-OS : https://bwcloud-os.de/
+// Submitted by Klara Mall <dns@bwcloud-os.de>
+*.bwcloud-os-instance.de
+
 // Bytemark Hosting : https://www.bytemark.co.uk
 // Submitted by Paul Cammish <paul.cammish@bytemark.co.uk>
 uk0.bigv.io
