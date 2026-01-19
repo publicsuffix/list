@@ -1976,6 +1976,10 @@ org.je
 // jm : http://www.com.jm/register.html
 *.jm
 
+// JMB : https://jmb.my.id
+// Submitted by M.Ilham Miftahul Firdaus <m.ilhammf1432@gmail.com>
+jmb.my.id
+
 // jo : https://www.dns.jo/JoFamily.aspx
 // Confirmed by registry <DNS@modee.gov.jo> 2024-11-17
 jo
@@ -14270,11 +14274,6 @@ us1-plenit.com
 // Submitted by Camilo Sperberg <tech@webador.com>
 webadorsite.com
 jouwweb.site
-
-// JMB : https://jmb.my.id
-// Free subdomain service for Indonesian community, non-profit project.
-// Submitted by M.Ilham Miftahul Firdaus <m.ilhammf1432@gmail.com>
-jmb.my.id
 
 // Joyent : https://www.joyent.com/
 // Submitted by Brian Bennett <brian.bennett@joyent.com>
