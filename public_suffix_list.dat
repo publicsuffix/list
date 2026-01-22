@@ -12462,9 +12462,10 @@ beagleboard.io
 // Submitted by Herman Martinus <admin@bearblog.dev>
 bearblog.dev
 
-// Beget Ltd
-// Submitted by Lev Nekrasov <lnekrasov@beget.com>
+// Beget LLC : https://beget.com
+// Submitted by Lev Nekrasov & Nikita Radchenko <admin@beget.com>
 *.beget.app
+*.begetcdn.cloud
 
 // Besties : https://besties.house
 // Submitted by Hazel Cora <hazy@besties.house>
