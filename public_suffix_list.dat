@@ -873,10 +873,6 @@ org.co
 // com : https://www.iana.org/domains/root/db/com.html
 com
 
-// INSTAWEB LABS PVT LTD : https://com.free
-// Submitted by InstawebLabsPvtLtd <hi@com.free>
-com.free
-
 // coop : https://www.iana.org/domains/root/db/coop.html
 coop
 
@@ -14022,6 +14018,10 @@ in-vpn.org
 // Inferno Communications : https://inferno.co.uk
 // Submitted by Connor McFarlane <noc@inferno.co.uk>
 oninferno.net
+
+// INSTAWEB LABS PVT LTD : https://com.free
+// Submitted by InstawebLabsPvtLtd <robinson@website.com.free>
+com.free
 
 // info.at : http://www.info.at/
 biz.at
