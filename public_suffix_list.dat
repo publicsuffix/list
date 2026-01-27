@@ -14283,7 +14283,6 @@ jouwweb.site
 
 // Joyent : https://www.joyent.com/
 // Submitted by Brian Bennett <brian.bennett@joyent.com>
-*.cns.joyent.com
 *.triton.zone
 
 // JS.ORG : http://dns.js.org
