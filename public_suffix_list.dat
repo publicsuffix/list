@@ -6814,7 +6814,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-01-08T15:25:34Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-01-29T15:35:06Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -9752,7 +9752,7 @@ quest
 // https://www.iana.org/domains/root/db/racing.html
 racing
 
-// radio : European Broadcasting Union (EBU)
+// radio : Digity, LLC
 // https://www.iana.org/domains/root/db/radio.html
 radio
 
@@ -10704,7 +10704,7 @@ watch
 // https://www.iana.org/domains/root/db/watches.html
 watches
 
-// weather : International Business Machines Corporation
+// weather : The Weather Company, LLC
 // https://www.iana.org/domains/root/db/weather.html
 weather
 
