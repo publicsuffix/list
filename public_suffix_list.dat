@@ -887,14 +887,19 @@ or.cr
 sa.cr
 
 // cu : https://www.iana.org/domains/root/db/cu.html
+// https://www.nic.cu/estadisticas.php
 cu
+co.cu
 com.cu
+cult.cu
 edu.cu
 gob.cu
 inf.cu
 nat.cu
 net.cu
 org.cu
+sld.cu
+tur.cu
 
 // cv : https://www.iana.org/domains/root/db/cv.html
 // https://ola.cv/domain-extensions-under-cv/
