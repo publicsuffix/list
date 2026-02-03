@@ -14612,10 +14612,10 @@ westus2.azurestaticapps.net
 azurewebsites.net
 cloudapp.net
 trafficmanager.net
-servicebus.usgovcloudapi.net
 blob.core.usgovcloudapi.net
 file.core.usgovcloudapi.net
 web.core.usgovcloudapi.net
+servicebus.usgovcloudapi.net
 usgovcloudapp.net
 usgovtrafficmanager.net
 blob.core.windows.net
