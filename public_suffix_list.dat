@@ -14275,10 +14275,6 @@ us1-plenit.com
 webadorsite.com
 jouwweb.site
 
-// Joyent : https://www.joyent.com/
-// Submitted by Brian Bennett <brian.bennett@joyent.com>
-*.triton.zone
-
 // JS.ORG : http://dns.js.org
 // Submitted by Stefan Keim <admin@js.org>
 js.org
@@ -15949,6 +15945,11 @@ lima.zone
 *.transurl.eu
 site.transip.me
 *.transurl.nl
+
+// Triton Data Center project : https://tritondatacenter.com
+// Open-source engagement at https://github.com/TritonDataCenter
+// Submitted by Triton Data Center staff <tickets@tritondatacenter.com>
+*.triton.zone
 
 // Tunnelmole: https://tunnelmole.com
 // Submitted by Robbie Cahill <support@tunnelmole.com>
