@@ -14275,8 +14275,9 @@ us1-plenit.com
 webadorsite.com
 jouwweb.site
 
-// Joyent : https://www.joyent.com/
-// Submitted by Brian Bennett <brian.bennett@joyent.com>
+// Triton Data Center project : https://tritondatacenter.com
+// Open-source engagement at https://github.com/TritonDataCenter
+// Submitted by Triton Data Center staff <tickets@tritondatacenter.com>
 *.triton.zone
 
 // JS.ORG : http://dns.js.org
