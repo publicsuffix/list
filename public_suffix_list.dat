@@ -12763,7 +12763,11 @@ ctfcloud.net
 // Submitted by James Cowling <security@convex.dev>
 convex.app
 convex.cloud
+eu-west-1.convex.cloud
+us-east-1.convex.cloud
 convex.site
+eu-west-1.convex.site
+us-east-1.convex.site
 
 // Coordination Center for TLD RU and XN--P1AI : https://cctld.ru/en/domains/domens_ru/reserved/
 // Submitted by George Georgievsky <gug@cctld.ru>
