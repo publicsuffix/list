@@ -16050,10 +16050,10 @@ val.run
 web.val.run
 
 // Vercel, Inc : https://vercel.com/
-// Submitted by Turki Aloufi <security@vercel.com>
+// Submitted by Laurens Duijvesteijn <security@vercel.com>
 vercel.app
 v0.build
-v0-tmp-iframe.dev
+preview.v0.dev
 vercel.dev
 vusercontent.net
 vercel.run
