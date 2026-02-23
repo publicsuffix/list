@@ -13439,9 +13439,11 @@ relay.evervault.app
 relay.evervault.dev
 
 // Expo : https://expo.dev/
-// Submitted by James Ide <psl@expo.dev>
+// Submitted by Phil Pluckthun <psl@expo.dev>
 expo.app
+on.expo.app
 staging.expo.app
+on.staging.expo.app
 
 // Fabrica Technologies, Inc. : https://www.fabrica.dev/
 // Submitted by Eric Jiang <eric@fabrica.dev>
