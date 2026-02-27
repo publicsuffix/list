@@ -16064,6 +16064,7 @@ web.val.run
 // Submitted by Laurens Duijvesteijn <security@vercel.com>
 vercel.app
 v0.build
+preview.v0.dev
 vercel.dev
 vusercontent.net
 vercel.run
