@@ -3821,8 +3821,14 @@ mil.kg
 net.kg
 org.kg
 
-// kh : http://www.mptc.gov.kh/dns_registration.htm
-*.kh
+// kh : https://trc.gov.kh
+// Submitted by khnic@trc.gov.kh
+kh
+com.kh
+edu.kh
+gov.kh
+net.kh
+org.kh
 
 // ki : https://www.iana.org/domains/root/db/ki.html
 ki
