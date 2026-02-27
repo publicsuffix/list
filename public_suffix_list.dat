@@ -15549,6 +15549,13 @@ scrysec.com
 // Submitted by Koushik Dutta <public-suffix-list@scrypted.app>
 client.scrypted.io
 
+// Sealos : https://sealos.io/  
+// Submitted by Carson Yang <contact@sealos.io>
+sealos.app
+usw.sealos.app
+usw-1.sealos.app
+usw-2.sealos.app
+
 // Securepoint GmbH : https://www.securepoint.de
 // Submitted by Erik Anders <erik.anders@securepoint.de>
 firewall-gateway.com
