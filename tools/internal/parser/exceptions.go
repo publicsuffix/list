@@ -19,20 +19,10 @@ func exemptFromContactInfo(entity string) bool {
 	return slices.Contains(missingEmail, entity)
 }
 
-// exemptFromSorting reports whether the block owned by entity is
-// exempt from the sorting requirement that normally applies in the
-// private domains section.
-func exemptFromSorting(entity string) bool {
-	return slices.Contains(incorrectSort, entity)
-}
-
 // exemptFromTXT reports whether the given domain name is exempt from
 // the requirement to have a _psl TXT record.
 func exemptFromTXT(domain domain.Name) bool {
-	if missingTXT.Has(domain.String()) {
-		return true
-	}
-	return false
+	return missingTXT.Has(domain.String())
 }
 
 // adjustTXTPR returns a PR number to use instead of prNum for
@@ -71,10 +61,6 @@ var missingEmail = []string{
 	".pl domains (grandfathered)",
 	"QA2",
 }
-
-// incorrectSort are entities in the private domains section that are
-// allowed to be in the wrong sort order.
-var incorrectSort = []string{}
 
 // missingTXT are the domains that are exempt from the _psl TXT record
 // requirement.

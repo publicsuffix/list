@@ -263,7 +263,7 @@ func (d *differ) markChanged(paths ...[]Block) {
 pathLoop:
 	for _, path := range paths {
 		for _, b := range path {
-			if b.info().isUnchanged == false {
+			if !b.info().isUnchanged {
 				// We never mark a node as changed in isolation, we
 				// always propagate the change to all its
 				// parents. Therefore, we can stop the upwards
