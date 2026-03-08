@@ -18,6 +18,12 @@ mil.ac
 net.ac
 org.ac
 
+// 638966.xyz - https://638966.xyz
+// Public suffix for free public subdomain distribution service
+// Submitted by: WinVistaTD <jswd_1003@qq.com>
+638966.xyz
+*.638966.xyz
+
 // ad : https://www.iana.org/domains/root/db/ad.html
 // Confirmed by Amadeu Abril i Abril (CORE) <amadeu.abril@corenic.org> 2024-11-17
 ad
