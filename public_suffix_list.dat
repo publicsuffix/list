@@ -9,6 +9,12 @@
 
 // ===BEGIN ICANN DOMAINS===
 
+// 638966.xyz - https://638966.xyz
+// Public suffix for free public subdomain distribution service
+// Submitted by: WinVistaTD <jswd_1003@qq.com>
+638966.xyz
+*.638966.xyz
+
 // ac : http://nic.ac/rules.htm
 ac
 com.ac
