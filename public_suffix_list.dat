@@ -15625,6 +15625,10 @@ applinzi.com
 sinaapp.com
 vipsinaapp.com
 
+// Siteazy : https://www.siteazy.com/
+// Submitted by Yuma Ollivier <yuma@siteazy.com>
+*.siteazy.com
+
 // Siteleaf : https://www.siteleaf.com/
 // Submitted by Skylar Challand <support@siteleaf.com>
 siteleaf.net
