@@ -15086,6 +15086,10 @@ gl.srv.us
 // Submitted by Steve Leung <steveleung@peplink.com>
 mypep.link
 
+// Perplexity AI : https://www.perplexity.ai/
+// Submitted by Alec Xiang <security@perplexity.ai>
+*.pplx.app
+
 // Perspecta : https://perspecta.com/
 // Submitted by Kenneth Van Alstyne <kvanalstyne@perspecta.com>
 perspecta.cloud
