@@ -195,8 +195,20 @@ for which your PR should be included in the PSL. There is no
 upper limit, but six paragraphs seems like a rational stop.
 -->
 
-**Number of users this request is being made to serve:**
-<!-- Identify if this is current or an estimate. -->
+**Number of THOUSANDS of distinct users this request is being made to serve:**
+<!-- 
+The guidelines state that PSL inclusion is considered only for 
+projects that have achieved a minimum of 2000 - 3000 distinct 
+users or more. 
+
+To be clear, 'users' is the number of distinct individuals 
+working directly with a relationship with the requestor in 
+using subnames of the requested space, and is not measured 
+as the count of the audience of users that would visit to 
+or interact withthe namespace(s).
+
+Please provide us this count, and identify if this is current 
+actual or it is an estimate. -->
 
 ## DNS Verification
 <!--
