@@ -12337,6 +12337,11 @@ eero-stage.online
 // Submitted by Sander Hoentjen <systeembeheer@antagonist.nl>
 antagonist.cloud
 
+// Anthropic : https://www.anthropic.com/
+// Submitted by Sid Bidasaria <sbidasaria@anthropic.com>
+claude.app
+livepreview.claude.app
+
 // Apigee : https://apigee.com/
 // Submitted by Apigee Security Team <security@apigee.com>
 apigee.io
