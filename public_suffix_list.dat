@@ -4136,13 +4136,21 @@ edu.mn
 gov.mn
 org.mn
 
-// mo : http://www.monic.net.mo/
+// mo : https://www.iana.org/domains/root/db/mo.html
+// https://www.monic.mo/html/guide/monicguide-ui_e.html
+// https://www.safp.gov.mo/pt/services/electronics/202407/3e07147a2b15498eab812dd4931e8c68
 mo
 com.mo
 edu.mo
 gov.mo
 net.mo
 org.mo
+公司.mo
+教育.mo
+政府.mo
+網絡.mo
+网络.mo
+組織.mo
 
 // mobi : https://www.iana.org/domains/root/db/mobi.html
 mobi
@@ -6661,10 +6669,18 @@ yt
 мон
 
 // xn--mix891f ("Macao", Chinese, Traditional) : MO
-// MONIC / HNET Asia (Registry Operator for .mo)
+// https://www.monic.mo/html/guide/monicguide-ui_e.html
+// https://www.safp.gov.mo/pt/services/electronics/202407/3e07147a2b15498eab812dd4931e8c68
 澳門
+公司.澳門
+教育.澳門
+政府.澳門
+網絡.澳門
+网络.澳門
+組織.澳門
 
 // xn--mix082f ("Macao", Chinese, Simplified) : MO
+// https://www.monic.mo/html/guide/monicguide-ui_e.html
 澳门
 
 // xn--mgbx4cd0ab ("Malaysia", Malay) : MY
