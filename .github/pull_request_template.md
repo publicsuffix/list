@@ -205,7 +205,7 @@ To be clear, 'users' is the number of distinct individuals
 working directly with a relationship with the requestor in 
 using subnames of the requested space, and is not measured 
 as the count of the audience of users that would visit to 
-or interact withthe namespace(s).
+or interact with the namespace(s).
 
 Please provide us this count, and identify if this is current 
 actual or it is an estimate. -->
