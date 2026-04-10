@@ -14,7 +14,7 @@ get confused about why their PR is delayed or does
 not get accepted when their submission didn't follow them.
 
 A recent PR using the current template is 
-https://github.com/publicsuffix/list/pull/1591, although 
+https://github.com/publicsuffix/list/pull/2835, although 
 the organization and description were not as substantial 
 as desired, which required maintainers time to visit the 
 requestor's website to further research.
@@ -87,7 +87,7 @@ neither.
 -->
 
  * [ ] The [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) were carefully _read_ and _understood_, and this request conforms to them.
- * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting and sorting.
+ * [ ] The submission follows the [Guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting and sorting.
 
 <!-- 
 Sorting and formatting of the entries is outlined in the guidelines 
