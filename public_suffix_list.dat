@@ -872,6 +872,23 @@ org.co
 
 // com : https://www.iana.org/domains/root/db/com.html
 com
+// org : https://www.cxperti.com 
+// submited by admin: info@cxperti.com
+cxperti.com
+
+// org : https://www.hdm16.com 
+// submited by admin: info@hdm16.com
+hdm16.com
+
+
+
+// org : https://www.tqfglobal.com 
+// submited by titan kazuhiro: info@tqfglobal.com
+tqfglobal.com
+
+// org : https://www.hongkongcn.com 
+// submited by titan kazuhiro: info@hongkongcn.com
+hongkongcn.com
 
 // coop : https://www.iana.org/domains/root/db/coop.html
 coop
@@ -1304,9 +1321,11 @@ hk
 com.hk
 edu.hk
 gov.hk
+ican.hk
 idv.hk
 net.hk
 org.hk
+redpage.hk
 个人.hk
 個人.hk
 公司.hk
@@ -4275,6 +4294,23 @@ ne
 // net : https://www.iana.org/domains/root/db/net.html
 net
 
+// org : https://www.cshost.net
+// submited by admin: info@cshost.net
+cshost.net
+
+// org : https://www.heali.net
+// submited by admin: info@heali.net
+heali.net
+
+// org : https://www.presshub.net
+// submited by admin: info@presshub.net
+presshub.net
+
+// org : https://www.pressplus.net
+// submited by admin: info@pressplus.net
+pressplus.net
+
+
 // nf : https://www.iana.org/domains/root/db/nf.html
 nf
 arts.nf
@@ -5140,6 +5176,58 @@ onion
 
 // org : https://www.iana.org/domains/root/db/org.html
 org
+
+// org : https://www.aisasia.org
+// submited by admin: info@aisasia.org
+aisasia.org
+
+// org : https://www.bizc.org
+// submited by admin: info@bizc.org
+bizc.org
+
+
+
+// org : https://www.bmsasia.org
+// submited by admin: info@bmsasia.org
+bmsasia.org
+
+// org : https://www.hasia.org
+// submited by admin: info@hasia.org
+hasia.org
+
+// org : https://www.hd64.org
+// submited by admin: info@hd64.org
+hd64.org
+
+// org : https://www.hk02.org
+// submited by admin: info@hk02.org
+hk02.org
+
+// org : https://www.hklist.org
+// submited by admin: info@hklist.org
+hklist.org
+
+// org : https://www.humandesigns.org
+// submited by admin: info@humandesigns.org
+humandesign.org
+
+// org : https://www.ktext.org
+// submited by admin: info@ktext.org
+ktext.org
+
+// org : https://www.reikiasia.org
+// submited by admin: info@reikiasia.org
+reikiasia.org
+
+// org : https://www.reikicoach.org
+// submited by admin: info@reikicoach.org
+reikicoach.org
+
+// org : https://www.renleitu.org
+// submited by admin: info@renleitu.org
+renleitu.org
+
+
 
 // pa : http://www.nic.pa/
 // Some additional second level "domains" resolve directly as hostnames, such as
