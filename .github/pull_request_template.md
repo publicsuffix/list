@@ -14,7 +14,7 @@ get confused about why their PR is delayed or does
 not get accepted when their submission didn't follow them.
 
 A recent PR using the current template is 
-https://github.com/publicsuffix/list/pull/1591, although 
+https://github.com/publicsuffix/list/pull/2835, although 
 the organization and description were not as substantial 
 as desired, which required maintainers time to visit the 
 requestor's website to further research.
@@ -87,7 +87,7 @@ neither.
 -->
 
  * [ ] The [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) were carefully _read_ and _understood_, and this request conforms to them.
- * [ ] The submission follows the [guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting and sorting.
+ * [ ] The submission follows the [Guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting and sorting.
 
 <!-- 
 Sorting and formatting of the entries is outlined in the guidelines 
@@ -195,8 +195,20 @@ for which your PR should be included in the PSL. There is no
 upper limit, but six paragraphs seems like a rational stop.
 -->
 
-**Number of users this request is being made to serve:**
-<!-- Identify if this is current or an estimate. -->
+**Number of THOUSANDS of distinct users this request is being made to serve:**
+<!-- 
+The guidelines state that PSL inclusion is considered only for 
+projects that have achieved a minimum of 2000 - 3000 distinct 
+users or more. 
+
+To be clear, 'users' is the number of distinct individuals 
+working directly with a relationship with the requestor in 
+using subnames of the requested space, and is not measured 
+as the count of the audience of users that would visit to 
+or interact with the namespace(s).
+
+Please provide us this count, and identify if this is current 
+actual or it is an estimate. -->
 
 ## DNS Verification
 <!--
