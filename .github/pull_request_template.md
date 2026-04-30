@@ -11,15 +11,15 @@ https://github.com/publicsuffix/list/wiki/Guidelines#submit-the-change
 
 Also, read them again, as many skip that part and 
 get confused about why their PR is delayed or does
-not get accepted when their submission didn't follow them.
+not get accepted when their submission doesn't follow them.
 
 A recent PR using the current template is 
 https://github.com/publicsuffix/list/pull/2835, although 
 the organization and description were not as substantial 
-as desired, which required maintainers time to visit the 
+as desired, which required maintainers' time to visit the 
 requestor's website to further research.
 Having more robust org/desc improves the PR processing 
-pace due to the extra cycles not being lost to research.
+pace because extra cycles are not lost to research.
 For an example of what an excellent description in a PR looks like
 see https://github.com/publicsuffix/list/pull/615, 
 although that example uses an earlier template.
@@ -46,17 +46,17 @@ to submit entries to the PSL as a means to work around those limits or
 restrictions.
 -->
 
- * [ ] We are listing *any* third-party limits that we seek to work around in our rationale such as those between IOS 14.5+ and Facebook (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as a well-documented example)
+ * [ ] We are listing *any* third-party limits that we seek to work around in our rationale such as those between iOS 14.5+ and Facebook (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as a well-documented example)
  - [Cloudflare](https://developers.cloudflare.com/learning-paths/get-started/add-domain-to-cf/add-site/)
  - [Let's Encrypt](https://letsencrypt.org/docs/rate-limits/)
- - MAKE SURE UPDATE THE FOLLOWING LIST WITH YOUR LIMITATIONS! REMOVE ENTRIES WHICH DO NOT APPLY AS WELL AS REMOVING THIS LINE!
+ - MAKE SURE TO UPDATE THE FOLLOWING LIST WITH YOUR LIMITATIONS! REMOVE ENTRIES WHICH DO NOT APPLY AS WELL AS REMOVING THIS LINE!
 
 <!--
 The purpose of the question above is to expose limit workarounds.
 If there are third party limits that the PR seeks to overcome, those
 must be listed within the rationale section of this request, and 
-provide a good level of detail the effort that was made to work directly 
-with the third part(y|ies) in attempting to address this within their 
+provide a good level of detail regarding the effort that was made to work directly 
+with the third party or parties in attempting to address this within their 
 rationale response below.
 In all cases, software and services should be discouraged from use of
 the PSL as a rate-limiting tool, and provide clear instructions to their
@@ -78,11 +78,11 @@ The ongoing trust of the PSL requires it to be free of outdated or problematic e
  * [ ] The submitter acknowledges that it is their responsibility to maintain the domains within their section. This includes removing names which are no longer used, retaining the _psl DNS entry, and responding to e-mails to the supplied address. Failure to maintain entries may result in removal of individual entries or the entire section.
 
 <!--
-The guidelines describe which section to place the entry, what the 
-order of commented org placement, order of sorting of entries. 
-(hint: TLD then SLD, ascending sorting) Although it seems pedantic, 
+The guidelines describe which section to place the entry in, the 
+order of commented organization placement, and the order of sorting of entries. 
+(Hint: TLD then SLD, ascending sorting) Although it seems pedantic, 
 the sorting and formatting rules help ensure all of the automation 
-that uses the PSL operates correctly. Typically both are solved or
+that uses the PSL operates correctly. Typically, both are solved or
 neither.
 -->
 
@@ -118,7 +118,7 @@ At a minimum, you must provide an abuse contact either in the form of an email a
 
 ---
 
-For PRIVATE section requests that are submitting entries for domains that match their organization website's primary domain, please understand that this can have impacts that may not match the desired outcome and take a long time to rollback, if at all.
+For PRIVATE section requests that are submitting entries for domains that match their organization website's primary domain, please understand that this can have impacts that may not match the desired outcome and take a long time to roll back, if at all.
 
 To ensure that requested changes are entirely intentional, make sure that you read the affectation and propagation expectations, that you understand them, and confirm this understanding. 
 
@@ -141,7 +141,7 @@ stay that way for an indefinite period of time (typically long).
 
 (Link: [about propagation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
 
- * [ ] *Yes, I understand*. I could break my organization's website cookies and cause other issues, and the rollback timing is acceptable. *Proceed anyways*.
+ * [ ] *Yes, I understand*. I could break my organization's website cookies and cause other issues, and the rollback timing is acceptable. *Proceed anyway*.
 ---
 
 <!--
@@ -177,7 +177,7 @@ to this request.
 ## Reason for PSL Inclusion
 <!--
 Please tell us why your domain(s) should be listed in the PSL
-(i.e. Cookie Security, Let's Encrypt issuance, IOS/Facebook, 
+(i.e. Cookie Security, Let's Encrypt issuance, iOS/Facebook, 
 Cloudflare, etc.) and clearly confirm that any private section 
 names hold registration term longer than 2 years and shall 
 maintain more than 1 year term in order to remain listed.
@@ -208,7 +208,7 @@ as the count of the audience of users that would visit to
 or interact with the namespace(s).
 
 Please provide us this count, and identify if this is current 
-actual or it is an estimate. -->
+actual count or an estimate. -->
 
 ## DNS Verification
 <!--
