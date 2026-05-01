@@ -13937,6 +13937,10 @@ pymnt.uk
 // Submitted by <domeinnaam@minaz.nl>
 gov.nl
 
+// Government Technology Agency of Singapore : https://www.tech.gov.sg/
+// Submitted by TOH Yong Cheng <toh_yong_cheng@tech.gov.sg>
+*.workloads.paas.tech.gov.sg
+
 // Grafana Labs : https://grafana.com/
 // Submitted by Platform Engineering <info@grafana.com>
 grafana-dev.net
