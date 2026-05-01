@@ -14065,6 +14065,11 @@ plc.ng
 // HostyHosting : https://hostyhosting.com
 hostyhosting.io
 
+// HubSpot Inc. : https://www.hubspot.com
+// Submitted by Heejoo Jin <hjin@hubspot.com>
+app.hubspotqa.com
+app.hubspot.com
+
 // Hugging Face : https://huggingface.co
 // Submitted by Eliott Coyac <website@huggingface.co>
 hf.space
