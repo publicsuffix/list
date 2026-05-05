@@ -522,11 +522,12 @@ func process(datFile *datFile, dataURL string, clk clock) (string, error) {
 	if err := renderData(&newDataBuf, entries); err != nil {
 		return "", err
 	}
+	newDataBufString := strings.TrimSuffix(newDataBuf.String(), "\n")
 
 	// If the newly rendered data doesn't match the existing data then we want to
 	// update the dat file content by replacing the old span with the new content.
-	if newDataBuf.String() != existingData {
-		newContent := newHeaderBuf.String() + "\n" + newDataBuf.String()
+	if newDataBufString != existingData {
+		newContent := newHeaderBuf.String() + "\n" + newDataBufString
 		if err := datFile.ReplaceGTLDContent(newContent); err != nil {
 			return "", err
 		}
