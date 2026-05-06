@@ -1,0 +1,117 @@
+name: PR triage
+
+# ----------------------------------------------------------------------------
+# pull_request_target — security caveat
+# ----------------------------------------------------------------------------
+# This workflow uses pull_request_target instead of pull_request because it
+# needs write permissions (comment on, label, and close PRs) to enforce the
+# pull request template policy (see #2612). Workflows triggered by
+# pull_request from forks run with a read-only GITHUB_TOKEN by design and so
+# cannot write back to the PR; pull_request_target is the supported trigger
+# for bots that need to act on incoming PRs.
+#
+# The well-known risk of pull_request_target is the "pwn_request" pattern:
+# if the workflow checks out and executes code from the PR head, attacker-
+# controlled code runs with write permissions and access to repository
+# secrets. To stay safe, this workflow:
+#
+#   - never checks out the PR head (the actions/checkout step below uses its
+#     default ref, which under pull_request_target is the base branch — the
+#     trusted version on main, not the PR's version);
+#   - never runs any code from the PR (no go/npm/make/script execution
+#     against fork-supplied content);
+#   - never interpolates PR-supplied content (body, title, branch name)
+#     directly into a shell script via ${{ ... }} — those are passed via
+#     env: to avoid script injection.
+#
+# Note also that the workflow YAML that executes is always the copy on the
+# base branch. A PR that edits this file does not change what runs against
+# itself; the change only takes effect after a maintainer merges it. PRs
+# touching .github/workflows/** should be reviewed with that in mind.
+# ----------------------------------------------------------------------------
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened]
+
+permissions:
+  pull-requests: write
+
+concurrency:
+  group: triage-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  template-check:
+    name: Verify pull request template
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out base branch
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        # Default ref under pull_request_target is the base branch (main).
+        # Do NOT add `ref: ${{ github.event.pull_request.head.sha }}` here:
+        # that would check out PR-controlled content and reintroduce the
+        # pwn_request risk this workflow is structured to avoid.
+
+      - name: Verify template is intact
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_STATE: ${{ github.event.pull_request.state }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          TEMPLATE_PATH: .github/pull_request_template.md
+        run: |
+          set -euo pipefail
+
+          # Skip if the PR is no longer open (e.g. a stale `edited` event on
+          # a PR that has since been closed).
+          if [[ "$PR_STATE" != "open" ]]; then
+            echo "PR state is $PR_STATE; skipping."
+            exit 0
+          fi
+
+          # Only enforce the template on submissions that touch the suffix
+          # list. Code/docs PRs (workflow changes, README fixes, etc.) do
+          # not need to carry the template.
+          if ! gh pr view "$PR_NUMBER" --repo "$GH_REPO" --json files \
+              --jq '.files[].path' | grep -qx 'public_suffix_list.dat'; then
+            echo "PR does not modify public_suffix_list.dat; skipping."
+            exit 0
+          fi
+
+          # Extract every required acknowledgement (lines starting with
+          # `* [ ]`) from the template on the base branch and check that
+          # each appears verbatim in the PR body. Reworded or removed
+          # acknowledgements are what this check is meant to catch (#2612).
+          missing=()
+          while IFS= read -r required; do
+            [[ -z "$required" ]] && continue
+            if [[ "$PR_BODY" != *"$required"* ]]; then
+              missing+=("$required")
+            fi
+          done < <(grep -E '^[[:space:]]*\* \[[ xX]\]' "$TEMPLATE_PATH" \
+                   | sed -E 's/^[[:space:]]*\* \[[ xX]\] //')
+
+          if [[ ${#missing[@]} -eq 0 ]]; then
+            echo "Template intact."
+            exit 0
+          fi
+
+          comment="$RUNNER_TEMP/comment.md"
+          {
+            echo "## Pull request template was modified"
+            echo
+            echo "Thanks for the submission. Per [#2612](https://github.com/${GH_REPO}/issues/2612), the pull request template must be submitted **unaltered**, with the wording intact and the boxes ticked. Reworded or removed acknowledgements force volunteers to hunt for them and break automated checks, which is why submissions in that state are not accepted."
+            echo
+            echo "The following lines from the template were not found verbatim in this PR's description:"
+            echo
+            for item in "${missing[@]}"; do
+              echo "- ${item}"
+            done
+            echo
+            echo "**To proceed:** edit the PR description to restore the template (copy it from [.github/pull_request_template.md](https://github.com/${GH_REPO}/blob/main/.github/pull_request_template.md)), tick the relevant boxes, then reopen this PR."
+          } > "$comment"
+
+          gh pr comment "$PR_NUMBER" --repo "$GH_REPO" --body-file "$comment"
+          gh pr close "$PR_NUMBER" --repo "$GH_REPO"
