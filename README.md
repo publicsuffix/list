@@ -16,6 +16,9 @@ Iteration back and forth will delay PR review or inclusion. Be extremely thoroug
 
 ## Important Notices
 
+### 2026-05-06
+Pull Requests MUST use the automated template when adding.  Do not cut and paste it into a GPT to generate a response or delete / alter the form. Pull requests that do not use the template, that alter it or summarize it will be closed by volunteers without action.  Why?  There are specific checkboxes that are part of the volunteers' review or are important attestations for public record and transparency and consistency of processing. 
+
 ### 2025-05-27
 Were you directed here to be able to add a subdomain to your **Cloudflare** account? If so, please work directly with Cloudflare for these account limitations. The PSL is **NOT** intended as a workaround for Cloudflare's subdomain restrictions. 
 
