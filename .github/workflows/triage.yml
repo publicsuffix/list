@@ -114,5 +114,5 @@ jobs:
           } > "$comment"
 
           gh pr comment "$PR_NUMBER" --repo "$GH_REPO" --body-file "$comment"
-          gh pr edit "$PR_NUMBER" --repo "$GH_REPO" --add-label "needs-template"
+          gh pr edit "$PR_NUMBER" --repo "$GH_REPO" --add-label "❌FAIL - WRONG PULL TEMPLATE"
           gh pr close "$PR_NUMBER" --repo "$GH_REPO"
