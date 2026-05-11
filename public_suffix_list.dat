@@ -14066,7 +14066,7 @@ plc.ng
 hostyhosting.io
 
 // HubSpot Inc. : https://www.hubspot.com
-// Submitted by Heejoo Jin <hjin@hubspot.com>
+// Submitted by Heejoo Jin <hs-paas-edge@hubinfra.com>
 cdn1.hubspot.net
 cdn2.hubspot.net
 *.hs-sites.com
