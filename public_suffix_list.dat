@@ -12602,25 +12602,30 @@ ssl.origin.cdn77-secure.org
 
 // CentralNic : https://teaminternet.com/
 // Submitted by registry <gavin.brown@centralnic.com>
-za.bz
+// Abuse reports to <xyz_abuse@gen.xyz>
 br.com
 cn.com
 de.com
 eu.com
 jpn.com
 mex.com
-ru.com
-sa.com
 uk.com
 us.com
-za.com
 com.de
 gb.net
 hu.net
-jp.net
 se.net
 uk.net
 ae.org
+us.org
+
+// CentralNic : https://teaminternet.com/
+// Submitted by registry <gavin.brown@centralnic.com>
+za.bz
+ru.com
+sa.com
+za.com
+jp.net
 com.se
 
 // Cityhost LLC : https://cityhost.ua
@@ -16126,10 +16131,6 @@ bielsko.pl
 // Submitted by Hostmaster <hostmaster@urown.net>
 urown.cloud
 dnsupdate.info
-
-// US REGISTRY LLC : http://us.org
-// Submitted by Gavin Brown <gavin.brown@centralnic.com>
-us.org
 
 // V.UA Domain Registry: https://www.v.ua/
 // Submitted by Serhii Rostilo <admin@v.ua>
