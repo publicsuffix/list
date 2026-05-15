@@ -342,6 +342,7 @@ func getData(url string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+	//nolint:errcheck
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
