@@ -12395,12 +12395,9 @@ on-aptible.com
 // Submitted by Aki Ueno <admin@aquapal.net>
 f5.si
 
-// ArvanCloud EdgeCompute
-// Submitted by ArvanCloud CDN <cdn@arvancloud.ir>
+// ArvanCloud
+// Submitted by Ramin Najjarbashi <cdn@arvancloud.ir>
 arvanedge.ir
-
-// Arvan Object Storage
-// Submitted by ArvanCloud ObjectStorage <object-storage@arvancloud.ir>
 *.arvanstorage.ir
 !service.arvanstorage.ir
 
