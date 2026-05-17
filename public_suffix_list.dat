@@ -12401,13 +12401,8 @@ arvanedge.ir
 
 // Arvan Object Storage
 // Submitted by ArvanCloud ObjectStorage <object-storage@arvancloud.ir>
-accesspoint.arvanstorage.ir
-hot.ir-central1.arvanstorage.ir
-hot-website.ir-central1.arvanstorage.ir
-s3.ir-central1.arvanstorage.ir
-s3.ir-northwest1.arvanstorage.ir
-s3-website.ir-central1.arvanstorage.ir
-s3-website.ir-northwest1.arvanstorage.ir
+*.arvanstorage.ir
+!.service.arvanstorage.ir
 
 // ASEINet : https://www.aseinet.com/
 // Submitted by Asei SEKIGUCHI <mail@aseinet.com>
