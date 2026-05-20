@@ -21,7 +21,8 @@ org.ac
 // ad : https://www.iana.org/domains/root/db/ad.html
 // Confirmed by Amadeu Abril i Abril (CORE) <amadeu.abril@corenic.org> 2024-11-17
 ad
-
+names.ad
+qmail.ad
 // ae : https://www.iana.org/domains/root/db/ae.html
 ae
 ac.ae
@@ -346,6 +347,8 @@ net.bd
 org.bd
 sch.bd
 tv.bd
+xyz.bd
+club.bd
 
 // be : https://www.iana.org/domains/root/db/be.html
 // Confirmed by registry <tech@dns.be> 2008-06-08
