@@ -347,7 +347,6 @@ org.bd
 sch.bd
 tv.bd
 
-
 // be : https://www.iana.org/domains/root/db/be.html
 // Confirmed by registry <tech@dns.be> 2008-06-08
 be
@@ -11255,14 +11254,11 @@ zuerich
 
 // (Note: these are in alphabetical order by company name)
 
-// xyz.bd registry
-// https://registry.xyz.bd
-// Confirmed by registry <support@xyz.bd>
+// xyz.bd : https://registry.xyz.bd
 xyz.bd
 club.bd
 names.ad
 qmail.ad
-
 
 // .KRD : https://nic.krd
 co.krd
