@@ -11360,17 +11360,11 @@ barsy.ca
 *.compute.estate
 *.alces.network
 
-// Alibaba Cloud API Gateway
+// Alibaba Cloud
 // Submitted by Alibaba Cloud Security <cloud_product_security_team@alibaba-inc.com>
 alibabacloudcs.com
-
-// Alibaba Cloud ModelScope Studios
-// Submitted by Alibaba Cloud Security <cloud_product_security_team@alibaba-inc.com>
 ms.fun
 ms.show
-
-// Alibaba Cloud OSS 
-// Submitted by Alibaba Cloud Security <cloud_product_security_team@alibaba-inc.com>
 oss-eu-west-1.aliyuncs.com
 oss-eu-west-1-internal.aliyuncs.com
 
