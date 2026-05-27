@@ -14062,6 +14062,24 @@ hstgr.cloud
 // HostyHosting : https://hostyhosting.com
 hostyhosting.io
 
+// HubSpot Inc. : https://www.hubspot.com
+// Submitted by Heejoo Jin <hs-paas-edge@hubinfra.com>
+cdn1.hubspot.net
+cdn2.hubspot.net
+*.hs-sites.com
+*.hs-sites.net
+*.hs-sites-ap1.com
+*.hs-sites-eu1.com
+*.hs-sites-na2.com
+*.hs-sites-na3.com
+*.hubspotpagebuilder.com
+*.hubspotpagebuilder.net
+*.hubspotusercontent-na1.net
+*.hubspotusercontent-ap1.net
+*.hubspotusercontent-eu1.net
+*.hubspotusercontent-na2.net
+*.hubspotusercontent-na3.net
+
 // Hugging Face : https://huggingface.co
 // Submitted by Eliott Coyac <website@huggingface.co>
 hf.space
