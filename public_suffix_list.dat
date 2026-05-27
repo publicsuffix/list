@@ -15044,7 +15044,7 @@ is-local.org
 opensocial.site
 
 // OpenAI : https://openai.com
-// Submitted by Thomas Shadwell <security@openai.com>
+// Submitted by Thomas Shadwell <security@openai.com> 
 *.oaiusercontent.com
 chatgpt.site
 chatgpt-team.site
