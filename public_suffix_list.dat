@@ -14371,6 +14371,11 @@ keenetic.pro
 // Submitted by Kevin Service Team <cs@kevsrv.me>
 ae.kg
 
+// Keycard Labs, Inc. : https://keycard.ai
+// Submitted by Keycard Security Team <security@keycard.ai>
+mcp.gateway.context.cloud
+keycard.cloud
+
 // Keyweb AG : https://www.keyweb.de
 // Submitted by Martin Dannehl <postmaster@keymachine.de>
 keymachine.de
