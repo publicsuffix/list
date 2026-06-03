@@ -12399,6 +12399,10 @@ f5.si
 // ArvanCloud
 // Submitted by Ramin Najjarbashi <cdn@arvancloud.ir>
 arvanedge.ir
+*.arvanimage.ir
+*.arvanlive.ir
+*.arvanvads.ir
+*.arvanvod.ir
 *.arvanstorage.ir
 !service.arvanstorage.ir
 
