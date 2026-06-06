@@ -12399,11 +12399,12 @@ f5.si
 // ArvanCloud
 // Submitted by Ramin Najjarbashi <cdn@arvancloud.ir>
 arvanedge.ir
+*.arvancompute.ir
 *.arvanimage.ir
 *.arvanlive.ir
+*.arvanstorage.ir
 *.arvanvads.ir
 *.arvanvod.ir
-*.arvanstorage.ir
 !service.arvanstorage.ir
 
 // ASEINet : https://www.aseinet.com/
