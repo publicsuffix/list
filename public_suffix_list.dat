@@ -908,7 +908,6 @@ net.cv
 nome.cv
 org.cv
 publ.cv
-store.cv
 
 // cw : https://www.uoc.cw/cw-registry
 // Confirmed by registry <registry@uoc.cw> 2024-11-19
@@ -12830,6 +12829,10 @@ cfolks.pl
 // Submitted by Dominic Luechinger <dol@cyon.ch>
 cyon.link
 cyon.site
+
+// Code for Host Inc Ltd. : https://www.codeforhost.com/
+// Submitted by Mehedi Hasan <support@codeforhost.com>
+store.cv
 
 // Dansk.net : http://www.dansk.net/
 // Submitted by Anani Voule <digital@digital.co.dk>
