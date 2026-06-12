@@ -13908,6 +13908,8 @@ goip.de
 *.hosted.app
 *.run.app
 *.mtls.run.app
+cloud.run
+ai.studio
 web.app
 *.0emm.com
 appspot.com
