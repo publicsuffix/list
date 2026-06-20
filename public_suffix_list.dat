@@ -12398,14 +12398,14 @@ f5.si
 
 // ArvanCloud
 // Submitted by Ramin Najjarbashi <cdn@arvancloud.ir>
-arvanedge.ir
 *.arvancompute.ir
+arvanedge.ir
 *.arvanimage.ir
 *.arvanlive.ir
 *.arvanstorage.ir
+!service.arvanstorage.ir
 *.arvanvads.ir
 *.arvanvod.ir
-!service.arvanstorage.ir
 
 // ASEINet : https://www.aseinet.com/
 // Submitted by Asei SEKIGUCHI <mail@aseinet.com>
