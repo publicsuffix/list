@@ -16038,6 +16038,9 @@ tickets.io
 // Submitted by Bo Cao <security@tigrisdata.com>
 t3.storage.dev
 t3.storageapi.dev
+t3.tigrisblob.io
+t3.tigrisbucket.io
+t3.tigrisfiles.io
 
 // Tlon.io : https://tlon.io
 // Submitted by Mark Staarink <mark@tlon.io>
