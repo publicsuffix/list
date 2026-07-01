@@ -232,7 +232,8 @@ func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHis
 		start(collect.NoError(func() txtResult { return checker.checkTXT(wild, wild.Domain) }))
 	}
 
-	group.Wait()
+	err := group.Wait()
+	checker.errs = append(checker.errs, err)
 
 	// PR verification. Now that TXT lookups are complete,
 	// checker.prExpected has a list of PRs, and the list of changes
@@ -247,7 +248,8 @@ func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHis
 	for prNum, info := range checker.prExpected {
 		start(collectPR.NoError(func() []error { return checker.checkPR(prNum, info) }))
 	}
-	group.Wait()
+	err = group.Wait()
+	checker.errs = append(checker.errs, err)
 
 	return checker.errs
 }
