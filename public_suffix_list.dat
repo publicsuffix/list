@@ -14018,7 +14018,10 @@ hepforge.org
 // Submitted by Brendan Falk <security@hercules.app>
 onhercules.app
 hercules-app.com
+hercules-auth.com
+hercules-cdn.com
 hercules-dev.com
+hercules-preview.com
 
 // Heroku : https://www.heroku.com/
 // Submitted by Shumon Huque <public-dns@salesforce.com>
