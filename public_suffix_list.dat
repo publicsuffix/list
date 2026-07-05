@@ -15144,10 +15144,6 @@ oy.lc
 // Submitted by Derek Myers <derek@pagefog.com>
 pgfog.com
 
-// Pagelet : https://sharelocal.host
-// Submitted by Alan <killua8p@gmail.com>
-local-8000.site
-
 // Pantheon Systems, Inc. : https://pantheon.io/
 // Submitted by Gary Dylina <gary@pantheon.io>
 gotpantheon.com
@@ -15695,6 +15691,10 @@ as.sh.cn
 vicp.fun
 yicp.fun
 zicp.fun
+
+// ShareLocalHost : https://sharelocal.host
+// Submitted by Alan <killua8p@gmail.com>
+local-8000.site
 
 // Sheezy.Art : https://sheezy.art
 // Submitted by Nyoom <admin@sheezy.art>
