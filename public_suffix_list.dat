@@ -11432,9 +11432,10 @@ cloudfront.net
 
 // Amazon Cognito
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: d7d4a954-976e-403e-a010-de9ed0cfbbd1
+// Reference: dd7b1be3-c336-4750-8e69-85d381b572dd 
 auth.af-south-1.amazoncognito.com
 auth.ap-east-1.amazoncognito.com
+auth.ap-east-2.amazoncognito.com
 auth.ap-northeast-1.amazoncognito.com
 auth.ap-northeast-2.amazoncognito.com
 auth.ap-northeast-3.amazoncognito.com
@@ -11445,6 +11446,7 @@ auth.ap-southeast-2.amazoncognito.com
 auth.ap-southeast-3.amazoncognito.com
 auth.ap-southeast-4.amazoncognito.com
 auth.ap-southeast-5.amazoncognito.com
+auth.ap-southeast-6.amazoncognito.com
 auth.ap-southeast-7.amazoncognito.com
 auth.ca-central-1.amazoncognito.com
 auth.ca-west-1.amazoncognito.com
