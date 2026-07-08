@@ -15378,6 +15378,7 @@ instances.spawn.cc
 
 // Redpanda Data : https://redpanda.com
 // Submitted by Infrastructure Team <security@redpanda.com>
+*.ai.rdpa.co
 *.clusters.rdpa.co
 *.srvrless.rdpa.co
 
