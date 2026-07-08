@@ -12636,6 +12636,10 @@ discourse.diy
 discourse.group
 discourse.team
 
+// ck.gg : https://ck.gg
+// Submitted by Jack Fuchs <j@ck.gg>
+ck.gg
+
 // Clerk : https://www.clerk.dev
 // Submitted by Colin Sidoti <systems@clerk.dev>
 clerk.app
