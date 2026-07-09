@@ -12232,7 +12232,7 @@ awsapps.com
 
 // AWS Elastic Beanstalk
 // Submitted by AWS Security <psl-maintainers@amazon.com>
-// Reference: e4e02a54-eaf9-4fe7-b662-39ccbc011a04
+// Reference: _CCBN322SBHBCSUGB7BBDVTREDI
 cn-north-1.eb.amazonaws.com.cn
 cn-northwest-1.eb.amazonaws.com.cn
 elasticbeanstalk.com
@@ -12242,13 +12242,18 @@ ap-northeast-1.elasticbeanstalk.com
 ap-northeast-2.elasticbeanstalk.com
 ap-northeast-3.elasticbeanstalk.com
 ap-south-1.elasticbeanstalk.com
+ap-south-2.elasticbeanstalk.com
 ap-southeast-1.elasticbeanstalk.com
 ap-southeast-2.elasticbeanstalk.com
 ap-southeast-3.elasticbeanstalk.com
+ap-southeast-4.elasticbeanstalk.com
 ap-southeast-5.elasticbeanstalk.com
+ap-southeast-6.elasticbeanstalk.com
 ap-southeast-7.elasticbeanstalk.com
 ca-central-1.elasticbeanstalk.com
+ca-west-1.elasticbeanstalk.com
 eu-central-1.elasticbeanstalk.com
+eu-central-2.elasticbeanstalk.com
 eu-north-1.elasticbeanstalk.com
 eu-south-1.elasticbeanstalk.com
 eu-south-2.elasticbeanstalk.com
