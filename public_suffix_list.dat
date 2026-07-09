@@ -11586,6 +11586,31 @@ emrappui-prod.us-west-2.amazonaws.com
 emrnotebooks-prod.us-west-2.amazonaws.com
 emrstudio-prod.us-west-2.amazonaws.com
 
+// Amazon Lightsail
+// Submitted by AWS Security <psl-maintainers@amazon.com>
+// Reference: _BNEF4RCADXL7ELNLFZHYJMSMW4
+amazonlightsail.com
+*.amazonlightsail.com
+*.ap-east-1.cs.amazonlightsail.com
+*.ap-northeast-1.cs.amazonlightsail.com
+*.ap-northeast-2.cs.amazonlightsail.com
+*.ap-south-1.cs.amazonlightsail.com
+*.ap-southeast-1.cs.amazonlightsail.com
+*.ap-southeast-2.cs.amazonlightsail.com
+*.ap-southeast-3.cs.amazonlightsail.com
+*.ap-southeast-5.cs.amazonlightsail.com
+*.ca-central-1.cs.amazonlightsail.com
+*.eu-central-1.cs.amazonlightsail.com
+*.eu-north-1.cs.amazonlightsail.com
+*.eu-south-2.cs.amazonlightsail.com
+*.eu-west-1.cs.amazonlightsail.com
+*.eu-west-2.cs.amazonlightsail.com
+*.eu-west-3.cs.amazonlightsail.com
+*.sa-east-1.cs.amazonlightsail.com
+*.us-east-1.cs.amazonlightsail.com
+*.us-east-2.cs.amazonlightsail.com
+*.us-west-2.cs.amazonlightsail.com
+
 // Amazon Managed Workflows for Apache Airflow
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: bfd043cc-2816-451d-894e-612c6b61a438
