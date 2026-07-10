@@ -14069,17 +14069,17 @@ hostyhosting.io
 // Submitted by Heejoo Jin <hs-paas-edge@hubinfra.com>
 cdn1.hubspot.net
 cdn2.hubspot.net
-*.hs-sites.com
-*.hs-sites.net
 *.hs-sites-ap1.com
 *.hs-sites-eu1.com
 *.hs-sites-na2.com
 *.hs-sites-na3.com
+*.hs-sites.com
+*.hs-sites.net
 *.hubspotpagebuilder.com
 *.hubspotpagebuilder.net
-*.hubspotusercontent-na1.net
 *.hubspotusercontent-ap1.net
 *.hubspotusercontent-eu1.net
+*.hubspotusercontent-na1.net
 *.hubspotusercontent-na2.net
 *.hubspotusercontent-na3.net
 
