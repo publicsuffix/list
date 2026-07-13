@@ -4337,14 +4337,18 @@ no
 fhs.no
 folkebibl.no
 fylkesbibl.no
+gielda.no
+herad.no
 idrett.no
+kommune.no
 museum.no
 priv.no
+suohkan.no
+tjielte.no
+uenorge.no
 vgs.no
 // Norid category second-level domains managed by parties other than Norid : https://www.norid.no/en/om-domenenavn/regelverk-for-no/vedlegg-d/
 dep.no
-herad.no
-kommune.no
 mil.no
 stat.no
 // Norid geographical second level domains : https://www.norid.no/en/om-domenenavn/regelverk-for-no/vedlegg-b/
@@ -4485,7 +4489,7 @@ askøy.no
 askvoll.no
 asnes.no
 åsnes.no
-audnedaln.no
+audnedal.no
 aukra.no
 aure.no
 aurland.no
@@ -4596,7 +4600,6 @@ forsand.no
 fosnes.no
 fræna.no
 frana.no
-frei.no
 frogn.no
 froland.no
 frosta.no
@@ -4647,6 +4650,7 @@ halden.no
 halsa.no
 hamar.no
 hamaroy.no
+hamarøy.no
 hammarfeasta.no
 hámmárfeasta.no
 hammerfest.no
@@ -4701,6 +4705,7 @@ karasjohka.no
 kárášjohka.no
 karasjok.no
 karlsoy.no
+karlsøy.no
 karmoy.no
 karmøy.no
 kautokeino.no
@@ -4889,6 +4894,7 @@ ralingen.no
 rana.no
 randaberg.no
 rauma.no
+re.no
 rendalen.no
 rennebu.no
 rennesoy.no
@@ -5046,6 +5052,7 @@ tysvær.no
 tysvar.no
 ullensaker.no
 ullensvang.no
+ulstein.no
 ulvik.no
 unjarga.no
 unjárga.no
