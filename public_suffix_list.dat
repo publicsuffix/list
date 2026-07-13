@@ -15403,6 +15403,10 @@ instances.spawn.cc
 onrender.com
 app.render.com
 
+// Repaint : https://repaint.com
+// Submitted by Ben Shumaker <support@repaint.com>
+sites.repaint.com
+
 // Repl.it : https://repl.it
 // Submitted by Lincoln Bergeson <psl@repl.it>
 replit.app
