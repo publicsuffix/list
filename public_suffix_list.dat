@@ -15653,6 +15653,15 @@ dedibox.fr
 // Submitted by Hanno Böck <hanno@schokokeks.org>
 schokokeks.net
 
+// Schwarz Digits Cloud GmbH & Co. KG : https://stackit.com/en
+// Submitted by STACKIT-DNS Team (Simon Stier) <dns@digits.schwarz>
+cdn.onstackit.cloud
+runs.onstackit.cloud
+stackit.gg
+stackit.rocks
+stackit.run
+stackit.zone
+
 // Scottish Government : https://www.gov.scot
 // Submitted by Martin Ellis <digital-publishing@gov.scot>
 gov.scot
@@ -15855,14 +15864,6 @@ bolt.host
 // Stackhero : https://www.stackhero.io
 // Submitted by Adrien Gillon <adrien+public-suffix-list@stackhero.io>
 stackhero-network.com
-
-// STACKIT GmbH & Co. KG : https://www.stackit.de/en/
-// Submitted by STACKIT-DNS Team (Simon Stier) <dns@stackit.cloud>
-runs.onstackit.cloud
-stackit.gg
-stackit.rocks
-stackit.run
-stackit.zone
 
 // Stackryze : https://stackryze.com
 // Submitted by Sudheer Bhuvana <security@stackryze.com>
