@@ -1647,7 +1647,6 @@ trentinos-tirol.it
 trentinostirol.it
 trentinosud-tirol.it
 trentinosüd-tirol.it
-trentinosudtirol.it
 trentinosüdtirol.it
 trentinosued-tirol.it
 trentinosuedtirol.it
@@ -1663,7 +1662,6 @@ umbria.it
 val-d-aosta.it
 val-daosta.it
 vald-aosta.it
-valdaosta.it
 valle-aosta.it
 valle-d-aosta.it
 valle-daosta.it
@@ -1700,7 +1698,6 @@ aosta.it
 aoste.it
 ap.it
 aq.it
-aquila.it
 ar.it
 arezzo.it
 ascoli-piceno.it
@@ -1746,7 +1743,11 @@ bz.it
 ca.it
 cagliari.it
 caltanissetta.it
+campidano-medio.it
+campidanomedio.it
 campobasso.it
+carbonia-iglesias.it
+carboniaiglesias.it
 carrara-massa.it
 carraramassa.it
 caserta.it
@@ -1760,6 +1761,7 @@ cesenaforli.it
 cesenaforlì.it
 ch.it
 chieti.it
+ci.it
 cl.it
 cn.it
 co.it
@@ -1772,6 +1774,8 @@ cs.it
 ct.it
 cuneo.it
 cz.it
+dell-ogliastra.it
+dellogliastra.it
 en.it
 enna.it
 fc.it
@@ -1797,6 +1801,8 @@ go.it
 gorizia.it
 gr.it
 grosseto.it
+iglesias-carbonia.it
+iglesiascarbonia.it
 im.it
 imperia.it
 is.it
@@ -1825,6 +1831,8 @@ matera.it
 mb.it
 mc.it
 me.it
+medio-campidano.it
+mediocampidano.it
 messina.it
 mi.it
 milan.it
@@ -1847,8 +1855,13 @@ no.it
 novara.it
 nu.it
 nuoro.it
+og.it
+ogliastra.it
+olbia-tempio.it
+olbiatempio.it
 or.it
 oristano.it
+ot.it
 pa.it
 padova.it
 padua.it
@@ -1917,6 +1930,8 @@ sv.it
 ta.it
 taranto.it
 te.it
+tempio-olbia.it
+tempioolbia.it
 teramo.it
 terni.it
 tn.it
@@ -1957,6 +1972,7 @@ vibovalentia.it
 vicenza.it
 viterbo.it
 vr.it
+vs.it
 vt.it
 vv.it
 
