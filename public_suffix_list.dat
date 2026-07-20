@@ -750,7 +750,7 @@ pe.ca
 qc.ca
 sk.ca
 yk.ca
-// gc.ca: https://www.cira.ca/en/resources/documents/cybersecurity/overview-domain-name-system-dns/ -> "How are nodes delegated?" 
+// gc.ca: https://www.cira.ca/en/resources/documents/cybersecurity/overview-domain-name-system-dns/ -> "How are nodes delegated?"
 // see also: https://design.canada.ca/specifications/mandatory-elements/domains-urls.html
 gc.ca
 
@@ -5462,9 +5462,11 @@ post
 // pr : https://www.iana.org/domains/root/db/pr.html
 // see also : https://www.domains.pr/
 pr
+ac.pr
 biz.pr
 com.pr
 edu.pr
+est.pr
 gov.pr
 info.pr
 isla.pr
@@ -5472,8 +5474,6 @@ name.pr
 net.pr
 org.pr
 pro.pr
-ac.pr
-est.pr
 prof.pr
 
 // pro : http://registry.pro/get-pro
