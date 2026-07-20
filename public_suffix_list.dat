@@ -4159,8 +4159,8 @@ org.mo
 // mobi : https://www.iana.org/domains/root/db/mobi.html
 mobi
 
-// mp : http://www.dot.mp/
-// Confirmed by registry <dcamacho@saipan.com> 2008-06-17
+// mp : https://www.iana.org/domains/root/db/mp.html
+// see also : http://get.mp/
 mp
 
 // mq : https://www.iana.org/domains/root/db/mq.html
