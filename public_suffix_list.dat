@@ -4300,7 +4300,8 @@ rec.nf
 store.nf
 web.nf
 
-// ng : http://www.nira.org.ng/index.php/join-us/register-ng-domain/189-nira-slds
+// ng : https://www.iana.org/domains/root/db/ng.html
+// see also : https://www.nira.org.ng/
 ng
 com.ng
 edu.ng
