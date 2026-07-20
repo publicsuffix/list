@@ -5602,7 +5602,8 @@ gov.sb
 net.sb
 org.sb
 
-// sc : https://www.nic.sc/en/policies.html
+// sc : https://www.iana.org/domains/root/db/sc.html
+// see also : https://www.nic.sc/en/policies.html
 sc
 com.sc
 edu.sc
