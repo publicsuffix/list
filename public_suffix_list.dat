@@ -1985,7 +1985,7 @@ co.je
 net.je
 org.je
 
-// jm : http://www.com.jm/register.html
+// jm : https://www.iana.org/domains/root/db/jm.html
 *.jm
 
 // jo : https://www.dns.jo/JoFamily.aspx
