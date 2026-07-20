@@ -3853,7 +3853,7 @@ net.ki
 org.ki
 
 // km : https://www.iana.org/domains/root/db/km.html
-// http://www.domaine.km/documents/charte.doc
+// https://www.domaine.km/
 km
 ass.km
 com.km
@@ -3865,7 +3865,7 @@ org.km
 prd.km
 tm.km
 // These are only mentioned as proposed suggestions at domaine.km, but
-// https://www.iana.org/domains/root/db/km.html says they're available for registration:
+// https://en.wikipedia.org/wiki/.km says they're available for registration:
 asso.km
 coop.km
 gouv.km
