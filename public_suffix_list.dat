@@ -5106,7 +5106,8 @@ voagat.no
 volda.no
 voss.no
 
-// np : http://www.mos.com.np/register.html
+// np : https://www.iana.org/domains/root/db/np.html
+// see also : https://www.mos.com.np/
 *.np
 
 // nr : http://cenpac.net.nr/dns/index.html
