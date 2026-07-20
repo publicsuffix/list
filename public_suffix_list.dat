@@ -1339,9 +1339,11 @@ mil.hn
 net.hn
 org.hn
 
-// hr : http://www.dns.hr/documents/pdf/HRTLD-regulations.pdf
+// hr : https://www.iana.org/domains/root/db/hr.html
+// https://domene.hr/en/portal/faq
 hr
 com.hr
+// From.hr domene : http://from.hr/
 from.hr
 iz.hr
 name.hr
