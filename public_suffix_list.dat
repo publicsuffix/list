@@ -5163,7 +5163,7 @@ onion
 org
 
 // pa : https://www.iana.org/domains/root/db/pa.html
-// see also : http://www.nic.pa/
+// see also : http://www.nic.pa/en/terms-service
 // Some additional second level "domains" resolve directly as hostnames, such as
 // pannet.pa, so we add a rule for "pa".
 pa
