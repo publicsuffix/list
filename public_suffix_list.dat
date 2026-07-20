@@ -1195,7 +1195,7 @@ net.gg
 org.gg
 
 // gh : https://www.iana.org/domains/root/db/gh.html
-// https://www.nic.gh/
+// http://www.nic.gh/policy.html
 // Although domains directly at second level are not possible at the moment,
 // they have been possible for some time and may come back.
 gh
