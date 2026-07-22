@@ -15695,6 +15695,10 @@ vicp.fun
 yicp.fun
 zicp.fun
 
+// ShareLocalHost : https://sharelocal.host
+// Submitted by Alan <killua8p@gmail.com>
+local-8000.site
+
 // Sheezy.Art : https://sheezy.art
 // Submitted by Nyoom <admin@sheezy.art>
 sheezy.games
