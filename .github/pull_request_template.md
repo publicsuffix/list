@@ -47,9 +47,11 @@ restrictions.
 -->
 
  * [ ] We are listing *any* third-party limits that we seek to work around in our rationale such as those between iOS 14.5+ and Facebook (see [Issue #1245](https://github.com/publicsuffix/list/issues/1245) as a well-documented example)
+ <!-- FILL IN (CAN BE EMPTY): Third-party limits worked around (keep this line and its END FILL IN) -->
  - [Cloudflare](https://developers.cloudflare.com/learning-paths/get-started/add-domain-to-cf/add-site/)
  - [Let's Encrypt](https://letsencrypt.org/docs/rate-limits/)
- - MAKE SURE TO UPDATE THE FOLLOWING LIST WITH YOUR LIMITATIONS! REMOVE ENTRIES WHICH DO NOT APPLY AS WELL AS REMOVING THIS LINE!
+ - REMOVE THIS LINE after listing any third-party limits above; delete the example entries that do not apply.
+ <!-- END FILL IN -->
 
 <!--
 The purpose of the question above is to expose limit workarounds.
@@ -115,6 +117,9 @@ At a minimum, you must provide an abuse contact either in the form of an email a
 
   URL where abuse contact or abuse reporting form can be found: 
   <!-- Provide the URL where an Internet user can access the abuse contact information -->
+  <!-- FILL IN: Abuse contact URL (keep this line and its END FILL IN) -->
+
+  <!-- END FILL IN -->
 
 ---
 
@@ -171,8 +176,15 @@ the submitting org, specifically with context/connection
 to this request.
 -->
 
+<!-- FILL IN: Description of Organization (keep this line and its END FILL IN) -->
+
+<!-- END FILL IN -->
+
 **Organization Website:**
 <!-- Provide the website address of the org as a full URL (i.e. https://example.com) -->
+<!-- FILL IN: Organization Website (keep this line and its END FILL IN) -->
+
+<!-- END FILL IN -->
 
 ## Reason for PSL Inclusion
 <!--
@@ -195,6 +207,10 @@ for which your PR should be included in the PSL. There is no
 upper limit, but six paragraphs seems like a rational stop.
 -->
 
+<!-- FILL IN: Reason for PSL Inclusion (keep this line and its END FILL IN) -->
+
+<!-- END FILL IN -->
+
 **Number of THOUSANDS of distinct users this request is being made to serve:**
 <!-- 
 The guidelines state that PSL inclusion is considered only for 
@@ -209,6 +225,9 @@ or interact with the namespace(s).
 
 Please provide us this count, and identify if this is current 
 actual count or an estimate. -->
+<!-- FILL IN: Number of thousands of distinct users (keep this line and its END FILL IN) -->
+
+<!-- END FILL IN -->
 
 ## DNS Verification
 <!--
@@ -234,3 +253,6 @@ We ask that you leave this record in place while you want
 your entry to remain in the PSL, so that future (TBD) 
 automation can remove entries where the record is not present.
 -->
+<!-- FILL IN: DNS verification records (keep this line and its END FILL IN) -->
+
+<!-- END FILL IN -->
