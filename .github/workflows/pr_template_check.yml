@@ -1,0 +1,71 @@
+name: PR template check
+
+# WARNING: pull_request_target runs in the context of the BASE repository, so
+# this job has a read/write token and repository secrets even for pull requests
+# from forks. That is safe ONLY because this job treats the PR as data: it reads
+# the body and never checks out or runs the PR head. Under this trigger you MUST
+# NOT:
+#   - check out github.event.pull_request.head.* (or otherwise run PR code), or
+#   - interpolate PR title/body into a run: block via ${{ ... }} (shell injection).
+# Either turns this into remote code execution with our token and secrets. To
+# build or test contributor code, use a separate `pull_request` job with a
+# read-only token and no secrets on a GitHub-hosted runner.
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize, ready_for_review]
+    paths:
+      - public_suffix_list.dat
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number to check
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check-template:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: resolve PR number
+        id: pr
+        env:
+          PR: ${{ github.event.pull_request.number || github.event.inputs.pr }}
+        run: echo "number=$PR" >> "$GITHUB_OUTPUT"
+
+      - name: check PR template
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ steps.pr.outputs.number }}
+        run: |
+          PR_BODY="$(gh pr view "$PR" --repo "$REPO" --json body --jq .body)" \
+            python3 .github/scripts/check_pr_template.py .github/pull_request_template.md
+
+      # always(): the check step exits non-zero for an invalid body, which would
+      # otherwise skip this step — but that failing case is exactly when the
+      # label must be added. On a passing body it still runs, to remove any
+      # stale label.
+      - name: label incorrect PRs
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ steps.pr.outputs.number }}
+          RESULT: ${{ steps.check.outputs.result }}
+          LABEL: "PR template incorrect"
+        run: |
+          gh label create "$LABEL" --repo "$REPO" --color D93F0B \
+            --description "The PR template was not fully or correctly filled out" \
+            2>/dev/null || true
+          if [ "$RESULT" = "fail" ]; then
+            gh pr edit "$PR" --repo "$REPO" --add-label "$LABEL"
+          else
+            gh pr edit "$PR" --repo "$REPO" --remove-label "$LABEL" 2>/dev/null || true
+          fi
