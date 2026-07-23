@@ -15202,6 +15202,10 @@ us.platform.sh
 *.platformsh.site
 *.tst.site
 
+// Playcode : https://playcode.io
+// Submitted by Ruslan Ianberdin <security@playcode.io>
+playcode.site
+
 // Pley AB : https://www.pley.com/
 // Submitted by Henning Pohl <infra@pley.com>
 pley.games
