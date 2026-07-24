@@ -234,7 +234,7 @@ gv.at
 or.at
 
 // au : https://www.iana.org/domains/root/db/au.html
-// see also: https://www.auda.org.au/
+// https://www.auda.org.au/
 // Confirmed by registry <general@auda.org.au> 2025-07-16
 au
 // 2LDs
@@ -707,7 +707,7 @@ net.bw
 org.bw
 
 // by : https://www.iana.org/domains/root/db/by.html
-// see also: http://tld.by/rules_2006_en.html
+// http://tld.by/rules_2006_en.html
 // list of other 2nd level tlds ?
 by
 gov.by
@@ -745,8 +745,8 @@ pe.ca
 qc.ca
 sk.ca
 yk.ca
-// gc.ca: https://www.cira.ca/en/resources/documents/cybersecurity/overview-domain-name-system-dns/ -> "How are nodes delegated?"
-// see also: https://design.canada.ca/specifications/mandatory-elements/domains-urls.html
+// gc.ca: https://en.wikipedia.org/wiki/.gc.ca
+// see also: http://registry.gc.ca/en/SubdomainFAQ
 gc.ca
 
 // cat : https://www.iana.org/domains/root/db/cat.html
@@ -891,7 +891,7 @@ net.cu
 org.cu
 
 // cv : https://www.iana.org/domains/root/db/cv.html
-// see also: https://ola.cv/
+// https://ola.cv/domain-extensions-under-cv/
 // Confirmed by registry <support@ola.cv> 2024-11-26
 cv
 com.cv
@@ -918,7 +918,7 @@ gov.cx
 
 // cy : http://www.nic.cy/
 // Submitted by Panayiotou Fotia <cydns@ucy.ac.cy>
-// see also: https://nic.cy/wp-content/uploads/2024/01/Create-Request-for-domain-name-registration-1.pdf
+// https://nic.cy/wp-content/uploads/2024/01/Create-Request-for-domain-name-registration-1.pdf
 cy
 ac.cy
 biz.cy
@@ -951,7 +951,7 @@ dj
 dk
 
 // dm : https://www.iana.org/domains/root/db/dm.html
-// see also: https://nic.dm/policies/pdf/DMRulesandGuidelines2024v1.pdf
+// https://nic.dm/policies/pdf/DMRulesandGuidelines2024v1.pdf
 // Confirmed by registry <admin@dotdm.dm> 2024-11-19
 dm
 co.dm
@@ -1188,7 +1188,7 @@ net.gg
 org.gg
 
 // gh : https://www.iana.org/domains/root/db/gh.html
-// see also: http://www.nic.gh/policy.html
+// https://www.nic.gh/
 // Although domains directly at second level are not possible at the moment,
 // they have been possible for some time and may come back.
 gh
@@ -5141,8 +5141,7 @@ onion
 // org : https://www.iana.org/domains/root/db/org.html
 org
 
-// pa : https://www.iana.org/domains/root/db/pa.html
-// see also : http://www.nic.pa/en/terms-service
+// pa : http://www.nic.pa/
 // Some additional second level "domains" resolve directly as hostnames, such as
 // pannet.pa, so we add a rule for "pa".
 pa
@@ -5600,7 +5599,7 @@ org.sd
 tv.sd
 
 // se : https://www.iana.org/domains/root/db/se.html
-// see also: https://data.internetstiftelsen.se/barred_domains_list.txt -> Second level domains & Sub-domains
+// https://data.internetstiftelsen.se/barred_domains_list.txt -> Second level domains & Sub-domains
 // Confirmed by Registry Services <registry@internetstiftelsen.se> 2024-11-20
 se
 a.se
@@ -5825,7 +5824,7 @@ nom.tm
 org.tm
 
 // tn : http://www.registre.tn/fr/
-// see also: https://whois.ati.tn/
+// https://whois.ati.tn/
 tn
 com.tn
 ens.tn
@@ -5851,8 +5850,9 @@ mil.to
 net.to
 org.to
 
-// tr : https://www.trabis.gov.tr/
-// see also: https://www.btk.gov.tr/en/internet-domain-names-legislation
+// tr : https://nic.tr/
+// https://nic.tr/forms/eng/policies.pdf
+// https://nic.tr/index.php?USRACTN=PRICELST
 tr
 av.tr
 bbs.tr
@@ -5901,7 +5901,7 @@ pro.tt
 tv
 
 // tw : https://www.iana.org/domains/root/db/tw.html
-// see also: https://twnic.tw/dnservice_catag.php
+// https://twnic.tw/dnservice_catag.php
 // Confirmed by registry <dns@twnic.tw> 2024-11-26
 tw
 club.tw
@@ -5941,7 +5941,7 @@ in.ua
 net.ua
 org.ua
 // ua geographic names
-// see also: https://hostmaster.ua/2ld/
+// https://hostmaster.ua/2ld/
 cherkassy.ua
 cherkasy.ua
 chernigov.ua
@@ -6017,7 +6017,7 @@ zp.ua
 zt.ua
 
 // ug : https://www.registry.co.ug/
-// see also: https://www.registry.co.ug, https://whois.co.ug
+// https://www.registry.co.ug, https://whois.co.ug
 // Confirmed by registry <support@i3c.co.ug> 2025-01-20
 ug
 ac.ug
