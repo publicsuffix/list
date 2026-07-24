@@ -173,8 +173,7 @@ commune.am
 net.am
 org.am
 
-// ao : https://www.iana.org/domains/root/db/ao.html
-// see also: https://www.dns.ao/ao/
+// ao : https://www.dns.ao/ao/
 ao
 co.ao
 ed.ao
@@ -356,8 +355,7 @@ ac.be
 bf
 gov.bf
 
-// bg : https://www.iana.org/domains/root/db/bg.html
-// see also: https://www.register.bg/ -> "Terms and Conditions"
+// bg : https://www.register.bg/ -> "Terms and Conditions"
 bg
 0.bg
 1.bg
@@ -404,8 +402,7 @@ gov.bh
 net.bh
 org.bh
 
-// bi : https://www.iana.org/domains/root/db/bi.html
-// see also: http://whois.nic.bi/
+// bi : http://whois.nic.bi/
 bi
 co.bi
 com.bi
@@ -701,8 +698,7 @@ org.bt
 // Submitted by registry <jarle@uninett.no>
 bv
 
-// bw : https://www.iana.org/domains/root/db/bw.html
-// see also: https://nic.net.bw/bw-name-structure
+// bw : https://nic.net.bw/bw-name-structure
 bw
 ac.bw
 co.bw
@@ -723,8 +719,7 @@ com.by
 // http://hoster.by/
 of.by
 
-// bz : https://www.iana.org/domains/root/db/bz.html
-// see also: http://www.belizenic.bz/
+// bz : http://www.belizenic.bz/
 bz
 co.bz
 com.bz
@@ -760,8 +755,7 @@ cat
 // cc : https://www.iana.org/domains/root/db/cc.html
 cc
 
-// cd : https://www.iana.org/domains/root/db/cd.html
-// see also: https://www.nic.cd
+// cd : https://www.nic.cd
 cd
 gov.cd
 
@@ -1064,8 +1058,7 @@ org.ee
 pri.ee
 riik.ee
 
-// eg : https://www.iana.org/domains/root/db/eg.html
-// see also: https://domain.eg/subdomain-names
+// eg : https://domain.eg/subdomain-names
 eg
 ac.eg
 com.eg
@@ -1216,8 +1209,7 @@ ltd.gi
 mod.gi
 org.gi
 
-// gl : https://www.iana.org/domains/root/db/gl.html
-// see also: http://nic.gl
+// gl : http://nic.gl
 gl
 co.gl
 com.gl
@@ -1292,8 +1284,7 @@ web.gu
 // gw : https://nic.gw/regras/
 gw
 
-// gy : https://www.iana.org/domains/root/db/gy.html
-// see also: http://registry.gy/
+// gy : http://registry.gy/
 gy
 co.gy
 com.gy
@@ -1339,8 +1330,7 @@ mil.hn
 net.hn
 org.hn
 
-// hr : https://www.iana.org/domains/root/db/hr.html
-// see also: https://domene.hr/en/portal/faq
+// hr : https://domene.hr/en/portal/faq
 hr
 com.hr
 // From.hr domene : http://from.hr/
@@ -1565,8 +1555,7 @@ sch.ir
 // Confirmed by registry <marius@isgate.is> 2024-11-17
 is
 
-// it : https://www.iana.org/domains/root/db/it.html
-// see also: https://www.nic.it/
+// it : https://www.nic.it/
 it
 edu.it
 gov.it
@@ -3852,8 +3841,7 @@ info.ki
 net.ki
 org.ki
 
-// km : https://www.iana.org/domains/root/db/km.html
-// see also: https://www.domaine.km/
+// km : https://www.domaine.km/
 km
 ass.km
 com.km
@@ -3882,8 +3870,7 @@ gov.kn
 net.kn
 org.kn
 
-// kp : https://www.iana.org/domains/root/db/kp.html
-// see also: http://www.star.co.kp/
+// kp : http://www.star.co.kp/
 kp
 com.kp
 edu.kp
@@ -3941,8 +3928,7 @@ ind.kw
 net.kw
 org.kw
 
-// ky : https://www.iana.org/domains/root/db/ky.html
-// see also: https://www.ofreg.ky/ict/kydomain-introduction
+// ky : https://www.ofreg.ky/ict/kydomain-introduction
 ky
 com.ky
 edu.ky
@@ -4033,8 +4019,7 @@ net.ls
 org.ls
 sc.ls
 
-// lt : https://www.iana.org/domains/root/db/lt.html
-// see also : https://www.domreg.lt/
+// lt : https://www.domreg.lt/
 lt
 gov.lt
 
@@ -4065,8 +4050,7 @@ org.ly
 plc.ly
 sch.ly
 
-// ma : https://www.iana.org/domains/root/db/ma.html
-// see also: http://www.anrt.ma/fr/admin/download/upload/file_fr782.pdf
+// ma : http://www.anrt.ma/fr/admin/download/upload/file_fr782.pdf
 ma
 ac.ma
 co.ma
@@ -4111,8 +4095,7 @@ mh
 // mil : https://www.iana.org/domains/root/db/mil.html
 mil
 
-// mk : https://www.iana.org/domains/root/db/mk.html
-// see also: https://marnet.mk/ -> "ПРАВИЛНИК"
+// mk : https://marnet.mk/ -> "ПРАВИЛНИК"
 mk
 com.mk
 edu.mk
@@ -4159,8 +4142,7 @@ org.mo
 // mobi : https://www.iana.org/domains/root/db/mobi.html
 mobi
 
-// mp : https://www.iana.org/domains/root/db/mp.html
-// see also : http://get.mp/
+// mp : http://get.mp/
 mp
 
 // mq : https://www.iana.org/domains/root/db/mq.html
@@ -4300,8 +4282,7 @@ rec.nf
 store.nf
 web.nf
 
-// ng : https://www.iana.org/domains/root/db/ng.html
-// see also : https://www.nira.org.ng/
+// ng : https://www.nira.org.ng/
 ng
 com.ng
 edu.ng
@@ -4331,8 +4312,7 @@ nom.ni
 org.ni
 web.ni
 
-// nl : https://www.iana.org/domains/root/db/nl.html
-// see also: https://www.sidn.nl/
+// nl : https://www.sidn.nl/
 nl
 
 // no : https://www.norid.no/en/om-domenenavn/regelverk-for-no/
@@ -5106,8 +5086,7 @@ voagat.no
 volda.no
 voss.no
 
-// np : https://www.iana.org/domains/root/db/np.html
-// see also : https://www.mos.com.np/
+// np : https://www.mos.com.np/
 *.np
 
 // nr : http://cenpac.net.nr/dns/index.html
@@ -5459,8 +5438,7 @@ org.pn
 // post : https://www.iana.org/domains/root/db/post.html
 post
 
-// pr : https://www.iana.org/domains/root/db/pr.html
-// see also : https://www.domains.pr/
+// pr : https://www.domains.pr/
 pr
 ac.pr
 biz.pr
@@ -5490,8 +5468,7 @@ law.pro
 med.pro
 recht.pro
 
-// ps : https://www.iana.org/domains/root/db/ps.html
-// see also: https://www.pnina.ps/registration-policy/
+// ps : https://www.pnina.ps/registration-policy/
 ps
 com.ps
 edu.ps
@@ -5602,8 +5579,7 @@ gov.sb
 net.sb
 org.sb
 
-// sc : https://www.iana.org/domains/root/db/sc.html
-// see also : https://www.nic.sc/en/policies.html
+// sc : https://www.nic.sc/en/policies.html
 sc
 com.sc
 edu.sc
@@ -5691,8 +5667,7 @@ si
 // Submitted by registry <jarle@uninett.no>
 sj
 
-// sk : https://www.iana.org/domains/root/db/sk.html
-// see also: https://sk-nic.sk/
+// sk : https://sk-nic.sk/
 sk
 org.sk
 
@@ -5717,8 +5692,7 @@ gouv.sn
 org.sn
 univ.sn
 
-// so : https://www.iana.org/domains/root/db/so.html
-// see also : https://sonic.so/policies/
+// so : https://sonic.so/policies/
 so
 com.so
 edu.so
@@ -5782,8 +5756,7 @@ mil.sy
 net.sy
 org.sy
 
-// sz : https://www.iana.org/domains/root/db/sz.html
-// see also: http://www.sispa.org.sz/
+// sz : http://www.sispa.org.sz/
 sz
 ac.sz
 co.sz
@@ -5795,15 +5768,13 @@ tc
 // td : https://www.iana.org/domains/root/db/td.html
 td
 
-// tel : https://www.iana.org/domains/root/db/tel.html
-// see also: http://www.telnic.org/
+// tel : http://www.telnic.org/
 tel
 
 // tf : https://www.afnic.fr/wp-media/uploads/2022/12/afnic-naming-policy-2023-01-01.pdf
 tf
 
-// tg : https://www.iana.org/domains/root/db/tg.html
-// see also: http://www.nic.tg/
+// tg : http://www.nic.tg/
 tg
 
 // th : https://www.iana.org/domains/root/db/th.html
@@ -6811,8 +6782,7 @@ school.za
 tm.za
 web.za
 
-// zm : https://www.iana.org/domains/root/db/zm.html
-// see also : https://zicta.zm/
+// zm : https://zicta.zm/
 zm
 ac.zm
 biz.zm
