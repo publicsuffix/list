@@ -12412,9 +12412,16 @@ on-aptible.com
 // Submitted by Aki Ueno <admin@aquapal.net>
 f5.si
 
-// ArvanCloud EdgeCompute
-// Submitted by ArvanCloud CDN <cdn@arvancloud.ir>
+// ArvanCloud
+// Submitted by Ramin Najjarbashi <cdn@arvancloud.ir>
+*.arvancompute.ir
 arvanedge.ir
+*.arvanimage.ir
+*.arvanlive.ir
+*.arvanstorage.ir
+!service.arvanstorage.ir
+*.arvanvads.ir
+*.arvanvod.ir
 
 // ASEINet : https://www.aseinet.com/
 // Submitted by Asei SEKIGUCHI <mail@aseinet.com>
