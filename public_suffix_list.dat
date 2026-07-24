@@ -148,14 +148,14 @@ net.ag
 nom.ag
 org.ag
 
-// ai : http://nic.com.ai/
+// ai : https://www.nic.ai/
 ai
 com.ai
 net.ai
 off.ai
 org.ai
 
-// al : http://www.ert.gov.al/ert_alb/faq_det.html?Id=31
+// al : https://akep.al/en/domain-e-application/ -> "Regulations and Decisions"
 al
 com.al
 edu.al
@@ -174,7 +174,7 @@ net.am
 org.am
 
 // ao : https://www.iana.org/domains/root/db/ao.html
-// https://www.dns.ao/ao/
+// see also: https://www.dns.ao/ao/
 ao
 co.ao
 ed.ao
@@ -235,7 +235,7 @@ gv.at
 or.at
 
 // au : https://www.iana.org/domains/root/db/au.html
-// https://www.auda.org.au/
+// see also: https://www.auda.org.au/
 // Confirmed by registry <general@auda.org.au> 2025-07-16
 au
 // 2LDs
@@ -357,7 +357,7 @@ bf
 gov.bf
 
 // bg : https://www.iana.org/domains/root/db/bg.html
-// https://www.register.bg/user/static/rules/en/index.html
+// see also: https://www.register.bg/ -> "Terms and Conditions"
 bg
 0.bg
 1.bg
@@ -405,7 +405,7 @@ net.bh
 org.bh
 
 // bi : https://www.iana.org/domains/root/db/bi.html
-// http://whois.nic.bi/
+// see also: http://whois.nic.bi/
 bi
 co.bi
 com.bi
@@ -681,7 +681,7 @@ wiki.br
 xyz.br
 zlg.br
 
-// bs : http://www.nic.bs/rules.html
+// bs : http://www.register.bs/rules.html
 bs
 com.bs
 edu.bs
@@ -702,7 +702,7 @@ org.bt
 bv
 
 // bw : https://www.iana.org/domains/root/db/bw.html
-// https://nic.net.bw/bw-name-structure
+// see also: https://nic.net.bw/bw-name-structure
 bw
 ac.bw
 co.bw
@@ -711,7 +711,7 @@ net.bw
 org.bw
 
 // by : https://www.iana.org/domains/root/db/by.html
-// http://tld.by/rules_2006_en.html
+// see also: http://tld.by/rules_2006_en.html
 // list of other 2nd level tlds ?
 by
 gov.by
@@ -724,7 +724,7 @@ com.by
 of.by
 
 // bz : https://www.iana.org/domains/root/db/bz.html
-// http://www.belizenic.bz/
+// see also: http://www.belizenic.bz/
 bz
 co.bz
 com.bz
@@ -750,8 +750,8 @@ pe.ca
 qc.ca
 sk.ca
 yk.ca
-// gc.ca: https://en.wikipedia.org/wiki/.gc.ca
-// see also: http://registry.gc.ca/en/SubdomainFAQ
+// gc.ca: https://www.cira.ca/en/resources/documents/cybersecurity/overview-domain-name-system-dns/ -> "How are nodes delegated?"
+// see also: https://design.canada.ca/specifications/mandatory-elements/domains-urls.html
 gc.ca
 
 // cat : https://www.iana.org/domains/root/db/cat.html
@@ -761,7 +761,7 @@ cat
 cc
 
 // cd : https://www.iana.org/domains/root/db/cd.html
-// https://www.nic.cd
+// see also: https://www.nic.cd
 cd
 gov.cd
 
@@ -897,7 +897,7 @@ net.cu
 org.cu
 
 // cv : https://www.iana.org/domains/root/db/cv.html
-// https://ola.cv/domain-extensions-under-cv/
+// see also: https://ola.cv/
 // Confirmed by registry <support@ola.cv> 2024-11-26
 cv
 com.cv
@@ -924,7 +924,7 @@ gov.cx
 
 // cy : http://www.nic.cy/
 // Submitted by Panayiotou Fotia <cydns@ucy.ac.cy>
-// https://nic.cy/wp-content/uploads/2024/01/Create-Request-for-domain-name-registration-1.pdf
+// see also: https://nic.cy/wp-content/uploads/2024/01/Create-Request-for-domain-name-registration-1.pdf
 cy
 ac.cy
 biz.cy
@@ -957,7 +957,7 @@ dj
 dk
 
 // dm : https://www.iana.org/domains/root/db/dm.html
-// https://nic.dm/policies/pdf/DMRulesandGuidelines2024v1.pdf
+// see also: https://nic.dm/policies/pdf/DMRulesandGuidelines2024v1.pdf
 // Confirmed by registry <admin@dotdm.dm> 2024-11-19
 dm
 co.dm
@@ -1065,7 +1065,7 @@ pri.ee
 riik.ee
 
 // eg : https://www.iana.org/domains/root/db/eg.html
-// https://domain.eg/en/domain-rules/subdomain-names-types/
+// see also: https://domain.eg/subdomain-names
 eg
 ac.eg
 com.eg
@@ -1195,7 +1195,7 @@ net.gg
 org.gg
 
 // gh : https://www.iana.org/domains/root/db/gh.html
-// https://www.nic.gh/
+// see also: http://www.nic.gh/policy.html
 // Although domains directly at second level are not possible at the moment,
 // they have been possible for some time and may come back.
 gh
@@ -1207,7 +1207,7 @@ mil.gh
 net.gh
 org.gh
 
-// gi : http://www.nic.gi/rules.html
+// gi : https://www.nic.gi/rules.html
 gi
 com.gi
 edu.gi
@@ -1217,7 +1217,7 @@ mod.gi
 org.gi
 
 // gl : https://www.iana.org/domains/root/db/gl.html
-// http://nic.gl
+// see also: http://nic.gl
 gl
 co.gl
 com.gl
@@ -1225,7 +1225,7 @@ edu.gl
 net.gl
 org.gl
 
-// gm : http://www.nic.gm/htmlpages%5Cgm-policy.htm
+// gm : https://www.nic.gm/NIC2/policies.html
 gm
 
 // gn : http://psg.com/dns/gn/gn.txt
@@ -1275,7 +1275,7 @@ mil.gt
 net.gt
 org.gt
 
-// gu : http://gadao.gov.gu/register.html
+// gu : https://give.uog.edu/gu-domain-application-form/
 // University of Guam : https://www.uog.edu
 // Submitted by uognoc@triton.uog.edu
 gu
@@ -1293,7 +1293,7 @@ web.gu
 gw
 
 // gy : https://www.iana.org/domains/root/db/gy.html
-// http://registry.gy/
+// see also: http://registry.gy/
 gy
 co.gy
 com.gy
@@ -1339,9 +1339,11 @@ mil.hn
 net.hn
 org.hn
 
-// hr : http://www.dns.hr/documents/pdf/HRTLD-regulations.pdf
+// hr : https://www.iana.org/domains/root/db/hr.html
+// see also: https://domene.hr/en/portal/faq
 hr
 com.hr
+// From.hr domene : http://from.hr/
 from.hr
 iz.hr
 name.hr
@@ -1534,7 +1536,7 @@ net.io
 nom.io
 org.io
 
-// iq : http://www.cmc.iq/english/iq/iqregister1.htm
+// iq : https://cmc.iq/
 iq
 com.iq
 edu.iq
@@ -1564,7 +1566,7 @@ sch.ir
 is
 
 // it : https://www.iana.org/domains/root/db/it.html
-// https://www.nic.it/
+// see also: https://www.nic.it/
 it
 edu.it
 gov.it
@@ -1984,7 +1986,7 @@ co.je
 net.je
 org.je
 
-// jm : http://www.com.jm/register.html
+// jm : https://www.iana.org/domains/root/db/jm.html
 *.jm
 
 // jo : https://www.dns.jo/JoFamily.aspx
@@ -3852,7 +3854,7 @@ net.ki
 org.ki
 
 // km : https://www.iana.org/domains/root/db/km.html
-// http://www.domaine.km/documents/charte.doc
+// see also: https://www.domaine.km/
 km
 ass.km
 com.km
@@ -3864,7 +3866,7 @@ org.km
 prd.km
 tm.km
 // These are only mentioned as proposed suggestions at domaine.km, but
-// https://www.iana.org/domains/root/db/km.html says they're available for registration:
+// https://en.wikipedia.org/wiki/.km says they're available for registration:
 asso.km
 coop.km
 gouv.km
@@ -3874,15 +3876,15 @@ pharmaciens.km
 presse.km
 veterinaire.km
 
-// kn : https://www.iana.org/domains/root/db/kn.html
-// http://www.dot.kn/domainRules.html
+// kn : https://nic.kn/
 kn
 edu.kn
 gov.kn
 net.kn
 org.kn
 
-// kp : http://www.kcce.kp/en_index.php
+// kp : https://www.iana.org/domains/root/db/kp.html
+// see also: http://www.star.co.kp/
 kp
 com.kp
 edu.kp
@@ -3940,8 +3942,8 @@ ind.kw
 net.kw
 org.kw
 
-// ky : http://www.icta.ky/da_ky_reg_dom.php
-// Confirmed by registry <kysupport@perimeterusa.com> 2008-06-17
+// ky : https://www.iana.org/domains/root/db/ky.html
+// see also: https://www.ofreg.ky/ict/kydomain-introduction
 ky
 com.ky
 edu.ky
@@ -4033,8 +4035,8 @@ org.ls
 sc.ls
 
 // lt : https://www.iana.org/domains/root/db/lt.html
+// see also : https://www.domreg.lt/
 lt
-// gov.lt : http://www.gov.lt/index_en.php
 gov.lt
 
 // lu : http://www.dns.lu/en/
@@ -4065,7 +4067,7 @@ plc.ly
 sch.ly
 
 // ma : https://www.iana.org/domains/root/db/ma.html
-// http://www.anrt.ma/fr/admin/download/upload/file_fr782.pdf
+// see also: http://www.anrt.ma/fr/admin/download/upload/file_fr782.pdf
 ma
 ac.ma
 co.ma
@@ -4111,7 +4113,7 @@ mh
 mil
 
 // mk : https://www.iana.org/domains/root/db/mk.html
-// see also: http://dns.marnet.net.mk/postapka.php
+// see also: https://marnet.mk/ -> "ПРАВИЛНИК"
 mk
 com.mk
 edu.mk
@@ -4147,7 +4149,7 @@ edu.mn
 gov.mn
 org.mn
 
-// mo : http://www.monic.net.mo/
+// mo : https://www.monic.mo/
 mo
 com.mo
 edu.mo
@@ -4158,8 +4160,8 @@ org.mo
 // mobi : https://www.iana.org/domains/root/db/mobi.html
 mobi
 
-// mp : http://www.dot.mp/
-// Confirmed by registry <dcamacho@saipan.com> 2008-06-17
+// mp : https://www.iana.org/domains/root/db/mp.html
+// see also : http://get.mp/
 mp
 
 // mq : https://www.iana.org/domains/root/db/mq.html
@@ -4299,7 +4301,8 @@ rec.nf
 store.nf
 web.nf
 
-// ng : http://www.nira.org.ng/index.php/join-us/register-ng-domain/189-nira-slds
+// ng : https://www.iana.org/domains/root/db/ng.html
+// see also : https://www.nira.org.ng/
 ng
 com.ng
 edu.ng
@@ -4312,7 +4315,7 @@ net.ng
 org.ng
 sch.ng
 
-// ni : http://www.nic.ni/
+// ni : https://www.nic.ni/
 ni
 ac.ni
 biz.ni
@@ -4330,7 +4333,7 @@ org.ni
 web.ni
 
 // nl : https://www.iana.org/domains/root/db/nl.html
-// https://www.sidn.nl/
+// see also: https://www.sidn.nl/
 nl
 
 // no : https://www.norid.no/en/om-domenenavn/regelverk-for-no/
@@ -5104,7 +5107,8 @@ voagat.no
 volda.no
 voss.no
 
-// np : http://www.mos.com.np/register.html
+// np : https://www.iana.org/domains/root/db/np.html
+// see also : https://www.mos.com.np/
 *.np
 
 // nr : http://cenpac.net.nr/dns/index.html
@@ -5159,7 +5163,8 @@ onion
 // org : https://www.iana.org/domains/root/db/org.html
 org
 
-// pa : http://www.nic.pa/
+// pa : https://www.iana.org/domains/root/db/pa.html
+// see also : http://www.nic.pa/en/terms-service
 // Some additional second level "domains" resolve directly as hostnames, such as
 // pannet.pa, so we add a rule for "pa".
 pa
@@ -5175,7 +5180,7 @@ nom.pa
 org.pa
 sld.pa
 
-// pe : https://www.nic.pe/InformeFinalComision.pdf
+// pe : https://punto.pe/policy.php
 pe
 com.pe
 edu.pe
@@ -5185,7 +5190,7 @@ net.pe
 nom.pe
 org.pe
 
-// pf : http://www.gobin.info/domainname/formulaire-pf.pdf
+// pf : https://www.iana.org/domains/root/db/pf.html
 pf
 com.pf
 edu.pf
@@ -5206,7 +5211,7 @@ net.ph
 ngo.ph
 org.ph
 
-// pk : https://pk5.pknic.net.pk/pk5/msgNamepk.PK
+// pk : https://www.pknic.net.pk/domain-structure.html
 // Contact Email: staff@pknic.net.pk
 pk
 ac.pk
@@ -5455,11 +5460,14 @@ org.pn
 // post : https://www.iana.org/domains/root/db/post.html
 post
 
-// pr : http://www.nic.pr/index.asp?f=1
+// pr : https://www.iana.org/domains/root/db/pr.html
+// see also : https://www.domains.pr/
 pr
+ac.pr
 biz.pr
 com.pr
 edu.pr
+est.pr
 gov.pr
 info.pr
 isla.pr
@@ -5467,9 +5475,6 @@ name.pr
 net.pr
 org.pr
 pro.pr
-// these aren't mentioned on nic.pr, but on https://www.iana.org/domains/root/db/pr.html
-ac.pr
-est.pr
 prof.pr
 
 // pro : http://registry.pro/get-pro
@@ -5487,7 +5492,7 @@ med.pro
 recht.pro
 
 // ps : https://www.iana.org/domains/root/db/ps.html
-// http://www.nic.ps/registration/policy.html#reg
+// see also: https://www.pnina.ps/registration-policy/
 ps
 com.ps
 edu.ps
@@ -5590,8 +5595,7 @@ org.sa
 pub.sa
 sch.sa
 
-// sb : http://www.sbnic.net.sb/
-// Submitted by registry <lee.humphries@telekom.com.sb>
+// sb : http://www.nic.net.sb/
 sb
 com.sb
 edu.sb
@@ -5599,7 +5603,8 @@ gov.sb
 net.sb
 org.sb
 
-// sc : http://www.nic.sc/
+// sc : https://www.iana.org/domains/root/db/sc.html
+// see also : https://www.nic.sc/en/policies.html
 sc
 com.sc
 edu.sc
@@ -5620,7 +5625,7 @@ org.sd
 tv.sd
 
 // se : https://www.iana.org/domains/root/db/se.html
-// https://data.internetstiftelsen.se/barred_domains_list.txt -> Second level domains & Sub-domains
+// see also: https://data.internetstiftelsen.se/barred_domains_list.txt -> Second level domains & Sub-domains
 // Confirmed by Registry Services <registry@internetstiftelsen.se> 2024-11-20
 se
 a.se
@@ -5688,7 +5693,7 @@ si
 sj
 
 // sk : https://www.iana.org/domains/root/db/sk.html
-// https://sk-nic.sk/
+// see also: https://sk-nic.sk/
 sk
 org.sk
 
@@ -5713,7 +5718,8 @@ gouv.sn
 org.sn
 univ.sn
 
-// so : http://sonic.so/policies/
+// so : https://www.iana.org/domains/root/db/so.html
+// see also : https://sonic.so/policies/
 so
 com.so
 edu.so
@@ -5778,7 +5784,7 @@ net.sy
 org.sy
 
 // sz : https://www.iana.org/domains/root/db/sz.html
-// http://www.sispa.org.sz/
+// see also: http://www.sispa.org.sz/
 sz
 ac.sz
 co.sz
@@ -5791,14 +5797,14 @@ tc
 td
 
 // tel : https://www.iana.org/domains/root/db/tel.html
-// http://www.telnic.org/
+// see also: http://www.telnic.org/
 tel
 
 // tf : https://www.afnic.fr/wp-media/uploads/2022/12/afnic-naming-policy-2023-01-01.pdf
 tf
 
 // tg : https://www.iana.org/domains/root/db/tg.html
-// http://www.nic.tg/
+// see also: http://www.nic.tg/
 tg
 
 // th : https://www.iana.org/domains/root/db/th.html
@@ -5849,7 +5855,7 @@ nom.tm
 org.tm
 
 // tn : http://www.registre.tn/fr/
-// https://whois.ati.tn/
+// see also: https://whois.ati.tn/
 tn
 com.tn
 ens.tn
@@ -5875,9 +5881,8 @@ mil.to
 net.to
 org.to
 
-// tr : https://nic.tr/
-// https://nic.tr/forms/eng/policies.pdf
-// https://nic.tr/index.php?USRACTN=PRICELST
+// tr : https://www.trabis.gov.tr/
+// see also: https://www.btk.gov.tr/en/internet-domain-names-legislation
 tr
 av.tr
 bbs.tr
@@ -5926,7 +5931,7 @@ pro.tt
 tv
 
 // tw : https://www.iana.org/domains/root/db/tw.html
-// https://twnic.tw/dnservice_catag.php
+// see also: https://twnic.tw/dnservice_catag.php
 // Confirmed by registry <dns@twnic.tw> 2024-11-26
 tw
 club.tw
@@ -5940,8 +5945,7 @@ mil.tw
 net.tw
 org.tw
 
-// tz : http://www.tznic.or.tz/index.php/domains
-// Submitted by registry <manager@tznic.or.tz>
+// tz : https://karibu.tz/regulations
 tz
 ac.tz
 co.tz
@@ -5967,7 +5971,7 @@ in.ua
 net.ua
 org.ua
 // ua geographic names
-// https://hostmaster.ua/2ld/
+// see also: https://hostmaster.ua/2ld/
 cherkassy.ua
 cherkasy.ua
 chernigov.ua
@@ -6043,7 +6047,7 @@ zp.ua
 zt.ua
 
 // ug : https://www.registry.co.ug/
-// https://www.registry.co.ug, https://whois.co.ug
+// see also: https://www.registry.co.ug, https://whois.co.ug
 // Confirmed by registry <support@i3c.co.ug> 2025-01-20
 ug
 ac.ug
@@ -6349,7 +6353,7 @@ mil.vc
 net.vc
 org.vc
 
-// ve : https://registro.nic.ve/
+// ve : https://nic.ve/
 // https://nic.ve/site/user-agreement -> under "III. Clasificación de Nombres de Dominio"
 // Submitted by registry nic@nic.ve and nicve@conatel.gob.ve
 ve
@@ -6389,8 +6393,7 @@ k12.vi
 net.vi
 org.vi
 
-// vn : https://www.vnnic.vn/en/domain/cctld-vn
-// https://vnnic.vn/sites/default/files/tailieu/vn.cctld.domains.txt
+// vn : https://vnnic.vn/en/domain-name-vn/domain-name/cctldvn
 vn
 ac.vn
 ai.vn
@@ -6505,7 +6508,7 @@ yt
 // U-Label
 
 // xn--mgbaam7a8h ("Emerat", Arabic) : AE
-// http://nic.ae/english/arabicdomain/rules.jsp
+// http://aeda.ae/
 امارات
 
 // xn--y9a3aq ("hye", Armenian) : AM
@@ -6657,11 +6660,11 @@ yt
 ລາວ
 
 // xn--fzc2c9e2c ("Lanka", Sinhalese-Sinhala) : LK
-// https://nic.lk
+// http://www.domains.lk/
 ලංකා
 
 // xn--xkc2al3hye2a ("Ilangai", Tamil) : LK
-// https://nic.lk
+// http://www.domains.lk/
 இலங்கை
 
 // xn--mgbc0a9azcg ("Morocco/al-Maghrib", Arabic) : MA
@@ -6714,7 +6717,7 @@ yt
 рф
 
 // xn--wgbl6a ("Qatar", Arabic) : QA
-// http://www.ict.gov.qa/
+// https://www.cra.gov.qa/
 قطر
 
 // xn--mgberp4a5d4ar ("AlSaudiah", Arabic) : SA
@@ -6777,10 +6780,10 @@ yt
 // xn--mgb2ddes ("AlYemen", Arabic) : YE
 اليمن
 
-// xxx : http://icmregistry.com
+// xxx : https://icmregistry.biz/
 xxx
 
-// ye : http://www.y.net.ye/services/domain_name.htm
+// ye : https://www.iana.org/domains/root/db/ye.html
 ye
 com.ye
 edu.ye
@@ -6809,8 +6812,8 @@ school.za
 tm.za
 web.za
 
-// zm : https://zicta.zm/
-// Submitted by registry <info@zicta.zm>
+// zm : https://www.iana.org/domains/root/db/zm.html
+// see also : https://zicta.zm/
 zm
 ac.zm
 biz.zm
