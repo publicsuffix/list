@@ -11377,11 +11377,14 @@ barsy.ca
 *.compute.estate
 *.alces.network
 
-// Alibaba Cloud API Gateway
+// Alibaba Cloud
 // Submitted by Alibaba Cloud Security <cloud_product_security_team@alibaba-inc.com>
 alibabacloudcs.com
 ms.fun
 ms.show
+oss-eu-west-1.aliyuncs.com
+oss-eu-west-1-internal.aliyuncs.com
+polardbai.com
 
 // all-inkl.com : https://all-inkl.com
 // Submitted by Werner Kaltofen <wk@all-inkl.com>
