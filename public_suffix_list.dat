@@ -13732,6 +13732,10 @@ futuremailing.at
 *.kunden.ortsinfo.at
 *.statics.cloud
 
+// FXY Inc. : https://fxy.global/
+// Submitted by FXY Inc. <hello@fxy.global>
+spfn.page
+
 // Gadget Software Inc. : https://gadget.dev
 // Submitted by Harry Brundage <security@gadget.dev>
 gadget.app
