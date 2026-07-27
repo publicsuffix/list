@@ -14157,10 +14157,7 @@ info.cx
 // InsForge : https://insforge.dev
 // Submitted by InsForge Support <support@insforge.dev>
 insforge.app
-ap-southeast.insforge.app
-eu-central.insforge.app
-us-east.insforge.app
-us-west.insforge.app
+*.insforge.app
 
 // Interlegis : http://www.interlegis.leg.br
 // Submitted by Gabriel Ferreira <registrobr@interlegis.leg.br>
