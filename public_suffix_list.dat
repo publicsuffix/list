@@ -11349,6 +11349,7 @@ beep.pl
 // Submitted by Aiven Security Team <security+appdomains@aiven.io>
 aiven.app
 aivencloud.com
+*.aivencloud.com
 
 // Akamai : https://www.akamai.com/
 // Submitted by Akamai Team <publicsuffixlist@akamai.com>
