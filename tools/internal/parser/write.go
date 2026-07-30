@@ -17,7 +17,10 @@ func (l *List) MarshalPSL() []byte {
 
 func writeBlockPSL(w io.Writer, b Block) {
 	f := func(msg string, args ...any) {
-		fmt.Fprintf(w, msg+"\n", args...)
+		_, err := fmt.Fprintf(w, msg+"\n", args...)
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	switch v := b.(type) {
@@ -72,7 +75,10 @@ func writeBlockDebug(w io.Writer, b Block, indent string) {
 		changemark = "!!"
 	}
 	f := func(msg string, args ...any) {
-		fmt.Fprintf(w, indent+msg+"\n", args...)
+		_, err := fmt.Fprintf(w, indent+msg+"\n", args...)
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	src := b.SrcRange()

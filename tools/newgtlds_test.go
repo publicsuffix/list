@@ -530,6 +530,13 @@ func TestDatFileString(t *testing.T) {
 	}
 }
 
+func removeOrComplain(t *testing.T, file string) {
+	err := os.Remove(file)
+	if err != nil {
+		t.Errorf("could not remove file: %s", err)
+	}
+}
+
 func TestReadDatFile(t *testing.T) {
 	mustWriteTemp := func(t *testing.T, content string) string {
 		tmpfile, err := os.CreateTemp("", "dat")
@@ -550,7 +557,7 @@ func TestReadDatFile(t *testing.T) {
 		"bar",
 	}, "\n")
 	noHeaderFile := mustWriteTemp(t, noHeaderContent)
-	defer os.Remove(noHeaderFile)
+	defer removeOrComplain(t, noHeaderFile)
 
 	noFooterContent := strings.Join([]string{
 		"foo",
@@ -558,7 +565,7 @@ func TestReadDatFile(t *testing.T) {
 		"bar",
 	}, "\n")
 	noFooterFile := mustWriteTemp(t, noFooterContent)
-	defer os.Remove(noFooterFile)
+	defer removeOrComplain(t, noFooterFile)
 
 	multiHeaderContent := strings.Join([]string{
 		"foo",
@@ -570,7 +577,7 @@ func TestReadDatFile(t *testing.T) {
 		"bar",
 	}, "\n")
 	multiHeaderFile := mustWriteTemp(t, multiHeaderContent)
-	defer os.Remove(multiHeaderFile)
+	defer removeOrComplain(t, multiHeaderFile)
 
 	invertedContent := strings.Join([]string{
 		"foo",
@@ -580,7 +587,7 @@ func TestReadDatFile(t *testing.T) {
 		"bar",
 	}, "\n")
 	invertedFile := mustWriteTemp(t, invertedContent)
-	defer os.Remove(invertedFile)
+	defer removeOrComplain(t, invertedFile)
 
 	validContent := strings.Join([]string{
 		"foo",                    // Index 0
@@ -590,7 +597,7 @@ func TestReadDatFile(t *testing.T) {
 		"bar",                    // Index 4
 	}, "\n")
 	validFile := mustWriteTemp(t, validContent)
-	defer os.Remove(validFile)
+	defer removeOrComplain(t, validFile)
 
 	testCases := []struct {
 		name            string
@@ -665,7 +672,10 @@ func TestProcess(t *testing.T) {
 		return func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusOK)
-			fmt.Fprintln(w, content)
+			_, err := fmt.Fprintln(w, content)
+			if err != nil {
+				t.Errorf("could not print: %s", err)
+			}
 		}
 	}
 

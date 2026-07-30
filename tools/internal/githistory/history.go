@@ -55,6 +55,9 @@ func GetPRInfo(gitPath string) (*History, error) {
 		`--grep=^Merge pull request #\d+ from`,
 		"--pretty=%H@%P@%s",
 		"master")
+	if err != nil {
+		return nil, err
+	}
 
 	ret := &History{
 		GitPath: toplevel,

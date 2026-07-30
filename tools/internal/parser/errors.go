@@ -21,7 +21,7 @@ type ErrInvalidUnicode struct {
 }
 
 func (e ErrInvalidUnicode) Error() string {
-	return fmt.Sprintf("%s: invalid Unicode character(s)", e.SourceRange.LocationString())
+	return fmt.Sprintf("%s: invalid Unicode character(s)", e.LocationString())
 }
 
 // ErrSectionInSuffixBlock reports that a comment within a suffix
@@ -31,7 +31,7 @@ type ErrSectionInSuffixBlock struct {
 }
 
 func (e ErrSectionInSuffixBlock) Error() string {
-	return fmt.Sprintf("%s: section delimiter not allowed in suffix block comment", e.SourceRange.LocationString())
+	return fmt.Sprintf("%s: section delimiter not allowed in suffix block comment", e.LocationString())
 }
 
 // ErrUnclosedSection reports that a file section was not closed
@@ -41,7 +41,7 @@ type ErrUnclosedSection struct {
 }
 
 func (e ErrUnclosedSection) Error() string {
-	return fmt.Sprintf("%s: section %q is missing its closing marker", e.Section.SourceRange.LocationString(), e.Section.Name)
+	return fmt.Sprintf("%s: section %q is missing its closing marker", e.Section.LocationString(), e.Section.Name)
 }
 
 // ErrNestedSection reports that a file section is being started while
@@ -53,7 +53,7 @@ type ErrNestedSection struct {
 }
 
 func (e ErrNestedSection) Error() string {
-	return fmt.Sprintf("%s: section %q is nested inside section %q (%s)", e.SourceRange.LocationString(), e.Name, e.Section.Name, e.Section.SourceRange.LocationString())
+	return fmt.Sprintf("%s: section %q is nested inside section %q (%s)", e.LocationString(), e.Name, e.Section.Name, e.Section.LocationString())
 }
 
 // ErrUnstartedSection reports that section end marker was found
@@ -64,7 +64,7 @@ type ErrUnstartedSection struct {
 }
 
 func (e ErrUnstartedSection) Error() string {
-	return fmt.Sprintf("%s: end marker for non-existent section %q", e.SourceRange.LocationString(), e.Name)
+	return fmt.Sprintf("%s: end marker for non-existent section %q", e.LocationString(), e.Name)
 }
 
 // ErrMismatchedSection reports that a file section was started
@@ -76,7 +76,7 @@ type ErrMismatchedSection struct {
 }
 
 func (e ErrMismatchedSection) Error() string {
-	return fmt.Sprintf("%s: section %q (%s) closed with wrong name %q", e.SourceRange.LocationString(), e.Section.Name, e.Section.SourceRange.LocationString(), e.EndName)
+	return fmt.Sprintf("%s: section %q (%s) closed with wrong name %q", e.LocationString(), e.Section.Name, e.Section.LocationString(), e.EndName)
 }
 
 // ErrUnknownSectionMarker reports that a line looks like a file section
@@ -87,7 +87,7 @@ type ErrUnknownSectionMarker struct {
 }
 
 func (e ErrUnknownSectionMarker) Error() string {
-	return fmt.Sprintf("%s: unknown kind of section marker", e.SourceRange.LocationString())
+	return fmt.Sprintf("%s: unknown kind of section marker", e.LocationString())
 }
 
 // MissingEntityName reports that a block of suffixes does not have a
@@ -97,7 +97,7 @@ type ErrMissingEntityName struct {
 }
 
 func (e ErrMissingEntityName) Error() string {
-	return fmt.Sprintf("%s: suffix block has no owner name", e.Suffixes.SourceRange.LocationString())
+	return fmt.Sprintf("%s: suffix block has no owner name", e.Suffixes.LocationString())
 }
 
 // ErrMissingEntityEmail reports that a block of suffixes does not have a
@@ -107,7 +107,7 @@ type ErrMissingEntityEmail struct {
 }
 
 func (e ErrMissingEntityEmail) Error() string {
-	return fmt.Sprintf("%s: suffix block has no contact email", e.Suffixes.SourceRange.LocationString())
+	return fmt.Sprintf("%s: suffix block has no contact email", e.Suffixes.LocationString())
 }
 
 // ErrInvalidSuffix reports that a suffix suffix is not a valid PSL
@@ -119,7 +119,7 @@ type ErrInvalidSuffix struct {
 }
 
 func (e ErrInvalidSuffix) Error() string {
-	return fmt.Sprintf("%s: invalid suffix %q: %v", e.SourceRange.LocationString(), e.Suffix, e.Err)
+	return fmt.Sprintf("%s: invalid suffix %q: %v", e.LocationString(), e.Suffix, e.Err)
 }
 
 type ErrCommentPreventsSuffixSort struct {
@@ -127,7 +127,7 @@ type ErrCommentPreventsSuffixSort struct {
 }
 
 func (e ErrCommentPreventsSuffixSort) Error() string {
-	return fmt.Sprintf("%s: comment prevents full sorting of suffixes", e.SourceRange.LocationString())
+	return fmt.Sprintf("%s: comment prevents full sorting of suffixes", e.LocationString())
 }
 
 type ErrCommentPreventsSectionSort struct {
@@ -135,7 +135,7 @@ type ErrCommentPreventsSectionSort struct {
 }
 
 func (e ErrCommentPreventsSectionSort) Error() string {
-	return fmt.Sprintf("%s: comment prevents full sorting of PSL section", e.SourceRange.LocationString())
+	return fmt.Sprintf("%s: comment prevents full sorting of PSL section", e.LocationString())
 }
 
 type ErrDuplicateSection struct {
