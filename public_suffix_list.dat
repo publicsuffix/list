@@ -12893,6 +12893,10 @@ ddnss.org
 // Submitted by Peter Palfrader / Debian Sysadmin Team <dsa-publicsuffixlist@debian.org>
 debian.net
 
+// Decisive Network, Inc. : https://decisive.rocks/
+// Submitted by Filip Winiarski <security@decisive.rocks>
+decisive.network
+
 // Definima : http://www.definima.com/
 // Submitted by Maxence Bitterli <maxence@definima.com>
 definima.io
