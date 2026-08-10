@@ -16214,6 +16214,10 @@ wal.app
 // Submitted by Lorentz Kinde <security@wasmer.io>
 wasmer.app
 
+// Wave RF : https://wavehouse.cloud/
+// Submitted by Eric Andrechek <security@wavehouse.cloud>
+wavehouse.app
+
 // Webflow, Inc. : https://www.webflow.com
 // Submitted by Webflow Security Team <security@webflow.com>
 webflow.io
