@@ -13941,6 +13941,11 @@ translate.goog
 *.usercontent.goog
 cloudfunctions.net
 
+// gotcha! : https://gotchamobi.com/
+// Submitted by Christopher Jenkin <cjenkin@gotchamobi.com>
+gsites.ai
+staging.gsites.ai
+
 // Goupile : https://goupile.fr
 // Submitted by Niels Martignene <hello@goupile.fr>
 goupile.fr
