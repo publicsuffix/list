@@ -12444,6 +12444,10 @@ myasustor.com
 *.atlassian-isolated-3p.com
 cdn.prod.atlassian-dev.net
 
+// Avi : https://avi.run
+// Submitted by Austen Collins <support@avi.run>
+avi.site
+
 // AVM : https://avm.de
 // Submitted by Andreas Weise <a.weise@avm.de>
 myfritz.link
