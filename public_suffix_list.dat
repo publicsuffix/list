@@ -12355,6 +12355,10 @@ antagonist.cloud
 // Submitted by Sid Bidasaria <security@anthropic.com>
 claude.app
 
+// Anysphere Inc : https://cursor.com
+// Submitted by Benson Liu <security@cursor.com>
+*.cursorusercontent.com
+
 // Apigee : https://apigee.com/
 // Submitted by Apigee Security Team <security@apigee.com>
 apigee.io
