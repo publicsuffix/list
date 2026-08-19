@@ -11344,7 +11344,6 @@ beep.pl
 // Aiven : https://aiven.io/
 // Submitted by Aiven Security Team <security+appdomains@aiven.io>
 aiven.app
-aivencloud.com
 *.aivencloud.com
 
 // Akamai : https://www.akamai.com/
