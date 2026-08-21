@@ -263,7 +263,7 @@ func (p *parser) parseSection() *Section {
 			if tok.Name != ret.Name {
 				p.addError(ErrMismatchedSection{tok.SourceRange, tok.Name, ret})
 			}
-			ret.SourceRange.LastLine = tok.SourceRange.LastLine
+			ret.LastLine = tok.LastLine
 			return ret
 		case tokenSectionUnknown:
 			p.next()
@@ -416,7 +416,7 @@ func (p *parser) parseComment() *Comment {
 	for {
 		if tok, ok := p.peek().(tokenComment); ok {
 			p.next()
-			ret.SourceRange = ret.SourceRange.merge(tok.SourceRange)
+			ret.SourceRange = ret.merge(tok.SourceRange)
 			ret.Text = append(ret.Text, tok.Text)
 		} else {
 			return ret
