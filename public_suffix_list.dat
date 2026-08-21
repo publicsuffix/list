@@ -13646,6 +13646,12 @@ preview.site
 // Submitted by Jason Zhu <jason@owtware.com>
 filegear.me
 
+// Fimo : https://fimo.ai
+// Submitted by Florent Baldino <security@fimo.ai>
+fimo.site
+*.apps.fimo.site
+*.uploads.fimo.site
+
 // Firebase, Inc.
 // Submitted by Chris Raynor <chris@firebase.com>
 firebaseapp.com
