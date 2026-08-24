@@ -11379,6 +11379,10 @@ alibabacloudcs.com
 ms.fun
 ms.show
 
+// Dingtalk ztna Gateway
+// Submitted by Dingtalk Security <ddgszl@service.alibaba.com>
+*.ztna-dingtalk.com
+
 // all-inkl.com : https://all-inkl.com
 // Submitted by Werner Kaltofen <wk@all-inkl.com>
 kasserver.com
