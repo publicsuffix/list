@@ -16366,6 +16366,11 @@ storage.yandexcloud.net
 website.yandexcloud.net
 sourcecraft.site
 
+// Yandex LLC : https://yandex.com
+// Submitted by Dmitry Sidorov (justy-dev) <security+psl@yandex-team.ru>
+// Contact information <security+psl@yandex-team.ru>
+app.yandex.net
+
 // YesCourse Pty Ltd : https://yescourse.com
 // Submitted by Atul Bhouraskar <atul@yescourse.com>
 official.academy
