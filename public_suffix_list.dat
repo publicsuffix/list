@@ -16180,11 +16180,12 @@ val.run
 web.val.run
 
 // Vercel, Inc : https://vercel.com/
-// Submitted by Laurens Duijvesteijn <security@vercel.com>
+// Submitted by Thibault Miranda de Oliveira <security@vercel.com>
 vercel.app
 v0.build
 vercel.dev
 vusercontent.net
+tmp.now
 vercel.run
 now.sh
 
