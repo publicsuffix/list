@@ -6320,6 +6320,23 @@ mus.mi.us
 tec.mi.us
 washtenaw.mi.us
 
+// .US Locality Registry (usTLD Locality Program), Registry Services, LLC
+// See: https://about.us/ and https://localitymanagement.us/
+// Submitted by Neal McBurnett <nealmcb@gmail.com> on behalf of registrants
+// under this namespace; authenticated by the registry via _psl DNS records.
+// The .US Locality registry delegates independently-registered names
+// directly beneath locality zones such as <locality>.<state>.us (e.g.
+// boulder.co.us), each itself registered to and DNS-delegated by the
+// registry (Registrant Organization: Registry Services, LLC / usTLD
+// Locality Administrator), with unrelated third parties then registering
+// names beneath each locality zone (e.g. bcn.boulder.co.us and
+// ci.boulder.co.us are both delegated independently, to Boulder Community
+// Network and the City of Boulder respectively).
+// NOTE TO REGISTRY: this entry list is illustrative/incomplete — please
+// replace with the full, authoritative list of currently-active locality
+// zones operated under this program nationwide.
+boulder.co.us
+
 // uy : http://www.nic.org.uy/
 uy
 com.uy
