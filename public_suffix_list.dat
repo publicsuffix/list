@@ -14618,6 +14618,11 @@ magicpatternsapp.com
 // Submitted by Ilya Zaretskiy <zaretskiy@corp.mail.ru>
 hb.cldmail.ru
 
+// Make Autonomous : https://makeautonomous.com
+// Submitted by Simon Janin <s.janin@x80security.com>
+// https://github.com/publicsuffix/list/pull/3192
+makeautonomous.com
+
 // MathWorks : https://www.mathworks.com/
 // Submitted by Emily Reed <psl-maintainers@groups.mathworks.com>
 matlab.cloud
