@@ -6322,19 +6322,20 @@ washtenaw.mi.us
 
 // .US Locality Registry (usTLD Locality Program), Registry Services, LLC
 // See: https://about.us/ and https://localitymanagement.us/
-// Submitted by Neal McBurnett <nealmcb@gmail.com> on behalf of registrants
-// under this namespace; authenticated by the registry via _psl DNS records.
-// The .US Locality registry delegates independently-registered names
-// directly beneath locality zones such as <locality>.<state>.us (e.g.
-// boulder.co.us), each itself registered to and DNS-delegated by the
-// registry (Registrant Organization: Registry Services, LLC / usTLD
-// Locality Administrator), with unrelated third parties then registering
-// names beneath each locality zone (e.g. bcn.boulder.co.us and
-// ci.boulder.co.us are both delegated independently, to Boulder Community
-// Network and the City of Boulder respectively).
-// NOTE TO REGISTRY: this entry list is illustrative/incomplete — please
-// replace with the full, authoritative list of currently-active locality
-// zones operated under this program nationwide.
+// Submitted by Neal McBurnett <nealmcb@gmail.com>, a registrant under this
+// namespace (bcn.boulder.co.us); DNS-based (_psl) authentication by the
+// registry is pending -- see PR discussion. The .US Locality registry
+// delegates independently-registered names directly beneath locality
+// zones such as <locality>.<state>.us (e.g. boulder.co.us), each itself
+// registered to and DNS-delegated by the registry (Registrant
+// Organization: Registry Services, LLC / usTLD Locality Administrator).
+// Two unrelated third parties currently hold independent registrations
+// beneath boulder.co.us: bcn.boulder.co.us (Boulder Community Network,
+// live) and ci.boulder.co.us (City of Boulder, registered but not
+// currently serving live content). This is submitted as a single,
+// minimal, verifiable example of the underlying namespace; the registry
+// has been asked separately to provide their full, authoritative list of
+// active locality zones for a comprehensive follow-up submission.
 boulder.co.us
 
 // uy : http://www.nic.org.uy/
