@@ -11372,9 +11372,11 @@ barsy.ca
 // Submitted by Mark J. Titorenko <mark.titorenko@alces-software.com>
 *.compute.estate
 *.alces.network
+
 // AlgaGo : https://algago.com/
 // Submitted by Aayat Zahara <abuse@algago.com>
 algago.com
+
 // Alibaba Cloud API Gateway
 // Submitted by Alibaba Cloud Security <cloud_product_security_team@alibaba-inc.com>
 alibabacloudcs.com
