@@ -702,10 +702,13 @@ bv
 // bw : https://nic.net.bw/bw-name-structure
 bw
 ac.bw
+agric.bw
 co.bw
 gov.bw
+me.bw
 net.bw
 org.bw
+shop.bw
 
 // by : https://www.iana.org/domains/root/db/by.html
 // http://tld.by/rules_2006_en.html
