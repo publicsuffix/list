@@ -16238,6 +16238,11 @@ webflowtest.io
 // Submitted by Arnold Hendriks <info@webhare.com>
 *.webhare.dev
 
+// webhooks.sh : https://webhooks.sh
+// Submitted by Bart Schipper <bart@bitgate.com>
+webhooks.host
+webhooks.page
+
 // WebHotelier Technologies Ltd : https://www.webhotelier.net/
 // Submitted by Apostolos Tsakpinis <cto@webhotelier.net>
 hotelwithflight.com
