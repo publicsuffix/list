@@ -15368,7 +15368,7 @@ up.railway.app
 *.on-rio.io
 
 // RavenDB : https://ravendb.net
-// Submitted by Oren Eini <oren@ravendb.net>
+// Submitted by Grzegorz Lachowski <psl@ravendb.net>
 ravendb.cloud
 ravendb.community
 development.run
