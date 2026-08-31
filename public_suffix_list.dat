@@ -14043,13 +14043,6 @@ herokuapp.com
 heyflow.page
 heyflow.site
 
-// Hibernating Rhinos
-// Submitted by Oren Eini <oren@ravendb.net>
-ravendb.cloud
-ravendb.community
-development.run
-ravendb.run
-
 // HiDNS : https://www.hidoha.net
 // Submitted by ifeng <admin@hidoha.net>
 hidns.co
@@ -15373,6 +15366,13 @@ up.railway.app
 *.on-rancher.cloud
 *.on-k3s.io
 *.on-rio.io
+
+// RavenDB : https://ravendb.net
+// Submitted by Oren Eini <oren@ravendb.net>
+ravendb.cloud
+ravendb.community
+development.run
+ravendb.run
 
 // RavPage : https://www.ravpage.co.il
 // Submitted by Roni Horowitz <roni@responder.co.il>
