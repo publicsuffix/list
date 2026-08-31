@@ -12668,6 +12668,10 @@ cleverapps.tech
 // Submitted by Umut Gumeli <infrastructure-publicsuffixlist@clickrising.com>
 clickrising.net
 
+// ClickUp : https://clickup.com/
+// Submitted by ClickUp Security Team <security@clickup.com>
+*.clickup.ai
+
 // Cloud DNS Ltd : http://www.cloudns.net
 // Submitted by Aleksander Hristov <noc@cloudns.net> & Boyan Peychev <boyan@cloudns.net>
 cloudns.asia
