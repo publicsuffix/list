@@ -14447,6 +14447,11 @@ laravel.cloud
 on-forge.com
 on-vapor.com
 
+// Last Mile Labs, Inc : https://eth.limo
+// Submitted by eth.limo team <security@eth.limo>
+*.eth.limo
+*.eth.link
+
 // LCube - Professional hosting e.K. : https://www.lcube-webhosting.de
 // Submitted by Lars Laehn <info@lcube.de>
 git-repos.de
