@@ -14038,6 +14038,7 @@ here.now
 // Heroku : https://www.heroku.com/
 // Submitted by Shumon Huque <public-dns@salesforce.com>
 herokuapp.com
+*.compute.herokuapp.com
 
 // Heyflow : https://www.heyflow.com
 // Submitted by Mirko Nitschke <tech@heyflow.com>
