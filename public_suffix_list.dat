@@ -12552,6 +12552,10 @@ brave.dev
 brave.io
 *.s.brave.io
 
+// Brawe : https://brawe.ai
+// Submitted by Olena Volova <ov@claudomat.dev>
+brawe.co
+
 // Brendly : https://brendly.rs
 // Submitted by Dusan Radovanovic <administracija@brendly.rs>
 shop.brendly.ba
