@@ -12583,6 +12583,7 @@ cafjs.com
 // Canva Pty Ltd : https://canva.com/
 // Submitted by Joel Aquilina <publicsuffixlist@canva.com>
 canva-apps.cn
+canva-code.cn
 my.canvasite.cn
 khsj.cn
 canva-apps.com
@@ -14308,8 +14309,6 @@ ryd.wafaicloud.com
 j.scaleforce.com.cy
 jelastic.dogado.eu
 fi.cloudplatform.fi
-demo.datacenter.fi
-paas.datacenter.fi
 jele.host
 mircloud.host
 paas.beebyte.io
@@ -14452,6 +14451,11 @@ shiptoday.build
 laravel.cloud
 on-forge.com
 on-vapor.com
+
+// Last Mile Labs, Inc : https://eth.limo
+// Submitted by eth.limo team <security@eth.limo>
+*.eth.limo
+*.eth.link
 
 // LCube - Professional hosting e.K. : https://www.lcube-webhosting.de
 // Submitted by Lars Laehn <info@lcube.de>
@@ -15469,6 +15473,11 @@ subsc-pay.net
 // Submitted by Jennifer Herting <jchits@rit.edu>
 git-pages.rit.edu
 
+// Rocket : https://rocket.new
+// Submitted by Rahul Shingala <support@rocket.new>
+*.builtwithrocket.new
+rocketpreview.app
+
 // Rocky Enterprise Software Foundation : https://resf.org
 // Submitted by Neil Hanlon <neil@resf.org>
 rocky.page
@@ -16184,11 +16193,12 @@ val.run
 web.val.run
 
 // Vercel, Inc : https://vercel.com/
-// Submitted by Laurens Duijvesteijn <security@vercel.com>
+// Submitted by Thibault Miranda de Oliveira <security@vercel.com>
 vercel.app
 v0.build
 vercel.dev
 vusercontent.net
+tmp.now
 vercel.run
 now.sh
 
@@ -16346,12 +16356,6 @@ grok.me
 // Submitted by Julian Uphoff <publicsuffixlist@xenoncloud.net>
 *.xenonconnect.de
 half.host
-
-// XnBay Technology : http://www.xnbay.com/
-// Submitted by XnBay Developer <developer.xncloud@gmail.com>
-xnbay.com
-u2.xnbay.com
-u2-local.xnbay.com
 
 // XS4ALL Internet bv : https://www.xs4all.nl/
 // Submitted by Daniel Mostertman <unixbeheer+publicsuffix@xs4all.net>
