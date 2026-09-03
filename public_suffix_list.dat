@@ -13948,6 +13948,8 @@ cloud.goog
 translate.goog
 *.usercontent.goog
 cloudfunctions.net
+cloud.run
+ai.studio
 
 // Goupile : https://goupile.fr
 // Submitted by Niels Martignene <hello@goupile.fr>
