@@ -15544,8 +15544,8 @@ git-pages.rit.edu
 
 // Rocket : https://rocket.new
 // Submitted by Rahul Shingala <support@rocket.new>
-*.builtwithrocket.new
 rocketpreview.app
+*.builtwithrocket.new
 
 // Rocky Enterprise Software Foundation : https://resf.org
 // Submitted by Neil Hanlon <neil@resf.org>
