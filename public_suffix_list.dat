@@ -703,12 +703,16 @@ bv
 
 // bw : https://www.iana.org/domains/root/db/bw.html
 // https://nic.net.bw/bw-name-structure
+// https://nic.net.bw/public-notice-availability-new-bw-domains-0
 bw
 ac.bw
+agric.bw
 co.bw
 gov.bw
+me.bw
 net.bw
 org.bw
+shop.bw
 
 // by : https://www.iana.org/domains/root/db/by.html
 // http://tld.by/rules_2006_en.html
