@@ -10,7 +10,7 @@ require (
 
 require (
 	github.com/creachadair/command v0.1.13
-	github.com/creachadair/flax v0.0.0-20240525192034-44db93b3a8ad
+	github.com/creachadair/flax v0.1.0
 	github.com/creachadair/mds v0.15.2
 	github.com/creachadair/taskgroup v0.9.0
 	github.com/google/go-github/v63 v63.0.0
