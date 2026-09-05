@@ -1,0 +1,26 @@
+---
+version: 2
+updates:
+  - package-ecosystem: gomod
+    directory: /tools
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    labels:
+      - task
+      - dependencies
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    labels:
+      - task
+      - dependencies
+    cooldown:
+      default-days: 3
+    groups:
+      actions-patch-minor:
+        update-types:
+          - patch
+          - minor
