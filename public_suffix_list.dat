@@ -12546,6 +12546,10 @@ radio.fm
 cdn.bubble.io
 bubbleapps.io
 
+// Bubblegum : https://bubblegum.ai
+// Submitted by Joe Ruelle <setup@bubblegum.ai>
+bubblegum.rsvp
+
 // bwCloud-OS : https://bwcloud-os.de/
 // Submitted by Klara Mall <dns@bwcloud-os.de>
 *.bwcloud-os-instance.de
