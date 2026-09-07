@@ -15461,6 +15461,7 @@ id.firewalledreplit.co
 repl.co
 id.repl.co
 *.replit.dev
+*.teams.replit.dev
 repl.run
 
 // Resin.io : https://resin.io
