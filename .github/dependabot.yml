@@ -9,6 +9,8 @@ updates:
     labels:
       - task
       - dependencies
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: github-actions
     directory: /
@@ -18,7 +20,7 @@ updates:
       - task
       - dependencies
     cooldown:
-      default-days: 3
+      default-days: 7
     groups:
       actions-patch-minor:
         update-types:
