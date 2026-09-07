@@ -216,20 +216,20 @@ func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHis
 	// TXT record checking. The checkTXT function (below) is the
 	// parallel part of the process, processLookupResult collects the
 	// results/errors.
-	collect := taskgroup.NewCollector(checker.processLookupResult)
 	group, start := taskgroup.New(nil).Limit(concurrentDNSRequests)
+	collect := taskgroup.Gather(start, checker.processLookupResult)
 
 	for _, suf := range BlocksOfType[*Suffix](b) {
 		if !suf.Changed() || exemptFromTXT(suf.Domain) {
 			continue
 		}
-		start(collect.NoError(func() txtResult { return checker.checkTXT(suf, suf.Domain) }))
+		collect.Run(func() txtResult { return checker.checkTXT(suf, suf.Domain) })
 	}
 	for _, wild := range BlocksOfType[*Wildcard](b) {
 		if !wild.Changed() || exemptFromTXT(wild.Domain) {
 			continue
 		}
-		start(collect.NoError(func() txtResult { return checker.checkTXT(wild, wild.Domain) }))
+		collect.Run(func() txtResult { return checker.checkTXT(wild, wild.Domain) })
 	}
 
 	group.Wait()
@@ -239,13 +239,13 @@ func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHis
 	// we want to see in each PR. The checkPR function is the parallel
 	// part and does all the work, the collector just concats all the
 	// validation errors together.
-	collectPR := taskgroup.NewCollector(func(errs []error) {
+	group, start = taskgroup.New(nil).Limit(concurrentGithubRequests)
+	collectPR := taskgroup.Gather(start, func(errs []error) {
 		checker.errs = append(checker.errs, errs...)
 	})
-	group, start = taskgroup.New(nil).Limit(concurrentGithubRequests)
 
 	for prNum, info := range checker.prExpected {
-		start(collectPR.NoError(func() []error { return checker.checkPR(prNum, info) }))
+		collectPR.Run(func() []error { return checker.checkPR(prNum, info) })
 	}
 	group.Wait()
 
