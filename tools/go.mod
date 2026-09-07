@@ -9,9 +9,9 @@ require (
 )
 
 require (
-	github.com/creachadair/command v0.1.13
+	github.com/creachadair/command v0.2.11
 	github.com/creachadair/flax v0.1.0
-	github.com/creachadair/mds v0.15.2
+	github.com/creachadair/mds v0.30.4
 	github.com/creachadair/taskgroup v0.9.0
 	github.com/google/go-github/v63 v63.0.0
 	github.com/natefinch/atomic v1.0.1
