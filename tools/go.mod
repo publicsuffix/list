@@ -3,7 +3,7 @@ module github.com/publicsuffix/list/tools
 go 1.25.0
 
 require (
-	github.com/google/go-cmp v0.6.0
+	github.com/google/go-cmp v0.7.0
 	golang.org/x/net v0.58.0
 	golang.org/x/text v0.41.0
 )
