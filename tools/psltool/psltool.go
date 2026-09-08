@@ -117,7 +117,7 @@ func runFmt(env *command.Env, path string) error {
 		if fmtArgs.Diff {
 			lhs, rhs := strings.Split(string(bs), "\n"), strings.Split(string(clean), "\n")
 			diff := mdiff.New(lhs, rhs).AddContext(3)
-			mdiff.FormatUnified(os.Stdout, diff, &mdiff.FileInfo{
+			diff.Format(os.Stdout, mdiff.Unified, &mdiff.FileInfo{
 				Left:  "a/" + path,
 				Right: "b/" + path,
 			})
