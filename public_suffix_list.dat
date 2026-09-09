@@ -12844,7 +12844,7 @@ darklang.io
 // Databricks, Inc. : https://www.databricks.com/
 // Submitted by Databricks Enterprise Security <entsec@databricks.com>
 aws.databricksapps.com
-azure.databricksapps.com
+*.azure.databricksapps.com
 cloud.databricksapps.com
 gcp.databricksapps.com
 
