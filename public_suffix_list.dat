@@ -16288,6 +16288,10 @@ wal.app
 // Submitted by Lorentz Kinde <security@wasmer.io>
 wasmer.app
 
+// Wavn, Inc. : https://wavn.app/
+// Submitted by Wael Alebrahim <admin@wavn.app>
+dev.wavn.app
+
 // Webflow, Inc. : https://www.webflow.com
 // Submitted by Webflow Security Team <security@webflow.com>
 webflow.io
