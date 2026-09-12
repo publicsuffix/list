@@ -16276,6 +16276,12 @@ voorloper.cloud
 // Submitted by Niels Maumenee <storage@vultr.com>
 *.vultrobjects.com
 
+// VNDNS : https://vndns.net
+// Submitted by IT HCM Team <admin@ithcm.vn>
+vndns.net
+vnnas.net
+
+
 // Waffle Computer Inc., Ltd. : https://docs.waffleinfo.com
 // Submitted by Masayuki Note <masa@blade.wafflecell.com>
 wafflecell.com
@@ -16472,3 +16478,5 @@ nett.to
 zabc.net
 
 // ===END PRIVATE DOMAINS===
+
+Add vndns.net and vnnas.net to PRIVATE section
