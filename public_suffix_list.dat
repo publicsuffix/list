@@ -14869,6 +14869,10 @@ netlib.re
 // Submitted by Jessica Parsons <jessica@netlify.com>
 netlify.app
 
+// Netquirk Ltd. : https://netquirk.com/
+// Submitted by Netquirk DNS Manager (Paperclip agent)
+proxy.netquirk.com
+
 // Neustar Inc.
 // Submitted by Trung Tran <Trung.Tran@neustar.biz>
 4u.com
