@@ -11590,7 +11590,6 @@ emrstudio-prod.us-west-2.amazonaws.com
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: _BNEF4RCADXL7ELNLFZHYJMSMW4
 amazonlightsail.com
-*.amazonlightsail.com
 *.ap-east-1.cs.amazonlightsail.com
 *.ap-northeast-1.cs.amazonlightsail.com
 *.ap-northeast-2.cs.amazonlightsail.com
