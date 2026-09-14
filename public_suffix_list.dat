@@ -15357,6 +15357,10 @@ qa2.com
 qcx.io
 *.sys.qcx.io
 
+// Qirsh : https://qirsh.app
+// Submitted by Zaid Haddadin <zaidhadadin@gmail.com>
+qirsh.app
+
 // QNAP System Inc : https://www.qnap.com
 // Submitted by Nick Chang <cloudadmin@qnap.com>
 myqnapcloud.cn
