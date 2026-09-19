@@ -14362,6 +14362,11 @@ website.k2.cloud
 kaas.gg
 khplay.nl
 
+// Kapable : https://kapable.ai
+// Submitted by Herman Geldenhuys <hello@kapable.ai>
+kapable.run
+*.kapable.run
+
 // Kapsi : https://kapsi.fi
 // Submitted by Tomi Juntunen <erani@kapsi.fi>
 kapsi.fi
