@@ -12922,12 +12922,15 @@ with.playit.plus
 
 // Dfinity Foundation: https://dfinity.org/
 // Submitted by Dfinity Team <domains@dfinity.org>
+ic0.app
+raw.ic0.app
 icp0.io
-*.raw.icp0.io
+raw.icp0.io
 icp1.io
-*.raw.icp1.io
-opencloud.me
-*.icp.net
+raw.icp1.io
+*.opencloud.me
+icp.net
+raw.icp.net
 caffeine.site
 caffeine.xyz
 
