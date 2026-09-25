@@ -13486,6 +13486,13 @@ on.expo.app
 staging.expo.app
 on.staging.expo.app
 
+// Eyevinn Technology AB : https://www.eyevinn.se/
+// Submitted by Jonas Birmé <jonas.birme@eyevinn.se>
+apps.liivo.io
+apps.osaas.io
+pages.liivo.io
+pages.osaas.io
+
 // fachschaften.org: https://fachschaften.org/
 // Submitted by Felix Schäfer <security@fachschaften.org>
 fspages.org
