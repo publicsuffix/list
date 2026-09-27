@@ -16173,6 +16173,10 @@ lima.zone
 site.transip.me
 *.transurl.nl
 
+// Tringify : https://tringify.com
+// Submitted by Tringify <developers@tringify.com>
+mytringify.com
+
 // Triton Data Center project : https://tritondatacenter.com
 // Submitted by Triton Data Center staff <tickets@tritondatacenter.com>
 *.triton.zone
