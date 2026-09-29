@@ -12420,6 +12420,10 @@ myasustor.com
 *.atlassian-isolated-3p.com
 cdn.prod.atlassian-dev.net
 
+// Auteryn : https://auteryn.ai
+// Submitted by Nagarajan Govindarajan <admin@auteryn.ai>
+prd.auterynusercontent.com
+
 // AVM : https://avm.de
 // Submitted by Andreas Weise <a.weise@avm.de>
 myfritz.link
