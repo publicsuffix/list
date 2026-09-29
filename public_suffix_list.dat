@@ -16106,6 +16106,11 @@ telebit.io
 // Submitted by Rob Picard <security@goteleport.com>
 teleport.sh
 
+// Thesis PBC : https://thesis.org
+// Submitted by Ross McCray <ross@thesis.org>
+primitives.gg
+staging.primitives.gg
+
 // Thingdust AG : https://thingdust.com/
 // Submitted by Adrian Imboden <adi@thingdust.com>
 *.firenet.ch
