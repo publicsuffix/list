@@ -14523,6 +14523,10 @@ ggff.net
 localtonet.com
 *.localto.net
 
+// Lock : https://lock.com
+// Submitted by Boris Nowak <security@lock.com>
+relay.lock.com
+
 // Lodz University of Technology LODMAN regional domains : https://www.man.lodz.pl/dns
 // Submitted by Piotr Wilk <dns@man.lodz.pl>
 lodz.pl
