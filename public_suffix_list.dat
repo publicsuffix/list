@@ -15465,6 +15465,10 @@ instances.spawn.cc
 *.clusters.rdpa.co
 *.srvrless.rdpa.co
 
+// REEEL : https://reeel.dev
+// Submitted by REEEL Team <psl@reeel.dev>
+reeel.site
+
 // Render : https://render.com
 // Submitted by Anurag Goel <dev@render.com>
 onrender.com
