@@ -6,6 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"os"
 	"time"
 
@@ -44,6 +45,9 @@ func (c *Repo) apiClient() *github.Client {
 		c.client = github.NewClient(nil)
 		if token := os.Getenv("GITHUB_TOKEN"); token != "" {
 			c.client = c.client.WithAuthToken(token)
+			log.Print("Using GITHUB_TOKEN for GitHub API requests")
+		} else {
+			log.Print("GITHUB_TOKEN is not set, GitHub API requests are unauthenticated")
 		}
 	}
 	return c.client

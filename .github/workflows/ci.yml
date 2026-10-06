@@ -47,6 +47,8 @@ jobs:
           go-version: 'stable'
 
       - name: Run validations
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           cd tools
           echo "Running PSL validations" && \
