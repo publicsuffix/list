@@ -38,6 +38,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
 
       - name: Set up Go
         uses: actions/setup-go@v7.0.0
@@ -52,5 +54,6 @@ jobs:
           go run ./psltool check-pr \
             --gh-owner ${{ github.event.repository.owner.login }} \
             --gh-repo ${{ github.event.repository.name }} \
+            --gh-local-clone .. \
             --online-checks \
             ${{ github.event.pull_request.number }}

@@ -244,8 +244,8 @@ func runCheckPR(env *command.Env, prStr string) error {
 	errs = append(errs, parser.ValidateOffline(after)...)
 	if checkPRArgs.Online {
 		var prHistory *githistory.History
-		if validateArgs.Clone != "" {
-			prHistory, err = githistory.GetPRInfo(validateArgs.Clone)
+		if checkPRArgs.Clone != "" {
+			prHistory, err = githistory.GetPRInfo(checkPRArgs.Clone)
 			if err != nil {
 				return fmt.Errorf("failed to get local PR history: %w", err)
 			}
