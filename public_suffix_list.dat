@@ -15896,10 +15896,6 @@ nx.gw
 // Submitted by Alexander Zuev <security@spawnbase.ai>
 spawnbase.app
 
-// Spryloom : https://spryloom.com/
-// Submitted by Shivam Tiwari <security@spryloom.app>
-spryloom.app
-
 // SpeedPartner GmbH : https://www.speedpartner.de/
 // Submitted by Stefan Neufeind <info@speedpartner.de>
 customer.speedpartner.de
@@ -15925,6 +15921,10 @@ myspreadshop.no
 myspreadshop.pl
 myspreadshop.se
 myspreadshop.co.uk
+
+// Spryloom : https://spryloom.com/
+// Submitted by Shivam Tiwari <security@spryloom.app>
+spryloom.app
 
 // StackBlitz : https://stackblitz.com
 // Submitted by Dominic Elm & Albert Pai <security@bolt.new>
