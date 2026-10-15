@@ -15496,6 +15496,11 @@ instances.spawn.cc
 *.clusters.rdpa.co
 *.srvrless.rdpa.co
 
+// Relume : https://www.relume.ai/
+// Submitted by Relume Security Team <security@relume.ai>
+relumesite.ai
+staging.relumesite.ai
+
 // Render : https://render.com
 // Submitted by Anurag Goel <dev@render.com>
 onrender.com
