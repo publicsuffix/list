@@ -9151,10 +9151,6 @@ med
 // https://www.iana.org/domains/root/db/media.html
 media
 
-// Meera Solution : https://meerasolution.com
-// Submitted by Kamal Madhpuriya <kk@meerasolution.com>
-deploy.meerasolution.com
-
 // meet : Charleston Road Registry Inc.
 // https://www.iana.org/domains/root/db/meet.html
 meet
@@ -14682,6 +14678,10 @@ hra.health
 // MedusaJS, Inc : https://medusajs.com/
 // Submitted by Stevche Radevski <engineering@medusajs.com>
 medusajs.app
+
+// Meera Solution : https://meerasolution.com
+// Submitted by Kamal Madhpuriya <host@meerasolution.com>
+deploy.meerasolution.com
 
 // Memset hosting : https://www.memset.com
 // Submitted by Tom Whitwell <domains@memset.com>
