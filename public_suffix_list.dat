@@ -15585,6 +15585,13 @@ devices.resinstaging.io
 // Submitted by Andrew Guan <security@retool.com>
 retool.app
 
+// RhinoFit (Gulf Management Systems, Inc.) : https://rhinofit.ca
+// Submitted by Kurt Schneider <security@rhinofit.ca>
+apitest.rhinofit.app
+kjackman.rhinofit.app
+my.rhinofit.app
+rhinotest.rhinofit.app
+
 // Rico Developments Limited : https://adimo.co
 // Submitted by Colin Brown <hello@adimo.co>
 adimo.co.uk
