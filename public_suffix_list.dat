@@ -12374,6 +12374,13 @@ eero-stage.online
 
 // concludes Amazon
 
+// Amba : https://amba.dev
+// Submitted by Amba Abuse Desk <abuse@amba.dev>
+app.amba.host
+cdn.amba.host
+fn.amba.host
+go.amba.host
+
 // Anomaly : https://opencode.ai
 // Submitted by Dax Raad <security@anoma.ly>
 opentunnel.xyz
