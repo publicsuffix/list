@@ -12054,6 +12054,10 @@ labeling.us-east-1.sagemaker.aws
 labeling.us-east-2.sagemaker.aws
 labeling.us-west-2.sagemaker.aws
 
+// Siter : https://siter.io
+// Submitted by Andrian Valeanu <info@siter.io>
+getsiter.com
+
 // Amazon SageMaker Notebook Instances
 // Submitted by AWS Security <psl-maintainers@amazon.com>
 // Reference: b5ea56df-669e-43cc-9537-14aa172f5dfc
