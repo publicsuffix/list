@@ -16164,6 +16164,10 @@ telebit.app
 telebit.io
 *.telebit.xyz
 
+// Telegram Serverless : https://tgcloud.ai/
+// Submitted by NOC Team <noc@telegram.org>
+tgcloud.ai
+
 // Teleport : https://goteleport.com
 // Submitted by Rob Picard <security@goteleport.com>
 teleport.sh
