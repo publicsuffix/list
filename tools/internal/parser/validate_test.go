@@ -286,3 +286,33 @@ func TestValidateSuffixUniqueness(t *testing.T) {
 		})
 	}
 }
+
+func TestValidateOffline(t *testing.T) {
+	in := list(
+		section(1, 3, "ICANN DOMAINS",
+			suffixes(2, 3, noInfo,
+				wildcard(2, 3, "foo.com", "www"),
+			),
+		),
+		section(4, 9, "PRIVATE DOMAINS",
+			suffixes(5, 9, info("Example", nil, emails("Example", "example@example.com"), nil, true),
+				comment(5, "Example", "Submitted by Example <example@example.com>"),
+				suffix(7, "bar.com"),
+				suffix(8, "bar.com"),
+				suffix(9, "www.foo.com"),
+			),
+		),
+		section(10, 11, "NON EUCLIDEAN DOMAINS"),
+	)
+	want := []error{
+		ErrUnknownSection{section(10, 11, "NON EUCLIDEAN DOMAINS")},
+		ErrDuplicateSuffix{"bar.com", suffix(8, "bar.com"), suffix(7, "bar.com")},
+		ErrConflictingSuffixAndException{
+			Suffix:   suffix(9, "www.foo.com"),
+			Wildcard: wildcard(2, 3, "foo.com", "www"),
+		},
+	}
+
+	got := ValidateOffline(in)
+	checkDiff(t, "ValidateOffline", got, want)
+}
