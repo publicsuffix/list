@@ -16274,6 +16274,10 @@ it.com
 // Submitted by Alexis Taylor <security@umso.com>
 umso.co
 
+// Uncloud : https://uncloud.run
+// Submitted by Pasha Sviderski <support@uncloud.run>
+*.uncld.dev
+
 // Unison Computing, PBC : https://unison.cloud
 // Submitted by Simon Højberg <security@unison.cloud>
 unison-services.cloud
