@@ -13970,8 +13970,8 @@ graphic.design
 
 // GoDaddy : https://www.godaddy.com
 // Submitted by PSL Maintainers <psl-maintainers@godaddy.com>
-airoapp.ai
-host.cloud
+*.airoapp.ai
+*.host.cloud
 
 // GoIP DNS Services : http://www.goip.de
 // Submitted by Christian Poulter <milchstrasse@goip.de>
