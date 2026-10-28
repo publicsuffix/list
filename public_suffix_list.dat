@@ -12389,10 +12389,6 @@ claude.app
 claudeusercontent.com
 frame.claudeusercontent.com
 
-// Anysphere Inc : https://cursor.com
-// Submitted by Benson Liu <security@cursor.com>
-*.cursorusercontent.com
-
 // Apigee : https://apigee.com/
 // Submitted by Apigee Security Team <security@apigee.com>
 apigee.io
@@ -15948,6 +15944,13 @@ my.de
 *.nxa.eu
 nx.gw
 
+// SpaceXSI : https://x.ai/
+// Submitted by Benson Liu <security@x.ai>
+*.apps.grok.bot
+*.pages.grok.bot
+*.cursorusercontent.com
+grok.me
+
 // Spawnbase : https://spawnbase.ai
 // Submitted by Alexander Zuev <security@spawnbase.ai>
 spawnbase.app
@@ -16478,10 +16481,6 @@ weeklylottery.org.uk
 // Submitted by Brandon DuRette <brandon.durette@wpengine.com>
 wpenginepowered.com
 js.wpenginepowered.com
-
-// xAI : https://x.ai/
-// Submitted by Asim Shrestha <security@x.ai>
-grok.me
 
 // XenonCloud GbR : https://xenoncloud.net
 // Submitted by Julian Uphoff <publicsuffixlist@xenoncloud.net>
