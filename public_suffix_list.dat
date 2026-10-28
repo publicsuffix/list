@@ -13964,14 +13964,14 @@ heteml.net
 // Submitted by VibeHost Security <security@vibehost.com>
 vibehost.space
 
-// GoDaddy Registry : https://registry.godaddy
-// Submitted by Rohan Durrant <tldns@registry.godaddy>
-graphic.design
-
 // GoDaddy : https://www.godaddy.com
 // Submitted by PSL Maintainers <psl-maintainers@godaddy.com>
 *.airoapp.ai
 *.host.cloud
+
+// GoDaddy Registry : https://registry.godaddy
+// Submitted by Rohan Durrant <tldns@registry.godaddy>
+graphic.design
 
 // GoIP DNS Services : http://www.goip.de
 // Submitted by Christian Poulter <milchstrasse@goip.de>
