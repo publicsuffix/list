@@ -74,6 +74,97 @@ func TestEntryNormalize(t *testing.T) {
 	}
 }
 
+func TestEntryValidate(t *testing.T) {
+	testCases := []struct {
+		name        string
+		entry       pslEntry
+		expectError bool
+	}{
+		{
+			name: "valid ASCII entry",
+			entry: pslEntry{
+				ALabel:           "cpu",
+				ULabel:           "cpu",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
+			},
+		},
+		{
+			name: "valid IDN entry",
+			entry: pslEntry{
+				ALabel: "xn--vermgensberater-ctb",
+				ULabel: "vermögensberater",
+			},
+		},
+		{
+			name: "valid non-canonical uLabel",
+			entry: pslEntry{
+				ALabel: "cpu",
+				ULabel: "ｃｐｕ",
+			},
+		},
+		{
+			name: "gTLD with newline",
+			entry: pslEntry{
+				ALabel: "cpu\nevil.example",
+				ULabel: "cpu\nevil.example",
+			},
+			expectError: true,
+		},
+		{
+			name: "gTLD with dot",
+			entry: pslEntry{
+				ALabel: "evil.example",
+				ULabel: "evil.example",
+			},
+			expectError: true,
+		},
+		{
+			name: "uLabel with newline",
+			entry: pslEntry{
+				ALabel: "cpu",
+				ULabel: "cpu\n*.example\n!www.example",
+			},
+			expectError: true,
+		},
+		{
+			name: "uLabel for a different TLD",
+			entry: pslEntry{
+				ALabel: "cpu",
+				ULabel: "evil",
+			},
+			expectError: true,
+		},
+		{
+			name: "uLabel does not match IDN gTLD",
+			entry: pslEntry{
+				ALabel: "xn--vermgensberater-ctb",
+				ULabel: "vermogensberater",
+			},
+			expectError: true,
+		},
+		{
+			name: "registry operator with newline",
+			entry: pslEntry{
+				ALabel:           "cpu",
+				ULabel:           "cpu",
+				RegistryOperator: "@cpu's bargain gTLD emporium\nevil.example",
+			},
+			expectError: true,
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			err := tc.entry.validate()
+			if tc.expectError && err == nil {
+				t.Errorf("expected error from validate() for entry %#v, got nil", tc.entry)
+			} else if !tc.expectError && err != nil {
+				t.Errorf("unexpected error from validate() for entry %#v: %v", tc.entry, err)
+			}
+		})
+	}
+}
+
 func TestEntryComment(t *testing.T) {
 	testCases := []struct {
 		name     string
@@ -296,6 +387,41 @@ func TestGetPSLEntriesEmptyFilteredResults(t *testing.T) {
 	_, err := getPSLEntries(server.URL)
 	if err == nil {
 		t.Error("expected error from getPSLEntries with empty filtered results mockHandler. Got nil")
+	}
+}
+
+func TestGetPSLEntriesInvalidEntry(t *testing.T) {
+	// Mock data with a uLabel that would render as more than one PSL rule.
+	mockData := struct {
+		GTLDs []pslEntry
+	}{
+		GTLDs: []pslEntry{
+			{
+				ALabel:           "ceepeeyou",
+				RegistryOperator: "@cpu's bargain gTLD emporium",
+			},
+			{
+				ALabel: "cpu",
+				// NOTE: the embedded newline would add "evil.example" as a rule.
+				ULabel: "cpu\nevil.example",
+			},
+		},
+	}
+
+	// NOTE: swallowing the possible err return here because the mock data is
+	// assumed to be static/correct and it simplifies the handler.
+	jsonBytes, _ := json.Marshal(mockData)
+
+	handler := &mockHandler{jsonBytes}
+	server := httptest.NewServer(handler)
+	defer server.Close()
+
+	entries, err := getPSLEntries(server.URL)
+	if err == nil {
+		t.Error("expected error from getPSLEntries with invalid entry mockHandler. Got nil")
+	}
+	if entries != nil {
+		t.Errorf("expected nil entries from getPSLEntries with invalid entry mockHandler. Got %v", entries)
 	}
 }
 
