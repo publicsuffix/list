@@ -12937,6 +12937,10 @@ dyn.home-webserver.de
 myhome-server.de
 ddnss.org
 
+// ddns.ge : https://nic.ddns.ge
+// Submitted by John Snow <support@mail.ddns.ge>
+ddns.ge
+
 // Debian : https://www.debian.org/
 // Submitted by Peter Palfrader / Debian Sysadmin Team <dsa-publicsuffixlist@debian.org>
 debian.net
@@ -13397,10 +13401,6 @@ myddns.rocks
 // dynv6 : https://dynv6.com
 // Submitted by Dominik Menke <dom@digineo.de>
 dynv6.net
-
-// ddns.ge : https://nic.ddns.ge
-// Submitted by John Snow <support@mail.ddns.ge>
-ddns.ge
 
 // E4YOU spol. s.r.o. : https://e4you.cz/
 // Submitted by Vladimir Dudr <info@e4you.cz>
