@@ -12934,6 +12934,10 @@ dyn.home-webserver.de
 myhome-server.de
 ddnss.org
 
+// ddns.ge : https://nic.ddns.ge
+// Submitted by John Snow <support@mail.ddns.ge>
+ddns.ge
+
 // Debian : https://www.debian.org/
 // Submitted by Peter Palfrader / Debian Sysadmin Team <dsa-publicsuffixlist@debian.org>
 debian.net
