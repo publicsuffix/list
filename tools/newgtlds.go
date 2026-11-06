@@ -15,6 +15,8 @@ import (
 	"strings"
 	"text/template"
 	"time"
+
+	"github.com/publicsuffix/list/tools/internal/domain"
 )
 
 const (
@@ -127,6 +129,30 @@ func (e *pslEntry) normalize() {
 	if e.ULabel == "" {
 		e.ULabel = e.ALabel
 	}
+}
+
+// validate checks that a normalized pslEntry can be rendered as exactly one
+// PSL rule. The rendered entry is spliced into the dat file line by line, so
+// the gTLD and uLabel must each be a single valid DNS label naming the same
+// TLD, and the registry operator must not contain a line break. Otherwise the
+// entry would add rules or comments that are not the gTLD.
+func (e pslEntry) validate() error {
+	aLabel, err := domain.ParseLabel(e.ALabel)
+	if err != nil {
+		return fmt.Errorf("invalid gTLD %q: %w", e.ALabel, err)
+	}
+	uLabel, err := domain.ParseLabel(e.ULabel)
+	if err != nil {
+		return fmt.Errorf("invalid uLabel %q for gTLD %q: %w", e.ULabel, e.ALabel, err)
+	}
+	if !aLabel.Equal(uLabel) {
+		return fmt.Errorf("uLabel %q does not match gTLD %q", e.ULabel, e.ALabel)
+	}
+	if strings.ContainsAny(e.RegistryOperator, "\r\n") {
+		return fmt.Errorf("registry operator %q for gTLD %q contains a line break",
+			e.RegistryOperator, e.ALabel)
+	}
+	return nil
 }
 
 // Comment generates a comment string for the pslEntry. This string has a `//`
@@ -383,9 +409,11 @@ func filterGTLDs(entries []*pslEntry) []*pslEntry {
 //  2. unmarshaling the JSON data to create pslEntry objects.
 //  3. normalizing the pslEntry objects.
 //  4. filtering out any legacy or contract terminated gTLDs
+//  5. validating that each remaining pslEntry renders as a single PSL rule.
 //
 // If there are no pslEntry objects after unmarshaling the data in step 2 or
-// filtering the gTLDs in step 4 it is considered an error condition.
+// filtering the gTLDs in step 4, or if any entry fails validation in step 5,
+// it is considered an error condition.
 func getPSLEntries(url string) ([]*pslEntry, error) {
 	respBody, err := getData(url)
 	if err != nil {
@@ -416,6 +444,14 @@ func getPSLEntries(url string) ([]*pslEntry, error) {
 	if len(filtered) == 0 {
 		return nil, errors.New(
 			"found no gTLD information after removing legacy and contract terminated gTLDs")
+	}
+
+	// Validate each remaining entry so that malformed data can not add
+	// anything other than the gTLD itself to the PSL.
+	for _, tldEntry := range filtered {
+		if err := tldEntry.validate(); err != nil {
+			return nil, fmt.Errorf("validating ICANN gTLD JSON data: %w", err)
+		}
 	}
 	return filtered, nil
 }
