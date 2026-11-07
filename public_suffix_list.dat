@@ -15561,6 +15561,10 @@ instances.spawn.cc
 *.clusters.rdpa.co
 *.srvrless.rdpa.co
 
+// Reindeer AI : https://reindeer.ai
+// Submitted by Reindeer AI Security <security@reindeer.ai>
+*.reindeerapps.com
+
 // Render : https://render.com
 // Submitted by Anurag Goel <dev@render.com>
 onrender.com
