@@ -12846,9 +12846,13 @@ ctfcloud.net
 // Submitted by James Cowling <security@convex.dev>
 convex.app
 convex.cloud
+ap-southeast-2.convex.cloud
+ca-central-1.convex.cloud
 eu-west-1.convex.cloud
 us-east-1.convex.cloud
 convex.site
+ap-southeast-2.convex.site
+ca-central-1.convex.site
 eu-west-1.convex.site
 us-east-1.convex.site
 
