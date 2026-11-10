@@ -7,9 +7,11 @@ import (
 	"log"
 	"maps"
 	"net"
+	"net/http"
 	"slices"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/creachadair/mds/mapset"
 	"github.com/creachadair/taskgroup"
@@ -135,6 +137,8 @@ func ValidateOnline(ctx context.Context, l *List, client *github.Repo, prHistory
 	for _, section := range BlocksOfType[*Section](l) {
 		if section.Name == "PRIVATE DOMAINS" {
 			errs = append(errs, validateTXTRecords(ctx, section, client, prHistory, pr)...)
+			httpClient := &http.Client{Timeout: 30 * time.Second}
+			errs = append(errs, validateSecurityTxt(ctx, section, httpClient, time.Now())...)
 			break
 		}
 	}

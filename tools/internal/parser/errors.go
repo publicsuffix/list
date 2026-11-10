@@ -187,16 +187,7 @@ type ErrMissingTXTRecord struct {
 }
 
 func (e ErrMissingTXTRecord) Error() string {
-	var name string
-	switch v := e.Block.(type) {
-	case *Suffix:
-		name = v.Domain.String()
-	case *Wildcard:
-		name = v.Domain.String()
-	default:
-		panic(fmt.Sprintf("unexpected block type %T in ErrInvalidTXTRecord", e.Block))
-	}
-	return fmt.Sprintf("%s: suffix %s has no TXT record", e.SrcRange().LocationString(), name)
+	return fmt.Sprintf("%s: suffix %s has no TXT record", e.SrcRange().LocationString(), suffixDomain(e.Block))
 }
 
 type ErrTXTRecordMismatch struct {
@@ -221,16 +212,31 @@ type ErrTXTCheckFailure struct {
 }
 
 func (e ErrTXTCheckFailure) Error() string {
-	var name string
-	switch v := e.Block.(type) {
-	case *Suffix:
-		name = v.Domain.String()
-	case *Wildcard:
-		name = v.Domain.String()
-	default:
-		panic(fmt.Sprintf("unexpected block type %T in ErrInvalidTXTRecord", e.Block))
-	}
-	return fmt.Sprintf("%s: error checking suffix %s: %v", e.SrcRange().LocationString(), name, e.Err)
+	return fmt.Sprintf("%s: error checking suffix %s: %v", e.SrcRange().LocationString(), suffixDomain(e.Block), e.Err)
+}
+
+// ErrMissingSecurityTxt reports that a suffix does not publish a
+// security.txt file.
+type ErrMissingSecurityTxt struct {
+	Block // Suffix or Wildcard
+	Err   error
+}
+
+func (e ErrMissingSecurityTxt) Error() string {
+	dom := suffixDomain(e.Block)
+	return fmt.Sprintf("%s: suffix %s has no security.txt at %s: %v", e.SrcRange().LocationString(), dom, securityTxtURL(dom), e.Err)
+}
+
+// ErrInvalidSecurityTxt reports that a suffix publishes a security.txt
+// file whose content does not meet RFC 9116 requirements.
+type ErrInvalidSecurityTxt struct {
+	Block // Suffix or Wildcard
+	Err   error
+}
+
+func (e ErrInvalidSecurityTxt) Error() string {
+	dom := suffixDomain(e.Block)
+	return fmt.Sprintf("%s: suffix %s has an invalid security.txt at %s: %v", e.SrcRange().LocationString(), dom, securityTxtURL(dom), e.Err)
 }
 
 type ErrTXTRecordMultiplePRs struct {
