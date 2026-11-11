@@ -16289,6 +16289,10 @@ site.transip.me
 // Submitted by Triton Data Center staff <tickets@tritondatacenter.com>
 *.triton.zone
 
+// Tuna : https://tuna.am/
+// Submitted by Tuna Support <support@tuna.am>
+*.2na.am
+
 // Tunnelmole: https://tunnelmole.com
 // Submitted by Robbie Cahill <support@tunnelmole.com>
 tunnelmole.net
