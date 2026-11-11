@@ -4,7 +4,9 @@ import (
 	"context"
 	"errors"
 	"log"
+	"maps"
 	"net"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -73,7 +75,7 @@ func validateExpectedSections(block Block) (errs []error) {
 		}
 	}
 
-	for _, name := range wanted.Slice() {
+	for _, name := range slices.Sorted(maps.Keys(wanted)) {
 		if _, ok := found[name]; !ok {
 			errs = append(errs, ErrMissingSection{name})
 		}
