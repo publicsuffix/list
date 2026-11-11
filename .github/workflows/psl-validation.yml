@@ -1,0 +1,57 @@
+name: PSL validation
+
+# Validates the public_suffix_list.dat of a pull request using the psltool
+# from the base branch, so a pull request cannot change how it is validated.
+#
+# WARNING: pull_request_target runs in the context of the BASE repository, so
+# this job has a token and access to repository secrets even for pull requests
+# from forks. That is safe ONLY because this job treats the PR as data:
+# psltool check-pr downloads the PR's public_suffix_list.dat through the
+# GitHub API and never checks out or runs the PR head. Under this trigger you
+# MUST NOT:
+#   - check out github.event.pull_request.head.* (or otherwise run PR code), or
+#   - interpolate PR title/body into a run: block via ${{ ... }} (shell injection).
+# Either turns this into remote code execution with our token and secrets.
+on:
+- pull_request_target
+
+permissions:
+  contents: read
+
+concurrency:
+  group: psl-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  psl-validation:
+    name: PSL validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7.0.1
+        with:
+          # check-pr reads the base branch history to look up past PRs.
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@v7.0.0
+        with:
+          go-version: 'stable'
+
+      - name: Run validations
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.event.repository.owner.login }}
+          REPO: ${{ github.event.repository.name }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          cd tools
+          echo "Running PSL validations" && \
+          go run ./psltool check-pr \
+            --gh-owner "$OWNER" \
+            --gh-repo "$REPO" \
+            --gh-local-clone .. \
+            --online-checks \
+            "$PR"

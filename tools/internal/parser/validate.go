@@ -3,6 +3,7 @@ package parser
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 	"maps"
 	"net"
@@ -127,10 +128,13 @@ func validateSuffixUniqueness(block Block) (errs []error) {
 // validations are slower than offline validation, especially when
 // checking the entire PSL. All online validations respect
 // cancellation on the given context.
-func ValidateOnline(ctx context.Context, l *List, client *github.Repo, prHistory *githistory.History) (errs []error) {
+//
+// If pr is non-zero, l is the PSL with pull request pr applied, and
+// no pull request other than pr is fetched from Github.
+func ValidateOnline(ctx context.Context, l *List, client *github.Repo, prHistory *githistory.History, pr int) (errs []error) {
 	for _, section := range BlocksOfType[*Section](l) {
 		if section.Name == "PRIVATE DOMAINS" {
-			errs = append(errs, validateTXTRecords(ctx, section, client, prHistory)...)
+			errs = append(errs, validateTXTRecords(ctx, section, client, prHistory, pr)...)
 			break
 		}
 	}
@@ -176,6 +180,8 @@ type txtRecordChecker struct {
 	gh *github.Repo
 	// resolver is the DNS resolver used to do TXT lookups.
 	resolver net.Resolver
+	// pr is the pull request being checked, or 0 if none.
+	pr int
 
 	// errs accumulates the TXT validation errors discovered during
 	// the checking process.
@@ -193,11 +199,12 @@ type txtRecordChecker struct {
 
 // validateTXTRecords checks the TXT records of all Suffix and
 // Wildcard blocks found under b.
-func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHistory *githistory.History) (errs []error) {
+func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHistory *githistory.History, pr int) (errs []error) {
 	checker := txtRecordChecker{
 		ctx:        ctx,
 		prExpected: map[int]*prExpected{},
 		gh:         client,
+		pr:         pr,
 		hist:       prHistory,
 	}
 
@@ -356,6 +363,10 @@ func (c *txtRecordChecker) processLookupResult(res txtResult) {
 		c.errs = append(c.errs, ErrMissingTXTRecord{res.Block})
 		return
 	}
+	if prs := slices.Compact(slices.Sorted(slices.Values(res.prs))); len(prs) > 1 {
+		c.errs = append(c.errs, ErrTXTRecordMultiplePRs{res.Block, prs})
+		return
+	}
 	for _, prNum := range res.prs {
 		// Found some PRs for this suffix, record them in preparation
 		// for PR validation.
@@ -384,6 +395,9 @@ func (c *txtRecordChecker) getPRPSLs(prNum int) (before, after []byte, err error
 			}
 			return before, after, nil
 		}
+	}
+	if c.pr != 0 && prNum != c.pr {
+		return nil, nil, fmt.Errorf("not fetching PR %d from Github, only PR %d and merged PRs are checked", prNum, c.pr)
 	}
 
 	return c.gh.PSLForPullRequest(c.ctx, prNum)

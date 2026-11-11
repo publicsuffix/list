@@ -193,7 +193,7 @@ func runValidate(env *command.Env, pathOrHash string) error {
 
 		ctx, cancel := context.WithTimeout(env.Context(), 1200*time.Second)
 		defer cancel()
-		errs = append(errs, parser.ValidateOnline(ctx, psl, &client, prHistory)...)
+		errs = append(errs, parser.ValidateOnline(ctx, psl, &client, prHistory, 0)...)
 	}
 
 	clean := psl.MarshalPSL()
@@ -253,7 +253,7 @@ func runCheckPR(env *command.Env, prStr string) error {
 
 		ctx, cancel := context.WithTimeout(env.Context(), 300*time.Second)
 		defer cancel()
-		errs = append(errs, parser.ValidateOnline(ctx, after, &client, prHistory)...)
+		errs = append(errs, parser.ValidateOnline(ctx, after, &client, prHistory, pr)...)
 	}
 
 	clean := after.MarshalPSL()
