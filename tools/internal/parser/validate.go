@@ -27,8 +27,8 @@ func ValidateOffline(l *List) []error {
 			break
 		}
 	}
-	validateExpectedSections(l)
-	validateSuffixUniqueness(l)
+	ret = append(ret, validateExpectedSections(l)...)
+	ret = append(ret, validateSuffixUniqueness(l)...)
 
 	return ret
 }
