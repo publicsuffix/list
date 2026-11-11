@@ -228,7 +228,7 @@ func TestClean(t *testing.T) {
 				),
 			),
 			want: list(
-				// Unchanged compared to above
+				// Suffix blocks keep their order, suffixes are sorted.
 				section(1, 1, "ICANN DOMAINS",
 					suffixes(1, 1, info(".ZA", nil, nil, nil, true),
 						comment(1, ".ZA"),
@@ -237,8 +237,8 @@ func TestClean(t *testing.T) {
 					),
 					suffixes(2, 2, info(".BE", nil, nil, nil, true),
 						comment(1, ".BE"),
-						suffix(2, "com.be"),
 						suffix(3, "be"),
+						suffix(2, "com.be"),
 					),
 				),
 
