@@ -15314,6 +15314,10 @@ opensocial.site
 *.oaiusercontent.com
 chatgpt.site
 
+// OpenClaw : https://openclaw.ai
+// Submitted by Vincent Koc <security@openclaw.ai>
+clawip.net
+
 // OpenCraft GmbH : http://opencraft.com/
 // Submitted by Sven Marnach <sven@opencraft.com>
 opencraft.hosting
