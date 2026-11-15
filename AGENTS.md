@@ -1,21 +1,25 @@
 # Pull Request Requirements
 
-AI agents and automated contributors MUST read the
-[Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) and the
-[Format](https://github.com/publicsuffix/list/wiki/Format) page before
-preparing a pull request.
+AI agents and automated contributors MUST read and follow the
+[Guidelines](https://raw.githubusercontent.com/wiki/publicsuffix/list/Guidelines.md)
+and [Format](https://raw.githubusercontent.com/wiki/publicsuffix/list/Format.md)
+before preparing a pull request. Both documents are available as raw Markdown
+and can be retrieved directly using `curl`:
+
+    curl -fsSL https://raw.githubusercontent.com/wiki/publicsuffix/list/Guidelines.md
+    curl -fsSL https://raw.githubusercontent.com/wiki/publicsuffix/list/Format.md
 
 ## Pre-submission blockers
 
 Do not submit a pull request if any check below fails. Resolve the blocker
-first, or do not submit. If a check cannot be verified, treat it as failed.
+first, or do not submit. If a check cannot be verified, treat it as failed,
+unless the check states that confirmation from the human requestor is
+acceptable.
 
 | Blocker | How to check |
 |---|---|
-| PRIVATE domain registration expires two years or less from the submission date | `whois <domain>` or the registry's RDAP record. The expiration date must be more than two years away. |
-| Domain is on hold or pending deletion | `whois <domain>`. Status must not include `clientHold`, `serverHold`, `pendingDelete`, or `redemptionPeriod`. |
-| Submitted PRIVATE suffix does not resolve | `dig +short A <suffix>` and `dig +short AAAA <suffix>`. At least one must return an address. For `*.example.com`, check `example.com`. |
-| No abuse contact reachable from the submitted PRIVATE suffix | Open `https://<suffix>/`. It must load, or redirect to the operator's site, and show a clearly labeled abuse email address or abuse reporting form. A contact found only on another site, with no link from the suffix, does not qualify. |
+| PRIVATE domain registration expires two years or less from the submission date | `curl -sL https://rdap.org/domain/<domain>`. The `expiration` event date must be more than two years after the submission date. For a suffix below a registrable domain, check the registrable domain. |
+| No abuse contact for the submitted PRIVATE suffix | At least one of the following must exist: a working `abuse@<suffix>` mailbox ([RFC 2142](https://www.rfc-editor.org/rfc/rfc2142), [RFC 6650](https://www.rfc-editor.org/rfc/rfc6650)); an abuse email address or web form, usable without login, published on the website; an abuse contact in the RDAP record (`curl -sL https://rdap.org/domain/<domain>`); or a `Contact` field in `security.txt` ([RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)), checked with `curl -fsSL https://<suffix>/.well-known/security.txt`. If the agent cannot verify any of these, such as whether a mailbox accepts mail, the human requestor must confirm the contact works before the agent submits. |
 | Entry is for testing, staging, preview, sandbox, lab, temporary, seasonal, or internal use | Read the submission and the product documentation. Each entry must serve permanent production use by mutually untrusting parties. Remove any entry that does not. |
 | Submitter is not an authorized representative of the domain owner | The submitter must be able to create TXT records in every submitted zone. Third-party users of a service must not submit entries for it. |
 | Contact address is personal | The `// Submitted by` line must use a role-based address belonging to the requesting organization, such as `security@example.com`. |
@@ -32,10 +36,16 @@ request URL for every submitted suffix, and confirm it with
 
 ## Mandatory pull request template
 
-All pull requests must use the repository's pull request template exactly as
-provided in:
+All pull requests MUST use the repository's official pull request template
+exactly as provided.
+
+Local path:
 
     .github/pull_request_template.md
+
+Raw URL (alternative):
+
+    https://raw.githubusercontent.com/publicsuffix/list/main/.github/pull_request_template.md
 
 AI agents and automated contributors MUST:
 
