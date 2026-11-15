@@ -16365,6 +16365,10 @@ lima.zone
 site.transip.me
 *.transurl.nl
 
+// TrioLMS : https://triolms.com
+// Submitted by TrioLMS Team <hello@triolms.com>
+triolms-content.uk
+
 // Triton Data Center project : https://tritondatacenter.com
 // Submitted by Triton Data Center staff <tickets@tritondatacenter.com>
 *.triton.zone
