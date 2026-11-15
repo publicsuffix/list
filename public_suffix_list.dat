@@ -16369,6 +16369,11 @@ site.transip.me
 // Submitted by Triton Data Center staff <tickets@tritondatacenter.com>
 *.triton.zone
 
+// TulipFarm : https://tulipfarm.ai
+// Submitted by Dhruv Jain <hello@tulipfarm.ai>
+tulipfarm.site
+preview.tulipfarm.site
+
 // Tunnelmole: https://tunnelmole.com
 // Submitted by Robbie Cahill <support@tunnelmole.com>
 tunnelmole.net
