@@ -50,19 +50,24 @@ Raw URL (alternative):
 AI agents and automated contributors MUST:
 
 - Preserve every heading, field, checkbox, comment, and section in the template.
+
 - Complete the requested fields without renaming, deleting, reordering, or
   replacing them.
+
 - Not submit a shortened, reformatted, summarized, or independently generated
   pull request description.
+
 - Not remove sections because they appear inapplicable.
+
 - Enter "Not applicable" where appropriate instead of deleting a section.
+
 - Preserve all hidden HTML comments.
+
 - Delete the Cloudflare, Let's Encrypt, and "REMOVE THIS LINE" example lines
   in the third-party limits field, and list only limits that actually apply.
-- State in the rationale that each PRIVATE domain has more than two years of
-  registration remaining, and commit to maintaining more than one year at all
-  times.
+
 - Check a box only when the statement is true.
+
 - Treat modification of the template structure as a pull request validation
   failure.
 
