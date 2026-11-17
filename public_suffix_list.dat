@@ -14675,6 +14675,10 @@ loginline.site
 // Submitted by Heiki Lõhmus <hostmaster@lohmus.me>
 lohmus.me
 
+// Loop32 : https://loop32.com
+// Submitted by Loop32 Ltd <admin@loop32.com>
+*.loop32.app
+
 // Lovable : https://lovable.dev
 // Submitted by Fabian Hedin <security@lovable.dev>
 lovable.app
