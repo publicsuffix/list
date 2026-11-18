@@ -16,9 +16,9 @@ ICANN has a [Security and Stability Advisory Committee](https://www.icann.org/re
 
 They created a working group which convened 2014-2015 to review the use of Public Suffix Lists, and how to implement them within software, in security, and in language libraries and other systems. This ultimately resulted in SAC070, an advisory on the use of Public Suffix Lists.
 
-Although it is slightly dated, and not current and entirely applicable to the Mozilla PSL, it does contain good practices and advise. The list maintainers have migrated management since here to GitHub, have introduced numerous validation and verification steps, and now have in place many of the suggestions and recommendations that were actionable as improvements.
+Although it is slightly dated, and not current and entirely applicable to the Mozilla PSL, it does contain good practices and advice. The list maintainers have migrated management since here to GitHub, have introduced numerous validation and verification steps, and now have in place many of the suggestions and recommendations that were actionable as improvements.
 
-Other suggestions and recommendations were made for those who integrate or use the PSL, and worth a read and consideration, as they were drawn from a pool of security experts that are familiar with architectural and procedural practices that merit some attention.
+Other suggestions and recommendations were made for those who integrate or use the PSL, and are worth a read and consideration, as they were drawn from a pool of security experts that are familiar with architectural and procedural practices that merit some attention.
 
 Please familiarize yourself with their findings and consider them in your use of these lists.
 
@@ -30,7 +30,7 @@ Please familiarize yourself with their findings and consider them in your use of
 
 [The ICANN Board of Directors May 12, 2021 Special Meeting Resolution 1.g](https://www.icann.org/resources/board-material/resolutions-2021-05-12-en#1.g) declared that the SAC070 advisory was closed and completed.
 
-Specific attention should be drawn to recommendation 5, which called upon ICANN to publish a PSL. Because ICANN (via IANA) publishes a "Public Suffix List", which is the IANA TLD list (it doesn't descend below the first level), and this recommendation was found to be complete in the board resolution. The specific wording from the board resolution was, _"Whereas, on 1 December 2019, the IANA team started hosting an authoritative PSL for all TLDs in the root zone, completing Recommendation 5."_
+Specific attention should be drawn to recommendation 5, which called upon ICANN to publish a PSL. Because ICANN (via IANA) publishes a "Public Suffix List", which is the IANA TLD list (it doesn't descend below the first level), this recommendation was found to be complete in the board resolution. The specific wording from the board resolution was, _"Whereas, on 1 December 2019, the IANA team started hosting an authoritative PSL for all TLDs in the root zone, completing Recommendation 5."_
 
 ### ICANN Office of the Chief Technology Officer (OCTO)
 

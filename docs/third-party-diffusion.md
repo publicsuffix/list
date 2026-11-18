@@ -4,7 +4,7 @@ The Public Suffix List is incorporated for a number of uses, and the project doe
 
 One use case that has evolved which places increasing burden on the volunteer PSL maintainers is where some providers point to the PSL as being a place to get included in order to add or change functionality within their systems.
 
-This third party diffusion includes, in some cases, where the presence or absence of entries is leveraged by companies to point customer requests away to an external party in order to keep their own support or customer flow simplified.
+This third-party diffusion includes, in some cases, where the presence or absence of entries is leveraged by companies to point customer requests away to an external party in order to keep their own support or customer flow simplified.
 
 ## A special note to operating systems, social media giants, and other companies, projects or vendors who introduce rate limits and refer people to resolve their issue via the PSL:
 
@@ -22,10 +22,10 @@ In every case, the most appropriate solution to issues such as those that point 
 
 * For issues with Let's Encrypt, contact Let's Encrypt.
 * For issues with Cloudflare, contact Cloudflare.
-* For issues with Adsense Subdomains, contact [Google Adsense Support](https://support.google.com/adsense/gethelp)
-* For issues with IOS, contact Apple.
+* For issues with Adsense Subdomains, contact [Google Adsense Support](https://support.google.com/adsense/gethelp).
+* For issues with iOS, contact Apple.
 * For issues with GitLab, contact GitLab.
-* For issues with Facebook Pixel, contact Facebook. They now have a review process for requests for addition. During that review the following things will are checked:
+* For issues with Facebook Pixel, contact Facebook. They now have a review process for requests for addition. During that review the following things are checked:
     - The domain(s) requested for addition have subdomains in large numbers
     - The domain(s) requested for addition do indeed appear to represent separate business entities which require cookie separation
     - The domain(s) requested for addition are owned by the requestor and will continue to be owned for at least two years
