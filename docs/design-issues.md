@@ -1,4 +1,4 @@
-This page collects all the issues affecting the current design of today's PSL. The goal is to have a better understanding of the limitations to (hopefully) come with a better one.
+This page collects all the issues affecting the current design of today's PSL. The goal is to have a better understanding of the limitations to (hopefully) come up with a better one.
 
 ## Issues
 
@@ -24,7 +24,7 @@ This page collects all the issues affecting the current design of today's PSL. T
 
 - Variance in the `*` or `!` interpretation and use
 
-  For some of the more deliberately expressed entry use-cases, there seems to be variation in the use of ! or * prefixes which conflict; or, variance in the manner in which these are implemented in services, software or systems that utilize the PSL exist; or, some of these entries are ignored, not imported or used.
+  For some of the more deliberately expressed entry use-cases, there seems to be variation in the use of ! or * prefixes which conflict; or, variance in the manner in which these are implemented in services, software or systems that utilize the PSL exists; or, some of these entries are ignored, not imported or used.
 
 - More richful format
 
@@ -40,10 +40,10 @@ This page collects all the issues affecting the current design of today's PSL. T
 
 - Potentially Convert to using all A-labels
 
-  While using the raw Unicode string mitigates all the legacy and mixed IDN implementation variations in encoding standards that have occurred across the past three decades, some purists would prefer to break legacy use cases and force use of the most recent standards. The project has deferred decision on this to browsers as the key consumer and use case. For those who do not like backward compatibility, or rendering early adopter domains broken, we can consider following ICANN's [Universal Acceptance Steering Group](https://uasg.tech) recommendations and switch to A-Label TLD representation. In plain talk, this means punycode TLDs being listed instead of Unicode TLDs (ex xn--fiqs8s vs 中国).
+  While using the raw Unicode string mitigates all the legacy and mixed IDN implementation variations in encoding standards that have occurred across the past three decades, some purists would prefer to break legacy use cases and force use of the most recent standards. The project has deferred the decision on this to browsers as the key consumer and use case. For those who do not like backward compatibility, or rendering early adopter domains broken, we can consider following ICANN's [Universal Acceptance Steering Group](https://uasg.tech) recommendations and switch to A-Label TLD representation. In plain talk, this means punycode TLDs being listed instead of Unicode TLDs (ex xn--fiqs8s vs 中国).
 
 - Wildcard
 
-  Clarify the use of wildcard. Today we implicitly support any wildcards, but all implementations support only left-outermost wildcard.
+  Clarify the use of wildcard. Today we implicitly support any wildcards, but all implementations support only the left-outermost wildcard.
 
   Additionally, the behavior of wildcard and its use and implementation may vary by use-case.

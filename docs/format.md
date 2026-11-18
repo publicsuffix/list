@@ -97,7 +97,6 @@ Here is an example (incomplete) list section. The rules are numbered, but the nu
 6. !pref.hokkaido.jp
 7. !metro.tokyo.jp
 
-
 The example above would be interpreted as follows, in the case of cookie-setting, and using "foo" and "bar" as generic hostnames:
 
 1:
@@ -146,7 +145,7 @@ Here is an algorithm for determining the Public Suffix of a domain. (Note: it ma
 - A rule may begin with a "!" (exclamation mark). If it does, it is labelled as an "exception rule" and then treated as if the exclamation mark is not present.
 - A domain or rule can be split into a list of labels using the separator "." (dot). The separator is not part of any of the labels. Empty labels are not permitted.
 - A domain is said to match a rule if and only if all of the following conditions are met:
-- When the domain and rule are split into corresponding labels, that the domain contains as many or more labels than the rule.
+- When the domain and rule are split into corresponding labels, the domain contains as many labels as or more labels than the rule.
 - Beginning with the right-most labels of both the domain and the rule, and continuing for all labels in the rule, one finds that for every pair, either they are identical, or that the label from the rule is "\*".
 
 ## Algorithm

@@ -51,7 +51,7 @@ This has a range of LoE. These are not mutually exclusive validation techniques,
 
 - On the lower side of LoE, Zone validation via DNS and _psl TXT [RFC8553](https://datatracker.ietf.org/doc/rfc8553)-style record matching the PR# will help prove that there is a connection between the authoritative admin or domain owner and the submitted PR.
 - Documented, publicly available policies or enumeration / explanation of the submission from an authoritative source
-- Was this submitted directly from the registry or domain owner? (if Registry, does this match IANA database in some verifiable manner)
+- Was this submitted directly from the registry or domain owner? (if Registry, does this match the IANA database in some verifiable manner?)
 
 The first one is the most crucial. The other two are helpful. Having all three makes things go VERY quickly in the ICANN section.
 
@@ -87,7 +87,7 @@ Our non-acceptance (wontfix) criteria are as follows:
 
 * PRs citing as rationale that a company or project referred them to the PSL as a solution or as a quality review sieve or enablement means for some of their products' core feature(s) may experience long delays or non-acceptance on requests. Wherever possible, such projects should maintain their own solutions and not make such referrals.
 
-* These non-acceptance criteria are subject to change, and the criteria listed here do not necessarily reflect the comprehensive circumstances or situations that will cause a PR not to be accepted. Accordingly, **this list may be modified or updated at any time**, and the volunteer maintainers reserve the right to decline PRs where there is a belief it has potential to introduce issues adverse to security, stability, resilience or other factors, and may do so at their discretion.
+* These non-acceptance criteria are subject to change, and the criteria listed here do not necessarily reflect the comprehensive circumstances or situations that will cause a PR not to be accepted. Accordingly, **this list may be modified or updated at any time**, and the volunteer maintainers reserve the right to decline PRs where there is a belief they have potential to introduce issues adverse to security, stability, resilience or other factors, and may do so at their discretion.
 
 ## Authentication
 
@@ -176,7 +176,7 @@ Prepare your change. Here are some rules to keep in mind:
    ```
 
 ### Sort your submission correctly (IMPORTANT)
-IF YOU ARE MAKING A NEW ENTRY - DO NOT PUT YOUR ADDITIONS AT THE END OF FILE; THAT IS INVALID AND MAY GET IT REJECTED.
+IF YOU ARE MAKING A NEW ENTRY - DO NOT PUT YOUR ADDITIONS AT THE END OF THE FILE; THAT IS INVALID AND MAY GET IT REJECTED.
 - Place your new subsection in the appropriate section of the file, sorted by commented company name.
 - Keep the list of suffixes (if more than one) in alphabetical order. Sort first by the TLD, then the first label to the left of the TLD, and so forth. For example, the following is sorted by TLD first (`com`, `invalid`, `net`, `org`, `test`), then within each TLD, sorted by the first label (`example`), then, for entries with more labels, each label is sorted, with shorter entries appearing first:
 
@@ -250,12 +250,12 @@ In the illustration above, A, B, C, and D are third parties. These might be a br
 
 In some circumstances, where the list is included or incorporated in some static manner by a library, product or service, one may see timing delays before seeing the change within those works. This can occur based upon schedules, product road maps and update cycles beyond the control or influence of the PSL maintainers / volunteers.
 
-Please note, the same cascade delay circumstances can compound if the initial PR that was submitted in a manner that requires revision (or rollback). The following illustration shows the impact of submitting PR 1 that had some unintended consequences that get adjustment in PR 2, once the changes are seen to have not behaved as expected. The same illustration works for a rollback situation, where the requestor decides to remove the changes from the first PR.
+Please note, the same cascade delay circumstances can compound if the initial PR was submitted in a manner that requires revision (or rollback). The following illustration shows the impact of submitting PR 1 that had some unintended consequences that get adjustment in PR 2, once the changes are seen to have not behaved as expected. The same illustration works for a rollback situation, where the requestor decides to remove the changes from the first PR.
 ![Cascade Compounds the Timeline on changes where second request comes.](https://raw.githubusercontent.com/publicsuffix/publicsuffix.org/master/images/Cascading2xDownstream.svg)
 
 #### Derivative Use
 
-The PSL resource has no governance on how it is used, in whole, in part, or some modified version by derivative works. This includes how vendors treat the addition and/or deletion of entries, or how they process updates information as the PSL gets updated.
+The PSL resource has no governance on how it is used, in whole, in part, or some modified version by derivative works. This includes how vendors treat the addition and/or deletion of entries, or how they process update information as the PSL gets updated.
 
 #### Inclusion or Non-Inclusion in Derivative Works
 

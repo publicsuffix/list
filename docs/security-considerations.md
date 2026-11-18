@@ -6,7 +6,7 @@ The PSL adheres to the [ICP-3](https://www.icann.org/resources/pages/unique-auth
 
 There are exceptions to strict adherence to the ICP-3, but those are standards-driven or tied to authoritative policies that work within the ICP-3.
 
-Some examples of exception are the .onion TLD (see [PR #386](https://github.com/publicsuffix/list/pull/386) and related [Issue #374](https://github.com/publicsuffix/list/issues/374) where there was IETF review resulting in RFC 7686 before allowance in PSL), 2012 round nTLDs that were approved TLD applications that have been furnished by ICANN on their contracted TLDs json file, and names defined by RFC(s) that are produced by the Internet Architecture Board (IAB) or Internet Engineering Task Force (IETF).
+Some examples of exceptions are the .onion TLD (see [PR #386](https://github.com/publicsuffix/list/pull/386) and related [Issue #374](https://github.com/publicsuffix/list/issues/374) where there was IETF review resulting in RFC 7686 before allowance in PSL), 2012 round nTLDs that were approved TLD applications that have been furnished by ICANN on their contracted TLDs json file, and names defined by RFC(s) that are produced by the Internet Architecture Board (IAB) or Internet Engineering Task Force (IETF).
 
 The project does not create new domain names, but rather documents existing names as defined by the IANA, ICANN, IETF or IAB, and then adds elegance and specificity within that universe without going beyond it.
 

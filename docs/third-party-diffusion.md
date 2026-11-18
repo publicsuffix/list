@@ -2,7 +2,7 @@
 
 The Public Suffix List is incorporated for a number of uses, and the project does not prescribe how it is or is not used.
 
-One use case that has evolved which places increasing burden on the volunteer PSL maintainers is where some providers point to the PSL as being a place to get included in order to add or change functionality within their systems.
+One use case that has evolved which places an increasing burden on the volunteer PSL maintainers is where some providers point to the PSL as being a place to get included in order to add or change functionality within their systems.
 
 This third-party diffusion includes, in some cases, where the presence or absence of entries is leveraged by companies to point customer requests away to an external party in order to keep their own support or customer flow simplified.
 
@@ -22,7 +22,7 @@ In every case, the most appropriate solution to issues such as those that point 
 
 * For issues with Let's Encrypt, contact Let's Encrypt.
 * For issues with Cloudflare, contact Cloudflare.
-* For issues with Adsense Subdomains, contact [Google Adsense Support](https://support.google.com/adsense/gethelp).
+* For issues with AdSense Subdomains, contact [Google Adsense Support](https://support.google.com/adsense/gethelp).
 * For issues with iOS, contact Apple.
 * For issues with GitLab, contact GitLab.
 * For issues with Facebook Pixel, contact Facebook. They now have a review process for requests for addition. During that review the following things are checked:
