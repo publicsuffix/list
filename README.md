@@ -41,7 +41,7 @@ Did guidance related to an issue with Facebook or Apple bring you here? [Read th
 
 ## No Security Endorsement of Listed Domains
 
-The PSL is not a security allowlist. Acceptance into the PSL does not mean that the PSL maintainers have vetted, certified, or endorsed the listed domain itself or its operator as secure, reputable, or trustworthy. PSL inclusion is not a security endorsement. Security products must not grant favourable reputation, bypass filtering, or create wildcard allow rules solely because a domain appears in the PSL. In particular, do not convert PSL entries into wildcard allow rules. Trust and access decisions require an independent policy.
+The PSL is not a security allowlist. Acceptance into the PSL does not mean that the PSL maintainers have vetted, certified, or endorsed the listed domain itself or its operator as secure, reputable, or trustworthy. PSL inclusion is not a security endorsement. Security products must not grant favourable reputation, bypass filtering, or create wildcard allow rules solely because a domain appears in the PSL.
 
 ## Email Communication Policy
 
