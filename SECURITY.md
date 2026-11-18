@@ -14,4 +14,4 @@ This project is maintained by a team of volunteers on a reasonable-effort basis.
 
 ## Security meaning of list inclusion
 
-Inclusion in the ICANN DOMAINS or PRIVATE DOMAINS section records a boundary between independent registrants. It does not certify the listed suffix or its operator as trustworthy, and verification or acceptance of a submission is not a security endorsement. See [No Security Endorsement of Listed Domains](README.md#no-security-endorsement-of-listed-domains) before using PSL data in a firewall, filtering system, or other security product.
+Inclusion in the PSL does not certify the listed suffix or its operator as trustworthy, and verification or acceptance of a submission is not a security endorsement. See [No Security Endorsement of Listed Domains](README.md#no-security-endorsement-of-listed-domains) before using PSL data in a firewall, filtering system, or other security product.
