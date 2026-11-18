@@ -2,15 +2,15 @@
 
 The Public Suffix List is incorporated for a number of uses, and the project does not prescribe how it is or is not used.
 
-One use case that has evolved which places an increasing burden on the volunteer PSL maintainers is where some providers point to the PSL as being a place to get included in order to add or change functionality within their systems.
+One use case that has evolved, which places an increasing burden on the volunteer PSL maintainers, is where some providers point to the PSL as being a place to get included in order to add or change functionality within their systems.
 
-This third-party diffusion includes, in some cases, where the presence or absence of entries is leveraged by companies to point customer requests away to an external party in order to keep their own support or customer flow simplified.
+This third-party diffusion includes, in some cases, the presence or absence of entries being leveraged by companies to point customer requests away to an external party in order to keep their own support or customer flow simplified.
 
 ## A special note to operating systems, social media giants, and other companies, projects or vendors who introduce rate limits and refer people to resolve their issue via the PSL:
 
 # Don't.
 
-Instead, address your customers directly. While referring folks away may make for a simple checkbox next to done for your project or elegant customer service FAQ flow for you or your company, it dumps irritated folks who are affected onto the volunteers that help maintain this project.
+Instead, address your customers directly. While referring folks away may make for a simple checkbox next to done for your project or an elegant customer service FAQ flow for you or your company, it dumps irritated folks who are affected onto the volunteers that help maintain this project.
 
 It should go without mention that it is inappropriate to do so, but mention it we must. The volunteer resourcing drain is annoying and disrespectful, but it is secondary to directing your customers/clients to potentially request things that might break their websites if not handed off after careful qualification BEFORE handing them off. It is also a crucially important fact about the private section of the PSL that it infers ZERO security.
 

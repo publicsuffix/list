@@ -10,7 +10,7 @@ The general procedure to make changes is as follows:
 2. [View the list](https://publicsuffix.org/list/), find your top-level domain (if present), and then check the rules already there for accuracy.
 3. If there are any additions, removals or amendments to be made, create a pull request for our GitHub repo.
 
-Updates should be filed as pull requests. Issues can be submitted; however, a pull request is generally preferred, and is more rapidly actionable. Pull requests are automatically checked by our test suite, and in many cases, you can get immediate feedback whether your submission contains some invalid rules that may cause the patch to be rejected.
+Updates should be filed as pull requests. Issues can be submitted; however, a pull request is generally preferred, and is more rapidly actionable. Pull requests are automatically checked by our test suite, and in many cases, you can get immediate feedback on whether your submission contains some invalid rules that may cause the patch to be rejected.
 
 Submissions are discussed either in the respective issue or pull request. Each submission requires validation, authentication and approval:
 
@@ -22,7 +22,7 @@ Submissions are discussed either in the respective issue or pull request. Each s
 
 This project has a number of contributors, most all of whom are volunteering their spare time to process requests and maintain this resource. To best process things in the most efficient manner, the following are some factors and dimensions that can impact the order and pace of processing by the volunteers.
 
-**Important: There are NO SERVICE LEVEL AGREEMENTS ON TIME nor any expectation of processing speed or urgency. Being thorough, clear, and accurate with your request is the best path. And patient.**
+**Important: There are NO SERVICE LEVEL AGREEMENTS ON TIME nor any expectation of processing speed or urgency. Being thorough, clear, and accurate with your request is the best path. And be patient.**
 
 #### What type of change is being requested?
 - Additions (if complete and thorough) typically require lower LoE than Modifications/Deletions
@@ -40,18 +40,18 @@ Questions and clarifications, research or review may or may not be needed, based
   - What are example domains' use scenarios? Describe the desired outcome. Enumerate through example subdomains or the name itself and how these are desired to work as a result of the PR being merged. This is particularly important with respect to wildcards (*) and bangs (!) and ensuring the result will align with the request.
 - How many domains are being requested within the PR?
 - Are the domains being requested for internal purposes (e.g. organization Foo wants their dev/staging servers, which only they use/access) or is this for general utility?
-  - Basically, does every user shipping the PSL benefit from the added size/processing? (Sure, your opinion might be "YES", but provide support for this).
+  - Basically, does every user shipping the PSL benefit from the added size/processing? (Sure, your opinion might be "YES", but provide support for this.)
 - Does every domain in the _PRIVATE_ section have at least two years remaining in the registration term?
   - Modifications take time to reach software that uses the PSL, and so it's important that domain registrations cover at least two years. In general, registrations should be done for a longer term. Note that registration periods of less than a year may result in the automatic removal of the domain.
 
-Third-party and community submissions can be submitted; however, the submitting party is expected to make contact with the respective domain name administrator, as there is a validation step in the DNS which is mandatory. (see [How to Help vs "Help"](https://github.com/publicsuffix/list/issues/1439))
+Third-party and community submissions can be submitted; however, the submitting party is expected to make contact with the respective domain name administrator, as there is a validation step in the DNS which is mandatory. (See [How to Help vs "Help"](https://github.com/publicsuffix/list/issues/1439))
 
 #### Validation of submission(s): (ALWAYS)
 This has a range of LoE. These are not mutually exclusive validation techniques, and the bias is the DNS validation as it is difficult or impossible to forge. The other methods create a burden of research for the volunteers and severely impact the pace of processing or prioritization.
 
-- On the lower side of LoE, Zone validation via DNS and _psl TXT [RFC8553](https://datatracker.ietf.org/doc/rfc8553)-style record matching the PR# will help prove that there is a connection between the authoritative admin or domain owner and the submitted PR.
-- Documented, publicly available policies or enumeration / explanation of the submission from an authoritative source
-- Was this submitted directly from the registry or domain owner? (if Registry, does this match the IANA database in some verifiable manner?)
+- On the lower side of LoE, Zone validation via DNS and _psl TXT [RFC8553](https://datatracker.ietf.org/doc/rfc8553)-style record matching the PR # will help prove that there is a connection between the authoritative admin or domain owner and the submitted PR.
+- Documented, publicly available policies or enumeration/explanation of the submission from an authoritative source.
+- Was this submitted directly from the registry or domain owner? (If registry, does this match the IANA database in some verifiable manner?)
 
 The first one is the most crucial. The other two are helpful. Having all three makes things go VERY quickly in the ICANN section.
 
@@ -71,21 +71,21 @@ Additionally, certain PRs or TLDs will undergo out-of-band validation in additio
 
 Our non-acceptance (wontfix) criteria are as follows:
 
-* We do not accept entries for use as DNS wildcards, such that e.g. 1-2-3-4.foo.tld resolves as IP address 1.2.3.4. This basically projects the security properties of the IP address space onto the domain name space, and we don't feel that is safe. IP addresses can be dynamically allocated to multiple mutually-untrusting parties; domain names generally are not.
+* We do not accept entries for use as DNS wildcards, such that e.g., 1-2-3-4.foo.tld resolves as the IP address 1.2.3.4. This basically projects the security properties of the IP address space onto the domain name space, and we don't feel that is safe. IP addresses can be dynamically allocated to multiple mutually-untrusting parties; domain names generally are not.
 
 * We do not accept entries whose sole purpose is to circumvent rate limits of third parties (such as Let's Encrypt rate limits - use their [form](https://letsencrypt.org/docs/rate-limits/) instead).
 
 * We do not accept entries that have the objective of getting around limitations that have been put in place by a vendor to protect internet users. The PSL is not a 'workaround', and Pull Requests that appear to be doing this should expect to be declined. Be thorough and candid with the rationale furnished with the request.
 
-* To avoid challenges, security issues, competing root systems or unintentional behavior associated with interoperability that may come from competing namespace authority, this project follows ICP-3 and I* (meaning, for example, .onion was defined by IETF RFC despite not being in the IANA root zone) standards for top-level domains (TLDs). We do not accept entries with TLDs that fall into 'Alternative' naming systems. ICANN's Office of the CTO has published [OCTO 034 Challenges with Alternative Name Systems](https://www.icann.org/en/system/files/files/octo-034-27apr22-en.pdf) which explains the variety of different systems and approaches, as well as the hazards. This 'nope' rule is here to allow discussion and energy that develop around this topic to happen elsewhere.
+* To avoid challenges, security issues, competing root systems or unintentional behavior associated with interoperability that may come from competing namespace authority, this project follows ICP-3 and I* (meaning, for example, .onion was defined by IETF RFC despite not being in the IANA root zone) standards for top-level domains (TLDs). We do not accept entries with TLDs that fall into 'Alternative' naming systems. ICANN's Office of the CTO has published [OCTO 034 Challenges with Alternative Name Systems](https://www.icann.org/en/system/files/files/octo-034-27apr22-en.pdf), which explains the variety of different systems and approaches, as well as the hazards. This 'nope' rule is here to allow discussion and energy that develop around this topic to happen elsewhere.
 
-* The PSL is a globally used resource. PR submitters should understand that tens of millions, perhaps hundreds of millions of devices and uses may incorporate the change being requested, and need to consider if the request authentically merits such widespread inclusion. Expanding the file size even in small ways increases the overhead for everyone. File Size and scale of impact of a request is a consideration. Requests being minimal is important.
+* The PSL is a globally used resource. PR submitters should understand that tens of millions, perhaps hundreds of millions of devices and uses may incorporate the change being requested, and need to consider if the request authentically merits such widespread inclusion. Expanding the file size even in small ways increases the overhead for everyone. File size and scale of impact of a request are considerations. Requests being minimal is important.
 
 * Projects that are smaller in scale or are temporary or seasonal in nature will likely be declined. Examples of this might be private-use, sandbox, test, lab, beta, or other exploratory nature changes or requests. It should be expected that despite whatever site or service referred a requestor to seek addition of their domain(s) to the list, projects not serving more than thousands of users are quite likely to be declined.
 
-* We now require that domains submitted as private section entries have expiration dates more than 2 years beyond the submitting date of a PR. Please include a statement within the rationale that a] the domain name(s) submitted have at least 2 years of registration period left in them at the time of submitting the name, and b] include a commitment that you will maintain their registration in good standing with more than a year left in their term.
+* We now require that domains submitted as private section entries have expiration dates more than 2 years beyond the submitting date of a PR. Please include (a) a statement within the rationale that the domain name(s) submitted have at least 2 years of registration period left in them at the time of submitting the name, and (b) a commitment that you will maintain their registration in good standing with more than a year left in their term.
 
-* PRs citing as rationale that a company or project referred them to the PSL as a solution or as a quality review sieve or enablement means for some of their products' core feature(s) may experience long delays or non-acceptance on requests. Wherever possible, such projects should maintain their own solutions and not make such referrals.
+* PRs citing as a rationale that a company or project referred them to the PSL as a solution or as a quality review sieve or enablement means for some of their products' core feature(s) may experience long delays or non-acceptance on requests. Wherever possible, such projects should maintain their own solutions and not make such referrals.
 
 * These non-acceptance criteria are subject to change, and the criteria listed here do not necessarily reflect the comprehensive circumstances or situations that will cause a PR not to be accepted. Accordingly, **this list may be modified or updated at any time**, and the volunteer maintainers reserve the right to decline PRs where there is a belief they have potential to introduce issues adverse to security, stability, resilience or other factors, and may do so at their discretion.
 
@@ -101,7 +101,7 @@ Priority/expedited processing is given to changes provided through the PSL ICANN
 
 ### Private Domains
 
-For private domains we need to confirm that the person submitting the request is an authorized representative of the domain owner. **We will not accept patches submitted by third-party users of the service**.
+For private domains, we need to confirm that the person submitting the request is an authorized representative of the domain owner. **We will not accept patches submitted by third-party users of the service**.
 
 Historically, we have been validating the authentication of the request by using the data in the WHOIS response and sending an email to the domain owner. However, this approach doesn't scale very well. Here's the current validation list, in order of preference.
 
@@ -133,13 +133,13 @@ https://github.com/publicsuffix/list/pull/100
 ```
 This validation is sufficient to rapidly allow the volunteers to associate the administrative control of a resource to the party contributing the PR.
 
-LEAVE THESE _psl IN PLACE WITHIN YOUR ZONES POST-VALIDATION IN ORDER TO ANNOUNCE CONTINUED INCLUSION IS DESIRED. At some point in the future, automation will be used to remove stale entries from the PSL, and missing _psl records will be a flag used in determination of domains to remove from the PSL.
+LEAVE THESE _psl IN PLACE WITHIN YOUR ZONES POST-VALIDATION IN ORDER TO ANNOUNCE THAT CONTINUED INCLUSION IS DESIRED. At some point in the future, automation will be used to remove stale entries from the PSL, and missing _psl records will be a flag used in the determination of domains to remove from the PSL.
 
 #### Email Authentication
 
 In some circumstances, we may proceed with the email-based validation. However, the email must be clearly associated (generally in the public WHOIS) with all the suffixes included in the pull request. If the pull request contains multiple suffixes and the email doesn't match all of them, then the entire pull request will be rejected.
 
-For large companies we may require a mailing list such as `security@example.com` or administrative email, rather than user-specific emails.
+For large companies, we may require a mailing list such as `security@example.com` or an administrative email, rather than user-specific emails.
 
 ## Submitting Amendments
 
@@ -176,7 +176,7 @@ Prepare your change. Here are some rules to keep in mind:
    ```
 
 ### Sort your submission correctly (IMPORTANT)
-IF YOU ARE MAKING A NEW ENTRY - DO NOT PUT YOUR ADDITIONS AT THE END OF THE FILE; THAT IS INVALID AND MAY GET IT REJECTED.
+IF YOU ARE MAKING A NEW ENTRY, DO NOT PUT YOUR ADDITIONS AT THE END OF THE FILE; THAT IS INVALID AND MAY GET IT REJECTED.
 - Place your new subsection in the appropriate section of the file, sorted by commented company name.
 - Keep the list of suffixes (if more than one) in alphabetical order. Sort first by the TLD, then the first label to the left of the TLD, and so forth. For example, the following is sorted by TLD first (`com`, `invalid`, `net`, `org`, `test`), then within each TLD, sorted by the first label (`example`), then, for entries with more labels, each label is sorted, with shorter entries appearing first:
 
@@ -221,7 +221,7 @@ Patches that don't pass the tests will be rejected.
 
 ### Follow up
 
-After submission, please follow up to the ticket and any correspondence email regarding questions, until the ticket is closed. Also make sure that the email you listed in the pull request is valid, as we may use it for validation or private follow-ups.
+After submission, please follow up on the ticket and any correspondence email regarding questions, until the ticket is closed. Also make sure that the email you listed in the pull request is valid, as we may use it for validation or private follow-ups.
 
 ### Expediting Propagation in Browsers (Etc) Once a Pull Request is Merged
 
@@ -231,7 +231,7 @@ Project volunteers often have cycles that could be addressing other people's Pul
 
 The PSL is just a list.
 
-As a submitter, the good news is that you have done what you can within what control by submitting a PR that was mergeable, and hopefully did so without iterations with the reviewer team. Project volunteers have done what they can control within the review/merging process. Merging the pull request into the PSL and updating it to include changes is the edge of the horizon of control for the project volunteers.
+As a submitter, the good news is that you have done what you can within your control by submitting a PR that was mergeable, and hopefully did so without iterations with the reviewer team. Project volunteers have done what they can control within the review/merging process. Merging the pull request into the PSL and updating it to include changes is the edge of the horizon of control for the project volunteers.
 
 The bad news is that there is no reach this project or PSL volunteers have into any derivative project roadmaps other than the update of the PSL itself being detected, if those projects do so.
 
@@ -246,16 +246,16 @@ Once the PSL update includes a submission, it is important to note that the **PS
 Changes to the PSL may take time to percolate to clients, [particularly those listed on the website](https://publicsuffix.org/learn/). Given that some platforms have incorporated the PSL within the OS itself, updates may not happen until the next OS update.
 
 ![The Cascade timing on when PSL changes trickle varies](https://raw.githubusercontent.com/publicsuffix/publicsuffix.org/master/images/Cascading1xDownstream.svg)
-In the illustration above, A, B, C, and D are third parties. These might be a browser, DNS infrastructure, Operating System, or other system or library that pulls and incorporates the PSL from snapshots. The horizontal axis is time, but not to scale in minutes, hours, days or years.
+In the illustration above, A, B, C, and D are third parties. These might be a browser, DNS infrastructure, operating system, or other system or library that pulls and incorporates the PSL from snapshots. The horizontal axis is time, but not to scale in minutes, hours, days or years.
 
 In some circumstances, where the list is included or incorporated in some static manner by a library, product or service, one may see timing delays before seeing the change within those works. This can occur based upon schedules, product road maps and update cycles beyond the control or influence of the PSL maintainers / volunteers.
 
-Please note, the same cascade delay circumstances can compound if the initial PR was submitted in a manner that requires revision (or rollback). The following illustration shows the impact of submitting PR 1 that had some unintended consequences that get adjustment in PR 2, once the changes are seen to have not behaved as expected. The same illustration works for a rollback situation, where the requestor decides to remove the changes from the first PR.
+Please note that the same cascade delay circumstances can compound if the initial PR was submitted in a manner that requires revision (or rollback). The following illustration shows the impact of submitting PR 1 that had some unintended consequences that get adjusted in PR 2, once the changes are seen to have not behaved as expected. The same illustration works for a rollback situation, where the requestor decides to remove the changes from the first PR.
 ![Cascade Compounds the Timeline on changes where second request comes.](https://raw.githubusercontent.com/publicsuffix/publicsuffix.org/master/images/Cascading2xDownstream.svg)
 
 #### Derivative Use
 
-The PSL resource has no governance on how it is used, in whole, in part, or some modified version by derivative works. This includes how vendors treat the addition and/or deletion of entries, or how they process update information as the PSL gets updated.
+The PSL resource has no governance on how it is used, in whole, in part, or in some modified version by derivative works. This includes how vendors treat the addition and/or deletion of entries, or how they process update information as the PSL gets updated.
 
 #### Inclusion or Non-Inclusion in Derivative Works
 

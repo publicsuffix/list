@@ -16,11 +16,11 @@ This page collects all the issues affecting the current design of today's PSL. T
 
 - Finite resource
 
-  This makes it harder to consider patches such as https://github.com/publicsuffix/list/pull/277 that requires the merge of 19k `.NAME` rules.
+  This makes it harder to consider patches such as https://github.com/publicsuffix/list/pull/277 that require the merge of 19k `.NAME` rules.
 
 - Intentional expression of intentional subdomain function is too blunt
 
-  When a domain owner is using the PSL to express the manner in which there is preference of handling, it could be more crisp and deliberate. Example: Domain owner seeks that cookies should exist in the subspace for foo.bar.com but may want to have/not have wildcard certificates issued for those same subspaces.
+  When a domain owner is using the PSL to express the manner in which there is preference of handling, it could be more crisp and deliberate. Example: A domain owner seeks that cookies should exist in the subspace for foo.bar.com but may want to have/not have wildcard certificates issued for those same subspaces.
 
 - Variance in the `*` or `!` interpretation and use
 
@@ -28,7 +28,7 @@ This page collects all the issues affecting the current design of today's PSL. T
 
 - More richful format
 
-  Use something different than a simple list of strings, that allows extensibility and extra fields. A possible alternative is either JSON or YAML.
+  Use something different than a simple list of strings that allows extensibility and extra fields. A possible alternative is either JSON or YAML.
 
 - List metadata
 
@@ -40,7 +40,7 @@ This page collects all the issues affecting the current design of today's PSL. T
 
 - Potentially Convert to using all A-labels
 
-  While using the raw Unicode string mitigates all the legacy and mixed IDN implementation variations in encoding standards that have occurred across the past three decades, some purists would prefer to break legacy use cases and force use of the most recent standards. The project has deferred the decision on this to browsers as the key consumer and use case. For those who do not like backward compatibility, or rendering early adopter domains broken, we can consider following ICANN's [Universal Acceptance Steering Group](https://uasg.tech) recommendations and switch to A-Label TLD representation. In plain talk, this means punycode TLDs being listed instead of Unicode TLDs (ex xn--fiqs8s vs 中国).
+  While using the raw Unicode string mitigates all the legacy and mixed IDN implementation variations in encoding standards that have occurred across the past three decades, some purists would prefer to break legacy use cases and force use of the most recent standards. The project has deferred the decision on this to browsers as the key consumer and use case. For those who do not like backward compatibility or rendering early adopter domains broken, we can consider following ICANN's [Universal Acceptance Steering Group](https://uasg.tech) recommendations and switch to A-Label TLD representation. In plain talk, this means punycode TLDs being listed instead of Unicode TLDs (ex xn--fiqs8s vs 中国).
 
 - Wildcard
 

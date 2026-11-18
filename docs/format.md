@@ -12,7 +12,7 @@
 - The list uses **Unicode, not Punycode** forms on strings, and the **file is encoded using UTF-8**.
 - **Entries should not have trailing whitespace**.
 
-The following characters are used explicitly, **_please only use these and avoid Unicode variants of the following_**:
+The following characters are used explicitly; **_please only use these and avoid Unicode variants of the following_**:
 
 - Space `" "` (Dec/Hex: 32/20),
 - Exclamation `"!"` (Dec/Hex: 33/21),
@@ -38,7 +38,7 @@ The following characters are used explicitly, **_please only use these and avoid
 |bar.*.foo|Invalid|Nested Wildcard (must be in leftmost position, only)|
 |*bar.foo|Invalid|Wildcard Non-delimited by dot|
 |예.\*.foo|Invalid|Nested Wildcard|
-|ǃspecificsite.예.예|Invalid|Used latin letter retroflex click unicode char (01C3) instead of exclamation (33)|
+|ǃspecificsite.예.예|Invalid|Used latin letter retroflex click Unicode char (01C3) instead of exclamation (33)|
 
 ## Right-to-left sorting
 
@@ -135,7 +135,7 @@ The example above would be interpreted as follows, in the case of cookie-setting
 
 ## Formal algorithm
 
-Here is an algorithm for determining the Public Suffix of a domain. (Note: it may not be the most efficient algorithm.) The domain, as well as all rules from the Public Suffix List, must be canonicalized in the normal way for hostnames - lower-case, Punycode (RFC 3492) - prior to being compared.
+Here is an algorithm for determining the Public Suffix of a domain. (Note: it may not be the most efficient algorithm.) The domain, as well as all rules from the Public Suffix List, must be canonicalized in the normal way for hostnames - lowercase, Punycode (RFC 3492) - prior to being compared.
 
 ## Definitions
 
@@ -146,7 +146,7 @@ Here is an algorithm for determining the Public Suffix of a domain. (Note: it ma
 - A domain or rule can be split into a list of labels using the separator "." (dot). The separator is not part of any of the labels. Empty labels are not permitted.
 - A domain is said to match a rule if and only if all of the following conditions are met:
 - When the domain and rule are split into corresponding labels, the domain contains as many labels as or more labels than the rule.
-- Beginning with the right-most labels of both the domain and the rule, and continuing for all labels in the rule, one finds that for every pair, either they are identical, or that the label from the rule is "\*".
+- Beginning with the right-most labels of both the domain and the rule, and continuing for all labels in the rule, one finds that for every pair, either they are identical or the label from the rule is "\*".
 
 ## Algorithm
 
