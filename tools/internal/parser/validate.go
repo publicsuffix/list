@@ -3,8 +3,11 @@ package parser
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
+	"maps"
 	"net"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -25,8 +28,8 @@ func ValidateOffline(l *List) []error {
 			break
 		}
 	}
-	validateExpectedSections(l)
-	validateSuffixUniqueness(l)
+	ret = append(ret, validateExpectedSections(l)...)
+	ret = append(ret, validateSuffixUniqueness(l)...)
 
 	return ret
 }
@@ -73,7 +76,7 @@ func validateExpectedSections(block Block) (errs []error) {
 		}
 	}
 
-	for _, name := range wanted.Slice() {
+	for _, name := range slices.Sorted(maps.Keys(wanted)) {
 		if _, ok := found[name]; !ok {
 			errs = append(errs, ErrMissingSection{name})
 		}
@@ -125,10 +128,13 @@ func validateSuffixUniqueness(block Block) (errs []error) {
 // validations are slower than offline validation, especially when
 // checking the entire PSL. All online validations respect
 // cancellation on the given context.
-func ValidateOnline(ctx context.Context, l *List, client *github.Repo, prHistory *githistory.History) (errs []error) {
+//
+// If pr is non-zero, l is the PSL with pull request pr applied, and
+// no pull request other than pr is fetched from Github.
+func ValidateOnline(ctx context.Context, l *List, client *github.Repo, prHistory *githistory.History, pr int) (errs []error) {
 	for _, section := range BlocksOfType[*Section](l) {
 		if section.Name == "PRIVATE DOMAINS" {
-			errs = append(errs, validateTXTRecords(ctx, section, client, prHistory)...)
+			errs = append(errs, validateTXTRecords(ctx, section, client, prHistory, pr)...)
 			break
 		}
 	}
@@ -174,6 +180,8 @@ type txtRecordChecker struct {
 	gh *github.Repo
 	// resolver is the DNS resolver used to do TXT lookups.
 	resolver net.Resolver
+	// pr is the pull request being checked, or 0 if none.
+	pr int
 
 	// errs accumulates the TXT validation errors discovered during
 	// the checking process.
@@ -191,11 +199,12 @@ type txtRecordChecker struct {
 
 // validateTXTRecords checks the TXT records of all Suffix and
 // Wildcard blocks found under b.
-func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHistory *githistory.History) (errs []error) {
+func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHistory *githistory.History, pr int) (errs []error) {
 	checker := txtRecordChecker{
 		ctx:        ctx,
 		prExpected: map[int]*prExpected{},
 		gh:         client,
+		pr:         pr,
 		hist:       prHistory,
 	}
 
@@ -216,20 +225,20 @@ func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHis
 	// TXT record checking. The checkTXT function (below) is the
 	// parallel part of the process, processLookupResult collects the
 	// results/errors.
-	collect := taskgroup.NewCollector(checker.processLookupResult)
 	group, start := taskgroup.New(nil).Limit(concurrentDNSRequests)
+	collect := taskgroup.Gather(start, checker.processLookupResult)
 
 	for _, suf := range BlocksOfType[*Suffix](b) {
 		if !suf.Changed() || exemptFromTXT(suf.Domain) {
 			continue
 		}
-		start(collect.NoError(func() txtResult { return checker.checkTXT(suf, suf.Domain) }))
+		collect.Run(func() txtResult { return checker.checkTXT(suf, suf.Domain) })
 	}
 	for _, wild := range BlocksOfType[*Wildcard](b) {
 		if !wild.Changed() || exemptFromTXT(wild.Domain) {
 			continue
 		}
-		start(collect.NoError(func() txtResult { return checker.checkTXT(wild, wild.Domain) }))
+		collect.Run(func() txtResult { return checker.checkTXT(wild, wild.Domain) })
 	}
 
 	group.Wait()
@@ -239,13 +248,13 @@ func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHis
 	// we want to see in each PR. The checkPR function is the parallel
 	// part and does all the work, the collector just concats all the
 	// validation errors together.
-	collectPR := taskgroup.NewCollector(func(errs []error) {
+	group, start = taskgroup.New(nil).Limit(concurrentGithubRequests)
+	collectPR := taskgroup.Gather(start, func(errs []error) {
 		checker.errs = append(checker.errs, errs...)
 	})
-	group, start = taskgroup.New(nil).Limit(concurrentGithubRequests)
 
 	for prNum, info := range checker.prExpected {
-		start(collectPR.NoError(func() []error { return checker.checkPR(prNum, info) }))
+		collectPR.Run(func() []error { return checker.checkPR(prNum, info) })
 	}
 	group.Wait()
 
@@ -354,6 +363,10 @@ func (c *txtRecordChecker) processLookupResult(res txtResult) {
 		c.errs = append(c.errs, ErrMissingTXTRecord{res.Block})
 		return
 	}
+	if prs := slices.Compact(slices.Sorted(slices.Values(res.prs))); len(prs) > 1 {
+		c.errs = append(c.errs, ErrTXTRecordMultiplePRs{res.Block, prs})
+		return
+	}
 	for _, prNum := range res.prs {
 		// Found some PRs for this suffix, record them in preparation
 		// for PR validation.
@@ -382,6 +395,9 @@ func (c *txtRecordChecker) getPRPSLs(prNum int) (before, after []byte, err error
 			}
 			return before, after, nil
 		}
+	}
+	if c.pr != 0 && prNum != c.pr {
+		return nil, nil, fmt.Errorf("not fetching PR %d from Github, only PR %d and merged PRs are checked", prNum, c.pr)
 	}
 
 	return c.gh.PSLForPullRequest(c.ctx, prNum)

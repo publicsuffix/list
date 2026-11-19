@@ -232,3 +232,21 @@ func (e ErrTXTCheckFailure) Error() string {
 	}
 	return fmt.Sprintf("%s: error checking suffix %s: %v", e.SrcRange().LocationString(), name, e.Err)
 }
+
+type ErrTXTRecordMultiplePRs struct {
+	Block
+	PRs []int
+}
+
+func (e ErrTXTRecordMultiplePRs) Error() string {
+	var name string
+	switch v := e.Block.(type) {
+	case *Suffix:
+		name = v.Domain.String()
+	case *Wildcard:
+		name = "*." + v.Domain.String()
+	default:
+		panic(fmt.Sprintf("unexpected block type %T in ErrTXTRecordMultiplePRs", e.Block))
+	}
+	return fmt.Sprintf("%s: suffix %s has TXT records pointing to PRs %v, but must point to exactly one PR", e.SrcRange().LocationString(), name, e.PRs)
+}
