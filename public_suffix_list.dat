@@ -15518,6 +15518,10 @@ pstmn.io
 mock.pstmn.io
 httpbin.org
 
+// PrairieLearn, Inc. : https://www.prairielearn.com
+// Submitted by PrairieLearn, Inc. <security@prairielearn.com>
+*.prairielearn-user-content.com
+
 // prequalifyme.today : https://prequalifyme.today
 // Submitted by DeepakTiwari deepak@ivylead.io
 prequalifyme.today
