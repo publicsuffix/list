@@ -30,6 +30,10 @@ Please also note that there is no guarantee of inclusion, nor are we able to pro
 
 Before you attempt to make a contribution or comment, please read the [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
 
+## AI Agents and Automated Contributors
+
+AI agents and automated contributors **MUST** read and follow [AGENTS.md](./AGENTS.md) before making changes, generating patches, or preparing pull requests. The `AGENTS.md` file contains mandatory repository-specific instructions, contribution requirements, and validation procedures. Agents **MUST** follow these instructions throughout the contribution process.
+
 ## PSL Mailing List
 
 We suggest that submitters and users/integrators of the PSL join the (low-traffic) mailing list to be aware of changes to structure, processes, or formatting.
