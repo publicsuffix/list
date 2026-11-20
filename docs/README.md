@@ -1,6 +1,6 @@
-Welcome to the PSL wiki.
+Welcome to the PSL documentation.
 
-Here are some things to read about here on this Wiki:
+Here are some things to read about here in this documentation:
 
 - [Design Issues related to the PSL](design-issues.md)
 - [How to format entries in the PSL](format.md)
@@ -13,7 +13,7 @@ Were you directed here to solve a specific tactical challenge?
 - [IOS 14 / Facebook Pixel](third-party-diffusion.md) see also [#1245](https://github.com/publicsuffix/list/issues/1245)
 - [Let's Encrypt Limits](third-party-diffusion.md)
 
-Here are some additional informational resources
+Here are some additional informational resources:
 
 * [PSL Website](https://publicsuffix.org)
 * [Learn More Detail](https://publicsuffix.org/learn/)
