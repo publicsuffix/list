@@ -163,6 +163,16 @@ func (e ErrMissingSection) Error() string {
 	return fmt.Sprintf("missing required section %q", e.Name)
 }
 
+// ErrSuffixOutsideSection reports that a block of suffixes is not
+// inside any file section.
+type ErrSuffixOutsideSection struct {
+	Suffixes *Suffixes
+}
+
+func (e ErrSuffixOutsideSection) Error() string {
+	return fmt.Sprintf("%s: suffix block is outside of any section", e.Suffixes.SourceRange.LocationString())
+}
+
 type ErrDuplicateSuffix struct {
 	Name            string
 	Block                 // Suffix or Wildcard
