@@ -39,6 +39,10 @@ The PSL is volunteer-resourced and is absolutely not resourced to answer questio
 ### 2021-04-23
 Did guidance related to an issue with Facebook or Apple bring you here? [Read this before submitting requests](https://github.com/publicsuffix/list/issues/1245). We are not approving workaround requests per the validation and acceptance standards, but we do have open discussions with Facebook on the matter.
 
+## No Security Endorsement of Listed Domains
+
+The PSL does not assess whether a listed suffix, its operator, or the names registered under it are secure, reputable, or trustworthy, and acceptance into the PSL is not a security endorsement. Security products may use the PSL to decide where a rule applies, for example to avoid blocking every name under a suffix when only some registrants are abusive. They must not treat a listing as evidence that the suffix or the names under it are safe, and must not grant favourable reputation or exempt names from filtering solely because they appear in the PSL.
+
 ## Email Communication Policy
 
 We tend to use the subject line tag "[PSL notification]" in all Public Suffix List communications. For effective spam filtering, you can create a case-insensitive filter to allow only emails with the exact "[PSL notification]" in the subject line. If you choose to set up such a filter in your email application, please verify the filter is implemented correctly and test it thoroughly to ensure you don't accidentally miss important communications from us.
