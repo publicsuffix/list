@@ -30,6 +30,7 @@ func ValidateOffline(l *List) []error {
 	}
 	ret = append(ret, validateExpectedSections(l)...)
 	ret = append(ret, validateSuffixUniqueness(l)...)
+	ret = append(ret, validateIDNADeviations(l)...)
 
 	return ret
 }
@@ -117,6 +118,46 @@ func validateSuffixUniqueness(block Block) (errs []error) {
 			name := fqdn.String()
 			if suffix, ok := suffixes[name]; ok && (wildcard.Changed() || suffix.Changed()) {
 				errs = append(errs, ErrConflictingSuffixAndException{suffix, wildcard})
+			}
+		}
+	}
+
+	return errs
+}
+
+// idnaDeviations are the IDNA deviation characters: U+00DF (ß),
+// U+03C2 (ς), U+200C (ZWNJ) and U+200D (ZWJ). IDNA2008, and the
+// non-transitional processing that package domain uses, keep them,
+// but IDNA2003 maps them to "ss", U+03C3 (σ) and nothing
+// respectively.
+const idnaDeviations = "\u00df\u03c2\u200c\u200d"
+
+// validateIDNADeviations verifies that suffixes, wildcards and
+// wildcard exceptions do not contain IDNA deviation characters.
+//
+// A rule containing one names a different domain depending on the
+// IDNA version that a PSL consumer uses. For example, Firefox's
+// prepare_tlds.py and libpsl's psl-make-dafsa convert rules with
+// Python's IDNA2003 codec and turn "faß.de" into "fass.de", while
+// the _psl TXT check and IDNA2008 consumers use "xn--fa-hia.de".
+func validateIDNADeviations(block Block) (errs []error) {
+	for _, suffix := range BlocksOfType[*Suffix](block) {
+		if name := suffix.Domain.String(); suffix.Changed() && strings.ContainsAny(name, idnaDeviations) {
+			errs = append(errs, ErrIDNADeviation{name, suffix})
+		}
+	}
+
+	for _, wildcard := range BlocksOfType[*Wildcard](block) {
+		if !wildcard.Changed() {
+			continue
+		}
+		base := wildcard.Domain.String()
+		if strings.ContainsAny(base, idnaDeviations) {
+			errs = append(errs, ErrIDNADeviation{"*." + base, wildcard})
+		}
+		for _, exc := range wildcard.Exceptions {
+			if strings.ContainsAny(exc.String(), idnaDeviations) {
+				errs = append(errs, ErrIDNADeviation{"!" + exc.String() + "." + base, wildcard})
 			}
 		}
 	}
