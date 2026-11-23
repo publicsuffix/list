@@ -14047,6 +14047,8 @@ vibehost.space
 
 // GoDaddy Registry : https://registry.godaddy
 // Submitted by Rohan Durrant <tldns@registry.godaddy>
+*.airoapp.ai
+*.host.cloud
 graphic.design
 
 // GoIP DNS Services : http://www.goip.de
