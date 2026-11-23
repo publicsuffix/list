@@ -253,7 +253,11 @@ func runCheckPR(env *command.Env, prStr string) error {
 
 		ctx, cancel := context.WithTimeout(env.Context(), 300*time.Second)
 		defer cancel()
-		errs = append(errs, parser.ValidateOnline(ctx, after, &client, prHistory, pr)...)
+		onlineErrs := parser.ValidateOnline(ctx, after, &client, prHistory, pr)
+		if err := exportCheckResultsToGHA(onlineErrs); err != nil {
+			return err
+		}
+		errs = append(errs, onlineErrs...)
 	}
 
 	clean := after.MarshalPSL()
@@ -294,6 +298,39 @@ func runCheckPR(env *command.Env, prStr string) error {
 	} else {
 		return fmt.Errorf("change has %d errors", l)
 	}
+}
+
+// exportCheckResultsToGHA makes the security.txt and DNS
+// validation results available to later steps of a GitHub Actions
+// workflow, as the security_txt and dns_validation outputs of the
+// current step. Each is "fail" if errs contains a failure of that
+// check, and "pass" otherwise. It does nothing when not running in
+// GitHub Actions.
+func exportCheckResultsToGHA(errs []error) error {
+	path := os.Getenv("GITHUB_OUTPUT")
+	if path == "" {
+		return nil
+	}
+
+	securityTxt, dnsValidation := "pass", "pass"
+	for _, err := range errs {
+		switch err.(type) {
+		case parser.ErrMissingSecurityTxt, parser.ErrInvalidSecurityTxt:
+			securityTxt = "fail"
+		case parser.ErrMissingTXTRecord, parser.ErrTXTRecordMismatch, parser.ErrTXTRecordMultiplePRs, parser.ErrTXTCheckFailure:
+			dnsValidation = "fail"
+		}
+	}
+
+	f, err := os.OpenFile(path, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0o644)
+	if err == nil {
+		_, err = fmt.Fprintf(f, "security_txt=%s\ndns_validation=%s\n", securityTxt, dnsValidation)
+		err = errors.Join(err, f.Close())
+	}
+	if err != nil {
+		return fmt.Errorf("failed to export check results: %w", err)
+	}
+	return nil
 }
 
 var debugDumpArgs struct {
