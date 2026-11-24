@@ -192,6 +192,18 @@ func (e ErrConflictingSuffixAndException) Error() string {
 	return fmt.Sprintf("%s: suffix %s conflicts with exception in wildcard at %s", e.LocationString(), e.Domain, e.Wildcard.LocationString())
 }
 
+// ErrIDNADeviation reports that a suffix, wildcard or wildcard
+// exception contains an IDNA deviation character, which IDNA2003 and
+// IDNA2008 map to different domain names.
+type ErrIDNADeviation struct {
+	Name  string
+	Block // Suffix or Wildcard
+}
+
+func (e ErrIDNADeviation) Error() string {
+	return fmt.Sprintf("%s: %q contains an IDNA deviation character (ß, ς, ZWNJ or ZWJ), which IDNA2003 and IDNA2008 map to different domain names", e.SrcRange().LocationString(), e.Name)
+}
+
 type ErrMissingTXTRecord struct {
 	Block
 }
