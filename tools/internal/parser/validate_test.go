@@ -173,6 +173,25 @@ func TestValidateExpectedSections(t *testing.T) {
 				ErrUnknownSection{section(4, 4, "RIDICULOUS DOMAINS")},
 			},
 		},
+		{
+			name: "suffix_outside_section",
+			in: list(
+				section(1, 1, "ICANN DOMAINS"),
+				section(2, 2, "PRIVATE DOMAINS"),
+				suffixes(3, 5, info("Example", nil, emails("Example", "example@example.com"), nil, true),
+					comment(3, "Example", "Submitted by Example <example@example.com>"),
+					suffix(5, "example.com"),
+				),
+			),
+			want: []error{
+				ErrSuffixOutsideSection{
+					suffixes(3, 5, info("Example", nil, emails("Example", "example@example.com"), nil, true),
+						comment(3, "Example", "Submitted by Example <example@example.com>"),
+						suffix(5, "example.com"),
+					),
+				},
+			},
+		},
 	}
 
 	for _, tc := range tests {

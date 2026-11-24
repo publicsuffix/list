@@ -60,8 +60,9 @@ func validateEntityMetadata(block Block) []error {
 }
 
 // validateExpectedSections verifies that the two top-level sections
-// (ICANN and private domains) exist, are not duplicated, and that no
-// other sections are present.
+// (ICANN and private domains) exist, are not duplicated, that no
+// other sections are present, and that no suffixes are outside of a
+// section.
 func validateExpectedSections(block Block) (errs []error) {
 	// Use an ordered set for the wanted sections, so that we can
 	// check section names in O(1) but also report missing sections in
@@ -81,6 +82,15 @@ func validateExpectedSections(block Block) (errs []error) {
 	for _, name := range slices.Sorted(maps.Keys(wanted)) {
 		if _, ok := found[name]; !ok {
 			errs = append(errs, ErrMissingSection{name})
+		}
+	}
+
+	// Suffixes outside of a section get none of the per-section
+	// checks, such as entity metadata and _psl TXT validation for
+	// private domains.
+	for _, child := range block.Children() {
+		if suffixes, ok := child.(*Suffixes); ok && suffixes.Changed() {
+			errs = append(errs, ErrSuffixOutsideSection{suffixes})
 		}
 	}
 
