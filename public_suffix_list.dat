@@ -15688,6 +15688,11 @@ ladesk.com
 *.qualyhqpartner.com
 *.qualyhqportal.com
 
+// QuantiCX : https://quanticx.com
+// Submitted by Federico Soldani <federico.soldani@quanticx.com>
+apps.aos.qa.quanticxusercontent.com
+apps.aos.quanticxusercontent.com
+
 // QuickBackend : https://www.quickbackend.com
 // Submitted by Dani Biro <dani@pymet.com>
 qbuser.com
