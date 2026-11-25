@@ -5,7 +5,7 @@ go 1.27.0
 require (
 	github.com/creachadair/command v0.2.12
 	github.com/creachadair/flax v0.1.0
-	github.com/creachadair/mds v0.31.0
+	github.com/creachadair/mds v0.32.0
 	github.com/creachadair/taskgroup v0.14.5
 	github.com/google/go-cmp v0.7.0
 	github.com/google/go-github/v63 v63.0.0
