@@ -173,6 +173,25 @@ func TestValidateExpectedSections(t *testing.T) {
 				ErrUnknownSection{section(4, 4, "RIDICULOUS DOMAINS")},
 			},
 		},
+		{
+			name: "suffix_outside_section",
+			in: list(
+				section(1, 1, "ICANN DOMAINS"),
+				section(2, 2, "PRIVATE DOMAINS"),
+				suffixes(3, 5, info("Example", nil, emails("Example", "example@example.com"), nil, true),
+					comment(3, "Example", "Submitted by Example <example@example.com>"),
+					suffix(5, "example.com"),
+				),
+			),
+			want: []error{
+				ErrSuffixOutsideSection{
+					suffixes(3, 5, info("Example", nil, emails("Example", "example@example.com"), nil, true),
+						comment(3, "Example", "Submitted by Example <example@example.com>"),
+						suffix(5, "example.com"),
+					),
+				},
+			},
+		},
 	}
 
 	for _, tc := range tests {
@@ -285,4 +304,133 @@ func TestValidateSuffixUniqueness(t *testing.T) {
 			checkDiff(t, "validateSuffixUniqueness", got, tc.want)
 		})
 	}
+}
+
+func TestValidateIDNADeviations(t *testing.T) {
+	tests := []struct {
+		name string
+		in   *List
+		want []error
+	}{
+		{
+			name: "ok",
+			in: list(
+				section(1, 2, "PRIVATE DOMAINS",
+					suffixes(2, 3, noInfo,
+						suffix(3, "fass.de"),
+						suffix(4, "παράδειγμα.gr"),
+						wildcard(5, 6, "example.com", "www"),
+					),
+				),
+			),
+			want: nil,
+		},
+
+		{
+			name: "sharp_s",
+			in: list(
+				section(1, 2, "PRIVATE DOMAINS",
+					suffixes(2, 3, noInfo,
+						suffix(3, "faß.de"),
+					),
+				),
+			),
+			want: []error{
+				ErrIDNADeviation{"faß.de", suffix(3, "faß.de")},
+			},
+		},
+
+		{
+			name: "final_sigma_wildcard",
+			in: list(
+				section(1, 2, "PRIVATE DOMAINS",
+					suffixes(2, 3, noInfo,
+						wildcard(3, 4, "ας.gr"),
+					),
+				),
+			),
+			want: []error{
+				ErrIDNADeviation{"*.ας.gr", wildcard(3, 4, "ας.gr")},
+			},
+		},
+
+		{
+			name: "zwj_suffix",
+			in: list(
+				section(1, 2, "PRIVATE DOMAINS",
+					suffixes(2, 3, noInfo,
+						suffix(3, "\u0915\u094d\u200d\u0937.in"),
+					),
+				),
+			),
+			want: []error{
+				ErrIDNADeviation{"\u0915\u094d\u200d\u0937.in", suffix(3, "\u0915\u094d\u200d\u0937.in")},
+			},
+		},
+
+		{
+			name: "zwnj_exception",
+			in: list(
+				section(1, 2, "PRIVATE DOMAINS",
+					suffixes(2, 3, noInfo,
+						wildcard(3, 5, "example.in", "www", "\u0915\u094d\u200c\u0937"),
+					),
+				),
+			),
+			want: []error{
+				ErrIDNADeviation{"!\u0915\u094d\u200c\u0937.example.in", wildcard(3, 5, "example.in", "www", "\u0915\u094d\u200c\u0937")},
+			},
+		},
+
+		{
+			name: "unchanged",
+			in: list(
+				section(1, 2, "PRIVATE DOMAINS",
+					suffixes(2, 3, noInfo,
+						markUnchanged(suffix(3, "faß.de")),
+					),
+				),
+			),
+			want: nil,
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			got := validateIDNADeviations(tc.in)
+			checkDiff(t, "validateIDNADeviations", got, tc.want)
+		})
+	}
+}
+
+func TestValidateOffline(t *testing.T) {
+	in := list(
+		section(1, 3, "ICANN DOMAINS",
+			suffixes(2, 3, noInfo,
+				wildcard(2, 3, "foo.com", "www"),
+			),
+		),
+		section(4, 9, "PRIVATE DOMAINS",
+			suffixes(5, 9, info("Example", nil, emails("Example", "example@example.com"), nil, true),
+				comment(5, "Example", "Submitted by Example <example@example.com>"),
+				suffix(7, "bar.com"),
+				suffix(8, "bar.com"),
+				suffix(9, "www.foo.com"),
+				suffix(10, "faß.de"),
+			),
+		),
+		section(10, 11, "NON EUCLIDEAN DOMAINS"),
+	)
+	want := []error{
+		ErrUnknownSection{section(10, 11, "NON EUCLIDEAN DOMAINS")},
+		ErrDuplicateSuffix{"bar.com", suffix(8, "bar.com"), suffix(7, "bar.com")},
+		ErrConflictingSuffixAndException{
+			Suffix:   suffix(9, "www.foo.com"),
+			Wildcard: wildcard(2, 3, "foo.com", "www"),
+		},
+		ErrIDNADeviation{"faß.de", suffix(10, "faß.de")},
+	}
+
+	got := ValidateOffline(in)
+	checkDiff(t, "ValidateOffline", got, want)
 }

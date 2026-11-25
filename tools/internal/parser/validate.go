@@ -3,10 +3,15 @@ package parser
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
+	"maps"
 	"net"
+	"net/http"
+	"slices"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/creachadair/mds/mapset"
 	"github.com/creachadair/taskgroup"
@@ -25,8 +30,9 @@ func ValidateOffline(l *List) []error {
 			break
 		}
 	}
-	validateExpectedSections(l)
-	validateSuffixUniqueness(l)
+	ret = append(ret, validateExpectedSections(l)...)
+	ret = append(ret, validateSuffixUniqueness(l)...)
+	ret = append(ret, validateIDNADeviations(l)...)
 
 	return ret
 }
@@ -55,8 +61,9 @@ func validateEntityMetadata(block Block) []error {
 }
 
 // validateExpectedSections verifies that the two top-level sections
-// (ICANN and private domains) exist, are not duplicated, and that no
-// other sections are present.
+// (ICANN and private domains) exist, are not duplicated, that no
+// other sections are present, and that no suffixes are outside of a
+// section.
 func validateExpectedSections(block Block) (errs []error) {
 	// Use an ordered set for the wanted sections, so that we can
 	// check section names in O(1) but also report missing sections in
@@ -73,9 +80,18 @@ func validateExpectedSections(block Block) (errs []error) {
 		}
 	}
 
-	for _, name := range wanted.Slice() {
+	for _, name := range slices.Sorted(maps.Keys(wanted)) {
 		if _, ok := found[name]; !ok {
 			errs = append(errs, ErrMissingSection{name})
+		}
+	}
+
+	// Suffixes outside of a section get none of the per-section
+	// checks, such as entity metadata and _psl TXT validation for
+	// private domains.
+	for _, child := range block.Children() {
+		if suffixes, ok := child.(*Suffixes); ok && suffixes.Changed() {
+			errs = append(errs, ErrSuffixOutsideSection{suffixes})
 		}
 	}
 
@@ -121,14 +137,59 @@ func validateSuffixUniqueness(block Block) (errs []error) {
 	return errs
 }
 
+// idnaDeviations are the IDNA deviation characters: U+00DF (ß),
+// U+03C2 (ς), U+200C (ZWNJ) and U+200D (ZWJ). IDNA2008, and the
+// non-transitional processing that package domain uses, keep them,
+// but IDNA2003 maps them to "ss", U+03C3 (σ) and nothing
+// respectively.
+const idnaDeviations = "\u00df\u03c2\u200c\u200d"
+
+// validateIDNADeviations verifies that suffixes, wildcards and
+// wildcard exceptions do not contain IDNA deviation characters.
+//
+// A rule containing one names a different domain depending on the
+// IDNA version that a PSL consumer uses. For example, Firefox's
+// prepare_tlds.py and libpsl's psl-make-dafsa convert rules with
+// Python's IDNA2003 codec and turn "faß.de" into "fass.de", while
+// the _psl TXT check and IDNA2008 consumers use "xn--fa-hia.de".
+func validateIDNADeviations(block Block) (errs []error) {
+	for _, suffix := range BlocksOfType[*Suffix](block) {
+		if name := suffix.Domain.String(); suffix.Changed() && strings.ContainsAny(name, idnaDeviations) {
+			errs = append(errs, ErrIDNADeviation{name, suffix})
+		}
+	}
+
+	for _, wildcard := range BlocksOfType[*Wildcard](block) {
+		if !wildcard.Changed() {
+			continue
+		}
+		base := wildcard.Domain.String()
+		if strings.ContainsAny(base, idnaDeviations) {
+			errs = append(errs, ErrIDNADeviation{"*." + base, wildcard})
+		}
+		for _, exc := range wildcard.Exceptions {
+			if strings.ContainsAny(exc.String(), idnaDeviations) {
+				errs = append(errs, ErrIDNADeviation{"!" + exc.String() + "." + base, wildcard})
+			}
+		}
+	}
+
+	return errs
+}
+
 // ValidateOnline runs online validations on a parsed PSL. Online
 // validations are slower than offline validation, especially when
 // checking the entire PSL. All online validations respect
 // cancellation on the given context.
-func ValidateOnline(ctx context.Context, l *List, client *github.Repo, prHistory *githistory.History) (errs []error) {
+//
+// If pr is non-zero, l is the PSL with pull request pr applied, and
+// no pull request other than pr is fetched from Github.
+func ValidateOnline(ctx context.Context, l *List, client *github.Repo, prHistory *githistory.History, pr int) (errs []error) {
 	for _, section := range BlocksOfType[*Section](l) {
 		if section.Name == "PRIVATE DOMAINS" {
-			errs = append(errs, validateTXTRecords(ctx, section, client, prHistory)...)
+			errs = append(errs, validateTXTRecords(ctx, section, client, prHistory, pr)...)
+			httpClient := &http.Client{Timeout: 30 * time.Second}
+			errs = append(errs, validateSecurityTxt(ctx, section, httpClient, time.Now())...)
 			break
 		}
 	}
@@ -174,6 +235,8 @@ type txtRecordChecker struct {
 	gh *github.Repo
 	// resolver is the DNS resolver used to do TXT lookups.
 	resolver net.Resolver
+	// pr is the pull request being checked, or 0 if none.
+	pr int
 
 	// errs accumulates the TXT validation errors discovered during
 	// the checking process.
@@ -191,11 +254,12 @@ type txtRecordChecker struct {
 
 // validateTXTRecords checks the TXT records of all Suffix and
 // Wildcard blocks found under b.
-func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHistory *githistory.History) (errs []error) {
+func validateTXTRecords(ctx context.Context, b Block, client *github.Repo, prHistory *githistory.History, pr int) (errs []error) {
 	checker := txtRecordChecker{
 		ctx:        ctx,
 		prExpected: map[int]*prExpected{},
 		gh:         client,
+		pr:         pr,
 		hist:       prHistory,
 	}
 
@@ -354,6 +418,10 @@ func (c *txtRecordChecker) processLookupResult(res txtResult) {
 		c.errs = append(c.errs, ErrMissingTXTRecord{res.Block})
 		return
 	}
+	if prs := slices.Compact(slices.Sorted(slices.Values(res.prs))); len(prs) > 1 {
+		c.errs = append(c.errs, ErrTXTRecordMultiplePRs{res.Block, prs})
+		return
+	}
 	for _, prNum := range res.prs {
 		// Found some PRs for this suffix, record them in preparation
 		// for PR validation.
@@ -382,6 +450,9 @@ func (c *txtRecordChecker) getPRPSLs(prNum int) (before, after []byte, err error
 			}
 			return before, after, nil
 		}
+	}
+	if c.pr != 0 && prNum != c.pr {
+		return nil, nil, fmt.Errorf("not fetching PR %d from Github, only PR %d and merged PRs are checked", prNum, c.pr)
 	}
 
 	return c.gh.PSLForPullRequest(c.ctx, prNum)

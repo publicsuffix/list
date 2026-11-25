@@ -16,9 +16,9 @@ import (
 //
 // If the returned File has a non-empty Errors field, the parsed file
 // does not comply with the PSL format (documented at
-// https://github.com/publicsuffix/list/wiki/Format), or with PSL
+// https://github.com/publicsuffix/list/blob/main/docs/format.md), or with PSL
 // submission guidelines
-// (https://github.com/publicsuffix/list/wiki/Guidelines). A File with
+// (https://github.com/publicsuffix/list/blob/main/docs/guidelines.md). A File with
 // errors should not be used to calculate public suffixes for FQDNs.
 func Parse(bs []byte) (*List, []error) {
 	lines, errs := normalizeToUTF8Lines(bs)

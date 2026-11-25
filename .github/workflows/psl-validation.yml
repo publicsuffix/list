@@ -1,0 +1,107 @@
+name: PSL validation
+
+# Validates the public_suffix_list.dat of a pull request using the psltool
+# from the base branch, so a pull request cannot change how it is validated.
+#
+# WARNING: pull_request_target runs in the context of the BASE repository, so
+# this job has a token and access to repository secrets even for pull requests
+# from forks. That is safe ONLY because this job treats the PR as data:
+# psltool check-pr downloads the PR's public_suffix_list.dat through the
+# GitHub API and never checks out or runs the PR head. Under this trigger you
+# MUST NOT:
+#   - check out github.event.pull_request.head.* (or otherwise run PR code), or
+#   - interpolate PR title/body into a run: block via ${{ ... }} (shell injection).
+# Either turns this into remote code execution with our token and secrets.
+on:
+- pull_request_target
+
+permissions:
+  contents: read
+
+concurrency:
+  group: psl-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  psl-validation:
+    name: PSL validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      security_txt: ${{ steps.check-pr.outputs.security_txt }}
+      dns_validation: ${{ steps.check-pr.outputs.dns_validation }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7.0.1
+        with:
+          # check-pr reads the base branch history to look up past PRs.
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@v7.0.0
+        with:
+          go-version: 'stable'
+
+      - name: Run validations
+        id: check-pr
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.event.repository.owner.login }}
+          REPO: ${{ github.event.repository.name }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          cd tools
+          # psltool prints text taken from the pull request, such as suffixes
+          # and server responses. Stop the runner from interpreting any of it
+          # as workflow commands until psltool is done. Its stderr is merged
+          # into stdout so that all of its output is read before the line
+          # that resumes command processing.
+          stop_token="$(openssl rand -hex 16)"
+          echo "::stop-commands::$stop_token"
+          status=0
+          echo "Running PSL validations" && \
+          go run ./psltool check-pr \
+            --gh-owner "$OWNER" \
+            --gh-repo "$REPO" \
+            --gh-local-clone .. \
+            --online-checks \
+            "$PR" 2>&1 || status=$?
+          echo "::$stop_token::"
+          exit "$status"
+
+  # Labelling runs as its own job so that only this job, which handles no
+  # pull request data beyond the check results, holds a token that can modify
+  # pull requests.
+  #
+  # !cancelled(): the validation job fails when a check fails, which would
+  # otherwise skip this job — but that failing case is exactly when a label
+  # must be added. A label is only changed when the validation job got far
+  # enough to report a result for its check.
+  label:
+    name: Label PR
+    needs: psl-validation
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Label PRs that fail online checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          SECURITY_TXT: ${{ needs.psl-validation.outputs.security_txt }}
+          DNS_VALIDATION: ${{ needs.psl-validation.outputs.dns_validation }}
+        run: |
+          # label <check result> <label name>
+          label() {
+            if [ "$1" = "fail" ]; then
+              gh pr edit "$PR" --repo "$REPO" --add-label "$2"
+            elif [ "$1" = "pass" ]; then
+              gh pr edit "$PR" --repo "$REPO" --remove-label "$2" 2>/dev/null || true
+            fi
+          }
+          label "$SECURITY_TXT" "Missing security.txt"
+          label "$DNS_VALIDATION" "Missing DNS validation"
