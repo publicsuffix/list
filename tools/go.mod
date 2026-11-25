@@ -11,7 +11,7 @@ require (
 	github.com/google/go-github/v63 v63.0.0
 	github.com/natefinch/atomic v1.0.1
 	golang.org/x/net v0.62.0
-	golang.org/x/text v0.43.0
+	golang.org/x/text v0.44.0
 )
 
 require github.com/google/go-querystring v1.1.0 // indirect
