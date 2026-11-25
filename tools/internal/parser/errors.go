@@ -24,6 +24,16 @@ func (e ErrInvalidUnicode) Error() string {
 	return fmt.Sprintf("%s: invalid Unicode character(s)", e.SourceRange.LocationString())
 }
 
+// ErrUnexpectedLineBreak reports that a line contains a line break
+// character other than \n.
+type ErrUnexpectedLineBreak struct {
+	SourceRange
+}
+
+func (e ErrUnexpectedLineBreak) Error() string {
+	return fmt.Sprintf("%s: line break character other than \\n inside line", e.SourceRange.LocationString())
+}
+
 // ErrSectionInSuffixBlock reports that a comment within a suffix
 // block contains a section delimiter.
 type ErrSectionInSuffixBlock struct {
