@@ -10,9 +10,9 @@
 - If a hostname matches more than one rule in the file, the longest matching rule (the one with the most levels) will be used.
 - An exclamation mark (!) at the start of a rule marks an exception to a previous wildcard rule. An exception rule takes priority over any other matching rule.
 - The list uses **Unicode, not Punycode** forms on strings, and the **file is encoded using UTF-8**.
-- **Entries should not have trailing whitespace**
+- **Entries should not have trailing whitespace**.
 
-The following characters are used explicitly, **_please only use these and avoid Unicode variants of the following_**:
+The following characters are used explicitly; **_please only use these and avoid Unicode variants of the following_**:
 
 - Space `" "` (Dec/Hex: 32/20),
 - Exclamation `"!"` (Dec/Hex: 33/21),
@@ -38,11 +38,11 @@ The following characters are used explicitly, **_please only use these and avoid
 |bar.*.foo|Invalid|Nested Wildcard (must be in leftmost position, only)|
 |*bar.foo|Invalid|Wildcard Non-delimited by dot|
 |예.\*.foo|Invalid|Nested Wildcard|
-|ǃspecificsite.예.예|Invalid|Used latin letter retroflex click unicode char (01C3) instead of exclamation (33)|
+|ǃspecificsite.예.예|Invalid|Used latin letter retroflex click Unicode char (01C3) instead of exclamation (33)|
 
 ## Right-to-left sorting
 
-Keep the list of suffix (if more than one) in alphabetical order. Sort first by the TLD, then the first label to the left of the TLD, and so forth. For example, the following is sorted by TLD first (`com`, `invalid`, `net`, `org`, `test`), then within each TLD, sorted by the first label (`example`), then, for entries with more labels, each label is sorted, with shorter entries appearing first:
+Keep the list of suffixes (if more than one) in alphabetical order. Sort first by the TLD, then the first label to the left of the TLD, and so forth. For example, the following is sorted by TLD first (`com`, `invalid`, `net`, `org`, `test`), then within each TLD, sorted by the first label (`example`), then, for entries with more labels, each label is sorted, with shorter entries appearing first:
 
 ```
 beta.example.com
@@ -65,7 +65,7 @@ output = input.sort_by { |x| x.split(".").reverse }
 puts output.join("\n")
 ```
 
-and the same in Python
+and the same in Python:
 
 ```python
 #!/usr/bin/env python3
@@ -96,7 +96,6 @@ Here is an example (incomplete) list section. The rules are numbered, but the nu
 // ...except hosts in pref.hokkaido.jp, which can set cookies at level 3.
 6. !pref.hokkaido.jp
 7. !metro.tokyo.jp
-
 
 The example above would be interpreted as follows, in the case of cookie-setting, and using "foo" and "bar" as generic hostnames:
 
@@ -136,18 +135,18 @@ The example above would be interpreted as follows, in the case of cookie-setting
 
 ## Formal algorithm
 
-Here is an algorithm for determining the Public Suffix of a domain. (Note: it may not be the most efficient algorithm.) The domain, as well as all rules from the Public Suffix List, must be canonicalized in the normal way for hostnames - lower-case, Punycode (RFC 3492) - prior to being compared.
+Here is an algorithm for determining the Public Suffix of a domain. (Note: it may not be the most efficient algorithm.) The domain, as well as all rules from the Public Suffix List, must be canonicalized in the normal way for hostnames - lowercase, Punycode (RFC 3492) - prior to being compared.
 
 ## Definitions
 
 - The Public Suffix List consists of a series of lines, separated by \n.
 - Each line is only read up to the first whitespace; entire lines can also be commented using //.
 - Each line which is not entirely whitespace or begins with a comment contains a rule.
-- A rule may begin with a "!" (exclamation mark). If it does, it is labelled as a "exception rule" and then treated as if the exclamation mark is not present.
+- A rule may begin with a "!" (exclamation mark). If it does, it is labelled as an "exception rule" and then treated as if the exclamation mark is not present.
 - A domain or rule can be split into a list of labels using the separator "." (dot). The separator is not part of any of the labels. Empty labels are not permitted.
 - A domain is said to match a rule if and only if all of the following conditions are met:
-- When the domain and rule are split into corresponding labels, that the domain contains as many or more labels than the rule.
-- Beginning with the right-most labels of both the domain and the rule, and continuing for all labels in the rule, one finds that for every pair, either they are identical, or that the label from the rule is "\*".
+- When the domain and rule are split into corresponding labels, the domain contains as many labels as or more labels than the rule.
+- Beginning with the right-most labels of both the domain and the rule, and continuing for all labels in the rule, one finds that for every pair, either they are identical or the label from the rule is "\*".
 
 ## Algorithm
 
@@ -155,7 +154,7 @@ Here is an algorithm for determining the Public Suffix of a domain. (Note: it ma
 - If no rules match, the prevailing rule is "\*". (See [Note 2](#note-2))
 - If more than one rule matches, the prevailing rule is the one which is an exception rule.
 - If there is no matching exception rule, the prevailing rule is the one with the most labels.
-- If the prevailing rule is a exception rule, modify it by removing the leftmost label.
+- If the prevailing rule is an exception rule, modify it by removing the leftmost label.
 - The public suffix is the set of labels from the domain which match the labels of the prevailing rule, using the matching algorithm above. A trailing dot shall be added if the domain included one. (See [Note 3](#note-3))
 - The registered or registrable domain is the public suffix plus one additional label.
 
