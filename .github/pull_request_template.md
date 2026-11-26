@@ -7,7 +7,7 @@ Each PSL PR needs to have a description, rationale, indication of DNS validation
 <!-- #### READ THIS FIRST ####
 
 If you haven't yet, please read our guidelines:
-https://github.com/publicsuffix/list/wiki/Guidelines#submit-the-change
+https://github.com/publicsuffix/list/blob/main/docs/guidelines.md#submit-the-change
 
 Also, read them again, as many skip that part and 
 get confused about why their PR is delayed or does
@@ -88,8 +88,8 @@ that uses the PSL operates correctly. Typically, both are solved or
 neither.
 -->
 
- * [ ] The [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) were carefully _read_ and _understood_, and this request conforms to them.
- * [ ] The submission follows the [Guidelines](https://github.com/publicsuffix/list/wiki/Format) on formatting and sorting.
+ * [ ] The [Guidelines](https://github.com/publicsuffix/list/blob/main/docs/guidelines.md) were carefully _read_ and _understood_, and this request conforms to them.
+ * [ ] The submission follows the [Guidelines](https://github.com/publicsuffix/list/blob/main/docs/format.md) on formatting and sorting.
 
 <!-- 
 Sorting and formatting of the entries is outlined in the guidelines 
@@ -144,7 +144,7 @@ priority, so if something gets broken by your PR, it will potentially
 stay that way for an indefinite period of time (typically long).
 -->
 
-(Link: [about propagation/expectations](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
+(Link: [about propagation/expectations](https://github.com/publicsuffix/list/blob/main/docs/guidelines.md#appropriate-expectations-on-derivative-propagation-use-or-inclusion))
 
  * [ ] *Yes, I understand*. I could break my organization's website cookies and cause other issues, and the rollback timing is acceptable. *Proceed anyway*.
 ---
