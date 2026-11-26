@@ -1,12 +1,12 @@
 # Submitting Amendments
 
-Before submitting any change to the list, please make sure to read the [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines).
+Before submitting any change to the list, please make sure to read the [Guidelines](docs/guidelines.md).
 
 A properly formatted and validated patch will decrease the review time and increase the chances that your request will be reviewed and perhaps accepted. Any patch that doesn't follow the Guidelines will be rejected or, in the best scenario, left pending for follow-up.
 
 The most common time loss comes from not following the sorting guidelines.
 
-- Sorting / Placement needs to comply with [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines)
+- Sorting / Placement needs to comply with [Guidelines](docs/guidelines.md)
 
 - *PLEASE* order within the existing entries in the PRIVATE DOMAINS section so that your listed organization on your first comment line is alphabetically sorted
   - Do NOT append your PRIVATE DOMAINS entry to the end of the file
@@ -14,21 +14,25 @@ The most common time loss comes from not following the sorting guidelines.
 
 Other common mistakes that may cause the request to be rejected include the following:
 
-- Invalid patch formatting, rule sorting, or changeset position (see this: [Wiki:Formatting](https://github.com/publicsuffix/list/wiki/Format))
+- Invalid patch formatting, rule sorting, or changeset position (see this: [Wiki:Formatting](docs/format.md))
 - Missing validation records 
 - Lack of proper domain ownership or expiry dates less than 2Y away
 - Attempts to work around vendor limits (see [#1245](https://github.com/publicsuffix/list/issues/1245) as an example)
-- Submissions with TLDs non-compliant with [ICP-3](https://www.icann.org/resources/pages/unique-authoritative-root-2012-02-25-en) or on the [ICANN PSL](https://github.com/publicsuffix/list/wiki/Security-Considerations#icann-public-suffix-list)
+- Submissions with TLDs non-compliant with [ICP-3](https://www.icann.org/resources/pages/unique-authoritative-root-2012-02-25-en) or on the [ICANN PSL](docs/security-considerations.md#icann-public-suffix-list)
 - Insufficient or incomplete rationale (be verbose!)
 - Smaller, private projects with <2000 stakeholders
 
 Frequently, PR submissions overlook the sort ordering guidelines, adding to the delay in processing and increasing the time it takes to process requests.
 
-Make sure to review the [Guidelines](https://github.com/publicsuffix/list/wiki/Guidelines) before you open a new pull request.
+Make sure to review the [Guidelines](docs/guidelines.md) before you open a new pull request.
 
-Please also note that there is no guarantee of inclusion, nor are we able to provide an ETA for any inclusion request. This is also true of projects that incorporate the PSL downline. This is described, outlined, and diagrammed [here](https://github.com/publicsuffix/list/wiki/Guidelines#appropriate-expectations-on-derivative-propagation-use-or-inclusion).
+Please also note that there is no guarantee of inclusion, nor are we able to provide an ETA for any inclusion request. This is also true of projects that incorporate the PSL downline. This is described, outlined, and diagrammed [here](docs/guidelines.md#appropriate-expectations-on-derivative-propagation-use-or-inclusion).
 
 Before you attempt to make a contribution or comment, please read the [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
+
+## AI Agents and Automated Contributors
+
+AI agents and automated contributors **MUST** read and follow [AGENTS.md](./AGENTS.md) before making changes, generating patches, or preparing pull requests. The `AGENTS.md` file contains mandatory repository-specific instructions, contribution requirements, and validation procedures. Agents **MUST** follow these instructions throughout the contribution process.
 
 ## PSL Mailing List
 

@@ -57,6 +57,12 @@ const (
 	bomUTF16LE = "\xFF\xFE"
 )
 
+// otherLineBreaks are the characters other than \n that some PSL
+// consumers treat as the end of a line, e.g. Python's str.splitlines
+// and codecs readers: CR, VT, FF, FS, GS, RS, NEL, LINE SEPARATOR and
+// PARAGRAPH SEPARATOR.
+const otherLineBreaks = "\r\v\f\x1c\x1d\x1e\u0085\u2028\u2029"
+
 // The transformers that normalizeToUTF8Lines can use to process input
 // into valid UTF-8, and that guessUTFVariant can return.
 var (
@@ -135,6 +141,11 @@ func normalizeToUTF8Lines(bs []byte) ([]string, []error) {
 			errs = append(errs, ErrInvalidUnicode{src})
 		}
 		ret[i] = strings.TrimSpace(line)
+		if strings.ContainsAny(ret[i], otherLineBreaks) {
+			// We only split on \n, so the rest of this line would be
+			// a separate line, possibly a rule, to some consumers.
+			errs = append(errs, ErrUnexpectedLineBreak{src})
+		}
 	}
 
 	return ret, errs
