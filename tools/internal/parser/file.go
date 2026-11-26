@@ -390,3 +390,16 @@ func (w *Wildcard) RegisteredDomain(n domain.Name) (regDomain domain.Name, isExc
 	}
 	return domain.Name{}, false, false
 }
+
+// suffixDomain returns the domain of a Suffix, or the base domain of
+// a Wildcard.
+func suffixDomain(b Block) domain.Name {
+	switch v := b.(type) {
+	case *Suffix:
+		return v.Domain
+	case *Wildcard:
+		return v.Domain
+	default:
+		panic(fmt.Sprintf("unexpected block type %T, want Suffix or Wildcard", b))
+	}
+}

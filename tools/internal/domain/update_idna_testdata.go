@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	idnaTestVectorsURLPattern = "https://www.unicode.org/Public/idna/%s/IdnaTestV2.txt"
+	idnaTestVectorsURLPattern = "https://www.unicode.org/Public/%s/idna/IdnaTestV2.txt"
 	idnaTestVectorsPath       = "testdata/idna_test_vectors.txt"
 )
 

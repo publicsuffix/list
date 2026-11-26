@@ -11,3 +11,7 @@ If you have discovered a security vulnerability in this project, please report i
 Please disclose it in [security advisory](https://github.com/publicsuffix/list/security/advisories/new) and send an email with the link to the newly filed issue to [security@mozilla.org](mailto:security@mozilla.org) to expedite the review on our end.
 
 This project is maintained by a team of volunteers on a reasonable-effort basis. As such, please give us at least 90 days to work on a fix before public exposure.
+
+## Security meaning of list inclusion
+
+Inclusion in the PSL does not certify the listed suffix or its operator as trustworthy, and verification or acceptance of a submission is not a security endorsement. See [No Security Endorsement of Listed Domains](README.md#no-security-endorsement-of-listed-domains) before using PSL data in a firewall, filtering system, or other security product.
