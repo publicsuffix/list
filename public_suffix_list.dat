@@ -13058,6 +13058,10 @@ playit.plus
 *.at.playit.plus
 with.playit.plus
 
+// DevZero : https://www.devzero.io/
+// Submitted by DevZero <support@devzero.io>
+*.sbx.devzero.io
+
 // Dfinity Foundation: https://dfinity.org/
 // Submitted by Dfinity Team <domains@dfinity.org>
 icp0.io
