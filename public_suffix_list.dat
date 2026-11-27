@@ -14680,6 +14680,10 @@ co.network
 co.place
 co.technology
 
+// Lightning AI : https://lightning.ai/
+// Submitted by David Edey <security@lightning.ai>
+*.litng.ai
+
 // linkyard ldt : https://www.linkyard.ch/
 // Submitted by Mario Siegenthaler <mario.siegenthaler@linkyard.ch>
 linkyard-cloud.ch
