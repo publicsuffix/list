@@ -13816,6 +13816,10 @@ flutterflow.app
 sprites.app
 fly.dev
 
+// flypod : https://flypod.dev/
+// Submitted by Sergio Serrano <psl@flypod.dev>
+flypod.page
+
 // FoundryLabs, Inc : https://e2b.dev/
 // Submitted by Jiri Sveceny <security@e2b.dev>
 e2b.app
