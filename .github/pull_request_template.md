@@ -110,12 +110,18 @@ This email address will be used for any required verification or inquiries regar
 <!--
 Please confirm that you have accessible abuse contact information on your website. 
 
-At a minimum, you must provide an abuse contact either in the form of an email address or a web form that can be used to report abuse. This contact should be easily accessible to allow concerned parties to notify the registry or subdomain operator directly when malicious activities such as phishing, malware, or abuse are detected. For example, if you provide subdomains at example.com, where users may register subdomains such as clientname.example.com, then in case of abuse, reporters should be able to visit example.com and easily find the relevant abuse contact information.
+For each submitted PRIVATE suffix, all of the following must be in place:
+
+- a website for the suffix with a page giving abuse reporting instructions, accessible without login;
+- working abuse@<suffix> and security@<suffix> mailboxes (RFC 2142, RFC 6650);
+- a security.txt file at https://<suffix>/.well-known/security.txt with a Contact field (RFC 9116).
+
+These contacts should be easily accessible to allow concerned parties to notify the registry or subdomain operator directly when malicious activities such as phishing, malware, or abuse are detected. For example, if you provide subdomains at example.com, where users may register subdomains such as clientname.example.com, then in case of abuse, reporters should be able to visit example.com and easily find the relevant abuse contact information.
 -->
 
-* [ ] Abuse contact information (email or web form) is available and easily accessible.
+* [ ] An abuse reporting page, working abuse@ and security@ mailboxes, and a security.txt file with a Contact field are all available and easily accessible.
 
-  URL where abuse contact or abuse reporting form can be found: 
+  URL where abuse reporting instructions can be found: 
   <!-- Provide the URL where an Internet user can access the abuse contact information -->
   <!-- FILL IN: Abuse contact URL (keep this line and its END FILL IN) -->
 
