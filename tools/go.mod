@@ -10,7 +10,7 @@ require (
 	github.com/google/go-cmp v0.7.0
 	github.com/google/go-github/v63 v63.0.0
 	github.com/natefinch/atomic v1.0.1
-	golang.org/x/net v0.62.0
+	golang.org/x/net v0.63.0
 	golang.org/x/text v0.44.0
 )
 
