@@ -83,7 +83,11 @@ func fetchSecurityTxt(ctx context.Context, client *http.Client, dom domain.Name)
 	if err != nil {
 		return "", err
 	}
-	resp, err := client.Do(req)
+	// Copy the client so that this domain's redirect policy does not
+	// race with the fetches for other domains running in parallel.
+	checked := *client
+	checked.CheckRedirect = checkSecurityTxtRedirect(dom)
+	resp, err := checked.Do(req)
 	if err != nil {
 		return "", err
 	}
@@ -100,6 +104,33 @@ func fetchSecurityTxt(ctx context.Context, client *http.Client, dom domain.Name)
 		return "", err
 	}
 	return string(body), nil
+}
+
+// checkSecurityTxtRedirect returns a redirect policy that only
+// follows redirects staying on dom over https.
+//
+// RFC 9116 section 3 requires the file to be accessed with the https
+// scheme, and section 3.1 scopes a file to the domain in the URI it
+// was retrieved from, not to that domain's parents. A file reached by
+// leaving dom is some other domain's abuse contact and says nothing
+// about dom, and one reached over cleartext can be supplied by anyone
+// on the path. Redirects within dom, such as an apex to its www
+// subdomain, are the suffix operator's own and still count.
+func checkSecurityTxtRedirect(dom domain.Name) func(*http.Request, []*http.Request) error {
+	host := dom.ASCIIString()
+	return func(req *http.Request, via []*http.Request) error {
+		// Same limit as net/http's default policy.
+		if len(via) >= 10 {
+			return errors.New("stopped after 10 redirects")
+		}
+		if req.URL.Scheme != "https" {
+			return fmt.Errorf("redirect to %s is not https", req.URL)
+		}
+		if h := strings.ToLower(req.URL.Hostname()); h != host && !strings.HasSuffix(h, "."+host) {
+			return fmt.Errorf("redirect to %s leaves %s", req.URL, host)
+		}
+		return nil
+	}
 }
 
 // checkSecurityTxt verifies that text is a security.txt file with at

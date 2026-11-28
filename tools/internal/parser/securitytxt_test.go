@@ -169,3 +169,78 @@ func TestValidateSecurityTxt(t *testing.T) {
 		t.Errorf("validateSecurityTxt did not fetch security.txt for wildcard base domain")
 	}
 }
+
+func TestValidateSecurityTxtRedirects(t *testing.T) {
+	now := time.Date(2026, 11, 10, 0, 0, 0, 0, time.UTC)
+	const valid = "Contact: mailto:security@example.com\nExpires: 2027-01-01T00:00:00Z\n"
+
+	serve := func(w http.ResponseWriter) {
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		w.Write([]byte(valid))
+	}
+
+	// Cleartext server, for the downgrade redirect below. It answers
+	// for any host, so the only thing stopping the fetch is the
+	// scheme.
+	cleartext := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		serve(w)
+	}))
+	defer cleartext.Close()
+
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/.well-known/security.txt" {
+			http.NotFound(w, r)
+			return
+		}
+		switch r.Host {
+		case "elsewhere.example", "www.samedomain.example":
+			serve(w)
+		case "offdomain.example":
+			http.Redirect(w, r, "https://elsewhere.example/.well-known/security.txt", http.StatusFound)
+		case "downgrade.example":
+			http.Redirect(w, r, "http://downgrade.example/.well-known/security.txt", http.StatusFound)
+		case "samedomain.example":
+			http.Redirect(w, r, "https://www.samedomain.example/.well-known/security.txt", http.StatusFound)
+		default:
+			http.NotFound(w, r)
+		}
+	}))
+	defer server.Close()
+
+	// Route https requests to the TLS server and cleartext requests
+	// to the cleartext server, and verify the TLS certificate as the
+	// hostname it was issued for, while leaving the requested host in
+	// the URL and Host header untouched.
+	client := server.Client()
+	transport := client.Transport.(*http.Transport)
+	transport.DialContext = func(ctx context.Context, network, addr string) (net.Conn, error) {
+		var d net.Dialer
+		target := server.Listener.Addr().String()
+		if strings.HasSuffix(addr, ":80") {
+			target = cleartext.Listener.Addr().String()
+		}
+		return d.DialContext(ctx, network, target)
+	}
+	transport.TLSClientConfig = transport.TLSClientConfig.Clone()
+	transport.TLSClientConfig.ServerName = "example.com"
+
+	in := list(
+		section(1, 7, "PRIVATE DOMAINS",
+			suffixes(2, 6, noInfo,
+				suffix(3, "samedomain.example"),
+				suffix(4, "offdomain.example"),
+				suffix(5, "downgrade.example"),
+			),
+		),
+	)
+
+	var got []string
+	for _, err := range validateSecurityTxt(context.Background(), in, client, now) {
+		got = append(got, err.Error())
+	}
+	want := []string{
+		`line 5: suffix offdomain.example has no security.txt at https://offdomain.example/.well-known/security.txt: Get "https://elsewhere.example/.well-known/security.txt": redirect to https://elsewhere.example/.well-known/security.txt leaves offdomain.example`,
+		`line 6: suffix downgrade.example has no security.txt at https://downgrade.example/.well-known/security.txt: Get "http://downgrade.example/.well-known/security.txt": redirect to http://downgrade.example/.well-known/security.txt is not https`,
+	}
+	checkDiff(t, "validateSecurityTxt errors", got, want)
+}
